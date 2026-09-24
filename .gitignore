@@ -4,3 +4,5 @@ __pycache__/
 .ipynb_checkpoints/
 *.log
 notes/private/
+.tools/
+theory/jin_wishart_formalization/.lake/
