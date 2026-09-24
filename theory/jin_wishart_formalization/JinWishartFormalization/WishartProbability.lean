@@ -234,6 +234,97 @@ theorem smallestEigenvalueTailEvent_iff_smallest_eigenvalue₀_ge
     omega
   exact forall_fin_ge_iff_max hW.eigenvalues₀ hW.eigenvalues₀_antitone imax hmax x
 
+/-- Event that a Hermitian matrix is bounded above by `x I` in Loewner order. -/
+def largestEigenvalueCdfEvent (x : ℝ) : Set (Matrix (Fin n) (Fin n) ℂ) :=
+  {W | ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - W).PosSemidef}
+
+/-- Spectral characterization of the Loewner upper-bound event. -/
+theorem largestEigenvalueCdfEvent_iff_eigenvalues_le
+    (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.IsHermitian) (x : ℝ) :
+    W ∈ largestEigenvalueCdfEvent x ↔ ∀ i, hW.eigenvalues i ≤ x := by
+  change ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - W).PosSemidef ↔ _
+  let U := hW.eigenvectorUnitary
+  let D : Matrix (Fin n) (Fin n) ℂ := diagonal (Complex.ofReal ∘ hW.eigenvalues)
+  let Φ := Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ) U
+  have hspec : W = Φ D := by
+    simpa [Φ, U, D] using hW.spectral_theorem
+  have hmap : (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - Φ D =
+      Φ ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - D) := by
+    rw [map_sub]
+    rw [map_smul, map_one]
+  have hdiag : (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - D =
+      diagonal (fun i => Complex.ofReal (x - hW.eigenvalues i)) := by
+    ext i j
+    by_cases hij : i = j
+    · subst j
+      simp [D, Complex.ofReal_sub]
+    · simp [D, hij]
+  calc
+    W ∈ largestEigenvalueCdfEvent x ↔
+        ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - Φ D).PosSemidef := by
+      change ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - W).PosSemidef ↔ _
+      rw [hspec]
+    _ ↔ ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - D).PosSemidef := by
+      rw [hmap]
+      simp only [Φ, Unitary.conjStarAlgAut_apply]
+      exact (Unitary.isUnit_coe (U := U)).posSemidef_star_right_conjugate_iff
+    _ ↔ ∀ i, hW.eigenvalues i ≤ x := by
+      rw [hdiag, Matrix.posSemidef_diagonal_iff]
+      simp only [Complex.zero_le_real, sub_nonneg]
+
+/-- Reindex the all-eigenvalues upper-bound condition through mathlib's descending list. -/
+theorem all_eigenvalues_le_iff_eigenvalues₀_le
+    (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.IsHermitian) (x : ℝ) :
+    (∀ i : Fin n, hW.eigenvalues i ≤ x) ↔
+      ∀ i : Fin (Fintype.card (Fin n)), hW.eigenvalues₀ i ≤ x := by
+  let e : Fin n ≃ Fin (Fintype.card (Fin n)) :=
+    (Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))).symm
+  constructor
+  · intro h i
+    have hi := h (e.symm i)
+    simpa [e, Matrix.IsHermitian.eigenvalues] using hi
+  · intro h i
+    have hi := h (e i)
+    simpa [e, Matrix.IsHermitian.eigenvalues] using hi
+
+private theorem forall_fin_le_iff_zero {N : ℕ} (f : Fin N → ℝ)
+    (hf : Antitone f) (i0 : Fin N) (hmin : ∀ i, i0 ≤ i) (x : ℝ) :
+    (∀ i, f i ≤ x) ↔ f i0 ≤ x := by
+  constructor
+  · intro h
+    exact h i0
+  · intro h i
+    exact le_trans (hf (hmin i)) h
+
+/-- In nonzero dimension, the Loewner upper-bound event is equivalent to a bound on
+the first (largest) entry of mathlib's descending eigenvalue list. -/
+theorem largestEigenvalueCdfEvent_iff_largest_eigenvalue₀_le
+    (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.IsHermitian)
+    (hN : 0 < Fintype.card (Fin n)) (x : ℝ) :
+    W ∈ largestEigenvalueCdfEvent x ↔
+      hW.eigenvalues₀ (⟨0, by omega⟩ : Fin (Fintype.card (Fin n))) ≤ x := by
+  rw [largestEigenvalueCdfEvent_iff_eigenvalues_le,
+    all_eigenvalues_le_iff_eigenvalues₀_le]
+  exact forall_fin_le_iff_zero hW.eigenvalues₀ hW.eigenvalues₀_antitone
+    ⟨0, by omega⟩ (by
+      intro i
+      apply Fin.le_iff_val_le_val.mpr
+      simp) x
+
+/-- The largest-eigenvalue CDF event is measurable as a preimage of the closed PSD cone. -/
+theorem measurableSet_largestEigenvalueCdfEvent (x : ℝ) :
+    MeasurableSet (largestEigenvalueCdfEvent (n := n) x) := by
+  have hmap : Measurable
+      (fun W : Matrix (Fin n) (Fin n) ℂ =>
+        (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - W) := by
+    fun_prop
+  exact Matrix.posSemidef_is_closed.measurableSet.preimage hmap
+
+/-- Probability of the largest-eigenvalue CDF event under the noncentral Wishart pushforward. -/
+noncomputable def complexNoncentralWishartLargestEigenvalueCdf
+    (M : Matrix (Fin m) (Fin n) ℂ) (x : ℝ) : ENNReal :=
+  complexNoncentralWishart (m := m) (n := n) M (largestEigenvalueCdfEvent x)
+
 theorem measurableSet_smallestEigenvalueTailEvent (x : ℝ) :
     MeasurableSet (smallestEigenvalueTailEvent (n := n) x) := by
   have hmap : Measurable
