@@ -1,5 +1,6 @@
 import JinWishartFormalization.IncompleteGamma
 import JinWishartFormalization.NuttallQ
+import Mathlib.Probability.Distributions.Exponential
 
 /-!
 # Formula side of Theorem 1
@@ -249,5 +250,17 @@ theorem theorem1CentralScalarCdfCandidate_zero (t : ℕ) (ht : 1 ≤ t) :
     theorem1CdfCandidate 1 t 0 ht (by omega) (fun j : Fin 0 => Fin.elim0 j) 0 = 0 := by
   apply theorem1CdfCandidate_zero
   exact theorem1CentralScalarPsiDet_norm_ne_zero t ht
+
+/-- For one central scalar complex-Gaussian mode, the formula-side candidate is
+the CDF of a unit-rate exponential law. This validates the target distribution
+for the `1 × 1` central specialization, but does not yet prove that the Gaussian
+Gram sample has this law. -/
+theorem theorem1CentralScalarOneSample_eq_exponentialCDF (x : ℝ) (hx : 0 ≤ x) :
+    theorem1CdfCandidate 1 1 0 (by omega) (by omega)
+      (fun j : Fin 0 => Fin.elim0 j) x =
+      ProbabilityTheory.cdf (ProbabilityTheory.expMeasure 1) x := by
+  rw [theorem1CentralScalarCdfCandidate_eq_finite 1 (by omega) x hx]
+  rw [ProbabilityTheory.cdf_expMeasure_eq (r := 1) (by norm_num) x]
+  simp [upperGammaNatFinite, Complex.norm_exp, hx]
 
 end JinWishart

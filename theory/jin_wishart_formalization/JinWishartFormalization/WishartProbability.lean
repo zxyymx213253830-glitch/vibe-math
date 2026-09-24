@@ -25,6 +25,13 @@ noncomputable def complexSampleMatrix (x : ComplexSample (m := m) (n := n)) :
     Matrix (Fin m) (Fin n) ℂ :=
   fun i j ↦ ((x ((i, j), 0) : ℝ) + Complex.I * x ((i, j), 1)) / Real.sqrt 2
 
+/-- Radial energy of the two real Gaussian coordinates in a `1 × 1` complex
+sample. It is the scalar whose law must be identified with the exponential
+target in the central scalar Wishart specialization. -/
+noncomputable def centralScalarSampleEnergy
+    (x : ComplexSample (m := 1) (n := 1)) : ℝ :=
+  (x ((0, 0), 0) ^ 2 + x ((0, 0), 1) ^ 2) / 2
+
 /-- Real-coordinate representation of a deterministic complex mean matrix. -/
 noncomputable def complexSampleMean (M : Matrix (Fin m) (Fin n) ℂ) :
     ComplexSample (m := m) (n := n) :=
@@ -45,6 +52,25 @@ theorem complexSampleMatrix_add_mean (x : ComplexSample (m := m) (n := n))
 /-- Complex Gram matrix `Xᴴ X`. -/
 def complexGram (X : Matrix (Fin m) (Fin n) ℂ) : Matrix (Fin n) (Fin n) ℂ :=
   Xᴴ * X
+
+/-- In the `1 × 1` central model, the Gram entry is the squared radius of the
+two real Gaussian coordinates divided by two. This reduces the outstanding
+distribution theorem to a two-dimensional radial Gaussian integral. -/
+theorem complexGram_centralScalar_entry
+    (x : ComplexSample (m := 1) (n := 1)) :
+    complexGram (complexSampleMatrix x) 0 0 =
+      (centralScalarSampleEnergy x : ℂ) := by
+  simp [complexGram, complexSampleMatrix, centralScalarSampleEnergy,
+    Matrix.mul_apply, Matrix.conjTranspose_apply]
+  have hsqrt : (Real.sqrt (2 : ℝ) : ℂ) ≠ 0 := by
+    exact_mod_cast (Real.sqrt_ne_zero'.mpr (by norm_num : (0 : ℝ) < 2))
+  field_simp [hsqrt]
+  have hsq : (Real.sqrt (2 : ℝ) : ℂ) ^ 2 = 2 := by
+    exact_mod_cast (Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 2))
+  rw [hsq]
+  ring_nf
+  rw [Complex.I_sq]
+  ring
 
 /-- Every complex Gram matrix is Hermitian positive semidefinite. -/
 theorem complexGram_posSemidef (X : Matrix (Fin m) (Fin n) ℂ) :
@@ -347,6 +373,32 @@ noncomputable def complexNoncentralSampleSmallestEigenvalue
     (x : ComplexSample (m := m) (n := n)) : ℝ :=
   (complexGram_posSemidef (complexSampleMatrix x + M)).1.eigenvalues₀
     (smallestEigenvalue₀Index hn)
+
+/-- In the `1 × 1` central model, the only ordered eigenvalue is exactly the
+two-coordinate radial energy. Thus the remaining scalar distribution step is
+precisely the law of this squared Gaussian radius. -/
+theorem centralScalarSampleSmallestEigenvalue_eq_energy
+    (x : ComplexSample (m := 1) (n := 1)) :
+    complexNoncentralSampleSmallestEigenvalue (0 : Matrix (Fin 1) (Fin 1) ℂ)
+      (by norm_num) x = centralScalarSampleEnergy x := by
+  let W : Matrix (Fin 1) (Fin 1) ℂ := complexGram (complexSampleMatrix x)
+  let hW : W.IsHermitian := (complexGram_posSemidef (complexSampleMatrix x)).1
+  have htrace := hW.trace_eq_sum_eigenvalues
+  have heig : W 0 0 = (hW.eigenvalues 0 : ℂ) := by
+    simpa [Matrix.trace] using htrace
+  have hentry : W 0 0 = (centralScalarSampleEnergy x : ℂ) := by
+    simpa [W] using complexGram_centralScalar_entry x
+  have hreal : centralScalarSampleEnergy x = hW.eigenvalues 0 :=
+    Complex.ofReal_injective (hentry.symm.trans heig)
+  simp only [complexNoncentralSampleSmallestEigenvalue, add_zero]
+  change hW.eigenvalues₀ (smallestEigenvalue₀Index (n := 1) (by norm_num)) = _
+  have hidx : smallestEigenvalue₀Index (n := 1) (by norm_num) =
+      (Fintype.equivOfCardEq (Fintype.card_fin 1)).symm (0 : Fin 1) := by
+    apply Fin.ext
+    simp [smallestEigenvalue₀Index]
+  rw [hidx]
+  change hW.eigenvalues 0 = centralScalarSampleEnergy x
+  exact hreal.symm
 
 /-- The smallest ordered eigenvalue of a shifted complex Gram sample is measurable.
 The proof uses measurable shifted-PSD sublevel events rather than a general eigenvalue
