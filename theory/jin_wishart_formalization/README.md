@@ -69,6 +69,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   `1×1` 中心 Gram 的唯一特征值化为两个实高斯坐标平方和的一半。这两条仍未连接成
   分布等式：尚未证明该二维高斯半径平方服从指数分布，也尚未证明一般 `t` 下坐标能量和
   的 Gamma 分布；因此这仍不是 Gaussian Gram 的 CDF 证明。
+- `RadialIntegration.lean` 将 mathlib 的 `MeasureTheory.integral_fun_norm_addHaar`
+  特化到复平面，机检得到
+  `∫_{ℂ} f(‖z‖) dz = 2π ∫₀∞ r f(r) dr`。这把“二维径向积分”
+  环节正式封装了；但它还没有连接到 `stdGaussian`：mathlib 当前将 `stdGaussian` 定义为
+  独立一维 Gaussian 的有限乘积经正交基映射，并未直接提供这里所需的二维 Lebesgue 密度
+  表达式。因此目前仍不能据此推出中心 `1×1` Wishart 的指数分布。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
 密度或联合特征值密度；Theorem 1 的公式侧已编码，但还没有 CDF 等式证明，Theorem 2–4
