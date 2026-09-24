@@ -57,7 +57,12 @@
 ## Lean 试验结果
 
 已在 `theory/jin_wishart_formalization/` 建立可独立构建的 Lean 4 + mathlib
-项目，且不使用 `sorry` 或额外公理。当前通过机器检查的内容是：
+项目，且不使用 `sorry` 或额外公理。除确定性论证外，当前还定义了中央/非中心
+复 Wishart 概率测度：从 `2mn` 个标准实 Gaussian 坐标构造单位方差圆对称复
+Gaussian 矩阵，再对 Gram 映射取推前。Lean 已证明此构造是概率测度且其质量为
+1 集中在半正定锥上。它还不包括 Lebesgue 密度或论文的特征值分布公式。
+
+目前通过机器检查的内容是：
 
 | 命题 | 状态 |
 |---|---|
@@ -66,12 +71,14 @@
 | Rice 主导因子在 `(0,+∞)` 上严格递减 | Lean 已证明 |
 | 有限维复 Gram 能量非负 | Lean 已证明 |
 | 等功率、非负缩放下最弱有序模具有最小 SNR | Lean 已证明 |
+| 中央/非中心复 Wishart 测度定义及概率性 | Lean 已证明 |
+| 复 Wishart Gram 输出几乎必然半正定 | Lean 已证明 |
 | Theorem 1–3 的非中心 Wishart 特征值 CDF | 尚未形式化 |
 | Theorem 4 的渐近展开及 SER 积分传递 | 尚未形式化；`[需人工审查]` |
 
-这说明论文外围的确定性代数与微积分可以顺畅形式化，但核心概率结果不能只靠
-几行 Lean 重写。mathlib 目前缺少本文所需的一整套复非中心 Wishart 分布、
-Nuttall Q 函数和矩阵变量特殊函数接口。
+mathlib 已有有限维实 Gaussian 测度、矩阵正半定和谱理论；本项目已用这些基础
+定义出单位协方差复 Wishart 推前测度。mathlib 当前没有命名的 Wishart、Nuttall Q
+和复多元 Gamma 库，也缺少论文中的矩阵变量特殊函数接口。
 
 ## 建议的完整形式化路径
 
