@@ -22,6 +22,10 @@ noncomputable def upperGammaComplement (s : ℂ) (x : ℝ) : ℂ :=
 noncomputable def upperGammaTail (s : ℂ) (x : ℝ) : ℂ :=
   ∫ t in Set.Ioi x, (-t).exp * t ^ (s - 1)
 
+@[simp]
+theorem partialGamma_zero (s : ℂ) : Complex.partialGamma s 0 = 0 := by
+  simp [Complex.partialGamma]
+
 /-- For nonnegative thresholds, the algebraic complement is exactly the upper-tail
 integral. This uses only additivity of the Bochner integral over adjacent intervals. -/
 theorem upperGammaComplement_eq_tail {s : ℂ} (hs : 0 < s.re)
@@ -72,6 +76,18 @@ theorem upperGammaComplement_one (x : ℝ) :
 /-- Complementary incomplete Gamma at positive integer shape `k + 1`. -/
 noncomputable def upperGammaNat (k : ℕ) (x : ℝ) : ℂ :=
   upperGammaComplement ((k + 1 : ℕ) : ℂ) x
+
+/-- The complementary and lower incomplete Gamma integrals add to the complete Gamma integral. -/
+theorem upperGammaNat_add_partialGamma (k : ℕ) (x : ℝ) :
+    upperGammaNat k x + Complex.partialGamma ((k + 1 : ℕ) : ℂ) x =
+      Complex.GammaIntegral ((k + 1 : ℕ) : ℂ) := by
+  simp [upperGammaNat, upperGammaComplement]
+
+/-- At threshold zero, the upper incomplete Gamma equals the complete Gamma integral. -/
+theorem upperGammaNat_zero_eq_GammaIntegral (k : ℕ) :
+    upperGammaNat k 0 = Complex.GammaIntegral ((k + 1 : ℕ) : ℂ) := by
+  rw [upperGammaNat, upperGammaComplement]
+  simp [Complex.partialGamma]
 
 @[simp]
 theorem upperGammaNat_zero (x : ℝ) : upperGammaNat 0 x = (-x).exp := by

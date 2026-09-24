@@ -10,7 +10,7 @@ the ratio equals the smallest-eigenvalue CDF of the noncentral Wishart model.
 The latter requires the missing Wishart/eigenvalue density argument.
 -/
 
-open Matrix
+open Matrix MeasureTheory Set
 
 namespace JinWishart
 
@@ -73,5 +73,81 @@ noncomputable def theorem2CdfCandidate (s t L : ℕ) (hst : s ≤ t) (hLs : L �
     (lambda : Fin L → ℝ) (x : ℝ) : ℝ :=
   ‖(theorem2XiMatrix s t L hst hLs lambda x).det‖ /
     ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖
+
+/-- Entrywise relation behind the passage from the smallest-eigenvalue tail determinant
+to the largest-eigenvalue CDF determinant: `Ξ(x) = Ψ(0) - Ψ(x)`. -/
+theorem theorem2XiEntry_add_theorem1PsiEntry
+    (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s) (lambda : Fin L → ℝ)
+    (i j : Fin s) (x : ℝ) :
+    theorem2XiEntry s t L hst hLs lambda i j x +
+        theorem1PsiEntry s t L hst hLs lambda i j x =
+      theorem1PsiEntry s t L hst hLs lambda i j 0 := by
+  by_cases hj : j.val < L
+  · simp [theorem2XiEntry, theorem1PsiEntry, hj]
+    ring
+  · simp [theorem2XiEntry, theorem1PsiEntry, hj]
+    rw [upperGammaNat_zero_eq_GammaIntegral]
+    simpa [Nat.cast_add, Nat.cast_one, add_comm] using
+      upperGammaNat_add_partialGamma (theorem1GammaIndex s t i j) x
+
+/-- Matrix form of the entrywise identity `Ξ(x) + Ψ(x) = Ψ(0)`. -/
+theorem theorem2XiMatrix_add_theorem1PsiMatrix
+    (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s) (lambda : Fin L → ℝ) (x : ℝ) :
+    theorem2XiMatrix s t L hst hLs lambda x +
+        theorem1PsiMatrix s t L hst hLs lambda x =
+      theorem1PsiMatrix s t L hst hLs lambda 0 := by
+  ext i j
+  exact theorem2XiEntry_add_theorem1PsiEntry s t L hst hLs lambda i j x
+
+/-- On a positive-noncentrality column, the `Q(0)-Q(sqrt(2x))` term in `Ξ(x)` is
+the corresponding finite-interval integral. The tail-integrability premise is explicit;
+proving it for all paper parameters remains open. -/
+theorem theorem2XiEntry_active_eq_intervalIntegral
+    (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s) (lambda : Fin L → ℝ)
+    (i j : Fin s) (x : ℝ) (hj : j.val < L)
+    (hint : IntegrableOn
+      (nuttallQIntegrand (theorem1QOrder s t i) (t - s)
+        (Real.sqrt (2 * lambda ⟨j.val, hj⟩))) (Ioi 0)) :
+    theorem2XiEntry s t L hst hLs lambda i j x =
+      (Real.rpow 2
+        ((((2 * (i.val + 1) : ℕ) : ℝ) - s - t) / 2) : ℂ) *
+        ∫ u in (0 : ℝ)..Real.sqrt (2 * x),
+          nuttallQIntegrand (theorem1QOrder s t i) (t - s)
+            (Real.sqrt (2 * lambda ⟨j.val, hj⟩)) u := by
+  simp only [theorem2XiEntry, dite_eq_left hj]
+  rw [nuttallQ_sub_eq_intervalIntegral _ _ _ 0 (Real.sqrt (2 * x))
+    (Real.sqrt_nonneg _) hint]
+
+@[simp]
+theorem theorem2XiEntry_zero
+    (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s) (lambda : Fin L → ℝ)
+    (i j : Fin s) :
+    theorem2XiEntry s t L hst hLs lambda i j 0 = 0 := by
+  by_cases hj : j.val < L <;> simp [theorem2XiEntry, hj]
+
+@[simp]
+theorem theorem2XiMatrix_zero
+    (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s) (lambda : Fin L → ℝ) :
+    theorem2XiMatrix s t L hst hLs lambda 0 = 0 := by
+  ext i j
+  simp [theorem2XiMatrix]
+
+/-- Theorem 2's candidate has the correct zero-threshold value whenever its
+normalizing determinant is nonzero. The algebraic Lean candidate also reduces to zero
+without this assumption because real division is totalized at a zero denominator; that
+degenerate case is not an interpretation of the paper's ratio. -/
+theorem theorem2CdfCandidate_zero
+    (s t L : ℕ) [Nonempty (Fin s)] (hst : s ≤ t) (hLs : L ≤ s)
+    (lambda : Fin L → ℝ) :
+    theorem2CdfCandidate s t L hst hLs lambda 0 = 0 := by
+  simp [theorem2CdfCandidate, theorem2XiMatrix_zero]
+
+/-- Theorem 1's determinant-ratio candidate is normalized to zero at threshold zero,
+provided the normalizing determinant is nonzero. -/
+theorem theorem1CdfCandidate_zero
+    (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s) (lambda : Fin L → ℝ)
+    (hden : ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖ ≠ 0) :
+    theorem1CdfCandidate s t L hst hLs lambda 0 = 0 := by
+  simp [theorem1CdfCandidate, hden]
 
 end JinWishart
