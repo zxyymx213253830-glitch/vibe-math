@@ -75,7 +75,8 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `RadialIntegration.lean` 将 mathlib 的 `MeasureTheory.integral_fun_norm_addHaar`
   特化到复平面，机检得到
   `∫_{ℂ} f(‖z‖) dz = 2π ∫₀∞ r f(r) dr`。这把“二维径向积分”
-  环节正式封装了；并新增任意偶数维实内积空间版本，径向系数由单位球体积的阶乘闭式给出。
+  环节正式封装了；并新增任意偶数维实内积空间的全空间与闭球版本，径向系数由单位球体积的
+  阶乘闭式给出，闭球积分准确落在半开区间 `(0,R]` 上。
   该推广是构造一般中心标量 Wishart Gamma 律所需的几何引理；目前已与二维 Gaussian 密度桥、
   圆盘积分共同推出中心 `1×1` Wishart 的指数分布，但高维 Gaussian 密度和 Gamma CDF 桥仍待完成。
 - `GaussianRadialLaw.lean` 已补上上述高斯密度桥：利用 `gaussianReal` 的 PDF、有限乘积
