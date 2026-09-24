@@ -144,6 +144,33 @@ theorem complexNoncentralWishart_measure_posSemidef (M : Matrix (Fin m) (Fin n) 
     simp [complexGram_posSemidef]
   rw [hpre, measure_univ]
 
+/-- Event that a matrix lies above threshold `x` in Loewner order, encoded as a shifted PSD cone.
+`[需人工审查]` The intended equivalence with `λ_min ≥ x` for Hermitian matrices follows from
+the spectral theorem, but that equivalence is not yet a Lean theorem in this project. -/
+def smallestEigenvalueTailEvent (x : ℝ) : Set (Matrix (Fin n) (Fin n) ℂ) :=
+  {W | (W - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef}
+
+theorem measurableSet_smallestEigenvalueTailEvent (x : ℝ) :
+    MeasurableSet (smallestEigenvalueTailEvent (n := n) x) := by
+  have hmap : Measurable
+      (fun W : Matrix (Fin n) (Fin n) ℂ =>
+        W - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)) := by
+    fun_prop
+  exact Matrix.posSemidef_is_closed.measurableSet.preimage hmap
+
+/-- Probability of the measurable shifted-PSD event. It is intended to represent
+`P(λ_min ≥ x)`; the spectral equivalence is `[需人工审查]` until formalized. Consequently,
+turning its complement into the paper's `≤` CDF also requires a no-atoms proof. -/
+noncomputable def complexNoncentralWishartSmallestEigenvalueTail
+    (M : Matrix (Fin m) (Fin n) ℂ) (x : ℝ) : ENNReal :=
+  complexNoncentralWishart (m := m) (n := n) M (smallestEigenvalueTailEvent x)
+
+theorem complexNoncentralWishartSmallestEigenvalueTail_zero
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    complexNoncentralWishartSmallestEigenvalueTail (m := m) (n := n) M 0 = 1 := by
+  simpa [complexNoncentralWishartSmallestEigenvalueTail, smallestEigenvalueTailEvent] using
+    complexNoncentralWishart_measure_posSemidef (m := m) (n := n) M
+
 /-- A real Gaussian sample matrix is represented by a vector in a finite-dimensional Euclidean
 space, avoiding the need to equip the raw matrix type with an inner-product structure. -/
 abbrev Sample := EuclideanSpace ℝ (Fin m × Fin n)
