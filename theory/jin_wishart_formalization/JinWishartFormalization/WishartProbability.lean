@@ -51,6 +51,32 @@ theorem complexGram_posSemidef (X : Matrix (Fin m) (Fin n) ℂ) :
     (complexGram X).PosSemidef := by
   exact Matrix.posSemidef_conjTranspose_mul_self X
 
+/-- The descending eigenvalue list of a complex Gram matrix is nonnegative.
+This is the deterministic spectral fact needed before defining the ordered
+Wishart eigenvalue random variables in the distribution formulas. -/
+theorem complexGram_eigenvalues₀_nonneg
+    (X : Matrix (Fin m) (Fin n) ℂ) (i : Fin (Fintype.card (Fin n))) :
+    0 ≤ (complexGram_posSemidef X).1.eigenvalues₀ i := by
+  have hpsd : (complexGram X).PosSemidef := complexGram_posSemidef X
+  let j : Fin n :=
+    Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n))) i
+  have hj := hpsd.eigenvalues_nonneg j
+  simpa [j, Matrix.IsHermitian.eigenvalues, Matrix.IsHermitian.eigenvalues₀] using hj
+
+/-- mathlib indexes Hermitian eigenvalues in descending order. -/
+theorem complexGram_eigenvalues₀_antitone
+    (X : Matrix (Fin m) (Fin n) ℂ) :
+    Antitone (complexGram_posSemidef X).1.eigenvalues₀ := by
+  exact (complexGram_posSemidef X).1.eigenvalues₀_antitone
+
+/-- The ordered eigenvalues of every shifted complex Gaussian Gram sample remain
+nonnegative; this is the pointwise spectral statement for noncentral Wishart. -/
+theorem complexNoncentralGram_eigenvalues₀_nonneg
+    (M : Matrix (Fin m) (Fin n) ℂ)
+    (x : ComplexSample (m := m) (n := n)) (i : Fin (Fintype.card (Fin n))) :
+    0 ≤ (complexGram_posSemidef (complexSampleMatrix x + M)).1.eigenvalues₀ i :=
+  complexGram_eigenvalues₀_nonneg (complexSampleMatrix x + M) i
+
 noncomputable def complexSampleGram (x : ComplexSample (m := m) (n := n)) :
     Matrix (Fin n) (Fin n) ℂ :=
   complexGram (complexSampleMatrix x)

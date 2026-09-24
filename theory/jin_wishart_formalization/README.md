@@ -24,10 +24,13 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - 中央与非中心 Wishart 被定义为标准 Gaussian 样本经 `Xᴴ X` 的推前测度。
 - Lean 已证明这些测度是概率测度、均值坐标嵌入正确，并且输出矩阵以概率 1
   落在半正定锥中。
+- 利用 mathlib 的 Hermitian 谱定理，已证明中央及非中央复 Gram 样本的降序特征值
+  均非负；谱库提供的 `eigenvalues₀` 本身是 antitone（即降序）排列。
 
-这是一项实质性的概率模型形式化，但还没有得到 Wishart 的 Lebesgue 密度、联合
-特征值密度或论文中的 CDF 行列式公式；当前 covariance 设为单位阵，尚未覆盖论文
-中的一般尺度矩阵 `Σ`。
+这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
+密度、联合特征值密度或论文中的 CDF 行列式公式；当前 covariance 设为单位阵，尚未
+覆盖论文中的一般尺度矩阵 `Σ`。特征值现在是逐样本的确定性结论，尚未证明对应的
+特征值映射可测，也尚未从 Wishart 推前测度得到其分布函数。
 
 ## 搜索到的可复用 Lean 库
 
@@ -43,7 +46,10 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   和 [`Mathlib.Analysis.InnerProductSpace.SingularValues`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/InnerProductSpace/SingularValues.html)：
   有序自伴特征值、奇异值及二者平方关系，可作为后续随机特征值层的确定性底座。
 - 普通 Gamma 函数以及积分定义的 `Complex.partialGamma` 已在 mathlib 中；但没有
-  本文所需的 Nuttall `Q`、复多元 Gamma 或矩阵变量超几何函数接口。
+  本文所需的 Nuttall `Q`、修改 Bessel `I`、复多元 Gamma 或矩阵变量超几何函数接口。
+- mathlib 也有标量 Bessel `J` 与普通/正则化超几何函数；它们并不直接给出论文中的
+  Nuttall `Q` 或矩阵变量超几何函数。需要逐项构造所需函数并证明其积分/级数性质，
+  而不是仅因存在相近名称就视为已覆盖。
 
 本次网络和已锁定 mathlib 源码检索没有找到可直接依赖的 Lean Wishart、Nuttall `Q`
 或复矩阵变量分布库。因此本项目采用“复用 Gaussian + 矩阵基础库，再在本仓库
