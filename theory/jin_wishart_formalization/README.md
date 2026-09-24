@@ -67,24 +67,26 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   `(t-1)!`、其非零性，以及 `x≥0` 时候选 CDF 化为归一化的整数 Gamma 有限和。
   对最小 `1×1` 样本进一步证明，该候选式等于 mathlib 单位率指数分布的 CDF；同时已将
   `1×1` 中心 Gram 的唯一特征值化为两个实高斯坐标平方和的一半。这两条仍未连接成
-  分布等式：尚未证明该二维高斯半径平方服从指数分布，也尚未证明一般 `t` 下坐标能量和
-  的 Gamma 分布；因此这仍不是 Gaussian Gram 的 CDF 证明。
+  分布等式：这一缺口现已在 `GaussianRadialCDF.lean` 对 `1×1` 样本闭合，证明真实最小
+  特征值 CDF 与 Theorem 1 公式候选相等。一般 `t` 下坐标能量和的 Gamma 分布仍未证明。
 - `RadialIntegration.lean` 将 mathlib 的 `MeasureTheory.integral_fun_norm_addHaar`
   特化到复平面，机检得到
   `∫_{ℂ} f(‖z‖) dz = 2π ∫₀∞ r f(r) dr`。这把“二维径向积分”
-  环节正式封装了；但它还没有连接到 `stdGaussian`：mathlib 当前将 `stdGaussian` 定义为
-  独立一维 Gaussian 的有限乘积经正交基映射，并未直接提供这里所需的二维 Lebesgue 密度
-  表达式。因此目前仍不能据此推出中心 `1×1` Wishart 的指数分布。
+  环节正式封装了；它与下述二维 Gaussian 密度桥、圆盘积分共同用于推出中心 `1×1`
+  Wishart 的指数分布。
 - `GaussianRadialLaw.lean` 已补上上述高斯密度桥：利用 `gaussianReal` 的 PDF、有限乘积
   密度定理、复平面坐标的保体积等价和 mathlib 的 `stdGaussian` 正交基表示，机检证明
   `stdGaussian ℂ` 等于密度
   `(2π)⁻¹ exp(-‖z‖²/2)` 对复平面 Lebesgue 测度的加权测度。这是一个真正的样本测度
-  等式，不再只是抽象独立性或协方差结论；从该密度积分出半径平方的 CDF 仍需继续形式化。
+  等式，不再只是抽象独立性或协方差结论；该密度的圆盘积分和半径平方 CDF 已在
+  `GaussianRadialCDF.lean` 中完成。
 - 上一项的样本连接现已完成：`centralScalarToComplex` 是 `ComplexSample (1×1)` 到 `ℂ`
   的线性等距等价；标准高斯在该等价下映到 `stdGaussian ℂ`，且样本能量逐点等于
   `‖z‖²/2`。因此 `centralScalarSampleEnergy_map_eq_radialGaussianEnergy` 已将真实的
-  `1×1` Gram 能量分布精确归约到上面的复平面径向高斯测度。尚缺的正是圆盘内密度积分，
-  也就是把这条归约闭合为指数 CDF 定理。
+  `1×1` Gram 能量分布精确归约到上面的复平面径向高斯测度。`GaussianRadialCDF.lean`
+  现已完成圆盘内密度积分，证明样本能量、最小特征值的分布均为单位率指数分布，并与
+  Theorem 1 中心标量单样本公式侧候选 CDF 接通。这只闭合了 `1×1` 特例，绝不是论文
+  多维 Theorem 1 的一般证明。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
 密度或联合特征值密度；Theorem 1 的公式侧已编码，但还没有 CDF 等式证明，Theorem 2–4
