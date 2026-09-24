@@ -7,6 +7,7 @@ import Mathlib.Tactic.Positivity
 import Mathlib.Tactic.Ring
 import JinWishartFormalization.IncompleteGamma
 import JinWishartFormalization.NuttallQ
+import JinWishartFormalization.Theorem1Formula
 import JinWishartFormalization.WishartProbability
 
 /-!
