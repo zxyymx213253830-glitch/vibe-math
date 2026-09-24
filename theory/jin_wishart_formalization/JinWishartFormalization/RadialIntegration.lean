@@ -23,4 +23,26 @@ theorem integral_complex_radial (f : ℝ → ℝ) :
   rw [hball] at h
   simpa [smul_eq_mul, mul_assoc, mul_comm, mul_left_comm] using h
 
+/-- Polar integration in any even-dimensional real inner product space. The
+coefficient is expressed using the volume of the unit ball; this is the radial
+integration tool needed for scalar central Wishart laws with arbitrary degrees
+of freedom. -/
+theorem integral_radial_even_dim {E : Type*} [NormedAddCommGroup E]
+    [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [Nontrivial E] [MeasurableSpace E]
+    [BorelSpace E] (k : ℕ) (hk : Module.finrank ℝ E = 2 * k)
+    (f : ℝ → ℝ) :
+    ∫ x : E, f ‖x‖ ∂volume =
+      (2 * (k : ℝ) * ((Real.pi ^ k) / (Nat.factorial k : ℝ))) *
+        ∫ r in Ioi (0 : ℝ), r ^ (2 * k - 1) * f r := by
+  have hradial := MeasureTheory.integral_fun_norm_addHaar
+    (μ := (volume : Measure E)) f
+  have hball : (volume : Measure E).real (Metric.ball (0 : E) 1) =
+      Real.pi ^ k / (Nat.factorial k : ℝ) := by
+    rw [measureReal_def, InnerProductSpace.volume_ball_of_dim_even hk 0 1]
+    simp [Nat.factorial_ne_zero]
+    positivity
+  rw [hk, hball] at hradial
+  simpa [smul_eq_mul, Nat.cast_mul, Nat.cast_ofNat, mul_assoc, mul_left_comm,
+    mul_comm] using hradial
+
 end JinWishart
