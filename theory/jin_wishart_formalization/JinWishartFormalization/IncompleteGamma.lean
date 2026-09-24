@@ -1,20 +1,42 @@
 import Mathlib.Analysis.SpecialFunctions.Gamma.Basic
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 
 /-!
 # Incomplete Gamma recurrence used by the Wishart eigenvalue formulas
 
 Mathlib provides the complete Gamma integral and the lower incomplete Gamma
-integral together with integration-by-parts recurrences.  The upper incomplete
-Gamma is introduced here as their algebraic complement.  Identifying this
-complement with the improper tail integral on `(x, ∞)` is a separate measure-
-theoretic lemma and is not claimed in this file yet.
+integral together with integration-by-parts recurrences.  We prove that their
+algebraic complement is the improper tail integral on `(x, ∞)` for `x ≥ 0`,
+then derive the integer-shape finite-sum expression.
 -/
 
 namespace JinWishart
 
+open MeasureTheory Set
+
 /-- Algebraic complement of the lower incomplete Gamma integral. -/
 noncomputable def upperGammaComplement (s : ℂ) (x : ℝ) : ℂ :=
   Complex.GammaIntegral s - Complex.partialGamma s x
+
+/-- The improper upper-tail integral for the Gamma density. -/
+noncomputable def upperGammaTail (s : ℂ) (x : ℝ) : ℂ :=
+  ∫ t in Set.Ioi x, (-t).exp * t ^ (s - 1)
+
+/-- For nonnegative thresholds, the algebraic complement is exactly the upper-tail
+integral. This uses only additivity of the Bochner integral over adjacent intervals. -/
+theorem upperGammaComplement_eq_tail {s : ℂ} (hs : 0 < s.re)
+    {x : ℝ} (hx : 0 ≤ x) :
+    upperGammaComplement s x = upperGammaTail s x := by
+  let f : ℝ → ℂ := fun t => (-t).exp * t ^ (s - 1)
+  have h0 : IntegrableOn f (Set.Ioi 0) := by
+    simpa [f, Complex.GammaIntegral] using Complex.GammaIntegral_convergent hs
+  have hxint : IntegrableOn f (Set.Ioi x) :=
+    h0.mono_set (Set.Ioi_subset_Ioi hx)
+  have hsplit := intervalIntegral.integral_interval_add_Ioi (f := f) h0 hxint
+  rw [upperGammaComplement, upperGammaTail, Complex.GammaIntegral,
+    Complex.partialGamma]
+  apply sub_eq_iff_eq_add.mpr
+  simpa [f, add_comm] using hsplit.symm
 
 /-- The complement satisfies the standard upper incomplete Gamma recurrence.
 The restriction `x ≥ 0` is inherited from mathlib's lower-Gamma recurrence. -/
@@ -65,5 +87,36 @@ theorem upperGammaNat_succ (k : ℕ) {x : ℝ} (hx : 0 ≤ x) :
     exact add_pos_of_nonneg_of_pos (Nat.cast_nonneg k) zero_lt_one
   simpa [upperGammaNat, Nat.cast_add, Nat.cast_one] using
     (upperGammaComplement_add_one (s := ((k + 1 : ℕ) : ℂ)) hs hx)
+
+/-- The elementary finite-sum expression for the complementary Gamma at integer shape. -/
+noncomputable def upperGammaNatFinite (k : ℕ) (x : ℝ) : ℂ :=
+  (Nat.factorial k : ℂ) * (-x).exp *
+    ∑ j ∈ Finset.range (k + 1), (x : ℂ) ^ j / (Nat.factorial j : ℂ)
+
+/-- Integer-shape upper incomplete Gamma is a finite exponential-polynomial sum. -/
+theorem upperGammaNat_eq_finite (k : ℕ) {x : ℝ} (hx : 0 ≤ x) :
+    upperGammaNat k x = upperGammaNatFinite k x := by
+  induction k with
+  | zero =>
+      simp [upperGammaNatFinite]
+  | succ k ih =>
+      rw [upperGammaNat_succ k hx, ih]
+      simp only [upperGammaNatFinite, Nat.factorial_succ, Finset.sum_range_succ]
+      have hfac : (Nat.factorial (k + 1) : ℂ) ≠ 0 := by
+        exact_mod_cast Nat.factorial_ne_zero (k + 1)
+      have hfac' : (Nat.factorial k : ℂ) ≠ 0 := by
+        exact_mod_cast Nat.factorial_ne_zero k
+      have hpow : (x : ℂ) ^ ((k : ℂ) + 1) =
+          (x : ℂ) * (x : ℂ) ^ k := by
+        calc
+          (x : ℂ) ^ ((k : ℂ) + 1) = (x : ℂ) ^ ((k + 1 : ℕ) : ℂ) := by
+            congr 1
+            simp only [Nat.cast_succ]
+          _ = (x : ℂ) ^ (k + 1) := Complex.cpow_natCast _ _
+          _ = (x : ℂ) * (x : ℂ) ^ k := by rw [pow_succ]; ring
+      field_simp [hfac, hfac']
+      push_cast
+      rw [hpow]
+      ring_nf
 
 end JinWishart
