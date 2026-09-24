@@ -11,6 +11,7 @@ import JinWishartFormalization.Theorem1Formula
 import JinWishartFormalization.WishartProbability
 import JinWishartFormalization.MIMOPerformance
 import JinWishartFormalization.GaussianQ
+import JinWishartFormalization.MIMOWishartSER
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)

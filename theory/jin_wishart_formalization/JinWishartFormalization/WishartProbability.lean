@@ -333,6 +333,48 @@ theorem measurableSet_smallestEigenvalueTailEvent (x : ℝ) :
     fun_prop
   exact Matrix.posSemidef_is_closed.measurableSet.preimage hmap
 
+/-- Index of the smallest entry in mathlib's descending eigenvalue list. -/
+noncomputable def smallestEigenvalue₀Index (hn : 0 < n) :
+    Fin (Fintype.card (Fin n)) := by
+  have hN : 0 < Fintype.card (Fin n) := by simpa using hn
+  exact Fin.cast (Nat.sub_add_cancel hN)
+    (Fin.last (Fintype.card (Fin n) - 1))
+
+/-- The least eigenvalue of a noncentral complex Gram sample. The positive-dimension
+hypothesis is needed because an empty matrix has no smallest eigenvalue. -/
+noncomputable def complexNoncentralSampleSmallestEigenvalue
+    (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0 < n)
+    (x : ComplexSample (m := m) (n := n)) : ℝ :=
+  (complexGram_posSemidef (complexSampleMatrix x + M)).1.eigenvalues₀
+    (smallestEigenvalue₀Index hn)
+
+/-- The smallest ordered eigenvalue of a shifted complex Gram sample is measurable.
+The proof uses measurable shifted-PSD sublevel events rather than a general eigenvalue
+continuity theorem. -/
+theorem measurable_complexNoncentralSampleSmallestEigenvalue
+    (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0 < n) :
+    Measurable (complexNoncentralSampleSmallestEigenvalue M hn) := by
+  apply measurable_of_Iio
+  intro x
+  have hpre :
+      (complexNoncentralSampleSmallestEigenvalue M hn) ⁻¹' Set.Iio x =
+        (fun z : ComplexSample (m := m) (n := n) =>
+          complexGram (complexSampleMatrix z + M)) ⁻¹'
+      (smallestEigenvalueTailEvent x)ᶜ := by
+    ext z
+    have hspec := smallestEigenvalueTailEvent_iff_smallest_eigenvalue₀_ge
+      (complexGram (complexSampleMatrix z + M))
+      (complexGram_posSemidef (complexSampleMatrix z + M)).1
+      (by simpa using hn) x
+    change complexNoncentralSampleSmallestEigenvalue M hn z < x ↔ _
+    change complexNoncentralSampleSmallestEigenvalue M hn z < x ↔
+      complexGram (complexSampleMatrix z + M) ∉ smallestEigenvalueTailEvent x
+    rw [hspec]
+    exact lt_iff_not_ge
+  rw [hpre]
+  exact (measurableSet_smallestEigenvalueTailEvent x).compl.preimage
+    (measurable_shiftedComplexSampleGram M)
+
 /-- Probability of the measurable shifted-PSD event. For `n > 0`, the spectral theorem above
 identifies it with `P(λ_min ≥ x)`. Turning its complement into the paper's `≤` CDF still requires
 a no-atoms proof. -/
