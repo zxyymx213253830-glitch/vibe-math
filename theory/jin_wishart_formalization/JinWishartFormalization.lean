@@ -5,6 +5,7 @@ import Mathlib.Basic.Complex.BigOperators
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Positivity
 import Mathlib.Tactic.Ring
+import JinWishartFormalization.IncompleteGamma
 import JinWishartFormalization.WishartProbability
 
 /-!
