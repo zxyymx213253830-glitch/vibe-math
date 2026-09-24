@@ -10,6 +10,7 @@ import JinWishartFormalization.NuttallQ
 import JinWishartFormalization.Theorem1Formula
 import JinWishartFormalization.WishartProbability
 import JinWishartFormalization.MIMOPerformance
+import JinWishartFormalization.GaussianQ
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)

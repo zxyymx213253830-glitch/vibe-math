@@ -36,8 +36,10 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `MIMOPerformance.lean` 已形式化一般实值统计量在正 SNR 缩放下的 outage 阈值换算：
   弱事件 `cφ≤γ` 精确等于在阈值 `γ/c` 处的 CDF；严格事件 `cφ<γ` 单独保留，不能在
   未证无原子性时替换为弱 CDF。还封装了 mathlib 的 layer-cake 定理，将非负随机变量上
-  `∫₀ᶠ g` 型误差核期望改写为尾概率加权积分。将其特化成论文 Gaussian-Q SER 仍需证明
-  Q 核导数、尾部/局部积分条件，并把随机特征值映射接通。
+  `∫₀ᶠ g` 型误差核期望改写为尾概率加权积分。`GaussianQ.lean` 直接定义标准高斯尾函数
+  `Q(x)=∫_{x}^{∞} exp(-t²/2)/sqrt(2π) dt`，并证明 `Q(0)=1/2`。将 layer-cake 特化成
+  论文 Gaussian-Q SER 仍需证明 `Q(sqrt(2βz))` 的具体积分核表示、尾部/局部积分条件，
+  并把随机特征值映射接通。
 - `Theorem1Formula.lean` 已将论文式 (15)–(18) 的 `Ψ(x)` 分段条目和行列式比值编码为
   Lean 定义。它只是精确的公式侧候选值；尚未证明分母非零，也尚未证明它等于上述
   Wishart 尾概率的补数。Theorem 2 的 `Ξ(x)` 条目及式 (19) 的行列式候选值也已编码；
@@ -80,6 +82,8 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - mathlib 也有标量 Bessel `J` 与普通/正则化超几何函数；它们并不直接给出论文中的
   Nuttall `Q` 或矩阵变量超几何函数。需要逐项构造所需函数并证明其积分/级数性质，
   而不是仅因存在相近名称就视为已覆盖。
+- mathlib 的 `integral_gaussian_Ioi` 可支撑标准 Gaussian-Q 的半轴归一化；本项目已用它
+  证明 `Q(0)=1/2`。这尚不等于论文平均 SER 的核导数公式。
 - `NuttallQ.lean` 已以 `I_q(z)=(-i)^q J_q(iz)` 构造非负整数阶修改 Bessel `I`，
   利用整数阶 Bessel `J` 的解析性证明 `I_q` 与 Nuttall Q 核连续，定义论文对应的
   Nuttall Q 积分，并在明确的可积性前提下证明尾积分拆分恒等式。
