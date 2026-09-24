@@ -47,4 +47,31 @@ noncomputable def theorem1CdfCandidate (s t L : ℕ) (hst : s ≤ t) (hLs : L �
   1 - ‖(theorem1PsiMatrix s t L hst hLs lambda x).det‖ /
     ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖
 
+/-- The `(i,j)` entry of the matrix `Ξ(x)` in equation (20), using the lower
+incomplete Gamma integral from mathlib for the zero-noncentrality columns. -/
+noncomputable def theorem2XiEntry (s t L : ℕ) (_hst : s ≤ t) (_hLs : L ≤ s)
+    (lambda : Fin L → ℝ) (i j : Fin s) (x : ℝ) : ℂ :=
+  if hj : j.val < L then
+    (Real.rpow 2
+      ((((2 * (i.val + 1) : ℕ) : ℝ) - s - t) / 2) : ℂ) *
+      (nuttallQ (theorem1QOrder s t i) (t - s)
+          (Real.sqrt (2 * lambda ⟨j.val, hj⟩)) 0 -
+        nuttallQ (theorem1QOrder s t i) (t - s)
+          (Real.sqrt (2 * lambda ⟨j.val, hj⟩)) (Real.sqrt (2 * x)))
+  else
+    Complex.partialGamma
+      ((theorem1GammaIndex s t i j + 1 : ℕ) : ℂ) x
+
+/-- The matrix `Ξ(x)` in equation (20). -/
+noncomputable def theorem2XiMatrix (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+    (lambda : Fin L → ℝ) (x : ℝ) : Matrix (Fin s) (Fin s) ℂ :=
+  fun i j => theorem2XiEntry s t L hst hLs lambda i j x
+
+/-- Formula side of equation (19), the largest-eigenvalue CDF determinant ratio.
+As with `theorem1CdfCandidate`, no equality to the Wishart probability is asserted here. -/
+noncomputable def theorem2CdfCandidate (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+    (lambda : Fin L → ℝ) (x : ℝ) : ℝ :=
+  ‖(theorem2XiMatrix s t L hst hLs lambda x).det‖ /
+    ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖
+
 end JinWishart
