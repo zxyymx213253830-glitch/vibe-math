@@ -9,6 +9,7 @@ import JinWishartFormalization.IncompleteGamma
 import JinWishartFormalization.NuttallQ
 import JinWishartFormalization.Theorem1Formula
 import JinWishartFormalization.WishartProbability
+import JinWishartFormalization.MIMOPerformance
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
