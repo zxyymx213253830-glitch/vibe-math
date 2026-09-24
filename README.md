@@ -1,8 +1,21 @@
-# vibe math — 信息论研究的 AI 机检工作流
+# vibe Math
 
-这是一个把"AI 提出思路和证明 + 机器负责验收"落到信息论/信息几何领域的
-研究工作区。核心是自研的 `infoq` 库（ITIP 数学原理的开源实现，无许可问题），
-外加一套给 AI agent 使用的工作规则和提示词模板。
+信息论与信息几何研究工作区，围绕两项主要工作组织：可复现的研究工作流，
+以及具体命题的形式化验证。
+
+## 工作流
+
+研究流程遵循“先数值、后证明”：先用随机采样寻找反例，再用 `infoq.check`
+检查 Shannon 型可证性；LP 未识别的命题继续进入结构化论证。证明路线、实验、
+机检脚本和研究台账分别归档，数值证据与证明结论明确区分。
+
+主要内容：
+
+- `infoq/`：信息表达式解析、Shannon 型不等式 LP 判定和数值反例预言机。
+- `verification/`：逐步 converse 检查及 LP、数值演示。
+- `experiments/`：固定种子的数值实验，并与已知闭式结果对照。
+- `notes/`：猜想台账和研究路线记录。
+- `AGENTS.md`：供 AI agent 遵循的研究规范与提示词模板。
 
 ## 环境（已配置好）
 
@@ -78,7 +91,7 @@ print(infoq.format_report(infoq.check_steps(steps)))
 任何一步 NOT_IDENTIFIED 即整条 converse 有洞——写论文前先机检一遍，
 能挡住绝大多数"看起来显然"的错误步骤。
 
-## 工作流（每个研究项目怎么跑）
+### 每个研究项目怎么跑
 
 ```text
 猜想 --> infoq 数值扫描 (毙掉假命题)
@@ -93,19 +106,21 @@ print(infoq.format_report(infoq.check_steps(steps)))
 `AGENTS.md` 是给 AI agent 看的操作手册（铁律 + 提示词模板 P1~P5）。
 在这个工作区里召唤任何 agent，它都会读到这份手册并遵守同一套纪律。
 
-## 目录约定
-
-| 目录 | 放什么 | 纪律 |
-|---|---|---|
-| `infoq/` | 核心库 | 改动后必须重跑全部 demo |
-| `verification/` | 每个猜想/引理一个机检脚本 | 文件名 = 命题短名 |
-| `experiments/` | 数值实验 | 固定种子；必须与闭式解/文献值对照 |
-| `theory/` | LaTeX / Lean | 每个定理标注机检状态 |
-| `notes/` | 猜想台账、路线分析 | 猜想状态三值: 数值通过 / 已证明 / 已否证 |
-
-## 下一步可扩展
+### 下一步可扩展
 
 - `pip install cvxpy`：凸优化 converse 数值验证（高斯信道、率失真对偶）。
 - WSL2 里装 SageMath：信息几何的符号张量计算（α-联络、曲率）。
 - Lean 4（elan 安装）：把 1~2 个核心引理形式化进 `theory/`。
 - 对接外部工具交叉验证：XITIP（网页版 ITIP）、Aristotle（云端 Lean prover）。
+
+## 具体的形式化验证
+
+当前的 Lean 案例位于 [`theory/jin_wishart_formalization/`](theory/jin_wishart_formalization/)，
+以 Jin 等人 2008 年的复 Wishart 矩阵论文为对象，验证其中可与随机矩阵密度公式
+分离的确定性论证骨架：Rice 因子的单调性、Gram/Wishart 矩阵半正定性，以及等功率
+条件下有序特征模的 SNR 次序。
+
+这是验证 Lean/mathlib 对外围论证覆盖能力的可行性原型，不等同于整篇论文的形式化。
+随机矩阵联合密度、特殊函数、行列式 CDF 以及渐近展开相关的测度论细节仍待补齐，
+涉及这些部分的证明必须标注 `[需人工审查]`。更多范围说明和构建方法见
+[`theory/README.md`](theory/README.md) 与案例目录中的 README。
