@@ -1,0 +1,6 @@
+numpy>=1.26
+scipy>=1.11
+sympy>=1.12
+# 可选扩展:
+# cvxpy>=1.4        # 凸优化 converse 数值验证
+# itip              # 外部 ITIP-python, 用于与本库交叉验证 (注意其许可)

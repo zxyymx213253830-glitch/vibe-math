@@ -1,0 +1,10 @@
+name = "jin_wishart_formalization"
+version = "0.1.0"
+defaultTargets = ["JinWishartFormalization"]
+
+[[lean_lib]]
+name = "JinWishartFormalization"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
