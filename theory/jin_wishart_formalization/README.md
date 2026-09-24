@@ -84,7 +84,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   `stdGaussian ℂ` 等于密度
   `(2π)⁻¹ exp(-‖z‖²/2)` 对复平面 Lebesgue 测度的加权测度。这是一个真正的样本测度
   等式，不再只是抽象独立性或协方差结论；该密度的圆盘积分和半径平方 CDF 已在
-  `GaussianRadialCDF.lean` 中完成。
+  `GaussianRadialCDF.lean` 中完成。另已证明任意有限个实标准高斯 PDF 的乘积逐点化为
+  只依赖欧氏范数的径向表达式；这只是被积函数恒等式，高维 `stdGaussian` 到 Lebesgue
+  加权测度的整体等式仍待补上。
 - 上一项的样本连接现已完成：`centralScalarToComplex` 是 `ComplexSample (1×1)` 到 `ℂ`
   的线性等距等价；标准高斯在该等价下映到 `stdGaussian ℂ`，且样本能量逐点等于
   `‖z‖²/2`。因此 `centralScalarSampleEnergy_map_eq_radialGaussianEnergy` 已将真实的

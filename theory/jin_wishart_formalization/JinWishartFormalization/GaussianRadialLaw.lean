@@ -96,6 +96,34 @@ theorem stdGaussian_complex_eq_radialDensity :
   funext z
   exact gaussianPDF_complex_coordinates_eq_radial z
 
+/-- The product density of finitely many independent standard real Gaussians
+collapses to a radial expression. This is the density identity underlying the
+higher-dimensional `stdGaussian` calculation. -/
+theorem gaussianPDF_fintype_prod_eq_radial {ι : Type*} [Fintype ι]
+    (x : ι → ℝ) :
+    (∏ i, gaussianPDF 0 1 (x i)) =
+      ENNReal.ofReal
+        ((Real.sqrt (2 * Real.pi))⁻¹ ^ Fintype.card ι *
+          Real.exp (-(∑ i, x i ^ 2) / 2)) := by
+  simp_rw [gaussianPDF_def, gaussianPDFReal_def]
+  simp only [sub_zero, NNReal.coe_one]
+  simp only [mul_one, div_one]
+  rw [← ENNReal.ofReal_prod_of_nonneg (s := Finset.univ)
+    (f := fun i ↦ (Real.sqrt (2 * Real.pi))⁻¹ * Real.exp (-(x i) ^ 2 / 2))]
+  · congr 1
+    rw [Finset.prod_mul_distrib, ← Real.exp_sum]
+    congr 1
+    · simp
+    · apply congrArg Real.exp
+      calc
+        (∑ i, (-(x i) ^ 2 / 2)) = -((∑ i, (x i) ^ 2 / 2)) := by
+          simp_rw [neg_div]
+          rw [Finset.sum_neg_distrib]
+        _ = -((∑ i, (x i) ^ 2) / 2) := by rw [Finset.sum_div]
+        _ = (-(∑ i, (x i) ^ 2)) / 2 := by ring
+  · intro i hi
+    positivity
+
 noncomputable def centralScalarIndexEquiv :
     ((Fin 1 × Fin 1) × Fin 2) ≃ Fin 2 where
   toFun := Prod.snd
