@@ -135,4 +135,17 @@ theorem meanGaussianQDecrement_eq_tailIntegral {Ω : Type*} [MeasurableSpace Ω]
             (integrableOn_gaussianQKernel.mono_set Ioc_subset_Ioi_self))
         (ae_of_all _ gaussianQKernel_nonneg)
 
+/-- For a probability law and a measurable statistic, the mean Q decrement can
+also be written with the complement of its weak CDF as the weight. -/
+theorem meanGaussianQDecrement_eq_cdfComplementIntegral
+    {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (f : Ω → ℝ) (hf_nonneg : 0 ≤ᵐ[μ] f) (hf_measurable : Measurable f) :
+    ∫⁻ ω, ENNReal.ofReal (gaussianQ 0 - gaussianQ (Real.sqrt (f ω))) ∂μ =
+      ∫⁻ t in Ioi 0,
+        (1 - statisticCDF μ f t) * ENNReal.ofReal (gaussianQKernel t) := by
+  rw [meanGaussianQDecrement_eq_tailIntegral μ f hf_nonneg hf_measurable.aemeasurable]
+  apply lintegral_congr_ae
+  filter_upwards [] with t
+  rw [strictTail_eq_one_sub_statisticCDF μ f t hf_measurable]
+
 end JinWishart
