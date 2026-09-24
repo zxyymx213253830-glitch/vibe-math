@@ -23,8 +23,10 @@ def theorem1GammaIndex (s t : ℕ) (i j : Fin s) : ℕ :=
   t + s - (i.val + 1) - (j.val + 1)
 
 /-- The `(i,j)` entry of the determinant matrix `Ψ(x)` in equation (16).
-`lambda : Fin L → ℝ` lists the positive noncentrality eigenvalues. The hypotheses
-`s ≤ t` and `L ≤ s` encode the paper's dimension and rank restrictions. -/
+`lambda : Fin L → ℝ` is intended to list the positive noncentrality eigenvalues. The current
+definition does not enforce positivity or strict ordering of this list; these paper hypotheses
+remain an obligation when using the candidate. `s ≤ t` and `L ≤ s` encode the dimension/rank
+restrictions. -/
 noncomputable def theorem1PsiEntry (s t L : ℕ) (_hst : s ≤ t) (_hLs : L ≤ s)
     (lambda : Fin L → ℝ) (i j : Fin s) (x : ℝ) : ℂ :=
   if hj : j.val < L then
