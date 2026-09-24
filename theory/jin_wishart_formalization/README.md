@@ -79,8 +79,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   密度定理、复平面坐标的保体积等价和 mathlib 的 `stdGaussian` 正交基表示，机检证明
   `stdGaussian ℂ` 等于密度
   `(2π)⁻¹ exp(-‖z‖²/2)` 对复平面 Lebesgue 测度的加权测度。这是一个真正的样本测度
-  等式，不再只是抽象独立性或协方差结论；但从该密度积分出半径平方的 CDF，以及把它接到
-  本项目 `ComplexSample (1×1)` 的能量随机变量，仍需继续形式化。
+  等式，不再只是抽象独立性或协方差结论；从该密度积分出半径平方的 CDF 仍需继续形式化。
+- 上一项的样本连接现已完成：`centralScalarToComplex` 是 `ComplexSample (1×1)` 到 `ℂ`
+  的线性等距等价；标准高斯在该等价下映到 `stdGaussian ℂ`，且样本能量逐点等于
+  `‖z‖²/2`。因此 `centralScalarSampleEnergy_map_eq_radialGaussianEnergy` 已将真实的
+  `1×1` Gram 能量分布精确归约到上面的复平面径向高斯测度。尚缺的正是圆盘内密度积分，
+  也就是把这条归约闭合为指数 CDF 定理。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
 密度或联合特征值密度；Theorem 1 的公式侧已编码，但还没有 CDF 等式证明，Theorem 2–4

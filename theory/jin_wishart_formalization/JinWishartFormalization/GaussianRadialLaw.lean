@@ -1,5 +1,6 @@
 import Mathlib.Probability.Distributions.Gaussian.Multivariate
 import Mathlib.MeasureTheory.Measure.Lebesgue.Complex
+import JinWishartFormalization.WishartProbability
 
 open MeasureTheory ProbabilityTheory
 open scoped ENNReal
@@ -94,5 +95,49 @@ theorem stdGaussian_complex_eq_radialDensity :
   congr 1
   funext z
   exact gaussianPDF_complex_coordinates_eq_radial z
+
+noncomputable def centralScalarIndexEquiv :
+    ((Fin 1 × Fin 1) × Fin 2) ≃ Fin 2 where
+  toFun := Prod.snd
+  invFun i := ((0, 0), i)
+  left_inv := by
+    rintro ⟨⟨i, j⟩, k⟩
+    fin_cases i
+    fin_cases j
+    rfl
+  right_inv := by intro i; rfl
+
+noncomputable def centralScalarToComplex :
+    ComplexSample (m := 1) (n := 1) ≃ₗᵢ[ℝ] ℂ :=
+  (LinearIsometryEquiv.piLpCongrLeft 2 ℝ ℝ centralScalarIndexEquiv).trans
+    Complex.orthonormalBasisOneI.repr.symm
+
+theorem stdGaussian_map_centralScalarToComplex :
+    (stdGaussian (ComplexSample (m := 1) (n := 1))).map centralScalarToComplex =
+      stdGaussian ℂ :=
+  stdGaussian_map centralScalarToComplex
+
+theorem centralScalarEnergy_eq_complexNorm
+    (x : ComplexSample (m := 1) (n := 1)) :
+    centralScalarSampleEnergy x = ‖centralScalarToComplex x‖ ^ 2 / 2 := by
+  have hcoord : centralScalarToComplex x =
+      (x ((0, 0), 0) : ℂ) + (x ((0, 0), 1) : ℂ) * Complex.I := by
+    simp [centralScalarToComplex, centralScalarIndexEquiv,
+      LinearIsometryEquiv.piLpCongrLeft_apply,
+      Complex.orthonormalBasisOneI_repr_symm_apply, Equiv.piCongrLeft']
+  rw [hcoord]
+  rw [RCLike.norm_sq_eq_def]
+  simp [centralScalarSampleEnergy, Complex.add_re, Complex.mul_re]
+  ring
+
+theorem centralScalarSampleEnergy_map_eq_radialGaussianEnergy :
+    (stdGaussian (ComplexSample (m := 1) (n := 1))).map centralScalarSampleEnergy =
+      (stdGaussian ℂ).map (fun z : ℂ ↦ ‖z‖ ^ 2 / 2) := by
+  have hfun : centralScalarSampleEnergy =
+      (fun z : ℂ ↦ ‖z‖ ^ 2 / 2) ∘ centralScalarToComplex := by
+    funext x
+    exact centralScalarEnergy_eq_complexNorm x
+  rw [hfun, ← Measure.map_map, stdGaussian_map_centralScalarToComplex]
+  all_goals fun_prop
 
 end JinWishart
