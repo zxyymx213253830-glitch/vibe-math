@@ -75,6 +75,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   环节正式封装了；但它还没有连接到 `stdGaussian`：mathlib 当前将 `stdGaussian` 定义为
   独立一维 Gaussian 的有限乘积经正交基映射，并未直接提供这里所需的二维 Lebesgue 密度
   表达式。因此目前仍不能据此推出中心 `1×1` Wishart 的指数分布。
+- `GaussianRadialLaw.lean` 已补上上述高斯密度桥：利用 `gaussianReal` 的 PDF、有限乘积
+  密度定理、复平面坐标的保体积等价和 mathlib 的 `stdGaussian` 正交基表示，机检证明
+  `stdGaussian ℂ` 等于密度
+  `(2π)⁻¹ exp(-‖z‖²/2)` 对复平面 Lebesgue 测度的加权测度。这是一个真正的样本测度
+  等式，不再只是抽象独立性或协方差结论；但从该密度积分出半径平方的 CDF，以及把它接到
+  本项目 `ComplexSample (1×1)` 的能量随机变量，仍需继续形式化。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
 密度或联合特征值密度；Theorem 1 的公式侧已编码，但还没有 CDF 等式证明，Theorem 2–4
