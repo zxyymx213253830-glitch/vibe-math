@@ -1,4 +1,5 @@
 import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+import Mathlib.MeasureTheory.Integral.Layercake
 
 /-!
 # MIMO scalar-SNR performance identities
@@ -9,6 +10,7 @@ results below do not by themselves establish the Wishart outage formula.
 -/
 
 open MeasureTheory
+open Set
 
 namespace JinWishart
 
@@ -53,5 +55,19 @@ theorem strictOutageProbability_eq_strictStatisticCDF {Ω : Type*} [MeasurableSp
   simp only [Set.mem_ofPred_eq]
   rw [lt_div_iff₀ hscale]
   simp [mul_comm]
+
+/-- Layer-cake form of an averaged increasing error kernel: if `G(z)=∫₀ᶻ g(t)dt`,
+then its expectation is a tail-probability integral. This is the measure-theoretic step
+used when converting an average SER kernel into a CDF integral; the Gaussian-Q identity
+and its concrete derivative kernel must still be supplied separately. -/
+theorem meanIntegratedKernel_eq_tailIntegral {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (f : Ω → ℝ) (g : ℝ → ℝ)
+    (hf_nonneg : 0 ≤ᵐ[μ] f) (hf_aemeasurable : AEMeasurable f μ)
+    (hg_intervalIntegrable : ∀ t > 0, IntervalIntegrable g volume 0 t)
+    (hg_nonneg : ∀ᵐ t ∂volume.restrict (Ioi 0), 0 ≤ g t) :
+    ∫⁻ ω, ENNReal.ofReal (∫ t in (0 : ℝ)..f ω, g t) ∂μ =
+      ∫⁻ t in Ioi 0, μ {ω | t < f ω} * ENNReal.ofReal (g t) :=
+  lintegral_comp_eq_lintegral_meas_lt_mul μ hf_nonneg hf_aemeasurable
+    hg_intervalIntegrable hg_nonneg
 
 end JinWishart
