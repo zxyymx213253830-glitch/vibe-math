@@ -66,9 +66,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - 已处理 Theorem 1 的中心标量特例 `s=1, L=0`：形式化了归一化行列式为
   `(t-1)!`、其非零性，以及 `x≥0` 时候选 CDF 化为归一化的整数 Gamma 有限和。
   对最小 `1×1` 样本进一步证明，该候选式等于 mathlib 单位率指数分布的 CDF；同时已将
-  `1×1` 中心 Gram 的唯一特征值化为两个实高斯坐标平方和的一半。这两条仍未连接成
-  分布等式：这一缺口现已在 `GaussianRadialCDF.lean` 对 `1×1` 样本闭合，证明真实最小
-  特征值 CDF 与 Theorem 1 公式候选相等。一般 `t` 下坐标能量和的 Gamma 分布仍未证明。
+  `1×1` 中心 Gram 的唯一特征值化为两个实高斯坐标平方和的一半。`GaussianRadialCDF.lean`
+  已闭合分布等式，证明真实最小特征值 CDF 与 Theorem 1 公式候选相等。一般 `t` 下
+  坐标能量和的 Gamma 分布仍未证明。
+- `GaussianRadialCDF.lean` 也已闭合 Theorem 2 的中心 `1×1` 特例：公式候选在 `x≥0`
+  等于指数 CDF，并进一步等于 Wishart 测度下实际最大特征值弱事件 `P(λmax≤x)`。
+  这一步直接处理弱事件，没有假设尚未证明的无原子性；更高维 Theorem 2 仍未完成。
 - `RadialIntegration.lean` 将 mathlib 的 `MeasureTheory.integral_fun_norm_addHaar`
   特化到复平面，机检得到
   `∫_{ℂ} f(‖z‖) dz = 2π ∫₀∞ r f(r) dr`。这把“二维径向积分”

@@ -207,6 +207,55 @@ theorem centralScalarSmallestEigenvalue_map_eq_expMeasure :
     exact centralScalarSampleSmallestEigenvalue_eq_energy x
   rw [hfun, centralScalarSampleEnergy_map_eq_expMeasure]
 
+/-- The actual largest-eigenvalue event of the central `1 × 1` Wishart law is
+the exponential sublevel event. This uses the weak CDF event (`≤`), so it does
+not rely on exchanging strict and weak probabilities by an unproved
+atomlessness claim. -/
+theorem centralScalarLargestEigenvalueCdf_eq_expMeasure (x : ℝ) :
+    complexNoncentralWishartLargestEigenvalueCdf
+        (m := 1) (n := 1) (0 : Matrix (Fin 1) (Fin 1) ℂ) x =
+      expMeasure 1 (Iic x) := by
+  rw [complexNoncentralWishartLargestEigenvalueCdf, complexNoncentralWishart]
+  rw [Measure.map_apply (measurable_shiftedComplexSampleGram (M :=
+    (0 : Matrix (Fin 1) (Fin 1) ℂ))) (measurableSet_largestEigenvalueCdfEvent x)]
+  have hpre :
+      (fun y : ComplexSample (m := 1) (n := 1) ↦
+        complexGram (complexSampleMatrix y + (0 : Matrix (Fin 1) (Fin 1) ℂ))) ⁻¹'
+          largestEigenvalueCdfEvent x =
+        centralScalarSampleEnergy ⁻¹' Iic x := by
+    ext y
+    let hW := (complexGram_posSemidef (complexSampleMatrix y)).1
+    have hidx : smallestEigenvalue₀Index (n := 1) (by norm_num) =
+        (⟨0, by norm_num⟩ : Fin (Fintype.card (Fin 1))) := by
+      apply Fin.ext
+      simp [smallestEigenvalue₀Index]
+    have hmin : hW.eigenvalues₀
+        (smallestEigenvalue₀Index (n := 1) (by norm_num)) =
+        centralScalarSampleEnergy y := by
+      simpa [hW, complexNoncentralSampleSmallestEigenvalue, add_zero] using
+        centralScalarSampleSmallestEigenvalue_eq_energy y
+    have hmax : hW.eigenvalues₀ (⟨0, by norm_num⟩ : Fin (Fintype.card (Fin 1))) =
+        centralScalarSampleEnergy y := by
+      rw [← hidx]
+      exact hmin
+    simp only [Set.mem_preimage]
+    simp only [add_zero]
+    change complexGram (complexSampleMatrix y) ∈ largestEigenvalueCdfEvent x ↔
+      centralScalarSampleEnergy y ∈ Iic x
+    rw [largestEigenvalueCdfEvent_iff_largest_eigenvalue₀_le
+      _ hW (by norm_num) x]
+    simp only [add_zero, hmax, Set.mem_preimage, Set.mem_Iic]
+  rw [hpre]
+  have hfun : centralScalarSampleEnergy =
+      complexGaussianEnergy ∘ centralScalarToComplex := by
+    funext y
+    exact centralScalarEnergy_eq_complexNorm y
+  have hmeas : Measurable centralScalarSampleEnergy := by
+    rw [hfun]
+    exact measurable_complexGaussianEnergy.comp centralScalarToComplex.continuous.measurable
+  rw [← Measure.map_apply hmeas measurableSet_Iic,
+    centralScalarSampleEnergy_map_eq_expMeasure]
+
 /-- The CDF in the one-sample central scalar specialization of the paper's
 formula is now identified with the actual Gaussian sample's weakest eigenvalue
 CDF. -/
@@ -219,5 +268,43 @@ theorem theorem1CentralScalarOneSample_eq_sampleSmallestEigenvalueCDF
           (by norm_num))) x := by
   rw [theorem1CentralScalarOneSample_eq_exponentialCDF x hx,
     centralScalarSmallestEigenvalue_map_eq_expMeasure]
+
+/-- Theorem 2's one-dimensional central specialization reduces to the same
+unit-rate exponential CDF. In dimension one, the largest and smallest
+eigenvalues coincide. -/
+theorem theorem2CentralScalarOneSample_eq_exponentialCDF (x : ℝ) (hx : 0 ≤ x) :
+    theorem2CdfCandidate 1 1 0 (by omega) (by omega)
+      (fun j : Fin 0 => Fin.elim0 j) x = cdf (expMeasure 1) x := by
+  rw [theorem2CdfCandidate]
+  rw [cdf_expMeasure_eq (r := 1) (by norm_num) x]
+  simp [theorem2XiMatrix, theorem2XiEntry, theorem1PsiMatrix,
+    theorem1PsiEntry, theorem1GammaIndex, upperGammaNat_zero,
+    partialGamma_one, hx]
+  have hnonneg : 0 ≤ 1 - Real.exp (-x) := by
+    have he : Real.exp (-x) ≤ 1 :=
+      Real.exp_le_one_iff.mpr (by linarith)
+    linarith
+  rw [show (1 : ℂ) - Complex.exp (-(x : ℂ)) =
+      ((1 - Real.exp (-x) : ℝ) : ℂ) by push_cast; simp]
+  rw [Complex.norm_of_nonneg hnonneg]
+
+/-- Theorem 2's central scalar formula equals the probability of the actual
+largest-eigenvalue weak-CDF event under the `1 × 1` complex Wishart model. -/
+theorem theorem2CentralScalarOneSample_eq_largestEigenvalueEvent
+    (x : ℝ) (hx : 0 ≤ x) :
+    ENNReal.ofReal
+        (theorem2CdfCandidate 1 1 0 (by omega) (by omega)
+          (fun j : Fin 0 => Fin.elim0 j) x) =
+      complexNoncentralWishartLargestEigenvalueCdf
+        (m := 1) (n := 1) (0 : Matrix (Fin 1) (Fin 1) ℂ) x := by
+  haveI : IsProbabilityMeasure (expMeasure 1) :=
+    isProbabilityMeasure_expMeasure (by norm_num)
+  rw [theorem2CentralScalarOneSample_eq_exponentialCDF x hx]
+  calc
+    ENNReal.ofReal (cdf (expMeasure 1) x) = expMeasure 1 (Iic x) :=
+      ofReal_cdf _ _
+    _ = complexNoncentralWishartLargestEigenvalueCdf
+        (m := 1) (n := 1) (0 : Matrix (Fin 1) (Fin 1) ℂ) x :=
+      (centralScalarLargestEigenvalueCdf_eq_expMeasure x).symm
 
 end JinWishart
