@@ -17,7 +17,16 @@ namespace JinWishart
 
 /-- Modified Bessel function `I_q` at natural (hence nonnegative integer) order. -/
 noncomputable def modifiedBesselI (q : ℕ) (z : ℂ) : ℂ :=
-  (-Complex.I) ^ q * Complex.besselJ (q : ℂ) (Complex.I * z)
+  (-Complex.I) ^ q * Complex.besselJ ((q : ℤ) : ℂ) (Complex.I * z)
+
+@[fun_prop]
+theorem continuous_modifiedBesselI (q : ℕ) :
+    Continuous (modifiedBesselI q) := by
+  unfold modifiedBesselI
+  have hJ : Continuous (Complex.besselJ ((q : ℤ) : ℂ)) := by
+    exact continuous_iff_continuousAt.mpr fun z =>
+      (Complex.analyticAt_besselJ_int (q : ℤ) z).continuousAt
+  exact continuous_const.mul (hJ.comp (by fun_prop))
 
 @[simp]
 theorem modifiedBesselI_zero (q : ℕ) :
@@ -31,6 +40,11 @@ theorem modifiedBesselI_zero (q : ℕ) :
 noncomputable def nuttallQIntegrand (p q : ℕ) (a t : ℝ) : ℂ :=
   (t : ℂ) ^ p * (Real.exp (-((t ^ 2 + a ^ 2) / 2)) : ℂ) *
     modifiedBesselI q ((a * t : ℝ) : ℂ)
+
+@[fun_prop]
+theorem continuous_nuttallQIntegrand (p q : ℕ) (a : ℝ) :
+    Continuous (fun t : ℝ => nuttallQIntegrand p q a t) := by
+  fun_prop [nuttallQIntegrand]
 
 /-- Nuttall Q as the improper integral of its defining kernel. -/
 noncomputable def nuttallQ (p q : ℕ) (a b : ℝ) : ℂ :=
