@@ -135,4 +135,23 @@ theorem upperGammaNat_eq_finite (k : ℕ) {x : ℝ} (hx : 0 ≤ x) :
       rw [hpow]
       ring_nf
 
+/-- At zero threshold, integer-shape upper Gamma is the factorial normalization. -/
+theorem upperGammaNat_at_zero_eq_factorial (k : ℕ) :
+    upperGammaNat k 0 = (Nat.factorial k : ℂ) := by
+  have hsum : ∀ n : ℕ,
+      (∑ j ∈ Finset.range (n + 1),
+        (0 : ℂ) ^ j / (Nat.factorial j : ℂ)) = 1 := by
+    intro n
+    induction n with
+    | zero => simp
+    | succ n ih =>
+        simp [Finset.sum_range_succ, ih]
+  rw [upperGammaNat_eq_finite k (by norm_num : 0 ≤ (0 : ℝ))]
+  simp [upperGammaNatFinite, hsum]
+
+/-- The integer-shape upper-Gamma normalization is never zero. -/
+theorem upperGammaNat_at_zero_ne_zero (k : ℕ) : upperGammaNat k 0 ≠ 0 := by
+  rw [upperGammaNat_at_zero_eq_factorial]
+  exact_mod_cast Nat.factorial_ne_zero k
+
 end JinWishart

@@ -14,6 +14,13 @@ open Matrix MeasureTheory Set
 
 namespace JinWishart
 
+/-- The nonzero eigenvalues of the noncentrality matrix, in the order required by
+Theorem 1 and Theorem 2. This packages the paper's strict ordering and positivity hypotheses. -/
+structure OrderedPositiveNoncentralSpectrum (L : ℕ) where
+  values : Fin L → ℝ
+  positive : ∀ j, 0 < values j
+  strictAnti : StrictAnti values
+
 /-- Nuttall-Q first index in the `i`th (one-based) row of Theorem 1. -/
 def theorem1QOrder (s t : ℕ) (i : Fin s) : ℕ :=
   s + t - 2 * (i.val + 1) + 1
@@ -75,6 +82,29 @@ noncomputable def theorem2CdfCandidate (s t L : ℕ) (hst : s ≤ t) (hLs : L �
     (lambda : Fin L → ℝ) (x : ℝ) : ℝ :=
   ‖(theorem2XiMatrix s t L hst hLs lambda x).det‖ /
     ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖
+
+/-- Theorem 1 matrix candidate with the positivity and ordering assumptions on `lambda`
+carried as data instead of left implicit at the call site. -/
+noncomputable def theorem1PsiMatrixOfSpectrum (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+    (spectrum : OrderedPositiveNoncentralSpectrum L) (x : ℝ) : Matrix (Fin s) (Fin s) ℂ :=
+  theorem1PsiMatrix s t L hst hLs spectrum.values x
+
+/-- Theorem 1 scalar determinant candidate on a validated noncentral spectrum. -/
+noncomputable def theorem1CdfCandidateOfSpectrum (s t L : ℕ)
+    (hst : s ≤ t) (hLs : L ≤ s) (spectrum : OrderedPositiveNoncentralSpectrum L)
+    (x : ℝ) : ℝ :=
+  theorem1CdfCandidate s t L hst hLs spectrum.values x
+
+/-- Theorem 2 matrix candidate on a validated noncentral spectrum. -/
+noncomputable def theorem2XiMatrixOfSpectrum (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+    (spectrum : OrderedPositiveNoncentralSpectrum L) (x : ℝ) : Matrix (Fin s) (Fin s) ℂ :=
+  theorem2XiMatrix s t L hst hLs spectrum.values x
+
+/-- Theorem 2 scalar determinant candidate on a validated noncentral spectrum. -/
+noncomputable def theorem2CdfCandidateOfSpectrum (s t L : ℕ)
+    (hst : s ≤ t) (hLs : L ≤ s) (spectrum : OrderedPositiveNoncentralSpectrum L)
+    (x : ℝ) : ℝ :=
+  theorem2CdfCandidate s t L hst hLs spectrum.values x
 
 /-- Entrywise relation behind the passage from the smallest-eigenvalue tail determinant
 to the largest-eigenvalue CDF determinant: `Ξ(x) = Ψ(0) - Ψ(x)`. -/
@@ -151,5 +181,73 @@ theorem theorem1CdfCandidate_zero
     (hden : ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖ ≠ 0) :
     theorem1CdfCandidate s t L hst hLs lambda 0 = 0 := by
   simp [theorem1CdfCandidate, hden]
+
+/-- The validated-spectrum versions preserve the entrywise relation between the two matrices. -/
+theorem theorem2XiMatrixOfSpectrum_add_theorem1PsiMatrixOfSpectrum
+    (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+    (spectrum : OrderedPositiveNoncentralSpectrum L) (x : ℝ) :
+    theorem2XiMatrixOfSpectrum s t L hst hLs spectrum x +
+        theorem1PsiMatrixOfSpectrum s t L hst hLs spectrum x =
+      theorem1PsiMatrixOfSpectrum s t L hst hLs spectrum 0 := by
+  exact theorem2XiMatrix_add_theorem1PsiMatrix s t L hst hLs spectrum.values x
+
+/-- Theorem 2's validated-spectrum candidate vanishes at zero threshold in positive dimension. -/
+theorem theorem2CdfCandidateOfSpectrum_zero
+    (s t L : ℕ) [Nonempty (Fin s)] (hst : s ≤ t) (hLs : L ≤ s)
+    (spectrum : OrderedPositiveNoncentralSpectrum L) :
+    theorem2CdfCandidateOfSpectrum s t L hst hLs spectrum 0 = 0 := by
+  exact theorem2CdfCandidate_zero s t L hst hLs spectrum.values
+
+/-- Theorem 1's validated-spectrum candidate vanishes at zero threshold provided
+the normalizing determinant is nonzero. -/
+theorem theorem1CdfCandidateOfSpectrum_zero
+    (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+    (spectrum : OrderedPositiveNoncentralSpectrum L)
+    (hden : ‖(theorem1PsiMatrixOfSpectrum s t L hst hLs spectrum 0).det‖ ≠ 0) :
+    theorem1CdfCandidateOfSpectrum s t L hst hLs spectrum 0 = 0 := by
+  exact theorem1CdfCandidate_zero s t L hst hLs spectrum.values (by
+    simpa [theorem1PsiMatrixOfSpectrum] using hden)
+
+/-- In the scalar central case (`s=1`, `L=0`), the normalization determinant in
+Theorem 1 reduces to `Γ(t)=(t-1)!`. -/
+theorem theorem1CentralScalarPsiDet (t : ℕ) (ht : 1 ≤ t) :
+    (theorem1PsiMatrix 1 t 0 ht (by omega) (fun j : Fin 0 => Fin.elim0 j) 0).det =
+      (Nat.factorial (t - 1) : ℂ) := by
+  rw [Matrix.det_fin_one]
+  change theorem1PsiEntry 1 t 0 ht (by omega) (fun j : Fin 0 => Fin.elim0 j)
+      0 0 0 = _
+  simp [theorem1PsiEntry, theorem1GammaIndex, upperGammaNat_at_zero_eq_factorial]
+
+/-- Consequently, the Theorem 1 normalizing determinant is nonzero in this scalar
+central case. -/
+theorem theorem1CentralScalarPsiDet_norm_ne_zero (t : ℕ) (ht : 1 ≤ t) :
+    ‖(theorem1PsiMatrix 1 t 0 ht (by omega)
+      (fun j : Fin 0 => Fin.elim0 j) 0).det‖ ≠ 0 := by
+  rw [theorem1CentralScalarPsiDet t ht]
+  exact_mod_cast Nat.factorial_ne_zero (t - 1)
+
+/-- In the central scalar case the candidate reduces to the normalized integer-Gamma
+finite sum. This is the exact formula-side specialization; identifying it with the CDF of
+the Gaussian Gram random variable remains a separate distribution proof. -/
+theorem theorem1CentralScalarCdfCandidate_eq_finite (t : ℕ) (ht : 1 ≤ t)
+    (x : ℝ) (hx : 0 ≤ x) :
+    theorem1CdfCandidate 1 t 0 ht (by omega) (fun j : Fin 0 => Fin.elim0 j) x =
+      1 - ‖upperGammaNatFinite (t - 1) x‖ / (Nat.factorial (t - 1) : ℝ) := by
+  have hdetx :
+      (theorem1PsiMatrix 1 t 0 ht (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det =
+        upperGammaNat (t - 1) x := by
+    rw [Matrix.det_fin_one]
+    change theorem1PsiEntry 1 t 0 ht (by omega) (fun j : Fin 0 => Fin.elim0 j)
+      0 0 x = _
+    simp [theorem1PsiEntry, theorem1GammaIndex]
+  rw [theorem1CdfCandidate, hdetx, theorem1CentralScalarPsiDet t ht,
+    upperGammaNat_eq_finite (t - 1) hx]
+  simp
+
+/-- Theorem 1's candidate is correctly normalized at zero for the scalar central case. -/
+theorem theorem1CentralScalarCdfCandidate_zero (t : ℕ) (ht : 1 ≤ t) :
+    theorem1CdfCandidate 1 t 0 ht (by omega) (fun j : Fin 0 => Fin.elim0 j) 0 = 0 := by
+  apply theorem1CdfCandidate_zero
+  exact theorem1CentralScalarPsiDet_norm_ne_zero t ht
 
 end JinWishart
