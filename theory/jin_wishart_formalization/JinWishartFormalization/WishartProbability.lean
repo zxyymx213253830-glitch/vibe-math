@@ -145,10 +145,45 @@ theorem complexNoncentralWishart_measure_posSemidef (M : Matrix (Fin m) (Fin n) 
   rw [hpre, measure_univ]
 
 /-- Event that a matrix lies above threshold `x` in Loewner order, encoded as a shifted PSD cone.
-`[需人工审查]` The intended equivalence with `λ_min ≥ x` for Hermitian matrices follows from
-the spectral theorem, but that equivalence is not yet a Lean theorem in this project. -/
+For Hermitian matrices, `smallestEigenvalueTailEvent_iff_eigenvalues_ge` proves that this is
+equivalent to every eigenvalue being at least `x`. Relating this to the final entry of the ordered
+eigenvalue list still requires a separate indexing lemma. -/
 def smallestEigenvalueTailEvent (x : ℝ) : Set (Matrix (Fin n) (Fin n) ℂ) :=
   {W | (W - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef}
+
+/-- Spectral characterization of the shifted-PSD event. -/
+theorem smallestEigenvalueTailEvent_iff_eigenvalues_ge
+    (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.IsHermitian) (x : ℝ) :
+    W ∈ smallestEigenvalueTailEvent x ↔ ∀ i, x ≤ hW.eigenvalues i := by
+  change (W - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef ↔ _
+  let U := hW.eigenvectorUnitary
+  let D : Matrix (Fin n) (Fin n) ℂ := diagonal (Complex.ofReal ∘ hW.eigenvalues)
+  let Φ := Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ) U
+  have hspec : W = Φ D := by
+    simpa [Φ, U, D] using hW.spectral_theorem
+  have hmap : Φ D - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) =
+      Φ (D - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)) := by
+    rw [map_sub]
+    rw [map_smul, map_one]
+  have hdiag : D - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) =
+      diagonal (fun i => Complex.ofReal (hW.eigenvalues i - x)) := by
+    ext i j
+    by_cases hij : i = j
+    · subst j
+      simp [D, Complex.ofReal_sub]
+    · simp [D, hij]
+  calc
+    W ∈ smallestEigenvalueTailEvent x ↔
+        (Φ D - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef := by
+      change (W - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef ↔ _
+      rw [hspec]
+    _ ↔ (D - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef := by
+      rw [hmap]
+      simp only [Φ, Unitary.conjStarAlgAut_apply]
+      exact (Unitary.isUnit_coe (U := U)).posSemidef_star_right_conjugate_iff
+    _ ↔ ∀ i, x ≤ hW.eigenvalues i := by
+      rw [hdiag, Matrix.posSemidef_diagonal_iff]
+      simp only [Complex.zero_le_real, sub_nonneg]
 
 theorem measurableSet_smallestEigenvalueTailEvent (x : ℝ) :
     MeasurableSet (smallestEigenvalueTailEvent (n := n) x) := by
@@ -158,9 +193,9 @@ theorem measurableSet_smallestEigenvalueTailEvent (x : ℝ) :
     fun_prop
   exact Matrix.posSemidef_is_closed.measurableSet.preimage hmap
 
-/-- Probability of the measurable shifted-PSD event. It is intended to represent
-`P(λ_min ≥ x)`; the spectral equivalence is `[需人工审查]` until formalized. Consequently,
-turning its complement into the paper's `≤` CDF also requires a no-atoms proof. -/
+/-- Probability of the measurable shifted-PSD event. For `n > 0`, it represents
+`P(λ_min ≥ x)` once the ordered-eigenvalue endpoint indexing is connected. Turning its complement
+into the paper's `≤` CDF also requires a no-atoms proof. -/
 noncomputable def complexNoncentralWishartSmallestEigenvalueTail
     (M : Matrix (Fin m) (Fin n) ℂ) (x : ℝ) : ENNReal :=
   complexNoncentralWishart (m := m) (n := n) M (smallestEigenvalueTailEvent x)
