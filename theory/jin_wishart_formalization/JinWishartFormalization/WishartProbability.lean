@@ -388,6 +388,43 @@ theorem complexNoncentralWishartSmallestEigenvalueTail_zero
   simpa [complexNoncentralWishartSmallestEigenvalueTail, smallestEigenvalueTailEvent] using
     complexNoncentralWishart_measure_posSemidef (m := m) (n := n) M
 
+/-- The strict CDF of the sample least eigenvalue is the complement of the
+Wishart shifted-PSD tail event. This is an exact pushforward identity; converting
+the strict CDF to the weak CDF still requires showing the level set is null. -/
+theorem complexNoncentralSampleSmallestEigenvalue_strictCDF_eq_one_sub_tail
+    (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0 < n) (x : ℝ) :
+    stdGaussian (ComplexSample (m := m) (n := n))
+        {z | complexNoncentralSampleSmallestEigenvalue M hn z < x} =
+      1 - complexNoncentralWishartSmallestEigenvalueTail M x := by
+  let G : ComplexSample (m := m) (n := n) → Matrix (Fin n) (Fin n) ℂ :=
+    fun z => complexGram (complexSampleMatrix z + M)
+  have hG : Measurable G := measurable_shiftedComplexSampleGram M
+  have hpre : {z | complexNoncentralSampleSmallestEigenvalue M hn z < x} =
+      (G ⁻¹' smallestEigenvalueTailEvent x)ᶜ := by
+    ext z
+    have hspec := smallestEigenvalueTailEvent_iff_smallest_eigenvalue₀_ge
+      (G z) (complexGram_posSemidef (complexSampleMatrix z + M)).1
+      (by simpa using hn) x
+    change complexNoncentralSampleSmallestEigenvalue M hn z < x ↔ _
+    change complexNoncentralSampleSmallestEigenvalue M hn z < x ↔
+      G z ∉ smallestEigenvalueTailEvent x
+    rw [hspec]
+    exact lt_iff_not_ge
+  have hmeas : MeasurableSet (smallestEigenvalueTailEvent x) :=
+    measurableSet_smallestEigenvalueTailEvent (n := n) x
+  calc
+    stdGaussian (ComplexSample (m := m) (n := n))
+        {z | complexNoncentralSampleSmallestEigenvalue M hn z < x} =
+      stdGaussian (ComplexSample (m := m) (n := n))
+        (G ⁻¹' smallestEigenvalueTailEvent x)ᶜ := by rw [hpre]
+    _ = 1 - stdGaussian (ComplexSample (m := m) (n := n))
+        (G ⁻¹' smallestEigenvalueTailEvent x) := by
+          rw [measure_compl (hmeas.preimage hG) (measure_ne_top _ _)]
+          simp
+    _ = 1 - complexNoncentralWishartSmallestEigenvalueTail M x := by
+          rw [complexNoncentralWishartSmallestEigenvalueTail,
+            complexNoncentralWishart, Measure.map_apply hG hmeas]
+
 /-- A real Gaussian sample matrix is represented by a vector in a finite-dimensional Euclidean
 space, avoiding the need to equip the raw matrix type with an inner-product structure. -/
 abbrev Sample := EuclideanSpace ℝ (Fin m × Fin n)
