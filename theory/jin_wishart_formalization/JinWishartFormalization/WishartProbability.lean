@@ -145,9 +145,8 @@ theorem complexNoncentralWishart_measure_posSemidef (M : Matrix (Fin m) (Fin n) 
   rw [hpre, measure_univ]
 
 /-- Event that a matrix lies above threshold `x` in Loewner order, encoded as a shifted PSD cone.
-For Hermitian matrices, `smallestEigenvalueTailEvent_iff_eigenvalues_ge` proves that this is
-equivalent to every eigenvalue being at least `x`. Relating this to the final entry of the ordered
-eigenvalue list still requires a separate indexing lemma. -/
+For Hermitian matrices, the theorems below identify this with a lower bound on every eigenvalue
+and, in nonzero dimension, with a lower bound on the final entry of the descending eigenvalue list. -/
 def smallestEigenvalueTailEvent (x : ℝ) : Set (Matrix (Fin n) (Fin n) ℂ) :=
   {W | (W - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef}
 
@@ -185,6 +184,56 @@ theorem smallestEigenvalueTailEvent_iff_eigenvalues_ge
       rw [hdiag, Matrix.posSemidef_diagonal_iff]
       simp only [Complex.zero_le_real, sub_nonneg]
 
+/-- Reindex the all-eigenvalues condition through mathlib's canonical descending list. -/
+theorem all_eigenvalues_ge_iff_eigenvalues₀_ge
+    (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.IsHermitian) (x : ℝ) :
+    (∀ i : Fin n, x ≤ hW.eigenvalues i) ↔
+      ∀ i : Fin (Fintype.card (Fin n)), x ≤ hW.eigenvalues₀ i := by
+  let e : Fin n ≃ Fin (Fintype.card (Fin n)) :=
+    (Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))).symm
+  constructor
+  · intro h i
+    have hi := h (e.symm i)
+    simpa [e, Matrix.IsHermitian.eigenvalues] using hi
+  · intro h i
+    have hi := h (e i)
+    simpa [e, Matrix.IsHermitian.eigenvalues] using hi
+
+/-- The shifted-PSD event is exactly a lower bound on the full descending eigenvalue list. -/
+theorem smallestEigenvalueTailEvent_iff_eigenvalues₀_ge
+    (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.IsHermitian) (x : ℝ) :
+    W ∈ smallestEigenvalueTailEvent x ↔
+      ∀ i : Fin (Fintype.card (Fin n)), x ≤ hW.eigenvalues₀ i :=
+  (smallestEigenvalueTailEvent_iff_eigenvalues_ge W hW x).trans
+    (all_eigenvalues_ge_iff_eigenvalues₀_ge W hW x)
+
+private theorem forall_fin_ge_iff_max {N : ℕ} (f : Fin N → ℝ) (hf : Antitone f)
+    (imax : Fin N) (hmax : ∀ i, i ≤ imax) (x : ℝ) :
+    (∀ i, x ≤ f i) ↔ x ≤ f imax := by
+  constructor
+  · intro h
+    exact h imax
+  · intro h i
+    exact le_trans h (hf (hmax i))
+
+/-- For a nonempty matrix, the event is equivalent to a bound on the smallest
+entry of mathlib's descending eigenvalue list (`Fin.last`). -/
+theorem smallestEigenvalueTailEvent_iff_smallest_eigenvalue₀_ge
+    (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.IsHermitian)
+    (hN : 0 < Fintype.card (Fin n)) (x : ℝ) :
+    W ∈ smallestEigenvalueTailEvent x ↔
+      x ≤ hW.eigenvalues₀
+        (Fin.cast (Nat.sub_add_cancel hN) (Fin.last (Fintype.card (Fin n) - 1))) := by
+  rw [smallestEigenvalueTailEvent_iff_eigenvalues₀_ge]
+  let N := Fintype.card (Fin n)
+  let imax : Fin N := Fin.cast (Nat.sub_add_cancel hN) (Fin.last (N - 1))
+  have hmax : ∀ i : Fin N, i ≤ imax := by
+    intro i
+    apply Fin.le_iff_val_le_val.mpr
+    simp [imax]
+    omega
+  exact forall_fin_ge_iff_max hW.eigenvalues₀ hW.eigenvalues₀_antitone imax hmax x
+
 theorem measurableSet_smallestEigenvalueTailEvent (x : ℝ) :
     MeasurableSet (smallestEigenvalueTailEvent (n := n) x) := by
   have hmap : Measurable
@@ -193,9 +242,9 @@ theorem measurableSet_smallestEigenvalueTailEvent (x : ℝ) :
     fun_prop
   exact Matrix.posSemidef_is_closed.measurableSet.preimage hmap
 
-/-- Probability of the measurable shifted-PSD event. For `n > 0`, it represents
-`P(λ_min ≥ x)` once the ordered-eigenvalue endpoint indexing is connected. Turning its complement
-into the paper's `≤` CDF also requires a no-atoms proof. -/
+/-- Probability of the measurable shifted-PSD event. For `n > 0`, the spectral theorem above
+identifies it with `P(λ_min ≥ x)`. Turning its complement into the paper's `≤` CDF still requires
+a no-atoms proof. -/
 noncomputable def complexNoncentralWishartSmallestEigenvalueTail
     (M : Matrix (Fin m) (Fin n) ℂ) (x : ℝ) : ENNReal :=
   complexNoncentralWishart (m := m) (n := n) M (smallestEigenvalueTailEvent x)
