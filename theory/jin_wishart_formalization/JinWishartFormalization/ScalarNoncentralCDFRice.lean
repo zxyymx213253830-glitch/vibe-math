@@ -56,6 +56,62 @@ theorem noncentralScalarCDF_eq_nuttallQ_difference
   exact (nuttallQ_10_zero_sub_eq_riceIntegral
     ‖complexSampleMean M‖ (Real.sqrt (2 * x)) (Real.sqrt_nonneg _) hint).symm
 
+/-- The `(1,0)` Nuttall-Q tail is the complex embedding of a real Rice
+tail integral. -/
+theorem nuttallQ_10_eq_realRiceTail (a b : ℝ) :
+    nuttallQ 1 0 a b =
+      ((∫ t in Ioi b, riceRadialKernel a t : ℝ) : ℂ) := by
+  unfold nuttallQ
+  have hpoint (t : ℝ) :
+      nuttallQIntegrand 1 0 a t = (riceRadialKernel a t : ℂ) := by
+    simp only [nuttallQIntegrand, riceRadialKernel, pow_one]
+    rw [← modifiedBesselI_zero_ofReal_eq_realSeries]
+    push_cast
+    ring
+  rw [setIntegral_congr_fun measurableSet_Ioi (fun t _ => hpoint t)]
+  exact integral_complex_ofReal
+
+/-- The Rice radial kernel is nonnegative at positive radii. -/
+theorem riceRadialKernel_nonneg (a t : ℝ) (ht : 0 ≤ t) :
+    0 ≤ riceRadialKernel a t := by
+  unfold riceRadialKernel
+  exact mul_nonneg (mul_nonneg ht (Real.exp_nonneg _))
+    (besselI0RealSeries_nonneg (a * t))
+
+/-- The Nuttall-Q tail is real and nonnegative when its lower cutoff is
+nonnegative. -/
+theorem nuttallQ_10_nonneg_real (a b : ℝ) (hb : 0 ≤ b) :
+    ∃ q : ℝ, 0 ≤ q ∧ nuttallQ 1 0 a b = (q : ℂ) := by
+  refine ⟨∫ t in Ioi b, riceRadialKernel a t, ?_, nuttallQ_10_eq_realRiceTail a b⟩
+  apply setIntegral_nonneg measurableSet_Ioi
+  intro t ht
+  exact riceRadialKernel_nonneg a t (le_trans hb (le_of_lt ht))
+
+/-- Conditional scalar specialization of the paper's Theorem 1. The two
+assumptions are exactly the remaining analytic facts: improper-tail
+integrability and total Rice mass one. -/
+theorem noncentralScalarCDF_eq_theorem1Candidate_of_Q_normalized
+    (M : Matrix (Fin 1) (Fin 1) ℂ) (x : ℝ) (hx : 0 ≤ x)
+    (hint : IntegrableOn
+      (nuttallQIntegrand 1 0 ‖complexSampleMean M‖) (Ioi 0))
+    (hQ : nuttallQ 1 0 ‖complexSampleMean M‖ 0 = 1) :
+    cdf ((stdGaussian (ComplexSample (m := 1) (n := 1))).map
+      (complexNoncentralSampleSmallestEigenvalue M (by norm_num))) x =
+      theorem1CdfCandidate 1 1 1 (by omega) (by omega)
+        (fun _ : Fin 1 => ‖M 0 0‖ ^ 2) x := by
+  let R : ℝ := Real.sqrt (2 * x)
+  obtain ⟨q, hq, hqeq⟩ :=
+    nuttallQ_10_nonneg_real ‖complexSampleMean M‖ R (Real.sqrt_nonneg _)
+  have hdiff := noncentralScalarCDF_eq_nuttallQ_difference M x hx hint
+  rw [hQ, hqeq] at hdiff
+  have hreal :
+      cdf ((stdGaussian (ComplexSample (m := 1) (n := 1))).map
+        (complexNoncentralSampleSmallestEigenvalue M (by norm_num))) x = 1 - q := by
+    apply Complex.ofReal_injective
+    simpa using hdiff
+  rw [theorem1ScalarCandidate_uses_shiftNorm M x, hQ, hqeq]
+  simp [hreal, abs_of_nonneg hq]
+
 end
 
 end JinWishart
