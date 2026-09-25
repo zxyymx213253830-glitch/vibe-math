@@ -149,6 +149,10 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `Theorem2NoncentralScalarFormula.lean` 将 Theorem 2 公式 (19)–(20) 在 `s=t=L=1`
   时化成归一化 Nuttall-Q 增量，随后调用已证明的可积性与总质量结果，得出其候选式
   等于同一真实非中心标量 CDF（`x≥0`）。一般矩阵维数的 Theorem 2 仍未完成。
+- `OrderedEigenvalueCDFRecurrence.lean` 已证明 Theorem 3 公式 (22) 的事件分解原理：
+  对有序可测统计量 `a≤b`，`P(a≤x)=P(b≤x)+P(a≤x<b)`（Lean 中增量事件写为
+  `a≤x ∧ x<b`）；它不需要无原子假设。论文后续的行列式求和式 (23)–(25)
+  尚未形式化，且论文使用的严格排序事件还需相应的零重根/边界质量论证。
 - `ScalarNoncentralNoAtom.lean` 已证明非中心 `1×1` Gram 特征值在每个实数点的概率
   均为零：其等值集在二维高斯样本空间是一个球面，而高斯测度对 Lebesgue 测度绝对连续。
   因此同模块已证明严格次水平集概率等于闭区间 CDF，可用于后续 SER/中断概率的

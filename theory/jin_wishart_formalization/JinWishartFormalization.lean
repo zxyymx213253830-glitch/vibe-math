@@ -34,6 +34,7 @@ import JinWishartFormalization.NuttallQRiceMass
 import JinWishartFormalization.NuttallQRiceNormalization
 import JinWishartFormalization.ScalarNoncentralTheorem1
 import JinWishartFormalization.Theorem2NoncentralScalarFormula
+import JinWishartFormalization.OrderedEigenvalueCDFRecurrence
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
