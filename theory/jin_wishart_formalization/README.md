@@ -131,6 +131,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   可积、`Q₁,₀(a,0)=1`，再与上一项拼接。`Theorem1FullRankDeterminantScaling.lean`
   已证明满秩情形下行缩放因子在 Theorem 1 的行列式比中抵消；它是公式侧代数化简，
   不构成概率分布定理。
+- `ScalarComplexCenterDisk.lean` 已把任意复中心的圆盘高斯积分，经极坐标换元、Fubini
+  和角积分化成一维 Rice 径向积分。`ScalarNoncentralCDFRice.lean` 随后证明真实标量
+  非中心 Wishart CDF 等于该径向积分；在尾核可积的显式假设下，又等于
+  `Q₁,₀(a,0)-Q₁,₀(a,√(2x))`，其中 `a` 是真实高斯均值的范数。两模块均已通过
+  Lean 构建。[需人工审查] 测度换元及 Gaussian 标度与论文约定的对应。尚需无条件
+  可积性与 `Q₁,₀(a,0)=1` 才能闭合非中心 `1×1` 的论文公式。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
 密度或联合特征值密度；Theorem 1 的公式侧已编码，且中心单列特例已有 CDF 等式证明；非中心多列的一般 Theorem 1 与 Theorem 2–4

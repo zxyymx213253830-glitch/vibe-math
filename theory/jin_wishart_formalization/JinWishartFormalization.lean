@@ -27,6 +27,8 @@ import JinWishartFormalization.ScalarComplexCenterAngle
 import JinWishartFormalization.ScalarGaussianComplexBridge
 import JinWishartFormalization.NuttallQRiceSplit
 import JinWishartFormalization.Theorem1FullRankDeterminantScaling
+import JinWishartFormalization.ScalarComplexCenterDisk
+import JinWishartFormalization.ScalarNoncentralCDFRice
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
