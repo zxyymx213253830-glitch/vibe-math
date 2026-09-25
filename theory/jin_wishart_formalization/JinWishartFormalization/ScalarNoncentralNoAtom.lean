@@ -71,4 +71,22 @@ theorem noncentralScalarEigenvalue_noAtom
     rw [hevent]
     exact measure_empty
 
+/-- The scalar noncentral CDF agrees with the strict sublevel probability,
+since its eigenvalue law has no atoms. -/
+theorem noncentralScalarCDF_eq_strictSublevelMass
+    (M : Matrix (Fin 1) (Fin 1) ℂ) (x : ℝ) :
+    cdf ((stdGaussian (ComplexSample (m := 1) (n := 1))).map
+      (complexNoncentralSampleSmallestEigenvalue M (by norm_num))) x =
+      (((stdGaussian (ComplexSample (m := 1) (n := 1))).map
+        (complexNoncentralSampleSmallestEigenvalue M (by norm_num))).real (Iio x)) := by
+  let ν : Measure ℝ := (stdGaussian (ComplexSample (m := 1) (n := 1))).map
+    (complexNoncentralSampleSmallestEigenvalue M (by norm_num))
+  have hset : Iic x = Iio x ∪ {x} := by
+    ext y
+    simp [le_iff_lt_or_eq]
+  rw [cdf_eq_real, measureReal_def, hset,
+    measure_union (by grind) (measurableSet_singleton x)]
+  rw [noncentralScalarEigenvalue_noAtom M x]
+  simp [measureReal_def]
+
 end JinWishart
