@@ -20,6 +20,7 @@ import JinWishartFormalization.BesselI0Series
 import JinWishartFormalization.BesselI0Angle
 import JinWishartFormalization.NoncentralScalarCDF
 import JinWishartFormalization.NuttallQZero
+import JinWishartFormalization.ScalarNoncentralPolar
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
