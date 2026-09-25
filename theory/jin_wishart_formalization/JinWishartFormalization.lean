@@ -38,6 +38,7 @@ import JinWishartFormalization.OrderedEigenvalueCDFRecurrence
 import JinWishartFormalization.OneColumnNoAtom
 import JinWishartFormalization.BesselI1Series
 import JinWishartFormalization.Theorem1SingleColumnTwoRows
+import JinWishartFormalization.OneColumnCDFRecurrence
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)

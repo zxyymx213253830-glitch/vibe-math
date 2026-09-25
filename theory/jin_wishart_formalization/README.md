@@ -156,6 +156,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `OneColumnNoAtom.lean` 将无原子性推广到任意正行数的单列复非中心 Wishart；
   `BesselI1Series.lean` 给出四维径向计算将用到的修正贝塞尔函数 `I₁` 级数。
   二者尚未构成两行单列非中心分布的完整解析证明。
+- `OneColumnCDFRecurrence.lean` 把无原子性用于真实单列 Wishart 特征值律，
+  证明 CDF 的弱阈值事件与严格阈值事件概率相同。单列只有一个特征值，
+  因而这里的有序对递推是退化情形，并未证明多特征值的 Theorem 3。
 - `Theorem1SingleColumnTwoRows.lean` 将 Theorem 1 的 `s=1,t=2,L=1` 公式侧
   化为 `Q_{2,1}` 尾比；目前要求分母非零，尚未证明该候选式等于真实分布。
 - `ScalarNoncentralNoAtom.lean` 已证明非中心 `1×1` Gram 特征值在每个实数点的概率
