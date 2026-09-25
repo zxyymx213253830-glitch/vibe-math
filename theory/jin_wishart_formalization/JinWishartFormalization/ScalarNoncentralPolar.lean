@@ -6,8 +6,9 @@ import JinWishartFormalization.BesselI0Angle
 # Polar-coordinate reduction for a shifted planar Gaussian kernel
 
 This file isolates the geometric polar-coordinate step in the scalar
-noncentral Wishart calculation.  It does not yet evaluate the angular
-integral or identify the translated-ball mass with a Nuttall-Q tail.
+noncentral Wishart calculation and evaluates the angle for a real center.  It
+does not yet handle a general complex center or identify the translated-ball
+mass with a Nuttall-Q tail.
 -/
 
 open MeasureTheory Set
@@ -40,6 +41,45 @@ theorem angularExpIntegral_negPi_pi_eq_zero_twoPi (a : ℝ) :
     simp [Real.cos_add_two_pi]
   have h := hperiodic.intervalIntegral_add_eq (-Real.pi) 0
   convert h using 1 <;> congr 1 <;> ring
+
+/-- The angular part of the real-centered polar Gaussian is exactly the
+order-zero modified Bessel factor. -/
+theorem polarGaussian_angularIntegral_eq_besselI0 (r c : ℝ) :
+    (((∫ θ in (-Real.pi)..Real.pi,
+      Real.exp (-(‖(r : ℂ) * (Real.cos θ + Real.sin θ * Complex.I) -
+        (c : ℂ)‖ ^ 2) / 2)) : ℝ) : ℂ) =
+      (2 * Real.pi : ℂ) *
+        (Real.exp (-((r ^ 2 + c ^ 2) / 2)) : ℂ) *
+          modifiedBesselI 0 ((r * c : ℝ) : ℂ) := by
+  have hpoint (θ : ℝ) :
+      Real.exp (-(‖(r : ℂ) * (Real.cos θ + Real.sin θ * Complex.I) -
+          (c : ℂ)‖ ^ 2) / 2) =
+        Real.exp (-((r ^ 2 + c ^ 2) / 2)) *
+          Real.exp (r * c * Real.cos θ) := by
+    rw [polarPoint_sub_real_norm_sq]
+    rw [show -(r ^ 2 + c ^ 2 - 2 * r * c * Real.cos θ) / 2 =
+      -((r ^ 2 + c ^ 2) / 2) + r * c * Real.cos θ by ring]
+    rw [Real.exp_add]
+  have hInt :
+      (∫ θ in (-Real.pi)..Real.pi,
+        Real.exp (-(‖(r : ℂ) * (Real.cos θ + Real.sin θ * Complex.I) -
+          (c : ℂ)‖ ^ 2) / 2)) =
+        Real.exp (-((r ^ 2 + c ^ 2) / 2)) *
+          ∫ θ in (0 : ℝ)..(2 * Real.pi), Real.exp (r * c * Real.cos θ) := by
+    calc
+      _ = ∫ θ in (-Real.pi)..Real.pi,
+          Real.exp (-((r ^ 2 + c ^ 2) / 2)) *
+            Real.exp (r * c * Real.cos θ) := by
+              apply intervalIntegral.integral_congr
+              intro θ hθ
+              exact hpoint θ
+      _ = Real.exp (-((r ^ 2 + c ^ 2) / 2)) *
+          ∫ θ in (-Real.pi)..Real.pi, Real.exp (r * c * Real.cos θ) := by
+            rw [intervalIntegral.integral_const_mul]
+      _ = _ := by rw [angularExpIntegral_negPi_pi_eq_zero_twoPi]
+  rw [hInt, Complex.ofReal_mul, angularExpIntegral_eq_modifiedBesselI_zero]
+  push_cast
+  ring
 
 /-- A shifted Gaussian kernel integrated over a disk centered at the origin,
 written as an integral over Mathlib's polar-coordinate chart.  This is the
