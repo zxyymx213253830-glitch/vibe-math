@@ -29,6 +29,7 @@ import JinWishartFormalization.NuttallQRiceSplit
 import JinWishartFormalization.Theorem1FullRankDeterminantScaling
 import JinWishartFormalization.ScalarComplexCenterDisk
 import JinWishartFormalization.ScalarNoncentralCDFRice
+import JinWishartFormalization.ScalarNoncentralNoAtom
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
