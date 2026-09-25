@@ -1,7 +1,7 @@
 import JinWishartFormalization.WishartProbability
 import JinWishartFormalization.GaussianRadialCDF
 
-open MeasureTheory ProbabilityTheory
+open MeasureTheory ProbabilityTheory Set
 
 namespace JinWishart
 
@@ -170,5 +170,59 @@ theorem noncentralScalarSmallestEigenvalue_eq_shiftedEnergy
           (by norm_num) (x + complexSampleMean M) := by
     simp [complexNoncentralSampleSmallestEigenvalue, complexSampleMatrix_add_mean]
   rw [hshift, centralScalarSampleSmallestEigenvalue_eq_energy]
+
+/-- The noncentral scalar weakest-eigenvalue sublevel event is exactly a ball
+centered at the negative mean in the underlying two-dimensional real Gaussian
+space. This isolates the remaining noncentral probability calculation as a
+shifted Gaussian ball integral. -/
+theorem noncentralScalarSmallestEigenvalue_sublevelMass_eq_shiftedBall
+    (M : Matrix (Fin 1) (Fin 1) ℂ) (x : ℝ) (hx : 0 ≤ x) :
+    (stdGaussian (ComplexSample (m := 1) (n := 1))).map
+        (complexNoncentralSampleSmallestEigenvalue M (by norm_num)) (Iic x) =
+      stdGaussian (ComplexSample (m := 1) (n := 1))
+        (Metric.closedBall (-complexSampleMean M) (Real.sqrt (2 * x))) := by
+  rw [Measure.map_apply
+    (measurable_complexNoncentralSampleSmallestEigenvalue M (by norm_num))
+    measurableSet_Iic]
+  have hfun : complexNoncentralSampleSmallestEigenvalue M (by norm_num) =
+      fun z ↦ centralScalarSampleEnergy (z + complexSampleMean M) := by
+    funext z
+    exact noncentralScalarSmallestEigenvalue_eq_shiftedEnergy M z
+  rw [hfun]
+  have hevent :
+      (fun z : ComplexSample (m := 1) (n := 1) ↦
+        centralScalarSampleEnergy (z + complexSampleMean M)) ⁻¹' Iic x =
+      Metric.closedBall (-complexSampleMean M) (Real.sqrt (2 * x)) := by
+    ext z
+    simp only [Set.mem_preimage, Set.mem_Iic, Metric.mem_closedBall,
+      dist_eq_norm, sub_neg_eq_add]
+    have henergy := centralColumnSampleEnergy_eq_euclideanEnergy
+      (x := z + complexSampleMean M)
+    have hscalar : centralScalarSampleEnergy (z + complexSampleMean M) =
+        centralColumnSampleEnergy (z + complexSampleMean M) := by
+      simp [centralScalarSampleEnergy, centralColumnSampleEnergy]
+    rw [hscalar, henergy]
+    constructor
+    · intro hz
+      have hs : Real.sqrt (2 * x) ^ 2 = 2 * x :=
+        Real.sq_sqrt (by positivity)
+      have hn : ‖z + complexSampleMean M‖ ^ 2 ≤ Real.sqrt (2 * x) ^ 2 := by
+        nlinarith [hz, hs]
+      by_contra hnot
+      have hlt : Real.sqrt (2 * x) < ‖z + complexSampleMean M‖ := lt_of_not_ge hnot
+      have hsum : 0 < ‖z + complexSampleMean M‖ + Real.sqrt (2 * x) := by
+        have hr := Real.sqrt_nonneg (2 * x)
+        linarith
+      have hprod := mul_pos (sub_pos.mpr hlt) hsum
+      nlinarith
+    · intro hz
+      have hs : Real.sqrt (2 * x) ^ 2 = 2 * x :=
+        Real.sq_sqrt (by positivity)
+      have hprod := mul_nonneg
+        (sub_nonneg.mpr hz)
+        (add_nonneg (norm_nonneg (z + complexSampleMean M))
+          (Real.sqrt_nonneg (2 * x)))
+      nlinarith
+  rw [hevent]
 
 end JinWishart
