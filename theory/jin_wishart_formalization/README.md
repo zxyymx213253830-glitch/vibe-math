@@ -78,15 +78,15 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   环节正式封装了；并新增任意偶数维实内积空间的全空间与闭球版本，径向系数由单位球体积的
   阶乘闭式给出，闭球积分准确落在半开区间 `(0,R]` 上。
   该推广是构造一般中心标量 Wishart Gamma 律所需的几何引理；目前已与二维 Gaussian 密度桥、
-  圆盘积分共同推出中心 `1×1` Wishart 的指数分布，但高维 Gaussian 密度和 Gamma CDF 桥仍待完成。
+  圆盘积分共同推出中心 `1×1` Wishart 的指数分布；一般偶数维的 Gamma CDF 识别仍待完成。
 - `GaussianRadialLaw.lean` 已补上上述高斯密度桥：利用 `gaussianReal` 的 PDF、有限乘积
   密度定理、复平面坐标的保体积等价和 mathlib 的 `stdGaussian` 正交基表示，机检证明
   `stdGaussian ℂ` 等于密度
   `(2π)⁻¹ exp(-‖z‖²/2)` 对复平面 Lebesgue 测度的加权测度。这是一个真正的样本测度
   等式，不再只是抽象独立性或协方差结论；该密度的圆盘积分和半径平方 CDF 已在
   `GaussianRadialCDF.lean` 中完成。另已证明任意有限个实标准高斯 PDF 的乘积逐点化为
-  只依赖欧氏范数的径向表达式；这只是被积函数恒等式，高维 `stdGaussian` 到 Lebesgue
-  加权测度的整体等式仍待补上。
+  只依赖欧氏范数的径向表达式，并证明该有限乘积测度经 `toLp` 后给出 EuclideanSpace
+  上的 `stdGaussian` Lebesgue 密度。对任意有限坐标，密度现已写成显式的径向形式。
 - 上一项的样本连接现已完成：`centralScalarToComplex` 是 `ComplexSample (1×1)` 到 `ℂ`
   的线性等距等价；标准高斯在该等价下映到 `stdGaussian ℂ`，且样本能量逐点等于
   `‖z‖²/2`。因此 `centralScalarSampleEnergy_map_eq_radialGaussianEnergy` 已将真实的
@@ -94,6 +94,10 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   现已完成圆盘内密度积分，证明样本能量、最小特征值的分布均为单位率指数分布，并与
   Theorem 1 中心标量单样本公式侧候选 CDF 接通。这只闭合了 `1×1` 特例，绝不是论文
   多维 Theorem 1 的一般证明。
+- `GaussianRadialCDF.lean` 现还将偶数维 EuclideanSpace 的能量阈值事件精确化为闭球，
+  并证明球概率等于一维径向积分；通过 `u=r²/2` 的 Lean 换元定理，将径向核化为
+  lower-Gamma 型积分。尚差归一化常数与 `gammaMeasure` CDF 的完整对接，以及将一般标量
+  Gram 能量识别为该 EuclideanSpace 能量。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
 密度或联合特征值密度；Theorem 1 的公式侧已编码，但还没有 CDF 等式证明，Theorem 2–4

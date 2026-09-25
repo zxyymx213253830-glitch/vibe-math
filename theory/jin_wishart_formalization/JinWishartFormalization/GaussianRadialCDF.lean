@@ -113,6 +113,147 @@ theorem stdGaussian_complex_closedBall (R : ℝ) (hR : 0 ≤ R) :
   rw [← ofReal_integral_eq_lintegral_ofReal hInt hnonneg]
   simpa [complexGaussianRadialPDF] using congrArg ENNReal.ofReal hballInt
 
+/-- Radial PDF of a standard Gaussian in `d` real dimensions. -/
+noncomputable def euclideanGaussianRadialPDF (d : ℕ) (r : ℝ) : ℝ :=
+  (Real.sqrt (2 * Real.pi))⁻¹ ^ d * Real.exp (-(r ^ 2) / 2)
+
+/-- The standard Gaussian mass of a closed ball in even dimension, reduced to
+an explicit one-dimensional radial integral. -/
+theorem stdGaussian_euclidean_closedBall {ι : Type*} [Fintype ι]
+    [Nontrivial (EuclideanSpace ℝ ι)]
+    (k : ℕ) (hk : Module.finrank ℝ (EuclideanSpace ℝ ι) = 2 * k)
+    (R : ℝ) (hR : 0 ≤ R) :
+    (stdGaussian (EuclideanSpace ℝ ι)) (Metric.closedBall (0 : EuclideanSpace ℝ ι) R) =
+      ENNReal.ofReal ((2 * (k : ℝ) * ((Real.pi ^ k) / (Nat.factorial k : ℝ))) *
+        ∫ r in Ioc (0 : ℝ) R, r ^ (2 * k - 1) * euclideanGaussianRadialPDF
+          (Fintype.card ι) r) := by
+  let f : EuclideanSpace ℝ ι → ℝ := fun z ↦ euclideanGaussianRadialPDF
+    (Fintype.card ι) ‖z‖
+  have hcont : Continuous f := by
+    change Continuous (fun z : EuclideanSpace ℝ ι ↦
+      euclideanGaussianRadialPDF (Fintype.card ι) ‖z‖)
+    fun_prop [euclideanGaussianRadialPDF]
+  have hInt : Integrable f (volume.restrict
+      (Metric.closedBall (0 : EuclideanSpace ℝ ι) R)) := by
+    exact hcont.continuousOn.integrableOn_compact
+      (isCompact_closedBall (0 : EuclideanSpace ℝ ι) R)
+  have hnonneg : 0 ≤ᵐ[volume.restrict
+      (Metric.closedBall (0 : EuclideanSpace ℝ ι) R)] f :=
+    ae_of_all _ fun z ↦ by
+      change 0 ≤ euclideanGaussianRadialPDF (Fintype.card ι) ‖z‖
+      unfold euclideanGaussianRadialPDF
+      positivity
+  have hballInt :
+      ∫ z in Metric.closedBall (0 : EuclideanSpace ℝ ι) R, f z ∂volume =
+        (2 * (k : ℝ) * ((Real.pi ^ k) / (Nat.factorial k : ℝ))) *
+          ∫ r in Ioc (0 : ℝ) R, r ^ (2 * k - 1) * euclideanGaussianRadialPDF
+            (Fintype.card ι) r := by
+    change (∫ z in Metric.closedBall (0 : EuclideanSpace ℝ ι) R,
+      euclideanGaussianRadialPDF (Fintype.card ι) ‖z‖ ∂volume) = _
+    rw [integral_radial_even_dim_closedBall k hk R hR]
+  rw [stdGaussian_euclidean_eq_radialDensity,
+    withDensity_apply _ measurableSet_closedBall]
+  change (∫⁻ z in Metric.closedBall (0 : EuclideanSpace ℝ ι) R,
+      ENNReal.ofReal (f z) ∂volume) = _
+  rw [← ofReal_integral_eq_lintegral_ofReal hInt hnonneg, hballInt]
+
+/-- Squared Gaussian energy on a Euclidean space. -/
+noncomputable def euclideanGaussianEnergy {ι : Type*} [Fintype ι]
+    (z : EuclideanSpace ℝ ι) : ℝ := ‖z‖ ^ 2 / 2
+
+@[fun_prop]
+theorem measurable_euclideanGaussianEnergy {ι : Type*} [Fintype ι] :
+    Measurable (euclideanGaussianEnergy (ι := ι)) := by
+  unfold euclideanGaussianEnergy
+  fun_prop
+
+/-- The energy sublevel event in an even-dimensional standard Gaussian space is
+exactly a centered closed ball; its probability is therefore the radial integral
+from `stdGaussian_euclidean_closedBall`. -/
+theorem stdGaussian_euclideanEnergy_measure_Iic {ι : Type*} [Fintype ι]
+    [Nontrivial (EuclideanSpace ℝ ι)] (k : ℕ)
+    (hk : Module.finrank ℝ (EuclideanSpace ℝ ι) = 2 * k)
+    (x : ℝ) (hx : 0 ≤ x) :
+    (stdGaussian (EuclideanSpace ℝ ι)).map (euclideanGaussianEnergy (ι := ι)) (Iic x) =
+      ENNReal.ofReal ((2 * (k : ℝ) * ((Real.pi ^ k) / (Nat.factorial k : ℝ))) *
+        ∫ r in Ioc (0 : ℝ) (Real.sqrt (2 * x)),
+          r ^ (2 * k - 1) * euclideanGaussianRadialPDF (Fintype.card ι) r) := by
+  rw [Measure.map_apply measurable_euclideanGaussianEnergy measurableSet_Iic]
+  have hevent : euclideanGaussianEnergy (ι := ι) ⁻¹' Iic x =
+      Metric.closedBall (0 : EuclideanSpace ℝ ι) (Real.sqrt (2 * x)) := by
+    ext z
+    simp only [Set.mem_preimage, Set.mem_Iic, Metric.mem_closedBall,
+      dist_zero_right, euclideanGaussianEnergy]
+    constructor
+    · intro hz
+      have hs : Real.sqrt (2 * x) ^ 2 = 2 * x :=
+        Real.sq_sqrt (by positivity)
+      have hn : ‖z‖ ^ 2 ≤ Real.sqrt (2 * x) ^ 2 := by nlinarith [hz, hs]
+      by_contra hnot
+      have hlt : Real.sqrt (2 * x) < ‖z‖ := lt_of_not_ge hnot
+      have hsum : 0 < ‖z‖ + Real.sqrt (2 * x) := by
+        nlinarith [Real.sqrt_nonneg (2 * x)]
+      have hprod := mul_pos (sub_pos.mpr hlt) hsum
+      nlinarith
+    · intro hz
+      have hs : Real.sqrt (2 * x) ^ 2 = 2 * x :=
+        Real.sq_sqrt (by positivity)
+      have hprod := mul_nonneg (sub_nonneg.mpr hz)
+        (add_nonneg (norm_nonneg z) (Real.sqrt_nonneg (2 * x)))
+      nlinarith
+  rw [hevent]
+  exact stdGaussian_euclidean_closedBall k hk (Real.sqrt (2 * x))
+    (Real.sqrt_nonneg _)
+
+/-- Substituting `u = r²/2` converts the even-dimensional radial Gaussian
+integral to the lower incomplete-Gamma integral. -/
+theorem radialGaussian_integral_subst (k : ℕ) (hk : 0 < k)
+    (x : ℝ) (hx : 0 ≤ x) :
+    ∫ r in (0 : ℝ)..Real.sqrt (2 * x),
+        r ^ (2 * k - 1) * Real.exp (-(r ^ 2) / 2) =
+      2 ^ (k - 1) * ∫ u in (0 : ℝ)..x, u ^ (k - 1) * Real.exp (-u) := by
+  let φ : ℝ → ℝ := fun r ↦ r ^ 2 / 2
+  let g : ℝ → ℝ := fun u ↦ u ^ (k - 1) * Real.exp (-u)
+  let R := Real.sqrt (2 * x)
+  have hR : 0 ≤ R := Real.sqrt_nonneg _
+  have hR2 : R ^ 2 = 2 * x := by
+    dsimp [R]
+    exact Real.sq_sqrt (by positivity)
+  have hderiv : ∀ r ∈ uIcc (0 : ℝ) R,
+      HasDerivAt φ r r := by
+    intro r hr
+    dsimp [φ]
+    convert (((hasDerivAt_id r).pow 2).div_const 2) using 1 <;> simp
+  have hsub := intervalIntegral.integral_comp_mul_deriv
+    (a := (0 : ℝ)) (b := R) (f := φ) (f' := fun r ↦ r) (g := g)
+    hderiv (by fun_prop) (by fun_prop)
+  have hend : φ R = x := by
+    dsimp [φ]
+    rw [hR2]
+    ring
+  have hkernel (r : ℝ) :
+      r ^ (2 * k - 1) * Real.exp (-(r ^ 2) / 2) =
+        2 ^ (k - 1) * ((g ∘ φ) r * r) := by
+    dsimp [g, φ]
+    have hk' : 2 * k - 1 = 2 * (k - 1) + 1 := by omega
+    rw [hk', pow_succ, div_pow]
+    have hpow : (r ^ 2) ^ (k - 1) = r ^ (2 * (k - 1)) := by
+      rw [← pow_mul, mul_comm]
+    rw [hpow]
+    field_simp
+    <;> ring
+  calc
+    _ = ∫ r in (0 : ℝ)..R, 2 ^ (k - 1) * ((g ∘ φ) r * r) := by
+      apply intervalIntegral.integral_congr
+      intro r hr
+      exact hkernel r
+    _ = 2 ^ (k - 1) * ∫ r in (0 : ℝ)..R, (g ∘ φ) r * r := by
+      rw [intervalIntegral.integral_const_mul]
+    _ = 2 ^ (k - 1) * ∫ u in (0 : ℝ)..x, g u := by
+      rw [hsub]
+      rw [show φ 0 = 0 by simp [φ], hend]
+    _ = _ := rfl
+
 theorem complexGaussianEnergy_measure_Iic (x : ℝ) (hx : 0 ≤ x) :
     (stdGaussian ℂ).map complexGaussianEnergy (Iic x) =
       ENNReal.ofReal (1 - Real.exp (-x)) := by
