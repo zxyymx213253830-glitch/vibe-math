@@ -32,6 +32,21 @@ noncomputable def centralScalarSampleEnergy
     (x : ComplexSample (m := 1) (n := 1)) : ℝ :=
   (x ((0, 0), 0) ^ 2 + x ((0, 0), 1) ^ 2) / 2
 
+/-- Squared Euclidean energy of an `m × 1` central complex Gaussian sample.
+This is the scalar Gram entry in the one-column Wishart specialization. -/
+noncomputable def centralColumnSampleEnergy {m : ℕ}
+    (x : ComplexSample (m := m) (n := 1)) : ℝ :=
+  ∑ i : Fin m, (x ((i, 0), 0) ^ 2 + x ((i, 0), 1) ^ 2) / 2
+
+/-- For one column, the explicit sum of coordinate energies is the squared
+Euclidean norm of the underlying real sample vector divided by two. -/
+theorem centralColumnSampleEnergy_eq_euclideanEnergy {m : ℕ}
+    (x : ComplexSample (m := m) (n := 1)) :
+    centralColumnSampleEnergy x = ‖x‖ ^ 2 / 2 := by
+  rw [EuclideanSpace.real_norm_sq_eq]
+  simp [centralColumnSampleEnergy, Fintype.sum_prod_type, Fin.sum_univ_two]
+  rw [Finset.sum_div]
+
 /-- Real-coordinate representation of a deterministic complex mean matrix. -/
 noncomputable def complexSampleMean (M : Matrix (Fin m) (Fin n) ℂ) :
     ComplexSample (m := m) (n := n) :=
@@ -71,6 +86,37 @@ theorem complexGram_centralScalar_entry
   ring_nf
   rw [Complex.I_sq]
   ring
+
+/-- In the central one-column model, the scalar Gram matrix entry is the total
+coordinate energy for any number of sample rows. -/
+theorem complexGram_centralColumn_entry {m : ℕ}
+    (x : ComplexSample (m := m) (n := 1)) :
+    complexGram (complexSampleMatrix x) 0 0 =
+      (centralColumnSampleEnergy x : ℂ) := by
+  classical
+  have hsqrt : (Real.sqrt (2 : ℝ) : ℂ) ≠ 0 := by
+    exact_mod_cast (Real.sqrt_ne_zero'.mpr (by norm_num : (0 : ℝ) < 2))
+  have hsq : (Real.sqrt (2 : ℝ) : ℂ) ^ 2 = 2 := by
+    exact_mod_cast (Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 2))
+  have hrow (i : Fin m) :
+    star (complexSampleMatrix x i 0) * complexSampleMatrix x i 0 =
+        (((x ((i, 0), 0) ^ 2 + x ((i, 0), 1) ^ 2) / 2 : ℝ) : ℂ) := by
+    rw [RCLike.star_def, RCLike.conj_mul]
+    norm_cast
+    rw [RCLike.norm_sq_eq_def]
+    simp [complexSampleMatrix]
+    field_simp [hsqrt]
+    rw [hsq]
+    ring
+  simp only [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply]
+  calc
+    _ = ∑ i : Fin m,
+        (((x ((i, 0), 0) ^ 2 + x ((i, 0), 1) ^ 2) / 2 : ℝ) : ℂ) := by
+          apply Finset.sum_congr rfl
+          intro i hi
+          exact hrow i
+    _ = (centralColumnSampleEnergy x : ℂ) := by
+          simp [centralColumnSampleEnergy]
 
 /-- Every complex Gram matrix is Hermitian positive semidefinite. -/
 theorem complexGram_posSemidef (X : Matrix (Fin m) (Fin n) ℂ) :
@@ -398,6 +444,31 @@ theorem centralScalarSampleSmallestEigenvalue_eq_energy
     simp [smallestEigenvalue₀Index]
   rw [hidx]
   change hW.eigenvalues 0 = centralScalarSampleEnergy x
+  exact hreal.symm
+
+/-- The only ordered eigenvalue of a one-column Gram sample is its scalar
+energy, for any positive number of sample rows. -/
+theorem centralColumnSampleSmallestEigenvalue_eq_energy {m : ℕ} (hm : 0 < m)
+    (x : ComplexSample (m := m) (n := 1)) :
+    complexNoncentralSampleSmallestEigenvalue (0 : Matrix (Fin m) (Fin 1) ℂ)
+      (by norm_num) x = centralColumnSampleEnergy x := by
+  let W : Matrix (Fin 1) (Fin 1) ℂ := complexGram (complexSampleMatrix x)
+  let hW : W.IsHermitian := (complexGram_posSemidef (complexSampleMatrix x)).1
+  have htrace := hW.trace_eq_sum_eigenvalues
+  have heig : W 0 0 = (hW.eigenvalues 0 : ℂ) := by
+    simpa [Matrix.trace] using htrace
+  have hentry : W 0 0 = (centralColumnSampleEnergy x : ℂ) := by
+    simpa [W] using complexGram_centralColumn_entry x
+  have hreal : centralColumnSampleEnergy x = hW.eigenvalues 0 :=
+    Complex.ofReal_injective (hentry.symm.trans heig)
+  simp only [complexNoncentralSampleSmallestEigenvalue, add_zero]
+  change hW.eigenvalues₀ (smallestEigenvalue₀Index (n := 1) (by norm_num)) = _
+  have hidx : smallestEigenvalue₀Index (n := 1) (by norm_num) =
+      (Fintype.equivOfCardEq (Fintype.card_fin 1)).symm (0 : Fin 1) := by
+    apply Fin.ext
+    simp [smallestEigenvalue₀Index]
+  rw [hidx]
+  change hW.eigenvalues 0 = centralColumnSampleEnergy x
   exact hreal.symm
 
 /-- The smallest ordered eigenvalue of a shifted complex Gram sample is measurable.

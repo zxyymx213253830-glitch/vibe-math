@@ -68,7 +68,7 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   对最小 `1×1` 样本进一步证明，该候选式等于 mathlib 单位率指数分布的 CDF；同时已将
   `1×1` 中心 Gram 的唯一特征值化为两个实高斯坐标平方和的一半。`GaussianRadialCDF.lean`
   已闭合分布等式，证明真实最小特征值 CDF 与 Theorem 1 公式候选相等。一般 `t` 下
-  坐标能量和的 Gamma 分布仍未证明。
+  公式候选与样本分布的等式仍未证明。
 - `GaussianRadialCDF.lean` 也已闭合 Theorem 2 的中心 `1×1` 特例：公式候选在 `x≥0`
   等于指数 CDF，并进一步等于 Wishart 测度下实际最大特征值弱事件 `P(λmax≤x)`。
   这一步直接处理弱事件，没有假设尚未证明的无原子性；更高维 Theorem 2 仍未完成。
@@ -77,8 +77,8 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   `∫_{ℂ} f(‖z‖) dz = 2π ∫₀∞ r f(r) dr`。这把“二维径向积分”
   环节正式封装了；并新增任意偶数维实内积空间的全空间与闭球版本，径向系数由单位球体积的
   阶乘闭式给出，闭球积分准确落在半开区间 `(0,R]` 上。
-  该推广是构造一般中心标量 Wishart Gamma 律所需的几何引理；目前已与二维 Gaussian 密度桥、
-  圆盘积分共同推出中心 `1×1` Wishart 的指数分布；一般偶数维的 Gamma CDF 识别仍待完成。
+  该推广是构造一般中心标量 Wishart Gamma 律所需的几何引理；目前已与有限维 Gaussian 密度桥、
+  偶数维球积分共同推出一列中心 Wishart 的 Gamma 分布。
 - `GaussianRadialLaw.lean` 已补上上述高斯密度桥：利用 `gaussianReal` 的 PDF、有限乘积
   密度定理、复平面坐标的保体积等价和 mathlib 的 `stdGaussian` 正交基表示，机检证明
   `stdGaussian ℂ` 等于密度
@@ -97,11 +97,15 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `GaussianRadialCDF.lean` 现还将偶数维 EuclideanSpace 的能量阈值事件精确化为闭球，
   并证明球概率等于一维径向积分；通过 `u=r²/2` 的 Lean 换元定理，将径向核化为
   lower-Gamma 型积分。偶数维径向 Jacobian 与 Gaussian 密度的常数已单独化简为
-  `1/(k-1)!`。尚差把该 lower-Gamma 积分与 mathlib 的 `gammaMeasure` CDF 完整对接，
-  以及将一般标量 Gram 能量识别为该 EuclideanSpace 能量。
+  `1/(k-1)!`；该 lower-Gamma 积分也已与 mathlib 的 `gammaMeasure` CDF 完整对接，并证明
+  一般偶数维标准高斯能量服从整数形状、单位率 Gamma 分布。
+- 新增 `WishartGamma.lean`：将 `m×1` 复中心高斯样本坐标逐点识别为 `2m` 维实欧氏高斯
+  能量，证明其唯一 Gram 特征值服从 `gammaMeasure m 1`。这给出了一般行数的一列中心
+  Wishart 标量律；目前尚未将此 Gamma CDF 与 Theorem 1 中心标量有限和公式在任意 `m`
+  下完成等式拼接。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
-密度或联合特征值密度；Theorem 1 的公式侧已编码，但还没有 CDF 等式证明，Theorem 2–4
+密度或联合特征值密度；Theorem 1 的公式侧已编码，但除 `1×1` 中心特例外，还没有 CDF 等式证明，Theorem 2–4
 亦未完成。当前 covariance 设为单位阵，尚未覆盖论文中的一般尺度矩阵 `Σ`。最小有序
 特征值已作为非中心 Gaussian 样本的可测随机变量，但最大特征值和整组有序特征值的随机
 向量层、其联合分布，以及与论文闭式公式的等式仍待形式化。

@@ -9,6 +9,7 @@ import JinWishartFormalization.IncompleteGamma
 import JinWishartFormalization.NuttallQ
 import JinWishartFormalization.Theorem1Formula
 import JinWishartFormalization.WishartProbability
+import JinWishartFormalization.WishartGamma
 import JinWishartFormalization.RadialIntegration
 import JinWishartFormalization.GaussianRadialLaw
 import JinWishartFormalization.GaussianRadialCDF

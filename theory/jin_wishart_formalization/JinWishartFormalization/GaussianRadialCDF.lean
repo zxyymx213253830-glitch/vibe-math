@@ -287,6 +287,185 @@ theorem radialGaussian_normalization (k : ℕ) (hk : 0 < k) :
   push_cast
   ring
 
+/-- The integer-shape Gamma CDF is its normalized lower-Gamma interval
+integral. The proof starts from mathlib's density CDF, uses the density's
+support on nonnegative reals, and removes the zero endpoint. -/
+theorem cdf_gammaMeasure_nat_eq_lowerGamma (k : ℕ) (hk : 0 < k)
+    (x : ℝ) (hx : 0 ≤ x) :
+    cdf (gammaMeasure (k : ℝ) 1) x =
+      ((Nat.factorial (k - 1) : ℝ)⁻¹) *
+        ∫ u in (0 : ℝ)..x, u ^ (k - 1) * Real.exp (-u) := by
+  have hkcast : (k : ℝ) = ((k - 1 : ℕ) : ℝ) + 1 := by
+    exact_mod_cast (Nat.sub_add_cancel hk).symm
+  have hpdf (y : ℝ) (hy : 0 ≤ y) :
+      gammaPDFReal (k : ℝ) 1 y =
+        ((Nat.factorial (k - 1) : ℝ)⁻¹) * y ^ (k - 1) * Real.exp (-y) := by
+    have hGamma : Real.Gamma (k : ℝ) = (Nat.factorial (k - 1) : ℝ) := by
+      rw [hkcast, Real.Gamma_nat_eq_factorial]
+    have hpow : (k : ℝ) - 1 = ((k - 1 : ℕ) : ℝ) := by
+      rw [Nat.cast_sub hk]
+      norm_num
+    rw [gammaPDFReal, if_pos hy, Real.one_rpow, hGamma, hpow, Real.rpow_natCast]
+    simp only [one_mul, neg_mul, neg_one_mul]
+    field_simp [Nat.factorial_ne_zero]
+  have hpdfNonneg : 0 ≤ᵐ[volume] gammaPDFReal (k : ℝ) 1 :=
+    ae_of_all _ (fun y ↦ gammaPDFReal_nonneg (by exact_mod_cast hk) (by norm_num) y)
+  have hpdfAEMeas : AEStronglyMeasurable (gammaPDFReal (k : ℝ) 1) volume :=
+    (measurable_gammaPDFReal (k : ℝ) 1).aestronglyMeasurable
+  have hfinite :
+      (∫⁻ y, ENNReal.ofReal (gammaPDFReal (k : ℝ) 1 y) ∂volume) ≠ ∞ := by
+    rw [show (fun y ↦ ENNReal.ofReal (gammaPDFReal (k : ℝ) 1 y)) =
+        gammaPDF (k : ℝ) 1 by rfl,
+      lintegral_gammaPDF_eq_one (by exact_mod_cast hk) (by norm_num)]
+    norm_num
+  have hpdfInt : Integrable (gammaPDFReal (k : ℝ) 1) volume :=
+    (lintegral_ofReal_ne_top_iff_integrable hpdfAEMeas hpdfNonneg).mp hfinite
+  have hpdfOn (a : ℝ) : IntegrableOn (gammaPDFReal (k : ℝ) 1) (Iic a) volume :=
+    hpdfInt.integrableOn
+  have hzero : ∫ y in Iic (0 : ℝ), gammaPDFReal (k : ℝ) 1 y = 0 := by
+    rw [integral_Iic_eq_integral_Iio]
+    apply integral_eq_zero_of_ae
+    filter_upwards [ae_restrict_mem measurableSet_Iio] with y hy
+    have hy' : y < 0 := by simpa using hy
+    simp [gammaPDFReal, not_le.mpr hy']
+  have hsplit := intervalIntegral.integral_Iic_sub_Iic
+    (f := gammaPDFReal (k : ℝ) 1) (a := (0 : ℝ)) (b := x) (hpdfOn 0) (hpdfOn x)
+  have hinterval :
+      ∫ y in (0 : ℝ)..x, gammaPDFReal (k : ℝ) 1 y =
+        ((Nat.factorial (k - 1) : ℝ)⁻¹) *
+          ∫ y in (0 : ℝ)..x, y ^ (k - 1) * Real.exp (-y) := by
+    calc
+      _ = ∫ y in (0 : ℝ)..x,
+          ((Nat.factorial (k - 1) : ℝ)⁻¹) * y ^ (k - 1) * Real.exp (-y) := by
+            apply intervalIntegral.integral_congr
+            intro y hy
+            apply hpdf
+            have hmem : y ∈ Icc (0 : ℝ) x := by
+              simpa [uIcc_of_le hx] using hy
+            exact hmem.1
+      _ = _ := by
+            calc
+              _ = ∫ y in (0 : ℝ)..x,
+                  ((Nat.factorial (k - 1) : ℝ)⁻¹) *
+                    (y ^ (k - 1) * Real.exp (-y)) := by
+                      apply intervalIntegral.integral_congr
+                      intro y hy
+                      ring
+              _ = _ := by rw [intervalIntegral.integral_const_mul]
+  rw [cdf_gammaMeasure_eq_integral (by exact_mod_cast hk) (by norm_num) x]
+  calc
+    ∫ y in Iic x, gammaPDFReal (k : ℝ) 1 y =
+        ∫ y in (0 : ℝ)..x, gammaPDFReal (k : ℝ) 1 y := by
+          have h := hsplit
+          rw [hzero, sub_zero] at h
+          exact h
+    _ = _ := hinterval
+
+/-- Combining the even-dimensional ball integral, the radial substitution and
+its normalization gives the exact integer-shape lower-Gamma CDF formula. -/
+theorem stdGaussian_euclideanEnergy_measure_Iic_lowerGamma {ι : Type*} [Fintype ι]
+    [Nontrivial (EuclideanSpace ℝ ι)] (k : ℕ)
+    (hk : Module.finrank ℝ (EuclideanSpace ℝ ι) = 2 * k) (hk0 : 0 < k)
+    (x : ℝ) (hx : 0 ≤ x) :
+    (stdGaussian (EuclideanSpace ℝ ι)).map (euclideanGaussianEnergy (ι := ι)) (Iic x) =
+      ENNReal.ofReal (((Nat.factorial (k - 1) : ℝ)⁻¹) *
+        ∫ u in (0 : ℝ)..x, u ^ (k - 1) * Real.exp (-u)) := by
+  rw [stdGaussian_euclideanEnergy_measure_Iic (ι := ι) k hk x hx]
+  apply congrArg ENNReal.ofReal
+  have hfin : Module.finrank ℝ (EuclideanSpace ℝ ι) = Fintype.card ι := by simp
+  have hcard : Fintype.card ι = 2 * k := hfin.symm.trans hk
+  have hrad :
+      ∫ r in Ioc (0 : ℝ) (Real.sqrt (2 * x)),
+        r ^ (2 * k - 1) * euclideanGaussianRadialPDF (Fintype.card ι) r =
+      ((Real.sqrt (2 * Real.pi))⁻¹ ^ (2 * k)) *
+        (2 ^ (k - 1) * ∫ u in (0 : ℝ)..x,
+          u ^ (k - 1) * Real.exp (-u)) := by
+    have hpdf (r : ℝ) : euclideanGaussianRadialPDF (Fintype.card ι) r =
+        (Real.sqrt (2 * Real.pi))⁻¹ ^ (2 * k) * Real.exp (-(r ^ 2) / 2) := by
+      simp [euclideanGaussianRadialPDF, hcard]
+    rw [← intervalIntegral.integral_of_le (Real.sqrt_nonneg _)]
+    calc
+      _ = ∫ r in (0 : ℝ)..Real.sqrt (2 * x),
+          (Real.sqrt (2 * Real.pi))⁻¹ ^ (2 * k) *
+            (r ^ (2 * k - 1) * Real.exp (-(r ^ 2) / 2)) := by
+              apply intervalIntegral.integral_congr
+              intro r hr
+              change r ^ (2 * k - 1) * euclideanGaussianRadialPDF
+                  (Fintype.card ι) r = _
+              rw [hpdf r]
+              ring
+      _ = (Real.sqrt (2 * Real.pi))⁻¹ ^ (2 * k) *
+          ∫ r in (0 : ℝ)..Real.sqrt (2 * x),
+            r ^ (2 * k - 1) * Real.exp (-(r ^ 2) / 2) := by
+              rw [intervalIntegral.integral_const_mul]
+      _ = _ := by rw [radialGaussian_integral_subst k hk0 x hx]
+  calc
+    _ = ((2 * (k : ℝ) * ((Real.pi ^ k) / (Nat.factorial k : ℝ))) *
+        ((Real.sqrt (2 * Real.pi))⁻¹ ^ (2 * k)) * 2 ^ (k - 1)) *
+          ∫ u in (0 : ℝ)..x, u ^ (k - 1) * Real.exp (-u) := by
+            rw [hrad]
+            ring
+    _ = ((Nat.factorial (k - 1) : ℝ))⁻¹ *
+        ∫ u in (0 : ℝ)..x, u ^ (k - 1) * Real.exp (-u) := by
+          rw [radialGaussian_normalization k hk0]
+
+/-- The squared norm of a standard Gaussian in an even-dimensional Euclidean
+space has the integer-shape, unit-rate Gamma law. -/
+theorem stdGaussian_euclideanEnergy_map_eq_gammaMeasure {ι : Type*} [Fintype ι]
+    [Nontrivial (EuclideanSpace ℝ ι)] (k : ℕ)
+    (hk : Module.finrank ℝ (EuclideanSpace ℝ ι) = 2 * k) (hk0 : 0 < k) :
+    (stdGaussian (EuclideanSpace ℝ ι)).map (euclideanGaussianEnergy (ι := ι)) =
+      gammaMeasure (k : ℝ) 1 := by
+  let μ := (stdGaussian (EuclideanSpace ℝ ι)).map (euclideanGaussianEnergy (ι := ι))
+  let ν := gammaMeasure (k : ℝ) 1
+  haveI : IsProbabilityMeasure ν :=
+    isProbabilityMeasure_gammaMeasure (by exact_mod_cast hk0) (by norm_num)
+  haveI : IsProbabilityMeasure μ := by
+    dsimp [μ]
+    infer_instance
+  apply Measure.eq_of_cdf
+  apply StieltjesFunction.ext
+  intro x
+  by_cases hx : 0 ≤ x
+  · have hmass := stdGaussian_euclideanEnergy_measure_Iic_lowerGamma
+      (ι := ι) k hk hk0 x hx
+    apply (ENNReal.ofReal_eq_ofReal_iff (cdf_nonneg μ x) (cdf_nonneg ν x)).mp
+    calc
+      ENNReal.ofReal (cdf μ x) = μ (Iic x) := ofReal_cdf μ x
+      _ = ENNReal.ofReal (cdf ν x) := by
+        dsimp [μ, ν] at hmass ⊢
+        rw [hmass, cdf_gammaMeasure_nat_eq_lowerGamma k hk0 x hx]
+  · have hx' : x < 0 := lt_of_not_ge hx
+    have hleftMass : μ (Iic x) = 0 := by
+      change (stdGaussian (EuclideanSpace ℝ ι)).map
+        (euclideanGaussianEnergy (ι := ι)) (Iic x) = 0
+      rw [Measure.map_apply measurable_euclideanGaussianEnergy measurableSet_Iic]
+      have hpre : euclideanGaussianEnergy (ι := ι) ⁻¹' Iic x = ∅ := by
+        ext z
+        simp only [Set.mem_preimage, Set.mem_Iic, Set.mem_empty_iff_false]
+        constructor
+        · intro hz
+          have hnonneg : 0 ≤ euclideanGaussianEnergy (ι := ι) z := by
+            unfold euclideanGaussianEnergy
+            positivity
+          linarith
+        · intro hfalse
+          exact False.elim hfalse
+      rw [hpre]
+      simp
+    have hleft : cdf μ x = 0 := by
+      have h := ofReal_cdf μ x
+      rw [hleftMass] at h
+      apply (ENNReal.ofReal_eq_ofReal_iff (cdf_nonneg μ x) (by norm_num)).mp
+      simpa using h
+    have hright : cdf ν x = 0 := by
+      rw [cdf_gammaMeasure_eq_integral (by exact_mod_cast hk0) (by norm_num) x]
+      apply integral_eq_zero_of_ae
+      filter_upwards [ae_restrict_mem measurableSet_Iic] with y hy
+      have hy' : y < 0 := lt_of_le_of_lt hy hx'
+      simp [gammaPDFReal, not_le.mpr hy']
+    rw [hleft, hright]
+
 theorem complexGaussianEnergy_measure_Iic (x : ℝ) (hx : 0 ≤ x) :
     (stdGaussian ℂ).map complexGaussianEnergy (Iic x) =
       ENNReal.ofReal (1 - Real.exp (-x)) := by
