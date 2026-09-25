@@ -156,4 +156,19 @@ theorem theorem2CentralOneColumn_eq_sampleSmallestEigenvalueCDF
   rw [centralColumnSmallestEigenvalue_map_eq_gammaMeasure hm]
   exact theorem2CentralOneColumn_eq_gammaCDF m hm x hx
 
+/-- A noncentral `1×1` Gram eigenvalue is the central scalar energy after
+translating the real Gaussian sample by the coordinate representative of its
+complex mean. This is the exact reduction to a shifted planar Gaussian ball. -/
+theorem noncentralScalarSmallestEigenvalue_eq_shiftedEnergy
+    (M : Matrix (Fin 1) (Fin 1) ℂ)
+    (x : ComplexSample (m := 1) (n := 1)) :
+    complexNoncentralSampleSmallestEigenvalue M (by norm_num) x =
+      centralScalarSampleEnergy (x + complexSampleMean M) := by
+  have hshift :
+      complexNoncentralSampleSmallestEigenvalue M (by norm_num) x =
+        complexNoncentralSampleSmallestEigenvalue (0 : Matrix (Fin 1) (Fin 1) ℂ)
+          (by norm_num) (x + complexSampleMean M) := by
+    simp [complexNoncentralSampleSmallestEigenvalue, complexSampleMatrix_add_mean]
+  rw [hshift, centralScalarSampleSmallestEigenvalue_eq_energy]
+
 end JinWishart
