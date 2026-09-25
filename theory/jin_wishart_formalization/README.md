@@ -69,9 +69,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   `1×1` 中心 Gram 的唯一特征值化为两个实高斯坐标平方和的一半。`GaussianRadialCDF.lean`
   和 `WishartGamma.lean` 已将结果推广到任意正整数 `t`：中心一列样本的真实最小特征值
   CDF 与 Theorem 1 的 `s=1, L=0` 有限和公式相等。非中心情形及 `s>1` 仍未证明。
-- `GaussianRadialCDF.lean` 也已闭合 Theorem 2 的中心 `1×1` 特例：公式候选在 `x≥0`
-  等于指数 CDF，并进一步等于 Wishart 测度下实际最大特征值弱事件 `P(λmax≤x)`。
-  这一步直接处理弱事件，没有假设尚未证明的无原子性；更高维 Theorem 2 仍未完成。
+- `WishartGamma.lean` 还闭合了 Theorem 2 的中心单列特例，对任意正整数行数，公式候选
+  等于 Gamma CDF，并等于真实唯一特征值的弱 CDF 事件（此时最大、最小特征值相同）。
+  这一步直接处理弱事件，没有假设尚未证明的无原子性；多列及非中心 Theorem 2 仍未完成。
 - `RadialIntegration.lean` 将 mathlib 的 `MeasureTheory.integral_fun_norm_addHaar`
   特化到复平面，机检得到
   `∫_{ℂ} f(‖z‖) dz = 2π ∫₀∞ r f(r) dr`。这把“二维径向积分”

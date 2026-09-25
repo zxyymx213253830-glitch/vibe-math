@@ -116,4 +116,44 @@ theorem theorem1CentralOneColumn_eq_sampleSmallestEigenvalueCDF
   rw [theorem1CentralScalarCdfCandidate_eq_finite m (by omega) x hx,
     cdf_gammaMeasure_nat_eq_finiteComplement m hm x hx]
 
+/-- In the same central one-column setting, Theorem 2's lower-incomplete-Gamma
+formula is the Gamma CDF. In a one-column model the largest and smallest
+eigenvalues are the same scalar. -/
+theorem theorem2CentralOneColumn_eq_gammaCDF
+    (m : ℕ) (hm : 0 < m) (x : ℝ) (hx : 0 ≤ x) :
+    theorem2CdfCandidate 1 m 0 (by omega) (by omega)
+        (fun j : Fin 0 ↦ Fin.elim0 j) x = cdf (gammaMeasure (m : ℝ) 1) x := by
+  have hdetx :
+      (theorem2XiMatrix 1 m 0 (by omega) (by omega)
+        (fun j : Fin 0 ↦ Fin.elim0 j) x).det = Complex.partialGamma (m : ℂ) x := by
+    rw [Matrix.det_fin_one]
+    simp [theorem2XiMatrix, theorem2XiEntry, theorem1GammaIndex]
+    congr 1
+    exact_mod_cast (show m - 1 + 1 = m by omega)
+  rw [theorem2CdfCandidate, hdetx,
+    theorem1CentralScalarPsiDet m (by omega)]
+  rw [partialGamma_nat_eq_realLower m hm x]
+  have hnonneg :
+      0 ≤ ∫ u in (0 : ℝ)..x, u ^ (m - 1) * Real.exp (-u) := by
+    apply intervalIntegral.integral_nonneg hx
+    intro u hu
+    exact mul_nonneg (pow_nonneg hu.1 _) (Real.exp_nonneg _)
+  rw [Complex.norm_of_nonneg hnonneg,
+    cdf_gammaMeasure_nat_eq_lowerGamma m hm x hx]
+  norm_cast
+  ring
+
+/-- Theorem 2's central one-column candidate is the CDF of the actual
+smallest-eigenvalue random variable (equivalently, the unique/largest
+eigenvalue) for every positive integer row count. -/
+theorem theorem2CentralOneColumn_eq_sampleSmallestEigenvalueCDF
+    (m : ℕ) (hm : 0 < m) (x : ℝ) (hx : 0 ≤ x) :
+    theorem2CdfCandidate 1 m 0 (by omega) (by omega)
+        (fun j : Fin 0 ↦ Fin.elim0 j) x =
+      cdf ((stdGaussian (ComplexSample (m := m) (n := 1))).map
+        (complexNoncentralSampleSmallestEigenvalue
+          (0 : Matrix (Fin m) (Fin 1) ℂ) (by norm_num))) x := by
+  rw [centralColumnSmallestEigenvalue_map_eq_gammaMeasure hm]
+  exact theorem2CentralOneColumn_eq_gammaCDF m hm x hx
+
 end JinWishart
