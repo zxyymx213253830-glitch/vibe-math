@@ -23,6 +23,10 @@ import JinWishartFormalization.NuttallQZero
 import JinWishartFormalization.ScalarNoncentralPolar
 import JinWishartFormalization.ScalarAngularRadial
 import JinWishartFormalization.ScalarNoncentralDiskFubini
+import JinWishartFormalization.ScalarComplexCenterAngle
+import JinWishartFormalization.ScalarGaussianComplexBridge
+import JinWishartFormalization.NuttallQRiceSplit
+import JinWishartFormalization.Theorem1FullRankDeterminantScaling
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
