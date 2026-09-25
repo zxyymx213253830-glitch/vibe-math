@@ -106,6 +106,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - 非中心 `1×1` 情形已补上概率事件的几何降维：最小特征值不超过 `x` 的概率，精确等于
   实高斯向量落入以负均值为中心、半径 `√(2x)` 的闭球概率。尚未把该偏心圆盘概率化为
   Nuttall-Q 尾积分，因此这还不是非中心 Theorem 1 的概率等式。
+- 新增 `BesselI0Series.lean` 和 `BesselI0Angle.lean`：从 Mathlib 的正则化超几何级数定义
+  推出 `I₀` 的精确阶乘级数，并以一致范数可和控制、奇偶拆项和余弦矩递推证明完整角积分
+  `∫₀²π exp(a cos θ)dθ = 2π I₀(a)`。`NoncentralScalarCDF.lean` 现在将标量 Nuttall-Q
+  核改写为该高斯角平均；`NuttallQZero.lean` 另证明零非中心参数时的 Nuttall-Q 尾为
+  `exp(-b²/2)`（`b≥0`）。这些均已独立通过 Lean 构建，但偏心球到极坐标积分的平移、周期
+  区间与尾积分拼接尚未完成，不能据此宣称非中心标量 CDF 已闭合。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
 密度或联合特征值密度；Theorem 1 的公式侧已编码，且中心单列特例已有 CDF 等式证明；非中心多列的一般 Theorem 1 与 Theorem 2–4

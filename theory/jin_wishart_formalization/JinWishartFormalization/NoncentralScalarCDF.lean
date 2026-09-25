@@ -1,5 +1,6 @@
 import JinWishartFormalization.WishartGamma
 import JinWishartFormalization.Theorem1Formula
+import JinWishartFormalization.BesselI0Angle
 
 /-!
 # Scalar noncentral bridge for Theorem 1
@@ -12,6 +13,42 @@ that analytic angular/radial integral remains a separate theorem.
 open Matrix MeasureTheory ProbabilityTheory Set
 
 namespace JinWishart
+
+/-- The order-zero Bessel factor in the scalar Nuttall-Q kernel is exactly a
+full angular average of the translated Gaussian exponential.  This is the
+analytic bridge needed to apply polar coordinates to the shifted planar Gaussian. -/
+theorem nuttallQ_10_integrand_eq_angularAverage (a t : ℝ) :
+    nuttallQIntegrand 1 0 a t =
+      (t : ℂ) * (Real.exp (-((t ^ 2 + a ^ 2) / 2)) : ℂ) *
+        (((((2 * Real.pi)⁻¹ *
+          ∫ θ in (0 : ℝ)..(2 * Real.pi), Real.exp (a * t * Real.cos θ) : ℝ) : ℝ) : ℂ)) := by
+  simp only [nuttallQIntegrand, pow_one]
+  rw [← angularAverage_eq_modifiedBesselI_zero (a * t)]
+
+/-- Fully expanded kernel for the scalar Rice/Nuttall-Q tail.  At order `q=0`
+the prefactor `(-i)^q` is one, so the only special-function term is the
+order-zero complex Bessel function at a purely imaginary argument. -/
+theorem nuttallQ_10_eq_explicit_complexBessel (a b : ℝ) :
+    nuttallQ 1 0 a b =
+      ∫ t in Ioi b,
+        (t : ℂ) * (Real.exp (-((t ^ 2 + a ^ 2) / 2)) : ℂ) *
+          Complex.besselJ 0 (Complex.I * ((a * t : ℝ) : ℂ)) := by
+  simp only [nuttallQ, nuttallQIntegrand, modifiedBesselI, pow_one,
+    Nat.cast_zero, Int.cast_zero, pow_zero, one_mul]
+
+/-- At zero noncentrality, the order-zero Bessel factor is exactly one, so the
+Nuttall-Q tail is a real Gaussian radial tail (before evaluating that tail). -/
+theorem nuttallQ_10_zeroAmplitude_eq_realIntegral (b : ℝ) :
+    nuttallQ 1 0 0 b =
+      ∫ t in Ioi b, (t * Real.exp (-(t ^ 2 / 2)) : ℝ) := by
+  rw [nuttallQ_10_eq_explicit_complexBessel]
+  have hkernel (t : ℝ) :
+      (t : ℂ) * (Real.exp (-((t ^ 2 + 0 ^ 2) / 2)) : ℂ) *
+          Complex.besselJ 0 (Complex.I * ((0 * t : ℝ) : ℂ)) =
+        ((t * Real.exp (-(t ^ 2 / 2)) : ℝ) : ℂ) := by
+    simp [Complex.besselJ_zero]
+  rw [setIntegral_congr_fun measurableSet_Ioi (fun t _ ↦ hkernel t)]
+  exact integral_complex_ofReal
 
 /-- The real-coordinate representative of a `1 × 1` complex mean has squared
 Euclidean length twice the squared modulus of its complex entry.  Thus the
