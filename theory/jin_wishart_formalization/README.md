@@ -96,8 +96,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   多维 Theorem 1 的一般证明。
 - `GaussianRadialCDF.lean` 现还将偶数维 EuclideanSpace 的能量阈值事件精确化为闭球，
   并证明球概率等于一维径向积分；通过 `u=r²/2` 的 Lean 换元定理，将径向核化为
-  lower-Gamma 型积分。尚差归一化常数与 `gammaMeasure` CDF 的完整对接，以及将一般标量
-  Gram 能量识别为该 EuclideanSpace 能量。
+  lower-Gamma 型积分。偶数维径向 Jacobian 与 Gaussian 密度的常数已单独化简为
+  `1/(k-1)!`。尚差把该 lower-Gamma 积分与 mathlib 的 `gammaMeasure` CDF 完整对接，
+  以及将一般标量 Gram 能量识别为该 EuclideanSpace 能量。
 
 这是一项实质性的概率模型和有序谱基础形式化，但还没有得到 Wishart 的 Lebesgue
 密度或联合特征值密度；Theorem 1 的公式侧已编码，但还没有 CDF 等式证明，Theorem 2–4

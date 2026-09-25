@@ -254,6 +254,39 @@ theorem radialGaussian_integral_subst (k : ℕ) (hk : 0 < k)
       rw [show φ 0 = 0 by simp [φ], hend]
     _ = _ := rfl
 
+/-- The even-dimensional radial volume and Gaussian density constants simplify
+to the unit-rate Gamma normalization. -/
+theorem radialGaussian_normalization (k : ℕ) (hk : 0 < k) :
+    (2 * (k : ℝ) * ((Real.pi ^ k) / (Nat.factorial k : ℝ))) *
+        ((Real.sqrt (2 * Real.pi))⁻¹ ^ (2 * k)) * 2 ^ (k - 1) =
+      ((Nat.factorial (k - 1) : ℝ))⁻¹ := by
+  have hsqrt : Real.sqrt (2 * Real.pi) ^ 2 = 2 * Real.pi :=
+    Real.sq_sqrt (by positivity)
+  have hpow : Real.sqrt (2 * Real.pi) ^ (2 * k) = (2 * Real.pi) ^ k := by
+    rw [pow_mul, hsqrt]
+  have hfac : Nat.factorial k = k * Nat.factorial (k - 1) := by
+    calc
+      Nat.factorial k = Nat.factorial ((k - 1) + 1) := by
+        rw [Nat.sub_add_cancel hk]
+      _ = ((k - 1) + 1) * Nat.factorial (k - 1) := Nat.factorial_succ _
+      _ = k * Nat.factorial (k - 1) := by congr 1 <;> omega
+  rw [inv_pow, hpow, hfac]
+  have hkpos : (k : ℝ) ≠ 0 := by exact_mod_cast (ne_of_gt hk)
+  have hfactpos : (Nat.factorial (k - 1) : ℝ) ≠ 0 := by
+    exact_mod_cast Nat.factorial_ne_zero (k - 1)
+  have hpipos : Real.pi ≠ 0 := ne_of_gt Real.pi_pos
+  have htwo : (2 : ℝ) ^ (k - 1) * 2 = 2 ^ k := by
+    rw [← pow_succ]
+    congr 1
+    omega
+  field_simp [hkpos, hfactpos, hpipos]
+  rw [mul_pow, ← htwo, ← hfac]
+  have hfacCast : (Nat.factorial k : ℝ) =
+      (k : ℝ) * (Nat.factorial (k - 1) : ℝ) := by exact_mod_cast hfac
+  rw [hfacCast]
+  push_cast
+  ring
+
 theorem complexGaussianEnergy_measure_Iic (x : ℝ) (hx : 0 ≤ x) :
     (stdGaussian ℂ).map complexGaussianEnergy (Iic x) =
       ENNReal.ofReal (1 - Real.exp (-x)) := by
