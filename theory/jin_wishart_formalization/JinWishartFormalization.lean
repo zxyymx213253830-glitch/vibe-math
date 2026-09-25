@@ -35,6 +35,9 @@ import JinWishartFormalization.NuttallQRiceNormalization
 import JinWishartFormalization.ScalarNoncentralTheorem1
 import JinWishartFormalization.Theorem2NoncentralScalarFormula
 import JinWishartFormalization.OrderedEigenvalueCDFRecurrence
+import JinWishartFormalization.OneColumnNoAtom
+import JinWishartFormalization.BesselI1Series
+import JinWishartFormalization.Theorem1SingleColumnTwoRows
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
