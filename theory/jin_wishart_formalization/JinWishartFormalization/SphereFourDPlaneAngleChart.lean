@@ -747,6 +747,37 @@ theorem fourDDistance_sq_sub_firstAxis (u : Metric.sphere
   simp [Real.norm_eq_abs, EuclideanSpace.inner_single_right]
   ring_nf
 
+/-- The sphere integral of an axially shifted four-dimensional Gaussian shell
+is the single-angle chart factor times its radial Gaussian exponential. -/
+theorem fourDShiftedGaussianAngularIntegral_eq_chart (a r : ℝ) :
+    (∫ u : Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1,
+      Real.exp (-‖r • (u : EuclideanSpace ℝ (Fin 4)) -
+        a • EuclideanSpace.single (0 : Fin 4) (1 : ℝ)‖ ^ 2 / 2)
+      ∂((volume : Measure (EuclideanSpace ℝ (Fin 4))).toSphere)) =
+        Real.exp (-((r ^ 2 + a ^ 2) / 2)) *
+          fourDSphereExpAngleIntegralChart (a * r) := by
+  calc
+    _ = ∫ u : Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1,
+        Real.exp (-((r ^ 2 + a ^ 2) / 2)) *
+          Real.exp (a * r * (u : EuclideanSpace ℝ (Fin 4)) 0)
+        ∂((volume : Measure (EuclideanSpace ℝ (Fin 4))).toSphere) := by
+      apply integral_congr_ae
+      filter_upwards with u
+      rw [fourDDistance_sq_sub_firstAxis]
+      have he : -(r ^ 2 + a ^ 2 - 2 * a * r *
+          (u : EuclideanSpace ℝ (Fin 4)) 0) / 2 =
+          -((r ^ 2 + a ^ 2) / 2) + a * r *
+            (u : EuclideanSpace ℝ (Fin 4)) 0 := by ring
+      rw [he, Real.exp_add]
+    _ = Real.exp (-((r ^ 2 + a ^ 2) / 2)) *
+        (∫ u : Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1,
+          Real.exp (a * r * (u : EuclideanSpace ℝ (Fin 4)) 0)
+          ∂((volume : Measure (EuclideanSpace ℝ (Fin 4))).toSphere)) := by
+      rw [integral_const_mul]
+    _ = Real.exp (-((r ^ 2 + a ^ 2) / 2)) *
+        fourDSphereExpAngleIntegralChart (a * r) := by
+      rw [fourDSphereToSphereIntegral_eq_chart]
+
 end
 
 end JinWishart
