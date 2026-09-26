@@ -177,6 +177,39 @@ theorem integral_positiveSubtype_prod_eq_setIntegral (F : ℝ × ℝ → ℝ) :
         ∂((volume : Measure ℝ).prod (volume : Measure ℝ)) := by
       rfl
 
+private def positiveHalfPlaneComplexIntegrand (F : ℝ × ℝ → ℝ) (z : ℂ) : ℝ :=
+  if 0 < z.im then F (z.re, z.im) else 0
+
+/-- The plane set integral is the corresponding complex-plane integral with
+the integrand extended by zero below the real axis. -/
+theorem integral_upperHalfPlane_eq_complex (F : ℝ × ℝ → ℝ) :
+    (∫ p in Set.univ ×ˢ Ioi (0 : ℝ), F p
+      ∂((volume : Measure ℝ).prod (volume : Measure ℝ))) =
+      ∫ z, positiveHalfPlaneComplexIntegrand F z := by
+  let H : Set (ℝ × ℝ) := Set.univ ×ˢ Ioi (0 : ℝ)
+  have hH : MeasurableSet H := by
+    dsimp [H]
+    exact MeasurableSet.prod MeasurableSet.univ measurableSet_Ioi
+  calc
+    _ = ∫ p, H.indicator F p ∂((volume : Measure ℝ).prod (volume : Measure ℝ)) := by
+      rw [← integral_indicator hH]
+    _ = ∫ p, (if 0 < p.2 then F p else 0)
+        ∂((volume : Measure ℝ).prod (volume : Measure ℝ)) := by
+      congr 1
+      funext p
+      simp [H, Set.indicator_apply, mem_prod]
+    _ = ∫ z, (if 0 < (Complex.measurableEquivRealProd z).2 then
+        F (Complex.measurableEquivRealProd z) else 0) := by
+      symm
+      exact Complex.volume_preserving_equiv_real_prod.integral_comp
+        Complex.measurableEquivRealProd.measurableEmbedding
+        (fun p : ℝ × ℝ => if 0 < p.2 then F p else 0)
+    _ = ∫ z, positiveHalfPlaneComplexIntegrand F z := by
+      apply integral_congr_ae
+      filter_upwards with z
+      simp [positiveHalfPlaneComplexIntegrand,
+        Complex.measurableEquivRealProd]
+
 end
 
 end JinWishart

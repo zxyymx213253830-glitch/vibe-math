@@ -213,7 +213,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   正好是 `ℝ²` 上限制到上半平面的 Lebesgue 乘积测度；这为把该迭代积分改写为复平面
   集合积分准备了测度层桥梁。现在也已证明任意可测表达式在这两个测度下的积分相等，
   即正半径 subtype 产品积分与上半平面 set integral 完全对应；但尚未将特定带权 slice
-  表达式实际套入复数极坐标换元，因此 S³ 的角积分公式仍待证明。
+  表达式实际套入复数极坐标换元，因此 S³ 的角积分公式仍待证明。上半平面 set integral
+  现也已一般性地改写为复平面上在实轴下方补零的积分，复数与实坐标之间复用了
+  Mathlib 的保体积等价；下一步是把这个具体复平面积分换到复极坐标 chart。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
