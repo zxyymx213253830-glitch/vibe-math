@@ -72,6 +72,18 @@ theorem fourDAngularCartesianTest_eq_planeSlice (κ s : ℝ) (y : E₃) :
     rw [fourDAngularCartesianTest, dif_neg hx, fourDAngularPlaneSlice, if_neg hs]
     rw [hnorm, hcoord]
 
+/-- The four-dimensional Cartesian test integral after the measure-preserving
+coordinate split `E₄ ≃ ℝ × E₃`. This exposes the scalar/radial slice integral
+needed for the subsequent Fubini and planar-polar calculation. -/
+theorem fourDAngularCartesianTest_integral_eq_planeSlice (κ : ℝ) :
+    (∫ x : E₄, fourDAngularCartesianTest κ x ∂(volume : Measure E₄)) =
+      ∫ p : ℝ × E₃, fourDAngularPlaneSlice κ p.1 ‖p.2‖
+        ∂((volume : Measure ℝ).prod (volume : Measure E₃)) := by
+  rw [integral_euclideanFour_eq_integral_realProdThree]
+  apply integral_congr_ae
+  filter_upwards with p
+  exact fourDAngularCartesianTest_eq_planeSlice κ p.1 p.2
+
 end
 
 end JinWishart
