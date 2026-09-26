@@ -41,6 +41,7 @@ import JinWishartFormalization.Theorem1SingleColumnTwoRows
 import JinWishartFormalization.OneColumnCDFRecurrence
 import JinWishartFormalization.Theorem1SingleColumnAnyRows
 import JinWishartFormalization.NoncentralFourDimensionalRadial
+import JinWishartFormalization.OrderedEigenvalueStrictRecurrence
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
