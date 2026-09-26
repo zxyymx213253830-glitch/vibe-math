@@ -176,9 +176,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   和实际多行非中心分布的解析连接。
 - `Theorem1TwoRowsNoncentral.lean` 用 `Q_{2,1}` 的已证正性，在 `λ>0`
   时消除 `t=2` 两条公式侧结论的显式分母非零前提；实际 CDF 等式仍未证明。
+- `NuttallQ21Normalization.lean` 现已从 Bessel `I₁` 的非负级数逐项积分，
+  证明实核总积分为幅度 `a`，并桥接到复值定义
+  `nuttallQ 2 1 a 0 = (a : ℂ)`（`a>0`）。该结果消除了 `Q₂,₁` 的标量
+  归一化缺口，但并不单独证明真实 `2×1` 样本的径向分布。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
-  `Q_{2,1}` 的被积函数除以非中心幅度；与真实球面测度的角积分连接和
-  `Q_{2,1}(a,0)=a` 的归一化证明仍待完成 `[需人工审查]`。
+  `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
   `S³` 单极角 chart 的解析积分，以及它与四维高斯密度、`r³` Jacobian
   相乘后的 `Q_{2,1}` 核系数；`NoncentralFourDimensionalTail.lean` 在显式
@@ -188,6 +191,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   证明真实四维移位高斯球积分的“单位球面 × 半径”极坐标换元。
   目前唯一缺口是把该真实球面测度的角积分识别为上面的单角 chart 积分
   `[需人工审查]`；因此尚不能推出实际 `2×1` CDF 等于 Nuttall-Q 公式。
+- `NoncentralFourDimensionalPoissonMixture.lean` 证明四维候选径向核逐点等于
+  Poisson 加权的中心 Gamma 径向核级数。这提供另一条解析路线；真实移位 Gaussian
+  测度等于该混合的证明仍未完成。
+- `OrderedEigenvalueMeasurable.lean` 补充最大与最小谱值的可测性引理；一般内部
+  有序特征值向量的联合可测性仍未证明。`ScalarPhysicalScaling.lean` 证明正散射尺度
+  下标量能量的确定性归一化恒等式，不代表一般矩阵协方差的参数变换已完成。
 - `ScalarNoncentralSmallX.lean` 将真实非中心 `1×1` CDF 写为半径加权积分，
   且证明连续因子在零处是 `exp(-λ)`。`WeightedIntervalAverage.lean`
   完成连续函数的加权区间平均极限；`ScalarNoncentralSmallXLimit.lean`

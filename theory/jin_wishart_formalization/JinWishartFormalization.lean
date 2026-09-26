@@ -54,6 +54,10 @@ import JinWishartFormalization.NuttallQ21Positive
 import JinWishartFormalization.Theorem1TwoRowsNoncentral
 import JinWishartFormalization.FourDimensionalPolarBridge
 import JinWishartFormalization.ScalarNoncentralOutageAsymptotic
+import JinWishartFormalization.NoncentralFourDimensionalPoissonMixture
+import JinWishartFormalization.OrderedEigenvalueMeasurable
+import JinWishartFormalization.NuttallQ21Normalization
+import JinWishartFormalization.ScalarPhysicalScaling
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
