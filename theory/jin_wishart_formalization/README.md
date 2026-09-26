@@ -170,6 +170,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   化为 `Q_{2,1}` 尾比；目前要求分母非零，尚未证明该候选式等于真实分布。
 - `Theorem1SingleColumnAnyRows.lean` 将上述公式侧约化推广到任意 `t≥1`：
   尾函数是 `Q_{t,t−1}`。这一推广仍以分母非零为明确前提，也尚未连接真实分布。
+- `Theorem2SingleColumnAnyRows.lean` 将 Theorem 2 的同一单列公式侧化为
+  归一化的 `Q_{t,t−1}(a,0)-Q_{t,t−1}(a,√(2x))` 增量；同样仍需分母非零
+  和实际多行非中心分布的解析连接。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度；球面角积分、极坐标换元和
   `Q_{2,1}(a,0)=a` 的测度论证明仍待完成 `[需人工审查]`。

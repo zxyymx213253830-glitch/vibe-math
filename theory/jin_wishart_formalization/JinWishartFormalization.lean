@@ -46,6 +46,7 @@ import JinWishartFormalization.OrderedEigenvalueIndexedRecurrence
 import JinWishartFormalization.ScalarNoncentralSmallX
 import JinWishartFormalization.WeightedIntervalAverage
 import JinWishartFormalization.ScalarNoncentralSmallXLimit
+import JinWishartFormalization.Theorem2SingleColumnAnyRows
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
