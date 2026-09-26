@@ -202,6 +202,13 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   可积（使用紧支撑与指数上界），并用 Fubini 和 R³ 径向公式将 Cartesian R⁴ 积分
   精确化为 `ℝ` 上标量坐标与 `volumeIoiPow 2` 上半径的迭代积分，内层角因子为 `4π`。
   尚未完成将该半平面积分通过复平面极坐标识别为 S³ 单角 chart 的角积分。
+- `SphereFourDPlaneAngleChart.lean` 继续补上了点态 chart 引理：在 `r>0`、`0<θ<π` 时，
+  slice 等于 `if r<1 then exp(κ cos θ) else 0`；乘以平面极坐标 Jacobian 后，integrand
+  精确成为 `if r<1 then r³ sin²θ exp(κ cos θ) else 0`。还证明 `volumeIoiPow 2` 的积分
+  可展开为 `r² dr`，并把主线标量-径向积分改写成正半平面上的带 `ρ²` 权重积分。
+  已证明 Mathlib 主值极坐标 chart 内虚部为正恰等价于 `θ∈(0,π)`。这些局部结果均已
+  导入主入口并通过完整构建；但加权半平面积分到复极坐标 chart 的测度换元尚未闭合，
+  所以仍不能推出 S³ 单角 chart 等式或真实 `2×1` CDF。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
