@@ -156,6 +156,8 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `OrderedEigenvalueStrictRecurrence.lean` 证明若下方统计量在阈值 `x` 无原子，
   则递推增量可改写为严格事件 `a<x<b`。将其用于一般多特征值模型还需证明
   对应有序特征值无原子及零重根。
+- `OrderedEigenvalueIndexedRecurrence.lean` 将此原理写成有限个降序可测统计量
+  的相邻 CDF 递推；它仍是抽象概率定理，尚未代入多特征值 Wishart 随机矩阵。
 - `OneColumnNoAtom.lean` 将无原子性推广到任意正行数的单列复非中心 Wishart；
   `BesselI1Series.lean` 给出四维径向计算将用到的修正贝塞尔函数 `I₁` 级数。
   二者尚未构成两行单列非中心分布的完整解析证明。
