@@ -150,6 +150,33 @@ theorem map_product_volume_positiveSubtype :
   rw [← MeasureTheory.Measure.prod_restrict (Set.univ : Set ℝ) (Ioi (0 : ℝ))]
   simp
 
+/-- The positive-subtype product integral is the ordinary plane set integral
+over the upper half-plane. This is a measure transport statement, not yet the
+polar-coordinate change of variables. -/
+theorem integral_positiveSubtype_prod_eq_setIntegral (F : ℝ × ℝ → ℝ) :
+    (∫ p : ℝ × Ioi (0 : ℝ), F (p.1, p.2)
+      ∂((volume : Measure ℝ).prod
+        (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ) (volume : Measure ℝ)))) =
+      ∫ p in Set.univ ×ˢ Ioi (0 : ℝ), F p
+        ∂((volume : Measure ℝ).prod (volume : Measure ℝ)) := by
+  let e : MeasurableEmbedding
+      (Prod.map (id : ℝ → ℝ) (Subtype.val : Ioi (0 : ℝ) → ℝ)) :=
+    MeasurableEmbedding.id.prodMap
+      (MeasurableEmbedding.subtype_coe measurableSet_Ioi)
+  calc
+    _ = ∫ p, F p ∂Measure.map
+        (Prod.map (id : ℝ → ℝ) (Subtype.val : Ioi (0 : ℝ) → ℝ))
+        ((volume : Measure ℝ).prod
+          (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ) (volume : Measure ℝ))) := by
+      symm
+      exact e.integral_map F
+    _ = ∫ p, F p ∂((volume : Measure ℝ).prod (volume : Measure ℝ)).restrict
+        (Set.univ ×ˢ Ioi (0 : ℝ)) := by
+      rw [map_product_volume_positiveSubtype]
+    _ = ∫ p in Set.univ ×ˢ Ioi (0 : ℝ), F p
+        ∂((volume : Measure ℝ).prod (volume : Measure ℝ)) := by
+      rfl
+
 end
 
 end JinWishart
