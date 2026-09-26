@@ -64,16 +64,26 @@ theorem sin_pos_iff_angle_pos (θ : ℝ) (hlo : -Real.pi < θ)
   · rintro ⟨hθ, hθπ⟩
     exact Real.sin_pos_of_pos_of_lt_pi hθ hθπ
 
+theorem polarCoord_symm_re (r θ : ℝ) :
+    (Complex.polarCoord.symm (r, θ)).re = r * Real.cos θ := by
+  rw [Complex.polarCoord_symm_apply]
+  simp only [Complex.mul_re, Complex.add_re, Complex.ofReal_re,
+    Complex.ofReal_im, Complex.I_re, Complex.I_im,
+    zero_mul, mul_zero, zero_add, one_mul, sub_zero]
+  ring
+
+theorem polarCoord_symm_im (r θ : ℝ) :
+    (Complex.polarCoord.symm (r, θ)).im = r * Real.sin θ := by
+  rw [Complex.polarCoord_symm_apply]
+  simp only [Complex.mul_im, Complex.add_im, Complex.ofReal_re,
+    Complex.ofReal_im, Complex.I_re, Complex.I_im,
+    zero_mul, mul_zero, zero_add, one_mul]
+  ring
+
 theorem polarCoord_symm_im_pos_iff (r θ : ℝ) (hr : 0 < r)
     (hlo : -Real.pi < θ) (hhi : θ < Real.pi) :
     0 < (Complex.polarCoord.symm (r, θ)).im ↔ 0 < θ ∧ θ < Real.pi := by
-  have him : (Complex.polarCoord.symm (r, θ)).im = r * Real.sin θ := by
-    rw [Complex.polarCoord_symm_apply]
-    simp only [Complex.mul_im, Complex.add_im, Complex.ofReal_re,
-      Complex.ofReal_im, Complex.I_re, Complex.I_im,
-      zero_mul, mul_zero, zero_add, one_mul]
-    ring
-  rw [him, mul_pos_iff_of_pos_left hr]
+  rw [polarCoord_symm_im, mul_pos_iff_of_pos_left hr]
   exact sin_pos_iff_angle_pos θ hlo hhi
 
 /-- Unfolding `volumeIoiPow 2` exposes the radial Jacobian as the ordinary
@@ -180,6 +190,40 @@ theorem integral_positiveSubtype_prod_eq_setIntegral (F : ℝ × ℝ → ℝ) :
 private def positiveHalfPlaneComplexIntegrand (F : ℝ × ℝ → ℝ) (z : ℂ) : ℝ :=
   if 0 < z.im then F (z.re, z.im) else 0
 
+def fourDAngularPlaneWeightedIntegrand (κ : ℝ) (p : ℝ × ℝ) : ℝ :=
+  (4 * Real.pi) * p.2 ^ 2 * fourDAngularPlaneSlice κ p.1 p.2
+
+theorem fourDAngularPlaneWeightedIntegrand_polar_eq
+    (κ r θ : ℝ) (hr : 0 < r) (hlo : -Real.pi < θ)
+    (hhi : θ < Real.pi) :
+    r * positiveHalfPlaneComplexIntegrand
+        (fourDAngularPlaneWeightedIntegrand κ)
+        (Complex.polarCoord.symm (r, θ)) =
+      if 0 < θ ∧ θ < Real.pi then
+        if r < 1 then
+          (4 * Real.pi) * r ^ 3 * Real.sin θ ^ 2 * Real.exp (κ * Real.cos θ)
+        else 0
+      else 0 := by
+  let z : ℂ := Complex.polarCoord.symm (r, θ)
+  have hre : z.re = r * Real.cos θ := polarCoord_symm_re r θ
+  have him : z.im = r * Real.sin θ := polarCoord_symm_im r θ
+  by_cases hθ : 0 < θ ∧ θ < Real.pi
+  · have hzpos : 0 < z.im :=
+      (polarCoord_symm_im_pos_iff r θ hr hlo hhi).2 hθ
+    change r * (if 0 < z.im then
+      fourDAngularPlaneWeightedIntegrand κ (z.re, z.im) else 0) = _
+    rw [if_pos hzpos]
+    simp only [fourDAngularPlaneWeightedIntegrand]
+    rw [hre, him]
+    rw [fourDAngularPlaneSlice_polar_eq κ r θ hr hθ.1 hθ.2]
+    by_cases hcut : r < 1 <;> simp [hθ, hcut] <;> ring
+  · have hznot : ¬ 0 < z.im := by
+      intro hz
+      exact hθ ((polarCoord_symm_im_pos_iff r θ hr hlo hhi).1 hz)
+    change r * (if 0 < z.im then
+      fourDAngularPlaneWeightedIntegrand κ (z.re, z.im) else 0) = _
+    simp [hznot, hθ]
+
 /-- The plane set integral is the corresponding complex-plane integral with
 the integrand extended by zero below the real axis. -/
 theorem integral_upperHalfPlane_eq_complex (F : ℝ × ℝ → ℝ) :
@@ -209,6 +253,29 @@ theorem integral_upperHalfPlane_eq_complex (F : ℝ × ℝ → ℝ) :
       filter_upwards with z
       simp [positiveHalfPlaneComplexIntegrand,
         Complex.measurableEquivRealProd]
+
+/-- Actual Mathlib complex-polar change of variables for the weighted angular
+test. The upper-half-plane cutoff becomes the single angular chart `(0,π)`;
+the radial cutoff remains `r < 1`. -/
+theorem integral_fourDAngularPlaneWeightedComplex_eq_angleChart (κ : ℝ) :
+    (∫ z, positiveHalfPlaneComplexIntegrand
+      (fourDAngularPlaneWeightedIntegrand κ) z) =
+      ∫ p in Complex.polarCoord.target,
+        if 0 < p.2 ∧ p.2 < Real.pi then
+          if p.1 < 1 then
+            (4 * Real.pi) * p.1 ^ 3 * Real.sin p.2 ^ 2 *
+              Real.exp (κ * Real.cos p.2)
+          else 0
+        else 0 := by
+  rw [← Complex.integral_comp_polarCoord_symm
+    (positiveHalfPlaneComplexIntegrand (fourDAngularPlaneWeightedIntegrand κ))]
+  apply setIntegral_congr_fun Complex.polarCoord.open_target.measurableSet
+  intro p hp
+  have hp' : 0 < p.1 ∧ -Real.pi < p.2 ∧ p.2 < Real.pi := by
+    simpa only [Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo] using hp
+  have hpoint := fourDAngularPlaneWeightedIntegrand_polar_eq
+    κ p.1 p.2 hp'.1 hp'.2.1 hp'.2.2
+  simpa only [smul_eq_mul] using hpoint
 
 end
 

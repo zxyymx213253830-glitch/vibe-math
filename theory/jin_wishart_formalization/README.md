@@ -215,7 +215,11 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   即正半径 subtype 产品积分与上半平面 set integral 完全对应；但尚未将特定带权 slice
   表达式实际套入复数极坐标换元，因此 S³ 的角积分公式仍待证明。上半平面 set integral
   现也已一般性地改写为复平面上在实轴下方补零的积分，复数与实坐标之间复用了
-  Mathlib 的保体积等价；下一步是把这个具体复平面积分换到复极坐标 chart。
+  Mathlib 的保体积等价。又已将实际加权 slice integrand 逐点化为复极坐标下的
+  `4π r³ sin²(θ) exp(κ cos θ)`，并直接调用 `Complex.integral_comp_polarCoord_symm`
+  将复平面积分换至 Mathlib 极坐标 chart。当前只得到 chart 域上的带 indicator 积分；
+  尚需把它严格改写成 `(0,1)×(0,π)` 上的矩形积分并完成 Fubini 和径向积分，故 S³
+  单角公式及真实 `2×1` CDF 仍未闭合。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
