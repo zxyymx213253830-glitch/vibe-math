@@ -209,6 +209,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   已证明 Mathlib 主值极坐标 chart 内虚部为正恰等价于 `θ∈(0,π)`。这些局部结果均已
   导入主入口并通过完整构建；但加权半平面积分到复极坐标 chart 的测度换元尚未闭合，
   所以仍不能推出 S³ 单角 chart 等式或真实 `2×1` CDF。
+  此外，现已证明 `ℝ × Ioi(0)` 上的 `volume × comap(Subtype.val, volume)` 经坐标映射后，
+  正好是 `ℝ²` 上限制到上半平面的 Lebesgue 乘积测度；这为把该迭代积分改写为复平面
+  集合积分准备了测度层桥梁，但带权积分等式本身尚未完成。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检

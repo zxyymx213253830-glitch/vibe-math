@@ -126,6 +126,30 @@ theorem fourDAngular_scalarRadial_eq_positiveHalfPlane (κ : ℝ) :
   funext r
   ring
 
+/-- Mapping the product of ordinary Lebesgue measure and the positive-subtype
+Lebesgue measure into `ℝ × ℝ` gives the restriction to the upper half-plane. -/
+theorem map_product_volume_positiveSubtype :
+    Measure.map
+        (Prod.map (id : ℝ → ℝ)
+          (Subtype.val : Ioi (0 : ℝ) → ℝ))
+        ((volume : Measure ℝ).prod
+          (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ)
+            (volume : Measure ℝ))) =
+      ((volume : Measure ℝ).prod (volume : Measure ℝ)).restrict
+        (Set.univ ×ˢ Ioi (0 : ℝ)) := by
+  letI : SigmaFinite
+      (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ) (volume : Measure ℝ)) :=
+    SigmaFinite.of_map _ measurable_subtype_coe.aemeasurable (by
+      rw [map_comap_subtype_coe measurableSet_Ioi]
+      infer_instance)
+  rw [← MeasureTheory.Measure.map_prod_map (volume : Measure ℝ)
+    (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ) (volume : Measure ℝ))
+    measurable_id measurable_subtype_coe]
+  rw [MeasureTheory.Measure.map_id,
+    map_comap_subtype_coe measurableSet_Ioi]
+  rw [← MeasureTheory.Measure.prod_restrict (Set.univ : Set ℝ) (Ioi (0 : ℝ))]
+  simp
+
 end
 
 end JinWishart
