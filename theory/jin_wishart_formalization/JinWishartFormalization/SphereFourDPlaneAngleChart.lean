@@ -368,6 +368,67 @@ theorem integral_fourDAngularPlaneAngleChart_eq_rectangle (κ : ℝ) :
       setIntegral_prod (fourDAngularAngleRectangleIntegrand κ)
         (fourDAngularAngleRectangleIntegrand_integrableOn κ)
 
+private def fourDAngularAngleFactor (κ θ : ℝ) : ℝ :=
+  Real.sin θ ^ 2 * Real.exp (κ * Real.cos θ)
+
+private theorem integral_Ioo_cube_01 :
+    (∫ r in Ioo (0 : ℝ) 1, r ^ 3) = (1 / 4 : ℝ) := by
+  calc
+    _ = ∫ r in Ioc (0 : ℝ) 1, r ^ 3 := by
+      rw [← integral_Ioc_eq_integral_Ioo]
+    _ = ∫ r in (0 : ℝ)..1, r ^ 3 := by
+      rw [← intervalIntegral.integral_of_le (by norm_num)]
+    _ = (1 / 4 : ℝ) := by
+      rw [integral_pow]
+      norm_num
+
+private theorem integral_angleFactor_Ioo_eq_interval (κ : ℝ) :
+    (∫ θ in Ioo (0 : ℝ) Real.pi, fourDAngularAngleFactor κ θ) =
+      ∫ θ in (0 : ℝ)..Real.pi, fourDAngularAngleFactor κ θ := by
+  calc
+    _ = ∫ θ in Ioc (0 : ℝ) Real.pi, fourDAngularAngleFactor κ θ := by
+      rw [← integral_Ioc_eq_integral_Ioo]
+    _ = ∫ θ in (0 : ℝ)..Real.pi, fourDAngularAngleFactor κ θ := by
+      rw [← intervalIntegral.integral_of_le (le_of_lt Real.pi_pos)]
+
+/-- Fubini separation and the elementary `∫₀¹ r³ dr = 1/4` evaluation leave
+exactly the claimed `π`-scaled single-angle integral. -/
+theorem integral_fourDAngularAngleRectangle_eq_pi_angle (κ : ℝ) :
+    (∫ r in Ioo (0 : ℝ) 1, ∫ θ in Ioo (0 : ℝ) Real.pi,
+      fourDAngularAngleRectangleIntegrand κ (r, θ)) =
+      Real.pi * ∫ θ in (0 : ℝ)..Real.pi, fourDAngularAngleFactor κ θ := by
+  calc
+    _ = ∫ r in Ioo (0 : ℝ) 1,
+        (4 * Real.pi) * r ^ 3 *
+          (∫ θ in Ioo (0 : ℝ) Real.pi, fourDAngularAngleFactor κ θ) := by
+      apply setIntegral_congr_fun measurableSet_Ioo
+      intro r hr
+      calc
+        _ = ∫ θ in Ioo (0 : ℝ) Real.pi,
+            ((4 * Real.pi) * r ^ 3) * fourDAngularAngleFactor κ θ := by
+          apply setIntegral_congr_fun measurableSet_Ioo
+          intro θ hθ
+          simp [fourDAngularAngleRectangleIntegrand, fourDAngularAngleFactor]
+          ring
+        _ = _ := by rw [integral_const_mul]
+    _ = (∫ θ in Ioo (0 : ℝ) Real.pi, fourDAngularAngleFactor κ θ) *
+        ((4 * Real.pi) * ∫ r in Ioo (0 : ℝ) 1, r ^ 3) := by
+      calc
+        _ = ∫ r in Ioo (0 : ℝ) 1,
+            (∫ θ in Ioo (0 : ℝ) Real.pi, fourDAngularAngleFactor κ θ) *
+              ((4 * Real.pi) * r ^ 3) := by
+          apply setIntegral_congr_fun measurableSet_Ioo
+          intro r hr
+          ring
+        _ = (∫ θ in Ioo (0 : ℝ) Real.pi, fourDAngularAngleFactor κ θ) *
+            (∫ r in Ioo (0 : ℝ) 1, (4 * Real.pi) * r ^ 3) := by
+          rw [integral_const_mul]
+        _ = _ := by rw [integral_const_mul]
+    _ = Real.pi * ∫ θ in (0 : ℝ)..Real.pi, fourDAngularAngleFactor κ θ := by
+      rw [integral_Ioo_cube_01, integral_angleFactor_Ioo_eq_interval]
+      norm_num
+      ring
+
 end
 
 end JinWishart
