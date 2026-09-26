@@ -84,6 +84,14 @@ theorem fourDAngularCartesianTest_integral_eq_planeSlice (κ : ℝ) :
   filter_upwards with p
   exact fourDAngularCartesianTest_eq_planeSlice κ p.1 p.2
 
+/-- For each fixed scalar coordinate, the remaining three-dimensional slice
+integral is exactly radial, with the S² mass `4π` as its angular factor. -/
+theorem fourDAngularPlaneSlice_integral_three (κ s : ℝ) :
+    (∫ y : E₃, fourDAngularPlaneSlice κ s ‖y‖ ∂(volume : Measure E₃)) =
+      4 * Real.pi * ∫ r : Ioi (0 : ℝ), fourDAngularPlaneSlice κ s r
+        ∂(Measure.volumeIoiPow 2) := by
+  exact integral_euclideanThree_norm_radial (fourDAngularPlaneSlice κ s)
+
 end
 
 end JinWishart

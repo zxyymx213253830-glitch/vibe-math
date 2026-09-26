@@ -200,7 +200,8 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `SphereFourDPlanePolar.lean` 已证明 R⁴ 到 `ℝ × R³` 坐标下的首坐标、范数平方分解，
   并将球面角测试函数逐点化为仅依赖标量坐标与三维半径的 slice 函数；此模块尚未
   完成对该 slice 的 Fubini 与复平面极坐标积分。Cartesian 测试函数的 R⁴ 积分现已
-  精确改写为 `ℝ × R³` 上 slice 函数的乘积测度积分。
+  精确改写为 `ℝ × R³` 上 slice 函数的乘积测度积分；固定首坐标后的三维积分已化为
+  `4π` 乘带 `ρ²` 权重的一维径向积分。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
