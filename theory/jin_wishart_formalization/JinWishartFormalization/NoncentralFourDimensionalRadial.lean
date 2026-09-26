@@ -3,11 +3,12 @@ import JinWishartFormalization.BesselI1Series
 /-!
 # Four-real-dimensional noncentral Gaussian radial kernel
 
-For a noncentral standard Gaussian in four real dimensions, the spherical
-average contributes `I₁(ar)/(ar)`.  After multiplying by the radius-cubed
-Jacobian, the radial density is `r²/a` times the Nuttall `(2,1)` kernel.
-This module proves the local kernel identity; the geometric polar-coordinate
-integral and probability pushforward remain separate obligations.
+For a noncentral standard Gaussian in four real dimensions, the expected
+spherical average contributes `I₁(ar)/(ar)`.  After multiplying by the
+radius-cubed Jacobian, the candidate radial density is `r²/a` times the
+Nuttall `(2,1)` kernel. This module proves the local kernel identity; the
+identification with the actual sphere measure and probability pushforward
+remain separate obligations.
 -/
 
 namespace JinWishart
@@ -19,8 +20,8 @@ def besselI1RealSeries (x : ℝ) : ℝ :=
   (x / 2) * ∑' n : ℕ,
     (x ^ 2 / 4) ^ n / ((n.factorial : ℝ) * ((n + 1).factorial : ℝ))
 
-/-- Four-dimensional noncentral Gaussian radial density kernel, in the radius
-coordinate and with noncentrality amplitude `a > 0`. -/
+/-- Candidate four-dimensional noncentral Gaussian radial density kernel, in
+the radius coordinate and with noncentrality amplitude `a > 0`. -/
 def noncentralChiFourRadialKernel (a r : ℝ) : ℝ :=
   (r ^ 2 / a) * Real.exp (-((r ^ 2 + a ^ 2) / 2)) * besselI1RealSeries (a * r)
 

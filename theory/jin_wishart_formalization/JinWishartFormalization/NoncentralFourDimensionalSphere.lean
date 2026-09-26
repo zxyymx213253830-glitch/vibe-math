@@ -29,10 +29,10 @@ theorem fourDSphereExpAngleIntegralChart_eq_besselI1 (κ : ℝ) (hκ : κ ≠ 0)
     angularExpSinSqIntegral_eq_pi_besselI1_div κ hκ]
   ring
 
-/-- Multiplying the shifted four-dimensional Gaussian density by its spherical
-surface factor and radial Jacobian gives exactly the normalized `(2,1)`
-Nuttall radial kernel.  This fixes the coefficient and the `1/a` factor; it
-does not itself assert the polar change-of-variables theorem. -/
+/-- Multiplying the shifted four-dimensional Gaussian density formula by the
+chart angular factor and radial Jacobian gives the candidate `(2,1)` Nuttall
+radial kernel. This fixes the coefficient and the `1/a` factor; it does not
+identify the chart factor with the actual sphere measure. -/
 theorem shiftedGaussianFourDShellFactor_eq_nuttallKernel
     (a r : ℝ) (ha : 0 < a) (hr : 0 < r) :
     (2 * Real.pi)⁻¹ ^ 2 * r ^ 3 *

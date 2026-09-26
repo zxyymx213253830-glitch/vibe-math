@@ -3,10 +3,10 @@ import JinWishartFormalization.NoncentralFourDimensionalRadial
 /-!
 # Four-dimensional radial tail as normalized `Q_{2,1}`
 
-The theorem below is the analytic tail identity after polar coordinates have
-already reduced the probability law to its radial density.  The remaining
-geometric obligation is to prove that the actual shifted Gaussian pushforward
-has this radial density using the S³ surface-coordinate chart.
+The theorem below is the analytic tail identity for the candidate radial
+kernel.  The remaining geometric obligation is to prove that the actual
+shifted Gaussian pushforward has this radial density using the S³
+surface-coordinate chart.
 -/
 
 open MeasureTheory Set

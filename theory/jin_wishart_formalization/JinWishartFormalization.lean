@@ -53,6 +53,7 @@ import JinWishartFormalization.NoncentralFourDimensionalTail
 import JinWishartFormalization.NuttallQ21Positive
 import JinWishartFormalization.Theorem1TwoRowsNoncentral
 import JinWishartFormalization.FourDimensionalPolarBridge
+import JinWishartFormalization.ScalarNoncentralOutageAsymptotic
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
