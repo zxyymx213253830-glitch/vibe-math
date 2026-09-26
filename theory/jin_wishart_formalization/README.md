@@ -180,6 +180,18 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   证明实核总积分为幅度 `a`，并桥接到复值定义
   `nuttallQ 2 1 a 0 = (a : ℂ)`（`a>0`）。该结果消除了 `Q₂,₁` 的标量
   归一化缺口，但并不单独证明真实 `2×1` 样本的径向分布。
+- `Theorem1TwoRowsNoncentral.lean` 现将双行单列的 Theorem 1/2 公式侧归一化项
+  精确化简为实幅度 `√(2λ)`；这仍是特殊函数公式化简，不代表概率等式。
+- `NoncentralOneColumnEnergy.lean` 对任意正行数证明真实单列非中心 Gram 最小
+  特征值等于平移后实高斯向量的平方范数除以 2，并将 CDF 子水平事件精确写成
+  以负均值为中心、半径 `√(2x)` 的闭球概率。该模块给出了 `2×1` 模型到四维高斯
+  球概率的入口；并将该 CDF 表示为有限维标准高斯的平移密度积分。
+- `GaussianEuclideanBallDensity.lean` 从 Mathlib 有限维标准 Gaussian 密度定理
+  推出闭球概率的 Lebesgue 积分形式，并证明平移闭球的积分换到以原点为中心的球，
+  指数核相应变成 `exp(-‖z-μ‖²/2)`。该模块尚未计算四维球面的角积分。
+- `SphereThreeMeasure.lean` 由 Mathlib `toSphere` 定义和三维单位球体积证明
+  三维单位球面的总质量为 `4π`；它是 S³ 角积分分解的基础常数校验，还未证明 S³
+  的单极角 chart 公式。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检

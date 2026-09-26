@@ -58,6 +58,9 @@ import JinWishartFormalization.NoncentralFourDimensionalPoissonMixture
 import JinWishartFormalization.OrderedEigenvalueMeasurable
 import JinWishartFormalization.NuttallQ21Normalization
 import JinWishartFormalization.ScalarPhysicalScaling
+import JinWishartFormalization.NoncentralOneColumnEnergy
+import JinWishartFormalization.SphereThreeMeasure
+import JinWishartFormalization.GaussianEuclideanBallDensity
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
