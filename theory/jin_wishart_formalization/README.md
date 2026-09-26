@@ -177,14 +177,17 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `Theorem1TwoRowsNoncentral.lean` 用 `Q_{2,1}` 的已证正性，在 `λ>0`
   时消除 `t=2` 两条公式侧结论的显式分母非零前提；实际 CDF 等式仍未证明。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
-  `Q_{2,1}` 的被积函数除以非中心幅度；球面角积分、极坐标换元和
-  `Q_{2,1}(a,0)=a` 的测度论证明仍待完成 `[需人工审查]`。
+  `Q_{2,1}` 的被积函数除以非中心幅度；与真实球面测度的角积分连接和
+  `Q_{2,1}(a,0)=a` 的归一化证明仍待完成 `[需人工审查]`。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
   `S³` 单极角 chart 的解析积分，以及它与四维高斯密度、`r³` Jacobian
   相乘后的 `Q_{2,1}` 核系数；`NoncentralFourDimensionalTail.lean` 在显式
   可积性前提下证明该径向核的尾积分等于 `Q_{2,1}(a,b)/a`。尚未证明此
-  chart 公式代表真实球面测度，也未证明对平移高斯的四维极坐标换元
-  `[需人工审查]`，因此实际 `2×1` CDF 尚未闭合。
+  chart 公式代表真实球面测度 `[需人工审查]`，因此实际 `2×1` CDF 尚未闭合。
+- `FourDimensionalPolarBridge.lean` 已进一步用 Mathlib 的 `toSphere` 测度
+  证明真实四维移位高斯球积分的“单位球面 × 半径”极坐标换元。
+  目前唯一缺口是把该真实球面测度的角积分识别为上面的单角 chart 积分
+  `[需人工审查]`；因此尚不能推出实际 `2×1` CDF 等于 Nuttall-Q 公式。
 - `ScalarNoncentralSmallX.lean` 将真实非中心 `1×1` CDF 写为半径加权积分，
   且证明连续因子在零处是 `exp(-λ)`。`WeightedIntervalAverage.lean`
   完成连续函数的加权区间平均极限；`ScalarNoncentralSmallXLimit.lean`
