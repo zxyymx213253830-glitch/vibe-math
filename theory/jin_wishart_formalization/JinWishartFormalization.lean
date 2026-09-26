@@ -44,6 +44,8 @@ import JinWishartFormalization.NoncentralFourDimensionalRadial
 import JinWishartFormalization.OrderedEigenvalueStrictRecurrence
 import JinWishartFormalization.OrderedEigenvalueIndexedRecurrence
 import JinWishartFormalization.ScalarNoncentralSmallX
+import JinWishartFormalization.WeightedIntervalAverage
+import JinWishartFormalization.ScalarNoncentralSmallXLimit
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
