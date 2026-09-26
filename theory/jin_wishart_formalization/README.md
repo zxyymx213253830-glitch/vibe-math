@@ -190,18 +190,15 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   推出闭球概率的 Lebesgue 积分形式，并证明平移闭球的积分换到以原点为中心的球，
   指数核相应变成 `exp(-‖z-μ‖²/2)`。该模块尚未计算四维球面的角积分。
 - `SphereThreeMeasure.lean` 由 Mathlib `toSphere` 定义和三维单位球体积证明
-  三维单位球面的总质量为 `4π`；它是 S³ 角积分分解的基础常数校验，还未证明 S³
-  的单极角 chart 公式。
+  三维单位球面的总质量为 `4π`；它是高维角积分分解的基础常数校验。
 - `SphereFourDAngularIntegral.lean` 已建立 R⁴ 与 `ℝ × R³` 的测度保持坐标分解，
   并利用四维极坐标定理证明角因子与半径因子的乘积分解；另已证明一般三维径向积分
   恰为 `4π` 乘相应的一维径向积分。一个单位球 cutoff 的径向积分已精确算为 `1/4`。
-  R×R³ 方向的 Fubini/复极坐标计算尚未完成，
-  因而仍未得到 S³ 到单极角 chart 的恒等式。
 - `SphereFourDPlanePolar.lean` 已证明 R⁴ 到 `ℝ × R³` 坐标下的首坐标、范数平方分解，
   并将球面角测试函数逐点化为仅依赖标量坐标与三维半径的 slice 函数。已证明该 slice
   可积（使用紧支撑与指数上界），并用 Fubini 和 R³ 径向公式将 Cartesian R⁴ 积分
   精确化为 `ℝ` 上标量坐标与 `volumeIoiPow 2` 上半径的迭代积分，内层角因子为 `4π`。
-  尚未完成将该半平面积分通过复平面极坐标识别为 S³ 单角 chart 的角积分。
+  尚未完成的复极坐标与半平面积分桥接已移入下一模块。
 - `SphereFourDPlaneAngleChart.lean` 继续补上了点态 chart 引理：在 `r>0`、`0<θ<π` 时，
   slice 等于 `if r<1 then exp(κ cos θ) else 0`；乘以平面极坐标 Jacobian 后，integrand
   精确成为 `if r<1 then r³ sin²θ exp(κ cos θ) else 0`。还证明 `volumeIoiPow 2` 的积分
@@ -215,20 +212,24 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   `(0,1)×(0,π)` 上的矩形迭代积分，并以紧矩形上的连续性证明可积性；此模块已导入主入口，
   完整构建通过。另已证明 `∫₀¹ r³ dr=1/4`，并将角度开区间积分转成 `0..π` 的
   intervalIntegral。现已将复平面带权积分完整化简为 `π * ∫₀^π exp(κ cos θ) sin²θ dθ`，
-  并证明其恰为已有 S³ 单角 chart 积分的 `1/4`。下一步将结合 R⁴ 的 toSphere 径向分解
-  消去这项 `1/4`，以完成实际球面测度与该单角 chart 的识别；真实 `2×1` CDF 与 `Q₂,₁`
-  的概率等式仍未闭合。
+  并证明其恰为已有 S³ 单角 chart 积分的 `1/4`。随后将 Cartesian cutoff 积分的两种分解
+  （平面极坐标与 R⁴ `toSphere` 径向分解）相等，消去共同的径向质量 `1/4`，从而证明
+  Mathlib 实际 `toSphere` 球面测度的指数积分等于 S³ 单角 chart 积分。完整项目构建通过。
+  这闭合了真实 `2×1` CDF 证明中的球面角测度缺口；将其进一步代入高斯球概率并与
+  `Q₂,₁` 尾积分定理拼接，仍需完成并端到端验证。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
   `S³` 单极角 chart 的解析积分，以及它与四维高斯密度、`r³` Jacobian
   相乘后的 `Q_{2,1}` 核系数；`NoncentralFourDimensionalTail.lean` 在显式
   可积性前提下证明该径向核的尾积分等于 `Q_{2,1}(a,b)/a`。尚未证明此
-  chart 公式代表真实球面测度 `[需人工审查]`，因此实际 `2×1` CDF 尚未闭合。
+  chart 公式代表真实球面测度的缺口现已由 `SphereFourDPlaneAngleChart.lean` 闭合；
+  实际 `2×1` CDF 与 Nuttall-Q 的端到端等式仍待拼接。
 - `FourDimensionalPolarBridge.lean` 已进一步用 Mathlib 的 `toSphere` 测度
   证明真实四维移位高斯球积分的“单位球面 × 半径”极坐标换元。
-  目前唯一缺口是把该真实球面测度的角积分识别为上面的单角 chart 积分
-  `[需人工审查]`；因此尚不能推出实际 `2×1` CDF 等于 Nuttall-Q 公式。
+  该真实球面测度的角积分现已识别为单角 chart 积分；可据此继续证明实际 `2×1` CDF
+  与 Nuttall-Q 公式相等。上述新桥接包含 Fubini 与测度换元，应按仓库规则列入
+  `[需人工审查]` 清单。
 - `NoncentralFourDimensionalPoissonMixture.lean` 证明四维候选径向核逐点等于
   Poisson 加权的中心 Gamma 径向核级数。这提供另一条解析路线；真实移位 Gaussian
   测度等于该混合的证明仍未完成。

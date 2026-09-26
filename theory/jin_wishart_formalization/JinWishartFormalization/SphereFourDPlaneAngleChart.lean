@@ -371,6 +371,154 @@ private theorem fourDAngularPositiveSubtypeIntegrand_norm_le (κ : ℝ)
   · simp [hzero, hcut]
     positivity
 
+private def fourDAngularPlaneAmbientIntegrand (κ : ℝ) (p : ℝ × ℝ) : ℝ :=
+  if 0 < p.2 then fourDAngularPlaneWeightedIntegrand κ p else 0
+
+private theorem measurable_fourDAngularPlaneAmbientIntegrand (κ : ℝ) :
+    Measurable (fourDAngularPlaneAmbientIntegrand κ) := by
+  have hslice : Measurable (fun p : ℝ × ℝ =>
+      fourDAngularPlaneSlice κ p.1 p.2) := by
+    unfold fourDAngularPlaneSlice
+    refine Measurable.ite (by measurability) measurable_const ?_
+    refine Measurable.ite (by measurability) ?_ measurable_const
+    fun_prop
+  unfold fourDAngularPlaneAmbientIntegrand fourDAngularPlaneWeightedIntegrand
+  apply Measurable.ite (by measurability)
+  · exact (measurable_const.mul (measurable_snd.pow_const _)).mul hslice
+  · exact measurable_const
+
+private theorem fourDAngularPlaneAmbientIntegrand_norm_le (κ : ℝ)
+    (p : ℝ × ℝ) :
+    ‖fourDAngularPlaneAmbientIntegrand κ p‖ ≤
+      (4 * Real.pi) * Real.exp |κ| := by
+  by_cases hy : 0 < p.2
+  · have h := fourDAngularPositiveSubtypeIntegrand_norm_le κ
+      (p.1, ⟨p.2, hy⟩)
+    simpa [fourDAngularPlaneAmbientIntegrand,
+      fourDAngularPositiveSubtypeIntegrand,
+      fourDAngularPlaneWeightedIntegrand, hy] using h
+  · simp [fourDAngularPlaneAmbientIntegrand, hy]
+    positivity
+
+private theorem integrable_fourDAngularPlaneAmbientIntegrand (κ : ℝ) :
+    Integrable (fourDAngularPlaneAmbientIntegrand κ)
+      ((volume : Measure ℝ).prod (volume : Measure ℝ)) := by
+  let K : Set (ℝ × ℝ) := Icc (-1 : ℝ) 1 ×ˢ Icc (0 : ℝ) 1
+  have hKcompact : IsCompact K := by
+    dsimp [K]
+    exact isCompact_Icc.prod isCompact_Icc
+  have hKfinite : ((volume : Measure ℝ).prod (volume : Measure ℝ)) K ≠ ⊤ :=
+    hKcompact.measure_ne_top
+  have hmeas := measurable_fourDAngularPlaneAmbientIntegrand κ
+  have hbound : ∀ᵐ p ∂(((volume : Measure ℝ).prod (volume : Measure ℝ)).restrict K),
+      ‖fourDAngularPlaneAmbientIntegrand κ p‖ ≤ (4 * Real.pi) * Real.exp |κ| :=
+    Filter.Eventually.of_forall fun p => fourDAngularPlaneAmbientIntegrand_norm_le κ p
+  have hion : IntegrableOn (fourDAngularPlaneAmbientIntegrand κ) K
+      ((volume : Measure ℝ).prod (volume : Measure ℝ)) :=
+    Measure.integrableOn_of_bounded hKfinite hmeas.aestronglyMeasurable hbound
+  have hzero_outside : ∀ p, p ∉ K → fourDAngularPlaneAmbientIntegrand κ p = 0 := by
+    rintro ⟨s, r⟩ hp
+    by_contra hne
+    have hr : 0 < r := by
+      by_contra hn
+      have hnonpos : ¬ 0 < r := hn
+      simp [fourDAngularPlaneAmbientIntegrand, hnonpos] at hne
+    have hcut : Real.sqrt (s ^ 2 + r ^ 2) < 1 := by
+      by_contra hc
+      have hzero : ¬(s = 0 ∧ r = 0) := by
+        rintro ⟨_, hr0⟩
+        linarith
+      simp [fourDAngularPlaneAmbientIntegrand,
+        fourDAngularPlaneWeightedIntegrand, fourDAngularPlaneSlice,
+        hr, hzero, hc] at hne
+    have hsabs : |s| ≤ Real.sqrt (s ^ 2 + r ^ 2) :=
+      Real.abs_le_sqrt (by nlinarith [sq_nonneg r])
+    have hrbound : r ≤ Real.sqrt (s ^ 2 + r ^ 2) :=
+      Real.le_sqrt_of_sq_le (by nlinarith [sq_nonneg s])
+    have hslo : -1 ≤ s := by nlinarith [abs_le.mp hsabs]
+    have hshi : s ≤ 1 := by nlinarith [abs_le.mp hsabs]
+    have hrhi : r ≤ 1 := by nlinarith
+    have hmem : (s, r) ∈ K := by
+      simp only [K, mem_prod, mem_Icc]
+      exact ⟨⟨hslo, hshi⟩, ⟨le_of_lt hr, hrhi⟩⟩
+    exact hp hmem
+  exact hion.integrable_of_forall_notMem_eq_zero hzero_outside
+
+private theorem integrable_fourDAngularPositiveSubtypeIntegrand (κ : ℝ) :
+    Integrable (fourDAngularPositiveSubtypeIntegrand κ)
+      ((volume : Measure ℝ).prod
+        (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ)
+          (volume : Measure ℝ))) := by
+  let e : MeasurableEmbedding
+      (Prod.map (id : ℝ → ℝ) (Subtype.val : Ioi (0 : ℝ) → ℝ)) :=
+    MeasurableEmbedding.id.prodMap
+      (MeasurableEmbedding.subtype_coe measurableSet_Ioi)
+  have hF : Integrable (fourDAngularPlaneAmbientIntegrand κ)
+      (((volume : Measure ℝ).prod (volume : Measure ℝ)).restrict
+        (Set.univ ×ˢ Ioi (0 : ℝ))) := by
+    exact (integrable_fourDAngularPlaneAmbientIntegrand κ).mono_measure
+      (Measure.restrict_le_self)
+  have hmap : Measure.map
+      (Prod.map (id : ℝ → ℝ) (Subtype.val : Ioi (0 : ℝ) → ℝ))
+      ((volume : Measure ℝ).prod
+        (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ)
+          (volume : Measure ℝ))) =
+      ((volume : Measure ℝ).prod (volume : Measure ℝ)).restrict
+        (Set.univ ×ˢ Ioi (0 : ℝ)) :=
+    map_product_volume_positiveSubtype
+  have hcomp : Integrable
+      (fourDAngularPlaneAmbientIntegrand κ ∘ fun p : ℝ × Ioi (0 : ℝ) =>
+        (p.1, (p.2 : ℝ)))
+      ((volume : Measure ℝ).prod
+        (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ)
+          (volume : Measure ℝ))) := by
+    apply e.integrable_map_iff.mp
+    rw [hmap]
+    exact hF
+  apply hcomp.congr
+  filter_upwards with p
+  have hp : 0 < (p.2 : ℝ) := p.2.property
+  simp [Function.comp_apply, fourDAngularPositiveSubtypeIntegrand,
+    fourDAngularPlaneAmbientIntegrand, fourDAngularPlaneWeightedIntegrand, hp]
+
+/-- The actual Cartesian cutoff test is the integral of its positive-half-plane
+weighted slice, before applying the planar polar-coordinate chart. -/
+theorem fourDAngularCartesianTest_integral_eq_positiveHalfPlane (κ : ℝ) :
+    (∫ x : EuclideanSpace ℝ (Fin 4), fourDAngularCartesianTest κ x
+      ∂(volume : Measure (EuclideanSpace ℝ (Fin 4)))) =
+      ∫ z, positiveHalfPlaneComplexIntegrand
+        (fourDAngularPlaneWeightedIntegrand κ) z := by
+  letI : SigmaFinite
+      (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ) (volume : Measure ℝ)) :=
+    SigmaFinite.of_map _ measurable_subtype_coe.aemeasurable (by
+      rw [map_comap_subtype_coe measurableSet_Ioi]
+      infer_instance)
+  rw [fourDAngularCartesianTest_integral_eq_scalar_radial κ,
+    fourDAngular_scalarRadial_eq_positiveHalfPlane κ]
+  calc
+    _ = ∫ p : ℝ × Ioi (0 : ℝ), fourDAngularPositiveSubtypeIntegrand κ p
+        ∂((volume : Measure ℝ).prod
+            (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ)
+              (volume : Measure ℝ))) := by
+      exact integral_integral
+        (f := fun s r => fourDAngularPositiveSubtypeIntegrand κ (s, r))
+        (integrable_fourDAngularPositiveSubtypeIntegrand κ)
+    _ = ∫ p : ℝ × Ioi (0 : ℝ),
+        fourDAngularPlaneWeightedIntegrand κ (p.1, p.2)
+        ∂((volume : Measure ℝ).prod
+          (Measure.comap (Subtype.val : Ioi (0 : ℝ) → ℝ)
+            (volume : Measure ℝ))) := by
+      apply integral_congr_ae
+      filter_upwards with p
+      rfl
+    _ = ∫ p in Set.univ ×ˢ Ioi (0 : ℝ),
+        fourDAngularPlaneWeightedIntegrand κ p
+        ∂((volume : Measure ℝ).prod (volume : Measure ℝ)) := by
+      rw [integral_positiveSubtype_prod_eq_setIntegral]
+    _ = ∫ z, positiveHalfPlaneComplexIntegrand
+        (fourDAngularPlaneWeightedIntegrand κ) z :=
+      integral_upperHalfPlane_eq_complex _
+
 private theorem fourDAngularAngleRectangleIntegrand_continuous (κ : ℝ) :
     Continuous (fourDAngularAngleRectangleIntegrand κ) := by
   unfold fourDAngularAngleRectangleIntegrand
@@ -546,6 +694,42 @@ theorem integral_fourDAngularPlaneWeightedComplex_eq_quarter_sphereChart
   rw [integral_fourDAngularPlaneWeightedComplex_eq_pi_angle κ,
     fourDSphereExpAngleIntegralChart]
   ring
+
+/-- The actual Mathlib `toSphere` angular integral agrees with the usual
+single-angle `S³` chart integral. The proof compares both against the same
+Cartesian cutoff integral and cancels the common radial mass `1/4`. -/
+theorem fourDSphereToSphereIntegral_eq_chart (κ : ℝ) :
+    (∫ u : Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1,
+      Real.exp (κ * (u : EuclideanSpace ℝ (Fin 4)) 0)
+      ∂((volume : Measure (EuclideanSpace ℝ (Fin 4))).toSphere)) =
+      fourDSphereExpAngleIntegralChart κ := by
+  let cartesian : ℝ :=
+    ∫ x : EuclideanSpace ℝ (Fin 4), fourDAngularCartesianTest κ x
+      ∂(volume : Measure (EuclideanSpace ℝ (Fin 4)))
+  let angular : ℝ :=
+    ∫ u : Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1,
+      Real.exp (κ * (u : EuclideanSpace ℝ (Fin 4)) 0)
+      ∂((volume : Measure (EuclideanSpace ℝ (Fin 4))).toSphere)
+  have hCartesianChart : cartesian = (1 / 4 : ℝ) *
+      fourDSphereExpAngleIntegralChart κ := by
+    calc
+      cartesian = ∫ z, positiveHalfPlaneComplexIntegrand
+          (fourDAngularPlaneWeightedIntegrand κ) z := by
+        dsimp [cartesian]
+        exact fourDAngularCartesianTest_integral_eq_positiveHalfPlane κ
+      _ = (1 / 4 : ℝ) * fourDSphereExpAngleIntegralChart κ :=
+        integral_fourDAngularPlaneWeightedComplex_eq_quarter_sphereChart κ
+  have hRadial :
+      (∫ r : Ioi (0 : ℝ), fourDAngularRadialCutoff r
+        ∂(Measure.volumeIoiPow
+          (Module.finrank ℝ (EuclideanSpace ℝ (Fin 4)) - 1))) =
+        (1 / 4 : ℝ) := by
+    simpa using fourDAngularRadialCutoff_integral
+  have hCartesianSphere : cartesian = angular * (1 / 4 : ℝ) := by
+    dsimp [cartesian, angular]
+    rw [fourDAngularCartesianTest_integral_factor κ, hRadial]
+  dsimp [angular]
+  nlinarith [hCartesianChart, hCartesianSphere]
 
 end
 
