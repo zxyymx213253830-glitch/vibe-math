@@ -61,6 +61,7 @@ import JinWishartFormalization.ScalarPhysicalScaling
 import JinWishartFormalization.NoncentralOneColumnEnergy
 import JinWishartFormalization.SphereThreeMeasure
 import JinWishartFormalization.GaussianEuclideanBallDensity
+import JinWishartFormalization.SphereFourDAngularIntegral
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)

@@ -81,4 +81,37 @@ theorem noncentralColumnCDF_eq_shiftedGaussianDensityIntegral
   rw [stdGaussian_euclidean_ball_real_eq_densityIntegral]
   rw [integral_euclideanGaussian_shiftedBall_eq_centered]
 
+/-- In the two-row case, the coordinate Gaussian normalizer is exactly
+`(2π)⁻²`, the density constant used in the four-dimensional polar formula. -/
+theorem gaussianFourCoordinate_normalizer :
+    (Real.sqrt (2 * Real.pi))⁻¹ ^ 4 = (2 * Real.pi)⁻¹ ^ 2 := by
+  have hs : Real.sqrt (2 * Real.pi) ^ 2 = 2 * Real.pi :=
+    Real.sq_sqrt (by positivity)
+  have hfour : Real.sqrt (2 * Real.pi) ^ 4 = (2 * Real.pi) ^ 2 := by
+    calc
+      Real.sqrt (2 * Real.pi) ^ 4 =
+          (Real.sqrt (2 * Real.pi) ^ 2) ^ 2 := by ring
+      _ = (2 * Real.pi) ^ 2 := by rw [hs]
+  calc
+    (Real.sqrt (2 * Real.pi))⁻¹ ^ 4 =
+        ((Real.sqrt (2 * Real.pi)) ^ 4)⁻¹ := by rw [← inv_pow]
+    _ = ((2 * Real.pi) ^ 2)⁻¹ := by rw [hfour]
+    _ = (2 * Real.pi)⁻¹ ^ 2 := by rw [inv_pow]
+
+/-- The actual two-row, one-column noncentral CDF is the normalized
+four-dimensional shifted-Gaussian ball integral. -/
+theorem noncentralTwoRowCDF_eq_fourDimensionalBallIntegral
+    (M : Matrix (Fin 2) (Fin 1) ℂ) (x : ℝ) (hx : 0 ≤ x) :
+    cdf ((stdGaussian (ComplexSample (m := 2) (n := 1))).map
+        (complexNoncentralSampleSmallestEigenvalue M (by norm_num))) x =
+      (2 * Real.pi)⁻¹ ^ 2 *
+        ∫ z in Metric.closedBall (0 : ComplexSample (m := 2) (n := 1))
+            (Real.sqrt (2 * x)),
+          Real.exp (-‖z - complexSampleMean M‖ ^ 2 / 2) := by
+  rw [noncentralColumnCDF_eq_shiftedGaussianDensityIntegral
+    (m := 2) (by norm_num) M x hx]
+  rw [integral_const_mul]
+  have hcard : Fintype.card (((Fin 2 × Fin 1) × Fin 2)) = 4 := by simp
+  rw [hcard, gaussianFourCoordinate_normalizer]
+
 end JinWishart

@@ -192,6 +192,10 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `SphereThreeMeasure.lean` 由 Mathlib `toSphere` 定义和三维单位球体积证明
   三维单位球面的总质量为 `4π`；它是 S³ 角积分分解的基础常数校验，还未证明 S³
   的单极角 chart 公式。
+- `SphereFourDAngularIntegral.lean` 已建立 R⁴ 与 `ℝ × R³` 的测度保持坐标分解，
+  并利用四维极坐标定理证明角因子与半径因子的乘积分解。一个单位球 cutoff
+  的径向积分已精确算为 `1/4`。R×R³ 方向的 Fubini/复极坐标计算尚未完成，
+  因而仍未得到 S³ 到单极角 chart 的恒等式。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
