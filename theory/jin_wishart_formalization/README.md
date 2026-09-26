@@ -214,8 +214,10 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   将复平面积分换至 Mathlib 极坐标 chart。最新已把 chart 上的带 indicator 积分严格改写成
   `(0,1)×(0,π)` 上的矩形迭代积分，并以紧矩形上的连续性证明可积性；此模块已导入主入口，
   完整构建通过。另已证明 `∫₀¹ r³ dr=1/4`，并将角度开区间积分转成 `0..π` 的
-  intervalIntegral。尚未把这两个一维结果合并到矩形迭代积分中并与已有 S³ 单角 theorem
-  拼接；在此之前，真实 `2×1` CDF 与 `Q₂,₁` 的概率等式仍未闭合。
+  intervalIntegral。现已将复平面带权积分完整化简为 `π * ∫₀^π exp(κ cos θ) sin²θ dθ`，
+  并证明其恰为已有 S³ 单角 chart 积分的 `1/4`。下一步将结合 R⁴ 的 toSphere 径向分解
+  消去这项 `1/4`，以完成实际球面测度与该单角 chart 的识别；真实 `2×1` CDF 与 `Q₂,₁`
+  的概率等式仍未闭合。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检

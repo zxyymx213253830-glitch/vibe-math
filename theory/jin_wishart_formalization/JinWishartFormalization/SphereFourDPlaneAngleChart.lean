@@ -289,6 +289,88 @@ private def fourDAngularAngleRectangleIntegrand (κ : ℝ) (p : ℝ × ℝ) : �
   (4 * Real.pi) * p.1 ^ 3 * Real.sin p.2 ^ 2 *
     Real.exp (κ * Real.cos p.2)
 
+private def fourDAngularPositiveSubtypeIntegrand (κ : ℝ)
+    (p : ℝ × Ioi (0 : ℝ)) : ℝ :=
+  (4 * Real.pi) * (p.2 : ℝ) ^ 2 * fourDAngularPlaneSlice κ p.1 p.2
+
+private theorem measurable_fourDAngularPositiveSubtypeIntegrand (κ : ℝ) :
+    Measurable (fourDAngularPositiveSubtypeIntegrand κ) := by
+  have hzero (p : ℝ × Ioi (0 : ℝ)) :
+      ¬(p.1 = 0 ∧ (p.2 : ℝ) = 0) := by
+    rintro ⟨_, h⟩
+    exact (ne_of_gt p.2.property) h
+  have hcut : MeasurableSet {p : ℝ × Ioi (0 : ℝ) |
+      Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2) < 1} := by
+    have hm : Measurable (fun p : ℝ × Ioi (0 : ℝ) =>
+        Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)) := by fun_prop
+    exact hm measurableSet_Iio
+  have hbranch : Measurable (fun p : ℝ × Ioi (0 : ℝ) =>
+      if Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2) < 1 then
+        (4 * Real.pi) * (p.2 : ℝ) ^ 2 *
+          Real.exp (κ * (p.1 / Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)))
+      else 0) := by
+    apply Measurable.ite hcut
+    · fun_prop
+    · exact measurable_const
+  have heq : fourDAngularPositiveSubtypeIntegrand κ = fun p =>
+      if Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2) < 1 then
+        (4 * Real.pi) * (p.2 : ℝ) ^ 2 *
+          Real.exp (κ * (p.1 / Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)))
+      else 0 := by
+    funext p
+    simp [fourDAngularPositiveSubtypeIntegrand, fourDAngularPlaneSlice,
+      hzero p]
+  rw [heq]
+  exact hbranch
+
+private theorem fourDAngularPositiveSubtypeIntegrand_norm_le (κ : ℝ)
+    (p : ℝ × Ioi (0 : ℝ)) :
+    ‖fourDAngularPositiveSubtypeIntegrand κ p‖ ≤
+      (4 * Real.pi) * Real.exp |κ| := by
+  dsimp [fourDAngularPositiveSubtypeIntegrand, fourDAngularPlaneSlice]
+  have hpi : 0 ≤ 4 * Real.pi := by positivity
+  have hr : 0 < (p.2 : ℝ) := p.2.property
+  have hzero : ¬(p.1 = 0 ∧ (p.2 : ℝ) = 0) := by
+    rintro ⟨_, h⟩
+    exact (ne_of_gt hr) h
+  by_cases hcut : Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2) < 1
+  ·
+    have hnorm : (p.2 : ℝ) ^ 2 ≤ 1 := by
+      have hle : (p.2 : ℝ) ≤ Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2) :=
+        Real.le_sqrt_of_sq_le (by nlinarith [sq_nonneg p.1])
+      nlinarith
+    have hsum : 0 < p.1 ^ 2 + (p.2 : ℝ) ^ 2 := by positivity
+    have hden : 0 < Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2) :=
+      Real.sqrt_pos.2 hsum
+    have hratio : |p.1 / Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)| ≤ 1 := by
+      rw [abs_div, abs_of_pos hden]
+      apply (div_le_one hden).2
+      exact Real.abs_le_sqrt (by nlinarith [sq_nonneg (p.2 : ℝ)])
+    have hexp : |Real.exp (κ * (p.1 /
+        Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)))| ≤ Real.exp |κ| := by
+      rw [abs_of_pos (Real.exp_pos _)]
+      apply Real.exp_le_exp.mpr
+      calc
+        κ * (p.1 / Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)) ≤
+            |κ * (p.1 / Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2))| := le_abs_self _
+        _ = |κ| * |p.1 / Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)| := abs_mul _ _
+        _ ≤ |κ| := by nlinarith [abs_nonneg κ, hratio]
+    rw [if_neg hzero, if_pos hcut]
+    have hweight : |(4 * Real.pi) * (p.2 : ℝ) ^ 2| ≤ 4 * Real.pi := by
+      rw [abs_mul, abs_of_nonneg hpi, abs_of_nonneg (sq_nonneg _)]
+      nlinarith
+    calc
+      |(4 * Real.pi) * (p.2 : ℝ) ^ 2 *
+          Real.exp (κ * (p.1 / Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)))| =
+          |(4 * Real.pi) * (p.2 : ℝ) ^ 2| *
+            |Real.exp (κ * (p.1 / Real.sqrt (p.1 ^ 2 + (p.2 : ℝ) ^ 2)))| := by
+        rw [abs_mul]
+      _ ≤ (4 * Real.pi) * Real.exp |κ| :=
+        mul_le_mul hweight hexp (abs_nonneg _) (by positivity)
+      _ = (4 * Real.pi) * Real.exp |κ| := rfl
+  · simp [hzero, hcut]
+    positivity
+
 private theorem fourDAngularAngleRectangleIntegrand_continuous (κ : ℝ) :
     Continuous (fourDAngularAngleRectangleIntegrand κ) := by
   unfold fourDAngularAngleRectangleIntegrand
@@ -428,6 +510,42 @@ theorem integral_fourDAngularAngleRectangle_eq_pi_angle (κ : ℝ) :
       rw [integral_Ioo_cube_01, integral_angleFactor_Ioo_eq_interval]
       norm_num
       ring
+
+/-- Combining the complex-polar change of variables, the rectangular chart
+identification, and the radial `r^3` integral gives the exact single-angle
+integral, with coefficient `π`. -/
+theorem integral_fourDAngularPlaneWeightedComplex_eq_pi_angle (κ : ℝ) :
+    (∫ z, positiveHalfPlaneComplexIntegrand
+      (fourDAngularPlaneWeightedIntegrand κ) z) =
+      Real.pi * ∫ θ in (0 : ℝ)..Real.pi,
+        Real.exp (κ * Real.cos θ) * Real.sin θ ^ 2 := by
+  calc
+    _ = Real.pi * ∫ θ in (0 : ℝ)..Real.pi,
+        fourDAngularAngleFactor κ θ := by
+      rw [integral_fourDAngularPlaneWeightedComplex_eq_angleChart κ]
+      change (∫ p in Complex.polarCoord.target,
+          fourDAngularAngleChartIntegrand κ p) = _
+      rw [integral_fourDAngularPlaneAngleChart_eq_rectangle κ,
+        integral_fourDAngularAngleRectangle_eq_pi_angle κ]
+    _ = Real.pi * ∫ θ in (0 : ℝ)..Real.pi,
+        Real.exp (κ * Real.cos θ) * Real.sin θ ^ 2 := by
+      congr 1
+      apply intervalIntegral.integral_congr
+      intro θ _
+      dsimp [fourDAngularAngleFactor]
+      ring_nf
+
+/-- The complex-plane cutoff integral is one quarter of the established
+`S³` single-angle chart integral. This exact factor is `π` versus `4π` in the
+definition of the sphere chart. -/
+theorem integral_fourDAngularPlaneWeightedComplex_eq_quarter_sphereChart
+    (κ : ℝ) :
+    (∫ z, positiveHalfPlaneComplexIntegrand
+      (fourDAngularPlaneWeightedIntegrand κ) z) =
+      (1 / 4 : ℝ) * fourDSphereExpAngleIntegralChart κ := by
+  rw [integral_fourDAngularPlaneWeightedComplex_eq_pi_angle κ,
+    fourDSphereExpAngleIntegralChart]
+  ring
 
 end
 
