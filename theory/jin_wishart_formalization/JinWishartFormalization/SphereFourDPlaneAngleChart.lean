@@ -79,6 +79,25 @@ theorem integral_volumeIoiPow_two_eq_setIntegral (f : Ioi (0 : ℝ) → ℝ) :
     _ = ∫ r in Ioi (0 : ℝ), g r :=
       integral_subtype_comap measurableSet_Ioi g
 
+/-- The scalar/radial expression is the iterated Lebesgue integral on the
+positive half-plane with its planar `ρ²` weight. The inner integral is still
+written over a subtype, making the product-measure interface explicit. -/
+theorem fourDAngular_scalarRadial_eq_positiveHalfPlane (κ : ℝ) :
+    (∫ s : ℝ, 4 * Real.pi *
+      ∫ r : Ioi (0 : ℝ), fourDAngularPlaneSlice κ s r
+        ∂(Measure.volumeIoiPow 2) ∂(volume : Measure ℝ)) =
+      ∫ s : ℝ, ∫ r : Ioi (0 : ℝ),
+        (4 * Real.pi) * (r : ℝ) ^ 2 * fourDAngularPlaneSlice κ s r
+        ∂(Measure.comap Subtype.val (volume : Measure ℝ))
+        ∂(volume : Measure ℝ) := by
+  apply integral_congr_ae
+  filter_upwards with s
+  rw [integral_volumeIoiPow_two_eq_Ioi]
+  rw [← integral_const_mul]
+  congr 1
+  funext r
+  ring
+
 end
 
 end JinWishart
