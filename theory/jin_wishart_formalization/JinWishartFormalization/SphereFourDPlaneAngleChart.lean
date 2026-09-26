@@ -731,6 +731,22 @@ theorem fourDSphereToSphereIntegral_eq_chart (κ : ℝ) :
   dsimp [angular]
   nlinarith [hCartesianChart, hCartesianSphere]
 
+/-- For a center along the first coordinate axis, the squared distance from a
+four-dimensional polar point expands into the radius, center amplitude, and
+first spherical coordinate. This is the pointwise Gaussian exponent identity
+needed to connect the actual shifted-ball probability to the angular theorem. -/
+theorem fourDDistance_sq_sub_firstAxis (u : Metric.sphere
+    (0 : EuclideanSpace ℝ (Fin 4)) 1) (r a : ℝ) :
+    ‖r • (u : EuclideanSpace ℝ (Fin 4)) -
+        a • EuclideanSpace.single (0 : Fin 4) (1 : ℝ)‖ ^ 2 =
+      r ^ 2 + a ^ 2 - 2 * a * r * (u : EuclideanSpace ℝ (Fin 4)) 0 := by
+  have hu : ‖(u : EuclideanSpace ℝ (Fin 4))‖ = 1 := by
+    simpa [dist_eq_norm] using u.property
+  rw [norm_sub_sq_real, norm_smul, norm_smul, hu]
+  rw [real_inner_smul_left, real_inner_smul_right]
+  simp [Real.norm_eq_abs, EuclideanSpace.inner_single_right]
+  ring_nf
+
 end
 
 end JinWishart
