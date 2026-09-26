@@ -161,6 +161,11 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   因而这里的有序对递推是退化情形，并未证明多特征值的 Theorem 3。
 - `Theorem1SingleColumnTwoRows.lean` 将 Theorem 1 的 `s=1,t=2,L=1` 公式侧
   化为 `Q_{2,1}` 尾比；目前要求分母非零，尚未证明该候选式等于真实分布。
+- `Theorem1SingleColumnAnyRows.lean` 将上述公式侧约化推广到任意 `t≥1`：
+  尾函数是 `Q_{t,t−1}`。这一推广仍以分母非零为明确前提，也尚未连接真实分布。
+- `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
+  `Q_{2,1}` 的被积函数除以非中心幅度；球面角积分、极坐标换元和
+  `Q_{2,1}(a,0)=a` 的测度论证明仍待完成 `[需人工审查]`。
 - `ScalarNoncentralNoAtom.lean` 已证明非中心 `1×1` Gram 特征值在每个实数点的概率
   均为零：其等值集在二维高斯样本空间是一个球面，而高斯测度对 Lebesgue 测度绝对连续。
   因此同模块已证明严格次水平集概率等于闭区间 CDF，可用于后续 SER/中断概率的
