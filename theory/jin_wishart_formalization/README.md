@@ -189,7 +189,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   且证明连续因子在零处是 `exp(-λ)`。`WeightedIntervalAverage.lean`
   完成连续函数的加权区间平均极限；`ScalarNoncentralSmallXLimit.lean`
   据此证明真实 `1×1` 非中心 CDF 的 `F(x)/x → exp(-λ)`，即 Theorem 4
-  在此特例的小阈值首项。一般特征值渐近及后续 SER 渐近仍待证明。
+  在此特例的小阈值首项。这里 Lean 的 `M` 是单位复方差模型的均值；
+  对论文原始信道需先除以散射尺度 `ε`，才能与其 `Ω` 参数匹配
+  `[需人工审查]`。一般特征值渐近及后续 SER 渐近仍待证明。
 - `ScalarNoncentralNoAtom.lean` 已证明非中心 `1×1` Gram 特征值在每个实数点的概率
   均为零：其等值集在二维高斯样本空间是一个球面，而高斯测度对 Lebesgue 测度绝对连续。
   因此同模块已证明严格次水平集概率等于闭区间 CDF，可用于后续 SER/中断概率的
