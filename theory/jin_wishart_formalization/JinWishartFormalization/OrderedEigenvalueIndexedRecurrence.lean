@@ -56,4 +56,21 @@ theorem orderedFamily_adjacent_sublevelMass_eq_add_strict
     exact horder ω (by simp)
   · exact hAtom
 
+/-- The same recurrence written directly with the full cut event of all
+ordered statistics, matching the event part of the paper's Theorem 3. -/
+theorem orderedFamily_adjacent_sublevelMass_eq_add_fullCut
+    {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (s k : ℕ) (hk : k + 1 < s)
+    (φ : Fin s → Ω → ℝ)
+    (hφ : ∀ i, Measurable (φ i))
+    (horder : ∀ ω, Antitone (fun i : Fin s => φ i ω))
+    (x : ℝ)
+    (hAtom : μ {ω | φ ⟨k + 1, hk⟩ ω = x} = 0) :
+    μ {ω | φ ⟨k + 1, hk⟩ ω ≤ x} =
+      μ {ω | φ ⟨k, by omega⟩ ω ≤ x} +
+        μ {ω | (∀ l : Fin s, (⟨k + 1, hk⟩ : Fin s) ≤ l → φ l ω < x) ∧
+          (∀ l : Fin s, l ≤ (⟨k, by omega⟩ : Fin s) → x < φ l ω)} := by
+  rw [orderedFamily_adjacent_sublevelMass_eq_add_strict μ s k hk φ hφ horder x hAtom]
+  rw [orderedFamily_adjacent_event_eq_fullCut s k hk φ horder x]
+
 end JinWishart
