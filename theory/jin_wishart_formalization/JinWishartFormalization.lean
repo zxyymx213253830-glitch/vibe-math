@@ -47,6 +47,10 @@ import JinWishartFormalization.ScalarNoncentralSmallX
 import JinWishartFormalization.WeightedIntervalAverage
 import JinWishartFormalization.ScalarNoncentralSmallXLimit
 import JinWishartFormalization.Theorem2SingleColumnAnyRows
+import JinWishartFormalization.BesselI1Angle
+import JinWishartFormalization.NoncentralFourDimensionalSphere
+import JinWishartFormalization.NoncentralFourDimensionalTail
+import JinWishartFormalization.NuttallQ21Positive
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)

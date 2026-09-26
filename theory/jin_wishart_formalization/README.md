@@ -167,7 +167,8 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   证明 CDF 的弱阈值事件与严格阈值事件概率相同。单列只有一个特征值，
   因而这里的有序对递推是退化情形，并未证明多特征值的 Theorem 3。
 - `Theorem1SingleColumnTwoRows.lean` 将 Theorem 1 的 `s=1,t=2,L=1` 公式侧
-  化为 `Q_{2,1}` 尾比；目前要求分母非零，尚未证明该候选式等于真实分布。
+  化为 `Q_{2,1}` 尾比；`NuttallQ21Positive.lean` 已证明幅度 `a>0` 时
+  实核可积且严格为正，因此 `Q_{2,1}(a,0)≠0`。尚未证明该候选式等于真实分布。
 - `Theorem1SingleColumnAnyRows.lean` 将上述公式侧约化推广到任意 `t≥1`：
   尾函数是 `Q_{t,t−1}`。这一推广仍以分母非零为明确前提，也尚未连接真实分布。
 - `Theorem2SingleColumnAnyRows.lean` 将 Theorem 2 的同一单列公式侧化为
@@ -176,6 +177,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度；球面角积分、极坐标换元和
   `Q_{2,1}(a,0)=a` 的测度论证明仍待完成 `[需人工审查]`。
+- `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
+  `S³` 单极角 chart 的解析积分，以及它与四维高斯密度、`r³` Jacobian
+  相乘后的 `Q_{2,1}` 核系数；`NoncentralFourDimensionalTail.lean` 在显式
+  可积性前提下证明该径向核的尾积分等于 `Q_{2,1}(a,b)/a`。尚未证明此
+  chart 公式代表真实球面测度，也未证明对平移高斯的四维极坐标换元
+  `[需人工审查]`，因此实际 `2×1` CDF 尚未闭合。
 - `ScalarNoncentralSmallX.lean` 将真实非中心 `1×1` CDF 写为半径加权积分，
   且证明连续因子在零处是 `exp(-λ)`。`WeightedIntervalAverage.lean`
   完成连续函数的加权区间平均极限；`ScalarNoncentralSmallXLimit.lean`
