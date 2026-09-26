@@ -12,6 +12,29 @@ open MeasureTheory
 
 namespace JinWishart
 
+/-- In a descending family, saying that `x` lies between two adjacent
+statistics is equivalent to saying every statistic below the cut lies below
+`x` and every statistic above the cut lies above `x`.  This is the exact
+threshold pattern in the event displayed in Theorem 3. -/
+theorem orderedFamily_adjacent_event_eq_fullCut
+    {Ω : Type*} (s k : ℕ) (hk : k + 1 < s)
+    (φ : Fin s → Ω → ℝ)
+    (horder : ∀ ω, Antitone (fun i : Fin s => φ i ω)) (x : ℝ) :
+    {ω | φ ⟨k + 1, hk⟩ ω < x ∧ x < φ ⟨k, by omega⟩ ω} =
+      {ω | (∀ l : Fin s, (⟨k + 1, hk⟩ : Fin s) ≤ l → φ l ω < x) ∧
+        (∀ l : Fin s, l ≤ (⟨k, by omega⟩ : Fin s) → x < φ l ω)} := by
+  ext ω
+  constructor
+  · rintro ⟨hlower, hupper⟩
+    constructor
+    · intro l hle
+      exact lt_of_le_of_lt (horder ω hle) hlower
+    · intro l hle
+      exact lt_of_lt_of_le hupper (horder ω hle)
+  · rintro ⟨hlower, hupper⟩
+    exact ⟨hlower ⟨k + 1, hk⟩ le_rfl,
+      hupper ⟨k, by omega⟩ le_rfl⟩
+
 /-- Adjacent CDFs in a descending finite family differ by the probability
 that the threshold lies strictly between the two statistics, provided the
 lower statistic has no atom at that threshold. -/
