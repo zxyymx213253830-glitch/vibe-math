@@ -277,6 +277,97 @@ theorem integral_fourDAngularPlaneWeightedComplex_eq_angleChart (κ : ℝ) :
     κ p.1 p.2 hp'.1 hp'.2.1 hp'.2.2
   simpa only [smul_eq_mul] using hpoint
 
+private def fourDAngularAngleChartIntegrand (κ : ℝ) (p : ℝ × ℝ) : ℝ :=
+  if 0 < p.2 ∧ p.2 < Real.pi then
+    if p.1 < 1 then
+      (4 * Real.pi) * p.1 ^ 3 * Real.sin p.2 ^ 2 *
+        Real.exp (κ * Real.cos p.2)
+    else 0
+  else 0
+
+private def fourDAngularAngleRectangleIntegrand (κ : ℝ) (p : ℝ × ℝ) : ℝ :=
+  (4 * Real.pi) * p.1 ^ 3 * Real.sin p.2 ^ 2 *
+    Real.exp (κ * Real.cos p.2)
+
+private theorem fourDAngularAngleRectangleIntegrand_continuous (κ : ℝ) :
+    Continuous (fourDAngularAngleRectangleIntegrand κ) := by
+  unfold fourDAngularAngleRectangleIntegrand
+  fun_prop
+
+private theorem fourDAngularAngleRectangleIntegrand_integrableOn
+    (κ : ℝ) :
+    IntegrableOn (fourDAngularAngleRectangleIntegrand κ)
+      (Ioo (0 : ℝ) 1 ×ˢ Ioo (0 : ℝ) Real.pi)
+      ((volume : Measure ℝ).prod (volume : Measure ℝ)) := by
+  let K : Set (ℝ × ℝ) := Icc (0 : ℝ) 1 ×ˢ Icc (0 : ℝ) Real.pi
+  have hKcompact : IsCompact K := by
+    dsimp [K]
+    exact isCompact_Icc.prod isCompact_Icc
+  have hsubset : Ioo (0 : ℝ) 1 ×ˢ Ioo (0 : ℝ) Real.pi ⊆ K := by
+    rintro ⟨r, θ⟩ ⟨hr, hθ⟩
+    simp only [K, mem_prod, mem_Ioo, mem_Icc]
+    exact ⟨⟨le_of_lt hr.1, le_of_lt hr.2⟩,
+      ⟨le_of_lt hθ.1, le_of_lt hθ.2⟩⟩
+  have hcont : ContinuousOn (fourDAngularAngleRectangleIntegrand κ) K :=
+    (fourDAngularAngleRectangleIntegrand_continuous κ).continuousOn
+  exact hcont.integrableOn_of_subset_isCompact hKcompact
+    (measurableSet_Ioo.prod measurableSet_Ioo) hsubset
+    (ne_top_of_le_ne_top hKcompact.measure_ne_top (measure_mono hsubset))
+
+/-- Reduces the complex polar target integral to the bounded radius-angle
+rectangle. This is the product-integral stage; the final radial and angular
+evaluation is separate. -/
+theorem integral_fourDAngularPlaneAngleChart_eq_rectangle (κ : ℝ) :
+    (∫ p in Complex.polarCoord.target,
+      fourDAngularAngleChartIntegrand κ p) =
+      ∫ r in Ioo (0 : ℝ) 1, ∫ θ in Ioo (0 : ℝ) Real.pi,
+        fourDAngularAngleRectangleIntegrand κ (r, θ) := by
+  let target : Set (ℝ × ℝ) := Complex.polarCoord.target
+  let rect : Set (ℝ × ℝ) := Ioo (0 : ℝ) 1 ×ˢ Ioo (0 : ℝ) Real.pi
+  have htarget : MeasurableSet target :=
+    Complex.polarCoord.open_target.measurableSet
+  have hrect : MeasurableSet rect := measurableSet_Ioo.prod measurableSet_Ioo
+  have hindicator : target.indicator (fourDAngularAngleChartIntegrand κ) =
+      rect.indicator (fourDAngularAngleRectangleIntegrand κ) := by
+    classical
+    funext p
+    rcases p with ⟨r, θ⟩
+    by_cases hr0 : 0 < r
+    · by_cases hr1 : r < 1
+      · by_cases hθ0 : 0 < θ
+        · by_cases hθπ : θ < Real.pi
+          · have hθlo : -Real.pi < θ := by linarith [Real.pi_pos]
+            simp [Set.indicator_apply, fourDAngularAngleChartIntegrand,
+              fourDAngularAngleRectangleIntegrand, target, rect,
+              Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo,
+              hr0, hr1, hθ0, hθπ, hθlo]
+          · simp [Set.indicator_apply, fourDAngularAngleChartIntegrand,
+              fourDAngularAngleRectangleIntegrand, target, rect,
+              Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo,
+              hr0, hr1, hθ0, hθπ]
+        · simp [Set.indicator_apply, fourDAngularAngleChartIntegrand,
+            fourDAngularAngleRectangleIntegrand, target, rect,
+            Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo,
+            hr0, hr1, hθ0]
+      · simp [Set.indicator_apply, fourDAngularAngleChartIntegrand,
+          fourDAngularAngleRectangleIntegrand, target, rect,
+          Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo,
+          hr0, hr1]
+    · simp [Set.indicator_apply, fourDAngularAngleChartIntegrand,
+        fourDAngularAngleRectangleIntegrand, target, rect,
+        Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo, hr0]
+  calc
+    _ = ∫ p, target.indicator (fourDAngularAngleChartIntegrand κ) p := by
+      rw [← integral_indicator htarget]
+    _ = ∫ p, rect.indicator (fourDAngularAngleRectangleIntegrand κ) p := by
+      rw [hindicator]
+    _ = ∫ p in rect, fourDAngularAngleRectangleIntegrand κ p := by
+      rw [integral_indicator hrect]
+    _ = ∫ r in Ioo (0 : ℝ) 1, ∫ θ in Ioo (0 : ℝ) Real.pi,
+        fourDAngularAngleRectangleIntegrand κ (r, θ) :=
+      setIntegral_prod (fourDAngularAngleRectangleIntegrand κ)
+        (fourDAngularAngleRectangleIntegrand_integrableOn κ)
+
 end
 
 end JinWishart
