@@ -198,7 +198,10 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `ScalarNoncentralOutageAsymptotic.lean` 把上述真实 `1×1` CDF 首项
   转成固定正阈值 `γ` 下的大尺度极限
   `c·F(γ/c) → γ exp(-‖M₀₀‖²)`，并将同一结论直接写成真实弱 outage
-  事件 `P(c·φ≤γ)` 的极限；仍未包含论文一般 MIMO 的 SNR/尺度参数变换。
+  事件 `P(c·φ≤γ)` 的极限。论文标量系统需再代入
+  `M_Lean=M_paper/ε`、`c=ε²P`；这项参数映射以及论文低阈值
+  叙述与此处固定阈值高 `P` 极限的量词对应尚未在 Lean 中编码
+  `[需人工审查]`。一般 MIMO 的 SNR/尺度参数变换仍未完成。
 - `ScalarNoncentralNoAtom.lean` 已证明非中心 `1×1` Gram 特征值在每个实数点的概率
   均为零：其等值集在二维高斯样本空间是一个球面，而高斯测度对 Lebesgue 测度绝对连续。
   因此同模块已证明严格次水平集概率等于闭区间 CDF，可用于后续 SER/中断概率的
