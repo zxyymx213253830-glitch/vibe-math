@@ -38,6 +38,47 @@ theorem integral_euclideanFour_eq_integral_realProdThree (f : E₄ → ℝ) :
   exact euclideanFourToRealProdThree_measurePreserving.symm.integral_comp
     (MeasurableEquiv.measurableEmbedding euclideanFourToRealProdThree.symm) f
 
+/-- The total real-valued `toSphere` mass in three dimensions is `4π`. -/
+theorem sphereThreeMeasure_univ_real :
+    ((volume : Measure E₃).toSphere).real Set.univ = 4 * Real.pi := by
+  rw [Measure.toSphere_real_apply_univ]
+  have hdim : Module.finrank ℝ E₃ = 3 := by simp
+  rw [hdim]
+  change (3 : ℝ) * ENNReal.toReal (volume (Metric.ball (0 : E₃) 1)) = _
+  rw [EuclideanSpace.volume_ball_fin_three]
+  rw [ENNReal.toReal_mul, ENNReal.toReal_ofReal (by positivity : 0 ≤ Real.pi * 4 / 3)]
+  norm_num
+  ring
+
+/-- Radial integration in three-dimensional Euclidean space, with the sphere
+factor evaluated explicitly. No integrability assumption is needed: the
+Bochner integral convention also covers the nonintegrable case. -/
+theorem integral_euclideanThree_norm_radial (f : ℝ → ℝ) :
+    (∫ y : E₃, f ‖y‖ ∂(volume : Measure E₃)) =
+      4 * Real.pi * ∫ r : Ioi (0 : ℝ), f r ∂(Measure.volumeIoiPow 2) := by
+  rw [integral_euclidean_polarProduct (f := fun y : E₃ => f ‖y‖)]
+  simp only [show Module.finrank ℝ E₃ - 1 = 2 by simp]
+  calc
+    (∫ p : Metric.sphere (0 : E₃) 1 × Ioi (0 : ℝ),
+        f ‖(p.2 : ℝ) • (p.1 : E₃)‖ ∂
+          ((volume : Measure E₃).toSphere.prod (Measure.volumeIoiPow 2))) =
+        ∫ p : Metric.sphere (0 : E₃) 1 × Ioi (0 : ℝ), f p.2 ∂
+          ((volume : Measure E₃).toSphere.prod (Measure.volumeIoiPow 2)) := by
+      apply integral_congr_ae
+      filter_upwards with p
+      have hp : 0 < (p.2 : ℝ) := p.2.2
+      have hu : ‖(p.1 : E₃)‖ = 1 := by
+        simpa [dist_eq_norm] using p.1.2
+      have hnorm : ‖(p.2 : ℝ) • (p.1 : E₃)‖ = (p.2 : ℝ) := by
+        rw [norm_smul, Real.norm_eq_abs, abs_of_pos hp, hu, mul_one]
+      rw [hnorm]
+    _ = ((volume : Measure E₃).toSphere).real Set.univ •
+          ∫ r : Ioi (0 : ℝ), f r ∂(Measure.volumeIoiPow 2) :=
+        integral_fun_snd (μ := (volume : Measure E₃).toSphere)
+          (ν := Measure.volumeIoiPow 2) (fun r : Ioi (0 : ℝ) => f r)
+    _ = 4 * Real.pi * ∫ r : Ioi (0 : ℝ), f r ∂(Measure.volumeIoiPow 2) := by
+      rw [smul_eq_mul, sphereThreeMeasure_univ_real]
+
 /-- A generic factorization consequence of the existing four-dimensional
 polar decomposition. The pointwise hypothesis is the only connection between
 the Cartesian integrand and its angular/radial factors. -/
