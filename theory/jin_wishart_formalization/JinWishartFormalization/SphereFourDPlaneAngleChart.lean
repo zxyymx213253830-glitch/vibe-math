@@ -48,6 +48,34 @@ theorem fourDAngularPlaneSlice_polar_jacobian
   rw [fourDAngularPlaneSlice_polar_eq κ r θ hr hθ hθπ]
   by_cases hcut : r < 1 <;> simp [hcut] <;> ring
 
+/-- On Mathlib's principal polar chart, positive imaginary part is exactly the
+single angular interval `(0, π)`. -/
+theorem sin_pos_iff_angle_pos (θ : ℝ) (hlo : -Real.pi < θ)
+    (hhi : θ < Real.pi) :
+    0 < Real.sin θ ↔ 0 < θ ∧ θ < Real.pi := by
+  constructor
+  · intro hs
+    constructor
+    · by_contra hθ
+      have hnonpos : Real.sin θ ≤ 0 :=
+        Real.sin_nonpos_of_nonpos_of_neg_pi_le (le_of_not_gt hθ) (le_of_lt hlo)
+      linarith
+    · exact hhi
+  · rintro ⟨hθ, hθπ⟩
+    exact Real.sin_pos_of_pos_of_lt_pi hθ hθπ
+
+theorem polarCoord_symm_im_pos_iff (r θ : ℝ) (hr : 0 < r)
+    (hlo : -Real.pi < θ) (hhi : θ < Real.pi) :
+    0 < (Complex.polarCoord.symm (r, θ)).im ↔ 0 < θ ∧ θ < Real.pi := by
+  have him : (Complex.polarCoord.symm (r, θ)).im = r * Real.sin θ := by
+    rw [Complex.polarCoord_symm_apply]
+    simp only [Complex.mul_im, Complex.add_im, Complex.ofReal_re,
+      Complex.ofReal_im, Complex.I_re, Complex.I_im,
+      zero_mul, mul_zero, zero_add, one_mul]
+    ring
+  rw [him, mul_pos_iff_of_pos_left hr]
+  exact sin_pos_iff_angle_pos θ hlo hhi
+
 /-- Unfolding `volumeIoiPow 2` exposes the radial Jacobian as the ordinary
 Lebesgue integral over the positive half-line. -/
 theorem integral_volumeIoiPow_two_eq_Ioi (f : Ioi (0 : ℝ) → ℝ) :

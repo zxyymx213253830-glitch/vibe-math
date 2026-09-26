@@ -63,6 +63,7 @@ import JinWishartFormalization.SphereThreeMeasure
 import JinWishartFormalization.GaussianEuclideanBallDensity
 import JinWishartFormalization.SphereFourDAngularIntegral
 import JinWishartFormalization.SphereFourDPlanePolar
+import JinWishartFormalization.SphereFourDPlaneAngleChart
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
