@@ -51,6 +51,7 @@ import JinWishartFormalization.BesselI1Angle
 import JinWishartFormalization.NoncentralFourDimensionalSphere
 import JinWishartFormalization.NoncentralFourDimensionalTail
 import JinWishartFormalization.NuttallQ21Positive
+import JinWishartFormalization.Theorem1TwoRowsNoncentral
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
