@@ -1,4 +1,5 @@
 import JinWishartFormalization.ScalarNoncentralSmallXLimit
+import JinWishartFormalization.MIMOPerformance
 
 /-!
 # Scalar noncentral high-scale outage asymptotic
@@ -49,5 +50,26 @@ theorem scalarNoncentral_outage_highScale_limit
       atTop (𝓝 (γ * Real.exp (-‖M 0 0‖ ^ 2))) := by
   exact smallThresholdRatio_to_highScale _ _ γ hγ
     (noncentralScalarCDF_div_tendsto_exp_neg_noncentrality M)
+
+/-- The same high-scale result stated for the actual weak outage event
+`c·φ ≤ γ`, converting its `ENNReal` probability to `ℝ`. -/
+theorem scalarNoncentral_weakOutage_highScale_limit
+    (M : Matrix (Fin 1) (Fin 1) ℂ) (γ : ℝ) (hγ : 0 < γ) :
+    Tendsto (fun c : ℝ => c *
+      (weakOutageProbability
+        (stdGaussian (ComplexSample (m := 1) (n := 1)))
+        (complexNoncentralSampleSmallestEigenvalue M (by norm_num)) c γ).toReal)
+      atTop (𝓝 (γ * Real.exp (-‖M 0 0‖ ^ 2))) := by
+  have hlim := scalarNoncentral_outage_highScale_limit M γ hγ
+  apply hlim.congr'
+  filter_upwards [eventually_gt_atTop (0 : ℝ)] with c hc
+  congr 1
+  rw [weakOutageProbability_eq_statisticCDF _ _ c γ hc]
+  unfold statisticCDF
+  rw [cdf_eq_real, measureReal_def]
+  rw [Measure.map_apply
+    (measurable_complexNoncentralSampleSmallestEigenvalue M (by norm_num))
+    measurableSet_Iic]
+  rfl
 
 end JinWishart
