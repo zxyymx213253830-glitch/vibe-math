@@ -223,6 +223,9 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   径向核。该模块构建通过。尚需将球壳恒等式沿半径积分，并归约真实样本均值的任意方向。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
+- `NoncentralFourDimensionalCDF.lean` 将 `volumeIoiPow 3` 展开为 `r³ dr`，并用已有
+  Bessel 核可积性与零阈值 Nuttall-Q 归一化，证明四维候选径向核在正半轴可积且总质量为 `1`。
+  这一步仍是径向解析层，不单独宣称它已等于真实高斯球概率。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
   `S³` 单极角 chart 的解析积分，以及它与四维高斯密度、`r³` Jacobian
   相乘后的 `Q_{2,1}` 核系数；`NoncentralFourDimensionalTail.lean` 在显式
