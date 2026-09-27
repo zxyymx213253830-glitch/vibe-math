@@ -1,5 +1,6 @@
 import JinWishartFormalization.SphereFourDPlaneAngleChart
 import JinWishartFormalization.NuttallQ21Normalization
+import JinWishartFormalization.NoncentralFourDimensionalTail
 
 /-!
 # Radial integration interface for the noncentral four-dimensional model
@@ -55,5 +56,27 @@ theorem noncentralChiFourRadialKernel_integral_eq_one
     field_simp [ha.ne']
   rw [hfun, integral_const_mul, nuttallQ21RealIntegral_eq_amplitude a ha]
   field_simp [ha.ne']
+
+/-- The complex Nuttall-Q integrand inherits positive-half-line
+integrability from its equal real Bessel kernel. -/
+theorem nuttallQ21Integrand_integrableOn_Ioi (a : ℝ) (ha : 0 ≤ a) :
+    IntegrableOn (nuttallQIntegrand 2 1 a) (Ioi (0 : ℝ)) := by
+  have hreal := nuttallQ21RealKernel_integrableOn_Ioi a ha
+  have hcomplex : IntegrableOn
+      (fun r : ℝ => (nuttallQ21RealKernel a r : ℂ)) (Ioi (0 : ℝ)) :=
+    Complex.ofRealCLM.integrable_comp hreal
+  apply (integrableOn_congr_fun (s := Ioi (0 : ℝ)) ?_ measurableSet_Ioi).2 hcomplex
+  intro r _
+  exact nuttallQ21Integrand_eq_realKernel a r
+
+/-- The actual axial Gaussian radial kernel's upper tail is the normalized
+`Q_{2,1}` tail, without an extra integrability assumption. -/
+theorem noncentralChiFourRadialTail_eq_nuttallQ21_div_of_nonneg
+    (a b : ℝ) (ha : 0 < a) (hb : 0 ≤ b) :
+    (∫ r in Ioi b, noncentralChiFourRadialKernel a r) =
+      (nuttallQ 2 1 a b / (a : ℂ)).re := by
+  apply JinWishart.noncentralChiFourRadialTail_eq_nuttallQ21_div a b ha
+  exact (nuttallQ21Integrand_integrableOn_Ioi a ha.le).mono_set
+    (Ioi_subset_Ioi hb)
 
 end JinWishart
