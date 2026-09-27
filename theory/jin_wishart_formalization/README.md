@@ -219,7 +219,8 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
   `Q₂,₁` 尾积分定理拼接，仍需完成并端到端验证。
   新增的 `fourDDistance_sq_sub_firstAxis` 已将轴向移位后的球面-径向距离平方精确展开，
   并进一步积分证明固定半径球壳上的轴向移位高斯角因子等于单角 chart 乘径向指数因子；
-  完整主目标再次构建通过。尚需把这条球壳公式与径向积分及真实样本均值方向归约拼接。
+  乘上高斯密度归一化与 `r³` 极坐标 Jacobian 后，逐点等于已定义的 `(2,1)` Nuttall-Q
+  径向核。该模块构建通过。尚需将球壳恒等式沿半径积分，并归约真实样本均值的任意方向。
 - `NoncentralFourDimensionalRadial.lean` 严格核对四维径向*核*等于
   `Q_{2,1}` 的被积函数除以非中心幅度。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检

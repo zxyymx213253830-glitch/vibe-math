@@ -778,6 +778,21 @@ theorem fourDShiftedGaussianAngularIntegral_eq_chart (a r : ℝ) :
         fourDSphereExpAngleIntegralChart (a * r) := by
       rw [fourDSphereToSphereIntegral_eq_chart]
 
+/-- After the four-dimensional polar Jacobian and Gaussian normalizer are
+included, the actual axial Gaussian shell has the established `(2,1)` radial
+kernel. This is the pointwise shell-to-Nuttall bridge. -/
+theorem fourDShiftedGaussianShell_eq_radialKernel
+    (a r : ℝ) (ha : 0 < a) (hr : 0 < r) :
+    (2 * Real.pi)⁻¹ ^ 2 * r ^ 3 *
+      (∫ u : Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1,
+        Real.exp (-‖r • (u : EuclideanSpace ℝ (Fin 4)) -
+          a • EuclideanSpace.single (0 : Fin 4) (1 : ℝ)‖ ^ 2 / 2)
+        ∂((volume : Measure (EuclideanSpace ℝ (Fin 4))).toSphere)) =
+      noncentralChiFourRadialKernel a r := by
+  rw [fourDShiftedGaussianAngularIntegral_eq_chart]
+  simpa [mul_assoc] using
+    shiftedGaussianFourDShellFactor_eq_nuttallKernel a r ha hr
+
 end
 
 end JinWishart

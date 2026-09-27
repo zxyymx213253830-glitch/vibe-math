@@ -4,9 +4,10 @@ import JinWishartFormalization.BesselI1Angle
 # Four-dimensional spherical angular factor
 
 The chart on `S³` with polar angle `θ` has surface element
-`4π sin²(θ) dθ`.  The integral identity below evaluates this chart integral;
-the identification of this parameter measure with Mathlib's geometric
-surface measure is a separate chart/Jacobian obligation `[需人工审查]`.
+`4π sin²(θ) dθ`. The integral identity below evaluates this chart integral.
+Its equality with Mathlib's geometric `toSphere` measure is proved in
+`SphereFourDPlaneAngleChart.lean` (with the measure-theoretic steps listed for
+`[需人工审查]`).
 -/
 
 open MeasureTheory

@@ -6,11 +6,10 @@ import Mathlib.MeasureTheory.Constructions.HaarToSphere
 
 This module uses Mathlib's `Measure.toSphere` and
 `measurePreserving_homeomorphUnitSphereProd` to obtain a genuine geometric
-change-of-variables statement.  The remaining noncentral step is evaluation
-of the integral over `Measure.toSphere` (the S³ angular factor); its usual
-single-angle chart and Jacobian are identified in
-`NoncentralFourDimensionalSphere.lean` but not yet equated to `Measure.toSphere`.
-That identification is a remaining `[需人工审查]` measure/Jacobian obligation.
+change-of-variables statement. The S³ angular factor is identified with its
+single-angle chart in `SphereFourDPlaneAngleChart.lean`; the proof uses
+Fubini and measure-transport steps that remain on the repository's
+`[需人工审查]` checklist.
 -/
 
 open MeasureTheory Set
