@@ -79,4 +79,49 @@ theorem noncentralChiFourRadialTail_eq_nuttallQ21_div_of_nonneg
   exact (nuttallQ21Integrand_integrableOn_Ioi a ha.le).mono_set
     (Ioi_subset_Ioi hb)
 
+/-- The radial mass inside a nonnegative threshold is one minus the normalized
+`Q_{2,1}` tail. This is the CDF identity for the already-derived radial law. -/
+theorem noncentralChiFourRadialLowerMass_eq_one_sub_nuttallQ21
+    (a b : ℝ) (ha : 0 < a) (hb : 0 ≤ b) :
+    (∫ r in Ioc (0 : ℝ) b, noncentralChiFourRadialKernel a r) =
+      1 - (nuttallQ 2 1 a b / (a : ℂ)).re := by
+  have htotal : (∫ r : ℝ, noncentralChiFourRadialKernel a r
+      ∂(volume : Measure ℝ).restrict (Ioi (0 : ℝ))) = 1 := by
+    simpa only [] using noncentralChiFourRadialKernel_integral_eq_one a ha
+  have htail := noncentralChiFourRadialTail_eq_nuttallQ21_div_of_nonneg
+    a b ha hb
+  have hupper : Ioi (0 : ℝ) ∩ Ioi b = Ioi b := by
+    ext r
+    simp only [mem_inter_iff, mem_Ioi]
+    constructor
+    · exact fun h => h.2
+    · intro hr
+      exact ⟨lt_of_le_of_lt hb hr, hr⟩
+  have hlower : Ioi (0 : ℝ) ∩ (Ioi b)ᶜ = Ioc (0 : ℝ) b := by
+    ext r
+    simp [mem_inter_iff, mem_Ioi, mem_compl_iff, mem_Ioc]
+  have hpart := setIntegral_compl (μ := (volume : Measure ℝ).restrict
+      (Ioi (0 : ℝ))) (s := Ioi b) measurableSet_Ioi
+      (noncentralChiFourRadialKernel_integrableOn_Ioi a ha)
+  have htailRestrict :
+      (∫ r in Ioi b, noncentralChiFourRadialKernel a r
+        ∂(volume : Measure ℝ).restrict (Ioi (0 : ℝ))) =
+        (nuttallQ 2 1 a b / (a : ℂ)).re := by
+    change (∫ r, noncentralChiFourRadialKernel a r
+      ∂((volume : Measure ℝ).restrict (Ioi (0 : ℝ))).restrict (Ioi b)) = _
+    rw [Measure.restrict_restrict measurableSet_Ioi, Set.inter_comm, hupper]
+    exact htail
+  have hlowerRestrict :
+      (∫ r in (Ioi b)ᶜ, noncentralChiFourRadialKernel a r
+        ∂(volume : Measure ℝ).restrict (Ioi (0 : ℝ))) =
+        (∫ r in Ioc (0 : ℝ) b, noncentralChiFourRadialKernel a r) := by
+    change (∫ r, noncentralChiFourRadialKernel a r
+      ∂((volume : Measure ℝ).restrict (Ioi (0 : ℝ))).restrict (Ioi b)ᶜ) = _
+    rw [Measure.restrict_restrict measurableSet_Ioi.compl, Set.inter_comm, hlower]
+  calc
+    _ = ∫ r in (Ioi b)ᶜ, noncentralChiFourRadialKernel a r
+        ∂(volume : Measure ℝ).restrict (Ioi (0 : ℝ)) := hlowerRestrict.symm
+    _ = 1 - (nuttallQ 2 1 a b / (a : ℂ)).re := by
+      rw [hpart, htotal, htailRestrict]
+
 end JinWishart

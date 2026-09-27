@@ -226,7 +226,8 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `NoncentralFourDimensionalCDF.lean` 将 `volumeIoiPow 3` 展开为 `r³ dr`，并用已有
   Bessel 核可积性与零阈值 Nuttall-Q 归一化，证明四维候选径向核在正半轴可积且总质量为 `1`。
   另从实值核可积性推出复 Nuttall-Q 核可积性，因而正阈值下径向核尾积分可无附加假设地
-  表为 `Re(Q₂,₁(a,b)/a)`。这仍是轴向模型径向解析层，不单独宣称它已等于真实高斯球概率。
+  表为 `Re(Q₂,₁(a,b)/a)`；再由总质量一证明其 `(0,b]` 内的径向质量为
+  `1 - Re(Q₂,₁(a,b)/a)`。这仍是候选轴向径向律的解析层，不单独宣称它已等于真实高斯球概率。
 - `BesselI1Angle.lean` 与 `NoncentralFourDimensionalSphere.lean` 已机检
   `S³` 单极角 chart 的解析积分，以及它与四维高斯密度、`r³` Jacobian
   相乘后的 `Q_{2,1}` 核系数；`NoncentralFourDimensionalTail.lean` 在显式
