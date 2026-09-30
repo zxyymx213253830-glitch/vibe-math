@@ -6,7 +6,7 @@
 """
 from __future__ import annotations
 
-from .shannon_lp import check
+from .shannon_lp import NOT_IDENTIFIED, PROVED, SOLVER_ERROR, UNVERIFIED, check
 
 __all__ = ["check_steps", "format_report"]
 
@@ -26,17 +26,23 @@ def check_steps(steps) -> list:
 def format_report(results) -> str:
     lines = []
     n_bad = 0
+    kinds: dict = {}
     for i, (st, r) in enumerate(results, 1):
         cons = ", ".join(st.get("constraints", [])) or "(无)"
         lines.append(f"Step {i}: {st['claim']}    [约束: {cons}]")
         lines.append(f"  -> {r.status}: {r.message}")
-        if r.status != "PROVED":
+        if r.status != PROVED:
             n_bad += 1
+            kinds[r.status] = kinds.get(r.status, 0) + 1
         if st.get("note"):
             lines.append(f"  note: {st['note']}")
         lines.append("")
     if n_bad == 0:
         lines.append(f"结论: 全部 {len(results)} 步都通过机检（但语义是否与原命题一致仍需人工确认）。")
     else:
-        lines.append(f"结论: {n_bad}/{len(results)} 步未被机检验证 —— 该 converse 作为证明有洞。")
+        # 区分"不在锥内"与"未能用精确证书核实"，二者的后续动作完全不同
+        parts = ", ".join(f"{k}×{v}" for k, v in sorted(kinds.items()))
+        lines.append(
+            f"结论: {n_bad}/{len(results)} 步未被机检验证（{parts}）"
+            "—— 该 converse 作为证明有洞。")
     return "\n".join(lines)

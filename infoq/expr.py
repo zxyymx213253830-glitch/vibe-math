@@ -21,7 +21,7 @@ class ExprError(ValueError):
 _TOKEN_RE = re.compile(
     r"\s*(?:(?P<num>\d+(?:\.\d+)?(?:/\d+(?:\.\d+)?)?)"
     r"|(?P<name>[A-Za-z_]\w*)"
-    r"|(?P<sym>[()+\-;|,=<>*]))"
+    r"|(?P<sym>[()+\-;|,=<>*/]))"
 )
 _RESERVED = {"H", "I"}
 _CLAIM_RE = re.compile(r"(<=|>=|<|>|=)")
@@ -49,9 +49,35 @@ def _tokenize(s: str):
 
 
 def _frac(s: str) -> Fraction:
-    if "." in s or "/" in s:
-        return Fraction(s)
-    return Fraction(int(s))
+    try:
+        if "." in s or "/" in s:
+            return Fraction(s)
+        return Fraction(int(s))
+    except ZeroDivisionError:
+        raise ExprError(f"除数不能为 0：{s!r}") from None
+    except ValueError:
+        raise ExprError(f"无法解析为有理数：{s!r}") from None
+
+
+def _fold_scalar(toks, src: str) -> Fraction:
+    """把只含数字与 '*' '/' 的 token 序列折叠成一个有理数。
+
+    调用方需先保证 token 序列只含 num 与 '*' '/'（见 `_Parser._paren_is_scalar`）。
+    """
+    val = Fraction(1)
+    op = "*"
+    for k, v in toks:
+        if k == "num":
+            f = _frac(v)
+            try:
+                val = val * f if op == "*" else val / f
+            except ZeroDivisionError:
+                raise ExprError(f"除数不能为 0：{src!r}") from None
+        elif k == "sym" and v in "*/":
+            op = v
+        else:  # pragma: no cover - 由调用方保证不会发生
+            raise ExprError(f"标量中出现非数字符号 {v!r}：{src!r}")
+    return val
 
 
 def _add(a: dict, b: dict) -> dict:
@@ -118,23 +144,123 @@ class _Parser:
                 break
         return form
 
+    def _matching_paren(self, open_idx: int) -> int:
+        """open_idx 处 '(' 对应 ')' 的 token 下标；不匹配时返回 -1。"""
+        depth = 0
+        for j in range(open_idx, len(self.toks)):
+            k, v = self.toks[j]
+            if k == "sym" and v == "(":
+                depth += 1
+            elif k == "sym" and v == ")":
+                depth -= 1
+                if depth == 0:
+                    return j
+        return -1
+
+    def _paren_is_scalar(self, open_idx: int) -> bool:
+        """括号内是否只含数字与 '*' '/'（即一个纯标量，如 "(1/3)"）。"""
+        j = self._matching_paren(open_idx)
+        if j < 0:
+            return False
+        return all(k == "num" or (k == "sym" and v in "*/")
+                   for k, v in self.toks[open_idx + 1:j])
+
     def _parse_term(self, sign: Fraction) -> dict:
-        k, v = self._peek()
-        if k == "num":
-            self._next()
+        """解析一个乘法项：若干标量（数字，可含 `/`）与至多一个信息量原子相乘。
+
+        合法形式（标量倍乘，`*` 可省略）：
+            2*I(X;Y)    3/2*H(X,Y,Z)    2*(H(X)+H(Y))    2 I(X;Y)
+            I(X;Y)*2    2*3*I(X;Y)      2 / 3 * I(X;Y)    (1/3)*H(X)
+        不合法：
+            H(X)*H(Y)   —— 信息量之间不能相乘，结果不再是信息量的线性组合
+            2           —— 非零常数项无意义
+            2**I(X;Y)   —— 连续的 '*' 无意义
+        """
+        coef = Fraction(1)
+        form: dict | None = None
+        consumed = 0
+        pending_star = False
+        # "(1/3)*H(X)"：项首的纯标量括号组先吸收成系数
+        if (self.i < len(self.toks) and self.toks[self.i] == ("sym", "(")
+                and self._paren_is_scalar(self.i)):
+            close = self._matching_paren(self.i)
+            coef = _fold_scalar(self.toks[self.i + 1:close], self.src)
+            self.i = close + 1
+            consumed += 1
             k2, v2 = self._peek()
-            starts_atom = (k2 == "name" and v2 in _RESERVED) or (k2 == "sym" and v2 == "(")
-            if not starts_atom:
-                # 独立常数：信息量是齐次线性组合，只允许常数 0
-                if _frac(v) != 0:
-                    raise ExprError(
-                        f"非零常数项 {v} 无意义（信息不等式只能是信息量的线性组合）：{self.src!r}")
-                return {}
-            coef = _frac(v) * sign
-            if k2 == "sym" and v2 == "(":
+            if k2 == "sym" and v2 == "*":
                 self._next()
-            return _scale(self._parse_primary(), coef)
-        return _scale(self._parse_primary(), sign)
+                consumed += 1
+                pending_star = True
+        while True:
+            k, v = self._peek()
+            if k == "num":
+                self._next()
+                consumed += 1
+                pending_star = False
+                f = _frac(v)
+                k2, v2 = self._peek()
+                if k2 == "sym" and v2 == "/":
+                    # 词法器已把无空格的 "3/2" 合成一个 num；这里处理 "3 / 2" 的写法
+                    self._next()
+                    k3, v3 = self._next()
+                    if k3 != "num":
+                        raise ExprError(f"'/' 后期望数字，遇到 {v3!r}：{self.src!r}")
+                    consumed += 1
+                    f = f / _frac(v3)
+                coef *= f
+                k2, v2 = self._peek()
+                if k2 == "sym" and v2 == "*":
+                    self._next()
+                    consumed += 1
+                    pending_star = True
+                    continue
+                # 隐式乘法：数字后面直接跟原子（如 "2 I(X;Y)"）
+                if ((k2 == "name" and v2 in _RESERVED)
+                        or (k2 == "sym" and v2 == "(") or k2 == "num"):
+                    continue
+                break
+            if (k == "name" and v in _RESERVED) or (k == "sym" and v == "("):
+                atom = self._parse_primary()
+                consumed += 1
+                pending_star = False
+                if form is None:
+                    form = atom
+                else:
+                    raise ExprError(
+                        "信息量之间不能用 '*' 相乘（'*' 仅表示标量倍乘）："
+                        f"{self.src!r}")
+                k2, v2 = self._peek()
+                if k2 == "sym" and v2 == "*":
+                    self._next()
+                    consumed += 1
+                    pending_star = True
+                    continue
+                break
+            if k == "sym" and v == "*":
+                if consumed == 0 or pending_star:
+                    break          # 项首或连续的 '*' 交由上方统一报错
+                self._next()
+                consumed += 1
+                pending_star = True
+                continue
+            break
+
+        if pending_star:
+            raise ExprError(f"'*' 后期望信息量或数字：{self.src!r}")
+        if consumed == 0:
+            k, v = self._peek()
+            raise ExprError(
+                f"期望表达式原子（H(...) / I(...) / 括号组），遇到 {v!r}：{self.src!r}")
+
+        if form is None:
+            # 纯标量项：信息量是齐次线性组合，只允许常数 0
+            if coef != 0:
+                raise ExprError(
+                    f"非零常数项 {coef} 无意义（信息不等式只能是信息量的线性组合）："
+                    f"{self.src!r}")
+            return {}
+        return _scale(form, coef * sign)
 
     def _parse_primary(self) -> dict:
         k, v = self._peek()
@@ -199,7 +325,15 @@ class _Parser:
 def parse(s: str) -> dict:
     """把信息量线性组合解析为 {frozenset: Fraction} 线性形式。
 
-    例：parse("2*I(X;Y) - H(X|Z)")  →  h(X)+h(Y)-h(XY)+h(Z)-h(XZ) 的系数字典。
+    支持标量倍乘（`*` 可省略）与分数系数：
+        parse("2*I(X;Y)")            →  h(X)+h(Y)-h(XY) 的 2 倍
+        parse("3/2*H(X,Y,Z)")        →  h(X,Y,Z) 的 3/2 倍
+        parse("2*I(X;Y) - H(X|Z)")   →  混合线性组合
+        parse("2*(H(X)+H(Y))")       →  括号组
+        parse("I(X;Y)*2")            →  反向书写同样合法
+
+    不允许信息量之间相乘（`H(X)*H(Y)`），那不再是信息量的线性组合；
+    也不允许非零常数项。
     """
     toks = _tokenize(s)
     if not toks:

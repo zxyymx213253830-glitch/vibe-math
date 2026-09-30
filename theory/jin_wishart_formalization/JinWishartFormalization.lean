@@ -40,6 +40,7 @@ import JinWishartFormalization.BesselI1Series
 import JinWishartFormalization.Theorem1SingleColumnTwoRows
 import JinWishartFormalization.OneColumnCDFRecurrence
 import JinWishartFormalization.Theorem1SingleColumnAnyRows
+import JinWishartFormalization.Theorem1ThreeRowsActualCDF
 import JinWishartFormalization.NoncentralFourDimensionalRadial
 import JinWishartFormalization.OrderedEigenvalueStrictRecurrence
 import JinWishartFormalization.OrderedEigenvalueIndexedRecurrence
@@ -47,6 +48,7 @@ import JinWishartFormalization.ScalarNoncentralSmallX
 import JinWishartFormalization.WeightedIntervalAverage
 import JinWishartFormalization.ScalarNoncentralSmallXLimit
 import JinWishartFormalization.Theorem2SingleColumnAnyRows
+import JinWishartFormalization.Theorem2ThreeRowsActualCDF
 import JinWishartFormalization.BesselI1Angle
 import JinWishartFormalization.NoncentralFourDimensionalSphere
 import JinWishartFormalization.NoncentralFourDimensionalTail
@@ -56,6 +58,30 @@ import JinWishartFormalization.FourDimensionalPolarBridge
 import JinWishartFormalization.ScalarNoncentralOutageAsymptotic
 import JinWishartFormalization.NoncentralFourDimensionalPoissonMixture
 import JinWishartFormalization.OrderedEigenvalueMeasurable
+import JinWishartFormalization.OrderedEigenvalueWeyl
+import JinWishartFormalization.SubspaceIntersectionFinrank
+import JinWishartFormalization.IndexedCourantFischerAttempt
+import JinWishartFormalization.IndexedCourantFischerProof
+import JinWishartFormalization.WeylRealSymmetric
+import JinWishartFormalization.WeylComplexHermitian
+import JinWishartFormalization.OrderedEigenvalueFullMeasurable
+import JinWishartFormalization.DeterminantRowExpansion
+import JinWishartFormalization.T3FixedCardinalityRowSelection
+import JinWishartFormalization.T3PaperThetaSpecialization
+import JinWishartFormalization.T3NormalizationAudit
+import JinWishartFormalization.T3InactiveColumnCancellation
+import JinWishartFormalization.RepeatedRootNullSets
+import JinWishartFormalization.MvPolynomialZeroSetNull
+import JinWishartFormalization.MvPolynomialGramTwoByTwo
+import JinWishartFormalization.RealQuadraticRepeatedRoot
+import JinWishartFormalization.ComplexGramTwoByTwoDiscriminantNull
+import JinWishartFormalization.PaperSmallSideGram
+import JinWishartFormalization.PaperSingleStreamTwoRowOutage
+import JinWishartFormalization.T4CentralOneColumnAnyRows
+import JinWishartFormalization.T4CentralOneColumnHighScale
+import JinWishartFormalization.T4DensityToCDF
+import JinWishartFormalization.SpectralRayleighCoordinates
+import JinWishartFormalization.SpectralRayleighPrefix
 import JinWishartFormalization.NuttallQ21Normalization
 import JinWishartFormalization.ScalarPhysicalScaling
 import JinWishartFormalization.NoncentralOneColumnEnergy
@@ -65,6 +91,36 @@ import JinWishartFormalization.SphereFourDAngularIntegral
 import JinWishartFormalization.SphereFourDPlanePolar
 import JinWishartFormalization.SphereFourDPlaneAngleChart
 import JinWishartFormalization.NoncentralFourDimensionalCDF
+import JinWishartFormalization.NoncentralFourDimensionalGaussianCDF
+import JinWishartFormalization.SixDimensionalAngularBesselI2
+import JinWishartFormalization.EightDimensionalAngularBesselI3
+import JinWishartFormalization.SphereEightDAxialMeasure
+import JinWishartFormalization.SphereSixDAxialMeasure
+import JinWishartFormalization.NoncentralSixDimensionalRadial
+import JinWishartFormalization.NoncentralEightDimensionalRadial
+import JinWishartFormalization.ThreeRowSampleCoordinates
+import JinWishartFormalization.ThreeRowMeanNorm
+import JinWishartFormalization.NoncentralSixDimensionalMass
+import JinWishartFormalization.NoncentralThreeRowNuttallQ
+import JinWishartFormalization.TwoRowSampleCoordinates
+import JinWishartFormalization.TwoRowMeanGramSpectrum
+import JinWishartFormalization.Theorem1TwoRowsActualCDF
+import JinWishartFormalization.TwoRowSmallOutageAsymptotic
+import JinWishartFormalization.TwoRowOutageScaling
+import JinWishartFormalization.WishartSimpleSpectrum
+import JinWishartFormalization.ComplexGramTwoByTwoGaussianSimpleSpectrum
+import JinWishartFormalization.Theorem12ThreeRowsFrobeniusCDF
+import JinWishartFormalization.FinSpectralIndexCard
+import JinWishartFormalization.MIMOWishartSERExact
+import JinWishartFormalization.PaperStatements
+import JinWishartFormalization.ComplexGramSimpleSpectrum
+import JinWishartFormalization.GramSpectrumTransfer
+import JinWishartFormalization.RectangularGramEigenvectorBridge
+import JinWishartFormalization.ThresholdNoAtom
+import JinWishartFormalization.NuttallQBoundary
+import JinWishartFormalization.NoncentralEvenDimensionalPoissonMixture
+import JinWishartFormalization.T3CentralTwoByTwoDensityInterface
+import JinWishartFormalization.OneColumnFrobeniusParameter
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)
@@ -80,6 +136,35 @@ eigenvalue-distribution theorems.  See `README.md` for the exact scope.
 namespace JinWishart
 
 open Real
+
+/-- The complete descending eigenvalue vector of an actual shifted complex
+Gaussian Gram sample is measurable in every finite dimension. -/
+theorem measurable_complexNoncentralSampleEigenvalueVector
+    {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ) :
+    Measurable (fun z : ComplexSample (m := m) (n := n) =>
+      fun i => complexNoncentralSampleEigenvalue M i z) := by
+  exact measurable_complexNoncentralSampleEigenvalueVector_of_continuous M
+    (orderedHermitianEigenvalueCoordinatesContinuous n)
+
+/-- The complete ordered spectrum of the paper's smaller-side Gram matrix is
+measurable for every rectangular noncentral complex Gaussian sample. -/
+theorem measurable_paperSmallSideSampleEigenvalueVector
+    {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ) :
+    Measurable (fun z : ComplexSample (m := m) (n := n) =>
+      fun i =>
+        (paperSmallSideGram_posSemidef (complexSampleMatrix z + M)).1.eigenvalues₀ i) := by
+  rw [measurable_pi_iff]
+  intro i
+  let G : ComplexSample (m := m) (n := n) → HermitianMatrix (min m n) := fun z =>
+    ⟨paperSmallSideGram (complexSampleMatrix z + M),
+      (paperSmallSideGram_posSemidef (complexSampleMatrix z + M)).1⟩
+  have hG : Measurable G := by
+    exact (measurable_shiftedPaperSmallSideGram M).subtype_mk
+      (h := fun z => (paperSmallSideGram_posSemidef
+        (complexSampleMatrix z + M)).1)
+  change Measurable
+    ((fun A : HermitianMatrix (min m n) => hermitianEigenvalueVector A i) ∘ G)
+  exact (orderedHermitianEigenvalueCoordinatesContinuous (min m n) i).measurable.comp hG
 
 /-- The Rice-factor term in the leading low-outage approximation, with the
 integer exponent `n = s * t` abstracted as a natural number. -/
@@ -148,6 +233,28 @@ theorem riceFactor_strictAntiOn {n : ℕ} (hn : 0 < n) :
   · intro K hK
     rw [(hasDerivAt_riceFactor n K).deriv]
     exact riceFactor_derivative_neg hn (by simpa using hK)
+
+/-- The normalized high-SNR outage coefficient in the paper's actual `2 × 1`,
+single-stream specialization. -/
+noncomputable def paperTwoRowOutageCoefficient (γ K : ℝ) : ℝ :=
+  (K + 1) ^ 2 * γ ^ 2 * (1 / 2) * Real.exp (-2 * K)
+
+theorem paperTwoRowOutageCoefficient_eq_riceFactor (γ K : ℝ) :
+    paperTwoRowOutageCoefficient γ K = (γ ^ 2 / 2) * riceFactor 2 K := by
+  simp [paperTwoRowOutageCoefficient, riceFactor]
+  ring
+
+/-- For every positive threshold, the `2 × 1`, single-stream low-outage
+coefficient strictly decreases with the Rice factor, matching (45) in this
+special case. -/
+theorem paperTwoRowOutageCoefficient_strictAntiOn (γ : ℝ) (hγ : 0 < γ) :
+    StrictAntiOn (paperTwoRowOutageCoefficient γ) (Set.Ioi 0) := by
+  intro K hK L hL hKL
+  rw [paperTwoRowOutageCoefficient_eq_riceFactor,
+    paperTwoRowOutageCoefficient_eq_riceFactor]
+  exact mul_lt_mul_of_pos_left
+    (riceFactor_strictAntiOn (n := 2) (by norm_num) hK hL hKL)
+    (by positivity)
 
 /-- A finite Gram energy is nonnegative.  In the MIMO model this is the
 coordinate form of `xᴴ Hᴴ H x = ‖Hx‖² ≥ 0`, the deterministic fact behind the

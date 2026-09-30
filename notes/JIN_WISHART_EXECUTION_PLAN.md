@@ -129,15 +129,94 @@ P1、P2、L1、L2 可以由不同执行者在**不同文件**上并行，但共�
 - 用独立审查者检查：假设是否与论文一致、分布是否真实、公式是否强度足够、是否遗漏零参数/尺度边界。审查发现的问题逐条进入追踪表，不用措辞模糊的“基本完成”。
 - 验收：封面 theorem 构建通过，追踪表中对应行达到“审查通过”；README 只能写“`2×1` 特例完成”，不得写“全文完成”。
 
+### 执行状态补记（2026-09-27，C）
+
+- 已新增 `FourDimensionalPolarBridge.lean` 中实际四维平移高斯球积分的极坐标/Fubini 桥，
+  并在 `NoncentralFourDimensionalCDF.lean` 中把该积分严格化为真实四维轴向高斯球概率的
+  `1 - Re(Q₂,₁(a,R)/a)`。其所需有界支撑与可积性已由 Lean 检查；球面测度参数化、Fubini
+  与极坐标 Jacobian 的数学对应仍标 `[需人工审查]`。
+- `NoncentralFourDimensionalGaussianCDF.lean` 进一步证明 Mathlib 的四维 `stdGaussian`
+  球概率等于该 Q 公式。`TwoRowSampleCoordinates.lean` 将实际 `ComplexSample (2×1)`
+  通过保范等距映射送至 `Fin 4`，并显式补偿复坐标编码的 `√2` 尺度。
+- `Theorem1TwoRowsActualCDF.lean` 已证明一个受限但真实的论文模型结论：均值矩阵只有
+  `(0,0)` 的实分量非零、且 `|M₀₀|²=λ>0` 时，Theorem 1 的 `(1,2,1)` 公式候选等于
+  实际单列非中心 Wishart 唯一特征值的 CDF（`x≥0`）。这把 M2/M3/M4 推进到轴向特例，
+  同一模块也证明 Theorem 2 的 `(1,2,1)` 公式候选给出同一真实 CDF，明确利用单列只有
+  一个 Gram 特征值，故最大与最小特征值一致。零非中心参数已通过论文 `L=0` 的中心
+  分支另行接到实际 CDF；正参数两条定理仍都不覆盖一般复均值方向，也未完成人工测度
+  审查。
+- 验证：在 `theory/jin_wishart_formalization` 中运行
+  `lake env lean JinWishartFormalization/TwoRowSampleCoordinates.lean`、
+  `lake env lean JinWishartFormalization/Theorem1TwoRowsActualCDF.lean` 均退出码 0；
+  接入 facade 后 `lake build JinWishartFormalization --quiet` 退出码 0。
+- 下一步：推广任意复均值方向，再提交独立审查。一般维数、多
+  特征值 Theorem 1–4 仍属于 G1–G4，绝不能将此轴向特例记作全文形式化。
+
+### 执行状态补记（2026-09-27，任意均值方向桥接）
+
+- `NoncentralFourDimensionalGaussianCDF.lean` 新增并通过构建：四维标准高斯在任意
+  非零平移下的闭球概率只依赖平移向量的范数，并等于相应的 Nuttall-
+  `Q_{2,1}` 尾概率表达式。
+- `TwoRowSampleCoordinates.lean` 新增坐标恒等式：对任意 `2×1` 复均值矩阵 `M`，
+  实高斯编码均值满足 `‖complexSampleMean M‖² / 2 = ∑ i, ‖M i 0‖²`，并通过
+  Lean 构建。这核对了论文一列情形的非中心参数与平方 Frobenius 范数。
+- `Theorem1TwoRowsActualCDF.lean` 因而已证明：非零任意复均值方向下，论文 T1 与
+  T2 的 `(s,t,L)=(1,2,1)` 候选式均等于实际单列 Wishart 唯一特征值的 CDF；候选式
+  中 `λ=‖complexSampleMean M‖²/2`。此处沿用现有标准复高斯样本空间及方差约定。
+- 同一文件新增明确的唯一 Gram 特征值统计量，并将 T2 的结果另行表述为最大（唯一）
+  Gram 特征值的 CDF，避免仅依赖 `s=1` 时最大/最小相同这一隐含说明。
+- `TwoRowSmallOutageAsymptotic.lean` 已证明中心与任意非中心 `2×1` 模型的统一实际
+  CDF 极限：`F(x)/x² → (1/2) exp(-‖complexSampleMean M‖²/2)`，包括零均值边界。
+- 独立只读数学审查确认了本轮复高斯尺度、非中心参数换算、半径和 T1/T2 特例公式；
+  并指出了论文非中心矩阵谱参数的形式语义缺口。新文件
+  `TwoRowMeanGramSpectrum.lean` 已补证 `2×1` 均值 Gram 矩阵的唯一特征值等于
+  `∑ i ‖M i 0‖² = ‖complexSampleMean M‖²/2`。极坐标、球面参数化、Fubini/换元和
+  相关可积性仍须人工测度审查。
+- 另一模型家族完成了 P4 对抗复核：未发现本轮 Lean 新增占位符或尺度错误；特别要求
+  对四维球面测度归一化、chart 边界/重数、去除原点零测集以及 Fubini/换元常数保留
+  `[需人工审查]`。同时确认当前定理仅为单列 4 实维模型，不能外推到一般有序谱或全文。
+- 新增模块和 `OrderedEigenvalueWeyl.lean` 均已接入 facade；本轮
+  `lake build JinWishartFormalization --quiet` 退出码 0。以上仍只覆盖 `2×1` 特例，
+  一般维数和多个有序特征值尚未覆盖。
+- G1 新文件 `OrderedEigenvalueWeyl.lean` 已证明点态 Rayleigh 商扰动界以及特征
+  向量上的 Rayleigh 商等于相应特征值；`SubspaceIntersectionFinrank.lean` 现已证明
+  `finrank U + finrank V > finrank E` 时子空间交非零；`IndexedCourantFischerAttempt.lean`
+  证明了基向量子集张成空间的维数等于其指标数。Rayleigh 商在 head/tail 特征子空间
+  上的有限加权平均估计已独立证明；`SpectralRayleighCoordinates.lean` 进一步证明实
+  内积有限维对称算子中，谱坐标在 i 之前均为零时 Rayleigh 商 `≤ λ_i`。前缀反向界、
+  完整实对称 Courant–Fischer 桥接和逐指标 Weyl 界现均已证明（见后续记录）；但从
+  复 Hermitian Gram 矩阵到此实定理的桥接、一般复矩阵中间有序特征值的可测性仍缺失。
+
+### `PaperStatements.lean` 的原文对齐审计（2026-09-27，独立 P4）
+
+该文件只能作为陈述层草案，不能作为原论文定理已被准确形式化或完成的证据。对照
+[官方 arXiv v2](https://arxiv.org/pdf/cs/0611007)（定理 1–4 为式 (15)–(34)，性能
+部分为式 (35)–(45)）发现：
+
+- T1/T2 契约未连接实际 Wishart 概率模型，没有 probability-measure、`x>0`、非中心谱
+  参数正性/互异/来自 Ω 等条件，也未限制任意抽象 law 与候选公式必须匹配。
+- T3 只要求存在函数 `F`，并在单点匹配 k、1、s 三个值；没有原文 (22) 的递推，也没有
+  (23)–(25) 的概率项、常数、组合求和或 Θ/Ψ/Ξ 行列式结构，属于过弱占位契约。
+- T4 只表达某正系数下的 CDF 幂次极限，缺少 PDF 一阶展开、CDF 系数的显式公式，以及
+  原文 (31)–(34) 的矩阵/非中心谱参数定义。新证的 `2×1` 极限是实际模型特例，不是一般 T4。
+- SER/outage 契约没有表达原文 (35)–(45) 的 Q 核、调制常数、SNR/功率缩放、per-mode 与
+  global 关系或低 outage 渐近。`OutageClaim` 允许 scale·power=0，却把 RHS 写成除以该乘积；
+  现有缩放证明只有额外假设乘积非零时才正确。
+- 抽象 `OrderedEigenvalueLaw` 缺 probability-measure 与 Wishart-law 连接；其 `strictAnti`
+  要求每个样本点严格谱序，强于简单谱几乎处处成立并排除了退化零测点。
+
+所以后续一般 T1–T4/性能工作必须先修订这些契约，使 Lean 的模型、参数域和公式逐项对应
+原文；算术恒等式或存在性定义不得记作论文定理完成。
+
 ## 7. 一般维度长线任务卡（不可用特例冒充）
 
 这部分数学和形式化工作量都大。轻量模型应逐张卡做定义/局部引理，遇到缺失的深层定理时交给强模型，不应靠改写结论绕开。
 
-### G1 — 一般复 Wishart 模型和完整特征值可测性
+### G1 ✅（谱可测范围）— 论文小侧 Gram 及整组有序谱可测已完成；谱联合密度仍属 G2
 
 - 明确矩阵尺寸、秩、协方差正定性、非中心参数、谱排序和退化谱处理。
-- 当前端点可测模块不足以覆盖中间有序特征值。证明全部排序坐标的可测性，或给出可复用的连续/可测排序映射；证明重根事件所需结论（如密度推导依赖“几乎处处简单谱”）。
-- 验收：一般维度随机特征值向量是真正的可测映射，且定义域与论文模型一致。将关于 simple spectrum 的前提/结论分开写。
+- 已证明所有排序坐标在 Hermitian 矩阵上 Lipschitz 连续；`PaperSmallSideGram.lean` 已把 `XXᴴ`/`XᴴX` 按长宽 reindex 到 `Fin (min m n)`，证明实际 shifted Gaussian 小侧 Gram 与 PSD 子型可测；facade 的 `measurable_paperSmallSideSampleEigenvalueVector` 再给出论文对应的整组有序谱可测性。G1 的谱可测范围完成。两种 Gram 非零谱对应仍可作为独立谱代数结果补充，但不是当前小侧模型可测性的前提；重根零测和联合密度仍属 G2。
+- 验收：一般维度随机特征值向量是真正的可测映射，定义域与实际复高斯 Gram 模型一致；主 facade 全构建通过。
 
 ### G2 — 联合特征值分布
 
@@ -190,3 +269,68 @@ notes/JIN_WISHART_THEOREM_TRACKER.md。每个定理写原文假设、模型、�
 ```
 
 后续轮次只把“本轮只执行 B0”替换为一张已满足前置条件的卡片编号，并附上上轮交接。若后续使用更强模型，优先交给它审查 M1/M2、G2 及所有 `[需人工审查]` 项，而不是让它重复机械的语法修补。
+
+### 2026-09-27 继续推进记录
+
+- 新增 `TwoRowOutageScaling.lean` 并接入 facade。它证明实际 `2×1` shifted complex Gaussian Gram 最小特征值的正尺度弱 outage CDF 恒等式，并把已证小阈值二阶极限搬运到高 scale：
+  `scale² · P(scale·φ_min ≤ γ) → γ²/2 · exp(-‖complexSampleMean M‖²/2)`（任意均值，含中心情形）。目标模块编译通过；没有声称这就是论文 (42)–(44)，因为仍未把 scale、均值映射到 `ε²P/r`、`K` 与 `H̄`。
+- G1 新增 `SpectralCoordinateSpanSupport.lean`：证明谱基向量张成空间成员在补集坐标为零，并据此得到 prefix/tail 子空间上的 Rayleigh 商界。经 Finset image 维数桥接后，`IndexedCourantFischerProof.lean` 的完整实对称 indexed min–max 已目标编译通过并接入 facade。
+- `WeylRealSymmetric.lean` 再证明有限维实内积空间中，对称连续线性算子的每个有序特征值满足 `|λᵢ(T)-λᵢ(S)| ≤ ‖T-S‖`；使用谱头/尾交空间和 Rayleigh 扰动界，目标编译通过并接入 facade。它尚未处理复 Hermitian 表示桥接或 Wishart 随机变量可测性。
+- 验证：集成 `TwoRowOutageScaling`、indexed min–max 与实对称 Weyl 模块后的全 facade `lake build JinWishartFormalization --quiet` 退出码 0。新增谱论/两行 outage 模块文本审查无 `sorry`、`admit` 或新增 `axiom`。极坐标、球面推前、Fubini/换元等人工测度审查边界不变。
+- 入口集成后的二次验证：`lake build JinWishartFormalization --quiet` 退出码 0，确认 `TwoRowOutageScaling` 已纳入 facade 且全库仍可编译。
+- G1 新增正式谱定理：`IndexedCourantFischerProof.indexedCourantFischerValue_eq_eigenvalue` 给出有限维实内积空间上的连续实对称算子 min–max 表征；`WeylRealSymmetric.abs_eigenvalue_sub_le_operatorNorm` 及 `WeylComplexHermitian.abs_eigenvalue_sub_le_operatorNorm_rclike` 给出逐指标 Weyl 界，后者适用于 RCLike 上的实/复内积空间。复 Weyl 界进一步给出 Hermitian 有序特征值坐标 Lipschitz 连续性，主 facade 的 `measurable_complexNoncentralSampleEigenvalueVector` 闭合仓库 `XᴴX` 全谱可测性；论文小侧 `s=min(m,n)` Gram 及非零谱对应仍待完成，G1 也不包含重根零测或联合密度。
+- 论文物理参数闭合一个实际边界：`PaperSingleStreamTwoRowOutage.lean` 将 (2)、(12)–(14)、(42)–(44) 实例化到 `s=1,t=2,r=1`，证明 `ε²P=P/(K+1)`、标准化均值为 `√K H̄`；若 `‖H̄‖F²=2`，则非中心参数为 `2K`，且 `P²Pout → (K+1)²γ_th²e^{-2K}/2`。这是论文结论的真实 `2×1` 单流特例，不是一般 MRC/一般 outage 定理；接入 facade 后全量构建退出码 0。
+- facade 现另证明该 `2×1` 单流 outage 主系数在 `K>0` 上严格递减（`paperTwoRowOutageCoefficient_strictAntiOn`），即式 (45) 的该特例。包含复 RCLike Weyl、条件全谱可测性、物理参数 outage 和系数单调性的新 facade 构建通过，退出码 0。
+- `WeylComplexHermitian.lean` 现以复 Weyl 界证明所有 Hermitian 有序特征值坐标 Lipschitz 连续，并在 facade 合成得到实际随机 Gram 全谱可测性。此前一次直接 ε-δ 写法曾因 subtype 拓扑实例不匹配而失败并已撤回；最终采用 `SymmetricCLM` 子类型上的 Weyl-Lipschitz 映射与连续复合方案，验证通过。
+- 论文物理参数又闭合一个实际边界：`PaperSingleStreamTwoRowOutage.lean` 将 (2)、(12)–(14)、(42)–(44) 精确实例化到 `s=1,t=2,r=1`，证明 `ε²P=P/(K+1)`、标准化均值为 `√K H̄`；若 `‖H̄‖F²=2`，则非中心参数是 `2K`，并证明 `P²Pout → (K+1)²γ_th²e^{-2K}/2`。这是论文结论的真实 `2×1` 单流特例，不是一般 MRC/一般 outage 定理；当前刚接入 facade，待全量构建复验。
+- 继续推进：`PaperStatements.lean` 的 `OrderedEigenvalueLaw.kth` 曾将 1-based 第 k 大错映到索引 `s-k`（第 k 小）；现已改成 `k-1`，加入 `k=1` 对最大、`k=s` 对最小的编译证明，并给最大值/Theorem 2 契约补上必要的 `s>0`。新增 `orderedEigenvalueLaw_kthCDFRecurrence_strict`，按论文索引证明 (22) 的事件递推（明确给阈值零原子假设）。目标模块已构建通过，接入后的 facade 3295 jobs 构建通过。
+- 继续推进 T3：`DeterminantRowExpansion.lean` 新增并单独构建通过任意有限维交换环上的 Leibniz 行展开 `det(A+B)=∑_{S⊆univ} det(rowMix(A,B,S))`。它是行混合的代数基础设施；论文 (23) 只对固定 `|S|=k-1` 求和，故尚需适配固定基数并证明 Wishart 有序区域积分/概率恒等式。该模块已加入 facade，构建通过。
+- 继续推进 T4：新增 `T4CentralOneColumnAnyRows.lean`，对任意正整数 `m` 从实际中心 `m×1` 复高斯 Gram/Gamma 法则证明 `F(x)/x^m → 1/m!`。此为中心单列的真实模型推广，模块及集成该模块后的 facade（3296 jobs）均构建通过；一般 `s>1` 与非中心多秩的谱相互作用和渐近积分仍未解决。
+- 历史状态校准（已在下条解决谱可测缺口）：复核论文 `s=min(m,n)` 后发现此前的 `measurable_complexNoncentralSampleEigenvalueVector` 仅给仓库 `XᴴX`（`n×n`）谱，不能直接充当论文小侧桥；后新增的 `PaperSmallSideGram` 与 facade 定理已解决小侧谱可测性。此前将 G1 暂降级的记录保留为审计轨迹；Theorem 1–4 全文仍未完成。
+- 继续推进 T4：`T4DensityToCDF.lean : density_to_cdf_hardEdge` 对任意自然数 `d` 证明一般解析桥：若 `f(u)=u^d g(u)`、`g(u)→a` 且每个正小区间上 `f` 可积，则 `x^{-(d+1)}∫₀ˣf(u)du→a/(d+1)`。独立模块构建和接入后的 facade（3298 jobs, `--quiet`）均通过。它不提供 Wishart 密度首项本身。
+- G2 审查补充：`RepeatedRootNullSets.lean` 已独立证明一元非零实多项式零点集的 Lebesgue 零测及绝对连续测度推论，并接入 facade；这尚未推广到多元判别式、证明判别式非零或连接复高斯矩阵系数，不能算 Wishart 谱简根结论。独立模块构建与之后的全 facade 构建均通过。
+- 继续推进 t=3 单列分析：`SixDimensionalAngularBesselI2.lean` 证明六维球 S⁵ 轴向角积分的精确 I₂ 幂级数：`∫_{-1}^1 exp(a u)(1-u²)^(3/2)du = (3π/4)∑ (a²/4)^j/(j!(j+2)!)`，并形式化 `u=cos θ` 换元。随后 `SphereSixDAxialMeasure.lean` 证明实际 `toSphere` 测度的指数核积分等于 `(8π²/3)∫₀^π sin⁴(θ)exp(κ cos θ)dθ`，并核对 S⁵ 总质量 `π³`；模块已接入 facade，总构建 3303 jobs 通过。该结果只针对指数核，仍未闭合实际非中心 CDF 的 Nuttall-Q 桥。
+- G1 小侧谱桥闭合：`PaperSmallSideGram.lean` 直接在 `Fin (min m n)` 上定义按长宽选择的 Gram，证明其 PSD 及在真实 shifted complex-Gaussian 坐标下的矩阵可测性；facade 新定理 `measurable_paperSmallSideSampleEigenvalueVector` 使用既有有序 Hermitian 特征值连续性，证明论文 dimension `s=min(m,n)` 上完整谱向量可测。模块目标构建通过，集成该模块与 T3 后的 facade 构建通过（3301 jobs）。它不证明联合密度、谱简根或 Theorem 1–4 的 CDF 公式等式。
+- 继续推进 T3：`T3FixedCardinalityRowSelection.lean : coeff_det_rowAffinePolynomial_eq_fixedCardRowSum` 已独立构建通过，并接入 facade；集成小侧谱桥与该模块后的总入口构建通过（3301 jobs）。对任意有限指标集与交换环，证明 `det(B+X A)` 的 `X^p` 系数是从 `A` 选恰好 `p` 行、补集从 `B` 选行所得行混合行列式之和；通过对角行选择矩阵证明各项次数。它只闭合固定基数行选择代数，不含论文 Ψ/Ξ 具体块、概率常数或实际 CDF 积分。
+- T3 进一步对齐论文原文：新 `T3PaperThetaSpecialization.lean` 定义 Theorem 3 的 `c₃`、按组合索引行选的 `Θ_S` 和固定基数和，并证明该和等于 `det(Ξ+zΨ)` 的指定多项式系数。原文编号为 (23)–(26),(48)，官方 HTML 对照来源为 [arXiv:cs/0611007](https://arxiv.org/html/cs/0611007)。初版把 (25) 中 `Γ_{s-L}(s-L)` 错放在分子；本轮已核实并移至分母，修正后的总 facade 构建通过（3305 jobs）。此代数结果仍未把候选值连到概率 `p`。
+- T3 对 Appendix III 的分层审计：论文从有序特征值联合密度与 Vandermonde/行列式展开出发，按阈值上下变量分组，拆成一维尾/下尾积分并识别为 Ψ/Ξ 条目，最后提出行列式共因子把 `c₁` 化成 `c₃`。当前行混合的自然行顺序与原文 `Θ_{α_i,j}` 的索引一致；不需额外 shuffle 符号。尚缺的实质证明：Wishart 联合谱密度（矩阵谱 Jacobian、任意秩极限）、有序域置换对称化与 Fubini/绝对可积性、一般 `0F1` 核与 Nuttall-Q 的一维换元/可积性、`c₁→c₃` 因子化，以及候选复嵌入矩阵的实值性。参见 [论文 Appendix III](https://arxiv.org/pdf/cs/0611007)。
+- T3 常数对抗审计：按 Appendix A 的 `c₁` 与 Appendix III 的列积分缩放（arXiv HTML Eq. 64–66；PDF 编号对应关系待核）逐列抽因子，得到 `c₁∏d_j = c₃ / Γ_{s-L}(t-L)`，而非显示的 `c₃`；例如 `s=3,t=4,L=1` 留下因子 `1/2`。arXiv HTML Eq. 25 的 `c₃` 确为 `Γ_{s-L}(s-L)` 分母；HTML Eq. 60 实为导数式，旧笔记的 Eq. 60 列缩放引用已更正。尚不能判断是原文归一化遗漏还是 Appendix III 省略了未显示的变换；完整概率等式在核实前继续保持未形式化。详细算式见 `notes/T3_C1_C3_normalization_audit.md`。
+- G2 通用多项式工具扩展：`MvPolynomialZeroSetNull.lean : mvPolynomial_zeroSet_volume_eq_zero` 独立构建通过（2641 jobs），随后已接入 facade；修正 T3 常数后的完整入口构建通过（3305 jobs）。该定理只说明非零实多项式的有限维 Lebesgue 零集性质，尚未应用到 Gram 判别式，也未证明其非零或桥接 shifted Gaussian。
+- 继续推进 `t=3` 单列非中心路线：`NoncentralSixDimensionalRadial.lean` 构建通过，证明轴向非中心六维实高斯球壳在真实 S⁵ `toSphere` 测度下等于显式 I₂ 阶乘级数核，并连接到 `nuttallQIntegrand 3 2 / a²`。随后 `ThreeRowSampleCoordinates.lean` 证明复 `3×1` 样本坐标等距、任意均值的 E₆ 正交旋转/球事件映射，以及任意复均值下实际最小 Gram 特征值弱 CDF 等于有限半径级数积分 `∫_(0,√(2x)] kernel`。两个模块单独构建和接入后的 facade（3312 jobs）均通过。仍缺 Nuttall-Q 尾质量归一化和任意 `3×n` 谱结论。
+- 再推进 `t=3` 径向核：`NoncentralSixDimensionalRadial.lean` 新增并独立构建通过 K₆ 的非负性、可测性，以及中心参数 `a=0` 时 `∫_(0,∞)K₆=1` 的闭式证明（`r⁵e^{-r²/2}` 六阶径向积分）。任意 `a≠0` 的总质量→Nuttall-Q 尾归一化还在尝试接概率 CDF 极限与 MCT；新增声明尚待 facade 总构建复验。
+- T3 常数复核（PDF/HTML 编号已逐式核对）：PDF Theorem 3 Eq. (24) / HTML Eq. (25) 的 `c₃` 分母只有 `Γ_{s-L}(s-L)`；PDF Appendix I Eq. (60) 的列积分对应 HTML Eq. (66)，Appendix III PDF Eqs. (65)–(69) 对应 HTML Eqs. (72)–(76)。由 PDF Eq. (47) 的 `c₁` 与 Eq. (60) 逐列抽因子，仍精确多出 `Γ_{s-L}(t-L)`；PDF Eq. (54) 才是导数值公式。`s=3,t=4,L=1` 留下 `1/2`，百万次模拟仅作诊断。原文展示的公式存在代数归一化不一致，但尚不足以判定实际概率定理错误；细节见 `notes/T3_C1_C3_normalization_audit.md`。
+- 最新并行轮（2026-09-27）：`T3NormalizationAudit.lean` 独立构建通过，机检主恒等式 `paperC1_mul_columnFactors_eq_paperC3_div_inactiveGamma`，精确显示附录 A 列因子乘积与 Theorem 3 `c₃` 尚差 `Γ_{s-L}(t-L)`；这加强了代数审计，但不等于概率公式反例或证明。
+- 最新并行轮：`NoncentralSixDimensionalRadial.lean` 与 `NoncentralSixDimensionalMass.lean` 分别通过独立构建；对所有实振幅 `a`，六维径向级数核非负、可测、正半轴可积且积分等于 1。`NoncentralThreeRowNuttallQ.lean` 通过，给出任意复均值 `3×1` 最小 Gram 特征值 CDF 的归一化 `Q_{3,2}` 实部尾积分表示。
+- 最新并行轮：`Theorem1ThreeRowsActualCDF.lean` 独立构建通过，证明 `(s,t,L)=(1,3,1)`、`λ>0,x≥0` 且 `‖encodedMean‖²=2λ` 下论文 Theorem 1 候选等于真实复 `3×1` shifted Gaussian Gram 最小特征值 CDF；现已从轴向均值推广至任意复均值方向，但不是一般行列维数结论。
+- 最新并行轮：`Theorem2ThreeRowsActualCDF.lean` 单目标构建通过，证明同一 `(1,3,1)` 单列非中心特例下、任意均值方向且参数满足 `‖encodedMean‖²=2λ` 时，Theorem 2 候选等于真实 CDF；单列 Gram 的唯一特征值同时是最大与最小特征值。
+- 最新并行轮：`MvPolynomialGramTwoByTwo.lean` 实 `2×2` Gram 判别式零集结果（2744 jobs）、`RealQuadraticRepeatedRoot.lean` 重根判别式桥（1540 jobs）和 `ComplexGramTwoByTwoDiscriminantNull.lean` 复 `2×2` 八实坐标判别式零测模块（2744 jobs）均独立构建通过；均未连接 Gaussian 绝对连续律或一般维数 Wishart。
+- 最新总入口回归：新增的 T3 常数审计、六维径向质量与 Nuttall-Q CDF、Theorem 1/2 的 `3×1` 非中心单列特例、实/复 `2×2` Gram 多项式零测及二次重根判别式引理均已接入 `JinWishartFormalization.lean`；`lake build JinWishartFormalization --quiet` 通过（3321 jobs）。`sorry/admit/axiom` 扫描无命中；`git diff --check` 无空白错误（仅有 Git 行尾转换提示）。这仍不是全文形式化，主表中的一般联合谱密度/多列概率等式、T3 概率桥和 T4 一般渐近仍缺失。
+
+### 2026-09-28 继续推进记录（Claude Code 会话）
+
+- 修复三个编译失败的叶子模块（证明内容与陈述不变）：`Theorem12ThreeRowsFrobeniusCDF`（参数类型 `Ioi`→`0≤r`、冗余 `ring`）、`FinSpectralIndexCard`（`simpa` 化简为 `True`，改为显式 `Finset.Iic/Ici` 计数）、`MIMOWishartSERExact`（过时 tactic、未知常量 `Real.measurable_sqrt.comp`、前向引用；重写证明骨架）。
+- 将 `ComplexGramTwoByTwoGaussianSimpleSpectrum`、`Theorem12ThreeRowsFrobeniusCDF`、`FinSpectralIndexCard`、`MIMOWishartSERExact`、`PaperStatements` 接入 facade；`lean_import_graph.py` 现报告叶子模块为 (none)。
+- G2 新增 `ComplexGramSimpleSpectrum.lean`：复系数多元多项式实零点零测（任意有限指标）；通用复样本 Gram 的 charpoly/导数 resultant 及其求值桥；resultant 非零 ⟹ Hermitian 有序特征值单射；对角见证均值证明 resultant 非零（`XᴴX` 需 `n≤m`，`XXᴴ` 需 `m≤n`）；主定理 `paperSmallSideGram_eigenvalues_strictAnti_ae`：任意 `m×n`、任意复均值下论文小侧 Gram 有序谱几乎必然严格递减。`#print axioms` 仅标准三公理。
+- 验证：`lake build JinWishartFormalization` 退出码 0（3328 jobs）；`sorry/admit/axiom/native_decide` 扫描无命中。首次全量构建曾因 mathlib 缓存 `Finsupp/Basic.olean.private` 读取失败（Windows 偶发），原样重跑通过。
+- `[需人工审查]`：Gaussian 绝对连续与平移的测度论链复用既有 `stdGaussian_euclidean_eq_radialDensity`；新模块未引入新的 Fubini/换元。
+- 下一步建议：同一 resultant 路线证明阈值无原子 `P(φ_k = x) = 0`（对 `det(G - xI)` 作为样本坐标多项式，非零性用缩放见证），从而把 `orderedEigenvalueLaw_kthCDFRecurrence_strict` 的无原子假设在真实模型上消去。
+
+### 2026-09-28 继续推进记录（Codex）
+
+- `Theorem12ThreeRowsFrobeniusCDF.lean` 通过单目标构建；任意复均值 `3×1` 下，T1/T2 的 `(s,t,L)=(1,3,1)` 实际 CDF 等式现在直接使用论文非中心参数 `λ=∑ᵢ‖Mᵢ₀‖²`，借助 `ThreeRowMeanNorm.lean` 的精确范数桥。T2 的归约用到了 Q 尾积分核非负、总质量 1 及尾集包含关系；独立静态审查未发现逻辑跳步。随后主 facade 构建通过（3331 jobs）。
+- `ComplexGramTwoByTwoGaussianSimpleSpectrum.lean` 经独立审查和单目标构建通过：对任意确定复均值的 `2×2` shifted complex Gaussian 样本，其 Gram 判别式为零的概率是 0；仅属 2×2 简谱结论。
+- `T4CentralOneColumnHighScale.lean` 将中心 `m×1` 实际小阈值硬边极限转成固定正阈值的高尺度 outage 渐近 `scale^m·P(scale·λ_min≤γ)→γ^m/m!`（`m>0,γ>0`）；单目标构建通过并已接入主 facade。
+- `EightDimensionalAngularBesselI3.lean` 单目标构建通过，证明 `∫₀^π sin⁶(θ)e^{a cos θ}dθ` 的阶乘级数表达，等价于分母无关形式 `a³ I(a)=15π·besselI3RealSeries(a)`；偶/奇矩、Taylor 级数换序经独立数学审查。该文件不证明真实 `S⁷` 球面测度的角坐标推前，也未识别 Mathlib 的 `modifiedBesselI 3`。
+- `T3InactiveColumnCancellation.lean` 单目标构建通过，给出残余多元阶乘何时能在 `c₁×columnFactors=c₃` 中纯代数抵消的 iff，并证明正互异活跃参数时 `c₃≠0`；`(s,t,L)=(3,4,1)` 的残余因子为 2。它仍不证明 Appendix C 的置换/矩阵归一化或 T3 概率公式。
+- `RectangularGramEigenvectorBridge.lean` 单目标构建通过，给出矩形 `BA` 与 `AB` 非零特征值特征向量之间由矩阵作用显式传递的桥；现有 `GramSpectrumTransfer` 已更强地覆盖代数重数，因此此模块补充向量映射，不是新的概率结论。
+- `SphereEightDAxialMeasure.lean` 单目标构建通过，核验 S⁷、横向 S⁶ 的球面总质量与候选 `sin⁶` 角密度归一化常数；模块不含 S⁷ 角坐标 pushforward。
+- 新增待验纯代数模块 `T3PermutationCoefficientBridge.lean`，将固定行选择系数恒等式显式展开为 Leibniz 置换和；静态审查认为定义与索引一致，但该结论不提供 T3 所缺的概率积分桥，尚未编译、尚未纳入主入口。
+- 新增上述模块、`SphereEightDAxialMeasure` 和 `RectangularGramEigenvectorBridge` 后，主入口回归构建退出码 0（3336 jobs）。本轮已编译新增 Lean 文件无 `sorry`、`admit`、`axiom` 命中。
+- `NoncentralEvenDimensionalPoissonMixture.lean` 点态 Poisson 混合恒等式及四维/六维特例已单目标编译通过，现接入 facade；证明的是径向级数核恒等式，不是实际 shifted Gaussian 的 CDF。
+- `T3CentralTwoByTwoDensityInterface.lean` 单目标编译通过，现接入 facade。它把实际中心 `2×2` T3 事件概率化成候选密度积分，但前提 `hDensity` 尚未证明，不计作 T3 概率公式完成。
+- 并行审查确认 T3 密度桥当前的首要缺口不是术语/API，而是两项数学结果：复 `2×2` Gram 矩阵的 Lebesgue 密度，以及 Hermitian 矩阵到有序特征值/角变量的 Jacobian 换元与归一化。
+- 一般行数单列 Frobenius 参数转换新引理正在修复第一次编译报错；它是参数基础设施，不能增加实际 CDF 定理覆盖率。
+- `OneColumnFrobeniusParameter.lean` 现已单目标编译通过并接入 facade；对任意行数统一给出单列均值编码的 Frobenius 参数转换，仍不单独扩展已闭合的概率 CDF 特例。
+- 上述三个新增模块接入后，`lake build JinWishartFormalization --quiet` 通过（3339 jobs）；三个文件均无 `sorry`、`admit` 或正式 `axiom` 声明。`git diff --check` 通过（仅提示既有文件的 LF/CRLF 转换）。
+- `notes/THEOREM_COVERAGE_AUDIT.md` 新增独立覆盖审计，逐项区分实际模型闭环、公式侧/抽象接口与未覆盖主定理；它指出 T3 Γ 因子源文裁决应先于继续写概率桥。
+- 本轮核对后，整体仍未完成：一般维数/多列联合特征值密度和 Theorem 1–2 概率等式、T3 的概率桥与归一化源文审计、一般非中心多列 T4/SER/outage 结论仍是主缺口。

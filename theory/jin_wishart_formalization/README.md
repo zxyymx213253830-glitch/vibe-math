@@ -160,6 +160,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 - `OrderedEigenvalueIndexedRecurrence.lean` 将此原理写成有限个降序可测统计量
   的相邻 CDF 递推，并证明“阈值严格位于相邻两项之间”等价于论文所用的
   整条序列阈值分割事件；它仍是抽象概率定理，尚未代入多特征值 Wishart 随机矩阵。
+- `DeterminantRowExpansion.lean` 给出任意有限阶全子集行混合展开；`T3FixedCardinalityRowSelection.lean`
+  进一步证明 `det(B+X A)` 的多项式系数恰为固定行数 `p` 的行混合行列式和。此为 Theorem 3
+  (23)–(25) 的泛型代数基础设施；具体 Ψ/Ξ/Θ 与 `c₃` 的实例化见下一条。它们都未闭合概率积分。
+- `T3PaperThetaSpecialization.lean` 已按论文 (23)–(25),(48) 实例化 `Ψ/Ξ/Θ`、`c₃` 和固定基数行混合和，
+  并证明该和对应 `det(Ξ+zΨ)` 的系数。仍未证明这个表达式等于有序特征值分区事件的概率 `p`；
+  这需要论文联合密度与 Appendix III 的积分论证。
 - `OneColumnNoAtom.lean` 将无原子性推广到任意正行数的单列复非中心 Wishart；
   `BesselI1Series.lean` 给出四维径向计算将用到的修正贝塞尔函数 `I₁` 级数。
   二者尚未构成两行单列非中心分布的完整解析证明。
@@ -268,8 +274,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 密度或联合特征值密度；Theorem 1–2 的公式侧已编码，中心单列与非中心 `1×1` 特例已有
 CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3–4 仍未完成。当前 covariance
 设为单位阵，尚未覆盖论文中的一般尺度矩阵 `Σ`。最小有序
-特征值已作为非中心 Gaussian 样本的可测随机变量，但最大特征值和整组有序特征值的随机
-向量层、其联合分布，以及与论文闭式公式的等式仍待形式化。
+特征值已作为非中心 Gaussian 样本的可测随机变量，仓库 `XᴴX` 模型下整组有序特征值
+也已可测。新模块 `PaperSmallSideGram.lean` 进一步按原样本长宽定义论文所需的
+`s=min(m,n)` 小侧 Gram（`XXᴴ` 或 `XᴴX`），并证明实际 shifted 样本下其 PSD 矩阵值可测；
+主入口定理 `measurable_paperSmallSideSampleEigenvalueVector` 给出该小侧模型整组有序谱可测。
+两种 Gram 非零特征值对应尚未形式化。小侧谱联合分布、谱 Jacobian 以及与论文闭式公式的
+等式仍待形式化。
 
 ## 搜索到的可复用 Lean 库
 
@@ -300,6 +310,79 @@ CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3�
   Nuttall Q 积分，并在明确的可积性前提下证明尾积分拆分恒等式。
   `q=0,p=1` 的 Rice 情形已补齐可积性与归一化；其余论文所需阶数的相应
   分析性质仍待证明。
+- `T4DensityToCDF.lean : density_to_cdf_hardEdge` 已将一个一般实分析步骤形式化：若
+  `f(u)=u^d g(u)`、`g(u)→a` 且各小区间上 `f` 可积，则
+  `x^{-(d+1)}∫₀ˣ f(u)du→a/(d+1)`。此引理尚未识别任何一般 Wishart 密度的 `d`、`g` 或 `a`，
+  故不等于论文 Theorem 4 的一般证明。
+- `T4CentralOneColumnHighScale.lean` 将已证明的中心 `m×1` 实际最小特征值 CDF 硬边极限
+  转成固定正阈值的高尺度 outage 渐近 `scale^m · P(scale·λ_min≤γ) → γ^m/m!`；
+  单目标构建通过，现已接入且通过主 facade。该结论仍仅为中心单列模型。
+- `SixDimensionalAngularBesselI2.lean` 证明了 S⁵ 轴向积分核的 `I₂` 级数表达式；
+  `SphereSixDAxialMeasure.lean` 又证明实际 `toSphere` 球面测度上的指数核积分等于
+  `(8π²/3) * ∫₀^π sin⁴(θ) exp(κ cos θ) dθ`，并核对 S⁵ 总质量为 `π³`。
+  这是特定指数核的球面图表公式，不是一般连续函数的通用推前定理，也仍未闭合
+  非中心 `t=3` CDF 的 Nuttall-Q 表达式。
+- `EightDimensionalAngularBesselI3.lean` 已证明 S⁷ 轴向一维核的 `sin⁶` 指数积分级数；
+  `SphereEightDAxialMeasure.lean` 单独核对了 S⁷/S⁶ 的总质量及候选角密度归一化。
+  `SphereEightDAxialPushforward.lean` 进一步证明实际 S⁷ `toSphere` 指数积分的角图表公式。
+- `NoncentralEightDimensionalRadial.lean` 将 S⁷ 球壳上的真实轴向 shifted-Gaussian 积分
+  化为一般偶维非中心径向核 `noncentralChiEvenRadialKernel 3`；并用极坐标、Fubini、
+  有界支撑可积性和球面截面证明，得到 E₈ 标准高斯球概率等于 `(0,R]` 上该径向核积分。
+  这是八维实模型的真实 CDF 桥，不等同于论文一般矩阵维数的 Wishart 谱密度/Jacobian
+  或 Theorem 4 完整证明，也尚未连接到复 `4×1` 样本编码。
+- `MvPolynomialZeroSetNull.lean : mvPolynomial_zeroSet_volume_eq_zero` 证明有限维实空间上
+  任意非零多项式的零点集 Lebesgue 体积为零；此引理已应用于实 `2×2` Gram 判别式，
+  但尚未连接到 shifted complex-Gaussian 概率律或一般维数 Wishart 谱。
+- `NoncentralSixDimensionalRadial.lean` 将轴向非中心六维实高斯的实际 S⁵ 球壳积分化为
+  显式 I₂ 阶乘级数，并证明其等于 Nuttall `(p,q)=(3,2)` 被积核除以非中心振幅平方。
+  模块还证明核非负、可测，以及中心参数下径向总质量为 `1`；任意非中心参数总质量仍待完成。
+- `ThreeRowSampleCoordinates.lean : noncentralThreeRowAxialCDF_eq_radialSeries` 已补齐此桥：
+  指定实轴 rank-one 均值下，真实复 `3×1` shifted Gaussian 的最小特征值弱 CDF 等于
+  `(0,√(2x)]` 上径向级数核积分；下一定理进一步推广至任意复均值。
+- 同模块现进一步证明 `noncentralThreeRowCDF_eq_radialSeries_of_mean`：对任意复 `3×1`
+  均值，利用六维实正交旋转不变性，CDF 等于振幅 `‖threeRowSampleToFin6 (complexSampleMean M)‖`
+  对应的同一径向积分。该任意均值径向结论已由 `NoncentralThreeRowNuttallQ.lean`
+  进一步写成 Nuttall-Q 实部尾积分，并由 `Theorem1ThreeRowsActualCDF.lean` 闭合轴向候选式。
+- `NoncentralSixDimensionalRadial.lean` 的任意非中心径向核现已证明可积；
+  `NoncentralSixDimensionalMass.lean` 再用真实 CDF 的无穷远极限证明其总质量为 `1`。
+  `NoncentralThreeRowNuttallQ.lean` 因而把真实 `3×1` 最小特征值 CDF 表为归一化
+  `Q_{3,2}` 实部尾积分（任意复均值与轴向特例均有定理）。
+- `Theorem1ThreeRowsActualCDF.lean : theorem1ThreeRowsOneColumnCandidate_eq_actualAxialCDF`
+  以及同文件的 `theorem1ThreeRowsOneColumnCandidate_eq_actualCDF` 已闭合 Theorem 1 的
+  `(s,t,L)=(1,3,1)` 非中心单列特例。一般均值版本覆盖任意方向，只需参数匹配
+  `‖encodedMean‖²=2λ`，并假设 `λ>0, x≥0`；不覆盖其他秩或一般行列维数。
+- `ThreeRowMeanNorm.lean` 已证明 `‖encodedMean‖²=2∑ᵢ‖Mᵢ₀‖²`；
+  `Theorem12ThreeRowsFrobeniusCDF.lean` 因而把上一项的 T1 结论直接改写为论文的
+  Frobenius 非中心参数，并同时闭合 T2 的 `(s,t,L)=(1,3,1)` 直接参数版本。
+  叶子模块和主 facade 均已通过 Lean 构建，范围仍仅为单列三行。
+- `Theorem2ThreeRowsActualCDF.lean : theorem2ThreeRowsOneColumnCandidate_eq_actualAxialCDF`
+  及同文件 `theorem2ThreeRowsOneColumnCandidate_eq_actualCDF` 已闭合 Theorem 2 的同一
+  `(1,3,1)` 单列非中心特例，覆盖任意均值方向并要求 `‖encodedMean‖²=2λ`、`λ>0,x≥0`；
+  因 Gram 矩阵为 `1×1`，其最大与最小特征值相同。
+- `MvPolynomialGramTwoByTwo.lean` 将实 `2×2` 样本 Gram 判别式零集证明为 Lebesgue 零集；
+  `RealQuadraticRepeatedRoot.lean` 证明实首一二次多项式有重根当且仅当判别式为零。
+  `ComplexGramTwoByTwoDiscriminantNull.lean` 进一步证明复 `2×2` 样本的八实坐标判别式零集
+  Lebesgue 零测。新增 `ComplexGramTwoByTwoGaussianSimpleSpectrum.lean` 将该零集经平移与
+  Gaussian 对 Lebesgue 测度绝对连续性连接到实际 shifted complex Gaussian，证明任意复均值下
+  `2×2` Gram 几乎必然无重根；该模块单独构建并纳入通过的 facade。它仍不替代一般 Wishart
+  联合特征值密度或论文 CDF 定理。
+- T3 常数按 arXiv HTML 原文复核后已修正：公式 (25) 的 `Γ_{s-L}(s-L)` 在分母。
+  `T3NormalizationAudit.lean` 现机检证明 `c₁ ×`（附录 A 列因子乘积）`= c₃ / Γ_{s-L}(t-L)`；
+  当 `(s,t,L)=(3,4,1)` 时差出的正是 `1/2`。这是常数代数审计，不是概率积分证明，
+  也不单独推出论文 T3 公式错误。
+- `T3InactiveColumnCancellation.lean` 已单独构建通过：在上述审计公式下，列因子与显示的
+  `c₃` 相等当且仅当残余多元阶乘为 1 或 `c₃=0`；正且两两不同的活跃参数保证 `c₃≠0`，
+  并机检 `(s,t,L)=(3,4,1)` 残余因子为 2。它仅排除“纯阶乘代数自动抵消”这一解释；
+  Appendix C 的置换/矩阵归一化仍须人工逐式核验，概率桥仍未形式化。
+- `NoncentralEvenDimensionalPoissonMixture.lean` 将任意偶数实维的非中心径向阶乘级数核
+  逐项改写为中心径向核的 Poisson 混合，并与既有 4/6 维核核对特例；这是经 Lean 验证的
+  分析恒等式，不是 shifted Gaussian CDF 或一般行数 Nuttall-Q 公式。
+- `T3CentralTwoByTwoDensityInterface.lean` 已构造真实中心 `2×2` Gram 有序特征值的推前律，
+  并证明：若该推前律等于候选 Vandermonde 平方密度，则 T3 的具体事件概率等于相应积分。
+  `hDensity` 是显式前提而非已证结论；Gaussian Gram 密度、Hermitian 特征值 Jacobian、角变量
+  积分与归一化仍缺，因此该接口不算完成 T3 概率公式。
+- `OneColumnFrobeniusParameter.lean` 对任意行数证明单列复均值的实坐标编码范数平方等于
+  两倍 Frobenius 能量；这是参数转换基础设施，不增加实际 CDF 公式的覆盖维数。
 
 本次网络和已锁定 mathlib 源码检索没有找到可直接依赖的 Lean Wishart、Nuttall `Q`
 或复矩阵变量分布库。因此本项目采用“复用 Gaussian + 矩阵基础库，再在本仓库

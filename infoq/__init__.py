@@ -8,13 +8,15 @@
 """
 from .expr import ExprError, parse, parse_claim, parse_constraint, pretty
 from .numeric import Oracle
-from .shannon_lp import NOT_IDENTIFIED, PROVED, ShannonResult, check
+from .shannon_lp import (NOT_IDENTIFIED, PROVED, SOLVER_ERROR, UNVERIFIED,
+                         ShannonResult, check)
 from .converse import check_steps, format_report
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "ExprError", "parse", "parse_claim", "parse_constraint", "pretty",
     "Oracle", "ShannonResult", "check", "PROVED", "NOT_IDENTIFIED",
+    "UNVERIFIED", "SOLVER_ERROR",
     "check_steps", "format_report", "__version__",
 ]
