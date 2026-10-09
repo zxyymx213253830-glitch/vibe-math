@@ -1,5 +1,14 @@
 # 论文形式化覆盖审计（2026-09-28）
 
+## 2026-10-09 增量（下文保留原快照）
+
+新增 `T4NoncentralOneColumnAnyRows.lean`：任意 `m>0`、任意复 `m×1` 均值的实际
+Gaussian Gram CDF 满足 `F_M(x)/x^m→exp(-∑‖Mᵢ₀‖²)/m!`，包含中心分支。
+因此下文 T4 的“非中心仅 1、2 行”范围已被此增量取代。
+这闭合 Theorem 4 的单列 CDF 渐近，不闭合密度渐近或多列定理。
+新增通用 Gaussian 平移密度/小球积分夹逼可复用，尚未提交上游。
+验收与 `[需人工审查]` 列表见 `T4_NONCENTRAL_ONE_COLUMN_ANY_ROWS.md`。
+
 本审计只核对仓库现有材料和 Lean 声明；本轮没有运行 Lake，也没有重新验证构建。论文定位及方程编号依据仓库已有的 `notes/jin_2006_wishart_summary.md`、`notes/JIN_WISHART_THEOREM_TRACKER.md`、`notes/JIN_WISHART_EXECUTION_PLAN.md`，以及它们引用的官方 arXiv v2：[cs/0611007](https://arxiv.org/pdf/cs/0611007)。工作区未检索到论文 PDF 文件，因此下文的逐式对应沿用这些仓库记录；精确假设、记号和印刷页仍以原文复核为准 `[待人工核实]`。
 
 ## 状态口径

@@ -7,6 +7,26 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 
 ## 当前形式化范围
 
+### 2026-10-09 主线与最新验收范围
+
+当前优先目标是完成本论文 Theorem 1–4 的实际概率模型形式化；刘凡老师的 OFDM
+猜想暂缓。下文保留历史进展，最新覆盖边界以本节及定理追踪表为准。
+
+`T4NoncentralOneColumnAnyRows.lean` 从真实单位复方差 Gaussian Gram 模型证明：
+任意 `m>0`、任意 `m×1` 复均值 `M`（包括零均值），
+`F_M(x)/x^m → exp(-∑ᵢ‖Mᵢ₀‖²)/m!`（`x→0+`）。这是 Theorem 4 的全部单列
+**CDF 渐近**情形，不是密度渐近或多列 Theorem 4，也不增加 T1/T2 闭式的覆盖范围。
+
+新增可复用引理 `euclideanStdGaussianDensity_sub` 与
+`gaussian_shiftedBall_integral_bounds` 给出任意有限维标准 Gaussian 密度的平移公式
+及小球积分夹逼。二者依赖已有 mathlib 内积、指数、紧集可积性及积分单调性，
+无需新增公理或逐维球面积分。它们是本地 Lean 库补充，尚未贡献到 mathlib 上游，
+不声称全球首次形式化。[需人工审查] 模型方差、平移符号、积分及论文参数对应。
+
+证明说明、验证记录及下一项真实多列缺口见
+`../../notes/T4_NONCENTRAL_ONE_COLUMN_ANY_ROWS.md`；主入口回归与公理审计见
+`checks/T4NoncentralOneColumnAnyRows.lean`。
+
 `JinWishartFormalization.lean` 选择论文中三个可与随机矩阵密度公式分离的骨架：
 
 1. 式 (45) 中 Rice 因子项的导数、导数在 `K > 0` 时为负，以及该因子在
@@ -392,11 +412,10 @@ CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3�
 
 - 复矩阵 Gaussian 密度，以及一般协方差尺度下非中心 Wishart 的密度表示；
 - 一般协方差尺度 `Σ` 下的非中心 Wishart 定义与线性变换定理；
-- Hermitian 随机矩阵有序特征值的联合可测性和联合密度；
-- Wishart 最小特征值分布的连续性/无原子性；
+- Hermitian 随机矩阵有序特征值的联合密度（谱可测性已证）；
 - 矩阵变量超几何函数和复多元 Gamma 函数；自建 Nuttall Q 的参数可积性/实值/非负性；
 - Theorem 1–2 的候选行列式公式与 Wishart CDF 的等式证明，以及 Theorem 3 的行列式 CDF；
-- Theorem 4 的小特征值渐近展开以及从渐近展开到 SER/中断概率的积分交换。
+- Theorem 4 的多列特征值渐近、密度渐近，以及通用 SER/中断概率的积分交换。
 
 上述内容涉及测度论、特殊函数与极限交换，完整证明中的相关步骤均应标记
 `[需人工审查]`，直至相应库和证明补齐。
