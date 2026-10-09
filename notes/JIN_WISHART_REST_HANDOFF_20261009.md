@@ -1,5 +1,11 @@
 # 用户要求休息：形式化恢复交接
 
+**2026-10-10 02:12 恢复验收补记：** TwoRowGramChart 已完成正S域的实际
+Bartlett→Gram四实坐标对应、左逆/注入、Fréchet导数、Jacobian=S、非负Lebesgue
+换元。直接编译、主构建、5个回归、6条公理审计全部退出码0，仅标准三公理。
+见 `TWO_ROW_GRAM_CHART_20261010.md`。仍需联合坐标密度/volume与边界支持对齐，
+不声称实际Gram密度已证；谱换元与非中心核仍缺。截止仍为02:18。
+
 **2026-10-10 01:54 恢复验收补记：** TwoRowRandomDirectionLaw 已完成：
 实际中心 2×2 的随机首列单位方向可测（含零回退），Bartlett 坐标律为
 Gamma(2,1) × CN(0,1) × Exp(1)，实际 Gram law 等于其明确矩阵映射的推前。

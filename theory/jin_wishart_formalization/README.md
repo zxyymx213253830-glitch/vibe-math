@@ -481,7 +481,13 @@ CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3�
 借助原生 skew-product 证明实际中心 `2×2` 的 Bartlett 坐标联合律为
 `Gamma(2,1) × CN(0,1) × Exp(1)`，并将实际 Gram law 接为其明确矩阵映射的推前。
 详见 `../../notes/TWO_ROW_RANDOM_DIRECTION_LAW_20261010.md`。
-此处不是 Gram Lebesgue 密度：Gram 坐标 Jacobian、Gram 到有序谱换元及非中心核仍缺。
+此结果本身不是 Gram Lebesgue 密度，也不含 Gram 到有序谱换元与非中心核。
+
+`TwoRowGramChart.lean` 将上述 Bartlett Gram 映射识别为四实坐标图，在首能量
+S>0 域上证明明确左逆、注入性、Fréchet 导数、Jacobian=S，并用现成一般换元
+得到具体的 Lebesgue 非负积分恒等式。见 `../../notes/TWO_ROW_GRAM_CHART_20261010.md`。
+仍需将独立坐标联合密度与该坐标 volume 对齐、处理零边界/正残差支持，
+才得到实际 Gram 密度；有序谱换元及非中心核未完成。
 
 在本目录运行：
 

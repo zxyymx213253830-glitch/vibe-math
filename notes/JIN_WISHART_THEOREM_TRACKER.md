@@ -136,6 +136,10 @@
    证明实际 `(首列能量,投影,残差能量)` law 为 Gamma(2,1) × CN(0,1) × Exp(1)，
    实际完整 Gram law 等于其明确矩阵映射的推前。详见
    `TWO_ROW_RANDOM_DIRECTION_LAW_20261010.md`；这不含 Gram/谱 Jacobian 或非中心核。
+   `TwoRowGramChart.lean` 补上正首能量 S>0 的四实 Gram 图，核对既有实际 Bartlett
+   映射，证明左逆/注入、实际 Fréchet 导数、Jacobian=S 和具体非负 Lebesgue 换元。
+   记录 `TWO_ROW_GRAM_CHART_20261010.md`；联合坐标密度/volume 对齐、边界支持及
+   谱 Jacobian/角积分仍未闭合，不能仅凭坐标换元宣称实际 Gram/谱密度已证。
    尚未闭合：Gram/谱 Jacobian、角积分及
    联合谱密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
 3. **G3** 一般维度 Theorem 1–3 的概率等式：仅公式侧约化（单列任意行）。
