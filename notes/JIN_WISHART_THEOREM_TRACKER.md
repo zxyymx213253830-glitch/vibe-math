@@ -127,6 +127,10 @@
    不相关推出独立定理，非从头构建独立性库。验收记录见
    `GAUSSIAN_COMPLEX_ORTHOGONAL_RESIDUAL_20261010.md`；仍缺随机首列及残差 Gamma/
    Gram 联合密度桥，不宣称固定投影结论自动等于随机 QR 分解。
+   `ComplexTwoRowResidualEnergy.lean` 进一步将二维复残差能量识别为实际 Exp(1)
+   推前，并得到固定单位方向的投影/残差能量联合律 Gaussian × Exp(1)。
+   复用既有 CDF 唯一性和径向律，不重复径向积分。详见
+   `COMPLEX_TWO_ROW_RESIDUAL_ENERGY_20261010.md`；随机首列与 Gram/谱密度仍缺。
    尚未闭合：Gram/谱 Jacobian、角积分及
    联合谱密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
 3. **G3** 一般维度 Theorem 1–3 的概率等式：仅公式侧约化（单列任意行）。

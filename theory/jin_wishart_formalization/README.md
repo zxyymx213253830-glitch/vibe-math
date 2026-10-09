@@ -471,6 +471,12 @@ CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3�
 投影与残差能量之和。验收以 `../../notes/GAUSSIAN_COMPLEX_ORTHOGONAL_RESIDUAL_20261010.md`
 为准；随机首列方向、残差 Gamma law 及 Gram/谱密度仍需后续桥接。
 
+`ComplexTwoRowResidualEnergy.lean` 用二维显式复正交伙伴，将实际单位复方差
+残差能量接到已有 Exp(1) 律；固定单位方向的投影/残差能量联合律为
+“单位复方差 Gaussian × Exp(1)”。详见
+`../../notes/COMPLEX_TWO_ROW_RESIDUAL_ENERGY_20261010.md`。
+这解除最小两列模型的固定方向残差分布依赖，但尚非随机首列下的 Gram/谱密度。
+
 在本目录运行：
 
 ```powershell

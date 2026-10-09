@@ -33,14 +33,17 @@ theorem complexTwoRowPartner_residual (a z : ComplexColumnSpace 2) (ha : ‖a‖
     have h : inner ℂ a a = 1 := by
       rw [inner_self_eq_norm_sq_to_K, ha]
       norm_num
-    simpa [EuclideanSpace.inner_eq_star_dotProduct, dotProduct, Fin.sum_univ_two] using h
+    simpa only [EuclideanSpace.inner_eq_star_dotProduct, dotProduct, Fin.sum_univ_two,
+      starRingEnd_apply, Pi.star_apply] using h
   ext i
   fin_cases i
   · simp [complexOrthogonalResidual_apply, complexTwoRowPartner,
       EuclideanSpace.inner_eq_star_dotProduct, dotProduct, Fin.sum_univ_two]
+    simp only [starRingEnd_apply] at hc ⊢
     linear_combination -(z 0) * hc
   · simp [complexOrthogonalResidual_apply, complexTwoRowPartner,
       EuclideanSpace.inner_eq_star_dotProduct, dotProduct, Fin.sum_univ_two]
+    simp only [starRingEnd_apply] at hc ⊢
     linear_combination -(z 1) * hc
 
 theorem complexTwoRow_residualEnergy_eq_projection (a z : ComplexColumnSpace 2)
@@ -50,7 +53,7 @@ theorem complexTwoRow_residualEnergy_eq_projection (a z : ComplexColumnSpace 2)
 
 theorem complexGaussianEnergy_law :
     (stdGaussian ℂ).map complexGaussianEnergy = expMeasure 1 := by
-  haveI : IsProbabilityMeasure (expMeasure 1) := isProbabilityMeasure_expMeasure (by norm_num)
+  have : IsProbabilityMeasure (expMeasure 1) := isProbabilityMeasure_expMeasure (by norm_num)
   apply Measure.eq_of_cdf
   apply StieltjesFunction.ext
   exact cdf_complexGaussianEnergy_eq_expMeasure
@@ -70,10 +73,41 @@ theorem actualTwoRow_residualEnergy_law (a : ComplexColumnSpace 2) (ha : ‖a‖
       (fun v => ‖complexOrthogonalResidual a (actualComplexColumn v)‖ ^ 2) =
       expMeasure 1 := by
   simp_rw [complexTwoRow_residualEnergy_eq_projection a _ ha]
-  rw [← Measure.map_map (by fun_prop) (by unfold actualComplexColumn; fun_prop),
-    actualComplexColumn_inner_law, complexTwoRowPartner_norm, ha, mul_one,
-    Measure.map_map (by fun_prop) (by fun_prop)]
-  simpa only [Function.comp_def, complexGaussian_scaled_energy] using complexGaussianEnergy_law
+  have hm : Measurable (fun v : TwoColumnBlock 2 =>
+      inner ℂ (complexTwoRowPartner a) (actualComplexColumn v)) :=
+    (innerSL ℂ (complexTwoRowPartner a)).continuous.measurable.comp
+      (by unfold actualComplexColumn; fun_prop)
+  calc
+    _ = ((stdGaussian (TwoColumnBlock 2)).map
+        (fun v => inner ℂ (complexTwoRowPartner a) (actualComplexColumn v))).map
+        (fun w : ℂ => ‖w‖ ^ 2) := by
+      rw [Measure.map_map (by fun_prop) hm]
+      rfl
+    _ = ((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).map
+        (fun w : ℂ => ‖w‖ ^ 2) := by
+      rw [actualComplexColumn_inner_law, complexTwoRowPartner_norm, ha, mul_one]
+    _ = expMeasure 1 := by
+      rw [Measure.map_map (by fun_prop) (by fun_prop)]
+      simpa only [Function.comp_def, complexGaussian_scaled_energy] using complexGaussianEnergy_law
+
+/-- The actual complex projection and residual energy have their product law. -/
+theorem actualTwoRow_projection_residualEnergy_joint_law
+    (a : ComplexColumnSpace 2) (ha : ‖a‖ = 1) :
+    (stdGaussian (TwoColumnBlock 2)).map
+      (fun v => (inner ℂ a (actualComplexColumn v),
+        ‖complexOrthogonalResidual a (actualComplexColumn v)‖ ^ 2)) =
+      ((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).prod (expMeasure 1) := by
+  have hm : Measurable (actualComplexColumn (m := 2)) := by
+    unfold actualComplexColumn
+    fun_prop
+  have hf : Measurable (fun v : TwoColumnBlock 2 => inner ℂ a (actualComplexColumn v)) :=
+    (innerSL ℂ a).continuous.measurable.comp hm
+  have hg : Measurable (fun v : TwoColumnBlock 2 =>
+      ‖complexOrthogonalResidual a (actualComplexColumn v)‖ ^ 2) := by
+    fun_prop
+  rw [(actualComplexColumn_projection_indep_residualEnergy a ha).map_prod_eq_prod_map_map
+      hf.aemeasurable hg.aemeasurable, actualComplexColumn_inner_law, ha, mul_one,
+    actualTwoRow_residualEnergy_law a ha]
 
 end
 
