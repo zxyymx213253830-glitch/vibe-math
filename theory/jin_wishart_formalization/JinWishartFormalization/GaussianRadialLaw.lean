@@ -7,7 +7,9 @@ open scoped ENNReal
 
 namespace JinWishart
 
-private theorem map_withDensity_measurePreserving
+/-- Transport a density through a measure-preserving measurable equivalence.
+Exposed for reuse by arbitrary-dimensional shifted Gaussian models. -/
+theorem map_withDensity_measurePreserving
     {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
     (e : α ≃ᵐ β) (μ : Measure α) (ν : Measure β)
     (hmp : MeasurePreserving e μ ν) (f : α → ℝ≥0∞) (hf : Measurable f) :

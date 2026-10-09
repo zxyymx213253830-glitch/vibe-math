@@ -89,7 +89,12 @@
    已闭合（2026-09-28，`ThresholdNoAtom.lean`）**：`paperModelEigenvalue_atom_eq_zero` 证明任意固定
    `x` 下每个有序特征值无原子；`paperModelLaw` 把真实模型实例化为 `Paper.OrderedEigenvalueLaw`；
    `paperModel_kthCDFRecurrence_strict` 使论文式 (22) 在真实模型上无条件成立。
-   尚未闭合：多元 Gaussian 密度桥、谱 Jacobian/联合密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
+   **2026-10-09 Gaussian 原始样本桥：** `GaussianMatrixSpectralIntegral.lean` 证明任意
+   `m,n,M` 下实际非中心整谱 law 为已证移位 Gaussian 密度的推前，Borel 谱事件
+   为原始实编码样本空间的密度积分；没有候选 `hDensity` 前提。具体跨阈值事件、
+   总质量与公理检查见 `GAUSSIAN_MATRIX_SPECTRAL_INTEGRAL_20261009.md`。
+   尚未闭合：实编码坐标到原始复坐标的体积缩放、Gram/谱 Jacobian、角积分及
+   联合谱密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
 3. **G3** 一般维度 Theorem 1–3 的概率等式：仅公式侧约化（单列任意行）。
 4. **G4** 一般 Theorem 4 / SER / outage 封闭：`T4DensityToCDF.lean : density_to_cdf_hardEdge`
    已抽象证明若密度为 `u^d g(u)` 且 `g(u)→a`，则 CDF 积分首项系数为 `a/(d+1)`；中心单列任意行数、

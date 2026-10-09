@@ -9,6 +9,13 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 
 ### 2026-10-09 主线与最新验收范围
 
+`GaussianMatrixSpectralIntegral.lean` 从任意矩形维数、任意复均值的真实 Gaussian
+样本，证明整组有序谱的 law 是已证移位 Gaussian 密度的推前；任意 Borel 谱事件
+因此等于原始实编码样本坐标上的显式密度积分。没有假设候选谱密度。
+**积分仍在样本空间**，Gram/谱 Jacobian 和角变量积分尚缺；不等于论文联合谱密度。
+复用现有谱可测性和 mathlib 平移保测度接口，公开通用密度推前引理；详见
+`../../notes/GAUSSIAN_MATRIX_SPECTRAL_INTEGRAL_20261009.md`（验收记录以该笔记为准）。
+
 已直接复用外部 `mo271/Zeta5` 的 Andréief 行列式积分证明（Apache-2.0），
 保留固定提交来源、许可证和修改说明，只移植一个文件而未升级依赖。
 当前 `JinWishart.Andreief.andreief` 的模块、主构建、一般阶乘回归与公理审计通过，
@@ -423,7 +430,8 @@ CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3�
 
 ## 尚未形式化的论文核心
 
-- 复矩阵 Gaussian 密度，以及一般协方差尺度下非中心 Wishart 的密度表示；
+- 原始复矩阵坐标的 Gaussian 密度（实编码样本密度及谱事件积分已证），
+  以及一般协方差尺度下非中心 Wishart 的密度表示；
 - 一般协方差尺度 `Σ` 下的非中心 Wishart 定义与线性变换定理；
 - Hermitian 随机矩阵有序特征值的联合密度（谱可测性已证）；
 - 矩阵变量超几何函数和复多元 Gamma 函数；自建 Nuttall Q 的参数可积性/实值/非负性；
