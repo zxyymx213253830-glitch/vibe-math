@@ -110,6 +110,10 @@
    `pi^(-mn) exp(-||X-M||_F^2)` 密度，核对条目、均值、Frobenius 能量，
    并给出实际整谱事件的原始坐标积分。它复用锁定 mathlib 的 Haar 缩放定理；
    这是样本空间密度，不是 Gram/联合谱密度，测度及模型对应仍 `[需人工审查]`。
+   **2026-10-09 两列外层/内层积分：** `GaussianTwoColumnIntegration.lean`
+   证明实际任意 `m×2` 样本的列乘积律、非负 Tonelli、任意均值下真实谱事件的
+   两列迭代积分，并用现成 `skew_product` 证明可测首列依赖的第二列实等距变换
+   保持 Gaussian 乘积律。它尚未构造保复 Gram 的具体酉 QR 框架或 Bartlett 律。
    尚未闭合：Gram/谱 Jacobian、角积分及
    联合谱密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
 3. **G3** 一般维度 Theorem 1–3 的概率等式：仅公式侧约化（单列任意行）。
