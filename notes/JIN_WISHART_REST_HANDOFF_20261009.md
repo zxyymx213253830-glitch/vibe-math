@@ -1,5 +1,10 @@
 # 用户要求休息：形式化恢复交接
 
+**窗口结束：** 2026-10-10 02:18已停止新证明/实验并确认automation=PAUSED。
+本小时真实提交、验收、补库复用价值和下一缺口统一见
+`JIN_WISHART_RESTORED_HOUR_REPORT_20261010.md`。最后源码验收7035112，
+其后829c7ac仅复用预检；完整Gram/联合谱密度及论文Theorem1–4仍未完成。
+
 **截止前检索补记：** 下一步密度组件已定向检索并核对准确源码，见
 `BARTLETT_DENSITY_REUSE_PREFLIGHT_20261010.md`。直接采用prod_withDensity、
 Complex.volume_preserving_equiv_pi/real_prod与已有半方差Gaussian密度，
