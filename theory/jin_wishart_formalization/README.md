@@ -477,6 +477,12 @@ CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3�
 `../../notes/COMPLEX_TWO_ROW_RESIDUAL_ENERGY_20261010.md`。
 这解除最小两列模型的固定方向残差分布依赖，但尚非随机首列下的 Gram/谱密度。
 
+`TwoRowRandomDirectionLaw.lean` 构造首列依赖的可测单位方向（零首列明确回退），
+借助原生 skew-product 证明实际中心 `2×2` 的 Bartlett 坐标联合律为
+`Gamma(2,1) × CN(0,1) × Exp(1)`，并将实际 Gram law 接为其明确矩阵映射的推前。
+详见 `../../notes/TWO_ROW_RANDOM_DIRECTION_LAW_20261010.md`。
+此处不是 Gram Lebesgue 密度：Gram 坐标 Jacobian、Gram 到有序谱换元及非中心核仍缺。
+
 在本目录运行：
 
 ```powershell

@@ -131,6 +131,11 @@
    推前，并得到固定单位方向的投影/残差能量联合律 Gaussian × Exp(1)。
    复用既有 CDF 唯一性和径向律，不重复径向积分。详见
    `COMPLEX_TWO_ROW_RESIDUAL_ENERGY_20261010.md`；随机首列与 Gram/谱密度仍缺。
+   **随机方向/Bartlett 桥：** `TwoRowRandomDirectionLaw.lean` 在中心 `2×2` 实际样本上，
+   构造可测且处处单位的首列方向（含零回退），复用 skew_product 提升固定纤维律，
+   证明实际 `(首列能量,投影,残差能量)` law 为 Gamma(2,1) × CN(0,1) × Exp(1)，
+   实际完整 Gram law 等于其明确矩阵映射的推前。详见
+   `TWO_ROW_RANDOM_DIRECTION_LAW_20261010.md`；这不含 Gram/谱 Jacobian 或非中心核。
    尚未闭合：Gram/谱 Jacobian、角积分及
    联合谱密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
 3. **G3** 一般维度 Theorem 1–3 的概率等式：仅公式侧约化（单列任意行）。
