@@ -9,6 +9,12 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 
 ### 2026-10-09 主线与最新验收范围
 
+已直接复用外部 `mo271/Zeta5` 的 Andréief 行列式积分证明（Apache-2.0），
+保留固定提交来源、许可证和修改说明，只移植一个文件而未升级依赖。
+当前 `JinWishart.Andreief.andreief` 的模块、主构建、一般阶乘回归与公理审计通过，
+可用于联合谱密度之后的积分约化；不替代 Gaussian Gram 到谱密度的证明。
+详见 `../../notes/ANDREIEF_REUSE_ACCEPTANCE_20261009.md` 和 `third_party/README.md`。
+
 一小时推进中的 T3 修复：`theorem3C3` 的真实代码此前误将分母相乘，现已按原文
 改为相除。`T3ScalarNormalizationBridge.lean` 机检其与独立审计常数一致，并保留
 与显示式不同的 `theorem3DerivedC3`，不掩盖非活跃列的额外 Gamma 因子问题。
