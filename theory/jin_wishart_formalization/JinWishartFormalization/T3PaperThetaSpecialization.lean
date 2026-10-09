@@ -27,8 +27,8 @@ the same ordered eigenvalues as the paper. The positivity of the resulting
 constant is not needed for the algebraic specialization below. -/
 def theorem3C3 (s t L : ℕ) (hLs : L ≤ s)
     (spectrum : OrderedPositiveNoncentralSpectrum L) : ℝ :=
-  (∏ i : Fin L,
-      Real.rpow (spectrum.values i) (((2 * L : ℝ) - s - t) / 2)) *
+    (∏ i : Fin L,
+      Real.rpow (spectrum.values i) (((2 * L : ℝ) - s - t) / 2)) /
     (theorem3GammaFactor (s - L) *
       (∏ i : Fin L,
         ∏ j ∈ (Finset.univ : Finset (Fin L)).filter (fun j => i < j),
