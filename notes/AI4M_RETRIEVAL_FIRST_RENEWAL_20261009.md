@@ -48,6 +48,12 @@ Apache 2.0，Lean v4.34.1；读取 `lean/docs/140.md` 与对应候选源码。
 这些是查阅到的特定文件范围结论，不是宣称整个仓库或全球无相关证明。
 外部代码未引入就没有“移植验收”可报告。
 
+15:03 UTC 进一步顺官方文档的实际链接读
+`lean/ComparatorChallenges/MemoryPrecision.lean`：包含 `AmbientGramStatement`、
+`FullRankDensityFormula` 等目标定义，但该文件末尾 `MemoryPrecision.main` 仍用
+`sorry`。这是挑战陈述文件，不能当可导入的已完成密度证明；也不能据此断言
+仓库里其他证明资产都未完成。未导入或复制任何占位证明。
+
 ## 本轮边界
 
 保留原项目版本；reap 需要不同版本兼容和推理服务配置，不通过降级主项目来凑工具使用。
