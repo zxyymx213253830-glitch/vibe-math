@@ -447,8 +447,9 @@ CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3�
 
 ## 尚未形式化的论文核心
 
-- 原始复矩阵坐标的 Gaussian 密度（实编码样本密度及谱事件积分已证），
-  以及一般协方差尺度下非中心 Wishart 的密度表示；
+- 原始复矩阵坐标的单位协方差 Gaussian 密度现由 `GaussianRawCoordinates.lean`
+  证明（任意矩形维数、均值，含 Frobenius 指数及实际谱事件积分）；
+  从它到 Gram/联合谱密度，以及一般协方差尺度下非中心 Wishart 的密度仍缺；
 - 一般协方差尺度 `Σ` 下的非中心 Wishart 定义与线性变换定理；
 - Hermitian 随机矩阵有序特征值的联合密度（谱可测性已证）；
 - 矩阵变量超几何函数和复多元 Gamma 函数；自建 Nuttall Q 的参数可积性/实值/非负性；

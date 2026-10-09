@@ -105,7 +105,12 @@
    `m,n,M` 下实际非中心整谱 law 为已证移位 Gaussian 密度的推前，Borel 谱事件
    为原始实编码样本空间的密度积分；没有候选 `hDensity` 前提。具体跨阈值事件、
    总质量与公理检查见 `GAUSSIAN_MATRIX_SPECTRAL_INTEGRAL_20261009.md`。
-   尚未闭合：实编码坐标到原始复坐标的体积缩放、Gram/谱 Jacobian、角积分及
+   **2026-10-09 原始复坐标缩放桥：** `GaussianRawCoordinates.lean` 将实际任意
+   矩形样本律在原始实部/虚部 Euclidean 坐标中证明为
+   `pi^(-mn) exp(-||X-M||_F^2)` 密度，核对条目、均值、Frobenius 能量，
+   并给出实际整谱事件的原始坐标积分。它复用锁定 mathlib 的 Haar 缩放定理；
+   这是样本空间密度，不是 Gram/联合谱密度，测度及模型对应仍 `[需人工审查]`。
+   尚未闭合：Gram/谱 Jacobian、角积分及
    联合谱密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
 3. **G3** 一般维度 Theorem 1–3 的概率等式：仅公式侧约化（单列任意行）。
 4. **G4** 一般 Theorem 4 / SER / outage 封闭：`T4DensityToCDF.lean : density_to_cdf_hardEdge`
