@@ -464,7 +464,12 @@ CDF 等式证明；非中心多行/多列的一般 Theorem 1–2 与 Theorem 3�
 两列模型的 `GaussianComplexInnerProductLaw.lean` 复用检索到的特征函数唯一性，
 识别固定第一列后实际 Gram 非对角项的完整 Gaussian 律（含零向量），精确保留
 单位复方差尺度。详见 `../../notes/GAUSSIAN_COMPLEX_INNER_PRODUCT_LAW_20261009.md`。
-联合残差分布、Gram/谱 Jacobian 仍缺，不计为论文一般联合谱密度已完成。
+随机首列方向下的残差分布桥、Gram/谱 Jacobian 仍缺，不计为论文一般联合谱密度已完成。
+
+`GaussianComplexOrthogonalResidual.lean` 把已有 Gaussian 独立性定理接到实际
+复列：固定单位方向的投影与整个正交残差独立，联合律为乘积，第二列能量为
+投影与残差能量之和。验收以 `../../notes/GAUSSIAN_COMPLEX_ORTHOGONAL_RESIDUAL_20261010.md`
+为准；随机首列方向、残差 Gamma law 及 Gram/谱密度仍需后续桥接。
 
 在本目录运行：
 

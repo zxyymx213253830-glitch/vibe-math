@@ -121,6 +121,12 @@
    `GaussianComplexInnerProductLaw.lean` 用既有特征函数/唯一性定理识别固定首列后
    实际任意 `m×2` Gram 非对角项的完整复 Gaussian 推前律，包含零列边界和
    `sqrt(2)` 方差尺度。验收及剩余缺口见同日同名笔记；它不单独证明联合 Gram 密度。
+   **2026-10-10 残差独立卡：** `GaussianComplexOrthogonalResidual.lean` 对任意行数、
+   固定单位复方向证明投影与整个正交残差（以及其能量）独立，实际方差列的
+   投影/残差联合律等于乘积律，并给出精确能量分解。复用既有联合 Gaussian
+   不相关推出独立定理，非从头构建独立性库。验收记录见
+   `GAUSSIAN_COMPLEX_ORTHOGONAL_RESIDUAL_20261010.md`；仍缺随机首列及残差 Gamma/
+   Gram 联合密度桥，不宣称固定投影结论自动等于随机 QR 分解。
    尚未闭合：Gram/谱 Jacobian、角积分及
    联合谱密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
 3. **G3** 一般维度 Theorem 1–3 的概率等式：仅公式侧约化（单列任意行）。

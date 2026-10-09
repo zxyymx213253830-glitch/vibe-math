@@ -147,9 +147,13 @@ theorem actualComplexColumn_projection_residual_joint_law {m : ℕ}
   have hm : Measurable (actualComplexColumn (m := m)) := by
     unfold actualComplexColumn
     fun_prop
+  have hf : Measurable (fun v : TwoColumnBlock m => inner ℂ a (actualComplexColumn v)) :=
+    (innerSL ℂ a).continuous.measurable.comp hm
+  have hg : Measurable (fun v : TwoColumnBlock m =>
+      complexOrthogonalResidual a (actualComplexColumn v)) :=
+    (complexOrthogonalResidual a).continuous.measurable.comp hm
   rw [(actualComplexColumn_projection_indep_residual a ha).map_prod_eq_prod_map_map
-    (((innerSL ℂ a).continuous.measurable.comp hm).aemeasurable)
-    (((complexOrthogonalResidual a).continuous.measurable.comp hm).aemeasurable),
+    hf.aemeasurable hg.aemeasurable,
     actualComplexColumn_inner_law, ha, mul_one]
 
 end

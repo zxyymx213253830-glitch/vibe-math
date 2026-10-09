@@ -22,3 +22,13 @@ example (a : ComplexColumnSpace 2) (ha : ‖a‖ = 1) (v : TwoColumnBlock 2) :
     ‖actualComplexColumn v‖ ^ 2 = ‖inner ℂ a (actualComplexColumn v)‖ ^ 2 +
       ‖complexOrthogonalResidual a (actualComplexColumn v)‖ ^ 2 :=
   complexOrthogonalResidual_norm_sq a _ ha
+
+-- A concrete existing unit vector makes the assumptions non-vacuous.
+example :
+    IndepFun (fun v : TwoColumnBlock 3 =>
+      inner ℂ (EuclideanSpace.single (0 : Fin 3) (1 : ℂ)) (actualComplexColumn v))
+      (fun v => ‖complexOrthogonalResidual
+        (EuclideanSpace.single (0 : Fin 3) (1 : ℂ)) (actualComplexColumn v)‖ ^ 2)
+      (stdGaussian (TwoColumnBlock 3)) := by
+  apply actualComplexColumn_projection_indep_residualEnergy
+  simp
