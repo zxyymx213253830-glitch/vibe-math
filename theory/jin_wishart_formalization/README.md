@@ -29,6 +29,11 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 数值控制提示 v2 显示 T3 归一化仍有疑点，尚不能声称其概率公式已证明；详见
 `../../notes/T3_SCALAR_SOURCE_ALIGNMENT_20261009.md`。
 
+`T3CentralNormalizationWitness.lean` 进一步严格证明中央 `s=2,t=3,L=0,k=2,x=2`
+的两个显式混合行列式之和实部大于 1（模块和主构建通过）。这两个项不能直接
+充当概率，但通用 powerset 求和接口的对应关系和刊版解释仍待核查；不能据此
+宣称整条 T3 或正式论文已判错。见 `../../notes/T3_EXPLICIT_NORMALIZATION_WITNESS_20261009.md`。
+
 当前优先目标是完成本论文 Theorem 1–4 的实际概率模型形式化；刘凡老师的 OFDM
 猜想暂缓。下文保留历史进展，最新覆盖边界以本节及定理追踪表为准。
 

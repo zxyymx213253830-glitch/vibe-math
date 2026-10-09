@@ -28,6 +28,11 @@
 这关闭本地标量转录错误，不关闭 T3 实际概率公式。见
 `T3_SCALAR_SOURCE_ALIGNMENT_20261009.md`（构建、公理和数值验证均通过）。
 
+**T3 严格局部见证：** `T3CentralNormalizationWitness` 已证 `s=2,t=3,L=0,k=2,x=2`
+的两个显式混合行列式之和实部严格大于 1。通用 powerset 和到两项的 API 桥三次
+未闭合后停止，未声称 `theorem3IncrementCandidate` 整体已判假；源版本解释与刊版
+复核仍 [需人工审查]。见 `T3_EXPLICIT_NORMALIZATION_WITNESS_20261009.md`。
+
 | 论文条目 | 原文假设/参数域 | 概率模型 | 原结论 | 对应 Lean（文件 : theorem） | 状态 | 缺口与证据 |
 |---|---|---|---|---|---|---|
 | **Theorem 1** 最小特征值 CDF（Nuttall Q + 上不完全 Gamma 的行列式比值） | `s=min(n,m)`, `t=max(n,m)`, `L≥0` 秩非中心，空间白化复高斯，完美 CSI `[待核实：精确方程编号]` | 非中心复 Wishart 有序特征值 `φ₁>…>φₛ>0` | `P(φₛ≤x)` = 行列式比值 | 公式侧：`Theorem1Formula.lean : theorem1CdfCandidate`；中心单列任意行：`WishartGamma.lean`；非中心 `1×1`：`ScalarNoncentralTheorem1.lean`；**`2×1` 任意非零复均值：`Theorem1TwoRowsActualCDF.lean : theorem1TwoRowsCandidate_eq_actualCDF`**（+ 中心分支）；**`3×1` 单列非中心任意均值方向：`Theorem1ThreeRowsActualCDF.lean : theorem1ThreeRowsOneColumnCandidate_eq_actualCDF`**（`λ>0,x≥0,‖encodedMean‖²=2λ`）；直接 Frobenius 参数推论：`Theorem12ThreeRowsFrobeniusCDF.lean : theorem1ThreeRowsOneColumnCandidate_eq_actualCDF_frobenius`；单列任意行仅公式侧：`Theorem1SingleColumnAnyRows.lean` | 陈述✅ 基础设施✅ 模型→公式：`2×1` 任意均值✅ / `3×1` 任意均值方向✅ / 一般❌；公式→结论同范围；审查❌ | 一般 `(s,t,L)` 未证；分母非零覆盖已闭合的 `1×1`、`2×1` 与此 `3×1` 单列特例；`2×1`、`3×1` 的换元/球面积分/Fubini 标 `[需人工审查]`；论文竖线=行列式 vs Lean 候选对复行列式取模长，等价性未证 `[待核实]` |
