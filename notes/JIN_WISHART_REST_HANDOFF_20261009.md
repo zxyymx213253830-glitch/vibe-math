@@ -1,5 +1,10 @@
 # 用户要求休息：形式化恢复交接
 
+**截止前检索补记：** 下一步密度组件已定向检索并核对准确源码，见
+`BARTLETT_DENSITY_REUSE_PREFLIGHT_20261010.md`。直接采用prod_withDensity、
+Complex.volume_preserving_equiv_pi/real_prod与已有半方差Gaussian密度，
+不要重证乘积密度、复实体积或径向积分。只是复用预检，不是新密度证明。
+
 **2026-10-10 02:12 恢复验收补记：** TwoRowGramChart 已完成正S域的实际
 Bartlett→Gram四实坐标对应、左逆/注入、Fréchet导数、Jacobian=S、非负Lebesgue
 换元。直接编译、主构建、5个回归、6条公理审计全部退出码0，仅标准三公理。
