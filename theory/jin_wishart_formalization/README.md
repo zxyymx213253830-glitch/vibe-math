@@ -7,6 +7,17 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 
 ## 当前形式化范围
 
+### 2026-10-09 指南驱动的检索辅助推进
+
+实际使用 LeanSearch 并核对锁定 mathlib 的 `Finset.powersetCard_one`，新模块
+`T3CentralNormalizationClosure.lean` 已闭合通用候选到两项的求和 API 桥。
+由此严格证明当前转录的中央 `s=2,t=3,L=0,k=2,x=2` T3 候选实部大于 1，
+不等于实际中央 `3×2` Gaussian 跨阈值事件概率；无候选谱密度前提。
+这不等于正式刊版定理已判错，版本/边界解释仍 [需人工审查]。
+工具取舍和验证记录见 `../../notes/AI4M_GUIDE_TOOL_USE_20261009.md`。
+`verification/leansearch_lookup.ps1`（仓库根目录）可重复检索，仅返回候选，
+不执行远端证明、不取代本地 Lean kernel；旧一小时自动任务未重新启动。
+
 ### 2026-10-09 主线与最新验收范围
 
 `GaussianMatrixSpectralIntegral.lean` 从任意矩形维数、任意复均值的真实 Gaussian
@@ -30,9 +41,10 @@ Communications 56(3), 424–434, 2008；预印本 arXiv:cs/0611007（2006）。
 `../../notes/T3_SCALAR_SOURCE_ALIGNMENT_20261009.md`。
 
 `T3CentralNormalizationWitness.lean` 进一步严格证明中央 `s=2,t=3,L=0,k=2,x=2`
-的两个显式混合行列式之和实部大于 1（模块和主构建通过）。这两个项不能直接
-充当概率，但通用 powerset 求和接口的对应关系和刊版解释仍待核查；不能据此
-宣称整条 T3 或正式论文已判错。见 `../../notes/T3_EXPLICIT_NORMALIZATION_WITNESS_20261009.md`。
+的两个显式混合行列式之和实部大于 1（模块和主构建通过）。通用 powerset
+求和接口的对应关系已在随后 `T3CentralNormalizationClosure` 中闭合；刊版解释
+仍待核查，不能据此宣称正式论文已判错。见
+`../../notes/T3_EXPLICIT_NORMALIZATION_WITNESS_20261009.md`。
 
 当前优先目标是完成本论文 Theorem 1–4 的实际概率模型形式化；刘凡老师的 OFDM
 猜想暂缓。下文保留历史进展，最新覆盖边界以本节及定理追踪表为准。

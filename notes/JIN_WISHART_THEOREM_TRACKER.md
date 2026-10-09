@@ -21,6 +21,13 @@
 
 ## 主表
 
+**2026-10-09 用户提供 AI4M 指南后的更新：** 实际 LeanSearch 检索并复用
+`Finset.powersetCard_one` 后，`T3CentralNormalizationClosure` 已证通用候选等于
+显式两项，所以具体 `(s,t,L,k,x)=(2,3,0,2,2)` 转录候选不等于任何事件概率，
+并在真实中央 `3×2` Gaussian 谱事件上编译回归。历史“三次未闭合”记录保留，
+但 API 缺口现已关闭。不是完整 T3 概率公式，刊版和边界解释仍 [需人工审查]。
+详见 `AI4M_GUIDE_TOOL_USE_20261009.md`。
+
 **2026-10-09 T3 源对齐修复：** 原表先前称 `c₃` 已按分母编码，但实际
 `theorem3C3` 仍是乘法，现已修正；`T3ScalarNormalizationBridge` 证明其与独立
 审计的显示常数一致。列因子推导的额外 `Γ_(s-L)(t-L)` 仍单独保留，中央

@@ -57,3 +57,11 @@ mathlib `Real.exp_one_gt_two` / `Real.exp_one_lt_three`；不是采样或浮点�
 但实际全文读取先超时再返回 403；[出版 DOI](https://doi.org/10.1109/TCOMM.2008.060115)
 也不可访问。因此没有完成刊版公式视觉核对，不能拿搜索摘录替代该验收。
 PDF 技能要求看完整相关页，这一步因来源访问受限仍 [需人工审查]。
+
+## 用户新指令后的检索辅助闭合
+
+用户随后提供董彬 AI4M 指南并要求继续。使用 LeanSearch 实际检索并核对本地
+`Finset.powersetCard_one` 后，`T3CentralNormalizationClosure.lean` 已用结构化
+`powersetCard` 改写完成通用候选到两项的等式，以及该具体候选实部大于 1 的证明。
+此前三次失败的记录保留为历史；没有在旧计时窗口后偷偷延长工作。
+详细验证、工具版本/使用边界见 `AI4M_GUIDE_TOOL_USE_20261009.md`。
