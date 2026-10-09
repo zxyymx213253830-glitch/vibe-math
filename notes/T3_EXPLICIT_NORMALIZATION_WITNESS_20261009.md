@@ -43,3 +43,17 @@ mathlib `Real.exp_one_gt_two` / `Real.exp_one_lt_three`；不是采样或浮点�
 `lake env lean -j1 checks/T3CentralNormalizationWitness.lean` 包含严格界与 `c3=1`
 回归，退出码 0。`git diff --check` 无空白错误，源码无证明占位或新公理。
 无独立跨模型家族审查，不称审查通过。
+
+## 截止前原文版本检查（13:23–13:25 UTC）
+
+实际打开 [arXiv 记录](https://arxiv.org/abs/cs/0611007)，公开修订记录仅显示
+2006-11-02 v1 和 2006-11-03 v2；未见后续 arXiv 修订，不等于没有期刊更正。
+重新核对 [v2 HTML T3 (23)–(26)](https://arxiv.org/html/cs/0611007v2)：
+`c3` 分母只有 `Gamma_(s-L)(s-L)` 和活跃谱 Vandermonde；行选择为原顺序中的
+`k-1` 个 Psi 行和其余 Xi 行。现有源转录与这一版本对应。
+
+定向检索题名加 correction/erratum 未找到可验证的更正条目，检索结果噪声较大，
+不据此声称不存在勘误。定位到 [2008 刊版候选 PDF](https://citeseerx.ist.psu.edu/document?doi=80825fb7644297a038a5ee724eca1c6f65648405&repid=rep1&type=pdf)，
+但实际全文读取先超时再返回 403；[出版 DOI](https://doi.org/10.1109/TCOMM.2008.060115)
+也不可访问。因此没有完成刊版公式视觉核对，不能拿搜索摘录替代该验收。
+PDF 技能要求看完整相关页，这一步因来源访问受限仍 [需人工审查]。
