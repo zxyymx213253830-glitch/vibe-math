@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-10",
+  "model_name": "deepseek-prover-v2:7b",
+  "model_digest": "3d08a648fcd62941fd88c507cd9113f529c05637b58d6e33090c382da656327b",
+  "weight_sha256_verified": true,
+  "all_layers_on_gpu": "31/31",
+  "observed_vram_bytes_with_8192_context": 8212373831,
+  "smoke_test": "prover_install_example",
+  "lean_check": "PASSED",
+  "statement_preserved": true,
+  "seed": 30,
+  "eval_count": 84,
+  "eval_duration_ns": 747971000,
+  "load_duration_ns": 4396277000,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "warnings": "Unused and unreachable extra tactics; no errors.",
+  "negative_check": "Lean rejected rfl proof of (0 : Nat) = 1.",
+  "run_log_directory": "D:\\vibe math\\.tools\\prover-runs\\20261010-095757-223053",
+  "scope": "Installation smoke test on a known arithmetic theorem, not a research benchmark."
+}

@@ -1,0 +1,14 @@
+{
+  "installed_model_name": "deepseek-prover-v2:7b",
+  "original_model": "deepseek-ai/DeepSeek-Prover-V2-7B",
+  "quantization_repository": "unsloth/DeepSeek-Prover-V2-7B-GGUF",
+  "quantization": "Q4_K_M",
+  "repository_revision": "2d08f12ad68128d5000b83d794dd11d5230b9d2d",
+  "gguf_file": "DeepSeek-Prover-V2-7B-Q4_K_M.gguf",
+  "weight_bytes": 4223362304,
+  "weight_sha256": "1f6039c37ea4197436b3f4fa707afbb83a285c9173a60583e5df063ba432b2d9",
+  "ollama_storage": "D:\\OllamaModels",
+  "context_tokens": 8192,
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lean_library_project": "theory/jin_wishart_formalization"
+}

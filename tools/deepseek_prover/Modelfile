@@ -1,0 +1,6 @@
+FROM D:\OllamaModels\blobs\sha256-1f6039c37ea4197436b3f4fa707afbb83a285c9173a60583e5df063ba432b2d9
+PARAMETER num_ctx 8192
+PARAMETER num_predict 4096
+PARAMETER temperature 0.6
+PARAMETER top_p 0.95
+PARAMETER seed 30
