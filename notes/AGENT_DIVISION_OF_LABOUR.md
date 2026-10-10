@@ -537,3 +537,9 @@ BUILD START 2026-10-10 11:11 Asia/Shanghai: Codex support module, local DeepSeek
 BUILD END previous collaboration window 2026-10-10 12:09:18 Asia/Shanghai: six Bartlett support lemmas and two local density-function auxiliaries passed; Gram determinant candidate failed, no full build claim. Continuation review/repair requested by user at 17:05, serialized checks in separate review-only directory.
 
 BUILD END continuation confirmed 2026-10-10 17:13:43 Asia/Shanghai: TwoRowGramPositive four statements PASS, standard three axioms; facade source compilation PASS. Original local-model sources copied unchanged. No full lake rebuild claim; human/cross-family interpretation review still pending.
+
+BUILD START second collaboration 2026-10-10 18:09 Asia/Shanghai: Codex owns TwoRowBartlettCoordinateVolume; existing complex volume and piFinSuccAbove/product assets reused. All checks use round2 compute.lock, no concurrent Lean/Ollama.
+
+BUILD END leaf 2026-10-10T10:15:45.233483+00:00: TwoRowBartlettCoordinateVolume PASS, six printed statements standard three axioms. Two failed diagnostics retained; facade check follows using same compute gate. No full lake rebuild claim.
+
+BUILD END facade 2026-10-10T10:18:36.665995+00:00: imported coordinate volume leaf, facade source PASS; no full lake rebuild. Local-model P4 request queued through same resource gate.

@@ -32,3 +32,13 @@ worker返回后先停止/卸载指定模型再释放计算锁，防止超时HTTP
 启动验证：Python语法检查通过，新状态RUNNING、首张卡已生成并进入LEAN_REVIEW，
 stderr为空。模型输出仍是候选，不预先宣称数学成果。所有原始生成、报错、
 语义审查、交流与归档会保留；每个可运行里程碑只提交自己文件，不推送远端。
+
+## 18:18里程碑
+
+Codex完成TwoRowBartlettCoordinateVolume：实际四实编码等于可测等价，复坐标volume转到Fin 4实坐标保持volume，一般withDensity传送公式，以及任意Gamma参数的ENNReal可测性。叶子检查通过、六条打印声明仅标准三公理；主入口源码编译通过，未运行完整lake重构建。原始三次叶子诊断和两次入口诊断已归档，入口import位置修正后通过。
+
+选用Complex.volume_preserving_equiv_real_prod、piFinSuccAbove、finTwoArrow、prodAssoc及已有density transport，排除重做径向积分和支持代数。Gamma转换由Codex写，发布到两个辅助卡ID中，不列为本地独立成果。其余坐标接口也已发布shared.json。通用密度传送不假设/证明实际Bartlett密度。
+
+本地第1–12次候选均目标未改、无禁止源码token，但内核拒绝；没有把这些当成果。第13–14次实际复密度也拒绝，已提供真正可复用的高斯径向密度、缩放Jacobian及报错。精确指导记GUIDED_COLLABORATION。独立reviews.json、research_review.md和messages.md保留在会话目录，下一次接着游标审查。[需人工审查] 体积规范和论文对应仍待人工；已提交本地模型P4问题审查请求，回应需真实读取后再判断有效。一般论文Theorems1–4仍开放。
+
+18:20：真实本地P4回应是反复的人名致谢，未审查证明，判为REJECTED_AS_NONRESPONSIVE，原始回应和完整提示已归档。未宣称跨模型审查/人审完成。撤下重复失败的可选Gamma闭式卡，并新增实际复高斯任意非零缩放律的小目标（保留Jacobian），为原密度卡提供严格依赖；指导来源明确。
