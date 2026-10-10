@@ -1,0 +1,716 @@
+{
+  "saved_utc": "2026-10-10T11:02:53.379902+00:00",
+  "start": "2026-10-10T10:00:53.606993+00:00",
+  "deadline": "2026-10-10T11:00:53.606993+00:00",
+  "status": "DEADLINE_REACHED",
+  "automation": "PAUSED",
+  "process_checks": "runner40168 and own collaborative checks absent; ollama ps empty",
+  "event_counts": {
+    "START": 1,
+    "GENERATE": 46,
+    "LEAN_REJECTED": 40,
+    "CARD_BLOCKED": 15,
+    "OUTPUT_REJECTED": 5,
+    "SUBTASK_PROPOSALS_READY": 6,
+    "LEAN_CHECK_PASSED": 1,
+    "FINISH": 1
+  },
+  "rejected_exit_counts": {
+    "1": 38,
+    "0": 1,
+    "124": 1
+  },
+  "local_approved": [
+    {
+      "attempt": "0043-ComplexRadialDensityMeasurableGuided",
+      "status": "APPROVED",
+      "original_target_unchanged": true,
+      "response_read": true,
+      "forbidden_tokens": [],
+      "standard_axioms_only": true,
+      "accepted_as_result": true,
+      "scope": "radial density measurability auxiliary only",
+      "author": "deepseek-prover-v2:7b",
+      "provenance": "GUIDED_COLLABORATION: Codex decomposition and ennreal_ofReal suggestion; local measurability tactic closes goal; subsequent tactics unreachable, preserved verbatim",
+      "human_review": "[需人工审查] model interpretation"
+    }
+  ],
+  "Codex_leaf": "17 printed declarations PASS standard axioms; actual law and generic volume/Jacobian interfaces",
+  "facade": "PASS source compile",
+  "full_lake_build": "NOT_RUN",
+  "P4": "genuine local responses saved, all rejected as nonresponsive; not human review",
+  "human_review": "[需人工审查] measure normalization, paper interpretation",
+  "remaining": [
+    "actual normalized CN density",
+    "actual Bartlett product density",
+    "actual real-coordinate/Gram probability density",
+    "general paper Theorems1-4",
+    "T3 source constant interpretation"
+  ],
+  "archive": "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010-final.zip",
+  "archive_sha256": "f28b93406a5860e5cb815bb3168e73e38f2aea56fccc5e7e18c3d82c8298882f",
+  "git_milestones": [
+    "03749c0",
+    "4af4328",
+    "9870771",
+    "91ae454",
+    "753766d",
+    "97fb6ae",
+    "7742a5c",
+    "57b0833"
+  ],
+  "reviews": {
+    "reviewer": "Codex",
+    "updated_utc": "2026-10-10T11:02:53.379902+00:00",
+    "cursor": "0046-ComplexGaussianScaledDensityCompose",
+    "reviews": [
+      {
+        "attempt": "0001-GammaDensityMeasurable",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\GammaDensityMeasurable.lean:11:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions."
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0002-GammaDensityMeasurable",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\GammaDensityMeasurable.lean:11:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions."
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0003-GammaDensityMeasurable",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\GammaDensityMeasurable.lean:11:2: error: Tactic `apply` failed: could not unify the conclusion of `measurable_gammaPDFReal`"
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0004-ResidualDensityMeasurable",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualDensityMeasurable.lean:11:2: error: Tactic `apply` failed: could not unify the conclusion of `measurable_gammaPDFReal`"
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0005-ResidualDensityMeasurable",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualDensityMeasurable.lean:11:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions."
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0006-ResidualDensityMeasurable",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualDensityMeasurable.lean:11:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions."
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0007-ResidualPDF",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:13:20: error: simp_all made no progress",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:10:85: error: unsolved goals"
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0008-ResidualPDF",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:13:20: error: simp_all made no progress",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:10:85: error: unsolved goals"
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0009-ResidualPDF",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:13:20: error: simp_all made no progress",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:10:85: error: unsolved goals"
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0010-GammaTwoPDF",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\GammaTwoPDF.lean:14:6: error: `field_simp` made no progress on the goal"
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0011-GammaTwoPDF",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\GammaTwoPDF.lean:17:6: error: simp_all made no progress",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\GammaTwoPDF.lean:17:6: error: simp_all made no progress"
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0012-GammaTwoPDF",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\GammaTwoPDF.lean:19:6: error: linarith failed to find a contradiction",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\GammaTwoPDF.lean:19:6: error: linarith failed to find a contradiction"
+        ],
+        "accepted_as_result": false
+      },
+      {
+        "attempt": "0013-ComplexDensity",
+        "status": "REJECTED_BY_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "response_read": true,
+        "accepted_as_result": false,
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexDensity.lean:16:29: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexDensity.lean:19:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexDensity.lean:19:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexDensity.lean:22:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`"
+        ]
+      },
+      {
+        "attempt": "0014-ComplexDensity",
+        "status": "REJECTED_BY_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "response_read": true,
+        "accepted_as_result": false,
+        "diagnostic": [
+          "'deepseek_hour_ComplexDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0015-ComplexDensity",
+        "response_read": true,
+        "status": "OUTPUT_REJECTED",
+        "original_target_unchanged": null,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "diagnostic": []
+      },
+      {
+        "attempt": "0016-ResidualPDF",
+        "status": "REJECTED_BY_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "response_read": true,
+        "accepted_as_result": false,
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:13:20: error: simp_all made no progress",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:10:85: error: unsolved goals",
+          "'deepseek_hour_ResidualPDF' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0017-ResidualPDF",
+        "response_read": true,
+        "status": "REJECTED_BY_AXIOM_AUDIT",
+        "original_target_unchanged": false,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:13:20: error: simp_all made no progress",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:10:85: error: unsolved goals",
+          "'deepseek_hour_ResidualPDF' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0018-ResidualPDF",
+        "response_read": true,
+        "status": "REJECTED_BY_AXIOM_AUDIT",
+        "original_target_unchanged": false,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:13:20: error: simp_all made no progress",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ResidualPDF.lean:10:85: error: unsolved goals",
+          "'deepseek_hour_ResidualPDF' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0019-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_AXIOM_AUDIT",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:14:13: error(lean.unknownIdentifier): Unknown identifier `stdGaussian_map_smul`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:13:79: error: unsolved goals",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0020-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_AXIOM_AUDIT",
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:14:13: error(lean.unknownIdentifier): Unknown identifier `stdGaussian_map_smul`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:13:79: error: unsolved goals",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0021-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "OUTPUT_REJECTED",
+        "original_target_unchanged": null,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "diagnostic": []
+      },
+      {
+        "attempt": "0022-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "server-template",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:25:8: error: linarith failed to find a contradiction",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0023-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "server-template",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:13:79: error: unsolved goals",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:16:2: error: unexpected token '<;>'; expected command",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0024-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "server-template",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:13:79: error: unsolved goals",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:15:2: error: unexpected token '<;>'; expected command",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0025-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "server-template",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:21:18: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:25:18: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:29:8: error: linarith failed to find a contradiction"
+        ]
+      },
+      {
+        "attempt": "0026-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "server-template",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:19:12: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:21:14: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:27:14: error(lean.unknownIdentifier): Unknown constant `Complex.abs`"
+        ]
+      },
+      {
+        "attempt": "0027-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "OUTPUT_REJECTED",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "server-template",
+        "diagnostic": []
+      },
+      {
+        "attempt": "0028-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "observed-deepseek-role-tokens-raw",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:18:29: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:19:39: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:20:37: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`"
+        ]
+      },
+      {
+        "attempt": "0029-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "OUTPUT_REJECTED",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "observed-deepseek-role-tokens-raw",
+        "diagnostic": []
+      },
+      {
+        "attempt": "0030-ComplexGaussianScaledDensity",
+        "response_read": true,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "framing": "observed-deepseek-role-tokens-raw",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:18:29: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:23:18: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensity.lean:27:18: error(lean.unknownIdentifier): Unknown constant `Complex.abs`"
+        ]
+      },
+      {
+        "attempt": "0031-ComplexGaussianScaledDensityGuided",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityGuided.lean:19:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ],
+        "request_framing": "server-template",
+        "integration_issue": "Codex template included a transport prefix; returned full proof repeated it. Prefix removed in replacement whole-hole template. Model still omitted the measurability proof. Both sources preserved."
+      },
+      {
+        "attempt": "0032-ComplexGaussianScaledDensityGuided",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityGuided.lean:19:200: error: unsolved goals",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityGuided.lean:22:2: error: Type mismatch",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ],
+        "request_framing": "server-template",
+        "integration_issue": "Codex template included a transport prefix; returned full proof repeated it. Prefix removed in replacement whole-hole template. Model still omitted the measurability proof. Both sources preserved."
+      },
+      {
+        "attempt": "0033-ComplexGaussianScaledDensityGuided",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityGuided.lean:19:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ],
+        "request_framing": "server-template",
+        "integration_issue": "Codex template included a transport prefix; returned full proof repeated it. Prefix removed in replacement whole-hole template. Model still omitted the measurability proof. Both sources preserved."
+      },
+      {
+        "attempt": "0034-ComplexGaussianScaledDensityCompose",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:18:29: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:21:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:21:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:24:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:24:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:27:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:27:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:30:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:30:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:33:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:33:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:36:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:36:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:39:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:39:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:42:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:42:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:45:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:45:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:48:18: error(lean.unknownIdentifier): Unknown constant `Complex.norm_eq_abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:48:39: error(lean.unknownIdentifier): Unknown constant `Complex.abs`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:15:196: error: unsolved goals",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ],
+        "request_framing": "server-template"
+      },
+      {
+        "attempt": "0035-ComplexGaussianScaledDensityCompose",
+        "response_read": true,
+        "original_target_unchanged": null,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "OUTPUT_REJECTED",
+        "diagnostic": [],
+        "request_framing": "server-template"
+      },
+      {
+        "attempt": "0036-ComplexGaussianScaledDensityCompose",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:17:4: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions.",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ],
+        "request_framing": "server-template"
+      },
+      {
+        "attempt": "0037-ComplexRadialDensityMeasurable",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexRadialDensityMeasurable.lean:11:10: error: Type mismatch",
+          "'deepseek_round2_ComplexRadialDensityMeasurable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ],
+        "request_framing": "server-template"
+      },
+      {
+        "attempt": "0038-ComplexRadialDensityMeasurable",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexRadialDensityMeasurable.lean:10:69: error: unsolved goals",
+          "'deepseek_round2_ComplexRadialDensityMeasurable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ],
+        "request_framing": "server-template"
+      },
+      {
+        "attempt": "0039-ComplexRadialDensityMeasurable",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexRadialDensityMeasurable.lean:10:69: error: unsolved goals",
+          "'deepseek_round2_ComplexRadialDensityMeasurable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ],
+        "request_framing": "server-template"
+      },
+      {
+        "attempt": "0040-ComplexRadialDensityMeasurableGuided",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexRadialDensityMeasurableGuided.lean:13:99: error: unexpected token '#print'; expected ')', ',' or ':'",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexRadialDensityMeasurableGuided.lean:13:25: error: numerals are data in Lean, but the expected type is a proposition",
+          "'deepseek_round2_ComplexRadialDensityMeasurable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0041-ComplexRadialDensityMeasurableGuided",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexRadialDensityMeasurableGuided.lean:11:8: error: unsolved goals",
+          "'deepseek_round2_ComplexRadialDensityMeasurable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0042-ComplexRadialDensityMeasurableGuided",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "forbidden_tokens": [],
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexRadialDensityMeasurableGuided.lean:11:8: error: unsolved goals",
+          "'deepseek_round2_ComplexRadialDensityMeasurable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0043-ComplexRadialDensityMeasurableGuided",
+        "status": "APPROVED",
+        "original_target_unchanged": true,
+        "response_read": true,
+        "forbidden_tokens": [],
+        "standard_axioms_only": true,
+        "accepted_as_result": true,
+        "scope": "radial density measurability auxiliary only",
+        "author": "deepseek-prover-v2:7b",
+        "provenance": "GUIDED_COLLABORATION: Codex decomposition and ennreal_ofReal suggestion; local measurability tactic closes goal; subsequent tactics unreachable, preserved verbatim",
+        "human_review": "[需人工审查] model interpretation"
+      },
+      {
+        "attempt": "0044-ComplexGaussianScaledDensityCompose",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "event": {
+          "utc": "2026-10-10T10:59:40.719953+00:00",
+          "event": "LEAN_REJECTED",
+          "card": "ComplexGaussianScaledDensityCompose",
+          "attempt": 44,
+          "exit": 1
+        },
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:19:29: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:20:39: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:22:37: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:23:39: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:25:37: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:16:196: error: unsolved goals",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0045-ComplexGaussianScaledDensityCompose",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "accepted_as_result": false,
+        "status": "REJECTED_BY_KERNEL_OR_AXIOM_AUDIT",
+        "event": {
+          "utc": "2026-10-10T11:00:39.057732+00:00",
+          "event": "LEAN_REJECTED",
+          "card": "ComplexGaussianScaledDensityCompose",
+          "attempt": 45,
+          "exit": 1
+        },
+        "diagnostic": [
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:16:12: error: Application type mismatch: The argument",
+          "D:\\vibe math\\.tools\\deepseek-hour\\collaboration-round2-20261010\\work\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexGaussianScaledDensityCompose.lean:16:51: error: Type mismatch",
+          "'deepseek_round2_ComplexGaussianScaledDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]"
+        ]
+      },
+      {
+        "attempt": "0046-ComplexGaussianScaledDensityCompose",
+        "response_read": true,
+        "original_target_unchanged": true,
+        "accepted_as_result": false,
+        "status": "DEADLINE_TERMINATED_NOT_A_MATHEMATICAL_REJECTION",
+        "event": {
+          "utc": "2026-10-10T11:00:53.632180+00:00",
+          "event": "LEAN_REJECTED",
+          "card": "ComplexGaussianScaledDensityCompose",
+          "attempt": 46,
+          "exit": 124
+        },
+        "diagnostic": []
+      }
+    ],
+    "codex_leaf": {
+      "module": "JinWishartFormalization.TwoRowBartlettCoordinateVolume",
+      "semantic_review": "PASS fixed actual encoding and volume; generic density transport explicitly conditional, no target density asserted",
+      "axioms": "STANDARD_THREE",
+      "human_review": "PENDING",
+      "cross_family_review": "REJECTED_AS_NONRESPONSIVE: irrelevant acknowledgements, length stop"
+    },
+    "proposal_reviews": [
+      {
+        "path": "proposals/6/response.json",
+        "status": "REJECTED",
+        "reason": "proposal changes actual half-variance complex density exponent to -norm^2/2, mixes one-dimensional Jacobian and retains sorry; no valid smaller target"
+      }
+    ],
+    "codex_actual_real_law": {
+      "leaf": "PASS",
+      "axioms": "STANDARD_THREE",
+      "interpretation": "PENDING_HUMAN",
+      "P4": "REJECTED_AS_NONRESPONSIVE",
+      "reason": "rewrites a weakened theorem dropping Gram-chart map, calls Fin 4 coordinate output scalar, offers no P4 issues"
+    },
+    "codex_integral_volume": {
+      "leaf": "PASS",
+      "facade": "PASS",
+      "axioms": "STANDARD_THREE",
+      "P4": "REJECTED_AS_NONRESPONSIVE_LENGTH_REPETITION",
+      "human_review": "PENDING"
+    },
+    "codex_gram_density_review": {
+      "status": "KERNEL_PASS_SEMANTIC_SCOPE_REVIEWED",
+      "author": "Codex",
+      "declarations": [
+        "twoRowGramChart_weighted_volume_map",
+        "twoRowGramChart_weighted_density_map",
+        "measurable_twoRowGramChartInverse",
+        "twoRowGramChart_density_map"
+      ],
+      "axioms": "standard three only",
+      "scope": "positive-domain Lebesgue Jacobian and arbitrary measurable-function transport, not an actual probability-density theorem",
+      "human_review": "[需人工审查] volume convention, dimension and paper model correspondence",
+      "p4": "REJECTED_AS_NONRESPONSIVE; genuine local response labels proved code placeholder and returns sorry rewrite"
+    },
+    "actual_encoded_domain_review": {
+      "author": "Codex",
+      "status": "PASS_STANDARD_AXIOMS_SCOPE_REVIEWED",
+      "target": "actualTwoRow_BartlettRealLaw_restrict_positive",
+      "scope": "exact actual product-law domain restriction, reuses positivity rather than re-proving it; no density hypothesis",
+      "p4": "REJECTED_AS_NONRESPONSIVE; restated proof and generic assertion positive measure ensures nonzero probability instead of issues-only audit",
+      "human_review": "[需人工审查] measure convention and paper model correspondence"
+    },
+    "session_status": "DEADLINE_REACHED_NO_NEW_CHECKS_AFTER_CUTOFF"
+  }
+}
