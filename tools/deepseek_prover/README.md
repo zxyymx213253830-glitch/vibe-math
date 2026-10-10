@@ -123,6 +123,14 @@ Codex 补充并通过主构建、公理和边界检查，不能算作本地模�
 
 ## 参数与 API
 
+2026-10-10 用户随后改为双方协作，上面的“Codex 只审查”是历史安排。
+协作窗口为 11:09:18–12:09:18 北京时间，已到期停止；当前证据在
+`collaboration_tasks/hour_verification.json`，原始记录在
+`.tools/deepseek-hour/collaboration-20261010/`。本地54次尝试中2条辅助引理
+通过，Codex完成6条实际Bartlett支持/零边界引理；实际联合密度未闭合。
+`collaborative_check.py`与runner共用资源锁；`publish_checked.py`只发布
+命题与公理审计通过的结果。读取或续跑时不得把已到期循环当作仍在运行。
+
 本地模型名：`deepseek-prover-v2:7b`。
 默认上下文 8192 token、最大生成 4096 token、temperature 0.6、top_p 0.95、seed 30。
 自动尝试的 seed 从 30 开始递增；温度、版本、驱动可能影响可复现性。
