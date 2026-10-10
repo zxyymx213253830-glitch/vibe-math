@@ -1,16 +1,27 @@
 [
   {
-    "id": "ComplexGaussianScaledDensityGuided",
+    "id": "ComplexRadialDensityMeasurableGuided",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round2\\ComplexRadialDensityMeasurable.lean",
+    "purpose": "Fill the precise measurability goal needed by the actual scalar-law composition",
+    "requires": [],
+    "use": [],
+    "provenance": "GUIDED_COLLABORATION: Codex decomposed the scalar-law goal and suggested fun_prop; this auxiliary is not an actual density equality",
+    "assets": "GUIDED_COLLABORATION: Codex supplies exact new two-tactic proof suggestion after attempts 37-39 failed. Return the entire final hole body exactly: `apply Measurable.ennreal_ofReal` followed by `fun_prop`. This reduces ENNReal measurability to the continuous real expression; do not use Measurable.const, measurable_id multiplication, or repeated try chains. Keep the original statement unchanged. This is auxiliary measurability, not an actual density equality."
+  },
+  {
+    "id": "ComplexGaussianScaledDensityCompose",
     "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round2\\ComplexGaussianScaledDensity.lean",
     "purpose": "Actual complex Gaussian scalar pushforward retaining its Jacobian; smaller actual-law bridge",
     "requires": [
-      "ComplexScalarVolume"
+      "ComplexScalarVolume",
+      "ComplexRadialDensityMeasurableGuided"
     ],
     "use": [
-      "ComplexScalarVolume"
+      "ComplexScalarVolume",
+      "ComplexRadialDensityMeasurableGuided"
     ],
-    "provenance": "GUIDED_COLLABORATION: Codex proof prefix combines actual radial law and generic complex volume transport; local author completes remaining measurability",
-    "assets": "GUIDED_COLLABORATION: Codex supplied the two checked transport steps in the proof prefix, with EXACTLY the original assumptions and conclusion. The only remaining goal is Measurable (fun z : Complex => ENNReal.ofReal ((2*pi)^(-1)*exp(-norm z^2/2))). Complete the final hole, e.g. `fun_prop`. Return tactics only for this hole. Do not restart the theorem, repeat rw/apply, use Measure.ext, or alter the density. The local contribution is measurability tactics; the actual scalar-law composition is Codex-authored."
+    "provenance": "GUIDED_COLLABORATION: Codex checked scalar-volume helper and exact two-step composition suggestion; local generated complete proof body",
+    "assets": "After the precise measurability subgoal is checked, complete original actual-law target via rw [stdGaussian_complex_eq_radialDensity]; exact map_withDensity_smul_complex r hr _ deepseek_round2_ComplexRadialDensityMeasurable. This exact composition suggestion is Codex guidance, label GUIDED_COLLABORATION. No density assumption or changed target. Do not repeat unsuccessful Measure.ext or exact? on the original opaque measure equality."
   },
   {
     "id": "GammaDensityMeasurable",
@@ -35,12 +46,12 @@
     "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexDensity.lean",
     "purpose": "Actual CN(0,1) density, the first missing main bridge",
     "requires": [
-      "ComplexGaussianScaledDensityGuided"
+      "ComplexGaussianScaledDensityCompose"
     ],
     "assets": "First apply checked deepseek_round2_ComplexGaussianScaledDensity at r=(Real.sqrt 2)^(-1); then simplify the exact density function with sqrt_pos, inv_ne_zero, norm_smul, Real.norm_eq_abs, Real.sq_sqrt. No repeated measure extensionality or proof search. GUIDED_COLLABORATION.",
     "use": [
       "ComplexDensityMeasurable",
-      "ComplexGaussianScaledDensityGuided"
+      "ComplexGaussianScaledDensityCompose"
     ],
     "provenance": "Codex supplies pinned-library route and diagnostics; resulting local proof is GUIDED_COLLABORATION"
   },

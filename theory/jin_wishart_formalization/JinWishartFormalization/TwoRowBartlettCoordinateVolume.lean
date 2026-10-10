@@ -165,6 +165,84 @@ theorem actualTwoRow_GramRealCoordinates_lintegral
   exact lintegral_map (hg.comp measurable_twoRowGramChart)
     measurable_twoRowBartlettRealCoordinates
 
+/-- The Gram chart transports Jacobian-weighted coordinate volume to the
+positive Gram domain. This is a Lebesgue statement, not a probability density. -/
+theorem twoRowGramChart_weighted_volume_map :
+    ((volume.restrict {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3}).withDensity
+      (fun p => ENNReal.ofReal (p 0))).map twoRowGramChart =
+      volume.restrict {q : GramChartSpace | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3} := by
+  have hs : MeasurableSet {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3} :=
+    (measurableSet_lt measurable_const (measurable_pi_apply 0)).inter
+      (measurableSet_lt measurable_const (measurable_pi_apply 3))
+  have h := map_withDensity_abs_det_fderiv_eq_addHaar volume hs.nullMeasurableSet
+    (fun p hp => (hasFDerivAt_twoRowGramChart p hp.1).hasFDerivWithinAt)
+    (twoRowGramChart_injOn.mono (fun _ hp => hp.1))
+  have hw : (volume.restrict {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3}).withDensity
+      (fun p => ENNReal.ofReal |(twoRowGramChartDerivative p).toLinearMap.det|) =
+      (volume.restrict {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3}).withDensity
+        (fun p => ENNReal.ofReal (p 0)) := by
+    apply withDensity_congr_ae
+    filter_upwards [ae_restrict_mem hs] with p hp
+    rw [twoRowGramChartDerivative_det p hp.1, abs_of_pos hp.1]
+  rw [hw, twoRowGramChart_positive_image] at h
+  exact h
+
+/-- Weighted change of coordinates for any measurable target function.
+This provides the density interface without assuming an actual probability density. -/
+theorem twoRowGramChart_weighted_density_map
+    (g : GramChartSpace → ℝ≥0∞) (hg : Measurable g) :
+    ((volume.restrict {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3}).withDensity
+      (fun p => ENNReal.ofReal (p 0) * g (twoRowGramChart p))).map twoRowGramChart =
+      (volume.restrict
+        {q : GramChartSpace | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}).withDensity g := by
+  have hw : Measurable (fun p : GramChartSpace => ENNReal.ofReal (p 0)) :=
+    (measurable_pi_apply 0).ennreal_ofReal
+  have hmp : MeasurePreserving twoRowGramChart
+      ((volume.restrict {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3}).withDensity
+        (fun p => ENNReal.ofReal (p 0)))
+      (volume.restrict
+        {q : GramChartSpace | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}) :=
+    ⟨measurable_twoRowGramChart, twoRowGramChart_weighted_volume_map⟩
+  rw [show (fun p : GramChartSpace => ENNReal.ofReal (p 0) * g (twoRowGramChart p)) =
+      (fun p : GramChartSpace => ENNReal.ofReal (p 0)) * (g ∘ twoRowGramChart) from rfl,
+    withDensity_mul _ hw (hg.comp measurable_twoRowGramChart)]
+  ext t ht
+  rw [Measure.map_apply measurable_twoRowGramChart ht,
+    withDensity_apply _ (ht.preimage measurable_twoRowGramChart), withDensity_apply _ ht]
+  exact hmp.setLIntegral_comp_preimage ht hg
+
+theorem measurable_twoRowGramChartInverse : Measurable twoRowGramChartInverse := by
+  unfold twoRowGramChartInverse
+  fun_prop
+
+/-- Inverse-Jacobian density interface on the positive Bartlett domain.
+The function is arbitrary; no actual Gaussian/Bartlett density is assumed. -/
+theorem twoRowGramChart_density_map
+    (f : GramChartSpace → ℝ≥0∞) (hf : Measurable f) :
+    ((volume.restrict {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3}).withDensity f).map
+        twoRowGramChart =
+      (volume.restrict
+        {q : GramChartSpace | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}).withDensity
+          (fun q => f (twoRowGramChartInverse q) / ENNReal.ofReal (q 0)) := by
+  let g : GramChartSpace → ℝ≥0∞ :=
+    fun q => f (twoRowGramChartInverse q) / ENNReal.ofReal (q 0)
+  have hg : Measurable g :=
+    (hf.comp measurable_twoRowGramChartInverse).div ((measurable_pi_apply 0).ennreal_ofReal)
+  change _ = (volume.restrict
+    {q : GramChartSpace | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}).withDensity g
+  rw [← twoRowGramChart_weighted_density_map g hg]
+  congr 1
+  apply withDensity_congr_ae
+  have hs : MeasurableSet {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3} :=
+    (measurableSet_lt measurable_const (measurable_pi_apply 0)).inter
+      (measurableSet_lt measurable_const (measurable_pi_apply 3))
+  filter_upwards [ae_restrict_mem hs] with p hp
+  dsimp only [g]
+  rw [twoRowGramChart_left_inverse p hp.1]
+  change f p = ENNReal.ofReal (p 0) * (f p / ENNReal.ofReal (p 0))
+  exact (ENNReal.mul_div_cancel (ne_of_gt (ENNReal.ofReal_pos.mpr hp.1))
+    ENNReal.ofReal_ne_top).symm
+
 end
 end JinWishart
 
@@ -180,3 +258,7 @@ end JinWishart
 #print axioms JinWishart.actualTwoRow_GramRealCoordinates_law
 #print axioms JinWishart.map_withDensity_smul_complex
 #print axioms JinWishart.actualTwoRow_GramRealCoordinates_lintegral
+#print axioms JinWishart.twoRowGramChart_weighted_volume_map
+#print axioms JinWishart.twoRowGramChart_weighted_density_map
+#print axioms JinWishart.measurable_twoRowGramChartInverse
+#print axioms JinWishart.twoRowGramChart_density_map

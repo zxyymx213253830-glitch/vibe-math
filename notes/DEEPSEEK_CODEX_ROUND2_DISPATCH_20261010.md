@@ -58,3 +58,9 @@ Codex复用实际Bartlett乘积律、逐点Gram重构和已有四实Gram chart�
 Codex完成一般复坐标非零实数缩放withDensity公式（复实维度2的逆Jacobian）及实际Gram非负观测量在实际Bartlett乘积律下的积分公式；不把任何实际密度当假设。复用现有Euclidean缩放transport模式、actual real Gram推前律和lintegral_map。一次积分重写失败已修正，最新叶子十二条打印声明全部标准三公理，入口源码编译通过；完整lake构建未运行。已更新共享清单及哈希。
 
 真实本地新P4仅循环“Problem ... P4 Review Only”至长度截断，拒绝为审查证据。[需人工审查] 测度/模型对应继续待人工。第28次raw封装证明同样无效、第29次没有Lean代码，封装诊断不视为改善，恢复原封装。真正的后续协作小卡ComplexGaussianScaledDensityGuided与原缩放律同声明同假设，根证明的两步前缀由Codex供给，本地仅填可测性，严格标GUIDED_COLLABORATION。局部拆分不能冒称本地独立发现。
+
+## 18:52 Gram密度换元接口
+
+Codex复用锁定库Jacobian换元、已有正域图像/导数和逆坐标，完成Jacobian加权volume推前、可测目标函数传送、逆图可测性以及正域逆Jacobian密度传送。最新叶子十六条打印声明均标准三公理，入口退出码0，提示性ring输出保留；没有完整lake重构建。这是任意函数的Lebesgue接口，实际CN/Bartlett密度仍未完成，不能宣称论文一般定理已证。[需人工审查] 体积规范和模型对应继续待人工。
+
+真实本地P4把完整证明误称占位并重写为sorry，拒绝作审查证据。31–39候选均拒绝；31/33的重复transport前缀也来自Codex模板集成错误，已恢复完整单洞模板并保留原始文件，不把责任全归本地。proposal8空洞完成宣称、proposal9改错密度指数并含sorry，均拒绝。更新游标39和原始回应归档，给本地更精确的两步可测性建议，来源GUIDED_COLLABORATION。截止仍19:00:53。

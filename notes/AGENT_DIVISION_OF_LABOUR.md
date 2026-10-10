@@ -553,3 +553,7 @@ BUILD END 2026-10-10T10:27:14.094229+00:00: actual real-law extension facade sou
 BUILD START 2026-10-10T10:31:25.318695+00:00: repair Gram-observable lintegral composition rewrite; generic complex scalar volume transport already passed with standard axioms. Both checks serialize via current round2 gate.
 
 BUILD END 2026-10-10T10:37:38.606969+00:00: generic complex scalar volume and actual Gram nonnegative integral PASS, twelve printed statements standard three axioms, facade source PASS. Failed first integral check retained. No full build; local P4 response rejected, human review pending.
+
+BUILD START 2026-10-10T10:39:44.002385+00:00: positive-domain Jacobian-weighted Gram volume pushforward. Reuse existing fderiv/determinant and positive-image algebra plus pinned map_withDensity_abs_det_fderiv_eq_addHaar; no actual probability density assumed. Current round2 gate, no full build.
+
+BUILD END 2026-10-10T10:53:22.260022+00:00: positive-domain Jacobian-volume and arbitrary density transport, inverse measurability and inverse-Jacobian density map PASS; sixteen printed statements standard three axioms. Facade source PASS exit0, advisory ring output retained. No full lake build. Genuine local P4 rejected; human review pending.
