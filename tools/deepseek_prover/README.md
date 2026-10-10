@@ -111,6 +111,16 @@ Codex 补充并通过主构建、公理和边界检查，不能算作本地模�
 完整记录：`notes/DEEPSEEK_WISHART_PROGRESS_20261010.md`；原始尝试归档：
 `wishart_research_verification.json`。安装示例的成功不代表本次研究任务成功。
 
+## 一小时：模型写证明，Codex只调度和审查
+
+2026-10-10用户选择此分工，窗口为10:52:20–11:52:20北京时间。
+`hour_runner.py`负责有截止时间的串行模型生成与Lean审查；`hour_tasks/`
+保存命题队列和已证上下文。所有新证明体只接受本地模型原样输出，Codex不补战术。
+应用中的“本地DeepSeek：一小时Wishart推进”负责阶段审查和截止汇总。
+当前状态与所有尝试在`.tools/deepseek-hour/20261010/`，不要重复启动。
+修复/恢复以state.json的原始截止为准，不延长窗口。
+详见`notes/DEEPSEEK_ONE_HOUR_DISPATCH_20261010.md`。
+
 ## 参数与 API
 
 本地模型名：`deepseek-prover-v2:7b`。

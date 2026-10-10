@@ -1,0 +1,107 @@
+[
+  {
+    "id": "ComplexDensity",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexDensity.lean",
+    "purpose": "Actual CN(0,1) density, the first missing main bridge",
+    "requires": [],
+    "assets": "Reuse stdGaussian_halfVariance_shift_eq_withDensity at k=1 and a real linear isometry to complex coordinates; or reuse stdGaussian_complex_eq_radialDensity and existing Haar scaling. Do not assume a target density."
+  },
+  {
+    "id": "ComplexDensityMeasurable",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexDensityMeasurable.lean",
+    "purpose": "Measurability needed by product density transport",
+    "requires": [],
+    "assets": "This is only a local interface, not a new probability theorem."
+  },
+  {
+    "id": "GammaTwoPDF",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\GammaTwoPDF.lean",
+    "purpose": "Simplify the first-energy density to its conventional explicit shape",
+    "requires": [],
+    "assets": "gammaPDF, gammaPDFReal; Real.Gamma_nat_eq_factorial, Real.rpow_one. Check exact names in supplied declarations."
+  },
+  {
+    "id": "ResidualPDF",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ResidualPDF.lean",
+    "purpose": "Simplify the residual-energy density including its zero boundary",
+    "requires": [],
+    "assets": "Reuse exponentialPDF_eq, exponentialPDFReal, gammaPDFReal and Real.Gamma_one."
+  },
+  {
+    "id": "GammaZeroBoundary",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\GammaZeroBoundary.lean",
+    "purpose": "First-energy zero singleton is null",
+    "requires": [],
+    "assets": "gammaMeasure is a volume.withDensity; existing no-atoms instances apply."
+  },
+  {
+    "id": "ResidualZeroBoundary",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ResidualZeroBoundary.lean",
+    "purpose": "Residual-energy zero singleton is null",
+    "requires": [],
+    "assets": "expMeasure 1 = gammaMeasure 1 1, withDensity of volume."
+  },
+  {
+    "id": "GammaNonpositive",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\GammaNonpositive.lean",
+    "purpose": "First-energy nonpositive domain is null",
+    "requires": [],
+    "assets": "Use gammaMeasure density and lintegral_gammaPDF_of_nonpos, plus the singleton null result if available."
+  },
+  {
+    "id": "ResidualNonpositive",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ResidualNonpositive.lean",
+    "purpose": "Residual-energy nonpositive domain is null",
+    "requires": [],
+    "assets": "Existing lintegral_exponentialPDF_eq_antiDeriv at x=0 or density support and singleton null."
+  },
+  {
+    "id": "GammaDensityMeasurable",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\GammaDensityMeasurable.lean",
+    "purpose": "Measurability of first-energy ENNReal density",
+    "requires": [],
+    "assets": "measurable_gammaPDFReal and gammaPDF definition."
+  },
+  {
+    "id": "ResidualDensityMeasurable",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ResidualDensityMeasurable.lean",
+    "purpose": "Measurability of residual-energy ENNReal density",
+    "requires": [],
+    "assets": "measurable_gammaPDFReal and gammaPDF definition."
+  },
+  {
+    "id": "ComplexRealDensity",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexRealDensity.lean",
+    "purpose": "Transport the actual complex density to its two real coordinates",
+    "requires": [
+      "ComplexDensity"
+    ],
+    "assets": "Complex.volume_preserving_equiv_real_prod; JinWishart.map_withDensity_measurePreserving; Complex.sq_norm, Complex.normSq_apply."
+  },
+  {
+    "id": "BartlettProductDensity",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\BartlettProductDensity.lean",
+    "purpose": "Actual Bartlett law with density on product coordinates, no density hypothesis",
+    "requires": [
+      "ComplexDensity"
+    ],
+    "assets": "Reuse actualTwoRow_BartlettCoordinates_law, gammaMeasure, expMeasure, prod_withDensity twice and Measure.volume_eq_prod. Do not assume a Bartlett density."
+  },
+  {
+    "id": "ActualBartlettPositive",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ActualBartlettPositive.lean",
+    "purpose": "Actual sample coordinates have positive first and residual energies almost surely",
+    "requires": [
+      "GammaNonpositive",
+      "ResidualNonpositive"
+    ],
+    "assets": "Transport known coordinate product law using measurable_twoRowBartlettCoordinates. This closes actual support, not a spectral density."
+  },
+  {
+    "id": "ComplexDensityNonnegative",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexDensityNonnegative.lean",
+    "purpose": "Pointwise nonnegativity needed for density manipulations",
+    "requires": [],
+    "assets": "Real.pi_pos, Real.exp_pos; auxiliary deterministic fact only."
+  }
+]
