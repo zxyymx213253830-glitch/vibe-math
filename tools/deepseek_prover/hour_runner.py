@@ -145,6 +145,10 @@ def run(args):
             try:
                 return bounded(command, log, deadline, timeout, env, cwd)
             finally:
+                if '--worker' in command:
+                    # A timed-out HTTP client can leave server-side generation alive.
+                    # Stop/unload our model before releasing the compute gate to Lean.
+                    unload()
                 gate.unlink()
         return 124
 
@@ -209,6 +213,9 @@ def run(args):
                 # Reload exchanges between attempts, including a successful partner lemma
                 # delivered while this model was generating its previous candidate.
                 dependencies = {**shared(), **state['accepted']}
+                if 'use' in card:
+                    needed = set(card['use']) | set(card.get('requires', []))
+                    dependencies = {k: v for k, v in dependencies.items() if k in needed}
                 dependency_imports = ''.join('import ' + module + '\n'
                     for module in dict.fromkeys(d['module'] for d in dependencies.values()))
                 dependency_declarations = '\n'.join(d['statement'] for d in dependencies.values())
@@ -269,7 +276,8 @@ def run(args):
                 code = compute([str(LEAN), '-DautoImplicit=false', '-j1', '-R', str(work),
                                 '-o', str(olean), str(candidate_path)],
                                diagnostic_path, 180, env, PROJECT)
-                diagnostic = diagnostic_path.read_text(encoding='utf-8', errors='replace')
+                diagnostic = (diagnostic_path.read_text(encoding='utf-8', errors='replace')
+                              if diagnostic_path.exists() else 'Check not started before stop/deadline.')
                 if code == 0 and audited(diagnostic, name):
                     accepted = session / 'accepted' / (card['id'] + '.lean')
                     accepted.parent.mkdir(exist_ok=True)
@@ -277,7 +285,8 @@ def run(args):
                     state['accepted'][card['id']] = {'module': module, 'path': str(accepted),
                         'statement': source[:hole.start()].rsplit(':= by', 1)[0].strip(), 'attempt': number,
                         'sha256': hashlib.sha256(candidate.encode()).hexdigest(),
-                        'semantic_review': 'PENDING_CODEX_REVIEW', 'author': MODEL}
+                        'semantic_review': 'PENDING_CODEX_REVIEW', 'author': MODEL,
+                        'provenance': card.get('provenance', 'Local generation with retrieved partner context')}
                     event({'event': 'LEAN_CHECK_PASSED', 'card': card['id'], 'attempt': number})
                     save()
                     break
