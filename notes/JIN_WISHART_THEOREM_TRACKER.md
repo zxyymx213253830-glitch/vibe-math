@@ -140,6 +140,11 @@
    映射，证明左逆/注入、实际 Fréchet 导数、Jacobian=S 和具体非负 Lebesgue 换元。
    记录 `TWO_ROW_GRAM_CHART_20261010.md`；联合坐标密度/volume 对齐、边界支持及
    谱 Jacobian/角积分仍未闭合，不能仅凭坐标换元宣称实际 Gram/谱密度已证。
+   **2026-10-10 本地模型交接：** `TwoRowGramSupport.lean` 进一步验收正首能量、
+   正残差域的准确 Gram 坐标图像、右逆与行列式=S×E。这四条由 Codex 补充；
+   DeepSeek 本地九次生成均未通过验收，不能列为本地模型已证成果。
+   主构建、公理及边界回归通过，详见 `DEEPSEEK_WISHART_PROGRESS_20261010.md`。
+   本卡只关闭确定性支持域代数，不关闭几乎必然支持/边界零质量或实际密度。
    尚未闭合：Gram/谱 Jacobian、角积分及
    联合谱密度。这仍是 Theorem 1–3 一般维度模型等式前置的大缺口。
 3. **G3** 一般维度 Theorem 1–3 的概率等式：仅公式侧约化（单列任意行）。

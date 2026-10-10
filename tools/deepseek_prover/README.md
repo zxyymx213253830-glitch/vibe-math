@@ -88,6 +88,29 @@ theorem my_goal (a b : Nat) : a + b = b + a := by
 
 对应 Lean 工具链仍需安装在本仓库的 `.tools\elan` 下。
 
+## 结合当前研究进展
+
+`--context-file` 可把 UTF-8 进展摘要、已证结果和精确可用引理随目标交给模型；
+工具会保存实际提供的上下文和每轮提示词。模型仍不自动访问仓库或执行工具，
+研究调度和 Lean 验收由外部代理完成。8K 上下文下应提供精简摘要，长进展须拆卡。
+
+本次 Wishart 交接使用 `wishart_progress_context.md`，先尝试完整正支持域图像，
+遇到错误后拆成行列式恒等式。可复现拆分任务：
+
+```powershell
+& 'D:\miniconda3\python.exe' 'D:\vibe math\tools\deepseek_prover\prove.py' `
+  'D:\vibe math\tools\deepseek_prover\wishart_gram_determinant_goal.lean' `
+  --context-file 'D:\vibe math\tools\deepseek_prover\wishart_progress_context.md' --attempts 3
+```
+
+这些 `*_goal.lean` 是带唯一待填目标的模型输入模板，不是已验收研究模块。
+失败回答也保留，不能用模型的文字“Complete Proof”代替 Lean 检查。
+
+2026-10-10 本次研究交接的九次本地生成均未通过验收；最终支持域引理由
+Codex 补充并通过主构建、公理和边界检查，不能算作本地模型独立成果。
+完整记录：`notes/DEEPSEEK_WISHART_PROGRESS_20261010.md`；原始尝试归档：
+`wishart_research_verification.json`。安装示例的成功不代表本次研究任务成功。
+
 ## 参数与 API
 
 本地模型名：`deepseek-prover-v2:7b`。

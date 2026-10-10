@@ -25,6 +25,18 @@ def main():
                                   q[:, 3]-(q[:, 1]**2+q[:, 2]**2)/q[:, 0]))
     inverse_error = np.max(abs(recovered-p))
     assert inverse_error < 1e-12
+    # Known closed identity det(Gram)=S*E identifies the positive chart image.
+    gram_determinant = q[:, 0]*q[:, 3] - q[:, 1]**2 - q[:, 2]**2
+    support_error = np.max(abs(gram_determinant - p[:, 0]*p[:, 3]))
+    assert support_error < 1e-12
+    assert np.all((q[:, 0] > 0) & (gram_determinant > 0))
+    # Also check algebra outside the positive-energy support, including its boundary.
+    for residual in (-2.0, 0.0, 2.0):
+        boundary = np.array([[1.0, 2.0, 3.0, residual]])
+        image = chart(boundary)[0]
+        det = image[0]*image[3] - image[1]**2 - image[2]**2
+        assert det == residual
+        assert (det > 0) == (residual > 0)
     s, x, y, _ = p.T
     jac = np.zeros((SAMPLES, 4, 4))
     jac[:, 0, 0] = jac[:, 3, 3] = 1
@@ -44,6 +56,7 @@ def main():
     print(f"seed={SEED}; samples={SAMPLES}; first 1000 finite differences")
     print(f"inverse error={inverse_error:.2e}; det-S error={determinant_error:.2e}")
     print(f"finite difference error={derivative_error:.2e}; known controls passed, not proofs")
+    print(f"positive-image det-S*E error={support_error:.2e}; boundary/sign controls passed")
 
 
 if __name__ == '__main__':

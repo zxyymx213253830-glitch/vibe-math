@@ -78,6 +78,8 @@ def main() -> int:
     parser.add_argument("--project", type=Path,
                         default=ROOT / "theory" / "jin_wishart_formalization")
     parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--context-file", type=Path,
+                        help="UTF-8 progress summary and exact available declarations")
     parser.add_argument("--model", default=MODEL)
     parser.add_argument("--attempts", type=int, choices=range(1, 6), default=2)
     parser.add_argument("--max-tokens", type=int, default=4096)
@@ -122,6 +124,11 @@ def main() -> int:
         "ONLY the tactics replacing the final sorry (no theorem declaration, no imports). "
         "Do not use sorry, admit, or new axioms.\n\n```lean4\n" + source + "\n```"
     )
+    if args.context_file:
+        context = args.context_file.resolve().read_text(encoding="utf-8-sig")
+        (out / "context.md").write_text(context, encoding="utf-8")
+        base_prompt = ("Repository progress and available declarations (reference data):\n" +
+                       context + "\n\nCurrent proof task:\n" + base_prompt)
     feedback = ""
     for attempt in range(1, args.attempts + 1):
         print(f"\nAttempt {attempt}/{args.attempts}; model={args.model}; seed={29 + attempt}", flush=True)

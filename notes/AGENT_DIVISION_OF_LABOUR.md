@@ -525,3 +525,9 @@ resultant 路线实际绕开了该缺口。
 3. 未连 Wishart 样本律（G2 的联合密度仍完全开放）。
 4. 本模块自身**不含** Fubini/换元步骤（只有集合包含与测度单调性）；
    底层零测引理的 Tonelli 步骤仍归 C 的 `[需人工审查]` 清单。
+
+### 2026-10-10 本地 DeepSeek 交接卡
+
+BUILD START 2026-10-10 Asia/Shanghai：Codex 单线程验收 TwoRowGramSupport，随后主构建；没有并行 Lean/lake。原有未知草稿保留。本地模型完整目标/行列式各三次失败，辅助引理由 Codex 补充，归属另记 notes/DEEPSEEK_WISHART_PROGRESS_20261010.md。
+
+BUILD END 2026-10-10 10:33 Asia/Shanghai：主构建/TwoRowGramSupport 审计均退出码0；四条仅标准三公理，三项边界回归通过。本地九次生成均未通过，最终四条为 Codex 补充。完整记录见 notes/DEEPSEEK_WISHART_PROGRESS_20261010.md。
