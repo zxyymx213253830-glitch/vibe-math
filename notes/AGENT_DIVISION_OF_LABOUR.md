@@ -543,3 +543,9 @@ BUILD START second collaboration 2026-10-10 18:09 Asia/Shanghai: Codex owns TwoR
 BUILD END leaf 2026-10-10T10:15:45.233483+00:00: TwoRowBartlettCoordinateVolume PASS, six printed statements standard three axioms. Two failed diagnostics retained; facade check follows using same compute gate. No full lake rebuild claim.
 
 BUILD END facade 2026-10-10T10:18:36.665995+00:00: imported coordinate volume leaf, facade source PASS; no full lake rebuild. Local-model P4 request queued through same resource gate.
+
+BUILD START 2026-10-10T10:22:40.151451+00:00: extend owned coordinate module with actual Bartlett and Gram real pushforward laws. Reuse actualTwoRow_BartlettCoordinates_law, actualTwoRow_Gram_eq_BartlettGram, twoRowGramChart_eq_BartlettGram_real and Measure.map_map; no density assumption and no repeated support proof. Same round2 gate.
+
+BUILD END 2026-10-10T10:24:05.455842+00:00: coordinate leaf plus two actual real-law bridges PASS, ten printed declarations standard three axioms. Shared manifest refreshed; no full build.
+
+BUILD END 2026-10-10T10:27:14.094229+00:00: actual real-law extension facade source PASS, no full lake rebuild. P4 genuine response read and rejected as nonresponsive/weakened rewrite; human review pending.

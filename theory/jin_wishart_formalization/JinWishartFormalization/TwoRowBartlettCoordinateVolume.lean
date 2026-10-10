@@ -82,6 +82,41 @@ theorem measurable_gammaDensity_ennreal (a r : ℝ) : Measurable (gammaPDF a r) 
   change Measurable (fun x => ENNReal.ofReal (gammaPDFReal a r x))
   exact (measurable_gammaPDFReal a r).ennreal_ofReal
 
+/-- The chart is measurable on the whole coordinate space, including the boundary. -/
+theorem measurable_twoRowGramChart : Measurable twoRowGramChart := by
+  unfold twoRowGramChart
+  fun_prop
+
+theorem measurable_twoRowGramRealCoordinates : Measurable twoRowGramRealCoordinates := by
+  unfold twoRowGramRealCoordinates
+  fun_prop
+
+/-- Actual Bartlett coordinates in exactly the volume-aligned real encoding. -/
+theorem actualTwoRow_BartlettRealCoordinates_law :
+    (stdGaussian (ComplexSample (m := 2) (n := 2))).map
+      (twoRowBartlettRealCoordinates ∘ twoRowBartlettCoordinates) =
+      ((gammaMeasure 2 1).prod
+        (((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).prod (expMeasure 1))).map
+          twoRowBartlettRealCoordinates := by
+  rw [← Measure.map_map measurable_twoRowBartlettRealCoordinates
+    measurable_twoRowBartlettCoordinates, actualTwoRow_BartlettCoordinates_law]
+
+/-- The actual Gram law is the real Bartlett law followed by the existing chart.
+No density equality is included as a hypothesis. -/
+theorem actualTwoRow_GramRealCoordinates_law :
+    (stdGaussian (ComplexSample (m := 2) (n := 2))).map
+      (fun z => twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))) =
+      (((gammaMeasure 2 1).prod
+        (((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).prod (expMeasure 1))).map
+          twoRowBartlettRealCoordinates).map twoRowGramChart := by
+  rw [← actualTwoRow_BartlettRealCoordinates_law,
+    Measure.map_map measurable_twoRowGramChart
+      (measurable_twoRowBartlettRealCoordinates.comp measurable_twoRowBartlettCoordinates)]
+  congr 1
+  funext z
+  rw [Function.comp_apply, Function.comp_apply, twoRowGramChart_eq_BartlettGram_real,
+    actualTwoRow_Gram_eq_BartlettGram]
+
 end
 end JinWishart
 
@@ -91,3 +126,7 @@ end JinWishart
 #print axioms JinWishart.volume_preserving_twoRowBartlettRealCoordinates
 #print axioms JinWishart.twoRowBartlettCoordinate_density_transport
 #print axioms JinWishart.measurable_gammaDensity_ennreal
+#print axioms JinWishart.measurable_twoRowGramChart
+#print axioms JinWishart.measurable_twoRowGramRealCoordinates
+#print axioms JinWishart.actualTwoRow_BartlettRealCoordinates_law
+#print axioms JinWishart.actualTwoRow_GramRealCoordinates_law
