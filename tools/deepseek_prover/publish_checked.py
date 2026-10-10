@@ -17,6 +17,8 @@ def main():
     parser.add_argument('--module', required=True)
     parser.add_argument('--log', required=True)
     parser.add_argument('--lemma', action='append', required=True, help='card-id:qualified-name')
+    parser.add_argument('--author', default='Codex')
+    parser.add_argument('--provenance', default='')
     args = parser.parse_args()
     source_path = Path(args.source).resolve()
     source = source_path.read_text(encoding='utf-8')
@@ -42,7 +44,7 @@ def main():
             'statement': 'theorem ' + qualified + match[1],
             'sha256': hashlib.sha256(source.encode()).hexdigest(),
             'semantic_review': 'KERNEL_AND_ORIGINAL_TARGET_REVIEWED; human interpretation pending',
-            'author': 'Codex', 'audit_log': str(Path(args.log).resolve())}
+            'author': args.author, 'provenance': args.provenance, 'audit_log': str(Path(args.log).resolve())}
     runner.write_json(manifest_path, manifest)
     print('Published: ' + ', '.join(e.split(':', 1)[0] for e in args.lemma))
 
