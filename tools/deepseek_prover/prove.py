@@ -69,6 +69,7 @@ def generate(prompt: str, model: str, max_tokens: int, seed: int) -> dict:
     print()
     final["response"] = "".join(answer)
     final["thinking"] = "".join(thinking)
+    final["request_framing"] = "observed-deepseek-role-tokens-raw" if payload.get("raw") else "server-template"
     return final
 
 

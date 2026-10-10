@@ -50,3 +50,11 @@ Codex复用实际Bartlett乘积律、逐点Gram重构和已有四实Gram chart�
 本地P4新回应真实读取：把向量输出说成实数，并重写了丢弃Gram chart的一条弱化声明，未按P4报告问题，故拒绝作审查证据，完整提示及原始回应已归档。[需人工审查] 测度规范和论文模型对应仍待人工审查。proposal6同样真实读取，指数/归一化及维度混乱且含sorry，拒绝其子任务建议。
 
 本地第19–20次猜stdGaussian_map_smul等不存在的库名，第21次返回sorry，均拒绝。独立游标已记录到21；22已拒绝，23运行中，后续继续读取。Codex给本地一个尚未在复数空间验收的缩放证明脚手架，来源明确标GUIDED_COLLABORATION，不能把脚手架当已证成果或本地独立作品。第一轮原始记录不变，未知草稿不动，19:00:53截止不变。
+
+18:35：观察到导入模型Jinja模板，按官方raw接口尝试显式原模板角色token；P4输出循环，实际候选仍重复无效Measure.ext，未证实改善，已恢复服务端封装，保留request_framing元数据和原APIshow配置。没有改权重或延长时限。为防止过时交换污染上下文，完整交流按内容哈希保存在messages-history，再压缩活跃交换。缩放实际律模板的假设和结论不变，Codex提供已核验的两步transport前缀，本地仅补可测性；准确归属GUIDED_COLLABORATION，不算本地独立密度发现。
+
+## 18:37积分与缩放接口里程碑
+
+Codex完成一般复坐标非零实数缩放withDensity公式（复实维度2的逆Jacobian）及实际Gram非负观测量在实际Bartlett乘积律下的积分公式；不把任何实际密度当假设。复用现有Euclidean缩放transport模式、actual real Gram推前律和lintegral_map。一次积分重写失败已修正，最新叶子十二条打印声明全部标准三公理，入口源码编译通过；完整lake构建未运行。已更新共享清单及哈希。
+
+真实本地新P4仅循环“Problem ... P4 Review Only”至长度截断，拒绝为审查证据。[需人工审查] 测度/模型对应继续待人工。第28次raw封装证明同样无效、第29次没有Lean代码，封装诊断不视为改善，恢复原封装。真正的后续协作小卡ComplexGaussianScaledDensityGuided与原缩放律同声明同假设，根证明的两步前缀由Codex供给，本地仅填可测性，严格标GUIDED_COLLABORATION。局部拆分不能冒称本地独立发现。

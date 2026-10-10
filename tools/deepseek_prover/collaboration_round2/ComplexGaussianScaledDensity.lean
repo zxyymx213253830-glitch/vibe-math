@@ -11,4 +11,8 @@ theorem deepseek_round2_ComplexGaussianScaledDensity (r : ℝ) (hr : r ≠ 0) :
       (volume : Measure ℂ).withDensity (fun z =>
         ENNReal.ofReal (abs (r ^ 2)⁻¹) *
           ENNReal.ofReal ((2 * Real.pi)⁻¹ * Real.exp (-‖r⁻¹ • z‖ ^ 2 / 2))) := by
+  -- Codex supplies the checked transport composition; local author completes
+  -- the remaining radial-density measurability goal. GUIDED_COLLABORATION.
+  rw [stdGaussian_complex_eq_radialDensity]
+  apply map_withDensity_smul_complex r hr
   sorry

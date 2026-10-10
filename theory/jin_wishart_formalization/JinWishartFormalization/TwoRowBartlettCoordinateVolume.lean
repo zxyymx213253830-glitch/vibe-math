@@ -1,5 +1,6 @@
 import JinWishartFormalization.TwoRowGramPositive
 import JinWishartFormalization.GaussianRadialLaw
+import JinWishartFormalization.GaussianRawCoordinates
 import Mathlib.MeasureTheory.Measure.Lebesgue.Complex
 
 /-!
@@ -117,6 +118,53 @@ theorem actualTwoRow_GramRealCoordinates_law :
   rw [Function.comp_apply, Function.comp_apply, twoRowGramChart_eq_BartlettGram_real,
     actualTwoRow_Gram_eq_BartlettGram]
 
+/-- Complex-coordinate volume interface for a nonzero real scalar. This is
+generic density transport, not an assertion of a Gaussian or Bartlett density. -/
+theorem map_withDensity_smul_complex (r : ℝ) (hr : r ≠ 0)
+    (f : ℂ → ℝ≥0∞) (hf : Measurable f) :
+    (volume.withDensity f).map (fun z => r • z) =
+      volume.withDensity (fun z => ENNReal.ofReal (abs (r ^ 2)⁻¹) * f (r⁻¹ • z)) := by
+  let e : ℂ ≃ᵐ ℂ :=
+    (Homeomorph.smul (isUnit_iff_ne_zero.mpr hr).unit).toMeasurableEquiv
+  have hmp : MeasurePreserving e volume (volume.map e) := ⟨e.measurable, rfl⟩
+  have h := map_withDensity_measurePreserving e volume (volume.map e) hmp f hf
+  have he (z : ℂ) : e z = r • z := rfl
+  have hes (z : ℂ) : e.symm z = r⁻¹ • z := by
+    apply e.injective
+    simp only [e.apply_symm_apply, he, smul_smul, mul_inv_cancel₀ hr, one_smul]
+  simp only [Function.comp_def, hes] at h
+  rw [show (e : ℂ → ℂ) = (fun z => r • z) from funext he] at h
+  rw [Measure.map_addHaar_smul volume hr, Complex.finrank_real_complex,
+    withDensity_smul_measure] at h
+  rw [h]
+  exact (withDensity_smul _ (show Measurable (fun z => f (r⁻¹ • z)) from
+    hf.comp (by fun_prop))).symm
+
+/-- Nonnegative observables of the actual Gram matrix can be integrated against
+the independent actual Bartlett factors, before any density identification. -/
+theorem actualTwoRow_GramRealCoordinates_lintegral
+    (g : GramChartSpace → ℝ≥0∞) (hg : Measurable g) :
+    ∫⁻ z, g (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))
+        ∂stdGaussian (ComplexSample (m := 2) (n := 2)) =
+      ∫⁻ p, g (twoRowGramChart (twoRowBartlettRealCoordinates p))
+        ∂(gammaMeasure 2 1).prod
+          (((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).prod (expMeasure 1)) := by
+  have he : (fun z : ComplexSample (m := 2) (n := 2) =>
+      twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))) =
+      twoRowGramChart ∘ (twoRowBartlettRealCoordinates ∘ twoRowBartlettCoordinates) := by
+    funext z
+    simp only [Function.comp_apply, twoRowGramChart_eq_BartlettGram_real,
+      actualTwoRow_Gram_eq_BartlettGram]
+  have hm : Measurable (fun z : ComplexSample (m := 2) (n := 2) =>
+      twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))) := by
+    rw [he]
+    exact measurable_twoRowGramChart.comp
+      (measurable_twoRowBartlettRealCoordinates.comp measurable_twoRowBartlettCoordinates)
+  rw [← lintegral_map hg hm, actualTwoRow_GramRealCoordinates_law,
+    lintegral_map hg measurable_twoRowGramChart]
+  exact lintegral_map (hg.comp measurable_twoRowGramChart)
+    measurable_twoRowBartlettRealCoordinates
+
 end
 end JinWishart
 
@@ -130,3 +178,5 @@ end JinWishart
 #print axioms JinWishart.measurable_twoRowGramRealCoordinates
 #print axioms JinWishart.actualTwoRow_BartlettRealCoordinates_law
 #print axioms JinWishart.actualTwoRow_GramRealCoordinates_law
+#print axioms JinWishart.map_withDensity_smul_complex
+#print axioms JinWishart.actualTwoRow_GramRealCoordinates_lintegral

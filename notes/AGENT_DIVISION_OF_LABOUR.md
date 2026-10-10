@@ -549,3 +549,7 @@ BUILD START 2026-10-10T10:22:40.151451+00:00: extend owned coordinate module wit
 BUILD END 2026-10-10T10:24:05.455842+00:00: coordinate leaf plus two actual real-law bridges PASS, ten printed declarations standard three axioms. Shared manifest refreshed; no full build.
 
 BUILD END 2026-10-10T10:27:14.094229+00:00: actual real-law extension facade source PASS, no full lake rebuild. P4 genuine response read and rejected as nonresponsive/weakened rewrite; human review pending.
+
+BUILD START 2026-10-10T10:31:25.318695+00:00: repair Gram-observable lintegral composition rewrite; generic complex scalar volume transport already passed with standard axioms. Both checks serialize via current round2 gate.
+
+BUILD END 2026-10-10T10:37:38.606969+00:00: generic complex scalar volume and actual Gram nonnegative integral PASS, twelve printed statements standard three axioms, facade source PASS. Failed first integral check retained. No full build; local P4 response rejected, human review pending.
