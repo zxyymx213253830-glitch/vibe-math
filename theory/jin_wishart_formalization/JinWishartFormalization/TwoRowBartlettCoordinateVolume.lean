@@ -243,6 +243,21 @@ theorem twoRowGramChart_density_map
   exact (ENNReal.mul_div_cancel (ne_of_gt (ENNReal.ofReal_pos.mpr hp.1))
     ENNReal.ofReal_ne_top).symm
 
+/-- The actual encoded Bartlett measure is concentrated on the domain used
+by the Jacobian density interface; this uses the actual law, not a density hypothesis. -/
+theorem actualTwoRow_BartlettRealLaw_restrict_positive :
+    (((gammaMeasure 2 1).prod
+      (((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).prod (expMeasure 1))).map
+        twoRowBartlettRealCoordinates).restrict
+          {p : GramChartSpace | 0 < p 0 ∧ 0 < p 3} =
+      ((gammaMeasure 2 1).prod
+        (((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).prod (expMeasure 1))).map
+          twoRowBartlettRealCoordinates := by
+  apply Measure.restrict_eq_self_of_ae_mem
+  apply (ae_map_iff measurable_twoRowBartlettRealCoordinates.aemeasurable
+    (by measurability)).2
+  simpa [twoRowBartlettRealCoordinates] using twoRow_Bartlett_product_positive_ae
+
 end
 end JinWishart
 
@@ -262,3 +277,5 @@ end JinWishart
 #print axioms JinWishart.twoRowGramChart_weighted_density_map
 #print axioms JinWishart.measurable_twoRowGramChartInverse
 #print axioms JinWishart.twoRowGramChart_density_map
+
+#print axioms JinWishart.actualTwoRow_BartlettRealLaw_restrict_positive
