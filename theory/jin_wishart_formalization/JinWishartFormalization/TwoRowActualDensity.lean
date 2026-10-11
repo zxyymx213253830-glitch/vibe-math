@@ -1,5 +1,7 @@
 import JinWishartFormalization.TwoRowBartlettCoordinateVolume
 import JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided
+import JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient
+import JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare
 
 /-!
 # Actual density bridges in the third collaboration hour
@@ -162,6 +164,80 @@ theorem twoRowGramDensityRaw_positive_formula (q : GramChartSpace)
   exact ENNReal.mul_div_cancel_right
     (ne_of_gt (ENNReal.ofReal_pos.mpr hq)) ENNReal.ofReal_ne_top
 
+/-- GUIDED_COLLABORATION: local norm-square result, Codex arithmetic composition.
+The local original exponent attempts were not accepted. -/
+theorem twoRow_complex_scaled_exponent (z : ℂ) :
+    -‖((Real.sqrt 2)⁻¹)⁻¹ • z‖ ^ 2 / 2 = -‖z‖ ^ 2 := by
+  rw [inv_inv, deepseek_round3_ComplexScaledNormSquare]
+  ring
+
+/-- GUIDED_COLLABORATION: local checked coefficient and norm-square identities;
+Codex composes them with the exact ENNReal expression of the actual law. -/
+theorem twoRowComplexDensityRaw_normalized (z : ℂ) :
+    twoRowComplexDensityRaw z =
+      ENNReal.ofReal (Real.pi⁻¹ * Real.exp (-‖z‖ ^ 2)) := by
+  unfold twoRowComplexDensityRaw
+  rw [twoRow_complex_scaled_exponent]
+  rw [← ENNReal.ofReal_mul (by positivity)]
+  congr 1
+  rw [← mul_assoc, deepseek_round3_ComplexScaledCoefficient]
+
+/-- Actual central complex 2x2 Gram density equals the trace exponential
+on its actual positive domain. This has not been generalized to the paper's
+arbitrary dimensions, spectra, or noncentral models. -/
+theorem twoRowGramDensityRaw_trace_formula (q : GramChartSpace)
+    (hq : 0 < q 0) (hd : q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3) :
+    twoRowGramDensityRaw q = ENNReal.ofReal (Real.pi⁻¹ * Real.exp (-(q 0 + q 3))) := by
+  rw [twoRowGramDensityRaw_positive_formula q hq hd, twoRowComplexDensityRaw_normalized]
+  rw [← ENNReal.ofReal_mul (by positivity), mul_assoc, ← Real.exp_add]
+  congr 2
+  congr 1
+  simp [Complex.sq_norm, Complex.normSq_apply, twoRowGramChartInverse]
+  ring
+
+/-- The actual probability law, with the simplified density relative to the
+four real coordinates and the exact Gram positive domain. [需人工审查]
+Volume convention and identification with the paper remain separate reviews. -/
+theorem actualTwoRow_GramRealCoordinates_eq_traceDensity :
+    (stdGaussian (ComplexSample (m := 2) (n := 2))).map
+      (fun z => twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))) =
+      (volume.restrict
+        {q : GramChartSpace | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}).withDensity
+          (fun q => ENNReal.ofReal (Real.pi⁻¹ * Real.exp (-(q 0 + q 3)))) := by
+  rw [actualTwoRow_GramRealCoordinates_eq_withDensity_raw]
+  apply withDensity_congr_ae
+  have hs : MeasurableSet
+      {q : GramChartSpace | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3} := by
+    measurability
+  filter_upwards [ae_restrict_mem hs] with q hq
+  exact twoRowGramDensityRaw_trace_formula q hq.1 hq.2
+
+/-- Exact normalization derived from the actual probability law, not a numerical
+integral or an assumed normalization. [需人工审查] Coordinate volume convention. -/
+theorem twoRowGram_traceDensity_mass :
+    ∫⁻ q in {q : GramChartSpace | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3},
+      ENNReal.ofReal (Real.pi⁻¹ * Real.exp (-(q 0 + q 3))) = 1 := by
+  have h := congrArg (fun μ : Measure GramChartSpace => μ Set.univ)
+    actualTwoRow_GramRealCoordinates_eq_traceDensity
+  have hm : Measurable (fun z : ComplexSample (m := 2) (n := 2) =>
+      twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))) :=
+    measurable_twoRowGramRealCoordinates.comp
+      (measurable_complexSampleGram (m := 2) (n := 2))
+  rw [Measure.map_apply hm MeasurableSet.univ] at h
+  simpa using h.symm
+
+/-- Actual normalized CN(0,1) factor used by the coordinate-density bridge.
+Codex composes the actual scaling law with joint checked normalization. -/
+theorem actualTwoRow_Complex_eq_normalizedDensity :
+    (stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z) =
+      (volume : Measure ℂ).withDensity
+        (fun z => ENNReal.ofReal (Real.pi⁻¹ * Real.exp (-‖z‖ ^ 2))) := by
+  rw [stdGaussian_complex_scaled_eq_withDensity (Real.sqrt 2)⁻¹
+    (inv_ne_zero (ne_of_gt (Real.sqrt_pos.mpr (by norm_num))))]
+  congr 1
+  funext z
+  exact twoRowComplexDensityRaw_normalized z
+
 end JinWishart
 
 #print axioms JinWishart.stdGaussian_complex_scaled_eq_withDensity
@@ -178,3 +254,9 @@ end JinWishart
 #print axioms JinWishart.twoRowBartlettCoordinateEquiv_symm_apply
 #print axioms JinWishart.twoRowBartlettRealDensityRaw_positive_formula
 #print axioms JinWishart.twoRowGramDensityRaw_positive_formula
+#print axioms JinWishart.twoRow_complex_scaled_exponent
+#print axioms JinWishart.twoRowComplexDensityRaw_normalized
+#print axioms JinWishart.twoRowGramDensityRaw_trace_formula
+#print axioms JinWishart.actualTwoRow_GramRealCoordinates_eq_traceDensity
+#print axioms JinWishart.twoRowGram_traceDensity_mass
+#print axioms JinWishart.actualTwoRow_Complex_eq_normalizedDensity
