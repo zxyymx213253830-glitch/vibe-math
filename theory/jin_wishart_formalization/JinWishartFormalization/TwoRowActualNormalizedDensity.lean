@@ -99,6 +99,16 @@ theorem complexWishart_twoRow_realCoordinates_eq_traceDensity :
     measurable_complexSampleGram]
   exact actualTwoRow_GramRealCoordinates_eq_traceDensity
 
+/-- Normalization derived from the actual CN real-coordinate probability law.
+Codex completes this interface after two local attempts failed; no independent
+local density or radial-integral result is claimed. [需人工审查] Volume convention. -/
+theorem twoRow_complexReal_normalizedDensity_mass :
+    (∫⁻ p : ℝ × ℝ, ENNReal.ofReal
+      (Real.pi⁻¹ * Real.exp (-(p.1 ^ 2 + p.2 ^ 2)))) = 1 := by
+  have h := congrArg (fun μ : Measure (ℝ × ℝ) => μ Set.univ)
+    actualTwoRow_ComplexReal_eq_normalizedDensity
+  simpa using h.symm
+
 end JinWishart
 
 #print axioms JinWishart.twoRowBartlettRealDensityRaw_normalized_positive
@@ -106,3 +116,4 @@ end JinWishart
 #print axioms JinWishart.twoRow_complex_real_norm_square
 #print axioms JinWishart.actualTwoRow_ComplexReal_eq_normalizedDensity
 #print axioms JinWishart.complexWishart_twoRow_realCoordinates_eq_traceDensity
+#print axioms JinWishart.twoRow_complexReal_normalizedDensity_mass
