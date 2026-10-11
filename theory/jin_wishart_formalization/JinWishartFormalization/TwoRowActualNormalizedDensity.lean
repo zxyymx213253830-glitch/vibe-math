@@ -67,8 +67,42 @@ theorem twoRow_complex_real_norm_square (p : ℝ × ℝ) :
   simp [Complex.measurableEquivRealProd_symm_apply]
   ring
 
+/-- The actual normalized circular complex Gaussian in its two real coordinates.
+Codex completes the measure-preserving transport after local attempts36-38
+failed; local normalization helpers used upstream keep their original authorship.
+[需人工审查] Complex volume convention and variance convention. -/
+theorem actualTwoRow_ComplexReal_eq_normalizedDensity :
+    ((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).map
+        Complex.measurableEquivRealProd =
+      (volume : Measure (ℝ × ℝ)).withDensity
+        (fun p => ENNReal.ofReal
+          (Real.pi⁻¹ * Real.exp (-(p.1 ^ 2 + p.2 ^ 2)))) := by
+  rw [actualTwoRow_Complex_eq_normalizedDensity]
+  have hf : Measurable (fun z : ℂ =>
+      ENNReal.ofReal (Real.pi⁻¹ * Real.exp (-‖z‖ ^ 2))) := by fun_prop
+  rw [map_withDensity_measurePreserving Complex.measurableEquivRealProd
+    volume volume Complex.volume_preserving_equiv_real_prod _ hf]
+  congr 1
+  funext p
+  simp only [Function.comp_apply, twoRow_complex_real_norm_square]
+
+/-- Expose the checked central complex 2x2 density through the existing Wishart
+probability-law API. This is an interface theorem, not a general spectral result.
+[需人工审查] Paper convention and coordinate order. -/
+theorem complexWishart_twoRow_realCoordinates_eq_traceDensity :
+    (complexWishart (m := 2) (n := 2)).map twoRowGramRealCoordinates =
+      (volume.restrict {q : GramChartSpace |
+        0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}).withDensity
+        (fun q => ENNReal.ofReal
+          (Real.pi⁻¹ * Real.exp (-(q 0 + q 3)))) := by
+  rw [complexWishart, Measure.map_map measurable_twoRowGramRealCoordinates
+    measurable_complexSampleGram]
+  exact actualTwoRow_GramRealCoordinates_eq_traceDensity
+
 end JinWishart
 
 #print axioms JinWishart.twoRowBartlettRealDensityRaw_normalized_positive
 #print axioms JinWishart.actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity
 #print axioms JinWishart.twoRow_complex_real_norm_square
+#print axioms JinWishart.actualTwoRow_ComplexReal_eq_normalizedDensity
+#print axioms JinWishart.complexWishart_twoRow_realCoordinates_eq_traceDensity

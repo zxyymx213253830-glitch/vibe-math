@@ -18,17 +18,16 @@
     "provenance": "Codex smaller norm-square target after exponent failures8-10; local writes original tactics"
   },
   {
-    "id": "ComplexRealDensity",
-    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexRealDensity.lean",
-    "purpose": "Transport the actual complex density to its two real coordinates",
+    "id": "ComplexRealDensityMass",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexRealDensityMass.lean",
     "requires": [
-      "ComplexDensity",
-      "ComplexRealNormSquare"
+      "ComplexRealDensity"
     ],
-    "assets": "GUIDED_COLLABORATION. Actual normalized CN law and forthcoming checked root norm bridge are relevant new help after failures30-35. Exact route: rw [JinWishart.actualTwoRow_Complex_eq_normalizedDensity]; have hf : Measurable (fun z : Complex => ENNReal.ofReal (Real.pi^(-1)*Real.exp(-norm(z)^2))) := by fun_prop; rw [map_withDensity_measurePreserving Complex.measurableEquivRealProd volume volume Complex.volume_preserving_equiv_real_prod _ hf]; congr 1; funext p; simp only [Function.comp_apply,JinWishart.twoRow_complex_real_norm_square]. No measure ext, no repeated failed norm helper.",
     "use": [
-      "ComplexDensity",
-      "ComplexRealNormSquare"
-    ]
+      "ComplexRealDensity"
+    ],
+    "purpose": "New derived normalization interface from checked actual CN real-coordinate law; never relabel Codex actual density as local independent proof",
+    "assets": "GUIDED_COLLABORATION. New verified relevant law JinWishart.actualTwoRow_ComplexReal_eq_normalizedDensity has the EXACT density in target. Obtain h := congrArg (fun mu : Measure (Real x Real) => mu Set.univ) JinWishart.actualTwoRow_ComplexReal_eq_normalizedDensity. Both nested maps of stdGaussian have IsProbabilityMeasure by existing instance. MeasureTheory.withDensity_apply on Set.univ rewrites RHS to lintegral; simp should finish h.symm. No radial integration, no Measure.ext, no assumed density, no new theorem statement. Return only tactics for final hole. This is only mass interface, actual density author Codex.",
+    "provenance": "Codex exact verified actual-law dependency and congrArg mass route; local supplies tactics"
   }
 ]
