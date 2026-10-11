@@ -130,6 +130,38 @@ theorem twoRowBartlettCoordinateEquiv_symm_apply (q : GramChartSpace) :
   ext i
   fin_cases i <;> simp [twoRowBartlettRealCoordinates]
 
+/-- Collapse the two real factors on the actual positive Bartlett domain. -/
+theorem twoRowBartlettRealDensityRaw_positive_formula (p : GramChartSpace)
+    (hs : 0 < p 0) (he : 0 < p 3) :
+    twoRowBartlettRealDensityRaw p = ENNReal.ofReal (p 0) *
+      (twoRowComplexDensityRaw ⟨p 1, p 2⟩ *
+        ENNReal.ofReal (Real.exp (-(p 0 + p 3)))) := by
+  unfold twoRowBartlettRealDensityRaw twoRowBartlettDensityRaw
+  rw [twoRowBartlettCoordinateEquiv_symm_apply]
+  dsimp only
+  rw [twoRow_gamma_two_positive_formula _ hs,
+    twoRow_gamma_one_positive_formula _ he, ENNReal.ofReal_mul hs.le,
+    neg_add, Real.exp_add, ENNReal.ofReal_mul (Real.exp_pos _).le]
+  ac_rfl
+
+/-- The actual positive Gram chart cancels the first Bartlett energy against
+the Jacobian. The complex factor is kept exact until local normalization passes. -/
+theorem twoRowGramDensityRaw_positive_formula (q : GramChartSpace)
+    (hq : 0 < q 0) (hd : q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3) :
+    twoRowGramDensityRaw q =
+      twoRowComplexDensityRaw
+        ⟨twoRowGramChartInverse q 1, twoRowGramChartInverse q 2⟩ *
+      ENNReal.ofReal (Real.exp (-(q 0 + twoRowGramChartInverse q 3))) := by
+  have hs : 0 < twoRowGramChartInverse q 0 := by
+    simpa [twoRowGramChartInverse] using hq
+  unfold twoRowGramDensityRaw
+  rw [twoRowBartlettRealDensityRaw_positive_formula _ hs
+    (twoRowGramChart_inverse_residual_pos q hq hd)]
+  simp only [twoRowGramChartInverse, Matrix.cons_val_zero]
+  rw [mul_comm (ENNReal.ofReal (q 0))]
+  exact ENNReal.mul_div_cancel_right
+    (ne_of_gt (ENNReal.ofReal_pos.mpr hq)) ENNReal.ofReal_ne_top
+
 end JinWishart
 
 #print axioms JinWishart.stdGaussian_complex_scaled_eq_withDensity
@@ -144,3 +176,5 @@ end JinWishart
 #print axioms JinWishart.twoRow_gamma_two_positive_formula
 #print axioms JinWishart.twoRow_gamma_one_positive_formula
 #print axioms JinWishart.twoRowBartlettCoordinateEquiv_symm_apply
+#print axioms JinWishart.twoRowBartlettRealDensityRaw_positive_formula
+#print axioms JinWishart.twoRowGramDensityRaw_positive_formula

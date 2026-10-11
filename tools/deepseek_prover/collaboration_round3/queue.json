@@ -18,28 +18,28 @@
     "provenance": "Codex smaller norm-square target after exponent failures8-10; local writes original tactics"
   },
   {
-    "id": "ComplexScaledExponent",
-    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledExponent.lean",
+    "id": "ComplexScaledExponentGuided",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledExponentGuided.lean",
     "requires": [
       "ComplexScaledNormSquare"
     ],
     "use": [
       "ComplexScaledNormSquare"
     ],
-    "purpose": "Only exponent normalization, no constants, measures or ENNReal",
-    "assets": "GUIDED_COLLABORATION. Preserve ORIGINAL negative exponent and division by2. Your previous prose omitted both, so your incorrectness claim does not apply. After intro z and rw [inv_inv, deepseek_round3_ComplexScaledNormSquare], ring proves - (2*norm(z)^2) / 2 = - norm(z)^2. Use no Complex.abs or invented sqrt lemma.",
-    "provenance": "Codex decomposes actual CN normalization; local writes candidate tactics"
+    "purpose": "Guided exponent arithmetic completion; original full exponent target unchanged, checked norm rewrite fixed in prefix",
+    "assets": "GUIDED_COLLABORATION. Codex supplies prefix intro z and rw [inv_inv, deepseek_round3_ComplexScaledNormSquare]. Only remaining real polynomial goal is -(2*norm(z)^2)/2 = -norm(z)^2. ONE block containing ring suffices; do not repeat prefix or theorem. No norm/sqrt/complex lemmas remain necessary.",
+    "provenance": "GUIDED_COLLABORATION: Codex fixes checked norm rewrite prefix after repeated ignored guidance; local author only final real arithmetic completion"
   },
   {
     "id": "ComplexScaledDensityNormalize",
     "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledDensityNormalize.lean",
     "requires": [
       "ComplexScaledCoefficient",
-      "ComplexScaledExponent"
+      "ComplexScaledExponentGuided"
     ],
     "use": [
       "ComplexScaledCoefficient",
-      "ComplexScaledExponent"
+      "ComplexScaledExponentGuided"
     ],
     "purpose": "Pointwise normalization of the checked actual Gaussian scalar density at 1/sqrt2",
     "provenance": "GUIDED_COLLABORATION: Codex decomposition and pinned asset search; local authors proof tactics",
