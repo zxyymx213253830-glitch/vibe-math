@@ -1,4 +1,5 @@
 import JinWishartFormalization.TwoRowActualDensity
+import JinWishartFormalization.TwoRowActualNormalizedDensity
 import Mathlib.Analysis.SpecialFunctions.ExpDeriv
 import Mathlib.Analysis.Calculus.Deriv.Pow
 import Mathlib.Analysis.Calculus.Deriv.MeanValue

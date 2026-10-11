@@ -18,29 +18,26 @@
     "provenance": "Codex smaller norm-square target after exponent failures8-10; local writes original tactics"
   },
   {
-    "id": "BartlettDensityPointwise",
-    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\BartlettDensityPointwise.lean",
-    "requires": [
-      "ComplexScaledDensityNormalize"
-    ],
-    "use": [
-      "ComplexScaledDensityNormalize"
-    ],
-    "purpose": "New smaller relevant step after Bartlett measure-composition failures: pointwise raw factor normalization only",
-    "assets": "GUIDED_COLLABORATION. p is already a variable, do not intro p. TwoRowBartlettDensityRaw is gammaPDF2 1 p.1 * (twoRowComplexDensityRaw p.2.1 * gammaPDF1 1 p.2.2). After unfolding that one definition, rw [JinWishart.twoRowComplexDensityRaw_normalized] proves goal. Or simp only [JinWishart.twoRowBartlettDensityRaw,JinWishart.twoRowComplexDensityRaw_normalized]. No measure extensionality, sample evaluation, rfl before normalization or extra norm facts. Local authors density-factor identity, Codex later combines actual law.",
-    "provenance": "GUIDED_COLLABORATION: Codex smaller factor goal after21-23 actual measure failures; local authors original tactics"
+    "id": "ComplexRealNormSquare",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexRealNormSquare.lean",
+    "requires": [],
+    "use": [],
+    "purpose": "Relevant complex-real density substep: exact norm under volume-preserving real-product encoding, no measures/extensionality",
+    "assets": "GUIDED_COLLABORATION. Locked exact assets Complex.sq_norm, Complex.normSq_apply, Complex.measurableEquivRealProd_symm_apply. rw [Complex.sq_norm,Complex.normSq_apply]; simp [Complex.measurableEquivRealProd_symm_apply]; ring. Real products/powers are ordinary reals. p already a variable. Do not use nonexistent Complex.abs or Complex.norm_eq_abs.",
+    "provenance": "Codex exact pinned assets for real-coordinate density exponent; local original proof tactics"
   },
   {
     "id": "ComplexRealDensity",
     "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexRealDensity.lean",
     "purpose": "Transport the actual complex density to its two real coordinates",
     "requires": [
-      "ComplexDensity"
+      "ComplexDensity",
+      "ComplexRealNormSquare"
     ],
-    "assets": "Complex.volume_preserving_equiv_real_prod; JinWishart.map_withDensity_measurePreserving; Complex.sq_norm, Complex.normSq_apply.",
+    "assets": "GUIDED_COLLABORATION. rw [JinWishart.actualTwoRow_Complex_eq_normalizedDensity]; have hf : Measurable (fun z:Complex => ENNReal.ofReal (Real.pi^(-1)*Real.exp(-norm(z)^2))) := by fun_prop. Use map_withDensity_measurePreserving Complex.measurableEquivRealProd volume volume Complex.volume_preserving_equiv_real_prod _ hf. Then congr 1; funext p; simp only [Function.comp_apply,deepseek_round3_ComplexRealNormSquare]. Imported checked norm identity handles exponent. No Measure.ext or invented namespaces.",
     "use": [
       "ComplexDensity",
-      "ComplexDensityMeasurable"
+      "ComplexRealNormSquare"
     ]
   }
 ]
