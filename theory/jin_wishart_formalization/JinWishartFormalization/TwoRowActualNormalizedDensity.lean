@@ -58,7 +58,17 @@ theorem actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity :
   filter_upwards [ae_restrict_mem hs] with p hp
   exact twoRowBartlettRealDensityRaw_normalized_positive p hp.1 hp.2
 
+/-- Exact exponent bridge for the pending actual complex-to-real density.
+Codex supplies this after local attempts33-35 did not use the square-norm lemma;
+it is an algebra helper, not an independently local density result. -/
+theorem twoRow_complex_real_norm_square (p : ℝ × ℝ) :
+    ‖Complex.measurableEquivRealProd.symm p‖ ^ 2 = p.1 ^ 2 + p.2 ^ 2 := by
+  rw [Complex.sq_norm, Complex.normSq_apply]
+  simp [Complex.measurableEquivRealProd_symm_apply]
+  ring
+
 end JinWishart
 
 #print axioms JinWishart.twoRowBartlettRealDensityRaw_normalized_positive
 #print axioms JinWishart.actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity
+#print axioms JinWishart.twoRow_complex_real_norm_square
