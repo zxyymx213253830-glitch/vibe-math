@@ -9,12 +9,25 @@
     "provenance": "Codex smaller algebra target and exact-library route after failures1-3"
   },
   {
-    "id": "ComplexScaledExponent",
-    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledExponent.lean",
+    "id": "ComplexScaledNormSquare",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledNormSquare.lean",
     "requires": [],
     "use": [],
+    "purpose": "New relevant split after exponent misreading: scalar norm square only, no minus or division",
+    "assets": "GUIDED_COLLABORATION. This expression has NO negative sign and NO division. Exact locked names: norm_smul, Real.norm_eq_abs, abs_of_nonneg (Real.sqrt_nonneg 2), mul_pow, Real.sq_sqrt (by norm_num). Rewrite this short sequence to get 2*norm(z)^2. Do not use Complex.abs, Complex.norm_eq_abs or Real.sqrt_eq_iff_sq_eq: compiler confirmed nonexistent.",
+    "provenance": "Codex smaller norm-square target after exponent failures8-10; local writes original tactics"
+  },
+  {
+    "id": "ComplexScaledExponent",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledExponent.lean",
+    "requires": [
+      "ComplexScaledNormSquare"
+    ],
+    "use": [
+      "ComplexScaledNormSquare"
+    ],
     "purpose": "Only exponent normalization, no constants, measures or ENNReal",
-    "assets": "GUIDED_COLLABORATION. intro z; rw [inv_inv, norm_smul, Real.norm_eq_abs, abs_of_nonneg (Real.sqrt_nonneg 2), mul_pow, Real.sq_sqrt (by norm_num)]; ring. This is an uncompiled proof route with exact pinned names; preserve the target.",
+    "assets": "GUIDED_COLLABORATION. Preserve ORIGINAL negative exponent and division by2. Your previous prose omitted both, so your incorrectness claim does not apply. After intro z and rw [inv_inv, deepseek_round3_ComplexScaledNormSquare], ring proves - (2*norm(z)^2) / 2 = - norm(z)^2. Use no Complex.abs or invented sqrt lemma.",
     "provenance": "Codex decomposes actual CN normalization; local writes candidate tactics"
   },
   {

@@ -110,6 +110,26 @@ theorem actualTwoRow_GramRealCoordinates_eq_withDensity_raw :
   rw [actualTwoRow_GramRealCoordinates_law, hd, ← hpos]
   exact twoRowGramChart_density_map _ measurable_twoRowBartlettRealDensityRaw
 
+/-- Positive-support Gamma(2,1) factor, for simplifying the actual law. -/
+theorem twoRow_gamma_two_positive_formula (x : ℝ) (hx : 0 < x) :
+    gammaPDF 2 1 x = ENNReal.ofReal (x * Real.exp (-x)) := by
+  norm_num [gammaPDF, gammaPDFReal, hx.le]
+
+/-- Positive-support residual factor, for simplifying the actual law. -/
+theorem twoRow_gamma_one_positive_formula (x : ℝ) (hx : 0 < x) :
+    gammaPDF 1 1 x = ENNReal.ofReal (Real.exp (-x)) := by
+  simp [gammaPDF, gammaPDFReal, hx.le, Real.Gamma_one]
+
+/-- Explicit inverse encoding, retaining the coordinate order used by volume. -/
+theorem twoRowBartlettCoordinateEquiv_symm_apply (q : GramChartSpace) :
+    twoRowBartlettCoordinateEquiv.symm q =
+      (q 0, (⟨q 1, q 2⟩, q 3)) := by
+  apply twoRowBartlettCoordinateEquiv.injective
+  rw [twoRowBartlettCoordinateEquiv.apply_symm_apply,
+    twoRowBartlettCoordinateEquiv_apply]
+  ext i
+  fin_cases i <;> simp [twoRowBartlettRealCoordinates]
+
 end JinWishart
 
 #print axioms JinWishart.stdGaussian_complex_scaled_eq_withDensity
@@ -121,3 +141,6 @@ end JinWishart
 #print axioms JinWishart.actualTwoRow_BartlettRealCoordinates_eq_withDensity_raw
 #print axioms JinWishart.measurable_twoRowGramDensityRaw
 #print axioms JinWishart.actualTwoRow_GramRealCoordinates_eq_withDensity_raw
+#print axioms JinWishart.twoRow_gamma_two_positive_formula
+#print axioms JinWishart.twoRow_gamma_one_positive_formula
+#print axioms JinWishart.twoRowBartlettCoordinateEquiv_symm_apply
