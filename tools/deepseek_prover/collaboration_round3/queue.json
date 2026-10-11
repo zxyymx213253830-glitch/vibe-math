@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ComplexScaledCoefficient",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledCoefficient.lean",
+    "requires": [],
+    "use": [],
+    "purpose": "Only scalar Jacobian normalization, with no norm, ENNReal or measure goal",
+    "assets": "GUIDED_COLLABORATION. hs : (Real.sqrt 2)^2=(2:Real) from Real.sq_sqrt (by norm_num); rewrite inv_pow, hs to obtain coefficient |2|. Use norm_num and field_simp [Real.pi_ne_zero] then ring. Do not reference Complex.abs or Complex.norm_eq_abs, these do not exist.",
+    "provenance": "Codex smaller algebra target and exact-library route after failures1-3"
+  },
+  {
+    "id": "ComplexScaledExponent",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledExponent.lean",
+    "requires": [],
+    "use": [],
+    "purpose": "Only exponent normalization, no constants, measures or ENNReal",
+    "assets": "GUIDED_COLLABORATION. intro z; rw [inv_inv, norm_smul, Real.norm_eq_abs, abs_of_nonneg (Real.sqrt_nonneg 2), mul_pow, Real.sq_sqrt (by norm_num)]; ring. This is an uncompiled proof route with exact pinned names; preserve the target.",
+    "provenance": "Codex decomposes actual CN normalization; local writes candidate tactics"
+  },
+  {
+    "id": "ComplexScaledDensityNormalize",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\collaboration_round3\\ComplexScaledDensityNormalize.lean",
+    "requires": [
+      "ComplexScaledCoefficient",
+      "ComplexScaledExponent"
+    ],
+    "use": [
+      "ComplexScaledCoefficient",
+      "ComplexScaledExponent"
+    ],
+    "purpose": "Pointwise normalization of the checked actual Gaussian scalar density at 1/sqrt2",
+    "provenance": "GUIDED_COLLABORATION: Codex decomposition and pinned asset search; local authors proof tactics",
+    "assets": "After both tiny real identities pass, use them to rewrite exponent and Jacobian coefficient; combine ENNReal.ofReal factors with ENNReal.ofReal_mul. No Measure.ext or nonexistent Complex.abs. GUIDED_COLLABORATION."
+  },
+  {
+    "id": "ComplexDensity",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexDensity.lean",
+    "requires": [
+      "ActualComplexScaledDensity",
+      "ComplexScaledDensityNormalize"
+    ],
+    "use": [
+      "ActualComplexScaledDensity",
+      "ComplexScaledDensityNormalize"
+    ],
+    "purpose": "Prove actual CN(0,1) probability-density equality from checked scaling and pointwise normalization",
+    "provenance": "GUIDED_COLLABORATION: Codex actual scaling composition, local pointwise normalization and final composition",
+    "assets": "Apply JinWishart.stdGaussian_complex_scaled_eq_withDensity at r=(Real.sqrt 2)^(-1), nonzero via inv_ne_zero (ne_of_gt (Real.sqrt_pos.mpr (by norm_num))). The resulting density functions agree by deepseek_round3_ComplexScaledDensityNormalize pointwise. Use congrArg Measure.withDensity/function extensionality rather than measure-set extensionality."
+  },
+  {
+    "id": "BartlettProductDensity",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\BartlettProductDensity.lean",
+    "purpose": "Actual Bartlett law with density on product coordinates, no density hypothesis",
+    "requires": [
+      "ComplexDensity",
+      "GammaDensityMeasurable",
+      "ResidualDensityMeasurable"
+    ],
+    "assets": "Reuse actualTwoRow_BartlettCoordinates_law, gammaMeasure, expMeasure, prod_withDensity twice and Measure.volume_eq_prod. Do not assume a Bartlett density.",
+    "use": [
+      "ComplexDensity",
+      "ComplexDensityMeasurable",
+      "GammaDensityMeasurable",
+      "ResidualDensityMeasurable"
+    ]
+  },
+  {
+    "id": "ComplexRealDensity",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\hour_tasks\\ComplexRealDensity.lean",
+    "purpose": "Transport the actual complex density to its two real coordinates",
+    "requires": [
+      "ComplexDensity"
+    ],
+    "assets": "Complex.volume_preserving_equiv_real_prod; JinWishart.map_withDensity_measurePreserving; Complex.sq_norm, Complex.normSq_apply.",
+    "use": [
+      "ComplexDensity",
+      "ComplexDensityMeasurable"
+    ]
+  }
+]
