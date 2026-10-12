@@ -1,0 +1,11 @@
+[
+  {
+    "id": "RealTraceTranslation",
+    "source": "D:\\vibe math\\tools\\deepseek_prover\\spectral_20261012\\RealTraceTranslation.lean",
+    "requires": [],
+    "use": [],
+    "purpose": "Relevant smaller real exponential factor after three failures at ENNReal coercion; removes only coercion layer",
+    "assets": "GUIDED_COLLABORATION. This target is REAL equality, not ENNReal. Exact Real.exp_add : exp(u+v)=exp(u)*exp(v). Rewrite RHS with <- Real.exp_add, use congr 1 and ring for exponent equality. No field_simp or invented exp_mul. Original target retains factor -2*x. Return tactics only.",
+    "provenance": "Codex removes failed ENNReal layer and supplies exact Real.exp_add/ring route; local writes original tactics"
+  }
+]

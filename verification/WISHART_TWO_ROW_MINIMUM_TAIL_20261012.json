@@ -1,0 +1,97 @@
+{
+  "seed": 20261012,
+  "sample_count": 200000,
+  "model": "actual CN(0,1) 2x2 samples; Gram X*X",
+  "status": "CONTROLS_PASS_CONJECTURE_NOT_REFUTED_NOT_A_PROOF",
+  "controls": {
+    "scalar_Exp1_mean": [
+      1.000156921302002,
+      1.0
+    ],
+    "scalar_Exp1_variance": [
+      1.0007913460131226,
+      1.0
+    ],
+    "trace_Gamma4_mean": [
+      3.995964698128062,
+      4.0
+    ],
+    "trace_Gamma4_variance": [
+      3.9822327622355584,
+      4.0
+    ],
+    "numpy_eigenvalue_max_error": 2.220446049250313e-15
+  },
+  "tail_comparisons": [
+    {
+      "threshold": 0.0,
+      "observed_minimum_tail": 1.0,
+      "conjectured_exp_minus_2x": 1.0,
+      "six_sigma_tolerance": 1e-05,
+      "scalar_Exp1_tail_control": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "threshold": 0.1,
+      "observed_minimum_tail": 0.82039,
+      "conjectured_exp_minus_2x": 0.8187307530779818,
+      "six_sigma_tolerance": 0.005178551757274146,
+      "scalar_Exp1_tail_control": [
+        0.904725,
+        0.9048374180359595
+      ]
+    },
+    {
+      "threshold": 0.25,
+      "observed_minimum_tail": 0.607865,
+      "conjectured_exp_minus_2x": 0.6065306597126334,
+      "six_sigma_tolerance": 0.006564175717618073,
+      "scalar_Exp1_tail_control": [
+        0.77915,
+        0.7788007830714049
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "observed_minimum_tail": 0.3681,
+      "conjectured_exp_minus_2x": 0.36787944117144233,
+      "six_sigma_tolerance": 0.006479771899245701,
+      "scalar_Exp1_tail_control": [
+        0.60683,
+        0.6065306597126334
+      ]
+    },
+    {
+      "threshold": 1.0,
+      "observed_minimum_tail": 0.13486,
+      "conjectured_exp_minus_2x": 0.1353352832366127,
+      "six_sigma_tolerance": 0.004599502803421971,
+      "scalar_Exp1_tail_control": [
+        0.3671,
+        0.36787944117144233
+      ]
+    },
+    {
+      "threshold": 2.0,
+      "observed_minimum_tail": 0.018125,
+      "conjectured_exp_minus_2x": 0.01831563888873418,
+      "six_sigma_tolerance": 0.0018090085399879846,
+      "scalar_Exp1_tail_control": [
+        0.135085,
+        0.1353352832366127
+      ]
+    },
+    {
+      "threshold": 3.0,
+      "observed_minimum_tail": 0.002325,
+      "conjectured_exp_minus_2x": 0.0024787521766663585,
+      "six_sigma_tolerance": 0.0006771352438421654,
+      "scalar_Exp1_tail_control": [
+        0.049915,
+        0.049787068367863944
+      ]
+    }
+  ]
+}
