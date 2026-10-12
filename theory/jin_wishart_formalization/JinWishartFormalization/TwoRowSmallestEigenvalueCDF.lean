@@ -1,4 +1,5 @@
 import JinWishartFormalization.TwoRowActualNormalizedDensity
+import JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation
 import Mathlib.MeasureTheory.Group.LIntegral
 
 /-!
@@ -80,8 +81,61 @@ theorem twoRowShiftedCone_subset_positive (x : ℝ) (hx : 0 ≤ x) :
   · linarith
   · nlinarith [mul_nonneg hx hp.1.le, mul_nonneg hx hp3.le, sq_nonneg x]
 
+/-- Codex transports the original locally authored real exponential factor
+through the coordinate formula and ENNReal coercion. -/
+theorem twoRowTraceDensity_translate (p : GramChartSpace) (x : ℝ) :
+    twoRowTraceDensity (p + twoRowShiftCoordinates x) =
+      ENNReal.ofReal (Real.exp (-2 * x)) * twoRowTraceDensity p := by
+  unfold twoRowTraceDensity
+  simp only [Pi.add_apply, twoRowShiftCoordinates_zero, twoRowShiftCoordinates_three]
+  rw [← ENNReal.ofReal_mul (Real.exp_nonneg _)]
+  congr 1
+  rw [← add_assoc, deepseek_spectral_RealTraceTranslation]
+  ring
+
+/-- Exact translated-cone mass from the established actual Gram density.
+[需人工审查] Translation of coordinate Lebesgue measure. -/
+theorem twoRowShiftedCone_traceMass (x : ℝ) :
+    (∫⁻ q in twoRowShiftedCone x, twoRowTraceDensity q) =
+      ENNReal.ofReal (Real.exp (-2 * x)) := by
+  have hc := (measurePreserving_add_right (volume : Measure GramChartSpace)
+      (twoRowShiftCoordinates x)).setLIntegral_comp_emb
+    (MeasurableEquiv.addRight (twoRowShiftCoordinates x)).measurableEmbedding
+    twoRowTraceDensity twoRowPositiveCone
+  calc
+    _ = ∫⁻ p in twoRowPositiveCone,
+        twoRowTraceDensity (p + twoRowShiftCoordinates x) := by
+      rw [twoRowShiftedCone_eq_image]
+      exact hc.symm
+    _ = ∫⁻ p in twoRowPositiveCone,
+        ENNReal.ofReal (Real.exp (-2 * x)) * twoRowTraceDensity p := by
+      simp_rw [twoRowTraceDensity_translate]
+    _ = ENNReal.ofReal (Real.exp (-2 * x)) *
+        (∫⁻ p in twoRowPositiveCone, twoRowTraceDensity p) :=
+      lintegral_const_mul _ measurable_twoRowTraceDensity
+    _ = _ := by
+      have hm : (∫⁻ p in twoRowPositiveCone, twoRowTraceDensity p) = 1 :=
+        twoRowGram_traceDensity_mass
+      rw [hm, mul_one]
+
+/-- Actual central complex 2x2 Wishart mass of a positive shifted Gram cone.
+The threshold/spectrum identification is a separate theorem. -/
+theorem actualTwoRow_shiftedCone_probability (x : ℝ) (hx : 0 ≤ x) :
+    ((complexWishart (m := 2) (n := 2)).map twoRowGramRealCoordinates)
+        (twoRowShiftedCone x) = ENNReal.ofReal (Real.exp (-2 * x)) := by
+  rw [complexWishart_twoRow_realCoordinates_eq_traceDensity]
+  change ((volume.restrict twoRowPositiveCone).withDensity twoRowTraceDensity)
+    (twoRowShiftedCone x) = _
+  rw [withDensity_apply _ (measurableSet_twoRowShiftedCone x),
+    Measure.restrict_restrict (measurableSet_twoRowShiftedCone x),
+    Set.inter_eq_left.mpr (twoRowShiftedCone_subset_positive x hx)]
+  exact twoRowShiftedCone_traceMass x
+
 end
 end JinWishart
 
 #print axioms JinWishart.twoRowShiftedCone_eq_image
 #print axioms JinWishart.twoRowShiftedCone_subset_positive
+#print axioms JinWishart.twoRowTraceDensity_translate
+#print axioms JinWishart.twoRowShiftedCone_traceMass
+#print axioms JinWishart.actualTwoRow_shiftedCone_probability
