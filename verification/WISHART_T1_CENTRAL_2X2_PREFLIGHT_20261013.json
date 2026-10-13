@@ -1,0 +1,126 @@
+{
+  "source_parameters": {
+    "s": 2,
+    "t": 2,
+    "L": 0
+  },
+  "seed": 20261012,
+  "sample_count_reused": 200000,
+  "new_samples": false,
+  "status": "FORMULA_AND_ACTUAL_SAMPLE_CONTROLS_PASS_NOT_PROOF",
+  "normalizer_det_at_zero": 1.0,
+  "rows": [
+    {
+      "x": 0.0,
+      "source_formula_upperGamma_matrix": [
+        [
+          2.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "det_tail": 1.0,
+      "known_control_exp_minus_2x": 1.0,
+      "observed_actual_tail": 1.0
+    },
+    {
+      "x": 0.1,
+      "source_formula_upperGamma_matrix": [
+        [
+          1.9996906938594707,
+          0.9953211598395555
+        ],
+        [
+          0.9953211598395555,
+          0.9048374180359595
+        ]
+      ],
+      "det_tail": 0.8187307530779817,
+      "known_control_exp_minus_2x": 0.8187307530779818,
+      "observed_actual_tail": 0.82039
+    },
+    {
+      "x": 0.25,
+      "source_formula_upperGamma_matrix": [
+        [
+          1.995677006620475,
+          0.9735009788392561
+        ],
+        [
+          0.9735009788392561,
+          0.7788007830714049
+        ]
+      ],
+      "det_tail": 0.6065306597126334,
+      "known_control_exp_minus_2x": 0.6065306597126334,
+      "observed_actual_tail": 0.607865
+    },
+    {
+      "x": 0.5,
+      "source_formula_upperGamma_matrix": [
+        [
+          1.9712246440660586,
+          0.9097959895689501
+        ],
+        [
+          0.9097959895689501,
+          0.6065306597126334
+        ]
+      ],
+      "det_tail": 0.36787944117144233,
+      "known_control_exp_minus_2x": 0.36787944117144233,
+      "observed_actual_tail": 0.3681
+    },
+    {
+      "x": 1.0,
+      "source_formula_upperGamma_matrix": [
+        [
+          1.8393972058572117,
+          0.7357588823428847
+        ],
+        [
+          0.7357588823428847,
+          0.36787944117144245
+        ]
+      ],
+      "det_tail": 0.13533528323661298,
+      "known_control_exp_minus_2x": 0.1353352832366127,
+      "observed_actual_tail": 0.13486
+    },
+    {
+      "x": 2.0,
+      "source_formula_upperGamma_matrix": [
+        [
+          1.3533528323661268,
+          0.40600584970983794
+        ],
+        [
+          0.40600584970983794,
+          0.1353352832366127
+        ]
+      ],
+      "det_tail": 0.018315638888734286,
+      "known_control_exp_minus_2x": 0.01831563888873418,
+      "observed_actual_tail": 0.018125
+    },
+    {
+      "x": 3.0,
+      "source_formula_upperGamma_matrix": [
+        [
+          0.8463801622536873,
+          0.1991482734714558
+        ],
+        [
+          0.1991482734714558,
+          0.04978706836786395
+        ]
+      ],
+      "det_tail": 0.002478752176666365,
+      "known_control_exp_minus_2x": 0.0024787521766663585,
+      "observed_actual_tail": 0.002325
+    }
+  ]
+}

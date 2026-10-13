@@ -4,8 +4,10 @@
 
 Codex推进中央复2x2最小特征值尾概率/CDF；本地DeepSeek参与必要子目标和P4问题审查，不能冒称其原始指数辅助是独立密度成果。复用已有实际Gram密度和平移锥概率exp(-2x)、200000固定seed真实样本控制。infoq Shannon LP不适用于此随机矩阵分布，数值不是证明。
 
-23:37前后UTC+8实际核验：恢复上轮完整pending四声明，规范化fin_cases后的下标并限制linarith only；TwoRowHermitianThreshold完整叶子退出0，四声明只标准三公理。选用/排除：复用Matrix谱定理、正定对角谱、迹/行列式和等价重下标，不构造或假定联合谱密度，不重做径向积分或支持域。
+22:37前后UTC+8实际核验：恢复上轮完整pending四声明，规范化fin_cases后的下标并限制linarith only；TwoRowHermitianThreshold完整叶子退出0，四声明只标准三公理。选用/排除：复用Matrix谱定理、正定对角谱、迹/行列式和等价重下标，不构造或假定联合谱密度，不重做径向积分或支持域。
 
 运行工具修复：旧卸载CLI在Windows可启动Ollama GUI，改用localhost模型专属keep_alive=0且不带prompt；真实HTTP卸载回应和api/ps控制通过，其他模型不受影响。没有升级Lean/mathlib。实际CDF桥接TwoRowMinimumLaw正在同compute.lock下核验，尚未声称完成。
 
 [需人工审查]体积、复方差、谱事件及论文记号。叶子/主入口/完整构建分开；P4真实请求/响应必须保存，前轮不响应不算通过。不动未知草稿，不推远端；到期只保存归档/停止自己的进程/暂停自动任务。
+
+22:44：实际最小尾概率/CDF四条首次检查通过；进一步全部负阈值CDF、CDF唯一性得到真实最小律expMeasure2，六条打印标准三公理通过。中文真实P4只重述谱定义，改写tail为错误的<=x事件并含sorry，拒绝，不算有效审查。原响应已完整归档。下一相关目标是现有Theorem1候选(s,t,L)=(2,2,0)与此实际CDF对齐；200000旧样本与Gamma矩阵/闭式exp(-2x)对照通过，未重新采样。给本地明确2x2行列式多项式因子任务，原目标不变，协作作者保留。
