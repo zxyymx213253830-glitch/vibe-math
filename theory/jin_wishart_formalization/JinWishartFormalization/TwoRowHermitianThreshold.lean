@@ -54,8 +54,67 @@ theorem hermitian_twoRow_shift_posDef_iff_smallest
       omega
     exact lt_of_lt_of_le h (hA.eigenvalues₀_antitone hi)
 
+theorem hermitian_twoRow_det_re (A : Matrix (Fin 2) (Fin 2) ℂ)
+    (hA : A.IsHermitian) :
+    A.det.re = (A 0 0).re * (A 1 1).re - (A 0 1).re ^ 2 - (A 0 1).im ^ 2 := by
+  have h0 : (A 0 0).im = 0 := by
+    have h := congrArg Complex.im (hA.apply 0 0)
+    simp only [RCLike.star_def, Complex.conj_im] at h
+    linarith
+  have h1 : (A 1 1).im = 0 := by
+    have h := congrArg Complex.im (hA.apply 1 1)
+    simp only [RCLike.star_def, Complex.conj_im] at h
+    linarith
+  rw [Matrix.det_fin_two, ← hA.apply 1 0]
+  simp [Complex.mul_re, RCLike.star_def, h0, h1]
+  ring
+
+/-- The 2x2 Hermitian positive-definiteness criterion, proved using the already
+available spectral trace and determinant formulas rather than assumed spectrum. -/
+theorem hermitian_twoRow_posDef_iff (A : Matrix (Fin 2) (Fin 2) ℂ)
+    (hA : A.IsHermitian) :
+    A.PosDef ↔ 0 < (A 0 0).re ∧ 0 < A.det.re := by
+  constructor
+  · intro hp
+    have hd : (0 : ℂ) < A 0 0 := hp.diag_pos
+    exact ⟨(Complex.pos_iff.mp hd).1, (Complex.pos_iff.mp hp.det_pos).1⟩
+  · intro h
+    have h11 : 0 < (A 1 1).re := by
+      have ht := hermitian_twoRow_det_re A hA
+      have hm : 0 < (A 0 0).re * (A 1 1).re := by
+        nlinarith [sq_nonneg (A 0 1).re, sq_nonneg (A 0 1).im]
+      exact (mul_pos_iff_of_pos_left h.1).mp hm
+    have htrace : (A 0 0).re + (A 1 1).re =
+        hA.eigenvalues 0 + hA.eigenvalues 1 := by
+      have ht := congrArg Complex.re hA.trace_eq_sum_eigenvalues
+      simpa [Matrix.trace, Fin.sum_univ_two, RCLike.ofReal_eq_complex_ofReal] using ht
+    have hdet : A.det.re = hA.eigenvalues 0 * hA.eigenvalues 1 := by
+      have ht := congrArg Complex.re hA.det_eq_prod_eigenvalues
+      simpa [Fin.prod_univ_two, RCLike.ofReal_eq_complex_ofReal] using ht
+    have hsum : 0 < hA.eigenvalues 0 + hA.eigenvalues 1 := by
+      rw [← htrace]
+      exact add_pos h.1 h11
+    have hprod : 0 < hA.eigenvalues 0 * hA.eigenvalues 1 := by
+      rw [← hdet]
+      exact h.2
+    apply hA.posDef_iff_eigenvalues_pos.mpr
+    intro i
+    fin_cases i
+    · change 0 < hA.eigenvalues 0
+      by_contra hn
+      have hb : 0 < hA.eigenvalues 1 := by linarith only [hsum, le_of_not_gt hn]
+      exact not_le_of_gt hprod
+        (mul_nonpos_of_nonpos_of_nonneg (le_of_not_gt hn) hb.le)
+    · change 0 < hA.eigenvalues 1
+      by_contra hn
+      have hb : 0 < hA.eigenvalues 0 := by linarith only [hsum, le_of_not_gt hn]
+      exact not_le_of_gt hprod
+        (mul_nonpos_of_nonneg_of_nonpos hb.le (le_of_not_gt hn))
+
 end
 end JinWishart
 
 #print axioms JinWishart.hermitian_twoRow_shift_posDef_iff
 #print axioms JinWishart.hermitian_twoRow_shift_posDef_iff_smallest
+#print axioms JinWishart.hermitian_twoRow_det_re
+#print axioms JinWishart.hermitian_twoRow_posDef_iff

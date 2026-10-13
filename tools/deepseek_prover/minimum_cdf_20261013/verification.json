@@ -1,0 +1,36 @@
+{
+  "saved_utc": "2026-10-13T14:38:20.712697+00:00",
+  "window": {
+    "status": "ACTIVE",
+    "phase": "MINIMUM_LAW_CHECK_RUNNING",
+    "started_utc": "2026-10-13T14:32:17.969548+00:00",
+    "deadline_utc": "2026-10-13T15:32:17.969548+00:00",
+    "controller": "Codex plus existing heartbeat automation; no second runner",
+    "source": "TwoRowHermitianThreshold.lean",
+    "author_roles": {
+      "Codex": "actual minimum CDF and matrix criterion",
+      "deepseek-prover-v2:7b": "genuine cross-family P4 and relevant smaller proof tasks"
+    },
+    "correction": "Previous requested hour never actually started; fulfill existing authorization now, rather than claiming past work",
+    "threshold_module": "PASS four standard-axiom statements",
+    "current_check_log": "minimum-law-1.txt"
+  },
+  "source_sha256": {
+    "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowHermitianThreshold.lean": "903525e1b689fc3274767650371db366d0bef9fe2a367a678fd02c5382a76417"
+  },
+  "root_logs": {
+    "threshold-1.txt": "'JinWishart.hermitian_twoRow_shift_posDef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.hermitian_twoRow_shift_posDef_iff_smallest' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.hermitian_twoRow_det_re' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.hermitian_twoRow_posDef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+  },
+  "runtime_unload_control": {
+    "utc": "2026-10-13T14:37:04.166523+00:00",
+    "actual_api_unload_acknowledged": true,
+    "model_status": {
+      "models": []
+    },
+    "no_prompt_sent": true
+  },
+  "author": "Codex criterion/CDF; reused local exponential helper guided provenance retained",
+  "semantic_review": "Four original statements preserved, kernel standard axioms; full actual CDF currently pending",
+  "human_review": "[需人工审查] volume/variance/spectral event correspondence",
+  "preflight_reuse": "seed20261012 200000 actual samples Exp1/Gamma4/eig controls passed; not a proof; no repeated numerical experiment"
+}

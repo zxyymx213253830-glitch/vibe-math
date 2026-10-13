@@ -11,6 +11,8 @@ import re
 import subprocess
 import sys
 import time
+import urllib.error
+import urllib.request
 
 import prove
 
@@ -62,10 +64,17 @@ def bounded(command, log, deadline, timeout, env=None, cwd=None):
 
 def unload():
     try:
-        result = subprocess.run([str(OLLAMA), 'stop', MODEL], capture_output=True, timeout=10,
-                                creationflags=subprocess.CREATE_NO_WINDOW)
-        return result.returncode == 0
-    except (OSError, subprocess.TimeoutExpired):
+        # A Windows app launcher named ollama.exe can ignore CLI arguments and
+        # open a GUI. The local API unloads only our named model, without a prompt.
+        request = urllib.request.Request(
+            'http://127.0.0.1:11434/api/generate',
+            data=json.dumps({'model': MODEL, 'keep_alive': 0}).encode('utf-8'),
+            headers={'Content-Type': 'application/json'},
+        )
+        with urllib.request.urlopen(request, timeout=10) as connection:
+            response = json.loads(connection.read())
+        return response.get('done') is True and response.get('done_reason') == 'unload'
+    except (OSError, urllib.error.URLError, ValueError):
         return False
 
 
