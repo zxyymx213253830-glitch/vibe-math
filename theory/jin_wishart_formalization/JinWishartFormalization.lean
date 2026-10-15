@@ -1,3 +1,4 @@
+import JinWishartFormalization.GaussianOrthogonalSplitLaw
 import JinWishartFormalization.GaussianOrthogonalProjectionLaw
 import JinWishartFormalization.CentralWishartConeIntegral
 import JinWishartFormalization.CentralWishartBlockStep

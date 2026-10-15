@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-15T13:31:17.785206+00:00",
+  "status": "All new leaf checks and latest main facade PASS; full Lake build NOT_RUN",
+  "primary_leaf_modules": 152,
+  "all_leaf_modules": 162,
+  "main_facades": 1,
+  "source_scan": {
+    "UTF8": "PASS strict no U+FFFD",
+    "forbidden_actual_code_tokens": [],
+    "comment_and_string_aware": true
+  },
+  "manifest_sources": 92,
+  "latest_facade_diagnostic": "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+  "open": [
+    "General actual central matrix density induction",
+    "Random-subspace conditional law",
+    "General real Cholesky Jacobian",
+    "General noncentral G2 and T1-T4",
+    "T3 journal/source normalization interpretation",
+    "Claude/human P4"
+  ],
+  "T3": "Independent rank1 controls support residual Gamma factor; no original candidate changed",
+  "new_gaussian_laws": "Actual fixed-subspace projection, Gamma half-norm, independence and product; NOT conditional random QR",
+  "next_card": "Four exact density obligations on notes/WISHART_STATUS.md",
+  "no_more_new_targets": true
+}

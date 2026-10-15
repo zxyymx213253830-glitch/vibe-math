@@ -57,5 +57,15 @@
       "chi_square_four": 0.9084218055563291
     }
   ],
+  "orthogonal_split_control": {
+    "dimensions": [
+      4,
+      2
+    ],
+    "product_energy_mean": 8.040236384437122,
+    "independent_chisquare_product_expectation": 8,
+    "six_sigma": 0.15354311423035102,
+    "max_cross_covariance": 0.004295109900480196
+  },
   "status": "PASS actual projection control, not proof"
 }

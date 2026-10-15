@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-15T13:30:06.227412+00:00",
+  "source_sha256": "c458daf3f4a2f08ea66db883a4c97b202ca425325103a2f97d9ecfd31528e868",
+  "status": "PASS actual fixed-subspace Gaussian independence and product law",
+  "diagnostic": "'JinWishart.stdGaussian_orthogonal_split_indep' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.stdGaussian_orthogonal_split_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "scope": "Deterministic subspace only; no assertion of random conditional Bartlett law or generic matrix density",
+  "numeric_control": "WISHART_GAUSSIAN_PROJECTION_20261015.json same seed200000; ChiSquare product mean and cross-covariance controls passed; not proof",
+  "human_review": "[需人工审查] conditional use and variance conventions",
+  "facade": {
+    "status": "PASS exit0",
+    "diagnostic": "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "full_build": "NOT_RUN"
+  }
+}

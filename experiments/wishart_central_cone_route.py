@@ -21,7 +21,9 @@ def projection_control():
     basis, _ = np.linalg.qr(rng.normal(size=(6, 6)))
     linear = basis[:, :4].T
     assert np.allclose(linear @ linear.T, np.eye(4))
-    sample = rng.normal(size=(200000, 6)) @ linear.T
+    raw = rng.normal(size=(200000, 6))
+    sample = raw @ linear.T
+    residual = raw @ basis[:, 4:]
     squared = np.sum(sample**2, axis=1)
     checks = []
     for point in [1.0, 3.0, 5.0, 8.0]:
@@ -29,7 +31,16 @@ def projection_control():
         tolerance = 6*math.sqrt(exact*(1-exact)/len(sample))+2/len(sample)
         assert abs(actual-exact) < tolerance
         checks.append({'point': point, 'actual': actual, 'chi_square_four': exact})
+    products = squared*np.sum(residual**2, axis=1)
+    product_mean = float(np.mean(products))
+    product_tolerance = float(6*np.std(products)/math.sqrt(len(products)))
+    assert abs(product_mean-8) < product_tolerance
+    cross_covariance = sample.T @ residual/len(sample)
+    assert float(np.max(np.abs(cross_covariance))) < 0.02
     result = {'seed': 20261015, 'N': len(sample), 'matrix': linear.tolist(), 'checks': checks,
+              'orthogonal_split_control': {'dimensions': [4, 2], 'product_energy_mean': product_mean,
+                  'independent_chisquare_product_expectation': 8, 'six_sigma': product_tolerance,
+                  'max_cross_covariance': float(np.max(np.abs(cross_covariance)))},
               'status': 'PASS actual projection control, not proof'}
     output = Path(__file__).resolve().parents[1]/'verification/WISHART_GAUSSIAN_PROJECTION_20261015.json'
     output.write_text(json.dumps(result, indent=2), encoding='utf-8')

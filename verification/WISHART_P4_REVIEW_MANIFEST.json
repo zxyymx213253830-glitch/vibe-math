@@ -1514,6 +1514,17 @@
         "stdGaussian_half_norm_sq_law",
         "stdGaussian_projected_half_norm_sq_law"
       ]
+    },
+    "GaussianOrthogonalSplitLaw": {
+      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianOrthogonalSplitLaw.lean",
+      "sha256": "c458daf3f4a2f08ea66db883a4c97b202ca425325103a2f97d9ecfd31528e868",
+      "imports": [
+        "GaussianOrthogonalProjectionLaw"
+      ],
+      "theorems": [
+        "stdGaussian_orthogonal_split_indep",
+        "stdGaussian_orthogonal_split_law"
+      ]
     }
   },
   "current_evidence": [
@@ -1523,5 +1534,5 @@
   ],
   "scope": "2x1 first, central2x2 second, 3x1 subsequent; scales separately",
   "route_assets": "Deterministic and coordinate/integral identities only, not actual generic density",
-  "updated_utc": "2026-10-15T13:27:26.124974+00:00"
+  "updated_utc": "2026-10-15T13:31:16.426542+00:00"
 }
