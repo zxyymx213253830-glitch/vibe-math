@@ -13,3 +13,5 @@ Ollama API initially refused connection. Started only hidden ollama.exe serve (o
 [需人工审查] Measure theory, variance/covariance and paper notation, spectrum/event correspondence. Prior P4 was nonresponsive and target-mismatched; effective adversarial review still incomplete. No claim of general paper proof, main facade pending, full build NOT_RUN.
 
 20:42 checkpoint: Main facade exit0 with original Theorem1 central2x2 module imported. Local first actual generation sampleMatrix scale theorem PASS, original proof copied into unchanged target, standard three axioms. Redundant tactics/warnings retained; not an independent distribution result. Root scale probability bridge is checking; no pending theorem is claimed proved.
+
+20:44: root six declarations PASS standard axioms, actual scaled sample Gram and ordered minimum identified; tail/CDF exp(-2*x/a^2). First two checks failed only coercion/field algebra and set-predicate unfolding; original logs retained, fixed without weakening statements. Local sample bridge keeps original authorship. Scalar covariance a^2 I only, no general covariance claim.
