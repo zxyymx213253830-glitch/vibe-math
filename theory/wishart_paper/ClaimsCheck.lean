@@ -1,0 +1,23 @@
+import JinWishartFormalization
+
+-- Generated publication dependency audit; no new mathematical assertions.
+#print axioms JinWishart.actualTwoRow_BartlettCoordinates_law
+#print axioms JinWishart.actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity
+#print axioms JinWishart.actualTwoRow_GramRealCoordinates_eq_traceDensity
+#print axioms JinWishart.actualTwoRow_minimum_tail
+#print axioms JinWishart.actualTwoRow_minimum_CDF
+#print axioms JinWishart.actualTwoRow_minimum_law_expTwo
+#print axioms JinWishart.theorem1CentralTwoRow_candidate_eq_actualCDF
+#print axioms JinWishart.actualTwoRow_scaled_minimum_law
+#print axioms JinWishart.actualTwoRow_covariance_minimum_CDF
+#print axioms JinWishart.log_one_add_mul_le_iff
+#print axioms JinWishart.actualTwoRow_weakestLogRate_outage
+#print axioms JinWishart.actualTwoRow_weakestLogRate_outage_negative
+#print axioms JinWishart.stdGaussian_orthogonalProjectionOnto_law
+#print axioms JinWishart.stdGaussian_projected_half_norm_sq_law
+#print axioms JinWishart.stdGaussian_orthogonal_split_law
+#print axioms JinWishart.noncentralOneColumnSmallestCDF_div_tendsto_frobenius
+#print axioms JinWishart.theorem1TwoRowsCandidate_eq_actualCDF
+#print axioms JinWishart.theorem1ThreeRowsOneColumnCandidate_eq_actualCDF
+#print axioms JinWishart.centralCone_candidateIntegral_shift
+#print axioms JinWishart.hermitianRealCoordinateEquiv_measurePreserving

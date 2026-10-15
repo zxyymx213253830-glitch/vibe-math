@@ -1,0 +1,151 @@
+{
+  "seed": 20261015,
+  "samples": 200000,
+  "status": "PASS",
+  "model": "actual independent CN(0,1) 2x2 entries; H*H",
+  "statistic": "log(1+rho*lambda_min((aH)*aH)); per-mode, not total MIMO capacity",
+  "evidence_kind": "numerical controls, not proof",
+  "controls": {
+    "trace_Gamma_shape4_rate1_KS": 0.0023761559319707137,
+    "minimum_Exp_rate2_KS": 0.0012408314746242821,
+    "eigenvalue_formula_max_error": 4.884981308350689e-15,
+    "trace_mean": 4.002300872777346
+  },
+  "rows": [
+    {
+      "amplitude": 0.5,
+      "variance": 0.25,
+      "rho": 0.3,
+      "target_nats": -0.2,
+      "observed": 0.0,
+      "formula": 0.0,
+      "eight_se_plus_eight_over_n": 4e-05
+    },
+    {
+      "amplitude": 0.5,
+      "variance": 0.25,
+      "rho": 0.3,
+      "target_nats": 0.0,
+      "observed": 0.0,
+      "formula": 0.0,
+      "eight_se_plus_eight_over_n": 4e-05
+    },
+    {
+      "amplitude": 0.5,
+      "variance": 0.25,
+      "rho": 0.3,
+      "target_nats": 0.2,
+      "observed": 0.99747,
+      "formula": 0.99727169175115,
+      "eight_se_plus_eight_over_n": 0.000973100566146944
+    },
+    {
+      "amplitude": 0.5,
+      "variance": 0.25,
+      "rho": 0.3,
+      "target_nats": 0.7,
+      "observed": 1.0,
+      "formula": 0.9999999999981822,
+      "eight_se_plus_eight_over_n": 4.002411816350034e-05
+    },
+    {
+      "amplitude": 0.5,
+      "variance": 0.25,
+      "rho": 0.3,
+      "target_nats": 1.5,
+      "observed": 1.0,
+      "formula": 1.0,
+      "eight_se_plus_eight_over_n": 4e-05
+    },
+    {
+      "amplitude": 1.0,
+      "variance": 1.0,
+      "rho": 1.0,
+      "target_nats": -0.2,
+      "observed": 0.0,
+      "formula": 0.0,
+      "eight_se_plus_eight_over_n": 4e-05
+    },
+    {
+      "amplitude": 1.0,
+      "variance": 1.0,
+      "rho": 1.0,
+      "target_nats": 0.0,
+      "observed": 0.0,
+      "formula": 0.0,
+      "eight_se_plus_eight_over_n": 4e-05
+    },
+    {
+      "amplitude": 1.0,
+      "variance": 1.0,
+      "rho": 1.0,
+      "target_nats": 0.2,
+      "observed": 0.358505,
+      "formula": 0.35776790139554665,
+      "eight_se_plus_eight_over_n": 0.008614754202920535
+    },
+    {
+      "amplitude": 1.0,
+      "variance": 1.0,
+      "rho": 1.0,
+      "target_nats": 0.7,
+      "observed": 0.867995,
+      "formula": 0.86833644223522,
+      "eight_se_plus_eight_over_n": 0.0060885572579649225
+    },
+    {
+      "amplitude": 1.0,
+      "variance": 1.0,
+      "rho": 1.0,
+      "target_nats": 1.5,
+      "observed": 0.99908,
+      "formula": 0.9990541041978296,
+      "eight_se_plus_eight_over_n": 0.00058990939858907
+    },
+    {
+      "amplitude": 2.0,
+      "variance": 4.0,
+      "rho": 3.0,
+      "target_nats": -0.2,
+      "observed": 0.0,
+      "formula": 0.0,
+      "eight_se_plus_eight_over_n": 4e-05
+    },
+    {
+      "amplitude": 2.0,
+      "variance": 4.0,
+      "rho": 3.0,
+      "target_nats": 0.0,
+      "observed": 0.0,
+      "formula": 0.0,
+      "eight_se_plus_eight_over_n": 4e-05
+    },
+    {
+      "amplitude": 2.0,
+      "variance": 4.0,
+      "rho": 3.0,
+      "target_nats": 0.2,
+      "observed": 0.03672,
+      "formula": 0.03622793525859248,
+      "eight_se_plus_eight_over_n": 0.003382596450210128
+    },
+    {
+      "amplitude": 2.0,
+      "variance": 4.0,
+      "rho": 3.0,
+      "target_nats": 0.7,
+      "observed": 0.15558,
+      "formula": 0.1554562891061803,
+      "eight_se_plus_eight_over_n": 0.006521719062928069
+    },
+    {
+      "amplitude": 2.0,
+      "variance": 4.0,
+      "rho": 3.0,
+      "target_nats": 1.5,
+      "observed": 0.440285,
+      "formula": 0.44025922920491145,
+      "eight_se_plus_eight_over_n": 0.008920198922182924
+    }
+  ]
+}

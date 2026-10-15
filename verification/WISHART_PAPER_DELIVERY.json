@@ -1,0 +1,29 @@
+{
+  "prepared_for_date": "2026-10-16",
+  "status": "LOCAL_REVIEW_PACKAGE_NOT_SUBMITTED",
+  "manuscript": {
+    "path": "theory/wishart_paper/main.tex",
+    "sha256": "1896fe104fc761dbe5ee2c3c4d2fae62a2296f7f21fbb980058773620205559e"
+  },
+  "pdf": {
+    "path": "output/pdf/wishart_formalization.pdf",
+    "sha256": "433927432a533f5aaed152f608f13ea24041590d6a0065c97e8a8ab0284542b2"
+  },
+  "archives": [
+    {
+      "path": "output/publication/wishart_latex_source.zip",
+      "sha256": "faa52013917483540771c2bee602d1ace1ff6621777bf43ba6c670e7b82b6680"
+    },
+    {
+      "path": "output/publication/wishart_review_artifact.zip",
+      "sha256": "3edc31521aa88706c0aebe74f23482828ea893ae12ed0dc1905063b10778414d"
+    }
+  ],
+  "release_blockers": [
+    "Human author metadata",
+    "Independent semantic P4 review",
+    "Public artifact URL and human-selected license",
+    "Final novelty/source review"
+  ],
+  "artifact_files": 200
+}

@@ -1,0 +1,21 @@
+{
+  "prepared_for_date": "2026-10-16",
+  "pdf_sha256": "433927432a533f5aaed152f608f13ea24041590d6a0065c97e8a8ab0284542b2",
+  "pages": 10,
+  "latex_success": true,
+  "undefined_references": false,
+  "overfull_boxes": false,
+  "rendered_and_visually_inspected_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "independent_semantic_review": "PENDING; visual QA is not mathematical P4 review"
+}

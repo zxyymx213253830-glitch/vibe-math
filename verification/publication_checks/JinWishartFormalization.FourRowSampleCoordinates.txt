@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FourRowSampleCoordinates.lean:49:47: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FourRowSampleCoordinates.lean:71:40: warning: `EuclideanSpace.single_apply` has been deprecated: Use `PiLp.single_apply` instead
+
+Note: The updated constant has a different type:
+  ∀ (p : ENNReal) (𝕜 : Type u_1) {ι : Type u_2} [inst : DecidableEq ι] [inst_1 : Zero 𝕜] (i : ι) (a : 𝕜) (j : ι),
+    (PiLp.single p i a).ofLp j = if j = i then a else 0
+instead of
+  ∀ {ι : Type u_1} {𝕜 : Type u_3} [inst : RCLike 𝕜] [inst_1 : DecidableEq ι] (i : ι) (a : 𝕜) (j : ι),
+    (EuclideanSpace.single i a).ofLp j = if j = i then a else 0
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.single_apply` to `PiLp.single_apply x`).
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FourRowSampleCoordinates.lean:71:40: warning: This simp argument is unused:
+  EuclideanSpace.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fourRowSampleToFin8, LinearIsometryEquiv.piLpCongrLeft_apply, fourRowAxialSampleMean_coord, hpre]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FourRowSampleCoordinates.lean:128:41: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [s]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

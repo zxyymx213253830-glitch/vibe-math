@@ -17,3 +17,8 @@ theory/jin_wishart_formalization/.lake/
 /theory/jin_wishart_formalization/check4.txt
 /theory/jin_wishart_formalization/scratch.txt
 /theory/jin_wishart_formalization/wss_check.txt
+
+# Rebuildable paper compilation intermediates; final named PDF stays tracked.
+/output/pdf/main.aux
+/output/pdf/main.out
+/output/pdf/main.pdf

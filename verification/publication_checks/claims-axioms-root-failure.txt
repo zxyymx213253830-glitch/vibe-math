@@ -1,0 +1,1 @@
+input file 'd:\vibe math\theory\wishart_paper\ClaimsCheck.lean' must be contained in root directory (D:\vibe math\theory\jin_wishart_formalization\)

@@ -20,6 +20,8 @@ def main():
     parser.add_argument('--review-prompt')
     parser.add_argument('--response')
     parser.add_argument('--log', required=True)
+    parser.add_argument('--library', help='Fresh project output directory; cached external packages only')
+    parser.add_argument('--root', help='Optional source root for an external publication audit file')
     args = parser.parse_args()
     if bool(args.source) == bool(args.review_prompt):
         parser.error('Choose exactly one source check or local-model review')
@@ -56,7 +58,8 @@ def main():
                     Path(args.log).resolve(), deadline, 180)
             finally:
                 runner.unload()
-        library = runner.PROJECT / '.lake/build/lib/lean'
+        library = (Path(args.library).resolve() if args.library else
+                   runner.PROJECT / '.lake/build/lib/lean')
         paths = [library] + [p / '.lake/build/lib/lean'
             for p in (runner.PROJECT / '.lake/packages').iterdir() if p.is_dir()]
         env = os.environ.copy()
@@ -65,7 +68,8 @@ def main():
         olean = library / Path(args.module.replace('.', '/') + '.olean')
         olean.parent.mkdir(parents=True, exist_ok=True)
         return runner.bounded([str(runner.LEAN), '-DautoImplicit=false', '-j1',
-            '-R', str(runner.PROJECT), '-o', str(olean), str(Path(args.source).resolve())],
+            '-R', str(Path(args.root).resolve() if args.root else runner.PROJECT),
+            '-o', str(olean), str(Path(args.source).resolve())],
             Path(args.log).resolve(), deadline, 180, env, runner.PROJECT)
     finally:
         if acquired:

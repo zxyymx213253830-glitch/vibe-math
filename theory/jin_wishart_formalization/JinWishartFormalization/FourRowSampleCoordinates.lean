@@ -205,7 +205,7 @@ theorem stdGaussianEightDBall_axialMeasure_eq_radialSeriesCDF
       rw [stdGaussianEightD_normalizer_eq]
     _ = ∫ r in Ioc (0 : ℝ) R, noncentralChiEvenRadialKernel 3 a r := by
       simpa [μ] using
-        stdGaussianEightDBall_axial_eq_radialSeriesCDF a R hR
+        stdGaussianEightDBall_axial_eq_radialCDF a R hR
 
 /-- Actual `4×1` noncentral one-column weak CDF for an axial rank-one mean,
 expressed as the finite-radius mass of the proven order-three radial series. -/
