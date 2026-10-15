@@ -1,0 +1,10 @@
+{
+  "kind": "Exact SymPy algebra control, not general proof",
+  "m": 1,
+  "n": 2,
+  "det_A": 2,
+  "det_B": 10,
+  "det_W": 20,
+  "factorization_difference_zero": true,
+  "positive_definite_control": true
+}
