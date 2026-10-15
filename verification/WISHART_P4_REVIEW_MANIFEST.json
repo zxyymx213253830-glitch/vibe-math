@@ -1433,6 +1433,73 @@
         "noncentralThreeRowAxialCDF_eq_radialSeries",
         "noncentralThreeRowCDF_eq_radialSeries_of_mean"
       ]
+    },
+    "CentralWishartCone": {
+      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\CentralWishartCone.lean",
+      "sha256": "ace0542d30db19435ef040e252bfd61b142edffbb7fd052bca698736cdf1fdde",
+      "imports": [
+        "TwoRowHermitianThreshold",
+        "DeepSeekScale20261015.CentralTrace"
+      ],
+      "theorems": [
+        "hermitian_shift_posDef_iff_all_eigenvalues",
+        "hermitian_shift_posDef_iff_smallest",
+        "centralCone_trace_shift",
+        "centralConeWeight_shift",
+        "centralConeWeight_square_shift"
+      ]
+    },
+    "CentralWishartBlockStep": {
+      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\CentralWishartBlockStep.lean",
+      "sha256": "2b2417fab3607b219da7e8074e2058c63126d2f142ab6c646e27c8fc91ba683d",
+      "imports": [
+        "CentralWishartCone"
+      ],
+      "theorems": [
+        "centralBlockShear_det",
+        "centralBlockShear_isUnit",
+        "centralBlockStep_factor",
+        "centralBlockStep_det",
+        "centralBlockStep_posDef_iff"
+      ]
+    },
+    "CentralHermitianCoordinates": {
+      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\CentralHermitianCoordinates.lean",
+      "sha256": "7d9207ab7c13dbcf6d3ad293a14f4d8ff3848d65cae642fe075513f012010e22",
+      "imports": [
+        "CentralWishartCone"
+      ],
+      "theorems": [
+        "hermitianOfRealCoordinates_isHermitian",
+        "realCoordinates_hermitianOfRealCoordinates",
+        "hermitianOfRealCoordinates_realCoordinates",
+        "continuous_hermitianOfRealCoordinates",
+        "continuous_realCoordinatesOfHermitian",
+        "hermitianRealCoordinateEquiv_measurePreserving",
+        "hermitianOfRealCoordinates_shift"
+      ]
+    },
+    "CentralWishartConeIntegral": {
+      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\CentralWishartConeIntegral.lean",
+      "sha256": "febc9dd265e42e920799c4000585cb2cdf31c47c35b26070af296fc7ac3fc1ab",
+      "imports": [
+        "CentralHermitianCoordinates"
+      ],
+      "theorems": [
+        "centralCoordinateShiftedCone_eq_image",
+        "centralCone_candidateIntegral_shift",
+        "centralCone_square_candidateIntegral_shift"
+      ]
+    },
+    "DeepSeekScale20261015.CentralTrace": {
+      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekScale20261015\\CentralTrace.lean",
+      "sha256": "ce61252104e01b6697c425182530dd80cab3a2da92f8e3ded6676514b07e8001",
+      "imports": [
+        "WishartProbability"
+      ],
+      "theorems": [
+        "deepseek_central_trace_shift"
+      ]
     }
   },
   "current_evidence": [
@@ -1440,5 +1507,7 @@
     "tools/deepseek_prover/scaled_minimum_20261015/scaled_law_and_p4.json",
     "tools/deepseek_prover/minimum_cdf_20261013/verification.json"
   ],
-  "scope": "2x1 first, central2x2 second, 3x1 subsequent; scales separately"
+  "scope": "2x1 first, central2x2 second, 3x1 subsequent; scales separately",
+  "route_assets": "Deterministic and coordinate/integral identities only, not actual generic density",
+  "updated_utc": "2026-10-15T13:17:26.278021+00:00"
 }

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-15T13:17:26.278021+00:00",
+  "top_level_modules": 150,
+  "all_leaf_modules": 160,
+  "main_facades": 1,
+  "utf8": "strict UTF8 and zero U+FFFD for every audited file",
+  "scope": "project library source + main, excludes ignored scratch/templates/mathlib",
+  "forbidden_proof_tokens": [],
+  "method": "Lexical skip nested block comments, line comments and string literals; scan actual code identifiers. Static audit not a kernel build.",
+  "facade": {
+    "status": "PASS exit0 including new route modules",
+    "diagnostic": "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "source_sha256": "b25f00fa39719daf7f11bc8ba9ccc777875ce62fecedf41731e1c29379a5430e"
+  },
+  "full_build": "NOT_RUN",
+  "scope_boundary": "Generic actual Wishart matrix density/G2/general T1-T4 open"
+}
