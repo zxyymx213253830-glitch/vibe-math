@@ -88,6 +88,62 @@ theorem actualTwoRow_scaled_minimum_CDF (a : ℝ) (ha : 0 < a) (x : ℝ) (hx : 0
   rw [he]
   exact actualTwoRow_minimum_CDF _ (div_nonneg hx (sq_nonneg a))
 
+/-- The full CDF, including all negative thresholds, for scaled actual samples. -/
+theorem actualTwoRow_scaled_minimum_cdf_function (a : ℝ) (ha : 0 < a) (x : ℝ) :
+    cdf ((stdGaussian (ComplexSample (m := 2) (n := 2))).map
+      (fun z => twoRowActualMinimum (a • z))) x =
+      if 0 ≤ x then 1 - Real.exp (-2 * (x / a ^ 2)) else 0 := by
+  have hm : Measurable (fun z : ComplexSample (m := 2) (n := 2) =>
+      twoRowActualMinimum (a • z)) :=
+    measurable_twoRowActualMinimum.comp (measurable_id.const_smul a)
+  rw [cdf_eq_real, Measure.real, Measure.map_apply hm measurableSet_Iic]
+  change ((stdGaussian (ComplexSample (m := 2) (n := 2)))
+    {z | twoRowActualMinimum (a • z) ≤ x}).toReal = _
+  by_cases hx : 0 ≤ x
+  · rw [if_pos hx]
+    exact actualTwoRow_scaled_minimum_CDF a ha x hx
+  · rw [if_neg hx]
+    have he : {z : ComplexSample (m := 2) (n := 2) |
+        twoRowActualMinimum (a • z) ≤ x} = ∅ := by
+      apply Set.eq_empty_iff_forall_notMem.mpr
+      intro z hz
+      exact not_le_of_gt (lt_of_lt_of_le (lt_of_not_ge hx)
+        (twoRowActualMinimum_nonneg (a • z))) hz
+    simp [he]
+
+/-- Complete actual exponential law with rate 2/a^2. -/
+theorem actualTwoRow_scaled_minimum_law (a : ℝ) (ha : 0 < a) :
+    (stdGaussian (ComplexSample (m := 2) (n := 2))).map
+      (fun z => twoRowActualMinimum (a • z)) = expMeasure (2 / a ^ 2) := by
+  have hr : (0 : ℝ) < 2 / a ^ 2 := div_pos (by norm_num) (sq_pos_of_pos ha)
+  have : IsProbabilityMeasure (expMeasure (2 / a ^ 2)) := isProbabilityMeasure_expMeasure hr
+  apply Measure.eq_of_cdf
+  apply StieltjesFunction.ext
+  intro x
+  rw [actualTwoRow_scaled_minimum_cdf_function a ha, cdf_expMeasure_eq hr]
+  congr 1
+  congr 1
+  congr 1
+  ring
+
+/-- Variance v uses sqrt(v) on real Gaussian coordinates; no implicit factor two. -/
+theorem actualTwoRow_covariance_minimum_CDF (v : ℝ) (hv : 0 < v) (x : ℝ) (hx : 0 ≤ x) :
+    ((stdGaussian (ComplexSample (m := 2) (n := 2)))
+      {z | twoRowActualMinimum (Real.sqrt v • z) ≤ x}).toReal =
+      1 - Real.exp (-2 * (x / v)) := by
+  simpa only [Real.sq_sqrt hv.le] using
+    actualTwoRow_scaled_minimum_CDF (Real.sqrt v) (Real.sqrt_pos.mpr hv) x hx
+
+/-- The unmodified paper candidate is evaluated at the variance-adjusted threshold. -/
+theorem theorem1CentralTwoRow_scaled_candidate_eq_actualCDF
+    (a : ℝ) (ha : 0 < a) (x : ℝ) (hx : 0 ≤ x) :
+    theorem1CdfCandidate 2 2 0 (by omega) (by omega)
+      (fun j : Fin 0 => Fin.elim0 j) (x / a ^ 2) =
+      ((stdGaussian (ComplexSample (m := 2) (n := 2)))
+        {z | twoRowActualMinimum (a • z) ≤ x}).toReal := by
+  rw [theorem1CentralTwoRow_candidate_eq_expCDF _ (div_nonneg hx (sq_nonneg a)),
+    actualTwoRow_scaled_minimum_CDF a ha x hx]
+
 end
 end JinWishart
 #print axioms JinWishart.twoRow_posDef_real_smul_iff
@@ -97,3 +153,11 @@ end JinWishart
 #print axioms JinWishart.twoRow_actualMinimum_scale
 #print axioms JinWishart.actualTwoRow_scaled_minimum_tail
 #print axioms JinWishart.actualTwoRow_scaled_minimum_CDF
+
+#print axioms JinWishart.actualTwoRow_scaled_minimum_cdf_function
+
+#print axioms JinWishart.actualTwoRow_scaled_minimum_law
+
+#print axioms JinWishart.actualTwoRow_covariance_minimum_CDF
+
+#print axioms JinWishart.theorem1CentralTwoRow_scaled_candidate_eq_actualCDF
