@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-15T13:24:54.783349+00:00",
+  "status": "PASS four standard-axiom statements",
+  "source_sha256": "97b1190770c34cd83e1e0dd574283ef3bca43ff5cddde7c866d6ebaca393edf0",
+  "scope": "Actual finite-dimensional Gaussian/coisometric projection and Gamma half-norm law for a FIXED deterministic subspace with explicit even-real-dimension hypothesis",
+  "not_claimed": "Random QR conditional law, complex residual identification/dimension, Gram Jacobian and general actual Wishart density remain open",
+  "reuse": "Existing GaussianRadialCDF stdGaussian_euclideanEnergy_map_eq_gammaMeasure; no repeated radial integration",
+  "diagnostics": {
+    "gaussian-projection-1.txt": "'JinWishart.stdGaussian_map_adjoint_norm_preserving' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.stdGaussian_orthogonalProjectionOnto_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "gaussian-projection-2.txt": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianOrthogonalProjectionLaw.lean:52:2: warning: Try this: \n  letI̵\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\nD:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianOrthogonalProjectionLaw.lean:47:0: warning: automatically included section variable(s) unused in theorem `JinWishart.stdGaussian_half_norm_sq_law`:\n  [CompleteSpace E]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [CompleteSpace E] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n'JinWishart.stdGaussian_map_adjoint_norm_preserving' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.stdGaussian_orthogonalProjectionOnto_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.stdGaussian_half_norm_sq_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.stdGaussian_projected_half_norm_sq_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+  },
+  "numeric_control": "verification/WISHART_GAUSSIAN_PROJECTION_20261015.json",
+  "human_review": "[需人工审查] complex variance factor, conditioning and actual model use",
+  "facade": {
+    "status": "PASS exit0",
+    "diagnostics": "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "full_build": "NOT_RUN"
+  }
+}

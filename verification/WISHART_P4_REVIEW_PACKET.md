@@ -39,6 +39,12 @@
 
 入口：`Theorem1ThreeRowsActualCDF.lean`。重复核对均值方向、六实维球体积、Fubini/半径换元和参数映射；此次仅备好哈希，不声称已审查。
 
+## 5. 新中央通用路线的审查边界
+
+`CentralHermitianCoordinates` 的体积是 n² 个实 Lebesgue 的乘积推前；验证其编码可逆，不把全部复矩阵体积限制在零测 Hermitian 子集。
+`CentralWishartConeIntegral` 只是候选核积分等式，既未证明也未假设实际一般密度。等式可允许负 x；转用实际谱尾概率时必须 x≥0，或保留额外实际 PD 支撑指标。平方情形核的总质量未被当作1。
+`GaussianOrthogonalProjectionLaw` 只处理固定确定性子空间；投影后半范数平方的 Gamma 形状来自显式实维 2k。检查从固定子空间到随机先前列的条件律是否仍缺证明，不能把这一新 Gaussian 定理误当一般 Bartlett 独立/联合谱密度已完成。
+
 ## 审查输出留白
 
 审查人/模型家族：待填写。实际读取文件与哈希：待填写。具体问题：待填写。

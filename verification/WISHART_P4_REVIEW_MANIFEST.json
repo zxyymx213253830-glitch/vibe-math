@@ -1500,6 +1500,20 @@
       "theorems": [
         "deepseek_central_trace_shift"
       ]
+    },
+    "GaussianOrthogonalProjectionLaw": {
+      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianOrthogonalProjectionLaw.lean",
+      "sha256": "97b1190770c34cd83e1e0dd574283ef3bca43ff5cddde7c866d6ebaca393edf0",
+      "imports": [
+        "WishartProbability",
+        "GaussianRadialCDF"
+      ],
+      "theorems": [
+        "stdGaussian_map_adjoint_norm_preserving",
+        "stdGaussian_orthogonalProjectionOnto_law",
+        "stdGaussian_half_norm_sq_law",
+        "stdGaussian_projected_half_norm_sq_law"
+      ]
     }
   },
   "current_evidence": [
@@ -1509,5 +1523,5 @@
   ],
   "scope": "2x1 first, central2x2 second, 3x1 subsequent; scales separately",
   "route_assets": "Deterministic and coordinate/integral identities only, not actual generic density",
-  "updated_utc": "2026-10-15T13:17:26.278021+00:00"
+  "updated_utc": "2026-10-15T13:27:26.124974+00:00"
 }

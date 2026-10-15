@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "residual_dimension": 1,
+      "real_dimension": 4,
+      "jacobian": "-r",
+      "absolute_jacobian": "r"
+    },
+    {
+      "residual_dimension": 2,
+      "real_dimension": 9,
+      "jacobian": "r**2",
+      "absolute_jacobian": "r**2"
+    },
+    {
+      "residual_dimension": 3,
+      "real_dimension": 16,
+      "jacobian": "r**3",
+      "absolute_jacobian": "r**3"
+    }
+  ],
+  "status": "PASS exact symbolic controls",
+  "scope": "n=1,2,3 only; general Jacobian and actual density induction remain open"
+}
