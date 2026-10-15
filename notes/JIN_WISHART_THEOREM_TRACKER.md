@@ -19,6 +19,16 @@
 | 维度取值 | `未陈述` / `仅公式侧` / `候选` / `已证` / `审查通过` |
 |---|---|
 
+## 当前状态（2026-10-15）
+
+统一交接入口：[WISHART_STATUS.md](WISHART_STATUS.md)。原主表中的单列范围为历史基线；新增中央复2×2为已证多列特例，不能再统称“仅单列”。一般 (s,t,L) 的 T1–T4 仍开放。T3 源转录候选的严格局部反例与归一化来源疑点分开；不宣称刊版错误。完整构建未运行，最近主入口检查退出0。[需人工审查]不变。
+
+| 新增实际范围 | 精确声明 | 验收 |
+|---|---|---|
+| 中央复2×2严格尾/完整CDF/实际指数律 | `JinWishart.actualTwoRow_minimum_tail` / `JinWishart.actualTwoRow_minimum_cdf_function` / `JinWishart.actualTwoRow_minimum_law_expTwo` | 叶子 PASS；CDF=1-exp(-2x)，尾=exp(-2x) |
+| 原T1中央2×2候选→实际CDF | `JinWishart.theorem1CentralTwoRow_candidate_eq_actualCDF` | 五声明标准三公理；主入口 PASS |
+| 实际标量协方差 vI | `JinWishart.actualTwoRow_scaled_minimum_law` / `actualTwoRow_covariance_minimum_CDF` | 十声明标准三公理；含本模块主入口 PASS |
+
 ## 主表
 
 **2026-10-09 用户提供 AI4M 指南后的更新：** 实际 LeanSearch 检索并复用

@@ -1,0 +1,188 @@
+{
+  "utc": "2026-10-15T12:57:07.528484+00:00",
+  "seed": 20261015,
+  "records": [
+    {
+      "s": 3,
+      "t": 3,
+      "N": 200000,
+      "trace_controls": [
+        {
+          "point": 7,
+          "actual": 0.270305,
+          "Gamma": 0.2709087322619176
+        },
+        {
+          "point": 9,
+          "actual": 0.5446,
+          "Gamma": 0.5443473956775814
+        },
+        {
+          "point": 11,
+          "actual": 0.76796,
+          "Gamma": 0.7680148668325437
+        }
+      ],
+      "tail_checks": [
+        {
+          "x": 0.1,
+          "actual": 0.73935,
+          "Gamma_det_candidate": 0.740818220681718,
+          "square_exponential": 0.7408182206817179,
+          "deviation_SE": 1.4984707637346852
+        },
+        {
+          "x": 0.3,
+          "actual": 0.404115,
+          "Gamma_det_candidate": 0.40656965974060016,
+          "square_exponential": 0.40656965974059917,
+          "deviation_SE": 2.2348786210697553
+        },
+        {
+          "x": 0.8,
+          "actual": 0.08916,
+          "Gamma_det_candidate": 0.09071795328941264,
+          "square_exponential": 0.09071795328941247,
+          "deviation_SE": 2.425903385017951
+        }
+      ]
+    },
+    {
+      "s": 4,
+      "t": 4,
+      "N": 200000,
+      "trace_controls": [
+        {
+          "point": 14,
+          "actual": 0.332825,
+          "Gamma": 0.3306400824374797
+        },
+        {
+          "point": 16,
+          "actual": 0.53517,
+          "Gamma": 0.5332551086122796
+        },
+        {
+          "point": 18,
+          "actual": 0.71494,
+          "Gamma": 0.7133471125060278
+        }
+      ],
+      "tail_checks": [
+        {
+          "x": 0.1,
+          "actual": 0.671065,
+          "Gamma_det_candidate": 0.6703200460356563,
+          "square_exponential": 0.6703200460356393,
+          "deviation_SE": 0.7086912315956602
+        },
+        {
+          "x": 0.3,
+          "actual": 0.300495,
+          "Gamma_det_candidate": 0.3011942119122113,
+          "square_exponential": 0.30119421191220214,
+          "deviation_SE": 0.6815885071687882
+        },
+        {
+          "x": 0.8,
+          "actual": 0.040355,
+          "Gamma_det_candidate": 0.040762203978369285,
+          "square_exponential": 0.04076220397836621,
+          "deviation_SE": 0.9209478534935995
+        }
+      ]
+    },
+    {
+      "s": 2,
+      "t": 3,
+      "N": 200000,
+      "trace_controls": [
+        {
+          "point": 4,
+          "actual": 0.214365,
+          "Gamma": 0.2148696129695948
+        },
+        {
+          "point": 6,
+          "actual": 0.554165,
+          "Gamma": 0.5543203586353885
+        },
+        {
+          "point": 8,
+          "actual": 0.80867,
+          "Gamma": 0.8087639379203747
+        }
+      ],
+      "tail_checks": [
+        {
+          "x": 0.1,
+          "actual": 0.98665,
+          "Gamma_det_candidate": 0.9865705574589677,
+          "square_exponential": 0.8187307530779818,
+          "deviation_SE": 0.308656236770217
+        },
+        {
+          "x": 0.3,
+          "actual": 0.90241,
+          "Gamma_det_candidate": 0.9027951413746732,
+          "square_exponential": 0.5488116360940265,
+          "deviation_SE": 0.5814288549180379
+        },
+        {
+          "x": 0.8,
+          "actual": 0.59064,
+          "Gamma_det_candidate": 0.5895378325443941,
+          "square_exponential": 0.20189651799465538,
+          "deviation_SE": 1.0020056577822292
+        }
+      ]
+    },
+    {
+      "s": 3,
+      "t": 4,
+      "N": 200000,
+      "trace_controls": [
+        {
+          "point": 10,
+          "actual": 0.302195,
+          "Gamma": 0.3032238536968938
+        },
+        {
+          "point": 12,
+          "actual": 0.53744,
+          "Gamma": 0.5384026669363817
+        },
+        {
+          "point": 14,
+          "actual": 0.738735,
+          "Gamma": 0.7399600775405661
+        }
+      ],
+      "tail_checks": [
+        {
+          "x": 0.1,
+          "actual": 0.974115,
+          "Gamma_det_candidate": 0.9742994298999073,
+          "square_exponential": 0.7408182206817179,
+          "deviation_SE": 0.5212291857132424
+        },
+        {
+          "x": 0.3,
+          "actual": 0.827775,
+          "Gamma_det_candidate": 0.8291988210409486,
+          "square_exponential": 0.40656965974059917,
+          "deviation_SE": 1.6919815942747858
+        },
+        {
+          "x": 0.8,
+          "actual": 0.40365,
+          "Gamma_det_candidate": 0.40327154168920043,
+          "square_exponential": 0.09071795328941247,
+          "deviation_SE": 0.3450212796891162
+        }
+      ]
+    }
+  ],
+  "status": "PASS controls",
+  "interpretation": "Numerical preflight only. Square exponential supported; rectangular determinant polynomial cannot be omitted. No general actual matrix density or spectrum law proved."
+}
