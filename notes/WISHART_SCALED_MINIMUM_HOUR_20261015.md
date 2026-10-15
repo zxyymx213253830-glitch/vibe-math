@@ -11,3 +11,5 @@ New preflight uses 200000 actual complex Gaussian 2x2 samples, seed20261015, sca
 Ollama API initially refused connection. Started only hidden ollama.exe serve (owned PID recorded), localhost service is responding. Local model gets exact sample-matrix scaling statement and necessary definition, original responses and tactics will be retained as GUIDED_COLLABORATION. All Lean/model work uses common deadline/compute.lock helper.
 
 [需人工审查] Measure theory, variance/covariance and paper notation, spectrum/event correspondence. Prior P4 was nonresponsive and target-mismatched; effective adversarial review still incomplete. No claim of general paper proof, main facade pending, full build NOT_RUN.
+
+20:42 checkpoint: Main facade exit0 with original Theorem1 central2x2 module imported. Local first actual generation sampleMatrix scale theorem PASS, original proof copied into unchanged target, standard three axioms. Redundant tactics/warnings retained; not an independent distribution result. Root scale probability bridge is checking; no pending theorem is claimed proved.
