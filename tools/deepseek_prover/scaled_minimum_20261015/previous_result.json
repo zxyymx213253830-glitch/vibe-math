@@ -1,0 +1,9 @@
+{
+  "previous_session_read_only": true,
+  "source_sha256": "9d41e9e6916438f6253d35200fd6a9a0be3487a572f341a77b598d024d2f9f55",
+  "diagnostics": "'JinWishart.theorem1CentralTwoRow_PsiMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.theorem1CentralTwoRow_PsiDet' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.theorem1CentralTwoRow_PsiDet_norm_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.theorem1CentralTwoRow_candidate_eq_expCDF' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinWishart.theorem1CentralTwoRow_candidate_eq_actualCDF' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "status": "Prior leaf PASS; facade pending new hour",
+  "author": "Codex with original local determinant GUIDED_COLLABORATION",
+  "general_theorems": "OPEN",
+  "P4": "NOT_COMPLETED"
+}

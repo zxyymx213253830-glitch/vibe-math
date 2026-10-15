@@ -1,0 +1,153 @@
+{
+  "utc": "2026-10-15T12:38:05.289411+00:00",
+  "seed": 20261015,
+  "n_samples": 200000,
+  "checks": [
+    {
+      "a": 0.5,
+      "x": 0.1,
+      "tail": 0.450265,
+      "closed": 0.44932896411722156,
+      "tolerance": 0.006683667679923979,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 0.5,
+      "x": 0.5,
+      "tail": 0.01829,
+      "closed": 0.01831563888873418,
+      "tolerance": 0.0018090085399879846,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 0.5,
+      "x": 1.0,
+      "tail": 0.00037,
+      "closed": 0.00033546262790251185,
+      "tolerance": 0.0002556888615525797,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 0.5,
+      "x": 2.0,
+      "tail": 0.0,
+      "closed": 1.1253517471925912e-07,
+      "tolerance": 1.4500703186160674e-05,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 1.0,
+      "x": 0.1,
+      "tail": 0.81882,
+      "closed": 0.8187307530779818,
+      "tolerance": 0.005178551757274146,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 1.0,
+      "x": 0.5,
+      "tail": 0.367395,
+      "closed": 0.36787944117144233,
+      "tolerance": 0.006479771899245701,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 1.0,
+      "x": 1.0,
+      "tail": 0.13571,
+      "closed": 0.1353352832366127,
+      "tolerance": 0.004599502803421971,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 1.0,
+      "x": 2.0,
+      "tail": 0.01829,
+      "closed": 0.01831563888873418,
+      "tolerance": 0.0018090085399879846,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 2.0,
+      "x": 0.1,
+      "tail": 0.95048,
+      "closed": 0.951229424500714,
+      "tolerance": 0.002899733753074113,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 2.0,
+      "x": 0.5,
+      "tail": 0.77865,
+      "closed": 0.7788007830714049,
+      "tolerance": 0.005578538605826384,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 2.0,
+      "x": 1.0,
+      "tail": 0.6061,
+      "closed": 0.6065306597126334,
+      "tolerance": 0.006564175717618073,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 2.0,
+      "x": 2.0,
+      "tail": 0.367395,
+      "closed": 0.36787944117144233,
+      "tolerance": 0.006479771899245701,
+      "passed": true,
+      "scale_max_abs_error": 0.0
+    },
+    {
+      "a": 3.0,
+      "x": 0.1,
+      "tail": 0.97762,
+      "closed": 0.9780228724846005,
+      "tolerance": 0.0019769631437022007,
+      "passed": true,
+      "scale_max_abs_error": 5.5067062021407764e-14
+    },
+    {
+      "a": 3.0,
+      "x": 0.5,
+      "tail": 0.894195,
+      "closed": 0.8948393168143698,
+      "tolerance": 0.00412562200664263,
+      "passed": true,
+      "scale_max_abs_error": 5.5067062021407764e-14
+    },
+    {
+      "a": 3.0,
+      "x": 1.0,
+      "tail": 0.800985,
+      "closed": 0.8007374029168081,
+      "tolerance": 0.005369128903808306,
+      "passed": true,
+      "scale_max_abs_error": 5.5067062021407764e-14
+    },
+    {
+      "a": 3.0,
+      "x": 2.0,
+      "tail": 0.64054,
+      "closed": 0.6411803884299546,
+      "tolerance": 0.006445235630969397,
+      "passed": true,
+      "scale_max_abs_error": 5.5067062021407764e-14
+    }
+  ],
+  "status": "PASS",
+  "evidence": "Numerical control only, not proof; actual CN(0,1) Gram; first save failed numpy.bool serialization, repaired"
+}
