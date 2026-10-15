@@ -1,3 +1,4 @@
+import JinWishartFormalization.TwoRowScaledMinimum
 import JinWishartFormalization.Theorem1CentralTwoRowActualCDF
 import JinWishartFormalization.TwoRowActualDensity
 import JinWishartFormalization.TwoRowActualNormalizedDensity

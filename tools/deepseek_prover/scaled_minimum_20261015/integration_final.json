@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-15T12:53:58.147105+00:00",
+  "facade_status": "PASS exit0, new TwoRowScaledMinimum imported",
+  "diagnostic": "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+  "full_build": "NOT_RUN",
+  "new_direction": "User steered away from SER to rolling status, T3 controls, P1 central PSD cone route; no DS P4",
+  "utf8": {
+    "TwoRowScaledMinimum": "strict UTF8 decode PASS, no U+FFFD"
+  },
+  "abandoned_SER": "Numerical preflight and unverified local factor generation retained ignored session; no claim of proved SER/factor",
+  "temporary_files": "Specifically ignored, retained unchanged on disk",
+  "root_hash": "edd72738f57ad06965b9e8fd0d737a62ef530d7d651aeadf154f5f618fb62f3a"
+}

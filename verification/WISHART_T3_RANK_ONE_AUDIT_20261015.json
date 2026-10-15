@@ -1,0 +1,202 @@
+{
+  "utc": "2026-10-15T12:53:00.469514+00:00",
+  "seed": 20261015,
+  "N_per_case": 200000,
+  "source": "https://arxiv.org/html/cs/0611007v2",
+  "source_equations": [
+    "17",
+    "21",
+    "24-26",
+    "64-68"
+  ],
+  "controls": [
+    {
+      "kind": "central Gamma(st,1)",
+      "point": 10,
+      "empirical": 0.30489,
+      "exact": 0.3032238536968938
+    },
+    {
+      "kind": "central Gamma(st,1)",
+      "point": 12,
+      "empirical": 0.540005,
+      "exact": 0.5384026669363817
+    },
+    {
+      "kind": "central Gamma(st,1)",
+      "point": 14,
+      "empirical": 0.741515,
+      "exact": 0.7399600775405661
+    },
+    {
+      "kind": "noncentral trace / variance",
+      "lambda": 1.0,
+      "point": 12,
+      "empirical": 0.43105,
+      "exact": 0.4293475800866449
+    },
+    {
+      "kind": "noncentral trace / variance",
+      "lambda": 1.0,
+      "point": 14,
+      "empirical": 0.64072,
+      "exact": 0.6389873751728594
+    },
+    {
+      "kind": "central Gamma(st,1)",
+      "point": 10,
+      "empirical": 0.30372,
+      "exact": 0.3032238536968938
+    },
+    {
+      "kind": "central Gamma(st,1)",
+      "point": 12,
+      "empirical": 0.53986,
+      "exact": 0.5384026669363817
+    },
+    {
+      "kind": "central Gamma(st,1)",
+      "point": 14,
+      "empirical": 0.74086,
+      "exact": 0.7399600775405661
+    },
+    {
+      "kind": "noncentral trace / variance",
+      "lambda": 2.0,
+      "point": 12,
+      "empirical": 0.334055,
+      "exact": 0.3335747645462206
+    },
+    {
+      "kind": "noncentral trace / variance",
+      "lambda": 2.0,
+      "point": 14,
+      "empirical": 0.538045,
+      "exact": 0.5374593598757391
+    }
+  ],
+  "cases": [
+    {
+      "s": 3,
+      "t": 4,
+      "L": 1,
+      "lambda": 1.0,
+      "k": 2,
+      "x": 0.5,
+      "hits": 59,
+      "N": 200000,
+      "empirical": 0.000295,
+      "standard_error": 4.0040523870022635e-05,
+      "literal_c3_row_sum": 0.0006415031838818062,
+      "residual_Gamma": 2,
+      "literal_div_residual": 0.0003207515919409031,
+      "independent_raw_normalized": 0.0003207515919409026,
+      "literal_deviation_SE": 8.653812447774309,
+      "derived_deviation_SE": 0.6431382372642406,
+      "displayed_separated_at_8SE": true,
+      "quadrature_max_error": 6.97214349108957e-11
+    },
+    {
+      "s": 3,
+      "t": 4,
+      "L": 1,
+      "lambda": 1.0,
+      "k": 2,
+      "x": 1.0,
+      "hits": 1902,
+      "N": 200000,
+      "empirical": 0.00951,
+      "standard_error": 0.00021914094642987142,
+      "literal_c3_row_sum": 0.019397227987674827,
+      "residual_Gamma": 2,
+      "literal_div_residual": 0.009698613993837413,
+      "independent_raw_normalized": 0.009698613993837415,
+      "literal_deviation_SE": 45.118122143544255,
+      "derived_deviation_SE": 0.8606971764529343,
+      "displayed_separated_at_8SE": true,
+      "quadrature_max_error": 2.5919551094961865e-11
+    },
+    {
+      "s": 3,
+      "t": 4,
+      "L": 1,
+      "lambda": 1.0,
+      "k": 2,
+      "x": 2.0,
+      "hits": 29186,
+      "N": 200000,
+      "empirical": 0.14593,
+      "standard_error": 0.0007924073783580982,
+      "literal_c3_row_sum": 0.29454097399004336,
+      "residual_Gamma": 2,
+      "literal_div_residual": 0.14727048699502168,
+      "independent_raw_normalized": 0.1472704869950229,
+      "literal_deviation_SE": 187.54365248083835,
+      "derived_deviation_SE": 1.6916639491661778,
+      "displayed_separated_at_8SE": true,
+      "quadrature_max_error": 9.41988361734705e-11
+    },
+    {
+      "s": 3,
+      "t": 4,
+      "L": 1,
+      "lambda": 2.0,
+      "k": 2,
+      "x": 0.5,
+      "hits": 42,
+      "N": 200000,
+      "empirical": 0.00021,
+      "standard_error": 3.431615536968793e-05,
+      "literal_c3_row_sum": 0.00047115039909190697,
+      "residual_Gamma": 2,
+      "literal_div_residual": 0.00023557519954595348,
+      "independent_raw_normalized": 0.00023557519954595386,
+      "literal_deviation_SE": 7.610129872607634,
+      "derived_deviation_SE": 0.7452816106708884,
+      "displayed_separated_at_8SE": false,
+      "quadrature_max_error": 1.5331747667218497e-10
+    },
+    {
+      "s": 3,
+      "t": 4,
+      "L": 1,
+      "lambda": 2.0,
+      "k": 2,
+      "x": 1.0,
+      "hits": 1505,
+      "N": 200000,
+      "empirical": 0.007525,
+      "standard_error": 0.00019193902462552942,
+      "literal_c3_row_sum": 0.014846444121201818,
+      "residual_Gamma": 2,
+      "literal_div_residual": 0.007423222060600909,
+      "independent_raw_normalized": 0.007423222060600889,
+      "literal_deviation_SE": 38.144635440790964,
+      "derived_deviation_SE": 0.5302618349637758,
+      "displayed_separated_at_8SE": true,
+      "quadrature_max_error": 1.4284158161246236e-10
+    },
+    {
+      "s": 3,
+      "t": 4,
+      "L": 1,
+      "lambda": 2.0,
+      "k": 2,
+      "x": 2.0,
+      "hits": 24333,
+      "N": 200000,
+      "empirical": 0.121665,
+      "standard_error": 0.0007306810899879852,
+      "literal_c3_row_sum": 0.24310891418436173,
+      "residual_Gamma": 2,
+      "literal_div_residual": 0.12155445709218086,
+      "independent_raw_normalized": 0.12155445709218092,
+      "literal_deviation_SE": 166.20645565955274,
+      "derived_deviation_SE": 0.15128748962279598,
+      "displayed_separated_at_8SE": true,
+      "quadrature_max_error": 1.0717832540227439e-10
+    }
+  ],
+  "status": "PASS controls; displayed formula inconsistent with actual samples",
+  "interpretation": "Numerical diagnostic only. Supports residual Gamma factor; does not decide journal erratum or hidden convention. No T3 Lean candidate modified; no probability bridge asserted."
+}

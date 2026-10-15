@@ -6,3 +6,14 @@ __pycache__/
 notes/private/
 .tools/
 theory/jin_wishart_formalization/.lake/
+
+# Local scratch and bridge output; retain files on disk.
+/.codex_bridge_events.jsonl
+/.codex_bridge_reply.txt
+/theory/jin_wishart_formalization/_scratch.lean
+/theory/jin_wishart_formalization/check1.txt
+/theory/jin_wishart_formalization/check2.txt
+/theory/jin_wishart_formalization/check3.txt
+/theory/jin_wishart_formalization/check4.txt
+/theory/jin_wishart_formalization/scratch.txt
+/theory/jin_wishart_formalization/wss_check.txt
