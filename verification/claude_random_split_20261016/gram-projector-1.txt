@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:24:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MeasurableSpace (Matrix (Fin n) (Fin n) ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:31:38: error: unexpected token 'ᴴ'; expected ')', ',' or ':'
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:35:29: error(lean.invalidField): Invalid field `IsHermitian`: The environment does not contain `Function.IsHermitian`, so it is not possible to project the field `IsHermitian` from an expression
+  gramInverseProjector A
+of type `Fin m → Fin m → ℂ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:36:7: error: Type mismatch
+  gramInverseProjector A
+has type
+  Matrix (Fin m) (Fin m) ℂ
+of sort `Type` but is expected to have type
+  Sort u_1
+of sort `Type u_1`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:35:44: error: unsolved goals
+m n : ℕ
+A : Matrix (Fin m) (Fin n) ℂ
+⊢ sorry
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:36:31: error: unexpected token 'ᴴ'; expected command
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:43:50: error: unexpected token 'ᴴ'; expected ')', ',' or ':'
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:49:50: error: unexpected token 'ᴴ'; expected ')', ',' or ':'
+'JinWishart.measurable_complex_matrix_inverse' depends on axioms: [sorryAx]
+'JinWishart.gramInverseProjector_isHermitian' does not depend on any axioms
+'JinWishart.gramInverseProjector_mul_self' does not depend on any axioms
+'JinWishart.gramInverseProjector_idempotent' does not depend on any axioms

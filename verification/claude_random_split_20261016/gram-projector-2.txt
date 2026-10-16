@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:53:80: error: unsolved goals
+m n : ℕ
+A : Matrix (Fin m) (Fin n) ℂ
+hA : IsUnit (Aᴴ * A).det
+⊢ A * (Aᴴ * A)⁻¹ * Aᴴ = gramInverseProjector A
+'JinWishart.measurable_complex_matrix_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_idempotent' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

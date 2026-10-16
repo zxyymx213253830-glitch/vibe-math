@@ -1,0 +1,36 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:149:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+m n : ℕ
+⊢ Measurable fun p => (toEuclideanLin (gramInverseProjector p.1)) p.2
+m n : ℕ
+⊢ Measurable fun p => WithLp.toLp 2 (gramInverseProjector p.1 *ᵥ p.2.ofLp)
+m n : ℕ
+hOf : Measurable WithLp.ofLp
+⊢ Measurable fun p => WithLp.toLp 2 (gramInverseProjector p.1 *ᵥ p.2.ofLp)
+m n : ℕ
+hOf : Measurable WithLp.ofLp
+hTo : Measurable (WithLp.toLp 2)
+⊢ Measurable fun p => WithLp.toLp 2 (gramInverseProjector p.1 *ᵥ p.2.ofLp)
+m n : ℕ
+hOf : Measurable WithLp.ofLp
+hTo : Measurable (WithLp.toLp 2)
+hInput : Measurable fun p => (p.1, p.2.ofLp)
+⊢ Measurable fun p => WithLp.toLp 2 (gramInverseProjector p.1 *ᵥ p.2.ofLp)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:176:8: error: (kernel) unknown constant 'JinWishart.measurable_gramInverseProjector_euclidean'
+'JinWishart.measurable_complex_matrix_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_gramInverseProjector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_gramInverseProjector_mulVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_normal_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_eq_real_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.totalGramColumnSpaceReal_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_gramInverseProjector_euclidean' does not depend on any axioms
+'JinWishart.measurable_totalGramColumnSpaceReal_projection' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.measurable_totalGramColumnSpaceReal_projection,
+ Quot.sound]

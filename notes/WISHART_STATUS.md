@@ -107,3 +107,5 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-16 投稿交付：按用户指认沿用现有Step家族P4报告；96源码及旧稿哈希重新核对匹配，Lean源码未改。处理I-1/I-2/I-5文档建议，署名与PDF元数据ZHOU XINGYUAN；12页新PDF及独立解压TeX编译通过，119公理/22主张绑定刷新。现有范围限定模型审查无数学错误报告，人工语义责任仍保留；完整165模块代码及arXiv anc布局本地打包，不上传、不推送、不代选许可。
 
 2026-10-16 新授权继续Lean：`GaussianRandomSubspaceLaw`五声明叶子PASS、标准三公理；从固定正交能量Gamma乘积律推至独立新Gaussian与参数化随机子空间，明确联合投影可测及几乎处处实维数。seed20261016两例各200000随机列空间控制和依赖投影负面对照PASS（非证明）。本地DS两次短目标分别占位拒绝/Lean拒绝，原请求回应与失败保存，最终证明归Codex；十个项目依赖哈希绑定在`verification/gaussian_random_split_20261016/audit.json`。新代码P4/人工审查待完成；实际列空间可测/满秩实例、一般Jacobian/实际矩阵密度/G2仍开放。原论文/发布包/主入口未改，无完整构建；本任务闲置Ollama服务已停止、模型卸载，无旧轮或新自动心跳启动。
+
+2026-10-16 用户授权Claude/Qoder/ZCode合作：Claude Code两次真实只读调用均超时（180/120秒，后端/费用未知），无有效P4；Qoder/ZCode仅确认桌面安装，暂无已发现可调用CLI，已备好`verification/claude_random_split_20261016/COLLABORATION_REQUEST.md`。Codex完成`GaussianGramProjector`十一声明叶子及与上一轮Gamma律的独立接口检查，均PASS标准公理；Gram逆公式在满秩时等于真实实正交投影，奇异处显式补零，并已证对应子空间族联合可测。实际Gaussian满秩概率/维数及一般Jacobian/密度/G2仍开放，P4/人审未完成；数值仅为QR/闭式零残差控制。原论文、发布包、主入口未改；无新自动循环或推送，证据和源码哈希已绑定。

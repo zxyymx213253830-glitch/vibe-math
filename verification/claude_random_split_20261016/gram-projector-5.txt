@@ -1,0 +1,72 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:123:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  inner ℝ ?x ?y
+in the target expression
+  inner ℝ u (z - (toEuclideanLin (gramInverseProjector A)) z) = 0
+
+m n : ℕ
+A : Matrix (Fin m) (Fin n) ℂ
+hA : IsUnit (Aᴴ * A).det
+z : EuclideanSpace ℂ (Fin m)
+K : Submodule ℂ (EuclideanSpace ℂ (Fin m)) := (toEuclideanLin A).range
+hmem : (toEuclideanLin (gramInverseProjector A)) z ∈ K
+hres : z - (toEuclideanLin (gramInverseProjector A)) z ∈ Kᗮ
+u : EuclideanSpace ℂ (Fin m)
+hu : u ∈ Submodule.restrictScalars ℝ K
+⊢ inner ℝ u (z - (toEuclideanLin (gramInverseProjector A)) z) = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:132:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (IsUnit (Aᴴ * A).det)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:139:42: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:141:2: error: unsolved goals
+case neg
+m n : ℕ
+A : Matrix (Fin m) (Fin n) ℂ
+z : EuclideanSpace ℂ (Fin m)
+hA : ¬IsUnit (Aᴴ * A).det
+hzero : gramInverseProjector A = 0
+⊢ (sorry ()).starProjection z = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:139:16: warning: declaration uses `sorry`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:144:36: warning: This simp argument is unused:
+  hA
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [totalGramColumnSpaceReal, hzero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:152:26: error: Application type mismatch: The argument
+  ?m.51 ∘ ?m.57
+has type
+  ?m.47 → ?m.49
+but is expected to have type
+  Measurable fun p => p.2.ofLp
+in the application
+  Measurable.prodMk measurable_fst (?m.51 ∘ ?m.57)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:152:55: error: Application type mismatch: The argument
+  measurable_snd
+has type
+  Measurable Prod.snd
+but is expected to have type
+  ?m.47 → ?m.48
+in the application
+  ?m.51 ∘ ⋯
+'JinWishart.measurable_complex_matrix_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_gramInverseProjector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_gramInverseProjector_mulVec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_normal_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_eq_real_projection' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.totalGramColumnSpaceReal_projection' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.measurable_gramInverseProjector_euclidean' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.measurable_totalGramColumnSpaceReal_projection' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

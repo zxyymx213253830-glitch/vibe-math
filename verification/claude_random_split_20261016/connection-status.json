@@ -1,0 +1,27 @@
+{
+  "claude_code_version": "2.1.283",
+  "configured_default_model": "claude-sonnet-5-5[1m]",
+  "configured_default_warning": "unrecognized_model",
+  "official_cli_auth_status": "loggedIn true; oauth_token; existing configured proxy",
+  "calls": [
+    {
+      "model": "configured default",
+      "timeout_seconds": 180,
+      "exit_code": 124,
+      "complete_response": false
+    },
+    {
+      "model": "documented sonnet alias",
+      "timeout_seconds": 120,
+      "exit_code": 124,
+      "complete_response": false
+    }
+  ],
+  "gateway_unauthenticated_HEAD_status": 200,
+  "effective_backend_model": "UNKNOWN_NO_RESPONSE",
+  "P4_status": "NOT_COMPLETED_NO_REVIEW_RECEIVED",
+  "qoder_zcode": "Desktop installations found; no callable qodercli/zcode CLI found in PATH or inspected application bin directories; no GUI operations attempted",
+  "charges": "UNKNOWN; no complete usage record returned",
+  "automatic_further_attempts": false,
+  "credentials_displayed_or_copied": false
+}

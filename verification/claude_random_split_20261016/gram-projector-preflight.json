@@ -1,0 +1,43 @@
+{
+  "seed": 20261016,
+  "N_per_case": 2048,
+  "utc": "2026-10-16T10:01:46.943627+00:00",
+  "records": [
+    {
+      "m": 3,
+      "n": 1,
+      "errors": {
+        "QR_projector": 8.881784197001252e-16,
+        "self_adjoint": 1.2412670766236366e-16,
+        "idempotent": 3.3306690738754696e-16,
+        "fixes_columns": 8.95090418262362e-16,
+        "normal_residual": 9.155133597044475e-16
+      }
+    },
+    {
+      "m": 5,
+      "n": 2,
+      "errors": {
+        "QR_projector": 1.2225062931717345e-15,
+        "self_adjoint": 8.053900950903363e-16,
+        "idempotent": 7.783956161032599e-16,
+        "fixes_columns": 3.278449303197517e-15,
+        "normal_residual": 2.60133570547882e-15
+      }
+    },
+    {
+      "m": 6,
+      "n": 3,
+      "errors": {
+        "QR_projector": 1.8149614833935044e-15,
+        "self_adjoint": 1.6587233053073048e-15,
+        "idempotent": 1.5597123087753637e-15,
+        "fixes_columns": 6.891436111917002e-15,
+        "normal_residual": 4.193210961605237e-15
+      }
+    }
+  ],
+  "source_sha256": "852c6c75a33ef8665e775f77488d9a26e9de952447a1e1809dbc5836165f6dca",
+  "status": "PASS numerical algebra controls only; not proof",
+  "control": "Independent QR projector, Hermitian/idempotent/range identities"
+}

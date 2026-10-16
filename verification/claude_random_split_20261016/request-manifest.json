@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-16T09:58:12.531440+00:00",
+  "source_commit": "163c3bc",
+  "purpose": "P4 only issues; bounded Claude Code text request; no tools or edits",
+  "inputs": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRandomSubspaceLaw.lean": "7dcfc1e325815e5f4e36c6abf953fd772b3cd40f6eefc6ff99fd96af9d849288",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianOrthogonalProjectionLaw.lean": "97b1190770c34cd83e1e0dd574283ef3bca43ff5cddde7c866d6ebaca393edf0",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianOrthogonalSplitLaw.lean": "c458daf3f4a2f08ea66db883a4c97b202ca425325103a2f97d9ecfd31528e868"
+  },
+  "prompt_sha256": "9d96fd5a329f2975eac34c7edd2549c5db0c77e1071a5c33bc09d44d75d95b30",
+  "requested_model": "Claude Code existing configured default; actual response metadata retained",
+  "provider": "existing configured proxy; no independent verification of backend weights",
+  "prompt_sha256_basis": "Original UTF-8 LF text assembled before Windows newline translation; original value preserved",
+  "prompt_file_sha256": "700f1f5f9032397e2f508f24e59e2fe91546ad967dc82e97748faf4bb2f75be8",
+  "prompt_file_sha256_basis": "Actual saved CRLF bytes subsequently bound during audit; file not rewritten"
+}

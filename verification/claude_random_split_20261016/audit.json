@@ -1,0 +1,191 @@
+{
+  "collected_utc": "2026-10-16T10:31:08.655532+00:00",
+  "declarations": [
+    {
+      "name": "JinWishart.measurable_complex_matrix_inverse",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.measurable_gramInverseProjector",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.measurable_gramInverseProjector_mulVec",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gramInverseProjector_isHermitian",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gramInverseProjector_mul_self",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gramInverseProjector_idempotent",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gramInverseProjector_normal_equation",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gramInverseProjector_eq_real_projection",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.totalGramColumnSpaceReal_projection",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.measurable_gramInverseProjector_euclidean",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.measurable_totalGramColumnSpaceReal_projection",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    }
+  ],
+  "source_sha256": "7bc2b1455bd7d7f0b45fed53f69d6d3a1aba1b41f3da445116292a7f450fc65d",
+  "log_sha256": "f189e6ac8251ee78d9b007251c147cd5377eb2371b5ca393c944f4c7e55daef5",
+  "olean_sha256": "876bd38a0bc86d546d4b3b45288feead44a8445fd5b51215a64a69c9f76d36fb",
+  "direct_import_cache_bindings": {
+    "Mathlib.Analysis.Matrix.MeasurableSpace": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Matrix/MeasurableSpace.olean",
+      "sha256": "12ecc5cda1a8e5a301579aced133bae242058ac6ed36dcda4122c43a2f253d0b",
+      "use": "Existing cache, not recompiled by this audit"
+    },
+    "Mathlib.LinearAlgebra.Matrix.NonsingularInverse": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/NonsingularInverse.olean",
+      "sha256": "909e416754cea136d4b4bf415e46f6fd7dae05010bb873e3bb7f772ac96c0a4d",
+      "use": "Existing cache, not recompiled by this audit"
+    },
+    "Mathlib.Analysis.InnerProductSpace.Adjoint": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Adjoint.olean",
+      "sha256": "f0ebca9c08ca37310d30a4aa758b8f731275e09fb94108980caff1423fa87d37",
+      "use": "Existing cache, not recompiled by this audit"
+    },
+    "Mathlib.Analysis.Matrix.PosDef": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Matrix/PosDef.olean",
+      "sha256": "dbd4a9305dea3392943aefdf38241786f21d32c3dd0643e6bbf018c98f4fec9f",
+      "use": "Existing cache, not recompiled by this audit"
+    },
+    "Mathlib.MeasureTheory.Constructions.BorelSpace.Complex": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Constructions/BorelSpace/Complex.olean",
+      "sha256": "9be39da3c9e06e7795b8309579961e12555c6f456ad656a1aa7baa85b4847e92",
+      "use": "Existing cache, not recompiled by this audit"
+    },
+    "Mathlib.MeasureTheory.Group.Arithmetic": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Group/Arithmetic.olean",
+      "sha256": "a764f6b2e223787a6af56393f1227cd2f817abbdbdbfaefeb43c46635333b21d",
+      "use": "Existing cache, not recompiled by this audit"
+    },
+    "Mathlib.Analysis.Normed.Lp.MeasurableSpace": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Lp/MeasurableSpace.olean",
+      "sha256": "ae61e05b4659450e2af5cac415f3ed1f656e8bfc4b116a321ae6d5bb57485e8a",
+      "use": "Existing cache, not recompiled by this audit"
+    },
+    "JinWishartFormalization.GaussianRandomSubspaceLaw": {
+      "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianRandomSubspaceLaw.olean",
+      "sha256": "207874ce35dd9235e35cf3a2b951105e220d6fead6672872ee18babe7420614b",
+      "use": "Existing cache, not recompiled by this audit"
+    }
+  },
+  "integration": {
+    "source_sha256": "b2e92f4babc200d380e949ba085055a52f624df9aa2431f89edef9828b281572",
+    "olean_sha256": "3dd1a5a55ae6c9f375b5ebf87843f785de8d985ee7b691ab2d2e99f6a852f3b7",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scope": "Interface example, not a new Wishart theorem"
+  },
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "dependency_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "evidence": {
+    "audit.py": "cb9ce70c0fc6a86f31cb5baf04c16c800e83c3261914ad52cef15a942f8104c4",
+    "COLLABORATION_REQUEST.md": "aae8c0e67440f2510ee2f2024bb29ce2775541bf106bbc9b7e4c44c5f479eed3",
+    "connection-status.json": "6ce3dcdf26184c565a67182a4af1c3184188b92bb9a677f6cf97e47165d6bb27",
+    "gram-projector-1.txt": "92dd596df670a5b7c08f9ad781199cb86cbb50587281d1e7e635b9de6c64afd3",
+    "gram-projector-10-debug.txt": "8515d27007f7f9b16a9ea30870948d22e13e3b25f2eea483dbae4171ed756db8",
+    "gram-projector-11.txt": "f189e6ac8251ee78d9b007251c147cd5377eb2371b5ca393c944f4c7e55daef5",
+    "gram-projector-2.txt": "487e73f7573427caa4a058754f2ec2a38b0c832cc55b4d8e03857a2d7561a3da",
+    "gram-projector-3.txt": "c4040bb08aa7bf35277565d682afa09abe2ffa88278e6a96de00a56d961b8b7e",
+    "gram-projector-4.txt": "ccf8906be9b0822bc97e1ff929f326ca08429cc9c4d63a0a696c6aee01919b6b",
+    "gram-projector-5.txt": "f6ce626c17640602f946e1bea26d5c5198abe95556654e504d67e1321ab9c64d",
+    "gram-projector-6.txt": "54109f628159d71d931d82086ce8c179ae017e59ded551c9541139d9bbc45dd8",
+    "gram-projector-7.txt": "dd8f1b14fec3719a5ea3f7e4c738dc0f07a9595f6bb429488b42979eeaedb534",
+    "gram-projector-8.txt": "1f12658c556dd954efdb4e9d1d0994dd6a310952a6e3f5621f70f90e3f37ab4a",
+    "gram-projector-9-debug.txt": "85057140e3f9ff74b8b2489b2c62a75b6ce5ea52e0cad1669b02847d77e42b1c",
+    "gram-projector-final.txt": "f189e6ac8251ee78d9b007251c147cd5377eb2371b5ca393c944f4c7e55daef5",
+    "gram-projector-preflight.json": "59314958a367f08a296c67c3dd33295114ce0ab4d13ae031267395df37f4a4fe",
+    "GramProjectorIntegration.lean": "b2e92f4babc200d380e949ba085055a52f624df9aa2431f89edef9828b281572",
+    "integration-check.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "invocation-2.json": "25daa8f983446a040d24fd6c35c7cd68a99555951595c95d8fc843032bba5180",
+    "invocation.json": "9045249c365738e56549068e0638f7bfaa2b137b15e4d6b733ca4add55d00e46",
+    "p4-prompt.txt": "700f1f5f9032397e2f508f24e59e2fe91546ad967dc82e97748faf4bb2f75be8",
+    "README.md": "a9142e19b8957626cdbbe915fac4aeca646b68f41a8fe190125a41ac9153a796",
+    "request-manifest.json": "180730a5846b26401ab850b17ee9b5d08c3af3017eb2de91d73c5436d8e8b662",
+    "response-2.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "response.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr-2.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "ca068f4dd7fe6a624eb346b5747e1a4d67e395cd9de62306e1fb8aff181fc435"
+  },
+  "external_review": "NOT_COMPLETED: two CLI timeouts, no usable response",
+  "external_backend_model": "Unconfirmed; no response metadata received",
+  "pending": "Independent P4/human review, Gaussian full-rank probability and dimensions, general Jacobian/density/G2",
+  "scope": "New leaf and explicit integration example; no facade/full-build or publication refresh",
+  "status": "PASS eleven kernel/standard-axiom checks, integration and source bindings"
+}

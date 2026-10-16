@@ -1,0 +1,41 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:60:16: error: don't know how to synthesize implicit argument `f`
+  @Measurable.comp (Matrix (Fin m) (Fin n) ℂ × ?m.30) (Matrix (Fin m) (Fin n) ℂ) (Matrix (Fin m) (Fin m) ℂ)
+    Prod.instMeasurableSpace instMeasurableSpace instMeasurableSpace gramInverseProjector Prod.fst
+    (measurable_gramInverseProjector m n) measurable_fst
+context:
+m n : ℕ
+⊢ Matrix (Fin m) (Fin n) ℂ × ?m.30 → Matrix (Fin m) (Fin n) ℂ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:60:16: error: don't know how to synthesize implicit argument `mα`
+  @Measurable.comp (Matrix (Fin m) (Fin n) ℂ × ?m.30) (Matrix (Fin m) (Fin n) ℂ) (Matrix (Fin m) (Fin m) ℂ)
+    Prod.instMeasurableSpace instMeasurableSpace instMeasurableSpace gramInverseProjector Prod.fst
+    (measurable_gramInverseProjector m n) measurable_fst
+context:
+m n : ℕ
+⊢ MeasurableSpace (Matrix (Fin m) (Fin n) ℂ × ?m.30)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:60:16: error: don't know how to synthesize implicit argument `α`
+  @Measurable.comp (Matrix (Fin m) (Fin n) ℂ × ?m.30) (Matrix (Fin m) (Fin n) ℂ) (Matrix (Fin m) (Fin m) ℂ)
+    Prod.instMeasurableSpace instMeasurableSpace instMeasurableSpace gramInverseProjector Prod.fst
+    (measurable_gramInverseProjector m n) measurable_fst
+context:
+m n : ℕ
+⊢ Type ?u.25
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:60:59: error: don't know how to synthesize implicit argument
+  @measurable_fst (Matrix (Fin m) (Fin n) ℂ) ?m.30 instMeasurableSpace ?m.32
+context:
+m n : ℕ
+⊢ MeasurableSpace ?m.30
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:60:59: error: don't know how to synthesize implicit argument `β`
+  @measurable_fst (Matrix (Fin m) (Fin n) ℂ) ?m.30 instMeasurableSpace ?m.32
+context:
+m n : ℕ
+⊢ Type ?u.25
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:60:7: error: failed to infer `have` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramProjector.lean:59:42: error: unsolved goals
+m n : ℕ
+⊢ Measurable fun p => gramInverseProjector p.1 *ᵥ p.2
+'JinWishart.measurable_complex_matrix_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_gramInverseProjector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_gramInverseProjector_mulVec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramInverseProjector_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
