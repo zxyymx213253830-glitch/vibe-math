@@ -1,0 +1,137 @@
+{
+  "utc": "2026-10-16T09:18:25.510562+00:00",
+  "seed": 20261016,
+  "N_per_case": 200000,
+  "source_sha256": "fb709925785476a86ad7d0123b8653042cbf9a58cc4aab5ee34a29693e986bff",
+  "records": [
+    {
+      "dimension": 3,
+      "complex_rank": 1,
+      "checks": [
+        {
+          "label": "total_energy_Gamma_dimension",
+          "N": 200000,
+          "empirical": 0.575355,
+          "exact": 0.5768099188731566,
+          "deviation_SE": 1.3169511789913237
+        },
+        {
+          "label": "joint_CDF_0.5_1.0",
+          "N": 200000,
+          "empirical": 0.103695,
+          "exact": 0.10397077824134154,
+          "deviation_SE": 0.40407153879583557
+        },
+        {
+          "label": "joint_CDF_1.0_2.0",
+          "N": 200000,
+          "empirical": 0.37521,
+          "exact": 0.3754759142223112,
+          "deviation_SE": 0.2455788300274977
+        },
+        {
+          "label": "joint_CDF_2.0_3.0",
+          "N": 200000,
+          "empirical": 0.691955,
+          "exact": 0.6924682312882734,
+          "deviation_SE": 0.49737414138979197
+        },
+        {
+          "label": "parameter_bin_0",
+          "N": 100000,
+          "empirical": 0.37575,
+          "exact": 0.3754759142223112,
+          "deviation_SE": 0.17898674193826136
+        },
+        {
+          "label": "parameter_bin_1",
+          "N": 100000,
+          "empirical": 0.37467,
+          "exact": 0.3754759142223112,
+          "deviation_SE": 0.5262876539948657
+        },
+        {
+          "label": "parameter_bin_2",
+          "N": 99907,
+          "empirical": 0.37571941905972556,
+          "exact": 0.3754759142223112,
+          "deviation_SE": 0.1589424541624759
+        },
+        {
+          "label": "parameter_bin_3",
+          "N": 100093,
+          "empirical": 0.3747015275793512,
+          "exact": 0.3754759142223112,
+          "deviation_SE": 0.5059342360388415
+        }
+      ],
+      "dependent_projector_residual_max": 8.881784197001252e-15,
+      "negative_control": "Dependent projector violates Gamma residual law"
+    },
+    {
+      "dimension": 5,
+      "complex_rank": 2,
+      "checks": [
+        {
+          "label": "total_energy_Gamma_dimension",
+          "N": 200000,
+          "empirical": 0.557605,
+          "exact": 0.5595067149347879,
+          "deviation_SE": 1.7131213093578104
+        },
+        {
+          "label": "joint_CDF_0.5_1.0",
+          "N": 200000,
+          "empirical": 0.007515,
+          "exact": 0.007243508059055917,
+          "deviation_SE": 1.431779363362504
+        },
+        {
+          "label": "joint_CDF_1.0_2.0",
+          "N": 200000,
+          "empirical": 0.085885,
+          "exact": 0.0854353851526913,
+          "deviation_SE": 0.71933228733503
+        },
+        {
+          "label": "joint_CDF_2.0_3.0",
+          "N": 200000,
+          "empirical": 0.34201,
+          "exact": 0.34262171763999766,
+          "deviation_SE": 0.5764357162047541
+        },
+        {
+          "label": "parameter_bin_0",
+          "N": 100000,
+          "empirical": 0.34207,
+          "exact": 0.34262171763999766,
+          "deviation_SE": 0.36762221690110886
+        },
+        {
+          "label": "parameter_bin_1",
+          "N": 100000,
+          "empirical": 0.34195,
+          "exact": 0.34262171763999766,
+          "deviation_SE": 0.4475809907919027
+        },
+        {
+          "label": "parameter_bin_2",
+          "N": 100164,
+          "empirical": 0.3411405295315682,
+          "exact": 0.34262171763999766,
+          "deviation_SE": 0.9877588427874004
+        },
+        {
+          "label": "parameter_bin_3",
+          "N": 99836,
+          "empirical": 0.3428823270163067,
+          "exact": 0.34262171763999766,
+          "deviation_SE": 0.17350760014623423
+        }
+      ],
+      "dependent_projector_residual_max": 1.4210854715202004e-14,
+      "negative_control": "Dependent projector violates Gamma residual law"
+    }
+  ],
+  "status": "PASS numerical controls only; not proof"
+}

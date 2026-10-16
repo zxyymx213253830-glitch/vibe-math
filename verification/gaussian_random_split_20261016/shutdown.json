@@ -1,0 +1,13 @@
+{
+  "unload": {
+    "model": "deepseek-prover-v2:7b",
+    "created_at": "2026-10-16T09:27:55.0158883Z",
+    "response": "",
+    "done": true,
+    "done_reason": "unload"
+  },
+  "collected_utc": "2026-10-16T09:27:55.3496761+00:00",
+  "stopped_owned_service": true,
+  "remaining_models": [],
+  "owned_pid": 11680
+}

@@ -1,0 +1,42 @@
+import JinWishartFormalization.GaussianOrthogonalSplitLaw
+/-! Local DeepSeek proof body, GUIDED_COLLABORATION: Codex supplied the fixed
+statement, decomposition, API assets and feedback. Candidate pending checking. -/
+open MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] [CompleteSpace E]
+theorem stdGaussian_orthogonal_energy_pair_law (K : Submodule ℝ E)
+    (k l : ℕ) (hk : 0 < k) (hl : 0 < l)
+    (hdimK : Module.finrank ℝ K = 2 * k)
+    (hdimC : Module.finrank ℝ Kᗮ = 2 * l) :
+    (stdGaussian E).map (fun z : E =>
+      (‖K.orthogonalProjectionOnto z‖ ^ 2 / 2,
+       ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2)) =
+      (gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1) := by
+  have h_main : (stdGaussian E).map (fun z : E => (‖K.orthogonalProjectionOnto z‖ ^ 2 / 2, ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2)) = (gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1) := by
+    -- Use the independence of the two energy functions
+    have h_indep : IndepFun (fun z : E => ‖K.orthogonalProjectionOnto z‖ ^ 2 / 2) (fun z : E => ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2) (stdGaussian E) := by
+      -- Use the independence of the two energy functions
+      exact (stdGaussian_orthogonal_split_indep K).comp (φ := fun x : K => ‖x‖ ^ 2 / 2) (ψ := fun y : Kᗮ => ‖y‖ ^ 2 / 2) (by fun_prop) (by fun_prop)
+    -- Use the independence of the two energy functions
+    have h_indep' : IndepFun (fun z : E => ‖K.orthogonalProjectionOnto z‖ ^ 2 / 2) (fun z : E => ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2) (stdGaussian E) := by
+      exact h_indep
+    -- Use the independence of the two energy functions
+    have h_indep'' : IndepFun (fun z : E => ‖K.orthogonalProjectionOnto z‖ ^ 2 / 2) (fun z : E => ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2) (stdGaussian E) := by
+      exact h_indep'
+    -- Use the independence of the two energy functions
+    have h_indep''' : IndepFun (fun z : E => ‖K.orthogonalProjectionOnto z‖ ^ 2 / 2) (fun z : E => ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2) (stdGaussian E) := by
+      exact h_indep''
+    -- Use the independence of the two energy functions
+    have h_map : (stdGaussian E).map (fun z : E => (‖K.orthogonalProjectionOnto z‖ ^ 2 / 2, ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2)) = (gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1) := by
+      -- Use the independence of the two energy functions
+      have h1 : (stdGaussian E).map (fun z : E => (‖K.orthogonalProjectionOnto z‖ ^ 2 / 2, ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2)) = (gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1) := by
+        -- Use the independence of the two energy functions
+        exact?
+      exact h1
+    exact h_map
+  exact h_main
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_orthogonal_energy_pair_law

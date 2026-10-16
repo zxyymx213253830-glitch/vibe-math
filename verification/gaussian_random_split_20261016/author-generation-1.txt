@@ -1,0 +1,25 @@
+### Step-by-Step Abstract Plan
+
+1. **Understand the Problem**: We need to show that the joint distribution of the energy pair \((\frac{\|Kz\|^2}{2}, \frac{\|K^\perp z\|^2}{2})\) for a random \(z \sim \mathcal{N}(0, E)\) is the product of two independent \(\Gamma(k, 1)\) distributions.
+
+2. **Key Observations**:
+   - The energy of a random vector under Gaussian orthogonal projection is \(\frac{1}{2}\|Kz\|^2\) and \(\frac{1}{2}\|K^\perp z\|^2\) are independent.
+   - The independence of the two energies is a consequence of the independence of \(K\) and \(K^\perp\) projections.
+3. **Formal Proof**:
+   - The map \(z \mapsto (\frac{1}{2}\|Kz\|^2, \frac{1}{2}\|K^\perp z\|^2)\) is measurable and its image is a subset of \(\mathbb{R}^2\).
+   - The independence of the two components follows from the independence of the projections \(K\) and \(K^\perp\).
+4. **Final Step**:
+   - The joint distribution of the energy pair is the product of two independent \(\Gamma(k, 1)\) distributions.
+
+### Lean4 Formalization
+```lean4
+theorem stdGaussian_orthogonal_energy_pair_law (K : Submodule ℝ E)
+    (k l : ℕ) (hk : 0 < k) (hl : 0 < l)
+    (hdimK : Module.finrank ℝ K = 2 * k)
+    (hdimC : Module.finrank ℝ Kᗮ = 2 * l) :
+    (stdGaussian E).map (fun z : E =>
+      (‖K.orthogonalProjectionOnto z‖ ^ 2 / 2,
+       ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2)) =
+      (gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1) := by
+  sorry
+```

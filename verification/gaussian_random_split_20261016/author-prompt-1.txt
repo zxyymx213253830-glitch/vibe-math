@@ -1,0 +1,33 @@
+AUTHOR_COMPLETION, not peer review. You are a local Lean prover. Return only a lean code fence containing the proof body for the exact theorem below. Do not change the statement, do not introduce declarations or placeholders.
+
+Imports:
+import JinWishartFormalization.GaussianOrthogonalSplitLaw
+open MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] [CompleteSpace E]
+
+Available checked assets:
+stdGaussian_orthogonal_split_indep (K : Submodule ℝ E) :
+  IndepFun K.orthogonalProjectionOnto Kᗮ.orthogonalProjectionOnto (stdGaussian E)
+stdGaussian_projected_half_norm_sq_law (K : Submodule ℝ E)
+  (k : ℕ) (hk : 0 < k) (hdim : Module.finrank ℝ K = 2 * k) :
+  (stdGaussian E).map (fun z : E => ‖K.orthogonalProjectionOnto z‖ ^ 2 / 2) = gammaMeasure (k : ℝ) 1
+IndepFun.comp (hfg : IndepFun f g μ) (hφ : Measurable φ) (hψ : Measurable ψ) :
+  IndepFun (φ ∘ f) (ψ ∘ g) μ
+IndepFun.map_prod_eq_prod_map_map (hfg : IndepFun f g μ)
+  (hf : AEMeasurable f μ) (hg : AEMeasurable g μ) :
+  μ.map (fun z => (f z, g z)) = (μ.map f).prod (μ.map g)
+
+Exact target:
+theorem stdGaussian_orthogonal_energy_pair_law (K : Submodule ℝ E)
+    (k l : ℕ) (hk : 0 < k) (hl : 0 < l)
+    (hdimK : Module.finrank ℝ K = 2 * k)
+    (hdimC : Module.finrank ℝ Kᗮ = 2 * l) :
+    (stdGaussian E).map (fun z : E =>
+      (‖K.orthogonalProjectionOnto z‖ ^ 2 / 2,
+       ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2)) =
+      (gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1) := by
+
+Guidance (GUIDED_COLLABORATION): derive independence of the two energy functions using the checked split independence and .comp, with φ := fun x : K => ‖x‖ ^ 2 / 2 and ψ := fun y : Kᗮ => ‖y‖ ^ 2 / 2. Both are measurable by fun_prop. Use simpa only [Function.comp_def] to remove compositions. Rewrite the map of the pair using that independence, then use the two projected half-norm-square laws. No measure ext or new integration needed.
