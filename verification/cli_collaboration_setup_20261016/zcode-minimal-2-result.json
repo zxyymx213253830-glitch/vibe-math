@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "elapsed_seconds": 3.9105638999899384,
+  "mode": "plan",
+  "prompt": "Do not call tools; reply only OK",
+  "note": "Omitted --max-turns because installed CLI parser rejected its own help-listed flag"
+}

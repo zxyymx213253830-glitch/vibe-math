@@ -1,0 +1,9 @@
+{
+  "exit_code": 1,
+  "elapsed_seconds": 1.0687123000097927,
+  "mode": "plan",
+  "allowed_tools": [
+    "Read"
+  ],
+  "prompt": "No tools; reply only OK"
+}

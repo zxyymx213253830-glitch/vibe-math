@@ -1,0 +1,33 @@
+{
+  "head_before_review": "55c1329",
+  "sources": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramProjector.lean": "7bc2b1455bd7d7f0b45fed53f69d6d3a1aba1b41f3da445116292a7f450fc65d",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRandomSubspaceLaw.lean": "7dcfc1e325815e5f4e36c6abf953fd772b3cd40f6eefc6ff99fd96af9d849288",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianOrthogonalProjectionLaw.lean": "97b1190770c34cd83e1e0dd574283ef3bca43ff5cddde7c866d6ebaca393edf0",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianOrthogonalSplitLaw.lean": "c458daf3f4a2f08ea66db883a4c97b202ca425325103a2f97d9ecfd31528e868"
+  },
+  "request_file_sha256": "1aca3300d465e3179e12c1b8ed03755b5e4a9bae17865d89a997628b4288a11f",
+  "raw_response_sha256": "06b564574f221bb3b255e1ce81cf1aea2991624f2ec6ec516bcbb699a3ccac0a",
+  "reported_model_usage": {
+    "claude-sonnet-5": {
+      "inputTokens": 2,
+      "outputTokens": 1944,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 21334,
+      "webSearchRequests": 0,
+      "costUSD": 0.072779,
+      "contextWindow": 200000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "reported_cost_usd": 0.072779,
+  "scope": "P4 text review of four supplied source files and locked skew_product excerpt; no independent compilation; interface integration source not provided",
+  "verdict": "No blocking mathematical error identified in supplied scope; human review and general model obligations remain open",
+  "prior_two_timeouts": "Preserved unchanged in verification/claude_random_split_20261016; successful new invocation does not erase failures",
+  "cause_of_old_timeouts": "Not established: both positional and matched regular-file stdin minimal probes now succeed; recovery does not isolate a single root cause",
+  "independent_backend_weights_verification": "Not available; model identity recorded as reported by CLI/gateway"
+}

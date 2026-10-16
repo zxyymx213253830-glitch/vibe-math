@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 4.7156491999921855,
+  "input_method": "Regular UTF8 file handle as stdin",
+  "other_flags": "Same CI=true, sonnet, tools disabled and stream-json as successful positional probe"
+}

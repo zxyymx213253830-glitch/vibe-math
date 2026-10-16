@@ -1,0 +1,40 @@
+{
+  "collected_utc": "2026-10-16T11:17:35.531746+00:00",
+  "Qoder": {
+    "version": "1.1.72",
+    "package": "@qoder-ai/qodercli@1.1.72",
+    "prefix": "D:\\QoderCLI",
+    "verified": [
+      "qodercli --version",
+      "qoder --version",
+      "--help",
+      "login starts browser authorization"
+    ],
+    "authentication": "Pending browser authorization at receipt time"
+  },
+  "ZCode": {
+    "version": "0.16.5",
+    "entry": "D:\\ZCodeCLI\\zcode.ps1",
+    "runtime": "D:\\Zcode\\resources\\glm\\zcode.cjs",
+    "distribution": "Existing official desktop Node bundle; command shims installed, not a third-party repack",
+    "verified": [
+      "--version",
+      "--help",
+      "doctor --json"
+    ],
+    "model_inference": "Missing explicit CLI provider config; not yet verified"
+  },
+  "Claude": {
+    "version": "2.1.283",
+    "minimal_prompt": "PASS",
+    "matched_stdin_probe": "PASS",
+    "full_P4": "PASS real response",
+    "elapsed_seconds": 32.75,
+    "old_timeout_root_cause": "Not isolated",
+    "reported_model": "claude-sonnet-5",
+    "model_endpoint": "Existing user-configured proxy, unchanged"
+  },
+  "PATH": "Appended D:\\QoderCLI and D:\\ZCodeCLI to user-level PATH; previous entries preserved",
+  "credentials": "Not displayed, copied to repository, or migrated between clients",
+  "source_proofs_modified": false
+}

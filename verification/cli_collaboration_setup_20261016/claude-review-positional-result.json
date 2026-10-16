@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 32.75368550000712,
+  "prompt_characters": 23590,
+  "invocation": "Positional prompt, stdin DEVNULL, CI=true, stream-json",
+  "tools_enabled": false
+}

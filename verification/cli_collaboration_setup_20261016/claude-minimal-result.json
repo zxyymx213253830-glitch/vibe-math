@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 4.9071294000023045,
+  "scope": "Minimal positional-prompt request; no stdin dependency; tools disabled; CI true; existing auth and route unchanged"
+}
