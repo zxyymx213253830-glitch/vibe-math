@@ -81,7 +81,7 @@ theorem twoRowInverseFrobenius_apply (q : GramChartSpace) :
       ![q 0, (Real.sqrt 2)⁻¹ * q 1, (Real.sqrt 2)⁻¹ * q 2, q 3] := by
   change twoRowInverseFrobeniusMatrix.mulVec q = _
   ext i
-  fin_cases i <;> simp [twoRowInverseFrobeniusMatrix, Matrix.diagonal_mulVec]
+  fin_cases i <;> simp [twoRowInverseFrobeniusMatrix, Matrix.mulVec_diagonal]
 
 /-- The rescaled coordinates have ordinary Euclidean squared energy. -/
 theorem twoRow_inverseFrame_frobeniusEnergy (q : GramChartSpace) :
@@ -94,8 +94,9 @@ theorem twoRow_inverseFrame_frobeniusEnergy (q : GramChartSpace) :
   have hs (x : ℝ) : 2 * ((Real.sqrt 2)⁻¹ * x) ^ 2 = x ^ 2 := by
     rw [mul_pow, ← mul_assoc, hi, one_mul]
   rw [twoRow_hermitian_frobeniusEnergy, twoRowInverseFrobenius_apply]
-  simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
-    Matrix.cons_val_three, hs]
+  change q 0 ^ 2 + 2 * ((Real.sqrt 2)⁻¹ * q 1) ^ 2 +
+    2 * ((Real.sqrt 2)⁻¹ * q 2) ^ 2 + q 3 ^ 2 = _
+  rw [hs, hs]
 
 /-- Volume in coordinates obtained from the displayed Frobenius-normalized frame. -/
 def twoRowFrobeniusFrameVolume : Measure GramChartSpace :=

@@ -37,3 +37,5 @@
 全源码重新编译发现旧 `FourRowSampleCoordinates` 引用了一个已更名的引理；修复仅将调用名对齐到已存在的 `stdGaussianEightDBall_axial_eq_radialCDF`，数学目标未变。该维护不增加本文对 4×1 原论文候选的覆盖声明。
 
 确切源码哈希、实际重新检查状态见 `claims.json` 和 `../../verification/WISHART_PUBLICATION_REBUILD.json`。
+
+本次验收补充：HermitianCoordinateMetric八声明已通过，建立一般坐标能量恒等式、2×2框架体积乘二及实际密度系数除二。这是已有真实分布的参考测度转换，不是一般Wishart密度突破。当前165模块/119公理审计/22论文主张绑定及12页PDF验收已完成；独立P4仍未完成。

@@ -3,27 +3,36 @@
   "status": "LOCAL_REVIEW_PACKAGE_NOT_SUBMITTED",
   "manuscript": {
     "path": "theory/wishart_paper/main.tex",
-    "sha256": "1896fe104fc761dbe5ee2c3c4d2fae62a2296f7f21fbb980058773620205559e"
+    "sha256": "2962627c6bb3f8ea68703db2dc9c1fe442dcf368918589743f7e6ebccacd37f5"
   },
   "pdf": {
     "path": "output/pdf/wishart_formalization.pdf",
-    "sha256": "433927432a533f5aaed152f608f13ea24041590d6a0065c97e8a8ab0284542b2"
+    "sha256": "5bdc5ddab81285b442833bc323ecc9248373177bcd960a72a6f2254cb48d13e6"
+  },
+  "audit_binding": {
+    "path": "verification/WISHART_PUBLICATION_AUDIT_BINDING.json",
+    "sha256": "ac938198a461e5a99e65a3c3301e3f9142d26e4f57b738e32a6d232c4481d4c1"
   },
   "archives": [
     {
       "path": "output/publication/wishart_latex_source.zip",
-      "sha256": "faa52013917483540771c2bee602d1ace1ff6621777bf43ba6c670e7b82b6680"
+      "sha256": "195f4a25ac84208517917cbf9948032f2262f6cd7678c29013701e38ecf6d5df"
     },
     {
       "path": "output/publication/wishart_review_artifact.zip",
-      "sha256": "3edc31521aa88706c0aebe74f23482828ea893ae12ed0dc1905063b10778414d"
+      "sha256": "46e744fd1e6d9468cc8a3f26a396d97649c46c47c17c8a278d34ea860d9d5d2a"
+    },
+    {
+      "path": "output/publication/wishart_independent_review.zip",
+      "sha256": "f809e1cdd5e17740e09a06d0c6acd3ccf486301eed297b612d59ca848e2c22d9"
     }
   ],
+  "archive_byte_integrity": "PASS: every payload hash checked after reopening ZIP",
   "release_blockers": [
     "Human author metadata",
     "Independent semantic P4 review",
     "Public artifact URL and human-selected license",
     "Final novelty/source review"
   ],
-  "artifact_files": 200
+  "artifact_files": 400
 }

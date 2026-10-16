@@ -150,6 +150,7 @@ import JinWishartFormalization.NoncentralEvenDimensionalPoissonMixture
 import JinWishartFormalization.T3CentralTwoByTwoDensityInterface
 import JinWishartFormalization.OneColumnFrobeniusParameter
 import JinWishartFormalization.TwoRowBartlettCoordinateVolume
+import JinWishartFormalization.HermitianCoordinateMetric
 
 /-!
 # A Lean feasibility prototype for Jin--McKay--Gao--Collings (2008)

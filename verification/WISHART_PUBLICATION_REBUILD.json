@@ -2,15 +2,29 @@
   "schema_version": 2,
   "campaign_started_utc": "2026-10-15T17:00:22.325366+00:00",
   "started_utc": "2026-10-15T17:00:22.325366+00:00",
-  "updated_utc": "2026-10-15T17:24:28.532898+00:00",
-  "campaign_wall_seconds": 1446.207532,
-  "compiled_module_wall_seconds_sum": 1444.759261,
+  "updated_utc": "2026-10-16T01:35:59.101557+00:00",
+  "campaign_wall_seconds": 30936.776191,
+  "compiled_module_wall_seconds_sum": 1470.04801,
   "batches": [
     {
       "started_utc": "2026-10-15T17:00:22.325366+00:00",
       "finished_utc": "2026-10-15T17:24:28.532898+00:00",
       "compiled_modules": 164,
       "reused_modules": 0
+    },
+    {
+      "started_utc": "2026-10-16T01:34:58.148045+00:00",
+      "finished_utc": "2026-10-16T01:35:33.680247+00:00",
+      "compiled_modules": 2,
+      "reused_modules": 161,
+      "authorization_session": ".tools/publication-acceptance-20261016"
+    },
+    {
+      "started_utc": "2026-10-16T01:35:59.014233+00:00",
+      "finished_utc": "2026-10-16T01:35:59.101557+00:00",
+      "compiled_modules": 0,
+      "reused_modules": 165,
+      "authorization_session": ".tools/publication-acceptance-20261016"
     }
   ],
   "session": ".tools/publication-revision-20261016",
@@ -18,8 +32,8 @@
   "full_Lake_build": "NOT_RUN",
   "mathlib_rebuilt_from_source": false,
   "status": "PASS",
-  "total_modules": 164,
-  "checked_modules": 164,
+  "total_modules": 165,
+  "checked_modules": 165,
   "toolchain": "leanprover/lean4:v4.35.0-rc2",
   "manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
   "records": [
@@ -2117,17 +2131,30 @@
       "olean_sha256": "14b8ff586341d203736df005533d393bb962408231eaa55350a2ca6e2489da88"
     },
     {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianCoordinateMetric.lean",
+      "sha256": "ba1f77ea0c59dd61821dba192264694572138bf0c8ac41d6d1b72cf4a05eefdd",
+      "exit_code": 0,
+      "started_utc": "2026-10-16T01:34:58.873983+00:00",
+      "finished_utc": "2026-10-16T01:35:22.648527+00:00",
+      "wall_seconds": 23.774522,
+      "timing_scope": "helper process including gate wait and Lean; wall clock, not CPU",
+      "source_unchanged": true,
+      "log_sha256": "1f594fe52a8a65e91423a160b1ac4c8f9d5b5b63d57bb754ace03d7477df2112",
+      "olean_sha256": "f3a6d7481233c1fd9ec4f8869d7b3712b404566b2d0dcd69d81414a481f6d710"
+    },
+    {
       "module": "JinWishartFormalization",
       "source": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
-      "sha256": "7090aa828afa266b2e69279fee102d4f273ceca58779a94efab3b1ce134236a3",
+      "sha256": "a3d9c14858c8b93848a99a60938d9e8d760417a7da35029527e1ddd8ba198f28",
       "exit_code": 0,
-      "started_utc": "2026-10-15T17:24:04.425698+00:00",
-      "finished_utc": "2026-10-15T17:24:13.913333+00:00",
-      "wall_seconds": 9.48762,
+      "started_utc": "2026-10-16T01:35:22.676812+00:00",
+      "finished_utc": "2026-10-16T01:35:33.678682+00:00",
+      "wall_seconds": 11.001847,
       "timing_scope": "helper process including gate wait and Lean; wall clock, not CPU",
       "source_unchanged": true,
       "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
-      "olean_sha256": "92747ced5bae14d2923486ce5de3f91309c061cdac366406221a1e2e3d3e61be"
+      "olean_sha256": "ecda3de55b4d55d0a0c6263264e7bcbb2547baf62c74537357f9a579d463c92c"
     },
     {
       "module": "JinWishartFormalization.FourRowSampleCoordinates",

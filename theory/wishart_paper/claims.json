@@ -1,14 +1,14 @@
 {
   "prepared_for_date": "2026-10-16",
-  "generated_utc": "2026-10-15T16:41:03.604229+00:00",
+  "generated_utc": "2026-10-16T01:36:56.688550+00:00",
   "toolchain": "leanprover/lean4:v4.35.0-rc2",
   "mathlib_revision": "e18afff334217588afc719a8b707b00d90521064",
   "status": "SOURCE_CHECKED_WORKING_MANUSCRIPT; independent review and author metadata pending",
   "fresh_source_rebuild": {
     "status": "PASS",
-    "modules": 164,
+    "modules": 165,
     "report": "verification/WISHART_PUBLICATION_REBUILD.json",
-    "report_sha256": "12a22bce484cc8d478e8ea7fa42e315d48f66fdc59b8cee55ba884936ddff414",
+    "report_sha256": "7d6b796759cf09747b0233dfe7c1f9ca3fa1be07c9d0ed6cf40ce2ebf70eacd0",
     "full_Lake_build": "NOT_RUN",
     "external_package_caches": true
   },
@@ -19,10 +19,491 @@
   },
   "claims_audit": {
     "source": "theory/wishart_paper/ClaimsCheck.lean",
-    "source_sha256": "d6d0509189e195419d45d99abcd58f67a9b6bedee860f88bc90df6b0939df314",
+    "source_sha256": "e2b4c305fa9e8ca11abee9b9f39454f8926d7a04369f2c7651af403f5e3e5a1f",
     "log": "verification/publication_checks/claims-axioms.txt",
-    "log_sha256": "f5c77ca9ab4264141ee890af899379fd8020a562fe61451648c9d1735cb856f9",
-    "all_twenty_printed_standard_axioms": true
+    "log_sha256": "09e940fe176cfffb3bab460cbab79502feb10cd5865861723943cea8e06ddb59",
+    "public_declaration_count": 119,
+    "all_targets_printed_standard_axioms": true,
+    "binding": "verification/WISHART_PUBLICATION_AUDIT_BINDING.json",
+    "binding_sha256": "ac938198a461e5a99e65a3c3301e3f9142d26e4f57b738e32a6d232c4481d4c1",
+    "coverage": {
+      "JinWishart.actualTwoRow_BartlettCoordinates_eq_withDensity_raw": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_BartlettCoordinates_law": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity": {
+        "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_BartlettRealCoordinates_eq_withDensity_raw": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_ComplexReal_eq_normalizedDensity": {
+        "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_Complex_eq_normalizedDensity": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_GramLaw_eq_Bartlett_pushforward": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_GramLaw_eq_coordinate_pushforward": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_GramRealCoordinates_eq_traceDensity": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_GramRealCoordinates_eq_withDensity_raw": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_Gram_frobeniusFrameDensity": {
+        "module": "JinWishartFormalization.HermitianCoordinateMetric",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_columnEnergy_eq": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_columnEnergy_law": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_covariance_minimum_CDF": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_minimum_CDF": {
+        "module": "JinWishartFormalization.TwoRowMinimumLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_minimum_cdf_function": {
+        "module": "JinWishartFormalization.TwoRowMinimumLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_minimum_law_expTwo": {
+        "module": "JinWishartFormalization.TwoRowMinimumLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_minimum_tail": {
+        "module": "JinWishartFormalization.TwoRowMinimumLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_randomDirection_joint_law": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_scaled_minimum_CDF": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_scaled_minimum_cdf_function": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_scaled_minimum_law": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_scaled_minimum_tail": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_weakestLogRate_outage": {
+        "module": "JinWishartFormalization.TwoRowLogRateOutage",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.actualTwoRow_weakestLogRate_outage_negative": {
+        "module": "JinWishartFormalization.TwoRowLogRateOutage",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.centralCone_candidateIntegral_shift": {
+        "module": "JinWishartFormalization.CentralWishartConeIntegral",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.centralCone_square_candidateIntegral_shift": {
+        "module": "JinWishartFormalization.CentralWishartConeIntegral",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.centralCoordinateShiftedCone_eq_image": {
+        "module": "JinWishartFormalization.CentralWishartConeIntegral",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.complexNoncentralSampleSmallestEigenvalue_eq_twoRowUniqueGramEigenvalue": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.complexWishart_twoRow_realCoordinates_eq_traceDensity": {
+        "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.continuous_hermitianOfRealCoordinates": {
+        "module": "JinWishartFormalization.CentralHermitianCoordinates",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.continuous_realCoordinatesOfHermitian": {
+        "module": "JinWishartFormalization.CentralHermitianCoordinates",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.deepseek_scaled_sampleMatrix": {
+        "module": "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix",
+        "coverage": "explicit local helper in headline chain"
+      },
+      "JinWishart.euclideanStdGaussianDensity_sub": {
+        "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.gaussian_shiftedBall_integral_bounds": {
+        "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.hermitianCoordinate_entry_energy": {
+        "module": "JinWishartFormalization.HermitianCoordinateMetric",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.hermitianCoordinate_frobeniusEnergy": {
+        "module": "JinWishartFormalization.HermitianCoordinateMetric",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.hermitianOfRealCoordinates_isHermitian": {
+        "module": "JinWishartFormalization.CentralHermitianCoordinates",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.hermitianOfRealCoordinates_realCoordinates": {
+        "module": "JinWishartFormalization.CentralHermitianCoordinates",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.hermitianOfRealCoordinates_shift": {
+        "module": "JinWishartFormalization.CentralHermitianCoordinates",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.hermitianRealCoordinateEquiv_measurePreserving": {
+        "module": "JinWishartFormalization.CentralHermitianCoordinates",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.hermitian_twoRow_shiftedCone_iff_smallest": {
+        "module": "JinWishartFormalization.TwoRowMinimumLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.log_one_add_mul_le_iff": {
+        "module": "JinWishartFormalization.TwoRowLogRateOutage",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowActualMinimum": {
+        "module": "JinWishartFormalization.TwoRowMinimumLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowBartlettCoordinates": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowBartlettDensityRaw": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowBartlettGram": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowBartlettRealDensityRaw": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowComplexDensityRaw": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowFiberCoordinates": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowGramDensityRaw": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowGramFromCoordinates": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.measurable_twoRowUnitDirection": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.noncentralOneColumnCDF_bounds_by_central": {
+        "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.noncentralOneColumnSmallestCDF_div_tendsto_factorial": {
+        "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.noncentralOneColumnSmallestCDF_div_tendsto_frobenius": {
+        "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.noncentralTwoRowCDF_eq_meanNormNuttallQ": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.norm_nuttallQ32_eq_sq_mul_radialTail": {
+        "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.nuttallQ32Integrand_eq_ofReal_scaledRadialKernel": {
+        "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.nuttallQ32_eq_ofReal_scaledRadialTail": {
+        "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.nuttallQ32_zero_eq_sq": {
+        "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.realCoordinates_hermitianOfRealCoordinates": {
+        "module": "JinWishartFormalization.CentralHermitianCoordinates",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.stdGaussian_complex_scaled_eq_withDensity": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.stdGaussian_half_norm_sq_law": {
+        "module": "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.stdGaussian_map_adjoint_norm_preserving": {
+        "module": "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.stdGaussian_orthogonalProjectionOnto_law": {
+        "module": "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.stdGaussian_orthogonal_split_indep": {
+        "module": "JinWishartFormalization.GaussianOrthogonalSplitLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.stdGaussian_orthogonal_split_law": {
+        "module": "JinWishartFormalization.GaussianOrthogonalSplitLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.stdGaussian_projected_half_norm_sq_law": {
+        "module": "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1CentralTwoRow_PsiDet": {
+        "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1CentralTwoRow_PsiDet_norm_zero": {
+        "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1CentralTwoRow_PsiMatrix": {
+        "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1CentralTwoRow_candidate_eq_actualCDF": {
+        "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1CentralTwoRow_candidate_eq_expCDF": {
+        "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1CentralTwoRow_scaled_candidate_eq_actualCDF": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1ThreeRowsOneColumnCandidate_eq_actualAxialCDF": {
+        "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1ThreeRowsOneColumnCandidate_eq_actualCDF": {
+        "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1TwoRowsCandidate_eq_actualAxialCDF": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1TwoRowsCandidate_eq_actualCDF": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem1TwoRowsCentralCandidate_eq_actualCDF": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem2TwoRowsCandidate_eq_actualAxialCDF": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem2TwoRowsCandidate_eq_actualCDF": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem2TwoRowsCandidate_eq_actualLargestCDF": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.theorem2TwoRowsCentralCandidate_eq_actualCDF": {
+        "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowActualMinimum_nonneg": {
+        "module": "JinWishartFormalization.TwoRowMinimumLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowActualMinimum_threshold_event": {
+        "module": "JinWishartFormalization.TwoRowMinimumLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowBartlettCoordinateEquiv_symm_apply": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowBartlettRealDensityRaw_normalized_positive": {
+        "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowBartlettRealDensityRaw_positive_formula": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowComplexDensityRaw_normalized": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowFiberCoordinates_law": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowFiberCoordinates_offDiagonal": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowFiberCoordinates_secondEnergy": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowFrobeniusFrameVolume_eq_two_smul": {
+        "module": "JinWishartFormalization.HermitianCoordinateMetric",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowGramDensityRaw_positive_formula": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowGramDensityRaw_trace_formula": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowGramFromCoordinates_eq_BartlettGram": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowGram_traceDensity_mass": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowInverseFrobenius_apply": {
+        "module": "JinWishartFormalization.HermitianCoordinateMetric",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowInverseFrobenius_det": {
+        "module": "JinWishartFormalization.HermitianCoordinateMetric",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowRandomDirection_product_law": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowUnitDirection_norm": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowUnitDirection_reconstruct": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRowWeakestLogRate_nonneg": {
+        "module": "JinWishartFormalization.TwoRowLogRateOutage",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_actualGram_reconstruction": {
+        "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_actualGram_scale": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_actualMinimum_scale": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_complexReal_normalizedDensity_mass": {
+        "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_complex_real_norm_square": {
+        "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_complex_scaled_exponent": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_gamma_one_positive_formula": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_gamma_two_positive_formula": {
+        "module": "JinWishartFormalization.TwoRowActualDensity",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_hermitian_frobeniusEnergy": {
+        "module": "JinWishartFormalization.HermitianCoordinateMetric",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_inverseFrame_frobeniusEnergy": {
+        "module": "JinWishartFormalization.HermitianCoordinateMetric",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_posDef_real_smul_iff": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "JinWishart.twoRow_smallest_real_smul": {
+        "module": "JinWishartFormalization.TwoRowScaledMinimum",
+        "coverage": "all public theorems in named entry module"
+      },
+      "deepseek_minimum_DeterminantFactor": {
+        "module": "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor",
+        "coverage": "explicit local helper in headline chain"
+      },
+      "deepseek_round3_ComplexScaledCoefficient": {
+        "module": "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "coverage": "explicit local helper in headline chain"
+      },
+      "deepseek_round3_ComplexScaledNormSquare": {
+        "module": "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "coverage": "explicit local helper in headline chain"
+      }
+    }
   },
   "numerical_control": {
     "path": "verification/WISHART_LOG_RATE_OUTAGE.json",
@@ -80,6 +561,9 @@
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [],
+      "transitive_local_prover_modules": [],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -149,6 +633,17 @@
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary"
+      ],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -216,6 +711,183 @@
         "JinWishartFormalization.WeylComplexHermitian",
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
+      ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary"
+      ],
+      "semantic_review": "PENDING [需人工审查]"
+    },
+    {
+      "claim": "wishart-density-api",
+      "strength": "actual_density_interface",
+      "declaration": "JinWishart.complexWishart_twoRow_realCoordinates_eq_traceDensity",
+      "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+      "source": {
+        "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowActualNormalizedDensity.lean",
+        "sha256": "2645eeaabdea17affc84edfd150517b2d70a83f1ab86c023ec674736e229dcc8"
+      },
+      "fresh_source_check": "PASS",
+      "axioms_printed_in_module_log": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "axioms_in_publication_claims_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "project_dependency_modules": [
+        "JinWishartFormalization.ComplexGramSimpleSpectrum",
+        "JinWishartFormalization.ComplexTwoRowResidualEnergy",
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.GaussianComplexColumnFrame",
+        "JinWishartFormalization.GaussianComplexInnerProductLaw",
+        "JinWishartFormalization.GaussianComplexOrthogonalResidual",
+        "JinWishartFormalization.GaussianEuclideanBallDensity",
+        "JinWishartFormalization.GaussianMatrixSpectralIntegral",
+        "JinWishartFormalization.GaussianRadialCDF",
+        "JinWishartFormalization.GaussianRadialLaw",
+        "JinWishartFormalization.GaussianRawCoordinates",
+        "JinWishartFormalization.GaussianTwoColumnIntegration",
+        "JinWishartFormalization.GramSpectrumTransfer",
+        "JinWishartFormalization.IncompleteGamma",
+        "JinWishartFormalization.MvPolynomialZeroSetNull",
+        "JinWishartFormalization.NuttallQ",
+        "JinWishartFormalization.OrderedEigenvalueCDFRecurrence",
+        "JinWishartFormalization.OrderedEigenvalueFullMeasurable",
+        "JinWishartFormalization.OrderedEigenvalueMeasurable",
+        "JinWishartFormalization.OrderedEigenvalueStrictRecurrence",
+        "JinWishartFormalization.OrderedEigenvalueWeyl",
+        "JinWishartFormalization.PaperSmallSideGram",
+        "JinWishartFormalization.PaperStatements",
+        "JinWishartFormalization.RadialIntegration",
+        "JinWishartFormalization.RepeatedRootNullSets",
+        "JinWishartFormalization.SpectralCoordinateSpanSupport",
+        "JinWishartFormalization.SpectralRayleighCoordinates",
+        "JinWishartFormalization.SpectralRayleighPrefix",
+        "JinWishartFormalization.SubspaceIntersectionFinrank",
+        "JinWishartFormalization.Theorem1Formula",
+        "JinWishartFormalization.ThresholdNoAtom",
+        "JinWishartFormalization.TwoRowActualDensity",
+        "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "JinWishartFormalization.TwoRowBartlettCoordinateVolume",
+        "JinWishartFormalization.TwoRowBartlettSupport",
+        "JinWishartFormalization.TwoRowGramChart",
+        "JinWishartFormalization.TwoRowGramPositive",
+        "JinWishartFormalization.TwoRowGramSupport",
+        "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "JinWishartFormalization.WeylComplexHermitian",
+        "JinWishartFormalization.WishartProbability",
+        "JinWishartFormalization.WishartSimpleSpectrum"
+      ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary"
+      ],
+      "semantic_review": "PENDING [需人工审查]"
+    },
+    {
+      "claim": "frobenius-reference-density",
+      "strength": "reference_measure_conversion_of_actual_density",
+      "declaration": "JinWishart.actualTwoRow_Gram_frobeniusFrameDensity",
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "source": {
+        "path": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianCoordinateMetric.lean",
+        "sha256": "ba1f77ea0c59dd61821dba192264694572138bf0c8ac41d6d1b72cf4a05eefdd"
+      },
+      "fresh_source_check": "PASS",
+      "axioms_printed_in_module_log": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "axioms_in_publication_claims_audit": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "project_dependency_modules": [
+        "JinWishartFormalization.CentralHermitianCoordinates",
+        "JinWishartFormalization.CentralWishartCone",
+        "JinWishartFormalization.ComplexGramSimpleSpectrum",
+        "JinWishartFormalization.ComplexTwoRowResidualEnergy",
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekScale20261015.CentralTrace",
+        "JinWishartFormalization.GaussianComplexColumnFrame",
+        "JinWishartFormalization.GaussianComplexInnerProductLaw",
+        "JinWishartFormalization.GaussianComplexOrthogonalResidual",
+        "JinWishartFormalization.GaussianEuclideanBallDensity",
+        "JinWishartFormalization.GaussianMatrixSpectralIntegral",
+        "JinWishartFormalization.GaussianRadialCDF",
+        "JinWishartFormalization.GaussianRadialLaw",
+        "JinWishartFormalization.GaussianRawCoordinates",
+        "JinWishartFormalization.GaussianTwoColumnIntegration",
+        "JinWishartFormalization.GramSpectrumTransfer",
+        "JinWishartFormalization.HermitianCoordinateMetric",
+        "JinWishartFormalization.IncompleteGamma",
+        "JinWishartFormalization.MvPolynomialZeroSetNull",
+        "JinWishartFormalization.NuttallQ",
+        "JinWishartFormalization.OrderedEigenvalueCDFRecurrence",
+        "JinWishartFormalization.OrderedEigenvalueFullMeasurable",
+        "JinWishartFormalization.OrderedEigenvalueMeasurable",
+        "JinWishartFormalization.OrderedEigenvalueStrictRecurrence",
+        "JinWishartFormalization.OrderedEigenvalueWeyl",
+        "JinWishartFormalization.PaperSmallSideGram",
+        "JinWishartFormalization.PaperStatements",
+        "JinWishartFormalization.RadialIntegration",
+        "JinWishartFormalization.RepeatedRootNullSets",
+        "JinWishartFormalization.SpectralCoordinateSpanSupport",
+        "JinWishartFormalization.SpectralRayleighCoordinates",
+        "JinWishartFormalization.SpectralRayleighPrefix",
+        "JinWishartFormalization.SubspaceIntersectionFinrank",
+        "JinWishartFormalization.Theorem1Formula",
+        "JinWishartFormalization.ThresholdNoAtom",
+        "JinWishartFormalization.TwoRowActualDensity",
+        "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "JinWishartFormalization.TwoRowBartlettCoordinateVolume",
+        "JinWishartFormalization.TwoRowBartlettSupport",
+        "JinWishartFormalization.TwoRowGramChart",
+        "JinWishartFormalization.TwoRowGramPositive",
+        "JinWishartFormalization.TwoRowGramSupport",
+        "JinWishartFormalization.TwoRowHermitianThreshold",
+        "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "JinWishartFormalization.WeylComplexHermitian",
+        "JinWishartFormalization.WishartProbability",
+        "JinWishartFormalization.WishartSimpleSpectrum"
+      ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekScale20261015.CentralTrace"
       ],
       "semantic_review": "PENDING [需人工审查]"
     },
@@ -290,6 +962,18 @@
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
+      ],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -363,6 +1047,18 @@
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
+      ],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -435,6 +1131,18 @@
         "JinWishartFormalization.WeylComplexHermitian",
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
+      ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
       ],
       "semantic_review": "PENDING [需人工审查]"
     },
@@ -510,6 +1218,20 @@
         "JinWishartFormalization.WeylComplexHermitian",
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
+      ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_minimum_DeterminantFactor",
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
       ],
       "semantic_review": "PENDING [需人工审查]"
     },
@@ -588,6 +1310,22 @@
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "JinWishart.deepseek_scaled_sampleMatrix",
+        "deepseek_minimum_DeterminantFactor",
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor",
+        "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
+      ],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -664,6 +1402,22 @@
         "JinWishartFormalization.WeylComplexHermitian",
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
+      ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "JinWishart.deepseek_scaled_sampleMatrix",
+        "deepseek_minimum_DeterminantFactor",
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor",
+        "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
       ],
       "semantic_review": "PENDING [需人工审查]"
     },
@@ -743,6 +1497,22 @@
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "JinWishart.deepseek_scaled_sampleMatrix",
+        "deepseek_minimum_DeterminantFactor",
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor",
+        "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
+      ],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -820,6 +1590,22 @@
         "JinWishartFormalization.WeylComplexHermitian",
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
+      ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "JinWishart.deepseek_scaled_sampleMatrix",
+        "deepseek_minimum_DeterminantFactor",
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor",
+        "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
       ],
       "semantic_review": "PENDING [需人工审查]"
     },
@@ -899,6 +1685,22 @@
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "JinWishart.deepseek_scaled_sampleMatrix",
+        "deepseek_minimum_DeterminantFactor",
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor",
+        "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation"
+      ],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -931,6 +1733,9 @@
         "JinWishartFormalization.Theorem1Formula",
         "JinWishartFormalization.WishartProbability"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [],
+      "transitive_local_prover_modules": [],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -963,6 +1768,9 @@
         "JinWishartFormalization.Theorem1Formula",
         "JinWishartFormalization.WishartProbability"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [],
+      "transitive_local_prover_modules": [],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -996,6 +1804,9 @@
         "JinWishartFormalization.Theorem1Formula",
         "JinWishartFormalization.WishartProbability"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [],
+      "transitive_local_prover_modules": [],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -1029,6 +1840,9 @@
         "JinWishartFormalization.WishartGamma",
         "JinWishartFormalization.WishartProbability"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [],
+      "transitive_local_prover_modules": [],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -1082,6 +1896,9 @@
         "JinWishartFormalization.WishartGamma",
         "JinWishartFormalization.WishartProbability"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [],
+      "transitive_local_prover_modules": [],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -1131,6 +1948,9 @@
         "JinWishartFormalization.ThreeRowSampleCoordinates",
         "JinWishartFormalization.WishartProbability"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [],
+      "transitive_local_prover_modules": [],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -1205,6 +2025,18 @@
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
       ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekScale20261015.CentralTrace"
+      ],
       "semantic_review": "PENDING [需人工审查]"
     },
     {
@@ -1277,6 +2109,18 @@
         "JinWishartFormalization.WeylComplexHermitian",
         "JinWishartFormalization.WishartProbability",
         "JinWishartFormalization.WishartSimpleSpectrum"
+      ],
+      "immediate_proof_body_origin": "Codex",
+      "guided_local_helpers_in_dependencies": [
+        "deepseek_round3_ComplexScaledCoefficient",
+        "deepseek_round3_ComplexScaledNormSquare"
+      ],
+      "transitive_local_prover_modules": [
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary",
+        "JinWishartFormalization.DeepSeekScale20261015.CentralTrace"
       ],
       "semantic_review": "PENDING [需人工审查]"
     }
@@ -1405,6 +2249,10 @@
     "JinWishartFormalization.GramSpectrumTransfer": {
       "path": "theory/jin_wishart_formalization/JinWishartFormalization/GramSpectrumTransfer.lean",
       "sha256": "c91c467905c62178a87b352c2df5cd604c0398b61a924788b007b7c4b2772723"
+    },
+    "JinWishartFormalization.HermitianCoordinateMetric": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianCoordinateMetric.lean",
+      "sha256": "ba1f77ea0c59dd61821dba192264694572138bf0c8ac41d6d1b72cf4a05eefdd"
     },
     "JinWishartFormalization.IncompleteGamma": {
       "path": "theory/jin_wishart_formalization/JinWishartFormalization/IncompleteGamma.lean",
@@ -1936,7 +2784,7 @@
     },
     "JinWishartFormalization": {
       "path": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
-      "sha256": "7090aa828afa266b2e69279fee102d4f273ceca58779a94efab3b1ce134236a3"
+      "sha256": "a3d9c14858c8b93848a99a60938d9e8d760417a7da35029527e1ddd8ba198f28"
     }
   }
 }

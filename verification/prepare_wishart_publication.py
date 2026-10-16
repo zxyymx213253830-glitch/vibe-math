@@ -24,6 +24,7 @@ CLAIMS = [
     ("bartlett-density", "actual_density", "TwoRowActualNormalizedDensity", "actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity"),
     ("gram-density", "actual_density", "TwoRowActualDensity", "actualTwoRow_GramRealCoordinates_eq_traceDensity"),
     ("wishart-density-api", "actual_density_interface", "TwoRowActualNormalizedDensity", "complexWishart_twoRow_realCoordinates_eq_traceDensity"),
+    ("frobenius-reference-density", "reference_measure_conversion_of_actual_density", "HermitianCoordinateMetric", "actualTwoRow_Gram_frobeniusFrameDensity"),
     ("minimum-tail", "actual_probability", "TwoRowMinimumLaw", "actualTwoRow_minimum_tail"),
     ("minimum-cdf", "actual_probability", "TwoRowMinimumLaw", "actualTwoRow_minimum_CDF"),
     ("minimum-law", "actual_probability_law", "TwoRowMinimumLaw", "actualTwoRow_minimum_law_expTwo"),

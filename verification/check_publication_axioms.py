@@ -18,8 +18,10 @@ from prepare_wishart_publication import ROOT, PAPER, PROJECT, scan_sources, gene
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--session", required=True, type=Path)
+    parser.add_argument("--gate-session", type=Path)
     args = parser.parse_args()
     session = args.session.resolve()
+    gate_session = args.gate_session.resolve() if args.gate_session else session
     sources, code, _ = scan_sources()
     audit, targets = generate_audit_source(code)
     rebuild_path = ROOT / "verification/WISHART_PUBLICATION_REBUILD.json"
@@ -41,7 +43,7 @@ def main() -> int:
         if not old.exists():
             shutil.copy2(log, old)
     command = [sys.executable, str(ROOT / "tools/deepseek_prover/collaborative_check.py"),
-               "--session", str(session), "--source", str(audit), "--root", str(PAPER),
+               "--session", str(gate_session), "--source", str(audit), "--root", str(PAPER),
                "--module", "ClaimsCheck", "--library", str(library), "--log", str(log)]
     started = datetime.now(timezone.utc).isoformat()
     timer = time.monotonic()

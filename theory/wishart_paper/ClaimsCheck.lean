@@ -11,6 +11,7 @@ import JinWishartFormalization
 #print axioms JinWishart.actualTwoRow_GramLaw_eq_coordinate_pushforward
 #print axioms JinWishart.actualTwoRow_GramRealCoordinates_eq_traceDensity
 #print axioms JinWishart.actualTwoRow_GramRealCoordinates_eq_withDensity_raw
+#print axioms JinWishart.actualTwoRow_Gram_frobeniusFrameDensity
 #print axioms JinWishart.actualTwoRow_columnEnergy_eq
 #print axioms JinWishart.actualTwoRow_columnEnergy_law
 #print axioms JinWishart.actualTwoRow_covariance_minimum_CDF
@@ -35,6 +36,8 @@ import JinWishartFormalization
 #print axioms JinWishart.deepseek_scaled_sampleMatrix
 #print axioms JinWishart.euclideanStdGaussianDensity_sub
 #print axioms JinWishart.gaussian_shiftedBall_integral_bounds
+#print axioms JinWishart.hermitianCoordinate_entry_energy
+#print axioms JinWishart.hermitianCoordinate_frobeniusEnergy
 #print axioms JinWishart.hermitianOfRealCoordinates_isHermitian
 #print axioms JinWishart.hermitianOfRealCoordinates_realCoordinates
 #print axioms JinWishart.hermitianOfRealCoordinates_shift
@@ -91,10 +94,13 @@ import JinWishartFormalization
 #print axioms JinWishart.twoRowFiberCoordinates_law
 #print axioms JinWishart.twoRowFiberCoordinates_offDiagonal
 #print axioms JinWishart.twoRowFiberCoordinates_secondEnergy
+#print axioms JinWishart.twoRowFrobeniusFrameVolume_eq_two_smul
 #print axioms JinWishart.twoRowGramDensityRaw_positive_formula
 #print axioms JinWishart.twoRowGramDensityRaw_trace_formula
 #print axioms JinWishart.twoRowGramFromCoordinates_eq_BartlettGram
 #print axioms JinWishart.twoRowGram_traceDensity_mass
+#print axioms JinWishart.twoRowInverseFrobenius_apply
+#print axioms JinWishart.twoRowInverseFrobenius_det
 #print axioms JinWishart.twoRowRandomDirection_product_law
 #print axioms JinWishart.twoRowUnitDirection_norm
 #print axioms JinWishart.twoRowUnitDirection_reconstruct
@@ -107,6 +113,8 @@ import JinWishartFormalization
 #print axioms JinWishart.twoRow_complex_scaled_exponent
 #print axioms JinWishart.twoRow_gamma_one_positive_formula
 #print axioms JinWishart.twoRow_gamma_two_positive_formula
+#print axioms JinWishart.twoRow_hermitian_frobeniusEnergy
+#print axioms JinWishart.twoRow_inverseFrame_frobeniusEnergy
 #print axioms JinWishart.twoRow_posDef_real_smul_iff
 #print axioms JinWishart.twoRow_smallest_real_smul
 #print axioms deepseek_minimum_DeterminantFactor

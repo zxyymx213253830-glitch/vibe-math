@@ -1,0 +1,2286 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-10-16T01:36:15.481236+00:00",
+  "finished_utc": "2026-10-16T01:36:28.941617+00:00",
+  "wall_seconds": 13.125305100009427,
+  "exit_code": 0,
+  "snapshot_unchanged_during_check": true,
+  "project_source_snapshot_sha256": "ba1377dec9a5f21884f1c49bf7f9ce97a9998596fd8539fa262fdc65c0451397",
+  "project_source_snapshot": {
+    "JinWishartFormalization.Andreief": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Andreief.lean",
+      "sha256": "48fc507811c46b7eaa4d1a30041eeb04a339f79a28faa669dd328285ea84e91a"
+    },
+    "JinWishartFormalization.BesselI0Angle": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/BesselI0Angle.lean",
+      "sha256": "736a9fa32d5b4ffe41904a1a7c7ac25fe2c62d4c450cd2a6fdfbe8b5aa32bf89"
+    },
+    "JinWishartFormalization.BesselI0Series": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/BesselI0Series.lean",
+      "sha256": "a7628b51a357b2effc11e4f7b6bec8cdc7d0fc048ed31e0784dd414bfd87871c"
+    },
+    "JinWishartFormalization.BesselI1Angle": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/BesselI1Angle.lean",
+      "sha256": "64ff59d3d9f74a8a075c16b24666019163b6f01de71da915b1e7cdd5f39ad02b"
+    },
+    "JinWishartFormalization.BesselI1Series": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/BesselI1Series.lean",
+      "sha256": "949f2c7367ef621b55a5dd82e9d67f1330d4aa9f55cd11705efc734ed3141093"
+    },
+    "JinWishartFormalization.CentralHermitianCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/CentralHermitianCoordinates.lean",
+      "sha256": "7d9207ab7c13dbcf6d3ad293a14f4d8ff3848d65cae642fe075513f012010e22"
+    },
+    "JinWishartFormalization.CentralWishartBlockStep": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartBlockStep.lean",
+      "sha256": "2b2417fab3607b219da7e8074e2058c63126d2f142ab6c646e27c8fc91ba683d"
+    },
+    "JinWishartFormalization.CentralWishartCone": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartCone.lean",
+      "sha256": "ace0542d30db19435ef040e252bfd61b142edffbb7fd052bca698736cdf1fdde"
+    },
+    "JinWishartFormalization.CentralWishartConeIntegral": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartConeIntegral.lean",
+      "sha256": "febc9dd265e42e920799c4000585cb2cdf31c47c35b26070af296fc7ac3fc1ab"
+    },
+    "JinWishartFormalization.ComplexGramSimpleSpectrum": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGramSimpleSpectrum.lean",
+      "sha256": "0ba21967c9d5d97c4534709bf6a73900e1a8dd10c16b84c944138179f62b8adf"
+    },
+    "JinWishartFormalization.ComplexGramTwoByTwoDiscriminantNull": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGramTwoByTwoDiscriminantNull.lean",
+      "sha256": "99e6fff5f11cbbe4c982277adc1ca930aec7c26386728c553a04579e5f5f86c7"
+    },
+    "JinWishartFormalization.ComplexGramTwoByTwoGaussianSimpleSpectrum": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGramTwoByTwoGaussianSimpleSpectrum.lean",
+      "sha256": "36a4e4bd495b541698b40c44cf0272a8744b212a06880ad93d5b134ea75c0614"
+    },
+    "JinWishartFormalization.ComplexTwoRowResidualEnergy": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexTwoRowResidualEnergy.lean",
+      "sha256": "40aad0ac1f6971c45e57478e685c93b87f27536849a8086ebc7756edfeab0746"
+    },
+    "JinWishartFormalization.DeterminantRowExpansion": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeterminantRowExpansion.lean",
+      "sha256": "be9fe185423e17b79824d078a664f14280eaf8ccfc24c4a0a78b72737a2dd0fe"
+    },
+    "JinWishartFormalization.EightDimensionalAngularBesselI3": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/EightDimensionalAngularBesselI3.lean",
+      "sha256": "0a1d8fa1b550dd415543d27739534cff755c5890364f6555113b764a40a04b11"
+    },
+    "JinWishartFormalization.FinSpectralIndexCard": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/FinSpectralIndexCard.lean",
+      "sha256": "c08ee76d9e7c592884f8222735785b406822e4e5b72f3af85f7aaf919c4d000f"
+    },
+    "JinWishartFormalization.FourDimensionalPolarBridge": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/FourDimensionalPolarBridge.lean",
+      "sha256": "3c39dab410a5392f2ce37811bd28480b0db43598764bfb0925061bb2792f7727"
+    },
+    "JinWishartFormalization.FourRowSampleCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/FourRowSampleCoordinates.lean",
+      "sha256": "9a4a57ed698158e117505f626021cb2873b3a5f34e39747e548c5986537ae622"
+    },
+    "JinWishartFormalization.GaussianComplexColumnFrame": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianComplexColumnFrame.lean",
+      "sha256": "552abdf336c04c7531fde94e1a0059908e7e3273f5dd48b942aa66623446bf72"
+    },
+    "JinWishartFormalization.GaussianComplexInnerProductLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianComplexInnerProductLaw.lean",
+      "sha256": "a114161f068918dd60b22e06c8524887ea003ad8c4817c8d68b421ce252f1905"
+    },
+    "JinWishartFormalization.GaussianComplexOrthogonalResidual": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianComplexOrthogonalResidual.lean",
+      "sha256": "9c393e500ea7b5abbe22049b8761007df86aa49147e9cea075fefa44e25481f6"
+    },
+    "JinWishartFormalization.GaussianEuclideanBallDensity": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianEuclideanBallDensity.lean",
+      "sha256": "977616592a4fbca2bc055d79c97f856c00d09c291ac4a939be105c2de545afc5"
+    },
+    "JinWishartFormalization.GaussianMatrixSpectralIntegral": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianMatrixSpectralIntegral.lean",
+      "sha256": "46b5490eff8c8853eeeea1c4a98e74a5bb8fbfbe97151f65c2d09387482b72c1"
+    },
+    "JinWishartFormalization.GaussianOrthogonalProjectionLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianOrthogonalProjectionLaw.lean",
+      "sha256": "97b1190770c34cd83e1e0dd574283ef3bca43ff5cddde7c866d6ebaca393edf0"
+    },
+    "JinWishartFormalization.GaussianOrthogonalSplitLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianOrthogonalSplitLaw.lean",
+      "sha256": "c458daf3f4a2f08ea66db883a4c97b202ca425325103a2f97d9ecfd31528e868"
+    },
+    "JinWishartFormalization.GaussianQ": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianQ.lean",
+      "sha256": "2687d8f5a1235ddce78f6a7be03bf8fa18567e460f21405911d505edfd7eec8b"
+    },
+    "JinWishartFormalization.GaussianRadialCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRadialCDF.lean",
+      "sha256": "910dbf544c08308a9061694fe12fee884747d4161ae9db6dab1dfe6a5d78f413"
+    },
+    "JinWishartFormalization.GaussianRadialLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRadialLaw.lean",
+      "sha256": "13f4c9957b1405432b7e35066cb49c56e17847dc3167a7b650418265939fb663"
+    },
+    "JinWishartFormalization.GaussianRawCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRawCoordinates.lean",
+      "sha256": "0c9a57b41b20d849eb18e1a3b42e2bbf8d53d0ca3ae662adc1f5e93f037557e1"
+    },
+    "JinWishartFormalization.GaussianTwoColumnIntegration": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianTwoColumnIntegration.lean",
+      "sha256": "bbee1b5baecba5991eb02f61d4b1f9163a1ccc5ad9d3a41d9e2dec244a99878d"
+    },
+    "JinWishartFormalization.GramSpectrumTransfer": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GramSpectrumTransfer.lean",
+      "sha256": "c91c467905c62178a87b352c2df5cd604c0398b61a924788b007b7c4b2772723"
+    },
+    "JinWishartFormalization.HermitianCoordinateMetric": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianCoordinateMetric.lean",
+      "sha256": "ba1f77ea0c59dd61821dba192264694572138bf0c8ac41d6d1b72cf4a05eefdd"
+    },
+    "JinWishartFormalization.IncompleteGamma": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/IncompleteGamma.lean",
+      "sha256": "8218e54945bb43bd233034dda988a20b8ffe1a74e82e13c79e32b458ae6ec378"
+    },
+    "JinWishartFormalization.IndexedCourantFischerAttempt": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/IndexedCourantFischerAttempt.lean",
+      "sha256": "a015b71a459299f5aac31e6079f1d0588993cd2c4cd63b3516478cd764e35e55"
+    },
+    "JinWishartFormalization.IndexedCourantFischerProof": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/IndexedCourantFischerProof.lean",
+      "sha256": "9c54a9a33b5153e693070e0e922b619c324b1a2f81c92a645619043ab167b15c"
+    },
+    "JinWishartFormalization.MIMOPerformance": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/MIMOPerformance.lean",
+      "sha256": "b53e3bf2d6c0ae47083705060a24e34c53f3dd5609083595ba52fced63cb6903"
+    },
+    "JinWishartFormalization.MIMOWishartSER": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/MIMOWishartSER.lean",
+      "sha256": "19a2c0a32d79772158841e79a379bc083461f4e58e64247c19390b87743f020c"
+    },
+    "JinWishartFormalization.MIMOWishartSERExact": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/MIMOWishartSERExact.lean",
+      "sha256": "b0a82cb913418936999eb23d7e22d52fcc0a26f826e506c770fec7da53ad3a03"
+    },
+    "JinWishartFormalization.MvPolynomialGramTwoByTwo": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/MvPolynomialGramTwoByTwo.lean",
+      "sha256": "603e0852634621b9b807d59ade30b618150cb66d8a77d866633c7e557f021c4d"
+    },
+    "JinWishartFormalization.MvPolynomialZeroSetNull": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/MvPolynomialZeroSetNull.lean",
+      "sha256": "a34b09e7244b834834f58034d5bb087c41cbb74c8d6fab78459dc625532b52db"
+    },
+    "JinWishartFormalization.NoncentralEightDimensionalRadial": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralEightDimensionalRadial.lean",
+      "sha256": "e55c3e5497e536f8e5c036836d38a1b7b2ffa4049b2dcdad17bf2606d7d9514d"
+    },
+    "JinWishartFormalization.NoncentralEvenDimensionalPoissonMixture": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralEvenDimensionalPoissonMixture.lean",
+      "sha256": "1a61bc18eb655d94b92ab9a7e90a4605f45cab578cb21cdaa0026033c2fa3c2f"
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalCDF.lean",
+      "sha256": "806ca30e60e65cf9f52976eb4aa894c639433236e1e4e1b948c223c302a07447"
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalGaussianCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalGaussianCDF.lean",
+      "sha256": "f645634d95842420fee878b941c5d21361ccde48fdcd03b9298363c2a998eab3"
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalPoissonMixture": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalPoissonMixture.lean",
+      "sha256": "b0c4df5123bc93b1ff021094782446f90ebca1f2ce5ad08deb56b51ba588d2da"
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalRadial": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalRadial.lean",
+      "sha256": "417b8c45a99aaa031f6e11dcb4a2e8b0fcc567253ad3964a7a698846cf9603e8"
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalSphere": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalSphere.lean",
+      "sha256": "fe0ec97404a6d09f74f27372085af3aa5e42dd55c3349c2a25b04e39cfdcd8d4"
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalTail": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalTail.lean",
+      "sha256": "c620e62a3a8cd1cc47933c9cbe1ac378556c6cf34c37f299f317d377622665ba"
+    },
+    "JinWishartFormalization.NoncentralOneColumnEnergy": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralOneColumnEnergy.lean",
+      "sha256": "30c879986bed1c173827794b9eac6cff9369a29c04975cf6b765964fe83d5648"
+    },
+    "JinWishartFormalization.NoncentralScalarCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralScalarCDF.lean",
+      "sha256": "9cdb76b32910cd8591ef5ef96e17fd488e32f70d9d556eeaf66145b444a92587"
+    },
+    "JinWishartFormalization.NoncentralSixDimensionalMass": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralSixDimensionalMass.lean",
+      "sha256": "2428fc3d6d5fa1abdee1168ee6aecaae81c5f07f007b9376063f9a1e3060ddd0"
+    },
+    "JinWishartFormalization.NoncentralSixDimensionalRadial": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralSixDimensionalRadial.lean",
+      "sha256": "285b215e2e41e0a5345d58da9ce97c081f5b978d80b3f2569ff512a1641ed016"
+    },
+    "JinWishartFormalization.NoncentralThreeRowNuttallQ": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralThreeRowNuttallQ.lean",
+      "sha256": "950111bc1474ac44f45daf3f05f4a6d648ca66231e7f390d79422f95049f0f2f"
+    },
+    "JinWishartFormalization.NuttallQ": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQ.lean",
+      "sha256": "33af64b5d7ea66fb3199895b2d0dc9f9a7eda74f01fc7bd70bd5e5023c278200"
+    },
+    "JinWishartFormalization.NuttallQ21Normalization": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQ21Normalization.lean",
+      "sha256": "8dd0d0157589b8104f12ab2b2fc3b4faab8ac4e7448e9f02b02b1126f8287874"
+    },
+    "JinWishartFormalization.NuttallQ21Positive": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQ21Positive.lean",
+      "sha256": "fa57de4c77a24b86a1e22ac28612c1e5a9afb5d74dd92a1cc9bdadec96258c5f"
+    },
+    "JinWishartFormalization.NuttallQBoundary": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQBoundary.lean",
+      "sha256": "fcfc5f66ffac6f6ec6ddb69305cc5598441c7a294dd6ea384466217c02901fde"
+    },
+    "JinWishartFormalization.NuttallQRiceMass": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQRiceMass.lean",
+      "sha256": "f60e154c4b11de4d3b7ecac01fada4095732fff5c3acd8e982001b673d923107"
+    },
+    "JinWishartFormalization.NuttallQRiceNormalization": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQRiceNormalization.lean",
+      "sha256": "14a08aa7d1be637f6df365b1c901ee644986d4310fb9cff1d9e00e7469504a0c"
+    },
+    "JinWishartFormalization.NuttallQRiceSplit": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQRiceSplit.lean",
+      "sha256": "a01841a46569b69799bb179d38af3d05668012f022a859a884617dacac1a33dd"
+    },
+    "JinWishartFormalization.NuttallQZero": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQZero.lean",
+      "sha256": "0b99126d08bbca5b423b35f448de3b1176867efa5333342123e197a7cd53e12e"
+    },
+    "JinWishartFormalization.OneColumnCDFRecurrence": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OneColumnCDFRecurrence.lean",
+      "sha256": "36f2dafb9b6322d6610e982d26538b1474ed2de9415d04fa0fe3d6fd49d0647d"
+    },
+    "JinWishartFormalization.OneColumnFrobeniusParameter": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OneColumnFrobeniusParameter.lean",
+      "sha256": "d1dbfee06fb7024f3d0ca3c052ffed0d859df9b8c7624a700b47b7ab793e9176"
+    },
+    "JinWishartFormalization.OneColumnNoAtom": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OneColumnNoAtom.lean",
+      "sha256": "6872efcc9f99f6611fde73277044fd6ffbc6cbd6f257d4075628c0380c068f90"
+    },
+    "JinWishartFormalization.OrderedCourantFischerFiniteDim": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedCourantFischerFiniteDim.lean",
+      "sha256": "3d33c88239cfc7f6c0f1cc9c787a5bf998219fea5def63f875a6032ad42cb0e7"
+    },
+    "JinWishartFormalization.OrderedEigenvalueCDFRecurrence": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueCDFRecurrence.lean",
+      "sha256": "05a1d73868a8ef0f068f65f2e1a58e94f3d09b9e09beeb419249445e1cd03dd3"
+    },
+    "JinWishartFormalization.OrderedEigenvalueFullMeasurable": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueFullMeasurable.lean",
+      "sha256": "f6de144979c97e964ba7dcbab967efa4bbf8706477e87b6ca27963db0cd26b72"
+    },
+    "JinWishartFormalization.OrderedEigenvalueIndexedRecurrence": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueIndexedRecurrence.lean",
+      "sha256": "5bc61a3cf1ef6e2cd9cb9df3322cfe46ff5b1ab6f99d05f1e3d10e6d08ae4db2"
+    },
+    "JinWishartFormalization.OrderedEigenvalueMeasurable": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueMeasurable.lean",
+      "sha256": "af44f41cd8ae7f0d8a21acdf15d1ba87e509d05cf4c9e791939f000249ae4e80"
+    },
+    "JinWishartFormalization.OrderedEigenvalueStrictRecurrence": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueStrictRecurrence.lean",
+      "sha256": "ae75f7d15e592869de4c16de091ac7eec126dd742b685245ad21434f82094c6a"
+    },
+    "JinWishartFormalization.OrderedEigenvalueWeyl": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueWeyl.lean",
+      "sha256": "69e3196e987eb04d33c66312dc65b338fe1e6d37da06c3cc929d32bab67f0fc2"
+    },
+    "JinWishartFormalization.PaperSingleStreamTwoRowOutage": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/PaperSingleStreamTwoRowOutage.lean",
+      "sha256": "4263dd3bbe23d2f6305668247b8c2718846004d183a7ac96f1dc0ea7e7d19364"
+    },
+    "JinWishartFormalization.PaperSmallSideGram": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/PaperSmallSideGram.lean",
+      "sha256": "bced670a94a7aa66c8c48ff6bada28550e25dc822655be363d07315f4499a30b"
+    },
+    "JinWishartFormalization.PaperStatements": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/PaperStatements.lean",
+      "sha256": "9bf77e76712c27da1abdd49ad6c83cebf3543336ae8ee20069ee066565910560"
+    },
+    "JinWishartFormalization.RadialIntegration": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/RadialIntegration.lean",
+      "sha256": "adc6db6dd40cf4a4fd4f6d71a21ed315ff1d616875f04ede0497a32b6273b052"
+    },
+    "JinWishartFormalization.RealQuadraticRepeatedRoot": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/RealQuadraticRepeatedRoot.lean",
+      "sha256": "906d68b12c53783165f3d43f4305c071f890f55596140197482d337aa355ffe1"
+    },
+    "JinWishartFormalization.RectangularGramEigenvectorBridge": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularGramEigenvectorBridge.lean",
+      "sha256": "7cf565f4de5a4786e1e47239d5ea6fa012895fcbbd02fd4da750eec05412f1c5"
+    },
+    "JinWishartFormalization.RepeatedRootNullSets": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/RepeatedRootNullSets.lean",
+      "sha256": "a7e6cd1cb5f8d023108c445d5aca03ebc7d55002a0b5300654fae06bdc4dcb9e"
+    },
+    "JinWishartFormalization.ScalarAngularRadial": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarAngularRadial.lean",
+      "sha256": "2e54906a9e2ea28e9ece8cc2caa3c75f5c245abdde30f14f079ad01ba06e2bbe"
+    },
+    "JinWishartFormalization.ScalarComplexCenterAngle": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarComplexCenterAngle.lean",
+      "sha256": "be0dccf5497f12c29841f68b2221f7392ac07682e1776c53a9a2bf50b76e8a4a"
+    },
+    "JinWishartFormalization.ScalarComplexCenterDisk": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarComplexCenterDisk.lean",
+      "sha256": "9e3f0cdb286a1ca2966e3f8bf87e36652ed34967ee07830b2d0217c3cd237525"
+    },
+    "JinWishartFormalization.ScalarGaussianComplexBridge": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarGaussianComplexBridge.lean",
+      "sha256": "f7a220c006a8051a248475d1d4dbd123ce23da35f5526efc6908a5d7916dc418"
+    },
+    "JinWishartFormalization.ScalarNoncentralCDFRice": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarNoncentralCDFRice.lean",
+      "sha256": "1cbba4afb0c7aba71bf7b8318a2136deeb5f5ff5b5940ebab75794f0431c3a6a"
+    },
+    "JinWishartFormalization.ScalarNoncentralDiskFubini": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarNoncentralDiskFubini.lean",
+      "sha256": "43bbb5e36145d2f2632d75f1c061c87e9469994cb80418c79253c909d872ca51"
+    },
+    "JinWishartFormalization.ScalarNoncentralNoAtom": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarNoncentralNoAtom.lean",
+      "sha256": "8c33fe00e1d59ab1d506d3a8a91fb41ab35a9aebcb0117e1ba6a0bd872fa5f41"
+    },
+    "JinWishartFormalization.ScalarNoncentralOutageAsymptotic": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarNoncentralOutageAsymptotic.lean",
+      "sha256": "80cbdcadc2d1d5725d4b5a845fa95a0297021d68500ec91efd81c4cc70f300aa"
+    },
+    "JinWishartFormalization.ScalarNoncentralPolar": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarNoncentralPolar.lean",
+      "sha256": "dcf29c7b121e86a89e7e48fb4800f3bb5e891f378f39170bdfc6984f53a42182"
+    },
+    "JinWishartFormalization.ScalarNoncentralSmallX": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarNoncentralSmallX.lean",
+      "sha256": "ab8675475247ec6acd94fc657d25c6dcffa36bae888403b7c6affc98871dce07"
+    },
+    "JinWishartFormalization.ScalarNoncentralSmallXLimit": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarNoncentralSmallXLimit.lean",
+      "sha256": "b9b61918b2f2e621a67b9a188f2d9b3b69a434f39cd92600c45894054d49e4cf"
+    },
+    "JinWishartFormalization.ScalarNoncentralTheorem1": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarNoncentralTheorem1.lean",
+      "sha256": "17490591d935cbd93f7c19304bb8bfa5640556d8dbec1bd1530e020ca6517282"
+    },
+    "JinWishartFormalization.ScalarPhysicalScaling": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarPhysicalScaling.lean",
+      "sha256": "3cf568925a17e4ccddd5cd7e65f225f8fdcf679beedabfcc7bd4fc9d74cd16b8"
+    },
+    "JinWishartFormalization.SixDimensionalAngularBesselI2": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SixDimensionalAngularBesselI2.lean",
+      "sha256": "fd7033ac3187325948ca321147e6e85c195d6f77955536ae397eebc9594b31c4"
+    },
+    "JinWishartFormalization.SpectralCoordinateSpanSupport": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SpectralCoordinateSpanSupport.lean",
+      "sha256": "85fd857e3bacfefc94271c72a9770e3ecebc3006b532931113f2f2396a7a6c91"
+    },
+    "JinWishartFormalization.SpectralRayleighCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SpectralRayleighCoordinates.lean",
+      "sha256": "f0b5b5942ed0b28fca6e9fa263fa247221033a2fc8f7e474e524365b6d373cd0"
+    },
+    "JinWishartFormalization.SpectralRayleighPrefix": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SpectralRayleighPrefix.lean",
+      "sha256": "eca356c490bc64e5724b9b3311321f2479cdb4ada80317f9b9a22b7b67cc25b8"
+    },
+    "JinWishartFormalization.SphereEightDAxialMeasure": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereEightDAxialMeasure.lean",
+      "sha256": "23dcfcbd26d4fb633931a02dd2e5a81b459e46fe4563ac548b727a517a6a8ca2"
+    },
+    "JinWishartFormalization.SphereEightDAxialPushforward": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereEightDAxialPushforward.lean",
+      "sha256": "d06d0a1952b273da36ec2c68e86029ebf2afce582b892c9fa018067fed2b46c1"
+    },
+    "JinWishartFormalization.SphereFourDAngularIntegral": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereFourDAngularIntegral.lean",
+      "sha256": "2a05ee8df2fff2cb4f8cbb4f944a7f0e4f468f1dfc2146bbca79914b4bc2f66c"
+    },
+    "JinWishartFormalization.SphereFourDPlaneAngleChart": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereFourDPlaneAngleChart.lean",
+      "sha256": "7b79833005ac4a4927be6f6bc55fd7daaa5868714f4178a50d31003d0dddc51c"
+    },
+    "JinWishartFormalization.SphereFourDPlanePolar": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereFourDPlanePolar.lean",
+      "sha256": "a5074262a4016e336a03e17e8e3c5472b20e46e92eeef6fb29ba565b1ddfd7f5"
+    },
+    "JinWishartFormalization.SphereSixDAxialMeasure": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereSixDAxialMeasure.lean",
+      "sha256": "342e14c3cd4fa29e796908ca0b74037e6dfb48c73b7f218f62cc3a920dc7fa15"
+    },
+    "JinWishartFormalization.SphereThreeMeasure": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereThreeMeasure.lean",
+      "sha256": "9d48f59bb391eb65dd06378c1d861823480eee25c6b103690b81a15a71237c28"
+    },
+    "JinWishartFormalization.SubspaceIntersectionFinrank": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SubspaceIntersectionFinrank.lean",
+      "sha256": "4924c9d72a37dff9d922ce2a384d45a6df9ad9349c31709fa61a681f8600c797"
+    },
+    "JinWishartFormalization.T3CentralNormalizationClosure": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3CentralNormalizationClosure.lean",
+      "sha256": "046b29e060dce03eb8c80c346331396ece34343286a8e6eb5130e2c127a6a3c8"
+    },
+    "JinWishartFormalization.T3CentralNormalizationWitness": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3CentralNormalizationWitness.lean",
+      "sha256": "081ef17d1d59bcd4720e830f7fcb7417e3264f2b2e7e23a4972ba8e9b2c52c31"
+    },
+    "JinWishartFormalization.T3CentralTwoByTwoDensityInterface": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3CentralTwoByTwoDensityInterface.lean",
+      "sha256": "64720edd89e9b2d5c5736c3d358b55b9572624930ee9637aa7bb21f033d6aa3e"
+    },
+    "JinWishartFormalization.T3FixedCardinalityRowSelection": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3FixedCardinalityRowSelection.lean",
+      "sha256": "c4bf3dd8913ba41756069d92012b1054cd499166e55ed62760a523df26b6e526"
+    },
+    "JinWishartFormalization.T3InactiveColumnCancellation": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3InactiveColumnCancellation.lean",
+      "sha256": "b5677a1243c9f6284cface2980e746bca41b1ce2f3e6f6b83984bf770fdb2af6"
+    },
+    "JinWishartFormalization.T3NormalizationAudit": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3NormalizationAudit.lean",
+      "sha256": "20beed63f904b79f75bfb23d102c9d6ce5b4def62d6c6cc6e1a563f9688d29f5"
+    },
+    "JinWishartFormalization.T3PaperThetaSpecialization": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3PaperThetaSpecialization.lean",
+      "sha256": "4f0e24f08b7f8db639531efcb166b65d7cd31587155f8b033f1d1bff7c03a893"
+    },
+    "JinWishartFormalization.T3PermutationCoefficientBridge": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3PermutationCoefficientBridge.lean",
+      "sha256": "8cc6ab5d4b4676ba9d402f3246ca97669b698ccd263453368c6ea1175774e85c"
+    },
+    "JinWishartFormalization.T3ScalarNormalizationBridge": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T3ScalarNormalizationBridge.lean",
+      "sha256": "f10b349b29264081fdd8e213c4dfa86a89a7c53e003db2e30fd41094bd8d77bf"
+    },
+    "JinWishartFormalization.T4CentralOneColumnAnyRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T4CentralOneColumnAnyRows.lean",
+      "sha256": "63c8c6c26e134eedd72ab166c15831490945cb73b981fc2b72ae7bc9df55f77a"
+    },
+    "JinWishartFormalization.T4CentralOneColumnHighScale": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T4CentralOneColumnHighScale.lean",
+      "sha256": "ed77577008d2315615a2f0a8168eb68c95c23b0c1ccbd735bf599eefae69c2bd"
+    },
+    "JinWishartFormalization.T4DensityToCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T4DensityToCDF.lean",
+      "sha256": "e226680265b751a494afd83d573ce7e515c2ab885e7b7c96e39eec1b1f569176"
+    },
+    "JinWishartFormalization.T4NoncentralOneColumnAnyRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T4NoncentralOneColumnAnyRows.lean",
+      "sha256": "81ccce6452e054cc3ef8894c658c7d578d336fa4c21b757b500f6123db2f76e9"
+    },
+    "JinWishartFormalization.Theorem12ThreeRowsFrobeniusCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem12ThreeRowsFrobeniusCDF.lean",
+      "sha256": "7ebd1fe6da261b1407e4dff650198215c586e53c9628cd0737ac99a0d7d647a3"
+    },
+    "JinWishartFormalization.Theorem1CentralTwoRowActualCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1CentralTwoRowActualCDF.lean",
+      "sha256": "9d41e9e6916438f6253d35200fd6a9a0be3487a572f341a77b598d024d2f9f55"
+    },
+    "JinWishartFormalization.Theorem1Formula": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1Formula.lean",
+      "sha256": "a641c9c3ac07206a1f8162f6c9a655bb0a42901dc814a6153b04031cc6ae2dbc"
+    },
+    "JinWishartFormalization.Theorem1FullRankDeterminantScaling": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1FullRankDeterminantScaling.lean",
+      "sha256": "03cfd8db4465e0feea23ad8392826489930823520360b24d0450671f664b0cfa"
+    },
+    "JinWishartFormalization.Theorem1SingleColumnAnyRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1SingleColumnAnyRows.lean",
+      "sha256": "5618237e874bd3dd15098ee2f2b8022dd61fb18559744e8af690363e5734c0c0"
+    },
+    "JinWishartFormalization.Theorem1SingleColumnTwoRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1SingleColumnTwoRows.lean",
+      "sha256": "be0b7532448be5d649ce9ac1dab3f2ae859ab66663d67cf243fe8917af637443"
+    },
+    "JinWishartFormalization.Theorem1ThreeRowsActualCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1ThreeRowsActualCDF.lean",
+      "sha256": "d111058c4cf29d4c3bce9b0b7ee8e993753949f07cd998aa749ffdce5d119890"
+    },
+    "JinWishartFormalization.Theorem1TwoRowsActualCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1TwoRowsActualCDF.lean",
+      "sha256": "4d94031160a4cd74265c344f700b1ef4c6e448de57bf29a17f71d482baef2c41"
+    },
+    "JinWishartFormalization.Theorem1TwoRowsNoncentral": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1TwoRowsNoncentral.lean",
+      "sha256": "ac587ef9ed5f20b3c2059ebfc466797e5acbf757d1a67dac4d9a6c2933d627fd"
+    },
+    "JinWishartFormalization.Theorem2NoncentralScalarFormula": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem2NoncentralScalarFormula.lean",
+      "sha256": "8ad155edc400a639590b87b81d5bb366628e9c3b1bfb391ddaac8509e4f4bf04"
+    },
+    "JinWishartFormalization.Theorem2SingleColumnAnyRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem2SingleColumnAnyRows.lean",
+      "sha256": "95be7b62d973f69a59b086e31ec174821fca93b8b140f62016315f3d25ff3f13"
+    },
+    "JinWishartFormalization.Theorem2ThreeRowsActualCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem2ThreeRowsActualCDF.lean",
+      "sha256": "6e1a4f20776e23b8339ae46103af5fee9ea7152e612210246c8d866fe6e95e61"
+    },
+    "JinWishartFormalization.ThreeRowMeanNorm": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ThreeRowMeanNorm.lean",
+      "sha256": "3ef70e3e28d73bfffd8e10a5046dd8dc1bfaf99db984518a6b0620abddd389b2"
+    },
+    "JinWishartFormalization.ThreeRowSampleCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ThreeRowSampleCoordinates.lean",
+      "sha256": "8e6aac4bb28ae45c2ec6727ac10a9ca36b1a1be057f9921d6ae81229b5b0ab3c"
+    },
+    "JinWishartFormalization.ThresholdNoAtom": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ThresholdNoAtom.lean",
+      "sha256": "0241d4e61f72da951720c32c026fdc10390c5218d9127591d6f273482fcf6629"
+    },
+    "JinWishartFormalization.TwoRowActualDensity": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowActualDensity.lean",
+      "sha256": "f8765acf8b7dbd7948ea9b78e5dcedd75d871b1512f2bb89da7b65c3c62eafcd"
+    },
+    "JinWishartFormalization.TwoRowActualNormalizedDensity": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowActualNormalizedDensity.lean",
+      "sha256": "2645eeaabdea17affc84edfd150517b2d70a83f1ab86c023ec674736e229dcc8"
+    },
+    "JinWishartFormalization.TwoRowBartlettCoordinateVolume": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowBartlettCoordinateVolume.lean",
+      "sha256": "e1c6f1135363920e7e20ba59acfdc6f9ba76bf26a0e5164eba7680ca0cc6be2e"
+    },
+    "JinWishartFormalization.TwoRowBartlettSupport": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowBartlettSupport.lean",
+      "sha256": "074e41ed63e36f351c854b28a024d860ee38777fcf7a0a0b72ad9252fc67b718"
+    },
+    "JinWishartFormalization.TwoRowGramChart": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowGramChart.lean",
+      "sha256": "efc33b62c0dcd3d0b4b3c5b0d50f60855b41e84435149fb5d26a5759246acda4"
+    },
+    "JinWishartFormalization.TwoRowGramPositive": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowGramPositive.lean",
+      "sha256": "858e8fabb088bd19fad0b437a259ce70b5a0fa1f5a2025fb98e35a3a8c2e2c42"
+    },
+    "JinWishartFormalization.TwoRowGramSupport": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowGramSupport.lean",
+      "sha256": "1f9c9f79c2918cdf982710fcc437e22296996e542241e6125bba892c9a7796e9"
+    },
+    "JinWishartFormalization.TwoRowHermitianThreshold": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowHermitianThreshold.lean",
+      "sha256": "903525e1b689fc3274767650371db366d0bef9fe2a367a678fd02c5382a76417"
+    },
+    "JinWishartFormalization.TwoRowLogRateOutage": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowLogRateOutage.lean",
+      "sha256": "65d56968a512a891f913ab49dd1f16c99c6af9463f4a701111f62197644c1d0b"
+    },
+    "JinWishartFormalization.TwoRowMeanGramSpectrum": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowMeanGramSpectrum.lean",
+      "sha256": "f23c2b5f01103d91bd3a8616d05500570dab6689fa07d38778ecd3cf42646ca8"
+    },
+    "JinWishartFormalization.TwoRowMinimumLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowMinimumLaw.lean",
+      "sha256": "62b9679b21fe64e0dd22609f7aea09180817edb6b5e4852d09cce209fd575f83"
+    },
+    "JinWishartFormalization.TwoRowOutageScaling": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowOutageScaling.lean",
+      "sha256": "47299ab492d460ea87d7a67d500718eb361c75bddca9a33a80497d45bea36cc7"
+    },
+    "JinWishartFormalization.TwoRowRandomDirectionLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowRandomDirectionLaw.lean",
+      "sha256": "00f8b8268b52090628c1aaf81e972cd8854fa0fe6aecc640b1ecba726d154e35"
+    },
+    "JinWishartFormalization.TwoRowSampleCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowSampleCoordinates.lean",
+      "sha256": "9eee68831e0636ee0037262c89b450a63ba1e33e08c748c9d63b4ce2754ab75d"
+    },
+    "JinWishartFormalization.TwoRowScaledMinimum": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowScaledMinimum.lean",
+      "sha256": "edd72738f57ad06965b9e8fd0d737a62ef530d7d651aeadf154f5f618fb62f3a"
+    },
+    "JinWishartFormalization.TwoRowSmallestEigenvalueCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowSmallestEigenvalueCDF.lean",
+      "sha256": "fe5fc4162f0be329b5731d22aa1239b5682c15da32aaa7479613d70a7473c281"
+    },
+    "JinWishartFormalization.TwoRowSmallOutageAsymptotic": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowSmallOutageAsymptotic.lean",
+      "sha256": "7a5e802631824d92ab4df45be96d1f3fb92ba159ec542294356530f811adddab"
+    },
+    "JinWishartFormalization.WeightedIntervalAverage": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WeightedIntervalAverage.lean",
+      "sha256": "e8d8df4f187a02f8617dca4384585379652cb01d7953bb3039890e32fcb169da"
+    },
+    "JinWishartFormalization.WeylComplexHermitian": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WeylComplexHermitian.lean",
+      "sha256": "a3e5cd448333a6dfaaf4835d779c0265de49782adf4a6667e0694b78dca287db"
+    },
+    "JinWishartFormalization.WeylRealSymmetric": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WeylRealSymmetric.lean",
+      "sha256": "344a7aeb1c6dc271283972041ad95bb3fced6ba2777470df52a5c59e8c76bce8"
+    },
+    "JinWishartFormalization.WishartGamma": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WishartGamma.lean",
+      "sha256": "426f7987585579330a0698369e4a1a6393b2ec2a346585e7a4446f766cb52bb2"
+    },
+    "JinWishartFormalization.WishartProbability": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean",
+      "sha256": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f"
+    },
+    "JinWishartFormalization.WishartSimpleSpectrum": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WishartSimpleSpectrum.lean",
+      "sha256": "ac3aeb0429f9549883780f965b2ee29cfc22e2f5c261130a4fd948bc1048cdce"
+    },
+    "JinWishartFormalization.DeepSeekCollaboration20261010.ComplexDensityMeasurable": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekCollaboration20261010/ComplexDensityMeasurable.lean",
+      "sha256": "f7d830c55ce7ffb9d26349dc7b7ee337db13a17987efa667fc4c255417a8af20"
+    },
+    "JinWishartFormalization.DeepSeekCollaboration20261010.ComplexDensityNonnegative": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekCollaboration20261010/ComplexDensityNonnegative.lean",
+      "sha256": "786027b5372952c34227de623fd30da373b378d77f764adcf806d813ade5ecbd"
+    },
+    "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekCollaborationRound220261010/ComplexRadialDensityMeasurableGuided.lean",
+      "sha256": "b69620a5710c4c4342891efdd8b64ea82648d84cc4ac226c3dd714220b26ba30"
+    },
+    "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekCollaborationRound320261011/ComplexScaledCoefficient.lean",
+      "sha256": "2a7bbdf61ef7b0ce9b275da4dd093feb19a7a7c418954ca4876671afeaca8964"
+    },
+    "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekCollaborationRound320261011/ComplexScaledNormSquare.lean",
+      "sha256": "c8dcf25934a29313878e7b17d8192b9c30b80762122d5a5b328a66fbb73fcc26"
+    },
+    "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekHour20261010/GammaZeroBoundary.lean",
+      "sha256": "83653551465d5b23790344fa952c991b9b9f0df19d493b78a04068451be3e856"
+    },
+    "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekMinimumCDF20261013/DeterminantFactor.lean",
+      "sha256": "75cbe92e1ca028bab1e3505a4597ebb05e4884ee693595658c399c1126da6869"
+    },
+    "JinWishartFormalization.DeepSeekScale20261015.CentralTrace": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekScale20261015/CentralTrace.lean",
+      "sha256": "ce61252104e01b6697c425182530dd80cab3a2da92f8e3ded6676514b07e8001"
+    },
+    "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekScale20261015/SampleMatrix.lean",
+      "sha256": "533b2950ea95125a857f8bbf05f8001b0106d9737183a7deb6e795b20c1bcd61"
+    },
+    "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekSpectral20261012/RealTraceTranslation.lean",
+      "sha256": "ab9694274a2f76ec67c4376dc0de02230a4837facfa90972e87e85a444663f56"
+    },
+    "JinWishartFormalization": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
+      "sha256": "a3d9c14858c8b93848a99a60938d9e8d760417a7da35029527e1ddd8ba198f28"
+    }
+  },
+  "compiled_project_olean_sha256": {
+    "JinWishartFormalization.Andreief": "b44a6964fd02e2cd076ad726e274927b8866b37b3eebf8efd97fb68c508e1db7",
+    "JinWishartFormalization.BesselI0Angle": "c0f7e08112bcbfafb59458fb90ec3d562a74aa96b27eb202f690bf25dd03c98b",
+    "JinWishartFormalization.BesselI0Series": "f369e78393eb64031ee8671b71b25942f09b3207a907107390942de56907db58",
+    "JinWishartFormalization.BesselI1Angle": "bf0f0d70ac50c18c93cbaa5d380585febae03ecba5b52d109a5f712526e5e892",
+    "JinWishartFormalization.BesselI1Series": "52b3034c3401c428e30a66053b13f3e60e66a1d703f94eb9af117cb41aae63b4",
+    "JinWishartFormalization.CentralHermitianCoordinates": "0d84d4d53ad806025efc211223583bb7f60b6290635c3db334e505c07e263d9c",
+    "JinWishartFormalization.CentralWishartBlockStep": "355394c8f56d0612e2c99a3ecb5084e6dc450aa3095b30d7506bbe726368eed1",
+    "JinWishartFormalization.CentralWishartCone": "fc3574c0b4fda7ff9e4da3866ebb8295e91592f03d0015a97d9b9999db2980ef",
+    "JinWishartFormalization.CentralWishartConeIntegral": "45e881e2c0688a8edb772b3535df4f3f00af69ed9519d7dbaf773997f69add05",
+    "JinWishartFormalization.ComplexGramSimpleSpectrum": "a76490e9e80bdd200883f7e08421437484f39ccd4eb13688dd90ba1c6da66190",
+    "JinWishartFormalization.ComplexGramTwoByTwoDiscriminantNull": "4133e3486c387cee07c4e6bb5c52799776d7c884c4effe28ab5e6fff0f09c47c",
+    "JinWishartFormalization.ComplexGramTwoByTwoGaussianSimpleSpectrum": "e1e5ad85c6d3a7813502923480ab8bbb7bcb575e4b051f266274dc80a3720d7e",
+    "JinWishartFormalization.ComplexTwoRowResidualEnergy": "05d96af41f03681bf90e2d80ade47782d4a5ebdffe5c733d4e53c3a1d8802b84",
+    "JinWishartFormalization.DeterminantRowExpansion": "e709679324a6c8aa3582db0fd93570fd51fdd5774987e81375191e4f2492f3d5",
+    "JinWishartFormalization.EightDimensionalAngularBesselI3": "cdd720055eb47a4466c8959fe40ece2933dacb08753a873f54e881297a91b83b",
+    "JinWishartFormalization.FinSpectralIndexCard": "aa8c4b1c23cadb095cda32ae6ebde2f25352c9f1c35f2915f48a7ceaf7273f5f",
+    "JinWishartFormalization.FourDimensionalPolarBridge": "9fb4804b54325dfb0cba28b1c91db1e82f73a22e7a371f22829fcac5ea33e47f",
+    "JinWishartFormalization.FourRowSampleCoordinates": "04c7b5b7b488ee32480451f8402bc95c5d786f2d3f33e7fc6703c084ea3d323e",
+    "JinWishartFormalization.GaussianComplexColumnFrame": "7ec3a93c6e351f7dba39de09cce0241b2d618d167fede90732e9caeb1e5fd518",
+    "JinWishartFormalization.GaussianComplexInnerProductLaw": "eb3d447a3369fd1a63739477ee8ee431d312977b49be938f0ec5e73ec313c876",
+    "JinWishartFormalization.GaussianComplexOrthogonalResidual": "cda97d1e806d820ece9db576b9d266e476de106587bda80a0287001a06422561",
+    "JinWishartFormalization.GaussianEuclideanBallDensity": "16b8b880868fbb74b09d8b8728d31991854d4f334d6040bad901dc342d90d33f",
+    "JinWishartFormalization.GaussianMatrixSpectralIntegral": "b55e48fb2d1adc272b599d62f9773f973ab3012a0ad9e232d64c6a4443c82a86",
+    "JinWishartFormalization.GaussianOrthogonalProjectionLaw": "124c7cd451ebad2cd26be19bd63a67eda1cbd38ab158a630246b5dbc7d3b5924",
+    "JinWishartFormalization.GaussianOrthogonalSplitLaw": "d4963915d2421d03ba31732ab102143b8f4dc735f9b80ce3d8934590e344c276",
+    "JinWishartFormalization.GaussianQ": "0a9d37a3c612a1ad48b3833a12abc54166852fd30f7737998f889a7a3e6304b3",
+    "JinWishartFormalization.GaussianRadialCDF": "2ebfd2fbbf1f96998df49c282dc452963297c34810d2320dea2c49d3263ff5a4",
+    "JinWishartFormalization.GaussianRadialLaw": "b5e8f2c4431a08b508cbdf542220ade60b99769317c74b0f704d9bf4246ce43e",
+    "JinWishartFormalization.GaussianRawCoordinates": "12cba5da12a478d078893a0f3a0ee5ad4e7ab608204c30aa2530e0e93e9d6a27",
+    "JinWishartFormalization.GaussianTwoColumnIntegration": "39b46948d5b00e85bde6463bafe7d1173c18a3ca2d4d44670d84207cb68bfa05",
+    "JinWishartFormalization.GramSpectrumTransfer": "5875b82c177ed174c3fe9e19e5c9d7eb9f5a1d7a19811e4c92da99f924a51bda",
+    "JinWishartFormalization.HermitianCoordinateMetric": "f3a6d7481233c1fd9ec4f8869d7b3712b404566b2d0dcd69d81414a481f6d710",
+    "JinWishartFormalization.IncompleteGamma": "1ec416113b374bd3a07cab7b6c857cdcd85b04d269c9547b19fc51121a9d1d3c",
+    "JinWishartFormalization.IndexedCourantFischerAttempt": "c3b1df5d301777190f77f628cf26084d300435caa9e62828ae1ba5e73d26d4aa",
+    "JinWishartFormalization.IndexedCourantFischerProof": "fd16f16e2c83f30777f0534966c654c02626a79f96a72ef2543248d38e6c894d",
+    "JinWishartFormalization.MIMOPerformance": "e5c8454ce767a4b0553a7c1dcbcb50166065293a415b037482ae2a0f7be4d066",
+    "JinWishartFormalization.MIMOWishartSER": "9e40df512bb9e6fd9f984599ce97ad33c1c1603505ea66f9cdc8e14947365548",
+    "JinWishartFormalization.MIMOWishartSERExact": "bd0321822a3c0dcd3d77d5922cd4f35610fb6e9691b0d775534a5b539ad00a88",
+    "JinWishartFormalization.MvPolynomialGramTwoByTwo": "9f96cc9d2449f1a50b264c07b341884919735d7a1cc5eb21973ab79b7edb6695",
+    "JinWishartFormalization.MvPolynomialZeroSetNull": "3c1d13b7b39aac91c9b970c9c0b49e903f76b8b9b9665e257e7e8b58f5d73013",
+    "JinWishartFormalization.NoncentralEightDimensionalRadial": "c883bfd65ff70cbf9d7912d5c203b19197219f3cf7c73080058bbcf4759cc29e",
+    "JinWishartFormalization.NoncentralEvenDimensionalPoissonMixture": "4af5aa892c6805f22b9a88b1a32b7cb5b7f49103a8abfd85923e3c3c58c87365",
+    "JinWishartFormalization.NoncentralFourDimensionalCDF": "a53ad383ef7dab1d3988622f90b59c850b0916726e718a1d12f19d1aeb52f42d",
+    "JinWishartFormalization.NoncentralFourDimensionalGaussianCDF": "17b62b6fa1b662e408bf71d8d1dbfa450612d02c4385b91f3dff78987dc9a148",
+    "JinWishartFormalization.NoncentralFourDimensionalPoissonMixture": "4a8134061bb3b9841de94d6c130c688a071f6dafc60cf7e48c75eace26fd2a39",
+    "JinWishartFormalization.NoncentralFourDimensionalRadial": "131b814df0bba9da00f8330ec66d9377afd4e6d1fa587606ad5cfed1b463137d",
+    "JinWishartFormalization.NoncentralFourDimensionalSphere": "d2303006fe23c05e9b4fa4ae446aae96acb04800d4255de0916880a6db6572bb",
+    "JinWishartFormalization.NoncentralFourDimensionalTail": "aa6074cbd59ce5b77a2b6b3a5b3e0ac6ebfacf888293bcce244f366400ea9a4f",
+    "JinWishartFormalization.NoncentralOneColumnEnergy": "21166cb67ebdc9c2e6bd4864511132ea1b3888a1873daf41eb5d17ed80ee1454",
+    "JinWishartFormalization.NoncentralScalarCDF": "c151b7971938a5f09bf4bc515b24794aa81201ad11a6ac1eaa117c66f58aa980",
+    "JinWishartFormalization.NoncentralSixDimensionalMass": "fbba1ef161a655ad52aea5d40319340eb98f8ce3294431dc4bf13d22abdedf97",
+    "JinWishartFormalization.NoncentralSixDimensionalRadial": "711380bd3881d028020fdd9e32b90ad44edb0a0a7af37a3fffd0c5e4f666b6f0",
+    "JinWishartFormalization.NoncentralThreeRowNuttallQ": "a6279ac38772ab51f776f57168802a7b9868bcb69c13d13d6d6a613bef2ffd13",
+    "JinWishartFormalization.NuttallQ": "5fa2a7403b57f2c525ae964962a4a590da5671f5c3e5899ad90f8c1f25ba55fc",
+    "JinWishartFormalization.NuttallQ21Normalization": "5f6eb520ba3df53ea120591e064c14b17f1f4f15f5aca3d70555e8aa9ed7e3dc",
+    "JinWishartFormalization.NuttallQ21Positive": "a8580e17d9e5678061c8027d30409f1820f884ab27fe8e6d485857fdb329a181",
+    "JinWishartFormalization.NuttallQBoundary": "4f98c8a9773aa286803c076cafb2780486b80386a4464b0a9001cc05e1f98cd8",
+    "JinWishartFormalization.NuttallQRiceMass": "400aa013d11001e4f2b5273e96e4105d91c7f6eb3c7cd58db63110b856b24331",
+    "JinWishartFormalization.NuttallQRiceNormalization": "ab2ccd332360f28a22b95a80bd50ff7c4c036b59504026d1197ed444b35a5b05",
+    "JinWishartFormalization.NuttallQRiceSplit": "1fd3d89ea89c83cd2db13b542431e3bfa9697956afadae3af2b28e2b562c9342",
+    "JinWishartFormalization.NuttallQZero": "cab62ca3a383c9f584244963a562b86ca438f3cc04907308783018509673b81d",
+    "JinWishartFormalization.OneColumnCDFRecurrence": "46f8e1d3e75252c91bb89482e1ad65a36264b99a3567fc98bf9ac7827ac7a9a1",
+    "JinWishartFormalization.OneColumnFrobeniusParameter": "a371a2efb34d6fadbf0966646f9c7bbd8dc86de88bac8db678a577013cde6324",
+    "JinWishartFormalization.OneColumnNoAtom": "c111bca768b487a0c46184b77a0ff6534ee0e47f4641f2a6b4e3da662ef9b780",
+    "JinWishartFormalization.OrderedCourantFischerFiniteDim": "d54284ea0d3f53fbd89df72df4f8f063f972dd2767d43d615f8d02419945c41c",
+    "JinWishartFormalization.OrderedEigenvalueCDFRecurrence": "fdc20b73e8c1f7166b30b203cef8f5b00e196d0b2ec743aa44741a54f791e0ce",
+    "JinWishartFormalization.OrderedEigenvalueFullMeasurable": "ba04b04d70447ab4f993c9ae9c7b5281b86e89c2c9c826783eb6f7cd01988e13",
+    "JinWishartFormalization.OrderedEigenvalueIndexedRecurrence": "00768e1a2348d56dff500a031bd5ecf4e260a8d06954664bbbb337de15805b7f",
+    "JinWishartFormalization.OrderedEigenvalueMeasurable": "1eafe437457048db6d35963b195b40c4cd87f2641ece6f3db0a6c6e544b517bc",
+    "JinWishartFormalization.OrderedEigenvalueStrictRecurrence": "9b21f8f39d16f04c865981f5c5710b46cce2054460a366f17a0803b3aea2b4e5",
+    "JinWishartFormalization.OrderedEigenvalueWeyl": "525fe9de093ee0cd888cf6ae4ca79473ce4d37f711e691725955ae2d4ce201a5",
+    "JinWishartFormalization.PaperSingleStreamTwoRowOutage": "4d95500edb3c5a6d45e31a3214f12bc5d8f1706dbe4249d945eaf4909056ad36",
+    "JinWishartFormalization.PaperSmallSideGram": "12d5da9d903bcebdbcccf541d6e98834be58518eae90568ae9af1226cdd11182",
+    "JinWishartFormalization.PaperStatements": "87d815240d2acedb8d9f904c3fe09946698dfad98a297157596d8d19adeeca3f",
+    "JinWishartFormalization.RadialIntegration": "b0f14078e841a3b82c5d07026bbd8ba805e8dab09eb3a1e15fcfb9c51ac21560",
+    "JinWishartFormalization.RealQuadraticRepeatedRoot": "798d10649f58c2e0e5b7257e7d5a829abdfe119492118651cc14df4b6878b8e3",
+    "JinWishartFormalization.RectangularGramEigenvectorBridge": "2fa27871caef360da902e4152c92a06e9fdcedc337404db6e9107031a8c85339",
+    "JinWishartFormalization.RepeatedRootNullSets": "0e389c582e91f4322773fa66c9d94b916fd60aaad0f160e7067254a8a50f5f54",
+    "JinWishartFormalization.ScalarAngularRadial": "cb80d79638b493753c444a69af452a6e1530d35b55f76e1f404f6b2cc4446bcd",
+    "JinWishartFormalization.ScalarComplexCenterAngle": "4592b09a9a8fce3b1f610c8ecd46b67ab1003bcc9bf7f323d581a0f89997d3d7",
+    "JinWishartFormalization.ScalarComplexCenterDisk": "911a62ae118bae9dd8fa3992c8adeb82bada61fbacaa0d9e784c58a7630e6b12",
+    "JinWishartFormalization.ScalarGaussianComplexBridge": "07036ef54958d153843b87d5fe38d120b9dbbdd822fe95afa82cc2900d3cc206",
+    "JinWishartFormalization.ScalarNoncentralCDFRice": "710180003900f39bfecf3683476b958ff2d571415eb47c27d8bdf8758da76926",
+    "JinWishartFormalization.ScalarNoncentralDiskFubini": "6fb99207fb8bd13a6b793f5428473d0fb9aab1af30ec2b5607da4fdbf12f481b",
+    "JinWishartFormalization.ScalarNoncentralNoAtom": "b9c999f7c02a51d61530d23b39e2e3f6e5cc624e3e40eccf4afb25bec50f2101",
+    "JinWishartFormalization.ScalarNoncentralOutageAsymptotic": "1cff0c80cdd45f18590c2bf4c3d6b8995ab1509a43b3c45492da222eb759c512",
+    "JinWishartFormalization.ScalarNoncentralPolar": "e5296b3a773680eb5541d711362300231741bac004d2261729b4ba24101b0251",
+    "JinWishartFormalization.ScalarNoncentralSmallX": "73b4040e1dd1be2f75bfa9772ba555b1b70a04278f165c4aca316590f4734e32",
+    "JinWishartFormalization.ScalarNoncentralSmallXLimit": "7f156f15bdd9f650a8779b9ee1764a043aa3bb396925ffa55d3e189dc28552c5",
+    "JinWishartFormalization.ScalarNoncentralTheorem1": "31fa821a469df1e3ff51e5b8ac7ff2a8328a4f4812414b439b78a23b4c16dd37",
+    "JinWishartFormalization.ScalarPhysicalScaling": "2a31c692e04952b63f283acdaf74327c1825dc1f97d1937c77555c5e2ff7d2df",
+    "JinWishartFormalization.SixDimensionalAngularBesselI2": "29b9d7a1eb3ae91c6e3d4efc491f9c33b4473982ca294190a09746cf9dcd6ef2",
+    "JinWishartFormalization.SpectralCoordinateSpanSupport": "eb6f92882ad863649ed3b8f831de7b46dcfe0f64fa36352e7df6305019e270e2",
+    "JinWishartFormalization.SpectralRayleighCoordinates": "af6e03f6e45aeeb994b48efb7dbe963e7cac5d831bd75d01fac153c42879b18d",
+    "JinWishartFormalization.SpectralRayleighPrefix": "a546725014d59faa40c5211f5d1d48acfa8a96d2d5b5f12a0e890a9930d634c9",
+    "JinWishartFormalization.SphereEightDAxialMeasure": "c660316e69db06bfc33c9813a21237369f2b71c408e7d5e87904ea037d594e72",
+    "JinWishartFormalization.SphereEightDAxialPushforward": "594274ce2c1adcdd669c1ce5f4e1406c12d43a392e523a265f60f1e67b8c60ad",
+    "JinWishartFormalization.SphereFourDAngularIntegral": "2b45e6ba389c82e1648865b7abc4249c6e03329dc52b7591d1105c27391f960c",
+    "JinWishartFormalization.SphereFourDPlaneAngleChart": "933ade4d3fe41315854977d49f040030dbd3ad1b371dec795b14c9c0de5f38e1",
+    "JinWishartFormalization.SphereFourDPlanePolar": "a11ba3d07feff1f5d008b73f3ba6befcf4c6373078e4c2c8eb74734521c9a3f9",
+    "JinWishartFormalization.SphereSixDAxialMeasure": "c303bbe9dbc82c5aef3e7c572d416f6a2d7ed3621c1bf1983f6265631ea831ba",
+    "JinWishartFormalization.SphereThreeMeasure": "b3ed268f53b04d5cd7ac791d937fd8c7e03ea4cff5b6817a6f1d38be5312b85d",
+    "JinWishartFormalization.SubspaceIntersectionFinrank": "17cd0e5c0cd5ea1492a68be325e42a0c5e12cea8e0d5e65b0ce29e57a793e9ea",
+    "JinWishartFormalization.T3CentralNormalizationClosure": "77d22a7b9a367aa4e48a8c25448acfbbf7cefa7cfcbcec9a9590f6634ce72704",
+    "JinWishartFormalization.T3CentralNormalizationWitness": "786a3425a2e6d5e64bf6f0caf10750f6f5fb3f3b11227aa924db45e6854e9738",
+    "JinWishartFormalization.T3CentralTwoByTwoDensityInterface": "14b8ff586341d203736df005533d393bb962408231eaa55350a2ca6e2489da88",
+    "JinWishartFormalization.T3FixedCardinalityRowSelection": "58fba968f8a9fe48f22fedf482ac5dcfd455597737299ccf757a5268709b66d4",
+    "JinWishartFormalization.T3InactiveColumnCancellation": "7f061a8883d1ec768ba34cac34c2b35c8a75bfaaad157de15c2b479c32ca5c9e",
+    "JinWishartFormalization.T3NormalizationAudit": "0f508e713a4531c28681c589cf48c0aa6e60b596f9ab40ceefaee6f74e396cd2",
+    "JinWishartFormalization.T3PaperThetaSpecialization": "ce119397875ab78008ba2c7833376fd566772e7842f6a6ede1af0ea124035e03",
+    "JinWishartFormalization.T3PermutationCoefficientBridge": "e5664ede809198003d1eace03fa083647b21d305a0b8d50fee2e4da1b3769523",
+    "JinWishartFormalization.T3ScalarNormalizationBridge": "69617be10e71440afab2278dfed08bd8237dda34eb5771a79f4a9b0d1b07f3a5",
+    "JinWishartFormalization.T4CentralOneColumnAnyRows": "f72337a7f6b122568e7227480cbd3eb50b1bddd7f9b0eadf67dc4887119838cf",
+    "JinWishartFormalization.T4CentralOneColumnHighScale": "d91cbe075f4a8e41697ea95442cd31cfc210ddabebe9ad3a7e18dbe93b74797b",
+    "JinWishartFormalization.T4DensityToCDF": "cfa373e88b6805852322a8b01cdfa885efd059a3c6755b69c650c8f457a1e226",
+    "JinWishartFormalization.T4NoncentralOneColumnAnyRows": "d8a9eec98620b671de3cdbf9c29d43c5b702ca26fe1029dc0d3a7e6e21c48a12",
+    "JinWishartFormalization.Theorem12ThreeRowsFrobeniusCDF": "6641455ca265196b09c6e79825a87a12cfa14f21fece218aed791eac3bfebf89",
+    "JinWishartFormalization.Theorem1CentralTwoRowActualCDF": "f302618127f0e6483733effe1c1c95e26ab0bdc1f1d08ed0cafb0b7f9ab3e9a4",
+    "JinWishartFormalization.Theorem1Formula": "e7252e875a1b8ef12ba9b764ecdc8a90362d4b05275f91be4911fe6cb06d3b83",
+    "JinWishartFormalization.Theorem1FullRankDeterminantScaling": "e909f939162f65c50173f5cd3766f8dd3b63ec152aaa38a0a872a25b218f8281",
+    "JinWishartFormalization.Theorem1SingleColumnAnyRows": "f0966e1f1ba8f7da916f97a1fe3f59a28a3d753a5b45d08e80f0adbfcf29eb41",
+    "JinWishartFormalization.Theorem1SingleColumnTwoRows": "3ca7ccd3fba7a1b3e7e6b0ff1f708f7dd601db9cc8dcfd77f690d7d8151582ea",
+    "JinWishartFormalization.Theorem1ThreeRowsActualCDF": "f7a29623837214b7e11da40cba8644ff7c82893d0c3116c6cab30660ce17944c",
+    "JinWishartFormalization.Theorem1TwoRowsActualCDF": "c769f8d4ec9093f96407a5299f949a198e73ae612fed2a4a55e968135b9a53c5",
+    "JinWishartFormalization.Theorem1TwoRowsNoncentral": "da9e5310057ed848dfa5fab306237beab8dde304a7a120bdeee730147ca2aeeb",
+    "JinWishartFormalization.Theorem2NoncentralScalarFormula": "cef030eae66e8f4869ccf6f7ac7d3f6f00d483b94013f3c8278ea99f92e956da",
+    "JinWishartFormalization.Theorem2SingleColumnAnyRows": "159c7738269736e384c62aaaaefc16689abd4667c4418c2dc7010930528c6fcf",
+    "JinWishartFormalization.Theorem2ThreeRowsActualCDF": "2c4f498a7cebff0079125be448fb9c373e38dd699de6aa5498cfd53282f096e0",
+    "JinWishartFormalization.ThreeRowMeanNorm": "7476de419d4b5ce8e70c530714baece97b5aae6ed9455029ea53235ee2d38fe9",
+    "JinWishartFormalization.ThreeRowSampleCoordinates": "5d1496ac2ce2a3abd7412dba71dd83decfd771f263f275d6254b3a7524cc7b38",
+    "JinWishartFormalization.ThresholdNoAtom": "c8f6abdaae7b4e16fb1748601ce1c990a3a07d9d204d18dedc7b3b1677ace32c",
+    "JinWishartFormalization.TwoRowActualDensity": "95130fbffbbc8e30e6e9946cad5b11f3c9403cc7a88a082adc337c0b2b2b9e47",
+    "JinWishartFormalization.TwoRowActualNormalizedDensity": "e1085deb296c730171cf9f1c6ee0c9ebbe36b186d186582a24e89db228d43cb2",
+    "JinWishartFormalization.TwoRowBartlettCoordinateVolume": "7a1fbbfa84f2bd58f97d0fb0bc64d78c97913f7491b73d2c52a4ac4e2a762523",
+    "JinWishartFormalization.TwoRowBartlettSupport": "5e5e3c136cd4913003969f377745dd115ea3f66c2f7f4a82e2b358eac6684181",
+    "JinWishartFormalization.TwoRowGramChart": "c29143e83ad25f0ab70d9b6ca4b9bf207e9e6e61b8fcedc672e481c70cc204fa",
+    "JinWishartFormalization.TwoRowGramPositive": "42898deadec0c2511ea8531a8ef691db74f1d28dc81069841b82843b3791eb1b",
+    "JinWishartFormalization.TwoRowGramSupport": "02958c286de9a7c17fd3d492cff6655ee5150fca89d774adc8b2c32db39197c6",
+    "JinWishartFormalization.TwoRowHermitianThreshold": "707bf8d92e2c54ef1658fe984fbd10fff55adf0208d4095c67c0bc546e4e2a0e",
+    "JinWishartFormalization.TwoRowLogRateOutage": "af4ef0dd6371e6a9c624d2faa3bca9d15a0300c3e07ce2981ffdd2d28f4de0f6",
+    "JinWishartFormalization.TwoRowMeanGramSpectrum": "799e23673c2d8e183c7b81b8e87d57f0efe4e124cbfa609c1bc18840a9c2ce5f",
+    "JinWishartFormalization.TwoRowMinimumLaw": "5dfaacc3f7fd3f6fc4f524bf39beabc9d0a57af4207dde8e49b093f92ebbaffd",
+    "JinWishartFormalization.TwoRowOutageScaling": "ab685c870b715bdb55ff9ca96994fad7eee36ab3731b55727aa79395190d16af",
+    "JinWishartFormalization.TwoRowRandomDirectionLaw": "f943ec364355830c5b707f93c4ddb29ce93c20b5c71b439222391e4f0e3bc55d",
+    "JinWishartFormalization.TwoRowSampleCoordinates": "c740c2783652722502c461c6b173671c767a1d3ba0188bc18e823f8b9d9b58cb",
+    "JinWishartFormalization.TwoRowScaledMinimum": "296164c2fb6cc8461467986f8eb6435af8e4ab2603c322fc3f7e345b2ad90c29",
+    "JinWishartFormalization.TwoRowSmallestEigenvalueCDF": "0411802df4d7d9dd7d904c42c9f21f993bc07d390c4a7ee4b1b8fac1c9d43f96",
+    "JinWishartFormalization.TwoRowSmallOutageAsymptotic": "03faa78a88abe8eeaf2337a8609e1c741960fe38b9f5b9b9fcc330572b03a979",
+    "JinWishartFormalization.WeightedIntervalAverage": "43d9234b367412f89c4d8e6b2c6b9386183189a09021cc55d5befe9afbcce2ef",
+    "JinWishartFormalization.WeylComplexHermitian": "5ad035ae059bcbaa1056ed256ac54e7fe5c9a0857cd932bd2f6656bf28a506fc",
+    "JinWishartFormalization.WeylRealSymmetric": "5f98c7d5f2c6f775fea592c152f163422013c84aa7fae5810c4072bb9fff3d01",
+    "JinWishartFormalization.WishartGamma": "5b7059b52e0f1d666dba608fac762f6c0b116e602a605e79a010c66f6b45c5d4",
+    "JinWishartFormalization.WishartProbability": "5d5dad561c507df7943f399fb4f93cf17fa45106ca408c8b38959cb856817aaa",
+    "JinWishartFormalization.WishartSimpleSpectrum": "dffd75ebf6b91320236983f638f62371b470450cf733d80463428c370e894b6e",
+    "JinWishartFormalization.DeepSeekCollaboration20261010.ComplexDensityMeasurable": "f6f72ede9942a7035a7ecff4d45d283524ef4ad234b83f9a59016f612c67d3b3",
+    "JinWishartFormalization.DeepSeekCollaboration20261010.ComplexDensityNonnegative": "c873e68b89182a52429cfe6df3383bff3ab1ca4a5b5a6448ed8c1a9c69e2712a",
+    "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided": "5704186cd88d752acd4caa5a24c517390e26d106de21509c33a30f275fe780d3",
+    "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient": "007e9e25abc0368fbf095f7f1d03d37b78aacc67786b06d38a3befa946ace775",
+    "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare": "ac6784cbe5e6678c42898421cd6e06486279f88c312d6c20b51507200bde5c3f",
+    "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary": "fa80949256a53a5dc1105d133f5af86b60c7c7c471157b689f920ba155c4211a",
+    "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor": "0bb60b6d7ec296fe4ee847504f64a09c0c171dfab00c498323cb71a585425f1f",
+    "JinWishartFormalization.DeepSeekScale20261015.CentralTrace": "ca31bf4999f93c423165895b94cca8dc611057f4904f76296dcebb64ad34b90f",
+    "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix": "c6a33da2e576ccbab53693804d3821e825cdb28fd6cebea6bf309e719d27009c",
+    "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation": "0af93495a0022ce6c54373f5143eeb49cd1d2afef457bc2edbe41e50b92a4877",
+    "JinWishartFormalization": "ecda3de55b4d55d0a0c6263264e7bcbb2547baf62c74537357f9a579d463c92c"
+  },
+  "audit_source": {
+    "path": "theory/wishart_paper/ClaimsCheck.lean",
+    "sha256": "e2b4c305fa9e8ca11abee9b9f39454f8926d7a04369f2c7651af403f5e3e5a1f"
+  },
+  "audit_log": {
+    "path": "verification/publication_checks/claims-axioms.txt",
+    "sha256": "09e940fe176cfffb3bab460cbab79502feb10cd5865861723943cea8e06ddb59"
+  },
+  "manuscript": {
+    "path": "theory/wishart_paper/main.tex",
+    "sha256": "2962627c6bb3f8ea68703db2dc9c1fe442dcf368918589743f7e6ebccacd37f5"
+  },
+  "toolchain_sha256": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+  "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "rebuild_report_sha256": "7d6b796759cf09747b0233dfe7c1f9ca3fa1be07c9d0ed6cf40ce2ebf70eacd0",
+  "targets": {
+    "JinWishart.actualTwoRow_BartlettCoordinates_eq_withDensity_raw": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_BartlettCoordinates_law": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity": {
+      "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_BartlettRealCoordinates_eq_withDensity_raw": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_ComplexReal_eq_normalizedDensity": {
+      "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_Complex_eq_normalizedDensity": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_GramLaw_eq_Bartlett_pushforward": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_GramLaw_eq_coordinate_pushforward": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_GramRealCoordinates_eq_traceDensity": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_GramRealCoordinates_eq_withDensity_raw": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_Gram_frobeniusFrameDensity": {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_columnEnergy_eq": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_columnEnergy_law": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_covariance_minimum_CDF": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_minimum_CDF": {
+      "module": "JinWishartFormalization.TwoRowMinimumLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_minimum_cdf_function": {
+      "module": "JinWishartFormalization.TwoRowMinimumLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_minimum_law_expTwo": {
+      "module": "JinWishartFormalization.TwoRowMinimumLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_minimum_tail": {
+      "module": "JinWishartFormalization.TwoRowMinimumLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_randomDirection_joint_law": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_scaled_minimum_CDF": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_scaled_minimum_cdf_function": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_scaled_minimum_law": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_scaled_minimum_tail": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_weakestLogRate_outage": {
+      "module": "JinWishartFormalization.TwoRowLogRateOutage",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.actualTwoRow_weakestLogRate_outage_negative": {
+      "module": "JinWishartFormalization.TwoRowLogRateOutage",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.centralCone_candidateIntegral_shift": {
+      "module": "JinWishartFormalization.CentralWishartConeIntegral",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.centralCone_square_candidateIntegral_shift": {
+      "module": "JinWishartFormalization.CentralWishartConeIntegral",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.centralCoordinateShiftedCone_eq_image": {
+      "module": "JinWishartFormalization.CentralWishartConeIntegral",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.complexNoncentralSampleSmallestEigenvalue_eq_twoRowUniqueGramEigenvalue": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.complexWishart_twoRow_realCoordinates_eq_traceDensity": {
+      "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.continuous_hermitianOfRealCoordinates": {
+      "module": "JinWishartFormalization.CentralHermitianCoordinates",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.continuous_realCoordinatesOfHermitian": {
+      "module": "JinWishartFormalization.CentralHermitianCoordinates",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.deepseek_scaled_sampleMatrix": {
+      "module": "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix",
+      "coverage": "explicit local helper in headline chain"
+    },
+    "JinWishart.euclideanStdGaussianDensity_sub": {
+      "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.gaussian_shiftedBall_integral_bounds": {
+      "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.hermitianCoordinate_entry_energy": {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.hermitianCoordinate_frobeniusEnergy": {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.hermitianOfRealCoordinates_isHermitian": {
+      "module": "JinWishartFormalization.CentralHermitianCoordinates",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.hermitianOfRealCoordinates_realCoordinates": {
+      "module": "JinWishartFormalization.CentralHermitianCoordinates",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.hermitianOfRealCoordinates_shift": {
+      "module": "JinWishartFormalization.CentralHermitianCoordinates",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.hermitianRealCoordinateEquiv_measurePreserving": {
+      "module": "JinWishartFormalization.CentralHermitianCoordinates",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.hermitian_twoRow_shiftedCone_iff_smallest": {
+      "module": "JinWishartFormalization.TwoRowMinimumLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.log_one_add_mul_le_iff": {
+      "module": "JinWishartFormalization.TwoRowLogRateOutage",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowActualMinimum": {
+      "module": "JinWishartFormalization.TwoRowMinimumLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowBartlettCoordinates": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowBartlettDensityRaw": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowBartlettGram": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowBartlettRealDensityRaw": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowComplexDensityRaw": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowFiberCoordinates": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowGramDensityRaw": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowGramFromCoordinates": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.measurable_twoRowUnitDirection": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.noncentralOneColumnCDF_bounds_by_central": {
+      "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.noncentralOneColumnSmallestCDF_div_tendsto_factorial": {
+      "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.noncentralOneColumnSmallestCDF_div_tendsto_frobenius": {
+      "module": "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.noncentralTwoRowCDF_eq_meanNormNuttallQ": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.norm_nuttallQ32_eq_sq_mul_radialTail": {
+      "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.nuttallQ32Integrand_eq_ofReal_scaledRadialKernel": {
+      "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.nuttallQ32_eq_ofReal_scaledRadialTail": {
+      "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.nuttallQ32_zero_eq_sq": {
+      "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.realCoordinates_hermitianOfRealCoordinates": {
+      "module": "JinWishartFormalization.CentralHermitianCoordinates",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.stdGaussian_complex_scaled_eq_withDensity": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.stdGaussian_half_norm_sq_law": {
+      "module": "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.stdGaussian_map_adjoint_norm_preserving": {
+      "module": "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.stdGaussian_orthogonalProjectionOnto_law": {
+      "module": "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.stdGaussian_orthogonal_split_indep": {
+      "module": "JinWishartFormalization.GaussianOrthogonalSplitLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.stdGaussian_orthogonal_split_law": {
+      "module": "JinWishartFormalization.GaussianOrthogonalSplitLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.stdGaussian_projected_half_norm_sq_law": {
+      "module": "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1CentralTwoRow_PsiDet": {
+      "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1CentralTwoRow_PsiDet_norm_zero": {
+      "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1CentralTwoRow_PsiMatrix": {
+      "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1CentralTwoRow_candidate_eq_actualCDF": {
+      "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1CentralTwoRow_candidate_eq_expCDF": {
+      "module": "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1CentralTwoRow_scaled_candidate_eq_actualCDF": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1ThreeRowsOneColumnCandidate_eq_actualAxialCDF": {
+      "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1ThreeRowsOneColumnCandidate_eq_actualCDF": {
+      "module": "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1TwoRowsCandidate_eq_actualAxialCDF": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1TwoRowsCandidate_eq_actualCDF": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem1TwoRowsCentralCandidate_eq_actualCDF": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem2TwoRowsCandidate_eq_actualAxialCDF": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem2TwoRowsCandidate_eq_actualCDF": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem2TwoRowsCandidate_eq_actualLargestCDF": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.theorem2TwoRowsCentralCandidate_eq_actualCDF": {
+      "module": "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowActualMinimum_nonneg": {
+      "module": "JinWishartFormalization.TwoRowMinimumLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowActualMinimum_threshold_event": {
+      "module": "JinWishartFormalization.TwoRowMinimumLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowBartlettCoordinateEquiv_symm_apply": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowBartlettRealDensityRaw_normalized_positive": {
+      "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowBartlettRealDensityRaw_positive_formula": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowComplexDensityRaw_normalized": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowFiberCoordinates_law": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowFiberCoordinates_offDiagonal": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowFiberCoordinates_secondEnergy": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowFrobeniusFrameVolume_eq_two_smul": {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowGramDensityRaw_positive_formula": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowGramDensityRaw_trace_formula": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowGramFromCoordinates_eq_BartlettGram": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowGram_traceDensity_mass": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowInverseFrobenius_apply": {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowInverseFrobenius_det": {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowRandomDirection_product_law": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowUnitDirection_norm": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowUnitDirection_reconstruct": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRowWeakestLogRate_nonneg": {
+      "module": "JinWishartFormalization.TwoRowLogRateOutage",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_actualGram_reconstruction": {
+      "module": "JinWishartFormalization.TwoRowRandomDirectionLaw",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_actualGram_scale": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_actualMinimum_scale": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_complexReal_normalizedDensity_mass": {
+      "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_complex_real_norm_square": {
+      "module": "JinWishartFormalization.TwoRowActualNormalizedDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_complex_scaled_exponent": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_gamma_one_positive_formula": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_gamma_two_positive_formula": {
+      "module": "JinWishartFormalization.TwoRowActualDensity",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_hermitian_frobeniusEnergy": {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_inverseFrame_frobeniusEnergy": {
+      "module": "JinWishartFormalization.HermitianCoordinateMetric",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_posDef_real_smul_iff": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "JinWishart.twoRow_smallest_real_smul": {
+      "module": "JinWishartFormalization.TwoRowScaledMinimum",
+      "coverage": "all public theorems in named entry module"
+    },
+    "deepseek_minimum_DeterminantFactor": {
+      "module": "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor",
+      "coverage": "explicit local helper in headline chain"
+    },
+    "deepseek_round3_ComplexScaledCoefficient": {
+      "module": "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+      "coverage": "explicit local helper in headline chain"
+    },
+    "deepseek_round3_ComplexScaledNormSquare": {
+      "module": "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare",
+      "coverage": "explicit local helper in headline chain"
+    }
+  },
+  "printed_axioms": {
+    "JinWishart.actualTwoRow_BartlettCoordinates_eq_withDensity_raw": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_BartlettCoordinates_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_BartlettRealCoordinates_eq_withDensity_raw": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_ComplexReal_eq_normalizedDensity": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_Complex_eq_normalizedDensity": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_GramLaw_eq_Bartlett_pushforward": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_GramLaw_eq_coordinate_pushforward": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_GramRealCoordinates_eq_traceDensity": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_GramRealCoordinates_eq_withDensity_raw": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_Gram_frobeniusFrameDensity": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_columnEnergy_eq": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_columnEnergy_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_covariance_minimum_CDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_minimum_CDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_minimum_cdf_function": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_minimum_law_expTwo": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_minimum_tail": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_randomDirection_joint_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_scaled_minimum_CDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_scaled_minimum_cdf_function": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_scaled_minimum_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_scaled_minimum_tail": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_weakestLogRate_outage": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.actualTwoRow_weakestLogRate_outage_negative": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.centralCone_candidateIntegral_shift": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.centralCone_square_candidateIntegral_shift": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.centralCoordinateShiftedCone_eq_image": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.complexNoncentralSampleSmallestEigenvalue_eq_twoRowUniqueGramEigenvalue": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.complexWishart_twoRow_realCoordinates_eq_traceDensity": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.continuous_hermitianOfRealCoordinates": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.continuous_realCoordinatesOfHermitian": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.deepseek_scaled_sampleMatrix": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.euclideanStdGaussianDensity_sub": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.gaussian_shiftedBall_integral_bounds": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.hermitianCoordinate_entry_energy": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.hermitianCoordinate_frobeniusEnergy": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.hermitianOfRealCoordinates_isHermitian": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.hermitianOfRealCoordinates_realCoordinates": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.hermitianOfRealCoordinates_shift": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.hermitianRealCoordinateEquiv_measurePreserving": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.hermitian_twoRow_shiftedCone_iff_smallest": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.log_one_add_mul_le_iff": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowActualMinimum": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowBartlettCoordinates": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowBartlettDensityRaw": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowBartlettGram": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowBartlettRealDensityRaw": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowComplexDensityRaw": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowFiberCoordinates": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowGramDensityRaw": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowGramFromCoordinates": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.measurable_twoRowUnitDirection": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.noncentralOneColumnCDF_bounds_by_central": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.noncentralOneColumnSmallestCDF_div_tendsto_factorial": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.noncentralOneColumnSmallestCDF_div_tendsto_frobenius": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.noncentralTwoRowCDF_eq_meanNormNuttallQ": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.norm_nuttallQ32_eq_sq_mul_radialTail": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.nuttallQ32Integrand_eq_ofReal_scaledRadialKernel": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.nuttallQ32_eq_ofReal_scaledRadialTail": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.nuttallQ32_zero_eq_sq": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.realCoordinates_hermitianOfRealCoordinates": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.stdGaussian_complex_scaled_eq_withDensity": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.stdGaussian_half_norm_sq_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.stdGaussian_map_adjoint_norm_preserving": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.stdGaussian_orthogonalProjectionOnto_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.stdGaussian_orthogonal_split_indep": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.stdGaussian_orthogonal_split_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.stdGaussian_projected_half_norm_sq_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1CentralTwoRow_PsiDet": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1CentralTwoRow_PsiDet_norm_zero": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1CentralTwoRow_PsiMatrix": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1CentralTwoRow_candidate_eq_actualCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1CentralTwoRow_candidate_eq_expCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1CentralTwoRow_scaled_candidate_eq_actualCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1ThreeRowsOneColumnCandidate_eq_actualAxialCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1ThreeRowsOneColumnCandidate_eq_actualCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1TwoRowsCandidate_eq_actualAxialCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1TwoRowsCandidate_eq_actualCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem1TwoRowsCentralCandidate_eq_actualCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem2TwoRowsCandidate_eq_actualAxialCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem2TwoRowsCandidate_eq_actualCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem2TwoRowsCandidate_eq_actualLargestCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.theorem2TwoRowsCentralCandidate_eq_actualCDF": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowActualMinimum_nonneg": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowActualMinimum_threshold_event": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowBartlettCoordinateEquiv_symm_apply": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowBartlettRealDensityRaw_normalized_positive": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowBartlettRealDensityRaw_positive_formula": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowComplexDensityRaw_normalized": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowFiberCoordinates_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowFiberCoordinates_offDiagonal": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowFiberCoordinates_secondEnergy": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowFrobeniusFrameVolume_eq_two_smul": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowGramDensityRaw_positive_formula": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowGramDensityRaw_trace_formula": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowGramFromCoordinates_eq_BartlettGram": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowGram_traceDensity_mass": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowInverseFrobenius_apply": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowInverseFrobenius_det": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowRandomDirection_product_law": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowUnitDirection_norm": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowUnitDirection_reconstruct": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRowWeakestLogRate_nonneg": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_actualGram_reconstruction": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_actualGram_scale": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_actualMinimum_scale": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_complexReal_normalizedDensity_mass": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_complex_real_norm_square": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_complex_scaled_exponent": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_gamma_one_positive_formula": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_gamma_two_positive_formula": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_hermitian_frobeniusEnergy": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_inverseFrame_frobeniusEnergy": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_posDef_real_smul_iff": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "JinWishart.twoRow_smallest_real_smul": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "deepseek_minimum_DeterminantFactor": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "deepseek_round3_ComplexScaledCoefficient": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "deepseek_round3_ComplexScaledNormSquare": {
+      "printed": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "semantic_review": "PENDING [需人工审查]"
+}

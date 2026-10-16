@@ -1,82 +1,455 @@
 {
-  "created_utc": "2026-10-15T12:59:12.057428+00:00",
-  "status": "READY_FOR_CLAUDE_OR_HUMAN_P4_NOT_REVIEWED",
-  "instruction": "Issues only; no rewrite. Reviewer must be a different model family from proof writer. No DS P4. Kernel check does not settle paper model interpretation.",
+  "created_utc": "2026-10-16T01:36:56.298393+00:00",
+  "status": "READY_FOR_INDEPENDENT_REVIEW_NOT_REVIEWED",
   "entries": [
-    "Theorem1TwoRowsActualCDF",
-    "Theorem1CentralTwoRowActualCDF",
-    "TwoRowMinimumLaw",
-    "TwoRowActualDensity",
-    "TwoRowActualNormalizedDensity",
-    "TwoRowScaledMinimum",
-    "Theorem1ThreeRowsActualCDF"
+    "JinWishartFormalization.CentralHermitianCoordinates",
+    "JinWishartFormalization.CentralWishartConeIntegral",
+    "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+    "JinWishartFormalization.GaussianOrthogonalSplitLaw",
+    "JinWishartFormalization.HermitianCoordinateMetric",
+    "JinWishartFormalization.T4NoncentralOneColumnAnyRows",
+    "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+    "JinWishartFormalization.Theorem1ThreeRowsActualCDF",
+    "JinWishartFormalization.Theorem1TwoRowsActualCDF",
+    "JinWishartFormalization.TwoRowActualDensity",
+    "JinWishartFormalization.TwoRowActualNormalizedDensity",
+    "JinWishartFormalization.TwoRowLogRateOutage",
+    "JinWishartFormalization.TwoRowMinimumLaw",
+    "JinWishartFormalization.TwoRowRandomDirectionLaw",
+    "JinWishartFormalization.TwoRowScaledMinimum"
   ],
+  "manuscript": {
+    "path": "theory/wishart_paper/main.tex",
+    "sha256": "2962627c6bb3f8ea68703db2dc9c1fe442dcf368918589743f7e6ebccacd37f5"
+  },
   "sources": {
-    "Theorem1TwoRowsActualCDF": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem1TwoRowsActualCDF.lean",
-      "sha256": "4d94031160a4cd74265c344f700b1ef4c6e448de57bf29a17f71d482baef2c41",
+    "JinWishartFormalization.BesselI0Angle": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/BesselI0Angle.lean",
+      "sha256": "736a9fa32d5b4ffe41904a1a7c7ac25fe2c62d4c450cd2a6fdfbe8b5aa32bf89",
       "imports": [
-        "TwoRowSampleCoordinates",
-        "Theorem1TwoRowsNoncentral",
-        "WishartGamma"
+        "JinWishartFormalization.BesselI0Series",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.SpecificLimits.Normed",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.Topology.Sets.Compacts"
       ],
       "theorems": [
-        "complexNoncentralSampleSmallestEigenvalue_eq_twoRowUniqueGramEigenvalue",
-        "noncentralTwoRowCDF_eq_meanNormNuttallQ",
-        "theorem1TwoRowsCandidate_eq_actualAxialCDF",
-        "theorem2TwoRowsCandidate_eq_actualAxialCDF",
-        "theorem1TwoRowsCandidate_eq_actualCDF",
-        "theorem2TwoRowsCandidate_eq_actualCDF",
-        "theorem2TwoRowsCandidate_eq_actualLargestCDF",
-        "theorem1TwoRowsCentralCandidate_eq_actualCDF",
-        "theorem2TwoRowsCentralCandidate_eq_actualCDF"
+        "expCosPowerTerm_tsum",
+        "expCosPowerTerm_restrict_norm_le",
+        "summable_expCosPowerTerm_restrict_norm",
+        "angularExpIntegral_eq_tsum_cosPowerIntegrals",
+        "integral_cos_pow_twoPi_succ",
+        "integral_cos_pow_twoPi_odd",
+        "integral_cos_pow_twoPi_even",
+        "tsum_even_odd",
+        "expCosPowerIntegral_norm_le",
+        "summable_expCosPowerIntegrals",
+        "integral_expCosPowerTerm",
+        "integral_expCosPowerTerm_odd",
+        "integral_expCosPowerTerm_even",
+        "angularExpIntegral_eq_factorialSeries",
+        "angularExpIntegral_eq_modifiedBesselI_zero",
+        "angularAverage_eq_modifiedBesselI_zero"
       ]
     },
-    "TwoRowSampleCoordinates": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowSampleCoordinates.lean",
-      "sha256": "9eee68831e0636ee0037262c89b450a63ba1e33e08c748c9d63b4ce2754ab75d",
+    "JinWishartFormalization.BesselI0Series": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/BesselI0Series.lean",
+      "sha256": "a7628b51a357b2effc11e4f7b6bec8cdc7d0fc048ed31e0784dd414bfd87871c",
       "imports": [
-        "NoncentralFourDimensionalGaussianCDF",
-        "NoncentralOneColumnEnergy"
+        "JinWishartFormalization.NuttallQ"
       ],
       "theorems": [
-        "stdGaussian_map_twoRowSampleToFin4",
-        "twoRowSampleToFin4_complexSampleMean",
-        "twoRowComplexMean_norm_sq_div_two",
-        "twoRowAxialShiftedBall_eq_fourDBall",
-        "noncentralTwoRowAxialCDF_eq_one_sub_nuttallQ21"
+        "modifiedBesselI_zero_eq_regularizedHG",
+        "regularizedHGFunCoeff_zero_singleton_one",
+        "regularizedHGFun_zero_singleton_one_eq_tsum",
+        "modifiedBesselI_zero_eq_factorialSeries",
+        "modifiedBesselI_zero_ofReal_eq_realSeries",
+        "besselI0RealSeries_nonneg",
+        "modifiedBesselI_zero_ofReal_im",
+        "modifiedBesselI_zero_ofReal_re_nonneg"
       ]
     },
-    "NoncentralFourDimensionalGaussianCDF": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralFourDimensionalGaussianCDF.lean",
-      "sha256": "f645634d95842420fee878b941c5d21361ccde48fdcd03b9298363c2a998eab3",
+    "JinWishartFormalization.BesselI1Angle": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/BesselI1Angle.lean",
+      "sha256": "64ff59d3d9f74a8a075c16b24666019163b6f01de71da915b1e7cdd5f39ad02b",
       "imports": [
-        "GaussianEuclideanBallDensity",
-        "NoncentralFourDimensionalCDF"
+        "JinWishartFormalization.BesselI0Angle",
+        "JinWishartFormalization.NoncentralFourDimensionalRadial",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts"
       ],
       "theorems": [
-        "stdGaussianFourD_normalizer_eq",
-        "stdGaussian_fourDBall_axial_eq_one_sub_nuttallQ21",
-        "stdGaussian_fourDBall_shift_eq_axial",
-        "stdGaussian_fourDBall_anyMean_eq_one_sub_nuttallQ21"
+        "expCosWeightedPowerTerm_tsum",
+        "expCosWeightedPowerTerm_restrict_norm_le",
+        "summable_expCosWeightedPowerTerm_restrict_norm",
+        "angularExpCosIntegral_eq_tsum",
+        "integral_expCosWeightedPowerTerm",
+        "integral_expCosWeightedPowerTerm_even",
+        "integral_expCosWeightedPowerTerm_odd",
+        "summable_expCosWeightedPowerTerm_integrals",
+        "angularExpCosIntegral_eq_besselI1RealSeries",
+        "angularExpCosIntegral_half_eq_pi_besselI1RealSeries",
+        "angularExpSinSqIntegral_eq_pi_besselI1_div"
       ]
     },
-    "GaussianEuclideanBallDensity": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianEuclideanBallDensity.lean",
+    "JinWishartFormalization.BesselI1Series": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/BesselI1Series.lean",
+      "sha256": "949f2c7367ef621b55a5dd82e9d67f1330d4aa9f55cd11705efc734ed3141093",
+      "imports": [
+        "JinWishartFormalization.NuttallQ"
+      ],
+      "theorems": [
+        "modifiedBesselI_one_eq_regularizedHG",
+        "regularizedHGFunCoeff_zero_singleton_two",
+        "regularizedHGFun_zero_singleton_two_eq_tsum",
+        "modifiedBesselI_one_eq_factorialSeries",
+        "modifiedBesselI_one_ofReal_eq_realSeries"
+      ]
+    },
+    "JinWishartFormalization.CentralHermitianCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/CentralHermitianCoordinates.lean",
+      "sha256": "7d9207ab7c13dbcf6d3ad293a14f4d8ff3848d65cae642fe075513f012010e22",
+      "imports": [
+        "JinWishartFormalization.CentralWishartCone"
+      ],
+      "theorems": [
+        "hermitianOfRealCoordinates_isHermitian",
+        "realCoordinates_hermitianOfRealCoordinates",
+        "hermitianOfRealCoordinates_realCoordinates",
+        "continuous_hermitianOfRealCoordinates",
+        "continuous_realCoordinatesOfHermitian",
+        "hermitianRealCoordinateEquiv_measurePreserving",
+        "hermitianOfRealCoordinates_shift"
+      ]
+    },
+    "JinWishartFormalization.CentralWishartCone": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartCone.lean",
+      "sha256": "ace0542d30db19435ef040e252bfd61b142edffbb7fd052bca698736cdf1fdde",
+      "imports": [
+        "JinWishartFormalization.TwoRowHermitianThreshold",
+        "JinWishartFormalization.DeepSeekScale20261015.CentralTrace"
+      ],
+      "theorems": [
+        "hermitian_shift_posDef_iff_all_eigenvalues",
+        "hermitian_shift_posDef_iff_smallest",
+        "centralCone_trace_shift",
+        "centralConeWeight_shift",
+        "centralConeWeight_square_shift"
+      ]
+    },
+    "JinWishartFormalization.CentralWishartConeIntegral": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartConeIntegral.lean",
+      "sha256": "febc9dd265e42e920799c4000585cb2cdf31c47c35b26070af296fc7ac3fc1ab",
+      "imports": [
+        "JinWishartFormalization.CentralHermitianCoordinates",
+        "Mathlib.MeasureTheory.Constructions.Pi"
+      ],
+      "theorems": [
+        "centralCoordinateShiftedCone_eq_image",
+        "centralCone_candidateIntegral_shift",
+        "centralCone_square_candidateIntegral_shift"
+      ]
+    },
+    "JinWishartFormalization.ComplexGramSimpleSpectrum": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGramSimpleSpectrum.lean",
+      "sha256": "0ba21967c9d5d97c4534709bf6a73900e1a8dd10c16b84c944138179f62b8adf",
+      "imports": [
+        "JinWishartFormalization.WishartSimpleSpectrum",
+        "JinWishartFormalization.GaussianRadialLaw",
+        "JinWishartFormalization.WishartProbability",
+        "JinWishartFormalization.PaperSmallSideGram",
+        "Mathlib.Algebra.MvPolynomial.Equiv",
+        "Mathlib.Algebra.MvPolynomial.Rename"
+      ],
+      "theorems": [
+        "complex_polynomial_realZeroSet_volume_eq_zero",
+        "complexMvPolynomial_realZeroSet_volume_eq_zero_fin",
+        "complexMvPolynomial_realZeroSet_volume_eq_zero",
+        "genericComplexSample_map",
+        "genericComplexSampleConjT_map",
+        "genericComplexGram_map",
+        "genericComplexGramResultant_eval",
+        "hermitian_eigenvalues₀_injective_of_resultant_ne_zero",
+        "complexGram_witnessMean",
+        "complexSampleMatrix_zero",
+        "complexSampleMatrix_complexSampleMean",
+        "genericComplexGramResultant_ne_zero",
+        "complexSample_genericResultant_zeroSet_volume",
+        "complexSample_shiftedGram_eigenvalues_injective_ae",
+        "complexSample_shiftedGram_eigenvalues_strictAnti_ae",
+        "genericComplexRowGram_map",
+        "genericComplexRowGramResultant_eval",
+        "rowGram_witnessRowMean",
+        "genericComplexRowGramResultant_ne_zero",
+        "sampleEval_ne_zero_ae",
+        "paperSmallSideGram_eigenvalues_injective_ae",
+        "paperSmallSideGram_eigenvalues_strictAnti_ae"
+      ]
+    },
+    "JinWishartFormalization.ComplexTwoRowResidualEnergy": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexTwoRowResidualEnergy.lean",
+      "sha256": "40aad0ac1f6971c45e57478e685c93b87f27536849a8086ebc7756edfeab0746",
+      "imports": [
+        "JinWishartFormalization.GaussianComplexOrthogonalResidual",
+        "JinWishartFormalization.GaussianRadialCDF"
+      ],
+      "theorems": [
+        "complexTwoRowPartner_norm",
+        "complexTwoRowPartner_residual",
+        "complexTwoRow_residualEnergy_eq_projection",
+        "complexGaussianEnergy_law",
+        "complexGaussian_scaled_energy",
+        "actualTwoRow_residualEnergy_law",
+        "actualTwoRow_projection_residualEnergy_joint_law"
+      ]
+    },
+    "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekCollaborationRound220261010/ComplexRadialDensityMeasurableGuided.lean",
+      "sha256": "b69620a5710c4c4342891efdd8b64ea82648d84cc4ac226c3dd714220b26ba30",
+      "imports": [
+        "JinWishartFormalization.GaussianRadialLaw",
+        "Mathlib.Tactic"
+      ],
+      "theorems": [
+        "deepseek_round2_ComplexRadialDensityMeasurable"
+      ]
+    },
+    "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekCollaborationRound320261011/ComplexScaledCoefficient.lean",
+      "sha256": "2a7bbdf61ef7b0ce9b275da4dd093feb19a7a7c418954ca4876671afeaca8964",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "theorems": [
+        "deepseek_round3_ComplexScaledCoefficient"
+      ]
+    },
+    "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekCollaborationRound320261011/ComplexScaledNormSquare.lean",
+      "sha256": "c8dcf25934a29313878e7b17d8192b9c30b80762122d5a5b328a66fbb73fcc26",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "theorems": [
+        "deepseek_round3_ComplexScaledNormSquare"
+      ]
+    },
+    "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekHour20261010/GammaZeroBoundary.lean",
+      "sha256": "83653551465d5b23790344fa952c991b9b9f0df19d493b78a04068451be3e856",
+      "imports": [
+        "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "JinWishartFormalization.GaussianRawCoordinates",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Complex",
+        "Mathlib.Tactic"
+      ],
+      "theorems": [
+        "deepseek_hour_GammaZeroBoundary"
+      ]
+    },
+    "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekMinimumCDF20261013/DeterminantFactor.lean",
+      "sha256": "75cbe92e1ca028bab1e3505a4597ebb05e4884ee693595658c399c1126da6869",
+      "imports": [
+        "JinWishartFormalization.Theorem1Formula",
+        "Mathlib.Tactic"
+      ],
+      "theorems": [
+        "deepseek_minimum_DeterminantFactor"
+      ]
+    },
+    "JinWishartFormalization.DeepSeekScale20261015.CentralTrace": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekScale20261015/CentralTrace.lean",
+      "sha256": "ce61252104e01b6697c425182530dd80cab3a2da92f8e3ded6676514b07e8001",
+      "imports": [
+        "JinWishartFormalization.WishartProbability"
+      ],
+      "theorems": [
+        "deepseek_central_trace_shift"
+      ]
+    },
+    "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekScale20261015/SampleMatrix.lean",
+      "sha256": "533b2950ea95125a857f8bbf05f8001b0106d9737183a7deb6e795b20c1bcd61",
+      "imports": [
+        "JinWishartFormalization.WishartProbability"
+      ],
+      "theorems": [
+        "deepseek_scaled_sampleMatrix"
+      ]
+    },
+    "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/DeepSeekSpectral20261012/RealTraceTranslation.lean",
+      "sha256": "ab9694274a2f76ec67c4376dc0de02230a4837facfa90972e87e85a444663f56",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "theorems": [
+        "deepseek_spectral_RealTraceTranslation"
+      ]
+    },
+    "JinWishartFormalization.FourDimensionalPolarBridge": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/FourDimensionalPolarBridge.lean",
+      "sha256": "3c39dab410a5392f2ce37811bd28480b0db43598764bfb0925061bb2792f7727",
+      "imports": [
+        "JinWishartFormalization.NoncentralFourDimensionalSphere",
+        "Mathlib.MeasureTheory.Constructions.HaarToSphere"
+      ],
+      "theorems": [
+        "integral_euclidean_polarProduct",
+        "shiftedGaussianFourDBallIntegral_eq_sphereRadiusProduct",
+        "integrable_shiftedGaussianFourDBallPolarIntegrand",
+        "shiftedGaussianFourDBallIntegral_eq_radiusSphereIntegral",
+        "shiftedGaussianFourDBallSphereSlice_eq"
+      ]
+    },
+    "JinWishartFormalization.GaussianComplexColumnFrame": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianComplexColumnFrame.lean",
+      "sha256": "552abdf336c04c7531fde94e1a0059908e7e3273f5dd48b942aa66623446bf72",
+      "imports": [
+        "JinWishartFormalization.GaussianTwoColumnIntegration"
+      ],
+      "theorems": [
+        "complexColumnCoordinates_apply",
+        "complexColumnCoordinates_join_first",
+        "complexColumnCoordinates_join_second",
+        "complexColumnCoordinates_encodedFrame",
+        "complexFrame_inner_preserved",
+        "encodedComplexFrame_gaussianLaw",
+        "twoColumn_complex_fiber_frame_law",
+        "complexColumnPair_gram_entry",
+        "complexColumnPair_gram_unitary",
+        "actualComplexColumn_encodedFrame",
+        "twoColumnJoin_matrix_eq_columnPair",
+        "twoColumn_actualGram_unitary"
+      ]
+    },
+    "JinWishartFormalization.GaussianComplexInnerProductLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianComplexInnerProductLaw.lean",
+      "sha256": "a114161f068918dd60b22e06c8524887ea003ad8c4817c8d68b421ce252f1905",
+      "imports": [
+        "JinWishartFormalization.GaussianComplexColumnFrame"
+      ],
+      "theorems": [
+        "complexColumn_real_inner",
+        "real_inner_complex_inner",
+        "charFun_stdGaussian_complex_inner",
+        "stdGaussian_complex_inner_law",
+        "actualComplexColumn_inner_law",
+        "twoColumnGram_offDiagonal_fixed_first_law"
+      ]
+    },
+    "JinWishartFormalization.GaussianComplexOrthogonalResidual": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianComplexOrthogonalResidual.lean",
+      "sha256": "9c393e500ea7b5abbe22049b8761007df86aa49147e9cea075fefa44e25481f6",
+      "imports": [
+        "JinWishartFormalization.GaussianComplexInnerProductLaw",
+        "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence"
+      ],
+      "theorems": [
+        "complexOrthogonalResidual_apply",
+        "complexOrthogonalResidual_orthogonal",
+        "complexOrthogonalResidual_selfAdjoint_real",
+        "complexOrthogonalResidual_norm_sq",
+        "stdGaussian_complex_projection_indep_residual",
+        "indepFun_comp_complexColumnCoordinates",
+        "actualComplexColumn_projection_indep_residual",
+        "actualComplexColumn_projection_indep_residualEnergy",
+        "actualComplexColumn_projection_residual_joint_law"
+      ]
+    },
+    "JinWishartFormalization.GaussianEuclideanBallDensity": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianEuclideanBallDensity.lean",
       "sha256": "977616592a4fbca2bc055d79c97f856c00d09c291ac4a939be105c2de545afc5",
       "imports": [
-        "GaussianRadialLaw"
+        "JinWishartFormalization.GaussianRadialLaw"
       ],
       "theorems": [
         "stdGaussian_euclidean_ball_real_eq_densityIntegral",
         "integral_euclideanGaussian_shiftedBall_eq_centered"
       ]
     },
-    "GaussianRadialLaw": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianRadialLaw.lean",
+    "JinWishartFormalization.GaussianMatrixSpectralIntegral": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianMatrixSpectralIntegral.lean",
+      "sha256": "46b5490eff8c8853eeeea1c4a98e74a5bb8fbfbe97151f65c2d09387482b72c1",
+      "imports": [
+        "JinWishartFormalization.GaussianEuclideanBallDensity",
+        "JinWishartFormalization.ThresholdNoAtom",
+        "Mathlib.MeasureTheory.Group.MeasurableEquiv",
+        "Mathlib.MeasureTheory.Group.Measure"
+      ],
+      "theorems": [
+        "stdGaussian_shift_eq_withDensity",
+        "measurable_paperJointSpectrum",
+        "paperJointSpectrum_add_mean",
+        "paperJointSpectrumLaw_eq_density_pushforward",
+        "paperJointSpectrum_event_eq_densityIntegral"
+      ]
+    },
+    "JinWishartFormalization.GaussianOrthogonalProjectionLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianOrthogonalProjectionLaw.lean",
+      "sha256": "97b1190770c34cd83e1e0dd574283ef3bca43ff5cddde7c866d6ebaca393edf0",
+      "imports": [
+        "JinWishartFormalization.WishartProbability",
+        "Mathlib.Analysis.InnerProductSpace.Adjoint",
+        "JinWishartFormalization.GaussianRadialCDF"
+      ],
+      "theorems": [
+        "stdGaussian_map_adjoint_norm_preserving",
+        "stdGaussian_orthogonalProjectionOnto_law",
+        "stdGaussian_half_norm_sq_law",
+        "stdGaussian_projected_half_norm_sq_law"
+      ]
+    },
+    "JinWishartFormalization.GaussianOrthogonalSplitLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianOrthogonalSplitLaw.lean",
+      "sha256": "c458daf3f4a2f08ea66db883a4c97b202ca425325103a2f97d9ecfd31528e868",
+      "imports": [
+        "JinWishartFormalization.GaussianOrthogonalProjectionLaw",
+        "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence"
+      ],
+      "theorems": [
+        "stdGaussian_orthogonal_split_indep",
+        "stdGaussian_orthogonal_split_law"
+      ]
+    },
+    "JinWishartFormalization.GaussianRadialCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRadialCDF.lean",
+      "sha256": "910dbf544c08308a9061694fe12fee884747d4161ae9db6dab1dfe6a5d78f413",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+        "Mathlib.Probability.Distributions.Exponential",
+        "JinWishartFormalization.GaussianRadialLaw",
+        "JinWishartFormalization.RadialIntegration",
+        "JinWishartFormalization.Theorem1Formula"
+      ],
+      "theorems": [
+        "measurable_complexGaussianEnergy",
+        "stdGaussian_complex_closedBall",
+        "stdGaussian_euclidean_closedBall",
+        "measurable_euclideanGaussianEnergy",
+        "stdGaussian_euclideanEnergy_measure_Iic",
+        "radialGaussian_integral_subst",
+        "radialGaussian_normalization",
+        "cdf_gammaMeasure_nat_eq_lowerGamma",
+        "stdGaussian_euclideanEnergy_measure_Iic_lowerGamma",
+        "stdGaussian_euclideanEnergy_map_eq_gammaMeasure",
+        "complexGaussianEnergy_measure_Iic",
+        "cdf_complexGaussianEnergy_eq_expMeasure",
+        "centralScalarSampleEnergy_map_eq_expMeasure",
+        "centralScalarSmallestEigenvalue_map_eq_expMeasure",
+        "centralScalarLargestEigenvalueCdf_eq_expMeasure",
+        "theorem1CentralScalarOneSample_eq_sampleSmallestEigenvalueCDF",
+        "theorem2CentralScalarOneSample_eq_exponentialCDF",
+        "theorem2CentralScalarOneSample_eq_largestEigenvalueEvent"
+      ]
+    },
+    "JinWishartFormalization.GaussianRadialLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRadialLaw.lean",
       "sha256": "13f4c9957b1405432b7e35066cb49c56e17847dc3167a7b650418265939fb663",
       "imports": [
-        "WishartProbability"
+        "Mathlib.Probability.Distributions.Gaussian.Multivariate",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Complex",
+        "JinWishartFormalization.WishartProbability"
       ],
       "theorems": [
         "map_withDensity_measurePreserving",
@@ -93,10 +466,1179 @@
         "centralScalarSampleEnergy_map_eq_radialGaussianEnergy"
       ]
     },
-    "WishartProbability": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\WishartProbability.lean",
+    "JinWishartFormalization.GaussianRawCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRawCoordinates.lean",
+      "sha256": "0c9a57b41b20d849eb18e1a3b42e2bbf8d53d0ca3ae662adc1f5e93f037557e1",
+      "imports": [
+        "JinWishartFormalization.GaussianMatrixSpectralIntegral",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar"
+      ],
+      "theorems": [
+        "map_withDensity_smul_euclidean",
+        "stdGaussian_scaled_shift_eq_withDensity",
+        "sqrtTwo_scaled_density",
+        "stdGaussian_halfVariance_shift_eq_withDensity",
+        "rawComplexSampleMean_apply",
+        "complexSampleMatrix_sqrtTwo_smul",
+        "rawComplexSample_norm_sq_eq_frobenius",
+        "rawComplexGaussianDensity_eq_frobenius",
+        "rawComplexSampleLaw_eq_withDensity",
+        "measurable_paperRawJointSpectrum",
+        "paperRawJointSpectrum_sample_eq",
+        "paperJointSpectrum_event_eq_rawDensityIntegral"
+      ]
+    },
+    "JinWishartFormalization.GaussianTwoColumnIntegration": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianTwoColumnIntegration.lean",
+      "sha256": "bbee1b5baecba5991eb02f61d4b1f9163a1ccc5ad9d3a41d9e2dec244a99878d",
+      "imports": [
+        "JinWishartFormalization.GaussianMatrixSpectralIntegral",
+        "Mathlib.MeasureTheory.Constructions.Pi",
+        "Mathlib.MeasureTheory.Integral.Prod"
+      ],
+      "theorems": [
+        "measurable_euclideanGaussianSplit",
+        "stdGaussian_sum_split",
+        "measurable_twoColumnSplit",
+        "twoColumnSplit_apply",
+        "twoColumnSplit_law",
+        "measurable_twoColumnJoin",
+        "twoColumnJoin_split",
+        "twoColumnSplit_join",
+        "twoColumnJoin_first_apply",
+        "twoColumnJoin_second_apply",
+        "twoColumnJoin_complex_first",
+        "twoColumnJoin_complex_second",
+        "twoColumnJoin_law",
+        "twoColumn_lintegral_eq_iterated",
+        "paperTwoColumnSpectrum_event_eq_iterated",
+        "twoColumn_gaussian_fiber_rotation",
+        "twoColumn_rotated_split_law"
+      ]
+    },
+    "JinWishartFormalization.GramSpectrumTransfer": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/GramSpectrumTransfer.lean",
+      "sha256": "c91c467905c62178a87b352c2df5cd604c0398b61a924788b007b7c4b2772723",
+      "imports": [
+        "JinWishartFormalization.PaperSmallSideGram",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic"
+      ],
+      "theorems": [
+        "charpoly_rowGram_eq_X_pow_mul_charpoly_colGram",
+        "roots_rowGram_eq_nsmul_zero_add_roots_colGram",
+        "roots_count_eq_of_ne_zero",
+        "count_zero_rowGram_eq_add",
+        "charpoly_paperSmallSideGram_eq_charpoly_colGram"
+      ]
+    },
+    "JinWishartFormalization.HermitianCoordinateMetric": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianCoordinateMetric.lean",
+      "sha256": "ba1f77ea0c59dd61821dba192264694572138bf0c8ac41d6d1b72cf4a05eefdd",
+      "imports": [
+        "JinWishartFormalization.CentralHermitianCoordinates",
+        "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+      ],
+      "theorems": [
+        "hermitianCoordinate_entry_energy",
+        "hermitianCoordinate_frobeniusEnergy",
+        "twoRow_hermitian_frobeniusEnergy",
+        "twoRowInverseFrobenius_det",
+        "twoRowInverseFrobenius_apply",
+        "twoRow_inverseFrame_frobeniusEnergy",
+        "twoRowFrobeniusFrameVolume_eq_two_smul",
+        "actualTwoRow_Gram_frobeniusFrameDensity"
+      ]
+    },
+    "JinWishartFormalization.IncompleteGamma": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/IncompleteGamma.lean",
+      "sha256": "8218e54945bb43bd233034dda988a20b8ffe1a74e82e13c79e32b458ae6ec378",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ],
+      "theorems": [
+        "partialGamma_zero",
+        "upperGammaComplement_eq_tail",
+        "upperGammaComplement_add_one",
+        "partialGamma_one",
+        "upperGammaComplement_one",
+        "upperGammaNat_add_partialGamma",
+        "upperGammaNat_zero_eq_GammaIntegral",
+        "upperGammaNat_zero",
+        "upperGammaNat_succ",
+        "upperGammaNat_eq_finite",
+        "upperGammaNat_at_zero_eq_factorial",
+        "upperGammaNat_at_zero_ne_zero"
+      ]
+    },
+    "JinWishartFormalization.MvPolynomialZeroSetNull": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/MvPolynomialZeroSetNull.lean",
+      "sha256": "a34b09e7244b834834f58034d5bb087c41cbb74c8d6fab78459dc625532b52db",
+      "imports": [
+        "JinWishartFormalization.RepeatedRootNullSets",
+        "Mathlib.Algebra.MvPolynomial.Equiv",
+        "Mathlib.Topology.Algebra.MvPolynomial",
+        "Mathlib.MeasureTheory.Constructions.Pi",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+        "Mathlib.MeasureTheory.Integral.Prod"
+      ],
+      "theorems": [
+        "mvPolynomial_zeroSet_volume_eq_zero"
+      ]
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalCDF.lean",
+      "sha256": "806ca30e60e65cf9f52976eb4aa894c639433236e1e4e1b948c223c302a07447",
+      "imports": [
+        "JinWishartFormalization.SphereFourDPlaneAngleChart",
+        "JinWishartFormalization.NuttallQ21Normalization",
+        "JinWishartFormalization.NoncentralFourDimensionalTail"
+      ],
+      "theorems": [
+        "integral_volumeIoiPow_three_eq_Ioi",
+        "noncentralChiFourRadialKernel_integrableOn_Ioi",
+        "noncentralChiFourRadialKernel_integral_eq_one",
+        "nuttallQ21Integrand_integrableOn_Ioi",
+        "noncentralChiFourRadialTail_eq_nuttallQ21_div_of_nonneg",
+        "noncentralChiFourRadialLowerMass_eq_one_sub_nuttallQ21",
+        "shiftedGaussianFourDBallIntegral_eq_nuttallKernelCutoff",
+        "integral_nuttallKernelCutoff_eq_Ioc",
+        "shiftedGaussianFourDBallIntegral_eq_one_sub_nuttallQ21"
+      ]
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalGaussianCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalGaussianCDF.lean",
+      "sha256": "f645634d95842420fee878b941c5d21361ccde48fdcd03b9298363c2a998eab3",
+      "imports": [
+        "JinWishartFormalization.GaussianEuclideanBallDensity",
+        "JinWishartFormalization.NoncentralFourDimensionalCDF"
+      ],
+      "theorems": [
+        "stdGaussianFourD_normalizer_eq",
+        "stdGaussian_fourDBall_axial_eq_one_sub_nuttallQ21",
+        "stdGaussian_fourDBall_shift_eq_axial",
+        "stdGaussian_fourDBall_anyMean_eq_one_sub_nuttallQ21"
+      ]
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalRadial": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalRadial.lean",
+      "sha256": "417b8c45a99aaa031f6e11dcb4a2e8b0fcc567253ad3964a7a698846cf9603e8",
+      "imports": [
+        "JinWishartFormalization.BesselI1Series"
+      ],
+      "theorems": [
+        "besselI1RealSeries_nonneg",
+        "noncentralChiFourRadialKernel_nonneg",
+        "noncentralChiFourRadialKernel_eq_nuttallQ21_div"
+      ]
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalSphere": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalSphere.lean",
+      "sha256": "fe0ec97404a6d09f74f27372085af3aa5e42dd55c3349c2a25b04e39cfdcd8d4",
+      "imports": [
+        "JinWishartFormalization.BesselI1Angle"
+      ],
+      "theorems": [
+        "fourDSphereExpAngleIntegralChart_eq_besselI1",
+        "shiftedGaussianFourDShellFactor_eq_nuttallKernel"
+      ]
+    },
+    "JinWishartFormalization.NoncentralFourDimensionalTail": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFourDimensionalTail.lean",
+      "sha256": "c620e62a3a8cd1cc47933c9cbe1ac378556c6cf34c37f299f317d377622665ba",
+      "imports": [
+        "JinWishartFormalization.NoncentralFourDimensionalRadial"
+      ],
+      "theorems": [
+        "noncentralChiFourRadialTail_eq_nuttallQ21_div"
+      ]
+    },
+    "JinWishartFormalization.NoncentralOneColumnEnergy": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralOneColumnEnergy.lean",
+      "sha256": "30c879986bed1c173827794b9eac6cff9369a29c04975cf6b765964fe83d5648",
+      "imports": [
+        "JinWishartFormalization.WishartProbability",
+        "JinWishartFormalization.GaussianEuclideanBallDensity",
+        "Mathlib.Probability.CDF"
+      ],
+      "theorems": [
+        "complexNoncentralColumnSmallestEigenvalue_eq_shiftedEnergy",
+        "noncentralColumnSmallestEigenvalue_sublevelMass_eq_shiftedBall",
+        "noncentralColumnCDF_eq_shiftedGaussianDensityIntegral",
+        "gaussianFourCoordinate_normalizer",
+        "noncentralTwoRowCDF_eq_fourDimensionalBallIntegral"
+      ]
+    },
+    "JinWishartFormalization.NoncentralSixDimensionalMass": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralSixDimensionalMass.lean",
+      "sha256": "2428fc3d6d5fa1abdee1168ee6aecaae81c5f07f007b9376063f9a1e3060ddd0",
+      "imports": [
+        "JinWishartFormalization.NoncentralSixDimensionalRadial",
+        "JinWishartFormalization.ThreeRowSampleCoordinates",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper"
+      ],
+      "theorems": [
+        "noncentralChiSixRadialSeriesKernel_integral_eq_one"
+      ]
+    },
+    "JinWishartFormalization.NoncentralSixDimensionalRadial": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralSixDimensionalRadial.lean",
+      "sha256": "285b215e2e41e0a5345d58da9ce97c081f5b978d80b3f2569ff512a1641ed016",
+      "imports": [
+        "JinWishartFormalization.NoncentralOneColumnEnergy",
+        "JinWishartFormalization.FourDimensionalPolarBridge",
+        "JinWishartFormalization.SphereSixDAxialMeasure",
+        "JinWishartFormalization.SixDimensionalAngularBesselI2",
+        "JinWishartFormalization.NuttallQ21Normalization",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper"
+      ],
+      "theorems": [
+        "sixDSphereToSphereIntegral_eq_angleChart",
+        "sixDDistance_sq_sub_firstAxis",
+        "sixDShiftedGaussianAngularIntegral_eq_chart",
+        "noncentralChiSixRadialSeriesKernel_nonneg",
+        "noncentralChiSixRadialSeriesKernel_zero",
+        "noncentralChiSixRadialSeriesKernel_zero_integral_eq_one",
+        "sixDShiftedGaussianShell_eq_seriesKernel",
+        "integral_volumeIoiPow_five_eq_Ioi",
+        "integrable_sixDShiftedGaussianBallPolarIntegrand",
+        "sixDShiftedGaussianBallIntegral_eq_radiusSphereIntegral",
+        "sixDShiftedGaussianBallSphereSlice_eq",
+        "integral_sixRadialKernelCutoff_eq_Ioc",
+        "stdGaussianSixDBall_axial_eq_radialSeriesCDF",
+        "modifiedBesselI_two_eq_regularizedHG",
+        "regularizedHGFunCoeff_zero_singleton_three",
+        "regularizedHGFun_zero_singleton_three_eq_tsum",
+        "modifiedBesselI_two_eq_factorialSeries",
+        "besselI2RealSeries_eq_modifiedBesselI",
+        "noncentralChiSixRadialSeriesKernel_eq_nuttallQ32_div_sq",
+        "measurable_noncentralChiSixRadialSeriesKernel",
+        "integrableOn_noncentralChiSixRadialSeriesKernel"
+      ]
+    },
+    "JinWishartFormalization.NoncentralThreeRowNuttallQ": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralThreeRowNuttallQ.lean",
+      "sha256": "950111bc1474ac44f45daf3f05f4a6d648ca66231e7f390d79422f95049f0f2f",
+      "imports": [
+        "JinWishartFormalization.NoncentralSixDimensionalMass",
+        "Mathlib.Probability.CDF"
+      ],
+      "theorems": [
+        "noncentralChiSixRadialSeriesKernel_lowerMass_eq_one_sub_nuttallQ32Integral",
+        "noncentralThreeRowCDF_eq_one_sub_nuttallQ32Tail_of_mean",
+        "noncentralThreeRowAxialCDF_eq_one_sub_nuttallQ32Tail"
+      ]
+    },
+    "JinWishartFormalization.NuttallQ": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQ.lean",
+      "sha256": "33af64b5d7ea66fb3199895b2d0dc9f9a7eda74f01fc7bd70bd5e5023c278200",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Bessel",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ],
+      "theorems": [
+        "continuous_modifiedBesselI",
+        "modifiedBesselI_zero",
+        "continuous_nuttallQIntegrand",
+        "nuttallQ_sub_eq_intervalIntegral"
+      ]
+    },
+    "JinWishartFormalization.NuttallQ21Normalization": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQ21Normalization.lean",
+      "sha256": "8dd0d0157589b8104f12ab2b2fc3b4faab8ac4e7448e9f02b02b1126f8287874",
+      "imports": [
+        "JinWishartFormalization.NuttallQ21Positive",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+        "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence"
+      ],
+      "theorems": [
+        "gaussianOddMoment",
+        "nuttallQ21RealKernel_eq_tsum",
+        "nuttallQ21SeriesTerm_integral",
+        "nuttallQ21SeriesTerm_integral_closed",
+        "nuttallQ21RealIntegral_eq_amplitude",
+        "nuttallQ21_zeroThreshold_eq_amplitude"
+      ]
+    },
+    "JinWishartFormalization.NuttallQ21Positive": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallQ21Positive.lean",
+      "sha256": "fa57de4c77a24b86a1e22ac28612c1e5a9afb5d74dd92a1cc9bdadec96258c5f",
+      "imports": [
+        "JinWishartFormalization.NoncentralFourDimensionalRadial",
+        "JinWishartFormalization.BesselI0Angle",
+        "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral"
+      ],
+      "theorems": [
+        "besselI1RealSeries_pos",
+        "besselI1RealSeries_le_exp",
+        "nuttallQ21RealKernel_eq_complexRealPart",
+        "nuttallQ21Integrand_eq_realKernel",
+        "nuttallQ21RealKernel_pos",
+        "nuttallQ21RealKernel_le_gaussianMajorant",
+        "nuttallQ21RealKernel_nonneg_of_nonneg",
+        "nuttallQ21RealKernel_integrableOn_Ioi",
+        "nuttallQ21RealIntegral_pos",
+        "nuttallQ21_zeroThreshold_ne_zero"
+      ]
+    },
+    "JinWishartFormalization.OneColumnFrobeniusParameter": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OneColumnFrobeniusParameter.lean",
+      "sha256": "d1dbfee06fb7024f3d0ca3c052ffed0d859df9b8c7624a700b47b7ab793e9176",
+      "imports": [
+        "JinWishartFormalization.WishartProbability"
+      ],
+      "theorems": [
+        "complexSampleMean_oneColumn_norm_sq_div_two",
+        "complexSampleMean_oneColumn_norm_sq_eq_twice_frobenius"
+      ]
+    },
+    "JinWishartFormalization.OrderedEigenvalueCDFRecurrence": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueCDFRecurrence.lean",
+      "sha256": "05a1d73868a8ef0f068f65f2e1a58e94f3d09b9e09beeb419249445e1cd03dd3",
+      "imports": [
+        "JinWishartFormalization.WishartProbability"
+      ],
+      "theorems": [
+        "orderedPair_sublevel_eq_union",
+        "orderedPair_sublevelMass_eq_add"
+      ]
+    },
+    "JinWishartFormalization.OrderedEigenvalueFullMeasurable": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueFullMeasurable.lean",
+      "sha256": "f6de144979c97e964ba7dcbab967efa4bbf8706477e87b6ca27963db0cd26b72",
+      "imports": [
+        "JinWishartFormalization.OrderedEigenvalueMeasurable"
+      ],
+      "theorems": [
+        "measurable_hermitianEigenvalueVector_of_continuous",
+        "measurable_shiftedComplexGramHermitian",
+        "measurable_complexNoncentralSampleEigenvalueVector_of_continuous"
+      ]
+    },
+    "JinWishartFormalization.OrderedEigenvalueMeasurable": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueMeasurable.lean",
+      "sha256": "af44f41cd8ae7f0d8a21acdf15d1ba87e509d05cf4c9e791939f000249ae4e80",
+      "imports": [
+        "JinWishartFormalization.WishartProbability"
+      ],
+      "theorems": [
+        "complexNoncentralSampleEigenvalue_antitone",
+        "complexNoncentralSampleEigenvalue_nonneg",
+        "measurable_complexNoncentralSampleLargestEigenvalue",
+        "measurable_complexNoncentralSampleEigenvalue_last"
+      ]
+    },
+    "JinWishartFormalization.OrderedEigenvalueStrictRecurrence": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueStrictRecurrence.lean",
+      "sha256": "ae75f7d15e592869de4c16de091ac7eec126dd742b685245ad21434f82094c6a",
+      "imports": [
+        "JinWishartFormalization.OrderedEigenvalueCDFRecurrence"
+      ],
+      "theorems": [
+        "orderedPair_increment_weak_eq_strict",
+        "orderedPair_sublevelMass_eq_add_strict"
+      ]
+    },
+    "JinWishartFormalization.OrderedEigenvalueWeyl": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueWeyl.lean",
+      "sha256": "69e3196e987eb04d33c66312dc65b338fe1e6d37da06c3cc929d32bab67f0fc2",
+      "imports": [
+        "Mathlib.Analysis.InnerProductSpace.Spectrum"
+      ],
+      "theorems": [
+        "abs_rayleighQuotient_sub_le_operatorNorm",
+        "rayleighQuotient_eigenvectorBasis_eq_eigenvalue"
+      ]
+    },
+    "JinWishartFormalization.PaperSmallSideGram": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/PaperSmallSideGram.lean",
+      "sha256": "bced670a94a7aa66c8c48ff6bada28550e25dc822655be363d07315f4499a30b",
+      "imports": [
+        "JinWishartFormalization.WishartProbability",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic"
+      ],
+      "theorems": [
+        "charpoly_submatrix_equiv",
+        "paperSmallSideGram_posSemidef",
+        "complexSampleMatrix_conjTranspose",
+        "measurable_complexSampleConjTranspose",
+        "measurable_shiftedPaperSmallSideGram",
+        "measurable_shiftedPaperSmallSideGramPSD"
+      ]
+    },
+    "JinWishartFormalization.PaperStatements": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/PaperStatements.lean",
+      "sha256": "9bf77e76712c27da1abdd49ad6c83cebf3543336ae8ee20069ee066565910560",
+      "imports": [
+        "JinWishartFormalization.Theorem1Formula",
+        "JinWishartFormalization.OrderedEigenvalueCDFRecurrence",
+        "JinWishartFormalization.OrderedEigenvalueStrictRecurrence"
+      ],
+      "theorems": [
+        "paperS_le_paperT",
+        "measurable_smallest",
+        "measurable_largest",
+        "measurable_kth",
+        "kth_one_eq_largest",
+        "kth_last_eq_smallest",
+        "kth_between",
+        "orderedEigenvalueLaw_kthCDFRecurrence_strict",
+        "diversityOrder_pos",
+        "diversityOrder_antitone",
+        "theorem4_powers_related",
+        "diversityOrder_weakest_mode",
+        "diversityOrder_weakest_mode_square",
+        "diversityOrder_min_of_first_r",
+        "weakest_of_first_r_dominates",
+        "theorem2_theorem1_complementary",
+        "theorem4_cdfPower_eq_diversityOrder",
+        "diversityOrderClaim_iff",
+        "outage_determined_by_weakest_mode",
+        "outage_threshold_rescaling",
+        "outageClaim_of_rescaling"
+      ]
+    },
+    "JinWishartFormalization.RadialIntegration": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/RadialIntegration.lean",
+      "sha256": "adc6db6dd40cf4a4fd4f6d71a21ed315ff1d616875f04ede0497a32b6273b052",
+      "imports": [
+        "Mathlib.MeasureTheory.Constructions.HaarToSphere",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls"
+      ],
+      "theorems": [
+        "integral_complex_radial",
+        "integral_radial_even_dim",
+        "integral_radial_even_dim_closedBall"
+      ]
+    },
+    "JinWishartFormalization.RepeatedRootNullSets": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/RepeatedRootNullSets.lean",
+      "sha256": "a7e6cd1cb5f8d023108c445d5aca03ebc7d55002a0b5300654fae06bdc4dcb9e",
+      "imports": [
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+        "Mathlib.Algebra.Polynomial.Roots"
+      ],
+      "theorems": [
+        "real_polynomial_zeroSet_volume_eq_zero",
+        "ae_not_mem_real_polynomial_zeroSet"
+      ]
+    },
+    "JinWishartFormalization.SixDimensionalAngularBesselI2": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SixDimensionalAngularBesselI2.lean",
+      "sha256": "fd7033ac3187325948ca321147e6e85c195d6f77955536ae397eebc9594b31c4",
+      "imports": [
+        "JinWishartFormalization.BesselI0Angle",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.SpecificLimits.Normed",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.Topology.Sets.Compacts"
+      ],
+      "theorems": [
+        "expCosSinFourTerm_tsum",
+        "expCosSinFourTerm_restrict_norm_le",
+        "summable_expCosSinFourTerm_restrict_norm",
+        "angularSinFourIntegral_eq_tsum",
+        "integral_cos_pow_zero_pi_even",
+        "integral_cos_pow_zero_pi_odd",
+        "angularSinFourIntegral_eq_besselI2Series",
+        "angularSinFourIntegral_mul_sq_eq_besselI2",
+        "axialSixDimensionalIntegral_eq_angularSinFour",
+        "axialSixDimensionalIntegral_eq_besselI2Series",
+        "axialSixDimensionalWeight_eq_rpow",
+        "axialSixDimensionalRpowIntegral_eq_besselI2Series"
+      ]
+    },
+    "JinWishartFormalization.SpectralCoordinateSpanSupport": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SpectralCoordinateSpanSupport.lean",
+      "sha256": "85fd857e3bacfefc94271c72a9770e3ecebc3006b532931113f2f2396a7a6c91",
+      "imports": [
+        "Mathlib.Analysis.InnerProductSpace.Spectrum",
+        "JinWishartFormalization.SpectralRayleighCoordinates",
+        "JinWishartFormalization.SpectralRayleighPrefix"
+      ],
+      "theorems": [
+        "basis_repr_eq_zero_of_mem_span_not_mem",
+        "eigenvalue_le_rayleighQuotient_of_mem_spectral_head_span",
+        "rayleighQuotient_le_eigenvalue_of_mem_spectral_tail_span"
+      ]
+    },
+    "JinWishartFormalization.SpectralRayleighCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SpectralRayleighCoordinates.lean",
+      "sha256": "f0b5b5942ed0b28fca6e9fa263fa247221033a2fc8f7e474e524365b6d373cd0",
+      "imports": [
+        "Mathlib.Analysis.InnerProductSpace.Spectrum"
+      ],
+      "theorems": [
+        "spectral_weighted_average_ge",
+        "spectral_weighted_average_le",
+        "rayleighQuotient_le_eigenvalue_of_spectral_support"
+      ]
+    },
+    "JinWishartFormalization.SpectralRayleighPrefix": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SpectralRayleighPrefix.lean",
+      "sha256": "eca356c490bc64e5724b9b3311321f2479cdb4ada80317f9b9a22b7b67cc25b8",
+      "imports": [
+        "JinWishartFormalization.SpectralRayleighCoordinates"
+      ],
+      "theorems": [
+        "eigenvalue_le_rayleighQuotient_of_spectral_prefix_support"
+      ]
+    },
+    "JinWishartFormalization.SphereFourDAngularIntegral": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereFourDAngularIntegral.lean",
+      "sha256": "2a05ee8df2fff2cb4f8cbb4f944a7f0e4f468f1dfc2146bbca79914b4bc2f66c",
+      "imports": [
+        "JinWishartFormalization.FourDimensionalPolarBridge",
+        "JinWishartFormalization.SphereThreeMeasure",
+        "JinWishartFormalization.BesselI1Angle"
+      ],
+      "theorems": [
+        "euclideanFourToRealProdThree_measurePreserving",
+        "integral_euclideanFour_eq_integral_realProdThree",
+        "sphereThreeMeasure_univ_real",
+        "integral_euclideanThree_norm_radial",
+        "integral_euclidean_fourD_polar_factor",
+        "fourDAngularRadialCutoff_integral",
+        "fourDAngularCartesianTest_smul_factor",
+        "fourDAngularCartesianTest_integral_factor"
+      ]
+    },
+    "JinWishartFormalization.SphereFourDPlaneAngleChart": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereFourDPlaneAngleChart.lean",
+      "sha256": "7b79833005ac4a4927be6f6bc55fd7daaa5868714f4178a50d31003d0dddc51c",
+      "imports": [
+        "JinWishartFormalization.SphereFourDPlanePolar",
+        "Mathlib.Analysis.SpecialFunctions.PolarCoord"
+      ],
+      "theorems": [
+        "fourDAngularPlaneSlice_polar_eq",
+        "fourDAngularPlaneSlice_polar_jacobian",
+        "sin_pos_iff_angle_pos",
+        "polarCoord_symm_re",
+        "polarCoord_symm_im",
+        "polarCoord_symm_im_pos_iff",
+        "integral_volumeIoiPow_two_eq_Ioi",
+        "integral_volumeIoiPow_two_eq_setIntegral",
+        "fourDAngular_scalarRadial_eq_positiveHalfPlane",
+        "map_product_volume_positiveSubtype",
+        "integral_positiveSubtype_prod_eq_setIntegral",
+        "fourDAngularPlaneWeightedIntegrand_polar_eq",
+        "integral_upperHalfPlane_eq_complex",
+        "integral_fourDAngularPlaneWeightedComplex_eq_angleChart",
+        "fourDAngularCartesianTest_integral_eq_positiveHalfPlane",
+        "integral_fourDAngularPlaneAngleChart_eq_rectangle",
+        "integral_fourDAngularAngleRectangle_eq_pi_angle",
+        "integral_fourDAngularPlaneWeightedComplex_eq_pi_angle",
+        "integral_fourDAngularPlaneWeightedComplex_eq_quarter_sphereChart",
+        "fourDSphereToSphereIntegral_eq_chart",
+        "fourDDistance_sq_sub_firstAxis",
+        "fourDShiftedGaussianAngularIntegral_eq_chart",
+        "fourDShiftedGaussianShell_eq_radialKernel"
+      ]
+    },
+    "JinWishartFormalization.SphereFourDPlanePolar": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereFourDPlanePolar.lean",
+      "sha256": "a5074262a4016e336a03e17e8e3c5472b20e46e92eeef6fb29ba565b1ddfd7f5",
+      "imports": [
+        "JinWishartFormalization.SphereFourDAngularIntegral",
+        "Mathlib.Analysis.SpecialFunctions.PolarCoord"
+      ],
+      "theorems": [
+        "euclideanFourToRealProdThree_symm_apply_zero",
+        "euclideanFourToRealProdThree_norm_sq",
+        "euclideanFourToRealProdThree_norm",
+        "euclideanFourToRealProdThree_origin_iff",
+        "fourDAngularCartesianTest_eq_planeSlice",
+        "fourDAngularCartesianTest_integral_eq_planeSlice",
+        "fourDAngularPlaneSlice_integral_three",
+        "measurable_fourDAngularPlaneIntegrand",
+        "fourDAngularPlaneIntegrand_norm_le",
+        "integrable_fourDAngularPlaneIntegrand",
+        "fourDAngularCartesianTest_integral_eq_scalar_radial"
+      ]
+    },
+    "JinWishartFormalization.SphereSixDAxialMeasure": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereSixDAxialMeasure.lean",
+      "sha256": "342e14c3cd4fa29e796908ca0b74037e6dfb48c73b7f218f62cc3a920dc7fa15",
+      "imports": [
+        "Mathlib.MeasureTheory.Constructions.HaarToSphere",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.SpecialFunctions.PolarCoord",
+        "Mathlib.Data.Nat.Factorial.DoubleFactorial",
+        "JinWishartFormalization.FourDimensionalPolarBridge",
+        "JinWishartFormalization.SphereFourDPlaneAngleChart"
+      ],
+      "theorems": [
+        "euclideanSixToRealProdFive_symm_apply_zero",
+        "euclideanSixToRealProdFive_norm_sq",
+        "euclideanSixToRealProdFive_norm",
+        "euclideanSixToRealProdFive_measurePreserving",
+        "integral_euclideanSix_eq_integral_realProdFive",
+        "sixDAxialCartesianTest_eq_planeSlice",
+        "sixDAxialCartesianTest_integral_eq_planeSlice",
+        "measurable_sixDAxialPlaneIntegrand",
+        "sixDAxialPlaneIntegrand_norm_le",
+        "integrable_sixDAxialPlaneIntegrand",
+        "sixDAxialPlaneSlice_polar_eq",
+        "polarCoord_symm_re_sixD",
+        "polarCoord_symm_im_sixD",
+        "sixDSin_pos_iff_angle_pos",
+        "polarCoord_symm_im_pos_iff_sixD",
+        "sixDAxialPlaneWeightedIntegrand_polar_eq",
+        "sixDAxialRadialCutoff_integral",
+        "sixDAxialCartesianTest_smul_factor",
+        "sixDAxialCartesianTest_integral_factor",
+        "sphereSixMeasure_univ_real",
+        "sphereFiveMeasure_univ_real",
+        "integral_euclideanFive_norm_radial",
+        "sixDAxialCartesianTest_integral_eq_scalar_radial",
+        "sphereSix_axial_weight_mass",
+        "sphereSixToSphereExpIntegral_eq_angleChart"
+      ]
+    },
+    "JinWishartFormalization.SphereThreeMeasure": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SphereThreeMeasure.lean",
+      "sha256": "9d48f59bb391eb65dd06378c1d861823480eee25c6b103690b81a15a71237c28",
+      "imports": [
+        "Mathlib.MeasureTheory.Constructions.HaarToSphere",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls"
+      ],
+      "theorems": [
+        "sphereThreeMeasure_univ"
+      ]
+    },
+    "JinWishartFormalization.SubspaceIntersectionFinrank": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/SubspaceIntersectionFinrank.lean",
+      "sha256": "4924c9d72a37dff9d922ce2a384d45a6df9ad9349c31709fa61a681f8600c797",
+      "imports": [
+        "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas"
+      ],
+      "theorems": [
+        "finrank_inf_pos_of_finrank_add_gt",
+        "exists_ne_zero_mem_of_finrank_inf_pos",
+        "exists_ne_zero_mem_inf_of_finrank_add_gt"
+      ]
+    },
+    "JinWishartFormalization.T4CentralOneColumnAnyRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T4CentralOneColumnAnyRows.lean",
+      "sha256": "63c8c6c26e134eedd72ab166c15831490945cb73b981fc2b72ae7bc9df55f77a",
+      "imports": [
+        "JinWishartFormalization.WishartGamma"
+      ],
+      "theorems": [
+        "centralOneColumnSmallestCDF_div_tendsto_factorial"
+      ]
+    },
+    "JinWishartFormalization.T4NoncentralOneColumnAnyRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/T4NoncentralOneColumnAnyRows.lean",
+      "sha256": "81ccce6452e054cc3ef8894c658c7d578d336fa4c21b757b500f6123db2f76e9",
+      "imports": [
+        "JinWishartFormalization.NoncentralOneColumnEnergy",
+        "JinWishartFormalization.OneColumnFrobeniusParameter",
+        "JinWishartFormalization.T4CentralOneColumnAnyRows"
+      ],
+      "theorems": [
+        "euclideanStdGaussianDensity_sub",
+        "gaussian_shiftedBall_integral_bounds",
+        "noncentralOneColumnCDF_bounds_by_central",
+        "noncentralOneColumnSmallestCDF_div_tendsto_factorial",
+        "noncentralOneColumnSmallestCDF_div_tendsto_frobenius"
+      ]
+    },
+    "JinWishartFormalization.Theorem1CentralTwoRowActualCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1CentralTwoRowActualCDF.lean",
+      "sha256": "9d41e9e6916438f6253d35200fd6a9a0be3487a572f341a77b598d024d2f9f55",
+      "imports": [
+        "JinWishartFormalization.TwoRowMinimumLaw",
+        "JinWishartFormalization.Theorem1Formula",
+        "JinWishartFormalization.DeepSeekMinimumCDF20261013.DeterminantFactor"
+      ],
+      "theorems": [
+        "theorem1CentralTwoRow_PsiMatrix",
+        "theorem1CentralTwoRow_PsiDet",
+        "theorem1CentralTwoRow_PsiDet_norm_zero",
+        "theorem1CentralTwoRow_candidate_eq_expCDF",
+        "theorem1CentralTwoRow_candidate_eq_actualCDF"
+      ]
+    },
+    "JinWishartFormalization.Theorem1Formula": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1Formula.lean",
+      "sha256": "a641c9c3ac07206a1f8162f6c9a655bb0a42901dc814a6153b04031cc6ae2dbc",
+      "imports": [
+        "JinWishartFormalization.IncompleteGamma",
+        "JinWishartFormalization.NuttallQ",
+        "Mathlib.Probability.Distributions.Exponential"
+      ],
+      "theorems": [
+        "theorem2XiEntry_add_theorem1PsiEntry",
+        "theorem2XiMatrix_add_theorem1PsiMatrix",
+        "theorem2XiEntry_active_eq_intervalIntegral",
+        "theorem2XiEntry_zero",
+        "theorem2XiMatrix_zero",
+        "theorem2CdfCandidate_zero",
+        "theorem1CdfCandidate_zero",
+        "theorem2XiMatrixOfSpectrum_add_theorem1PsiMatrixOfSpectrum",
+        "theorem2CdfCandidateOfSpectrum_zero",
+        "theorem1CdfCandidateOfSpectrum_zero",
+        "theorem1CentralScalarPsiDet",
+        "theorem1CentralScalarPsiDet_norm_ne_zero",
+        "theorem1CentralScalarCdfCandidate_eq_finite",
+        "theorem1CentralScalarCdfCandidate_zero",
+        "theorem1CentralScalarOneSample_eq_exponentialCDF"
+      ]
+    },
+    "JinWishartFormalization.Theorem1FullRankDeterminantScaling": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1FullRankDeterminantScaling.lean",
+      "sha256": "03cfd8db4465e0feea23ad8392826489930823520360b24d0450671f664b0cfa",
+      "imports": [
+        "JinWishartFormalization.Theorem1Formula"
+      ],
+      "theorems": [
+        "det_rowScaledMatrix",
+        "normDetRatio_rowScaledMatrix",
+        "theorem1PsiMatrix_eq_fullRankRowScaledQ",
+        "theorem1FullRankRowScale_ne_zero",
+        "theorem1FullRankCandidate_eq_unscaledQ"
+      ]
+    },
+    "JinWishartFormalization.Theorem1SingleColumnAnyRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1SingleColumnAnyRows.lean",
+      "sha256": "5618237e874bd3dd15098ee2f2b8022dd61fb18559744e8af690363e5734c0c0",
+      "imports": [
+        "JinWishartFormalization.Theorem1FullRankDeterminantScaling"
+      ],
+      "theorems": [
+        "theorem1OneColumnCandidate_eq_normalizedNuttallQ"
+      ]
+    },
+    "JinWishartFormalization.Theorem1SingleColumnTwoRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1SingleColumnTwoRows.lean",
+      "sha256": "be0b7532448be5d649ce9ac1dab3f2ae859ab66663d67cf243fe8917af637443",
+      "imports": [
+        "JinWishartFormalization.Theorem1FullRankDeterminantScaling"
+      ],
+      "theorems": [
+        "theorem1ScalarTwoRowsCandidate_eq_normalizedNuttallQ"
+      ]
+    },
+    "JinWishartFormalization.Theorem1ThreeRowsActualCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1ThreeRowsActualCDF.lean",
+      "sha256": "d111058c4cf29d4c3bce9b0b7ee8e993753949f07cd998aa749ffdce5d119890",
+      "imports": [
+        "JinWishartFormalization.Theorem1SingleColumnAnyRows",
+        "JinWishartFormalization.NoncentralThreeRowNuttallQ"
+      ],
+      "theorems": [
+        "nuttallQ32Integrand_eq_ofReal_scaledRadialKernel",
+        "nuttallQ32_eq_ofReal_scaledRadialTail",
+        "nuttallQ32_zero_eq_sq",
+        "norm_nuttallQ32_eq_sq_mul_radialTail",
+        "theorem1ThreeRowsOneColumnCandidate_eq_actualAxialCDF",
+        "theorem1ThreeRowsOneColumnCandidate_eq_actualCDF"
+      ]
+    },
+    "JinWishartFormalization.Theorem1TwoRowsActualCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1TwoRowsActualCDF.lean",
+      "sha256": "4d94031160a4cd74265c344f700b1ef4c6e448de57bf29a17f71d482baef2c41",
+      "imports": [
+        "JinWishartFormalization.TwoRowSampleCoordinates",
+        "JinWishartFormalization.Theorem1TwoRowsNoncentral",
+        "JinWishartFormalization.WishartGamma",
+        "Mathlib.Probability.CDF"
+      ],
+      "theorems": [
+        "complexNoncentralSampleSmallestEigenvalue_eq_twoRowUniqueGramEigenvalue",
+        "noncentralTwoRowCDF_eq_meanNormNuttallQ",
+        "theorem1TwoRowsCandidate_eq_actualAxialCDF",
+        "theorem2TwoRowsCandidate_eq_actualAxialCDF",
+        "theorem1TwoRowsCandidate_eq_actualCDF",
+        "theorem2TwoRowsCandidate_eq_actualCDF",
+        "theorem2TwoRowsCandidate_eq_actualLargestCDF",
+        "theorem1TwoRowsCentralCandidate_eq_actualCDF",
+        "theorem2TwoRowsCentralCandidate_eq_actualCDF"
+      ]
+    },
+    "JinWishartFormalization.Theorem1TwoRowsNoncentral": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1TwoRowsNoncentral.lean",
+      "sha256": "ac587ef9ed5f20b3c2059ebfc466797e5acbf757d1a67dac4d9a6c2933d627fd",
+      "imports": [
+        "JinWishartFormalization.Theorem2SingleColumnAnyRows",
+        "JinWishartFormalization.Theorem1SingleColumnTwoRows",
+        "JinWishartFormalization.NuttallQ21Positive",
+        "JinWishartFormalization.NuttallQ21Normalization"
+      ],
+      "theorems": [
+        "theorem1TwoRowsCandidate_eq_normalizedNuttallQ_of_pos",
+        "theorem2TwoRowsCandidate_eq_normalizedNuttallQIncrement_of_pos",
+        "theorem1TwoRowsCandidate_eq_amplitudeNormalizedQ",
+        "theorem2TwoRowsCandidate_eq_amplitudeNormalizedIncrement"
+      ]
+    },
+    "JinWishartFormalization.Theorem2SingleColumnAnyRows": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem2SingleColumnAnyRows.lean",
+      "sha256": "95be7b62d973f69a59b086e31ec174821fca93b8b140f62016315f3d25ff3f13",
+      "imports": [
+        "JinWishartFormalization.Theorem1SingleColumnAnyRows"
+      ],
+      "theorems": [
+        "theorem2OneColumnCandidate_eq_normalizedNuttallQIncrement"
+      ]
+    },
+    "JinWishartFormalization.ThreeRowSampleCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ThreeRowSampleCoordinates.lean",
+      "sha256": "8e6aac4bb28ae45c2ec6727ac10a9ca36b1a1be057f9921d6ae81229b5b0ab3c",
+      "imports": [
+        "JinWishartFormalization.NoncentralOneColumnEnergy",
+        "JinWishartFormalization.NoncentralSixDimensionalRadial"
+      ],
+      "theorems": [
+        "stdGaussian_map_threeRowSampleToFin6",
+        "threeRowSampleToFin6_complexSampleMean",
+        "threeRowAxialShiftedBall_eq_sixDBall",
+        "threeRowSampleShiftedBall_eq_sixDBall",
+        "stdGaussian_sixDBall_shift_eq_axial",
+        "stdGaussianSixD_normalizer_eq",
+        "stdGaussianSixDBall_axialMeasure_eq_radialSeriesCDF",
+        "noncentralThreeRowAxialCDF_eq_radialSeries",
+        "noncentralThreeRowCDF_eq_radialSeries_of_mean"
+      ]
+    },
+    "JinWishartFormalization.ThresholdNoAtom": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/ThresholdNoAtom.lean",
+      "sha256": "0241d4e61f72da951720c32c026fdc10390c5218d9127591d6f273482fcf6629",
+      "imports": [
+        "JinWishartFormalization.ComplexGramSimpleSpectrum",
+        "JinWishartFormalization.GramSpectrumTransfer",
+        "JinWishartFormalization.WeylComplexHermitian",
+        "JinWishartFormalization.PaperStatements"
+      ],
+      "theorems": [
+        "genericRowGramCharpolyAt_eval",
+        "genericGramCharpolyAt_eval",
+        "complexGram_scaledColumnWitness",
+        "rowGram_scaledRowWitness",
+        "genericRowGramCharpolyAt_ne_zero",
+        "genericGramCharpolyAt_ne_zero",
+        "hermitian_eigenvalues₀_ne_of_charpoly_eval_ne_zero",
+        "paperSmallSideGram_eigenvalues_ne_threshold_ae",
+        "measurable_paperModelEigenvalue",
+        "paperModelEigenvalue_atom_eq_zero",
+        "paperModel_kthCDFRecurrence_strict"
+      ]
+    },
+    "JinWishartFormalization.TwoRowActualDensity": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowActualDensity.lean",
+      "sha256": "f8765acf8b7dbd7948ea9b78e5dcedd75d871b1512f2bb89da7b65c3c62eafcd",
+      "imports": [
+        "JinWishartFormalization.TwoRowBartlettCoordinateVolume",
+        "JinWishartFormalization.DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
+        "JinWishartFormalization.DeepSeekCollaborationRound320261011.ComplexScaledNormSquare"
+      ],
+      "theorems": [
+        "stdGaussian_complex_scaled_eq_withDensity",
+        "measurable_twoRowComplexDensityRaw",
+        "measurable_twoRowBartlettDensityRaw",
+        "actualTwoRow_BartlettCoordinates_eq_withDensity_raw",
+        "measurable_twoRowBartlettRealDensityRaw",
+        "actualTwoRow_BartlettRealCoordinates_eq_withDensity_raw",
+        "measurable_twoRowGramDensityRaw",
+        "actualTwoRow_GramRealCoordinates_eq_withDensity_raw",
+        "twoRow_gamma_two_positive_formula",
+        "twoRow_gamma_one_positive_formula",
+        "twoRowBartlettCoordinateEquiv_symm_apply",
+        "twoRowBartlettRealDensityRaw_positive_formula",
+        "twoRowGramDensityRaw_positive_formula",
+        "twoRow_complex_scaled_exponent",
+        "twoRowComplexDensityRaw_normalized",
+        "twoRowGramDensityRaw_trace_formula",
+        "actualTwoRow_GramRealCoordinates_eq_traceDensity",
+        "twoRowGram_traceDensity_mass",
+        "actualTwoRow_Complex_eq_normalizedDensity"
+      ]
+    },
+    "JinWishartFormalization.TwoRowActualNormalizedDensity": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowActualNormalizedDensity.lean",
+      "sha256": "2645eeaabdea17affc84edfd150517b2d70a83f1ab86c023ec674736e229dcc8",
+      "imports": [
+        "JinWishartFormalization.TwoRowActualDensity"
+      ],
+      "theorems": [
+        "twoRowBartlettRealDensityRaw_normalized_positive",
+        "actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity",
+        "twoRow_complex_real_norm_square",
+        "actualTwoRow_ComplexReal_eq_normalizedDensity",
+        "complexWishart_twoRow_realCoordinates_eq_traceDensity",
+        "twoRow_complexReal_normalizedDensity_mass"
+      ]
+    },
+    "JinWishartFormalization.TwoRowBartlettCoordinateVolume": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowBartlettCoordinateVolume.lean",
+      "sha256": "e1c6f1135363920e7e20ba59acfdc6f9ba76bf26a0e5164eba7680ca0cc6be2e",
+      "imports": [
+        "JinWishartFormalization.TwoRowGramPositive",
+        "JinWishartFormalization.GaussianRadialLaw",
+        "JinWishartFormalization.GaussianRawCoordinates",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Complex"
+      ],
+      "theorems": [
+        "finFourNestedRealEquiv_apply",
+        "twoRowBartlettCoordinateEquiv_apply",
+        "volume_preserving_finFourNestedRealEquiv",
+        "volume_preserving_twoRowBartlettCoordinateEquiv",
+        "measurable_twoRowBartlettRealCoordinates",
+        "volume_preserving_twoRowBartlettRealCoordinates",
+        "twoRowBartlettCoordinate_density_transport",
+        "measurable_gammaDensity_ennreal",
+        "measurable_twoRowGramChart",
+        "measurable_twoRowGramRealCoordinates",
+        "actualTwoRow_BartlettRealCoordinates_law",
+        "actualTwoRow_GramRealCoordinates_law",
+        "map_withDensity_smul_complex",
+        "actualTwoRow_GramRealCoordinates_lintegral",
+        "twoRowGramChart_weighted_volume_map",
+        "twoRowGramChart_weighted_density_map",
+        "measurable_twoRowGramChartInverse",
+        "twoRowGramChart_density_map",
+        "actualTwoRow_BartlettRealLaw_restrict_positive"
+      ]
+    },
+    "JinWishartFormalization.TwoRowBartlettSupport": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowBartlettSupport.lean",
+      "sha256": "074e41ed63e36f351c854b28a024d860ee38777fcf7a0a0b72ad9252fc67b718",
+      "imports": [
+        "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "JinWishartFormalization.TwoRowGramSupport",
+        "JinWishartFormalization.DeepSeekHour20261010.GammaZeroBoundary"
+      ],
+      "theorems": [
+        "twoRow_firstEnergy_nonpositive_null",
+        "twoRow_residualEnergy_zero_null",
+        "twoRow_residualEnergy_nonpositive_null",
+        "twoRow_Bartlett_product_positive_ae",
+        "actualTwoRow_Bartlett_positive_ae",
+        "actualTwoRow_Bartlett_nonpositive_null"
+      ]
+    },
+    "JinWishartFormalization.TwoRowGramChart": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowGramChart.lean",
+      "sha256": "efc33b62c0dcd3d0b4b3c5b0d50f60855b41e84435149fb5d26a5759246acda4",
+      "imports": [
+        "JinWishartFormalization.TwoRowRandomDirectionLaw",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Analysis.Calculus.FDeriv.Pi",
+        "Mathlib.LinearAlgebra.Matrix.Block",
+        "Mathlib.MeasureTheory.Function.Jacobian"
+      ],
+      "theorems": [
+        "twoRowGramChart_eq_BartlettGram_real",
+        "twoRowGramChart_left_inverse",
+        "twoRowGramChart_injOn",
+        "hasFDerivAt_twoRowGramChart",
+        "twoRowGramChartDerivative_det",
+        "twoRowGramChart_lintegral_change"
+      ]
+    },
+    "JinWishartFormalization.TwoRowGramPositive": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowGramPositive.lean",
+      "sha256": "858e8fabb088bd19fad0b437a259ce70b5a0fa1f5a2025fb98e35a3a8c2e2c42",
+      "imports": [
+        "JinWishartFormalization.TwoRowBartlettSupport"
+      ],
+      "theorems": [
+        "twoRowBartlettGram_det",
+        "actualTwoRow_Gram_eq_BartlettGram",
+        "actualTwoRow_Gram_det_positive_ae",
+        "actualTwoRow_Gram_det_zero_null"
+      ]
+    },
+    "JinWishartFormalization.TwoRowGramSupport": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowGramSupport.lean",
+      "sha256": "1f9c9f79c2918cdf982710fcc437e22296996e542241e6125bba892c9a7796e9",
+      "imports": [
+        "JinWishartFormalization.TwoRowGramChart"
+      ],
+      "theorems": [
+        "twoRowGramChart_right_inverse",
+        "twoRowGramChart_determinant",
+        "twoRowGramChart_inverse_residual_pos",
+        "twoRowGramChart_positive_image"
+      ]
+    },
+    "JinWishartFormalization.TwoRowHermitianThreshold": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowHermitianThreshold.lean",
+      "sha256": "903525e1b689fc3274767650371db366d0bef9fe2a367a678fd02c5382a76417",
+      "imports": [
+        "JinWishartFormalization.TwoRowActualNormalizedDensity"
+      ],
+      "theorems": [
+        "hermitian_twoRow_shift_posDef_iff",
+        "hermitian_twoRow_shift_posDef_iff_smallest",
+        "hermitian_twoRow_det_re",
+        "hermitian_twoRow_posDef_iff"
+      ]
+    },
+    "JinWishartFormalization.TwoRowLogRateOutage": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowLogRateOutage.lean",
+      "sha256": "65d56968a512a891f913ab49dd1f16c99c6af9463f4a701111f62197644c1d0b",
+      "imports": [
+        "JinWishartFormalization.TwoRowScaledMinimum",
+        "Mathlib.Analysis.SpecialFunctions.Log.Basic"
+      ],
+      "theorems": [
+        "log_one_add_mul_le_iff",
+        "twoRowWeakestLogRate_nonneg",
+        "actualTwoRow_weakestLogRate_outage",
+        "actualTwoRow_weakestLogRate_outage_negative"
+      ]
+    },
+    "JinWishartFormalization.TwoRowMinimumLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowMinimumLaw.lean",
+      "sha256": "62b9679b21fe64e0dd22609f7aea09180817edb6b5e4852d09cce209fd575f83",
+      "imports": [
+        "JinWishartFormalization.TwoRowHermitianThreshold",
+        "JinWishartFormalization.TwoRowSmallestEigenvalueCDF"
+      ],
+      "theorems": [
+        "measurable_twoRowActualMinimum",
+        "hermitian_twoRow_shiftedCone_iff_smallest",
+        "twoRowActualMinimum_threshold_event",
+        "actualTwoRow_minimum_tail",
+        "actualTwoRow_minimum_CDF",
+        "twoRowActualMinimum_nonneg",
+        "actualTwoRow_minimum_cdf_function",
+        "actualTwoRow_minimum_law_expTwo"
+      ]
+    },
+    "JinWishartFormalization.TwoRowRandomDirectionLaw": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowRandomDirectionLaw.lean",
+      "sha256": "00f8b8268b52090628c1aaf81e972cd8854fa0fe6aecc640b1ecba726d154e35",
+      "imports": [
+        "JinWishartFormalization.ComplexTwoRowResidualEnergy",
+        "Mathlib.Analysis.Normed.Module.Normalize"
+      ],
+      "theorems": [
+        "twoRowUnitDirection_norm",
+        "measurable_twoRowUnitDirection",
+        "twoRowUnitDirection_reconstruct",
+        "measurable_twoRowFiberCoordinates",
+        "twoRowFiberCoordinates_law",
+        "twoRowRandomDirection_product_law",
+        "actualTwoRow_randomDirection_joint_law",
+        "twoRowFiberCoordinates_offDiagonal",
+        "twoRowFiberCoordinates_secondEnergy",
+        "measurable_twoRowGramFromCoordinates",
+        "twoRow_actualGram_reconstruction",
+        "actualTwoRow_GramLaw_eq_coordinate_pushforward",
+        "actualTwoRow_columnEnergy_eq",
+        "actualTwoRow_columnEnergy_law",
+        "actualTwoRow_BartlettCoordinates_law",
+        "measurable_twoRowBartlettCoordinates",
+        "measurable_twoRowBartlettGram",
+        "twoRowGramFromCoordinates_eq_BartlettGram",
+        "actualTwoRow_GramLaw_eq_Bartlett_pushforward"
+      ]
+    },
+    "JinWishartFormalization.TwoRowSampleCoordinates": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowSampleCoordinates.lean",
+      "sha256": "9eee68831e0636ee0037262c89b450a63ba1e33e08c748c9d63b4ce2754ab75d",
+      "imports": [
+        "JinWishartFormalization.NoncentralFourDimensionalGaussianCDF",
+        "JinWishartFormalization.NoncentralOneColumnEnergy"
+      ],
+      "theorems": [
+        "stdGaussian_map_twoRowSampleToFin4",
+        "twoRowSampleToFin4_complexSampleMean",
+        "twoRowComplexMean_norm_sq_div_two",
+        "twoRowAxialShiftedBall_eq_fourDBall",
+        "noncentralTwoRowAxialCDF_eq_one_sub_nuttallQ21"
+      ]
+    },
+    "JinWishartFormalization.TwoRowScaledMinimum": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowScaledMinimum.lean",
+      "sha256": "edd72738f57ad06965b9e8fd0d737a62ef530d7d651aeadf154f5f618fb62f3a",
+      "imports": [
+        "JinWishartFormalization.Theorem1CentralTwoRowActualCDF",
+        "JinWishartFormalization.DeepSeekScale20261015.SampleMatrix"
+      ],
+      "theorems": [
+        "twoRow_posDef_real_smul_iff",
+        "twoRow_smallest_real_smul",
+        "twoRow_actualGram_scale",
+        "twoRow_actualMinimum_scale",
+        "actualTwoRow_scaled_minimum_tail",
+        "actualTwoRow_scaled_minimum_CDF",
+        "actualTwoRow_scaled_minimum_cdf_function",
+        "actualTwoRow_scaled_minimum_law",
+        "actualTwoRow_covariance_minimum_CDF",
+        "theorem1CentralTwoRow_scaled_candidate_eq_actualCDF"
+      ]
+    },
+    "JinWishartFormalization.TwoRowSmallestEigenvalueCDF": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/TwoRowSmallestEigenvalueCDF.lean",
+      "sha256": "fe5fc4162f0be329b5731d22aa1239b5682c15da32aaa7479613d70a7473c281",
+      "imports": [
+        "JinWishartFormalization.TwoRowActualNormalizedDensity",
+        "JinWishartFormalization.DeepSeekSpectral20261012.RealTraceTranslation",
+        "Mathlib.MeasureTheory.Group.LIntegral"
+      ],
+      "theorems": [
+        "measurableSet_twoRowPositiveCone",
+        "measurableSet_twoRowShiftedCone",
+        "measurable_twoRowTraceDensity",
+        "twoRowShiftedCone_eq_image",
+        "twoRowShiftedCone_subset_positive",
+        "twoRowTraceDensity_translate",
+        "twoRowShiftedCone_traceMass",
+        "actualTwoRow_shiftedCone_probability"
+      ]
+    },
+    "JinWishartFormalization.WeylComplexHermitian": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WeylComplexHermitian.lean",
+      "sha256": "a3e5cd448333a6dfaaf4835d779c0265de49782adf4a6667e0694b78dca287db",
+      "imports": [
+        "Mathlib.Analysis.InnerProductSpace.Spectrum",
+        "Mathlib.Analysis.CStarAlgebra.Matrix",
+        "Mathlib.Analysis.Normed.Module.FiniteDimension",
+        "JinWishartFormalization.OrderedEigenvalueFullMeasurable",
+        "JinWishartFormalization.SubspaceIntersectionFinrank",
+        "JinWishartFormalization.SpectralCoordinateSpanSupport",
+        "JinWishartFormalization.OrderedEigenvalueWeyl"
+      ],
+      "theorems": [
+        "abs_eigenvalue_sub_le_operatorNorm_rclike",
+        "orderedHermitianEigenvalueCoordinatesContinuous"
+      ]
+    },
+    "JinWishartFormalization.WishartGamma": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WishartGamma.lean",
+      "sha256": "426f7987585579330a0698369e4a1a6393b2ec2a346585e7a4446f766cb52bb2",
+      "imports": [
+        "JinWishartFormalization.WishartProbability",
+        "JinWishartFormalization.GaussianRadialCDF"
+      ],
+      "theorems": [
+        "cdf_gammaMeasure_nat_eq_finiteComplement",
+        "centralColumnSampleEnergy_map_eq_gammaMeasure",
+        "centralColumnSmallestEigenvalue_map_eq_gammaMeasure",
+        "theorem1CentralOneColumn_eq_sampleSmallestEigenvalueCDF",
+        "theorem2CentralOneColumn_eq_gammaCDF",
+        "theorem2CentralOneColumn_eq_sampleSmallestEigenvalueCDF",
+        "noncentralScalarSmallestEigenvalue_eq_shiftedEnergy",
+        "noncentralScalarSmallestEigenvalue_sublevelMass_eq_shiftedBall"
+      ]
+    },
+    "JinWishartFormalization.WishartProbability": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean",
       "sha256": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
-      "imports": [],
+      "imports": [
+        "Mathlib.Analysis.Matrix.PosDef",
+        "Mathlib.Probability.Distributions.Gaussian.Multivariate"
+      ],
       "theorems": [
         "centralColumnSampleEnergy_eq_euclideanEnergy",
         "complexSampleMatrix_add_mean",
@@ -132,806 +1674,14 @@
         "realNoncentralWishart_measure_posSemidef"
       ]
     },
-    "NoncentralFourDimensionalCDF": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralFourDimensionalCDF.lean",
-      "sha256": "806ca30e60e65cf9f52976eb4aa894c639433236e1e4e1b948c223c302a07447",
-      "imports": [
-        "SphereFourDPlaneAngleChart",
-        "NuttallQ21Normalization",
-        "NoncentralFourDimensionalTail"
-      ],
-      "theorems": [
-        "integral_volumeIoiPow_three_eq_Ioi",
-        "noncentralChiFourRadialKernel_integrableOn_Ioi",
-        "noncentralChiFourRadialKernel_integral_eq_one",
-        "nuttallQ21Integrand_integrableOn_Ioi",
-        "noncentralChiFourRadialTail_eq_nuttallQ21_div_of_nonneg",
-        "noncentralChiFourRadialLowerMass_eq_one_sub_nuttallQ21",
-        "shiftedGaussianFourDBallIntegral_eq_nuttallKernelCutoff",
-        "integral_nuttallKernelCutoff_eq_Ioc",
-        "shiftedGaussianFourDBallIntegral_eq_one_sub_nuttallQ21"
-      ]
-    },
-    "SphereFourDPlaneAngleChart": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SphereFourDPlaneAngleChart.lean",
-      "sha256": "7b79833005ac4a4927be6f6bc55fd7daaa5868714f4178a50d31003d0dddc51c",
-      "imports": [
-        "SphereFourDPlanePolar"
-      ],
-      "theorems": [
-        "fourDAngularPlaneSlice_polar_eq",
-        "fourDAngularPlaneSlice_polar_jacobian",
-        "sin_pos_iff_angle_pos",
-        "polarCoord_symm_re",
-        "polarCoord_symm_im",
-        "polarCoord_symm_im_pos_iff",
-        "integral_volumeIoiPow_two_eq_Ioi",
-        "integral_volumeIoiPow_two_eq_setIntegral",
-        "fourDAngular_scalarRadial_eq_positiveHalfPlane",
-        "map_product_volume_positiveSubtype",
-        "integral_positiveSubtype_prod_eq_setIntegral",
-        "fourDAngularPlaneWeightedIntegrand_polar_eq",
-        "integral_upperHalfPlane_eq_complex",
-        "integral_fourDAngularPlaneWeightedComplex_eq_angleChart",
-        "fourDAngularCartesianTest_integral_eq_positiveHalfPlane",
-        "integral_fourDAngularPlaneAngleChart_eq_rectangle",
-        "integral_fourDAngularAngleRectangle_eq_pi_angle",
-        "integral_fourDAngularPlaneWeightedComplex_eq_pi_angle",
-        "integral_fourDAngularPlaneWeightedComplex_eq_quarter_sphereChart",
-        "fourDSphereToSphereIntegral_eq_chart",
-        "fourDDistance_sq_sub_firstAxis",
-        "fourDShiftedGaussianAngularIntegral_eq_chart",
-        "fourDShiftedGaussianShell_eq_radialKernel"
-      ]
-    },
-    "SphereFourDPlanePolar": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SphereFourDPlanePolar.lean",
-      "sha256": "a5074262a4016e336a03e17e8e3c5472b20e46e92eeef6fb29ba565b1ddfd7f5",
-      "imports": [
-        "SphereFourDAngularIntegral"
-      ],
-      "theorems": [
-        "euclideanFourToRealProdThree_symm_apply_zero",
-        "euclideanFourToRealProdThree_norm_sq",
-        "euclideanFourToRealProdThree_norm",
-        "euclideanFourToRealProdThree_origin_iff",
-        "fourDAngularCartesianTest_eq_planeSlice",
-        "fourDAngularCartesianTest_integral_eq_planeSlice",
-        "fourDAngularPlaneSlice_integral_three",
-        "measurable_fourDAngularPlaneIntegrand",
-        "fourDAngularPlaneIntegrand_norm_le",
-        "integrable_fourDAngularPlaneIntegrand",
-        "fourDAngularCartesianTest_integral_eq_scalar_radial"
-      ]
-    },
-    "SphereFourDAngularIntegral": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SphereFourDAngularIntegral.lean",
-      "sha256": "2a05ee8df2fff2cb4f8cbb4f944a7f0e4f468f1dfc2146bbca79914b4bc2f66c",
-      "imports": [
-        "FourDimensionalPolarBridge",
-        "SphereThreeMeasure",
-        "BesselI1Angle"
-      ],
-      "theorems": [
-        "euclideanFourToRealProdThree_measurePreserving",
-        "integral_euclideanFour_eq_integral_realProdThree",
-        "sphereThreeMeasure_univ_real",
-        "integral_euclideanThree_norm_radial",
-        "integral_euclidean_fourD_polar_factor",
-        "fourDAngularRadialCutoff_integral",
-        "fourDAngularCartesianTest_smul_factor",
-        "fourDAngularCartesianTest_integral_factor"
-      ]
-    },
-    "FourDimensionalPolarBridge": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\FourDimensionalPolarBridge.lean",
-      "sha256": "3c39dab410a5392f2ce37811bd28480b0db43598764bfb0925061bb2792f7727",
-      "imports": [
-        "NoncentralFourDimensionalSphere"
-      ],
-      "theorems": [
-        "integral_euclidean_polarProduct",
-        "shiftedGaussianFourDBallIntegral_eq_sphereRadiusProduct",
-        "integrable_shiftedGaussianFourDBallPolarIntegrand",
-        "shiftedGaussianFourDBallIntegral_eq_radiusSphereIntegral",
-        "shiftedGaussianFourDBallSphereSlice_eq"
-      ]
-    },
-    "NoncentralFourDimensionalSphere": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralFourDimensionalSphere.lean",
-      "sha256": "fe0ec97404a6d09f74f27372085af3aa5e42dd55c3349c2a25b04e39cfdcd8d4",
-      "imports": [
-        "BesselI1Angle"
-      ],
-      "theorems": [
-        "fourDSphereExpAngleIntegralChart_eq_besselI1",
-        "shiftedGaussianFourDShellFactor_eq_nuttallKernel"
-      ]
-    },
-    "BesselI1Angle": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\BesselI1Angle.lean",
-      "sha256": "64ff59d3d9f74a8a075c16b24666019163b6f01de71da915b1e7cdd5f39ad02b",
-      "imports": [
-        "BesselI0Angle",
-        "NoncentralFourDimensionalRadial"
-      ],
-      "theorems": [
-        "expCosWeightedPowerTerm_tsum",
-        "expCosWeightedPowerTerm_restrict_norm_le",
-        "summable_expCosWeightedPowerTerm_restrict_norm",
-        "angularExpCosIntegral_eq_tsum",
-        "integral_expCosWeightedPowerTerm",
-        "integral_expCosWeightedPowerTerm_even",
-        "integral_expCosWeightedPowerTerm_odd",
-        "summable_expCosWeightedPowerTerm_integrals",
-        "angularExpCosIntegral_eq_besselI1RealSeries",
-        "angularExpCosIntegral_half_eq_pi_besselI1RealSeries",
-        "angularExpSinSqIntegral_eq_pi_besselI1_div"
-      ]
-    },
-    "BesselI0Angle": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\BesselI0Angle.lean",
-      "sha256": "736a9fa32d5b4ffe41904a1a7c7ac25fe2c62d4c450cd2a6fdfbe8b5aa32bf89",
-      "imports": [
-        "BesselI0Series"
-      ],
-      "theorems": [
-        "expCosPowerTerm_tsum",
-        "expCosPowerTerm_restrict_norm_le",
-        "summable_expCosPowerTerm_restrict_norm",
-        "angularExpIntegral_eq_tsum_cosPowerIntegrals",
-        "integral_cos_pow_twoPi_succ",
-        "integral_cos_pow_twoPi_odd",
-        "integral_cos_pow_twoPi_even",
-        "tsum_even_odd",
-        "expCosPowerIntegral_norm_le",
-        "summable_expCosPowerIntegrals",
-        "integral_expCosPowerTerm",
-        "integral_expCosPowerTerm_odd",
-        "integral_expCosPowerTerm_even",
-        "angularExpIntegral_eq_factorialSeries",
-        "angularExpIntegral_eq_modifiedBesselI_zero",
-        "angularAverage_eq_modifiedBesselI_zero"
-      ]
-    },
-    "BesselI0Series": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\BesselI0Series.lean",
-      "sha256": "a7628b51a357b2effc11e4f7b6bec8cdc7d0fc048ed31e0784dd414bfd87871c",
-      "imports": [
-        "NuttallQ"
-      ],
-      "theorems": [
-        "modifiedBesselI_zero_eq_regularizedHG",
-        "regularizedHGFunCoeff_zero_singleton_one",
-        "regularizedHGFun_zero_singleton_one_eq_tsum",
-        "modifiedBesselI_zero_eq_factorialSeries",
-        "modifiedBesselI_zero_ofReal_eq_realSeries",
-        "besselI0RealSeries_nonneg",
-        "modifiedBesselI_zero_ofReal_im",
-        "modifiedBesselI_zero_ofReal_re_nonneg"
-      ]
-    },
-    "NuttallQ": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NuttallQ.lean",
-      "sha256": "33af64b5d7ea66fb3199895b2d0dc9f9a7eda74f01fc7bd70bd5e5023c278200",
-      "imports": [],
-      "theorems": [
-        "continuous_modifiedBesselI",
-        "modifiedBesselI_zero",
-        "continuous_nuttallQIntegrand",
-        "nuttallQ_sub_eq_intervalIntegral"
-      ]
-    },
-    "NoncentralFourDimensionalRadial": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralFourDimensionalRadial.lean",
-      "sha256": "417b8c45a99aaa031f6e11dcb4a2e8b0fcc567253ad3964a7a698846cf9603e8",
-      "imports": [
-        "BesselI1Series"
-      ],
-      "theorems": [
-        "besselI1RealSeries_nonneg",
-        "noncentralChiFourRadialKernel_nonneg",
-        "noncentralChiFourRadialKernel_eq_nuttallQ21_div"
-      ]
-    },
-    "BesselI1Series": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\BesselI1Series.lean",
-      "sha256": "949f2c7367ef621b55a5dd82e9d67f1330d4aa9f55cd11705efc734ed3141093",
-      "imports": [
-        "NuttallQ"
-      ],
-      "theorems": [
-        "modifiedBesselI_one_eq_regularizedHG",
-        "regularizedHGFunCoeff_zero_singleton_two",
-        "regularizedHGFun_zero_singleton_two_eq_tsum",
-        "modifiedBesselI_one_eq_factorialSeries",
-        "modifiedBesselI_one_ofReal_eq_realSeries"
-      ]
-    },
-    "SphereThreeMeasure": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SphereThreeMeasure.lean",
-      "sha256": "9d48f59bb391eb65dd06378c1d861823480eee25c6b103690b81a15a71237c28",
-      "imports": [],
-      "theorems": [
-        "sphereThreeMeasure_univ"
-      ]
-    },
-    "NuttallQ21Normalization": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NuttallQ21Normalization.lean",
-      "sha256": "8dd0d0157589b8104f12ab2b2fc3b4faab8ac4e7448e9f02b02b1126f8287874",
-      "imports": [
-        "NuttallQ21Positive"
-      ],
-      "theorems": [
-        "gaussianOddMoment",
-        "nuttallQ21RealKernel_eq_tsum",
-        "nuttallQ21SeriesTerm_integral",
-        "nuttallQ21SeriesTerm_integral_closed",
-        "nuttallQ21RealIntegral_eq_amplitude",
-        "nuttallQ21_zeroThreshold_eq_amplitude"
-      ]
-    },
-    "NuttallQ21Positive": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NuttallQ21Positive.lean",
-      "sha256": "fa57de4c77a24b86a1e22ac28612c1e5a9afb5d74dd92a1cc9bdadec96258c5f",
-      "imports": [
-        "NoncentralFourDimensionalRadial",
-        "BesselI0Angle"
-      ],
-      "theorems": [
-        "besselI1RealSeries_pos",
-        "besselI1RealSeries_le_exp",
-        "nuttallQ21RealKernel_eq_complexRealPart",
-        "nuttallQ21Integrand_eq_realKernel",
-        "nuttallQ21RealKernel_pos",
-        "nuttallQ21RealKernel_le_gaussianMajorant",
-        "nuttallQ21RealKernel_nonneg_of_nonneg",
-        "nuttallQ21RealKernel_integrableOn_Ioi",
-        "nuttallQ21RealIntegral_pos",
-        "nuttallQ21_zeroThreshold_ne_zero"
-      ]
-    },
-    "NoncentralFourDimensionalTail": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralFourDimensionalTail.lean",
-      "sha256": "c620e62a3a8cd1cc47933c9cbe1ac378556c6cf34c37f299f317d377622665ba",
-      "imports": [
-        "NoncentralFourDimensionalRadial"
-      ],
-      "theorems": [
-        "noncentralChiFourRadialTail_eq_nuttallQ21_div"
-      ]
-    },
-    "NoncentralOneColumnEnergy": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralOneColumnEnergy.lean",
-      "sha256": "30c879986bed1c173827794b9eac6cff9369a29c04975cf6b765964fe83d5648",
-      "imports": [
-        "WishartProbability",
-        "GaussianEuclideanBallDensity"
-      ],
-      "theorems": [
-        "complexNoncentralColumnSmallestEigenvalue_eq_shiftedEnergy",
-        "noncentralColumnSmallestEigenvalue_sublevelMass_eq_shiftedBall",
-        "noncentralColumnCDF_eq_shiftedGaussianDensityIntegral",
-        "gaussianFourCoordinate_normalizer",
-        "noncentralTwoRowCDF_eq_fourDimensionalBallIntegral"
-      ]
-    },
-    "Theorem1TwoRowsNoncentral": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem1TwoRowsNoncentral.lean",
-      "sha256": "ac587ef9ed5f20b3c2059ebfc466797e5acbf757d1a67dac4d9a6c2933d627fd",
-      "imports": [
-        "Theorem2SingleColumnAnyRows",
-        "Theorem1SingleColumnTwoRows",
-        "NuttallQ21Positive",
-        "NuttallQ21Normalization"
-      ],
-      "theorems": [
-        "theorem1TwoRowsCandidate_eq_normalizedNuttallQ_of_pos",
-        "theorem2TwoRowsCandidate_eq_normalizedNuttallQIncrement_of_pos",
-        "theorem1TwoRowsCandidate_eq_amplitudeNormalizedQ",
-        "theorem2TwoRowsCandidate_eq_amplitudeNormalizedIncrement"
-      ]
-    },
-    "Theorem2SingleColumnAnyRows": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem2SingleColumnAnyRows.lean",
-      "sha256": "95be7b62d973f69a59b086e31ec174821fca93b8b140f62016315f3d25ff3f13",
-      "imports": [
-        "Theorem1SingleColumnAnyRows"
-      ],
-      "theorems": [
-        "theorem2OneColumnCandidate_eq_normalizedNuttallQIncrement"
-      ]
-    },
-    "Theorem1SingleColumnAnyRows": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem1SingleColumnAnyRows.lean",
-      "sha256": "5618237e874bd3dd15098ee2f2b8022dd61fb18559744e8af690363e5734c0c0",
-      "imports": [
-        "Theorem1FullRankDeterminantScaling"
-      ],
-      "theorems": [
-        "theorem1OneColumnCandidate_eq_normalizedNuttallQ"
-      ]
-    },
-    "Theorem1FullRankDeterminantScaling": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem1FullRankDeterminantScaling.lean",
-      "sha256": "03cfd8db4465e0feea23ad8392826489930823520360b24d0450671f664b0cfa",
-      "imports": [
-        "Theorem1Formula"
-      ],
-      "theorems": [
-        "det_rowScaledMatrix",
-        "normDetRatio_rowScaledMatrix",
-        "theorem1PsiMatrix_eq_fullRankRowScaledQ",
-        "theorem1FullRankRowScale_ne_zero",
-        "theorem1FullRankCandidate_eq_unscaledQ"
-      ]
-    },
-    "Theorem1Formula": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem1Formula.lean",
-      "sha256": "a641c9c3ac07206a1f8162f6c9a655bb0a42901dc814a6153b04031cc6ae2dbc",
-      "imports": [
-        "IncompleteGamma",
-        "NuttallQ"
-      ],
-      "theorems": [
-        "theorem2XiEntry_add_theorem1PsiEntry",
-        "theorem2XiMatrix_add_theorem1PsiMatrix",
-        "theorem2XiEntry_active_eq_intervalIntegral",
-        "theorem2XiEntry_zero",
-        "theorem2XiMatrix_zero",
-        "theorem2CdfCandidate_zero",
-        "theorem1CdfCandidate_zero",
-        "theorem2XiMatrixOfSpectrum_add_theorem1PsiMatrixOfSpectrum",
-        "theorem2CdfCandidateOfSpectrum_zero",
-        "theorem1CdfCandidateOfSpectrum_zero",
-        "theorem1CentralScalarPsiDet",
-        "theorem1CentralScalarPsiDet_norm_ne_zero",
-        "theorem1CentralScalarCdfCandidate_eq_finite",
-        "theorem1CentralScalarCdfCandidate_zero",
-        "theorem1CentralScalarOneSample_eq_exponentialCDF"
-      ]
-    },
-    "IncompleteGamma": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\IncompleteGamma.lean",
-      "sha256": "8218e54945bb43bd233034dda988a20b8ffe1a74e82e13c79e32b458ae6ec378",
-      "imports": [],
-      "theorems": [
-        "partialGamma_zero",
-        "upperGammaComplement_eq_tail",
-        "upperGammaComplement_add_one",
-        "partialGamma_one",
-        "upperGammaComplement_one",
-        "upperGammaNat_add_partialGamma",
-        "upperGammaNat_zero_eq_GammaIntegral",
-        "upperGammaNat_zero",
-        "upperGammaNat_succ",
-        "upperGammaNat_eq_finite",
-        "upperGammaNat_at_zero_eq_factorial",
-        "upperGammaNat_at_zero_ne_zero"
-      ]
-    },
-    "Theorem1SingleColumnTwoRows": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem1SingleColumnTwoRows.lean",
-      "sha256": "be0b7532448be5d649ce9ac1dab3f2ae859ab66663d67cf243fe8917af637443",
-      "imports": [
-        "Theorem1FullRankDeterminantScaling"
-      ],
-      "theorems": [
-        "theorem1ScalarTwoRowsCandidate_eq_normalizedNuttallQ"
-      ]
-    },
-    "WishartGamma": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\WishartGamma.lean",
-      "sha256": "426f7987585579330a0698369e4a1a6393b2ec2a346585e7a4446f766cb52bb2",
-      "imports": [
-        "WishartProbability",
-        "GaussianRadialCDF"
-      ],
-      "theorems": [
-        "cdf_gammaMeasure_nat_eq_finiteComplement",
-        "centralColumnSampleEnergy_map_eq_gammaMeasure",
-        "centralColumnSmallestEigenvalue_map_eq_gammaMeasure",
-        "theorem1CentralOneColumn_eq_sampleSmallestEigenvalueCDF",
-        "theorem2CentralOneColumn_eq_gammaCDF",
-        "theorem2CentralOneColumn_eq_sampleSmallestEigenvalueCDF",
-        "noncentralScalarSmallestEigenvalue_eq_shiftedEnergy",
-        "noncentralScalarSmallestEigenvalue_sublevelMass_eq_shiftedBall"
-      ]
-    },
-    "GaussianRadialCDF": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianRadialCDF.lean",
-      "sha256": "910dbf544c08308a9061694fe12fee884747d4161ae9db6dab1dfe6a5d78f413",
-      "imports": [
-        "GaussianRadialLaw",
-        "RadialIntegration",
-        "Theorem1Formula"
-      ],
-      "theorems": [
-        "measurable_complexGaussianEnergy",
-        "stdGaussian_complex_closedBall",
-        "stdGaussian_euclidean_closedBall",
-        "measurable_euclideanGaussianEnergy",
-        "stdGaussian_euclideanEnergy_measure_Iic",
-        "radialGaussian_integral_subst",
-        "radialGaussian_normalization",
-        "cdf_gammaMeasure_nat_eq_lowerGamma",
-        "stdGaussian_euclideanEnergy_measure_Iic_lowerGamma",
-        "stdGaussian_euclideanEnergy_map_eq_gammaMeasure",
-        "complexGaussianEnergy_measure_Iic",
-        "cdf_complexGaussianEnergy_eq_expMeasure",
-        "centralScalarSampleEnergy_map_eq_expMeasure",
-        "centralScalarSmallestEigenvalue_map_eq_expMeasure",
-        "centralScalarLargestEigenvalueCdf_eq_expMeasure",
-        "theorem1CentralScalarOneSample_eq_sampleSmallestEigenvalueCDF",
-        "theorem2CentralScalarOneSample_eq_exponentialCDF",
-        "theorem2CentralScalarOneSample_eq_largestEigenvalueEvent"
-      ]
-    },
-    "RadialIntegration": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\RadialIntegration.lean",
-      "sha256": "adc6db6dd40cf4a4fd4f6d71a21ed315ff1d616875f04ede0497a32b6273b052",
-      "imports": [],
-      "theorems": [
-        "integral_complex_radial",
-        "integral_radial_even_dim",
-        "integral_radial_even_dim_closedBall"
-      ]
-    },
-    "Theorem1CentralTwoRowActualCDF": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem1CentralTwoRowActualCDF.lean",
-      "sha256": "9d41e9e6916438f6253d35200fd6a9a0be3487a572f341a77b598d024d2f9f55",
-      "imports": [
-        "TwoRowMinimumLaw",
-        "Theorem1Formula",
-        "DeepSeekMinimumCDF20261013.DeterminantFactor"
-      ],
-      "theorems": [
-        "theorem1CentralTwoRow_PsiMatrix",
-        "theorem1CentralTwoRow_PsiDet",
-        "theorem1CentralTwoRow_PsiDet_norm_zero",
-        "theorem1CentralTwoRow_candidate_eq_expCDF",
-        "theorem1CentralTwoRow_candidate_eq_actualCDF"
-      ]
-    },
-    "TwoRowMinimumLaw": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowMinimumLaw.lean",
-      "sha256": "62b9679b21fe64e0dd22609f7aea09180817edb6b5e4852d09cce209fd575f83",
-      "imports": [
-        "TwoRowHermitianThreshold",
-        "TwoRowSmallestEigenvalueCDF"
-      ],
-      "theorems": [
-        "measurable_twoRowActualMinimum",
-        "hermitian_twoRow_shiftedCone_iff_smallest",
-        "twoRowActualMinimum_threshold_event",
-        "actualTwoRow_minimum_tail",
-        "actualTwoRow_minimum_CDF",
-        "twoRowActualMinimum_nonneg",
-        "actualTwoRow_minimum_cdf_function",
-        "actualTwoRow_minimum_law_expTwo"
-      ]
-    },
-    "TwoRowHermitianThreshold": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowHermitianThreshold.lean",
-      "sha256": "903525e1b689fc3274767650371db366d0bef9fe2a367a678fd02c5382a76417",
-      "imports": [
-        "TwoRowActualNormalizedDensity"
-      ],
-      "theorems": [
-        "hermitian_twoRow_shift_posDef_iff",
-        "hermitian_twoRow_shift_posDef_iff_smallest",
-        "hermitian_twoRow_det_re",
-        "hermitian_twoRow_posDef_iff"
-      ]
-    },
-    "TwoRowActualNormalizedDensity": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowActualNormalizedDensity.lean",
-      "sha256": "2645eeaabdea17affc84edfd150517b2d70a83f1ab86c023ec674736e229dcc8",
-      "imports": [
-        "TwoRowActualDensity"
-      ],
-      "theorems": [
-        "twoRowBartlettRealDensityRaw_normalized_positive",
-        "actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity",
-        "twoRow_complex_real_norm_square",
-        "actualTwoRow_ComplexReal_eq_normalizedDensity",
-        "complexWishart_twoRow_realCoordinates_eq_traceDensity",
-        "twoRow_complexReal_normalizedDensity_mass"
-      ]
-    },
-    "TwoRowActualDensity": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowActualDensity.lean",
-      "sha256": "f8765acf8b7dbd7948ea9b78e5dcedd75d871b1512f2bb89da7b65c3c62eafcd",
-      "imports": [
-        "TwoRowBartlettCoordinateVolume",
-        "DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided",
-        "DeepSeekCollaborationRound320261011.ComplexScaledCoefficient",
-        "DeepSeekCollaborationRound320261011.ComplexScaledNormSquare"
-      ],
-      "theorems": [
-        "stdGaussian_complex_scaled_eq_withDensity",
-        "measurable_twoRowComplexDensityRaw",
-        "measurable_twoRowBartlettDensityRaw",
-        "actualTwoRow_BartlettCoordinates_eq_withDensity_raw",
-        "measurable_twoRowBartlettRealDensityRaw",
-        "actualTwoRow_BartlettRealCoordinates_eq_withDensity_raw",
-        "measurable_twoRowGramDensityRaw",
-        "actualTwoRow_GramRealCoordinates_eq_withDensity_raw",
-        "twoRow_gamma_two_positive_formula",
-        "twoRow_gamma_one_positive_formula",
-        "twoRowBartlettCoordinateEquiv_symm_apply",
-        "twoRowBartlettRealDensityRaw_positive_formula",
-        "twoRowGramDensityRaw_positive_formula",
-        "twoRow_complex_scaled_exponent",
-        "twoRowComplexDensityRaw_normalized",
-        "twoRowGramDensityRaw_trace_formula",
-        "actualTwoRow_GramRealCoordinates_eq_traceDensity",
-        "twoRowGram_traceDensity_mass",
-        "actualTwoRow_Complex_eq_normalizedDensity"
-      ]
-    },
-    "TwoRowBartlettCoordinateVolume": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowBartlettCoordinateVolume.lean",
-      "sha256": "e1c6f1135363920e7e20ba59acfdc6f9ba76bf26a0e5164eba7680ca0cc6be2e",
-      "imports": [
-        "TwoRowGramPositive",
-        "GaussianRadialLaw",
-        "GaussianRawCoordinates"
-      ],
-      "theorems": [
-        "finFourNestedRealEquiv_apply",
-        "twoRowBartlettCoordinateEquiv_apply",
-        "volume_preserving_finFourNestedRealEquiv",
-        "volume_preserving_twoRowBartlettCoordinateEquiv",
-        "measurable_twoRowBartlettRealCoordinates",
-        "volume_preserving_twoRowBartlettRealCoordinates",
-        "twoRowBartlettCoordinate_density_transport",
-        "measurable_gammaDensity_ennreal",
-        "measurable_twoRowGramChart",
-        "measurable_twoRowGramRealCoordinates",
-        "actualTwoRow_BartlettRealCoordinates_law",
-        "actualTwoRow_GramRealCoordinates_law",
-        "map_withDensity_smul_complex",
-        "actualTwoRow_GramRealCoordinates_lintegral",
-        "twoRowGramChart_weighted_volume_map",
-        "twoRowGramChart_weighted_density_map",
-        "measurable_twoRowGramChartInverse",
-        "twoRowGramChart_density_map",
-        "actualTwoRow_BartlettRealLaw_restrict_positive"
-      ]
-    },
-    "TwoRowGramPositive": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowGramPositive.lean",
-      "sha256": "858e8fabb088bd19fad0b437a259ce70b5a0fa1f5a2025fb98e35a3a8c2e2c42",
-      "imports": [
-        "TwoRowBartlettSupport"
-      ],
-      "theorems": [
-        "twoRowBartlettGram_det",
-        "actualTwoRow_Gram_eq_BartlettGram",
-        "actualTwoRow_Gram_det_positive_ae",
-        "actualTwoRow_Gram_det_zero_null"
-      ]
-    },
-    "TwoRowBartlettSupport": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowBartlettSupport.lean",
-      "sha256": "074e41ed63e36f351c854b28a024d860ee38777fcf7a0a0b72ad9252fc67b718",
-      "imports": [
-        "TwoRowRandomDirectionLaw",
-        "TwoRowGramSupport",
-        "DeepSeekHour20261010.GammaZeroBoundary"
-      ],
-      "theorems": [
-        "twoRow_firstEnergy_nonpositive_null",
-        "twoRow_residualEnergy_zero_null",
-        "twoRow_residualEnergy_nonpositive_null",
-        "twoRow_Bartlett_product_positive_ae",
-        "actualTwoRow_Bartlett_positive_ae",
-        "actualTwoRow_Bartlett_nonpositive_null"
-      ]
-    },
-    "TwoRowRandomDirectionLaw": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowRandomDirectionLaw.lean",
-      "sha256": "00f8b8268b52090628c1aaf81e972cd8854fa0fe6aecc640b1ecba726d154e35",
-      "imports": [
-        "ComplexTwoRowResidualEnergy"
-      ],
-      "theorems": [
-        "twoRowUnitDirection_norm",
-        "measurable_twoRowUnitDirection",
-        "twoRowUnitDirection_reconstruct",
-        "measurable_twoRowFiberCoordinates",
-        "twoRowFiberCoordinates_law",
-        "twoRowRandomDirection_product_law",
-        "actualTwoRow_randomDirection_joint_law",
-        "twoRowFiberCoordinates_offDiagonal",
-        "twoRowFiberCoordinates_secondEnergy",
-        "measurable_twoRowGramFromCoordinates",
-        "twoRow_actualGram_reconstruction",
-        "actualTwoRow_GramLaw_eq_coordinate_pushforward",
-        "actualTwoRow_columnEnergy_eq",
-        "actualTwoRow_columnEnergy_law",
-        "actualTwoRow_BartlettCoordinates_law",
-        "measurable_twoRowBartlettCoordinates",
-        "measurable_twoRowBartlettGram",
-        "twoRowGramFromCoordinates_eq_BartlettGram",
-        "actualTwoRow_GramLaw_eq_Bartlett_pushforward"
-      ]
-    },
-    "ComplexTwoRowResidualEnergy": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\ComplexTwoRowResidualEnergy.lean",
-      "sha256": "40aad0ac1f6971c45e57478e685c93b87f27536849a8086ebc7756edfeab0746",
-      "imports": [
-        "GaussianComplexOrthogonalResidual",
-        "GaussianRadialCDF"
-      ],
-      "theorems": [
-        "complexTwoRowPartner_norm",
-        "complexTwoRowPartner_residual",
-        "complexTwoRow_residualEnergy_eq_projection",
-        "complexGaussianEnergy_law",
-        "complexGaussian_scaled_energy",
-        "actualTwoRow_residualEnergy_law",
-        "actualTwoRow_projection_residualEnergy_joint_law"
-      ]
-    },
-    "GaussianComplexOrthogonalResidual": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianComplexOrthogonalResidual.lean",
-      "sha256": "9c393e500ea7b5abbe22049b8761007df86aa49147e9cea075fefa44e25481f6",
-      "imports": [
-        "GaussianComplexInnerProductLaw"
-      ],
-      "theorems": [
-        "complexOrthogonalResidual_apply",
-        "complexOrthogonalResidual_orthogonal",
-        "complexOrthogonalResidual_selfAdjoint_real",
-        "complexOrthogonalResidual_norm_sq",
-        "stdGaussian_complex_projection_indep_residual",
-        "indepFun_comp_complexColumnCoordinates",
-        "actualComplexColumn_projection_indep_residual",
-        "actualComplexColumn_projection_indep_residualEnergy",
-        "actualComplexColumn_projection_residual_joint_law"
-      ]
-    },
-    "GaussianComplexInnerProductLaw": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianComplexInnerProductLaw.lean",
-      "sha256": "a114161f068918dd60b22e06c8524887ea003ad8c4817c8d68b421ce252f1905",
-      "imports": [
-        "GaussianComplexColumnFrame"
-      ],
-      "theorems": [
-        "complexColumn_real_inner",
-        "real_inner_complex_inner",
-        "charFun_stdGaussian_complex_inner",
-        "stdGaussian_complex_inner_law",
-        "actualComplexColumn_inner_law",
-        "twoColumnGram_offDiagonal_fixed_first_law"
-      ]
-    },
-    "GaussianComplexColumnFrame": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianComplexColumnFrame.lean",
-      "sha256": "552abdf336c04c7531fde94e1a0059908e7e3273f5dd48b942aa66623446bf72",
-      "imports": [
-        "GaussianTwoColumnIntegration"
-      ],
-      "theorems": [
-        "complexColumnCoordinates_apply",
-        "complexColumnCoordinates_join_first",
-        "complexColumnCoordinates_join_second",
-        "complexColumnCoordinates_encodedFrame",
-        "complexFrame_inner_preserved",
-        "encodedComplexFrame_gaussianLaw",
-        "twoColumn_complex_fiber_frame_law",
-        "complexColumnPair_gram_entry",
-        "complexColumnPair_gram_unitary",
-        "actualComplexColumn_encodedFrame",
-        "twoColumnJoin_matrix_eq_columnPair",
-        "twoColumn_actualGram_unitary"
-      ]
-    },
-    "GaussianTwoColumnIntegration": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianTwoColumnIntegration.lean",
-      "sha256": "bbee1b5baecba5991eb02f61d4b1f9163a1ccc5ad9d3a41d9e2dec244a99878d",
-      "imports": [
-        "GaussianMatrixSpectralIntegral"
-      ],
-      "theorems": [
-        "measurable_euclideanGaussianSplit",
-        "stdGaussian_sum_split",
-        "measurable_twoColumnSplit",
-        "twoColumnSplit_apply",
-        "twoColumnSplit_law",
-        "measurable_twoColumnJoin",
-        "twoColumnJoin_split",
-        "twoColumnSplit_join",
-        "twoColumnJoin_first_apply",
-        "twoColumnJoin_second_apply",
-        "twoColumnJoin_complex_first",
-        "twoColumnJoin_complex_second",
-        "twoColumnJoin_law",
-        "twoColumn_lintegral_eq_iterated",
-        "paperTwoColumnSpectrum_event_eq_iterated",
-        "twoColumn_gaussian_fiber_rotation",
-        "twoColumn_rotated_split_law"
-      ]
-    },
-    "GaussianMatrixSpectralIntegral": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianMatrixSpectralIntegral.lean",
-      "sha256": "46b5490eff8c8853eeeea1c4a98e74a5bb8fbfbe97151f65c2d09387482b72c1",
-      "imports": [
-        "GaussianEuclideanBallDensity",
-        "ThresholdNoAtom"
-      ],
-      "theorems": [
-        "stdGaussian_shift_eq_withDensity",
-        "measurable_paperJointSpectrum",
-        "paperJointSpectrum_add_mean",
-        "paperJointSpectrumLaw_eq_density_pushforward",
-        "paperJointSpectrum_event_eq_densityIntegral"
-      ]
-    },
-    "ThresholdNoAtom": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\ThresholdNoAtom.lean",
-      "sha256": "0241d4e61f72da951720c32c026fdc10390c5218d9127591d6f273482fcf6629",
-      "imports": [
-        "ComplexGramSimpleSpectrum",
-        "GramSpectrumTransfer",
-        "WeylComplexHermitian",
-        "PaperStatements"
-      ],
-      "theorems": [
-        "genericRowGramCharpolyAt_eval",
-        "genericGramCharpolyAt_eval",
-        "complexGram_scaledColumnWitness",
-        "rowGram_scaledRowWitness",
-        "genericRowGramCharpolyAt_ne_zero",
-        "genericGramCharpolyAt_ne_zero",
-        "hermitian_eigenvalues₀_ne_of_charpoly_eval_ne_zero",
-        "paperSmallSideGram_eigenvalues_ne_threshold_ae",
-        "measurable_paperModelEigenvalue",
-        "paperModelEigenvalue_atom_eq_zero",
-        "paperModel_kthCDFRecurrence_strict"
-      ]
-    },
-    "ComplexGramSimpleSpectrum": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\ComplexGramSimpleSpectrum.lean",
-      "sha256": "0ba21967c9d5d97c4534709bf6a73900e1a8dd10c16b84c944138179f62b8adf",
-      "imports": [
-        "WishartSimpleSpectrum",
-        "GaussianRadialLaw",
-        "WishartProbability",
-        "PaperSmallSideGram"
-      ],
-      "theorems": [
-        "complex_polynomial_realZeroSet_volume_eq_zero",
-        "complexMvPolynomial_realZeroSet_volume_eq_zero_fin",
-        "complexMvPolynomial_realZeroSet_volume_eq_zero",
-        "genericComplexSample_map",
-        "genericComplexSampleConjT_map",
-        "genericComplexGram_map",
-        "genericComplexGramResultant_eval",
-        "hermitian_eigenvalues₀_injective_of_resultant_ne_zero",
-        "complexGram_witnessMean",
-        "complexSampleMatrix_zero",
-        "complexSampleMatrix_complexSampleMean",
-        "genericComplexGramResultant_ne_zero",
-        "complexSample_genericResultant_zeroSet_volume",
-        "complexSample_shiftedGram_eigenvalues_injective_ae",
-        "complexSample_shiftedGram_eigenvalues_strictAnti_ae",
-        "genericComplexRowGram_map",
-        "genericComplexRowGramResultant_eval",
-        "rowGram_witnessRowMean",
-        "genericComplexRowGramResultant_ne_zero",
-        "sampleEval_ne_zero_ae",
-        "paperSmallSideGram_eigenvalues_injective_ae",
-        "paperSmallSideGram_eigenvalues_strictAnti_ae"
-      ]
-    },
-    "WishartSimpleSpectrum": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\WishartSimpleSpectrum.lean",
+    "JinWishartFormalization.WishartSimpleSpectrum": {
+      "path": "theory/jin_wishart_formalization/JinWishartFormalization/WishartSimpleSpectrum.lean",
       "sha256": "ac3aeb0429f9549883780f965b2ee29cfc22e2f5c261130a4fd948bc1048cdce",
       "imports": [
-        "MvPolynomialZeroSetNull"
+        "JinWishartFormalization.MvPolynomialZeroSetNull",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic",
+        "Mathlib.RingTheory.Polynomial.Resultant.Basic",
+        "Mathlib.FieldTheory.Separable"
       ],
       "theorems": [
         "genericResultant_eval",
@@ -940,599 +1690,7 @@
         "genericResultant_ne_zero",
         "repeated_root_set_null"
       ]
-    },
-    "MvPolynomialZeroSetNull": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\MvPolynomialZeroSetNull.lean",
-      "sha256": "a34b09e7244b834834f58034d5bb087c41cbb74c8d6fab78459dc625532b52db",
-      "imports": [
-        "RepeatedRootNullSets"
-      ],
-      "theorems": [
-        "mvPolynomial_zeroSet_volume_eq_zero"
-      ]
-    },
-    "RepeatedRootNullSets": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\RepeatedRootNullSets.lean",
-      "sha256": "a7e6cd1cb5f8d023108c445d5aca03ebc7d55002a0b5300654fae06bdc4dcb9e",
-      "imports": [],
-      "theorems": [
-        "real_polynomial_zeroSet_volume_eq_zero",
-        "ae_not_mem_real_polynomial_zeroSet"
-      ]
-    },
-    "PaperSmallSideGram": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\PaperSmallSideGram.lean",
-      "sha256": "bced670a94a7aa66c8c48ff6bada28550e25dc822655be363d07315f4499a30b",
-      "imports": [
-        "WishartProbability"
-      ],
-      "theorems": [
-        "charpoly_submatrix_equiv",
-        "paperSmallSideGram_posSemidef",
-        "complexSampleMatrix_conjTranspose",
-        "measurable_complexSampleConjTranspose",
-        "measurable_shiftedPaperSmallSideGram",
-        "measurable_shiftedPaperSmallSideGramPSD"
-      ]
-    },
-    "GramSpectrumTransfer": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GramSpectrumTransfer.lean",
-      "sha256": "c91c467905c62178a87b352c2df5cd604c0398b61a924788b007b7c4b2772723",
-      "imports": [
-        "PaperSmallSideGram"
-      ],
-      "theorems": [
-        "charpoly_rowGram_eq_X_pow_mul_charpoly_colGram",
-        "roots_rowGram_eq_nsmul_zero_add_roots_colGram",
-        "roots_count_eq_of_ne_zero",
-        "count_zero_rowGram_eq_add",
-        "charpoly_paperSmallSideGram_eq_charpoly_colGram"
-      ]
-    },
-    "WeylComplexHermitian": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\WeylComplexHermitian.lean",
-      "sha256": "a3e5cd448333a6dfaaf4835d779c0265de49782adf4a6667e0694b78dca287db",
-      "imports": [
-        "OrderedEigenvalueFullMeasurable",
-        "SubspaceIntersectionFinrank",
-        "SpectralCoordinateSpanSupport",
-        "OrderedEigenvalueWeyl"
-      ],
-      "theorems": [
-        "abs_eigenvalue_sub_le_operatorNorm_rclike",
-        "orderedHermitianEigenvalueCoordinatesContinuous"
-      ]
-    },
-    "OrderedEigenvalueFullMeasurable": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\OrderedEigenvalueFullMeasurable.lean",
-      "sha256": "f6de144979c97e964ba7dcbab967efa4bbf8706477e87b6ca27963db0cd26b72",
-      "imports": [
-        "OrderedEigenvalueMeasurable"
-      ],
-      "theorems": [
-        "measurable_hermitianEigenvalueVector_of_continuous",
-        "measurable_shiftedComplexGramHermitian",
-        "measurable_complexNoncentralSampleEigenvalueVector_of_continuous"
-      ]
-    },
-    "OrderedEigenvalueMeasurable": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\OrderedEigenvalueMeasurable.lean",
-      "sha256": "af44f41cd8ae7f0d8a21acdf15d1ba87e509d05cf4c9e791939f000249ae4e80",
-      "imports": [
-        "WishartProbability"
-      ],
-      "theorems": [
-        "complexNoncentralSampleEigenvalue_antitone",
-        "complexNoncentralSampleEigenvalue_nonneg",
-        "measurable_complexNoncentralSampleLargestEigenvalue",
-        "measurable_complexNoncentralSampleEigenvalue_last"
-      ]
-    },
-    "SubspaceIntersectionFinrank": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SubspaceIntersectionFinrank.lean",
-      "sha256": "4924c9d72a37dff9d922ce2a384d45a6df9ad9349c31709fa61a681f8600c797",
-      "imports": [],
-      "theorems": [
-        "finrank_inf_pos_of_finrank_add_gt",
-        "exists_ne_zero_mem_of_finrank_inf_pos",
-        "exists_ne_zero_mem_inf_of_finrank_add_gt"
-      ]
-    },
-    "SpectralCoordinateSpanSupport": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SpectralCoordinateSpanSupport.lean",
-      "sha256": "85fd857e3bacfefc94271c72a9770e3ecebc3006b532931113f2f2396a7a6c91",
-      "imports": [
-        "SpectralRayleighCoordinates",
-        "SpectralRayleighPrefix"
-      ],
-      "theorems": [
-        "basis_repr_eq_zero_of_mem_span_not_mem",
-        "eigenvalue_le_rayleighQuotient_of_mem_spectral_head_span",
-        "rayleighQuotient_le_eigenvalue_of_mem_spectral_tail_span"
-      ]
-    },
-    "SpectralRayleighCoordinates": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SpectralRayleighCoordinates.lean",
-      "sha256": "f0b5b5942ed0b28fca6e9fa263fa247221033a2fc8f7e474e524365b6d373cd0",
-      "imports": [],
-      "theorems": [
-        "spectral_weighted_average_ge",
-        "spectral_weighted_average_le",
-        "rayleighQuotient_le_eigenvalue_of_spectral_support"
-      ]
-    },
-    "SpectralRayleighPrefix": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SpectralRayleighPrefix.lean",
-      "sha256": "eca356c490bc64e5724b9b3311321f2479cdb4ada80317f9b9a22b7b67cc25b8",
-      "imports": [
-        "SpectralRayleighCoordinates"
-      ],
-      "theorems": [
-        "eigenvalue_le_rayleighQuotient_of_spectral_prefix_support"
-      ]
-    },
-    "OrderedEigenvalueWeyl": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\OrderedEigenvalueWeyl.lean",
-      "sha256": "69e3196e987eb04d33c66312dc65b338fe1e6d37da06c3cc929d32bab67f0fc2",
-      "imports": [],
-      "theorems": [
-        "abs_rayleighQuotient_sub_le_operatorNorm",
-        "rayleighQuotient_eigenvectorBasis_eq_eigenvalue"
-      ]
-    },
-    "PaperStatements": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\PaperStatements.lean",
-      "sha256": "9bf77e76712c27da1abdd49ad6c83cebf3543336ae8ee20069ee066565910560",
-      "imports": [
-        "Theorem1Formula",
-        "OrderedEigenvalueCDFRecurrence",
-        "OrderedEigenvalueStrictRecurrence"
-      ],
-      "theorems": [
-        "paperS_le_paperT",
-        "measurable_smallest",
-        "measurable_largest",
-        "measurable_kth",
-        "kth_one_eq_largest",
-        "kth_last_eq_smallest",
-        "kth_between",
-        "orderedEigenvalueLaw_kthCDFRecurrence_strict",
-        "diversityOrder_pos",
-        "diversityOrder_antitone",
-        "theorem4_powers_related",
-        "diversityOrder_weakest_mode",
-        "diversityOrder_weakest_mode_square",
-        "diversityOrder_min_of_first_r",
-        "weakest_of_first_r_dominates",
-        "theorem2_theorem1_complementary",
-        "theorem4_cdfPower_eq_diversityOrder",
-        "diversityOrderClaim_iff",
-        "outage_determined_by_weakest_mode",
-        "outage_threshold_rescaling",
-        "outageClaim_of_rescaling"
-      ]
-    },
-    "OrderedEigenvalueCDFRecurrence": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\OrderedEigenvalueCDFRecurrence.lean",
-      "sha256": "05a1d73868a8ef0f068f65f2e1a58e94f3d09b9e09beeb419249445e1cd03dd3",
-      "imports": [
-        "WishartProbability"
-      ],
-      "theorems": [
-        "orderedPair_sublevel_eq_union",
-        "orderedPair_sublevelMass_eq_add"
-      ]
-    },
-    "OrderedEigenvalueStrictRecurrence": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\OrderedEigenvalueStrictRecurrence.lean",
-      "sha256": "ae75f7d15e592869de4c16de091ac7eec126dd742b685245ad21434f82094c6a",
-      "imports": [
-        "OrderedEigenvalueCDFRecurrence"
-      ],
-      "theorems": [
-        "orderedPair_increment_weak_eq_strict",
-        "orderedPair_sublevelMass_eq_add_strict"
-      ]
-    },
-    "TwoRowGramSupport": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowGramSupport.lean",
-      "sha256": "1f9c9f79c2918cdf982710fcc437e22296996e542241e6125bba892c9a7796e9",
-      "imports": [
-        "TwoRowGramChart"
-      ],
-      "theorems": [
-        "twoRowGramChart_right_inverse",
-        "twoRowGramChart_determinant",
-        "twoRowGramChart_inverse_residual_pos",
-        "twoRowGramChart_positive_image"
-      ]
-    },
-    "TwoRowGramChart": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowGramChart.lean",
-      "sha256": "efc33b62c0dcd3d0b4b3c5b0d50f60855b41e84435149fb5d26a5759246acda4",
-      "imports": [
-        "TwoRowRandomDirectionLaw"
-      ],
-      "theorems": [
-        "twoRowGramChart_eq_BartlettGram_real",
-        "twoRowGramChart_left_inverse",
-        "twoRowGramChart_injOn",
-        "hasFDerivAt_twoRowGramChart",
-        "twoRowGramChartDerivative_det",
-        "twoRowGramChart_lintegral_change"
-      ]
-    },
-    "DeepSeekHour20261010.GammaZeroBoundary": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekHour20261010\\GammaZeroBoundary.lean",
-      "sha256": "83653551465d5b23790344fa952c991b9b9f0df19d493b78a04068451be3e856",
-      "imports": [
-        "TwoRowRandomDirectionLaw",
-        "GaussianRawCoordinates"
-      ],
-      "theorems": [
-        "deepseek_hour_GammaZeroBoundary"
-      ]
-    },
-    "GaussianRawCoordinates": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianRawCoordinates.lean",
-      "sha256": "0c9a57b41b20d849eb18e1a3b42e2bbf8d53d0ca3ae662adc1f5e93f037557e1",
-      "imports": [
-        "GaussianMatrixSpectralIntegral"
-      ],
-      "theorems": [
-        "map_withDensity_smul_euclidean",
-        "stdGaussian_scaled_shift_eq_withDensity",
-        "sqrtTwo_scaled_density",
-        "stdGaussian_halfVariance_shift_eq_withDensity",
-        "rawComplexSampleMean_apply",
-        "complexSampleMatrix_sqrtTwo_smul",
-        "rawComplexSample_norm_sq_eq_frobenius",
-        "rawComplexGaussianDensity_eq_frobenius",
-        "rawComplexSampleLaw_eq_withDensity",
-        "measurable_paperRawJointSpectrum",
-        "paperRawJointSpectrum_sample_eq",
-        "paperJointSpectrum_event_eq_rawDensityIntegral"
-      ]
-    },
-    "DeepSeekCollaborationRound220261010.ComplexRadialDensityMeasurableGuided": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekCollaborationRound220261010\\ComplexRadialDensityMeasurableGuided.lean",
-      "sha256": "b69620a5710c4c4342891efdd8b64ea82648d84cc4ac226c3dd714220b26ba30",
-      "imports": [
-        "GaussianRadialLaw"
-      ],
-      "theorems": [
-        "deepseek_round2_ComplexRadialDensityMeasurable"
-      ]
-    },
-    "DeepSeekCollaborationRound320261011.ComplexScaledCoefficient": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekCollaborationRound320261011\\ComplexScaledCoefficient.lean",
-      "sha256": "2a7bbdf61ef7b0ce9b275da4dd093feb19a7a7c418954ca4876671afeaca8964",
-      "imports": [],
-      "theorems": [
-        "deepseek_round3_ComplexScaledCoefficient"
-      ]
-    },
-    "DeepSeekCollaborationRound320261011.ComplexScaledNormSquare": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekCollaborationRound320261011\\ComplexScaledNormSquare.lean",
-      "sha256": "c8dcf25934a29313878e7b17d8192b9c30b80762122d5a5b328a66fbb73fcc26",
-      "imports": [],
-      "theorems": [
-        "deepseek_round3_ComplexScaledNormSquare"
-      ]
-    },
-    "TwoRowSmallestEigenvalueCDF": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowSmallestEigenvalueCDF.lean",
-      "sha256": "fe5fc4162f0be329b5731d22aa1239b5682c15da32aaa7479613d70a7473c281",
-      "imports": [
-        "TwoRowActualNormalizedDensity",
-        "DeepSeekSpectral20261012.RealTraceTranslation"
-      ],
-      "theorems": [
-        "measurableSet_twoRowPositiveCone",
-        "measurableSet_twoRowShiftedCone",
-        "measurable_twoRowTraceDensity",
-        "twoRowShiftedCone_eq_image",
-        "twoRowShiftedCone_subset_positive",
-        "twoRowTraceDensity_translate",
-        "twoRowShiftedCone_traceMass",
-        "actualTwoRow_shiftedCone_probability"
-      ]
-    },
-    "DeepSeekSpectral20261012.RealTraceTranslation": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekSpectral20261012\\RealTraceTranslation.lean",
-      "sha256": "ab9694274a2f76ec67c4376dc0de02230a4837facfa90972e87e85a444663f56",
-      "imports": [],
-      "theorems": [
-        "deepseek_spectral_RealTraceTranslation"
-      ]
-    },
-    "DeepSeekMinimumCDF20261013.DeterminantFactor": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekMinimumCDF20261013\\DeterminantFactor.lean",
-      "sha256": "75cbe92e1ca028bab1e3505a4597ebb05e4884ee693595658c399c1126da6869",
-      "imports": [
-        "Theorem1Formula"
-      ],
-      "theorems": [
-        "deepseek_minimum_DeterminantFactor"
-      ]
-    },
-    "TwoRowScaledMinimum": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\TwoRowScaledMinimum.lean",
-      "sha256": "edd72738f57ad06965b9e8fd0d737a62ef530d7d651aeadf154f5f618fb62f3a",
-      "imports": [
-        "Theorem1CentralTwoRowActualCDF",
-        "DeepSeekScale20261015.SampleMatrix"
-      ],
-      "theorems": [
-        "twoRow_posDef_real_smul_iff",
-        "twoRow_smallest_real_smul",
-        "twoRow_actualGram_scale",
-        "twoRow_actualMinimum_scale",
-        "actualTwoRow_scaled_minimum_tail",
-        "actualTwoRow_scaled_minimum_CDF",
-        "actualTwoRow_scaled_minimum_cdf_function",
-        "actualTwoRow_scaled_minimum_law",
-        "actualTwoRow_covariance_minimum_CDF",
-        "theorem1CentralTwoRow_scaled_candidate_eq_actualCDF"
-      ]
-    },
-    "DeepSeekScale20261015.SampleMatrix": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekScale20261015\\SampleMatrix.lean",
-      "sha256": "533b2950ea95125a857f8bbf05f8001b0106d9737183a7deb6e795b20c1bcd61",
-      "imports": [
-        "WishartProbability"
-      ],
-      "theorems": [
-        "deepseek_scaled_sampleMatrix"
-      ]
-    },
-    "Theorem1ThreeRowsActualCDF": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\Theorem1ThreeRowsActualCDF.lean",
-      "sha256": "d111058c4cf29d4c3bce9b0b7ee8e993753949f07cd998aa749ffdce5d119890",
-      "imports": [
-        "Theorem1SingleColumnAnyRows",
-        "NoncentralThreeRowNuttallQ"
-      ],
-      "theorems": [
-        "nuttallQ32Integrand_eq_ofReal_scaledRadialKernel",
-        "nuttallQ32_eq_ofReal_scaledRadialTail",
-        "nuttallQ32_zero_eq_sq",
-        "norm_nuttallQ32_eq_sq_mul_radialTail",
-        "theorem1ThreeRowsOneColumnCandidate_eq_actualAxialCDF",
-        "theorem1ThreeRowsOneColumnCandidate_eq_actualCDF"
-      ]
-    },
-    "NoncentralThreeRowNuttallQ": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralThreeRowNuttallQ.lean",
-      "sha256": "950111bc1474ac44f45daf3f05f4a6d648ca66231e7f390d79422f95049f0f2f",
-      "imports": [
-        "NoncentralSixDimensionalMass"
-      ],
-      "theorems": [
-        "noncentralChiSixRadialSeriesKernel_lowerMass_eq_one_sub_nuttallQ32Integral",
-        "noncentralThreeRowCDF_eq_one_sub_nuttallQ32Tail_of_mean",
-        "noncentralThreeRowAxialCDF_eq_one_sub_nuttallQ32Tail"
-      ]
-    },
-    "NoncentralSixDimensionalMass": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralSixDimensionalMass.lean",
-      "sha256": "2428fc3d6d5fa1abdee1168ee6aecaae81c5f07f007b9376063f9a1e3060ddd0",
-      "imports": [
-        "NoncentralSixDimensionalRadial",
-        "ThreeRowSampleCoordinates"
-      ],
-      "theorems": [
-        "noncentralChiSixRadialSeriesKernel_integral_eq_one"
-      ]
-    },
-    "NoncentralSixDimensionalRadial": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\NoncentralSixDimensionalRadial.lean",
-      "sha256": "285b215e2e41e0a5345d58da9ce97c081f5b978d80b3f2569ff512a1641ed016",
-      "imports": [
-        "NoncentralOneColumnEnergy",
-        "FourDimensionalPolarBridge",
-        "SphereSixDAxialMeasure",
-        "SixDimensionalAngularBesselI2",
-        "NuttallQ21Normalization"
-      ],
-      "theorems": [
-        "sixDSphereToSphereIntegral_eq_angleChart",
-        "sixDDistance_sq_sub_firstAxis",
-        "sixDShiftedGaussianAngularIntegral_eq_chart",
-        "noncentralChiSixRadialSeriesKernel_nonneg",
-        "noncentralChiSixRadialSeriesKernel_zero",
-        "noncentralChiSixRadialSeriesKernel_zero_integral_eq_one",
-        "sixDShiftedGaussianShell_eq_seriesKernel",
-        "integral_volumeIoiPow_five_eq_Ioi",
-        "integrable_sixDShiftedGaussianBallPolarIntegrand",
-        "sixDShiftedGaussianBallIntegral_eq_radiusSphereIntegral",
-        "sixDShiftedGaussianBallSphereSlice_eq",
-        "integral_sixRadialKernelCutoff_eq_Ioc",
-        "stdGaussianSixDBall_axial_eq_radialSeriesCDF",
-        "modifiedBesselI_two_eq_regularizedHG",
-        "regularizedHGFunCoeff_zero_singleton_three",
-        "regularizedHGFun_zero_singleton_three_eq_tsum",
-        "modifiedBesselI_two_eq_factorialSeries",
-        "besselI2RealSeries_eq_modifiedBesselI",
-        "noncentralChiSixRadialSeriesKernel_eq_nuttallQ32_div_sq",
-        "measurable_noncentralChiSixRadialSeriesKernel",
-        "integrableOn_noncentralChiSixRadialSeriesKernel"
-      ]
-    },
-    "SphereSixDAxialMeasure": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SphereSixDAxialMeasure.lean",
-      "sha256": "342e14c3cd4fa29e796908ca0b74037e6dfb48c73b7f218f62cc3a920dc7fa15",
-      "imports": [
-        "FourDimensionalPolarBridge",
-        "SphereFourDPlaneAngleChart"
-      ],
-      "theorems": [
-        "euclideanSixToRealProdFive_symm_apply_zero",
-        "euclideanSixToRealProdFive_norm_sq",
-        "euclideanSixToRealProdFive_norm",
-        "euclideanSixToRealProdFive_measurePreserving",
-        "integral_euclideanSix_eq_integral_realProdFive",
-        "sixDAxialCartesianTest_eq_planeSlice",
-        "sixDAxialCartesianTest_integral_eq_planeSlice",
-        "measurable_sixDAxialPlaneIntegrand",
-        "sixDAxialPlaneIntegrand_norm_le",
-        "integrable_sixDAxialPlaneIntegrand",
-        "sixDAxialPlaneSlice_polar_eq",
-        "polarCoord_symm_re_sixD",
-        "polarCoord_symm_im_sixD",
-        "sixDSin_pos_iff_angle_pos",
-        "polarCoord_symm_im_pos_iff_sixD",
-        "sixDAxialPlaneWeightedIntegrand_polar_eq",
-        "sixDAxialRadialCutoff_integral",
-        "sixDAxialCartesianTest_smul_factor",
-        "sixDAxialCartesianTest_integral_factor",
-        "sphereSixMeasure_univ_real",
-        "sphereFiveMeasure_univ_real",
-        "integral_euclideanFive_norm_radial",
-        "sixDAxialCartesianTest_integral_eq_scalar_radial",
-        "sphereSix_axial_weight_mass",
-        "sphereSixToSphereExpIntegral_eq_angleChart"
-      ]
-    },
-    "SixDimensionalAngularBesselI2": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\SixDimensionalAngularBesselI2.lean",
-      "sha256": "fd7033ac3187325948ca321147e6e85c195d6f77955536ae397eebc9594b31c4",
-      "imports": [
-        "BesselI0Angle"
-      ],
-      "theorems": [
-        "expCosSinFourTerm_tsum",
-        "expCosSinFourTerm_restrict_norm_le",
-        "summable_expCosSinFourTerm_restrict_norm",
-        "angularSinFourIntegral_eq_tsum",
-        "integral_cos_pow_zero_pi_even",
-        "integral_cos_pow_zero_pi_odd",
-        "angularSinFourIntegral_eq_besselI2Series",
-        "angularSinFourIntegral_mul_sq_eq_besselI2",
-        "axialSixDimensionalIntegral_eq_angularSinFour",
-        "axialSixDimensionalIntegral_eq_besselI2Series",
-        "axialSixDimensionalWeight_eq_rpow",
-        "axialSixDimensionalRpowIntegral_eq_besselI2Series"
-      ]
-    },
-    "ThreeRowSampleCoordinates": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\ThreeRowSampleCoordinates.lean",
-      "sha256": "8e6aac4bb28ae45c2ec6727ac10a9ca36b1a1be057f9921d6ae81229b5b0ab3c",
-      "imports": [
-        "NoncentralOneColumnEnergy",
-        "NoncentralSixDimensionalRadial"
-      ],
-      "theorems": [
-        "stdGaussian_map_threeRowSampleToFin6",
-        "threeRowSampleToFin6_complexSampleMean",
-        "threeRowAxialShiftedBall_eq_sixDBall",
-        "threeRowSampleShiftedBall_eq_sixDBall",
-        "stdGaussian_sixDBall_shift_eq_axial",
-        "stdGaussianSixD_normalizer_eq",
-        "stdGaussianSixDBall_axialMeasure_eq_radialSeriesCDF",
-        "noncentralThreeRowAxialCDF_eq_radialSeries",
-        "noncentralThreeRowCDF_eq_radialSeries_of_mean"
-      ]
-    },
-    "CentralWishartCone": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\CentralWishartCone.lean",
-      "sha256": "ace0542d30db19435ef040e252bfd61b142edffbb7fd052bca698736cdf1fdde",
-      "imports": [
-        "TwoRowHermitianThreshold",
-        "DeepSeekScale20261015.CentralTrace"
-      ],
-      "theorems": [
-        "hermitian_shift_posDef_iff_all_eigenvalues",
-        "hermitian_shift_posDef_iff_smallest",
-        "centralCone_trace_shift",
-        "centralConeWeight_shift",
-        "centralConeWeight_square_shift"
-      ]
-    },
-    "CentralWishartBlockStep": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\CentralWishartBlockStep.lean",
-      "sha256": "2b2417fab3607b219da7e8074e2058c63126d2f142ab6c646e27c8fc91ba683d",
-      "imports": [
-        "CentralWishartCone"
-      ],
-      "theorems": [
-        "centralBlockShear_det",
-        "centralBlockShear_isUnit",
-        "centralBlockStep_factor",
-        "centralBlockStep_det",
-        "centralBlockStep_posDef_iff"
-      ]
-    },
-    "CentralHermitianCoordinates": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\CentralHermitianCoordinates.lean",
-      "sha256": "7d9207ab7c13dbcf6d3ad293a14f4d8ff3848d65cae642fe075513f012010e22",
-      "imports": [
-        "CentralWishartCone"
-      ],
-      "theorems": [
-        "hermitianOfRealCoordinates_isHermitian",
-        "realCoordinates_hermitianOfRealCoordinates",
-        "hermitianOfRealCoordinates_realCoordinates",
-        "continuous_hermitianOfRealCoordinates",
-        "continuous_realCoordinatesOfHermitian",
-        "hermitianRealCoordinateEquiv_measurePreserving",
-        "hermitianOfRealCoordinates_shift"
-      ]
-    },
-    "CentralWishartConeIntegral": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\CentralWishartConeIntegral.lean",
-      "sha256": "febc9dd265e42e920799c4000585cb2cdf31c47c35b26070af296fc7ac3fc1ab",
-      "imports": [
-        "CentralHermitianCoordinates"
-      ],
-      "theorems": [
-        "centralCoordinateShiftedCone_eq_image",
-        "centralCone_candidateIntegral_shift",
-        "centralCone_square_candidateIntegral_shift"
-      ]
-    },
-    "DeepSeekScale20261015.CentralTrace": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\DeepSeekScale20261015\\CentralTrace.lean",
-      "sha256": "ce61252104e01b6697c425182530dd80cab3a2da92f8e3ded6676514b07e8001",
-      "imports": [
-        "WishartProbability"
-      ],
-      "theorems": [
-        "deepseek_central_trace_shift"
-      ]
-    },
-    "GaussianOrthogonalProjectionLaw": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianOrthogonalProjectionLaw.lean",
-      "sha256": "97b1190770c34cd83e1e0dd574283ef3bca43ff5cddde7c866d6ebaca393edf0",
-      "imports": [
-        "WishartProbability",
-        "GaussianRadialCDF"
-      ],
-      "theorems": [
-        "stdGaussian_map_adjoint_norm_preserving",
-        "stdGaussian_orthogonalProjectionOnto_law",
-        "stdGaussian_half_norm_sq_law",
-        "stdGaussian_projected_half_norm_sq_law"
-      ]
-    },
-    "GaussianOrthogonalSplitLaw": {
-      "path": "D:\\vibe math\\theory\\jin_wishart_formalization\\JinWishartFormalization\\GaussianOrthogonalSplitLaw.lean",
-      "sha256": "c458daf3f4a2f08ea66db883a4c97b202ca425325103a2f97d9ecfd31528e868",
-      "imports": [
-        "GaussianOrthogonalProjectionLaw"
-      ],
-      "theorems": [
-        "stdGaussian_orthogonal_split_indep",
-        "stdGaussian_orthogonal_split_law"
-      ]
     }
   },
-  "current_evidence": [
-    "tools/deepseek_prover/scaled_minimum_20261015/integration_final.json",
-    "tools/deepseek_prover/scaled_minimum_20261015/scaled_law_and_p4.json",
-    "tools/deepseek_prover/minimum_cdf_20261013/verification.json"
-  ],
-  "scope": "2x1 first, central2x2 second, 3x1 subsequent; scales separately",
-  "route_assets": "Deterministic and coordinate/integral identities only, not actual generic density",
-  "updated_utc": "2026-10-15T13:31:16.426542+00:00"
+  "instruction": "AGENTS P4, issues only, different model family; human semantic acceptance is separate"
 }

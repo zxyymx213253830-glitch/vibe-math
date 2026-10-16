@@ -1,0 +1,26 @@
+{
+  "checked_utc": "2026-10-16T01:40:36.813146+00:00",
+  "machine_acceptance": "PASS",
+  "overall_academic_acceptance": "INCOMPLETE_INDEPENDENT_REVIEW",
+  "project_modules": 165,
+  "public_declarations_audited": 119,
+  "mapped_paper_claims": 22,
+  "pdf_pages": 12,
+  "archive_payload_hashes_checked": 502,
+  "source_to_output_to_manuscript_binding": "PASS",
+  "pdf_visual_and_standalone_source_compilation": "PASS",
+  "full_Lake_build": "NOT_RUN; project-source verification is separately recorded",
+  "independent_review": "BLOCKED_EXTERNAL_REVIEW_NOT_DELIVERED",
+  "external_failure": "API Error: 402 TeamoRouter 钱包余额不足，请前往 https://teamorouter.cn/dashboard?buy=1 充值后继续使用",
+  "semantic_obligations": "[需人工审查] Fubini/skew-product, sample/notation conventions, intrinsic Frobenius volume interpretation",
+  "submission_preparation": "Human authorship, license, public release and comprehensive novelty comparison remain separate",
+  "evidence_sha256": {
+    "theory/wishart_paper/main.tex": "2962627c6bb3f8ea68703db2dc9c1fe442dcf368918589743f7e6ebccacd37f5",
+    "theory/wishart_paper/claims.json": "eac35d207ddc29821b06de9b386b8958eaf57adae3492a50e259d9c7b86fdaba",
+    "verification/WISHART_PUBLICATION_REBUILD.json": "7d6b796759cf09747b0233dfe7c1f9ca3fa1be07c9d0ed6cf40ce2ebf70eacd0",
+    "verification/WISHART_PUBLICATION_AUDIT_BINDING.json": "ac938198a461e5a99e65a3c3301e3f9142d26e4f57b738e32a6d232c4481d4c1",
+    "verification/WISHART_PAPER_PDF_QA.json": "d91ecbc2acec7dc3bb63bf78679ed931fc370c49b83223170858d65bf8a36703",
+    "verification/WISHART_PAPER_DELIVERY.json": "7032eb2de549f0ea2a128ded4497be6a74cf5926c5bfdc5ad54dfdb0fbb59556",
+    "verification/WISHART_INDEPENDENT_REVIEW_STATUS.json": "2b3e7f2378c3099c29e4aed9ff059d4836e9b07df4075dee220569f5ca0160cf"
+  }
+}

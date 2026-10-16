@@ -24,8 +24,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--session", required=True, type=Path)
     parser.add_argument("--resume", action="store_true", help="Reuse only successful, unchanged source outputs")
+    parser.add_argument("--gate-session", type=Path, help="New acceptance authorization/compute gate, retaining the prior output campaign")
     args = parser.parse_args()
     session = args.session.resolve()
+    gate_session = args.gate_session.resolve() if args.gate_session else session
     library = session / "fresh-project-library"
     if library.exists() and not args.resume:
         raise SystemExit("Fresh output already exists; choose a new session, do not overwrite evidence")
@@ -63,7 +65,8 @@ def main() -> int:
     campaign_started = previous.get("campaign_started_utc", started)
     batches = list(previous.get("batches", []))
     current_batch = {"started_utc": started, "finished_utc": None,
-                     "compiled_modules": 0, "reused_modules": 0}
+                     "compiled_modules": 0, "reused_modules": 0,
+                     "authorization_session": gate_session.relative_to(ROOT).as_posix()}
     batches.append(current_batch)
     prior = {item["module"]: item for item in previous.get("resume_record_pool_not_current_validation", [])}
     prior.update({item["module"]: item for item in previous.get("records", [])})
@@ -77,7 +80,9 @@ def main() -> int:
         cached = prior.get(name)
         olean = library / (name.replace(".", "/") + ".olean")
         dependencies_rebuilt = any(dep in rebuilt for dep in imports[name])
-        if cached and cached["exit_code"] == 0 and cached["sha256"] == before and olean.exists() and not dependencies_rebuilt:
+        output_matches = (olean.exists() and cached and cached.get("olean_sha256") ==
+                          hashlib.sha256(olean.read_bytes()).hexdigest())
+        if cached and cached["exit_code"] == 0 and cached["sha256"] == before and output_matches and not dependencies_rebuilt:
             # These outputs were produced by the prior fresh-source pass, not
             # copied from the project's ordinary build cache.
             records.append(cached)
@@ -92,7 +97,7 @@ def main() -> int:
         timer = time.monotonic()
         result = subprocess.run([sys.executable,
             str(ROOT / "tools/deepseek_prover/collaborative_check.py"),
-            "--session", str(session), "--source", str(source), "--module", name,
+            "--session", str(gate_session), "--source", str(source), "--module", name,
             "--log", str(log), "--library", str(library)])
         elapsed = time.monotonic() - timer
         module_finished = datetime.now(timezone.utc).isoformat()
@@ -134,6 +139,17 @@ def main() -> int:
         print(f"{index+1}/{len(ordered)} {name}: {'PASS' if passed else 'FAILED'}", flush=True)
         if not passed:
             return 1
+    # A reused suffix (or an entirely reused validation batch) must also
+    # reach a terminal report; the last compilation may not be the last module.
+    final = json.loads(report_path.read_text(encoding="utf-8"))
+    updated = datetime.now(timezone.utc).isoformat()
+    current_batch["finished_utc"] = updated
+    final.update({"status": "PASS", "records": records, "checked_modules": len(records),
+                  "total_modules": len(ordered), "batches": batches, "updated_utc": updated,
+                  "compiled_module_wall_seconds_sum": round(sum(r.get("wall_seconds", 0) for r in records), 6),
+                  "campaign_wall_seconds": (datetime.fromisoformat(updated)-datetime.fromisoformat(campaign_started)).total_seconds()})
+    final.pop("resume_record_pool_not_current_validation", None)
+    report_path.write_text(json.dumps(final, indent=2) + "\n", encoding="utf-8")
     return 0
 
 

@@ -101,3 +101,19 @@ events and review requests/responses. The 38 runner generations, two separate
 manual calls, and five P4 requests have distinct denominators. No controlled
 model-comparison claim is made. Internal T3 normalization experiments are not
 part of this manuscript's claims or numerical evidence package.
+
+## Current acceptance snapshot
+
+The recorded 164-module fresh pass is followed by an incremental 165-module
+snapshot: the new HermitianCoordinateMetric and changed aggregate entry were
+checked; reused source/output hashes were validated. The new authorization gate
+was supplied with `--gate-session .tools/publication-acceptance-20261016`, without
+extending the expired research window. The 119-declaration audit and 22-claim
+manifest match this snapshot and the final manuscript. Old failed attempts are
+retained, including Lean-generated error recovery axioms in failed logs; these
+are not accepted proof dependencies. The standalone pending draft was promoted
+to the checked project module and is no longer a second unverified source copy.
+
+The real read-only Claude invocation returned API 402 and no issue report. Its
+raw evidence and status are archived separately; no automatic paid retry was
+made. The 96-source independent-review handoff remains open, not certified.

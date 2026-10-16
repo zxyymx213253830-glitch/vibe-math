@@ -1,0 +1,1 @@
+[claude-code:unrecognized_model] {"model":"claude-sonnet-5-5[1m]","query_source":"sdk"}

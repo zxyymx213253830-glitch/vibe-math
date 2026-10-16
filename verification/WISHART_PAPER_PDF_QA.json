@@ -1,10 +1,13 @@
 {
-  "prepared_for_date": "2026-10-16",
-  "pdf_sha256": "433927432a533f5aaed152f608f13ea24041590d6a0065c97e8a8ab0284542b2",
-  "pages": 10,
+  "status": "PASS",
+  "checked_utc": "2026-10-16T01:38:15.498639+00:00",
+  "pdf_sha256": "5bdc5ddab81285b442833bc323ecc9248373177bcd960a72a6f2254cb48d13e6",
+  "manuscript_sha256": "2962627c6bb3f8ea68703db2dc9c1fe442dcf368918589743f7e6ebccacd37f5",
+  "pages": 12,
   "latex_success": true,
   "undefined_references": false,
   "overfull_boxes": false,
+  "unicode_replacement_characters": false,
   "rendered_and_visually_inspected_pages": [
     1,
     2,
@@ -15,7 +18,39 @@
     7,
     8,
     9,
-    10
+    10,
+    11,
+    12
   ],
-  "independent_semantic_review": "PENDING; visual QA is not mathematical P4 review"
+  "render_dpi": 90,
+  "visual_reviewer": "Codex (not independent semantic review)",
+  "visual_findings": "All 12 final pages inspected; formulas, tables, page numbers and references legible, no clipping or overlap observed",
+  "rendered_page_sha256": {
+    "final-01.png": "9e6d3673ba92a80c74b2904220918a997f8cae8316df5b50e9bdd2a5d4403d56",
+    "final-02.png": "bc7c2f7b39966d01097920088cdcdda5e26e7be0c67fa6d60da787b1eac1332f",
+    "final-03.png": "e8b1b5bc7c620b6785bf1a2d07ae7e177789f55ddf9ad079737c0e6c2c3b1de7",
+    "final-04.png": "c97f34ef21c0b349d762b3bb8569461a829c6195a8bb54e5299f7f38121affbf",
+    "final-05.png": "967c4690d983821ab6bdc691d61233c7511421b58620026d6e5540488d0bc577",
+    "final-06.png": "4745cd2fa0dcf45fd3d780c718af32da91e9a2791dd62ca79f87e7aa9510a6bc",
+    "final-07.png": "f75510f4a49667982b678e58deb66cd554cd0c2e648e1a2de14c6537c844f951",
+    "final-08.png": "2594be70e41fb892813e7e7252e74ed9c5f09445b8da4749e0ba7134d007ab47",
+    "final-09.png": "21220e668384e81f6fbd1bf6f3bb6c9f470f2f27b11bafe0029623138b7addb2",
+    "final-10.png": "34b8f40533f4a1a0e73bf674e2aba2b8e8d0265761c6c15ac2287295753e77ad",
+    "final-11.png": "fa85babb0a78e2c613af8971ea4e8d6208c982b056c2cd3d4ccb279c3c65dca8",
+    "final-12.png": "17b3e79559708fb5e2fc9c6fe3723476fc51065df02d707ea2aa61865d5d32e2"
+  },
+  "latex_log": {
+    "path": "verification/publication_checks/acceptance-20261016/latex-final-log.txt",
+    "sha256": "6e57dbbbe0b50a34b9a27049756fece4933c7f648e5d4dc0bc3e94522d5eeadb"
+  },
+  "independent_semantic_review": "PENDING [需人工审查]; actual Claude invocation failed with API 402",
+  "standalone_source_archive_check": {
+    "status": "PASS",
+    "source_zip_sha256": "195f4a25ac84208517917cbf9948032f2262f6cd7678c29013701e38ecf6d5df",
+    "only_input": "main.tex",
+    "pdf_pages": 12,
+    "extracted_text_matches_final_pdf": true,
+    "runs": 2,
+    "method": "Extract actual source ZIP into isolated directory and compile twice with installers disabled; PDF bytes may differ through timestamps"
+  }
 }
