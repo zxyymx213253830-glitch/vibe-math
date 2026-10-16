@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-16T01:36:56.298393+00:00",
+  "created_utc": "2026-10-16T04:07:11.621292+00:00",
   "status": "READY_FOR_INDEPENDENT_REVIEW_NOT_REVIEWED",
   "entries": [
     "JinWishartFormalization.CentralHermitianCoordinates",
@@ -20,7 +20,7 @@
   ],
   "manuscript": {
     "path": "theory/wishart_paper/main.tex",
-    "sha256": "2962627c6bb3f8ea68703db2dc9c1fe442dcf368918589743f7e6ebccacd37f5"
+    "sha256": "9a96ec606f71fb5b4bc17a0be05d30125576ae12e0176b98bbef368bf526a38c"
   },
   "sources": {
     "JinWishartFormalization.BesselI0Angle": {

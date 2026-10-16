@@ -3,28 +3,28 @@
   "status": "LOCAL_REVIEW_PACKAGE_NOT_SUBMITTED",
   "manuscript": {
     "path": "theory/wishart_paper/main.tex",
-    "sha256": "2962627c6bb3f8ea68703db2dc9c1fe442dcf368918589743f7e6ebccacd37f5"
+    "sha256": "9a96ec606f71fb5b4bc17a0be05d30125576ae12e0176b98bbef368bf526a38c"
   },
   "pdf": {
     "path": "output/pdf/wishart_formalization.pdf",
-    "sha256": "5bdc5ddab81285b442833bc323ecc9248373177bcd960a72a6f2254cb48d13e6"
+    "sha256": "60a1bb5cdeae08ec1c99ea4a06981cc356ad2dd44a96b9a30053c05811ed7d80"
   },
   "audit_binding": {
     "path": "verification/WISHART_PUBLICATION_AUDIT_BINDING.json",
-    "sha256": "ac938198a461e5a99e65a3c3301e3f9142d26e4f57b738e32a6d232c4481d4c1"
+    "sha256": "7b183ebe1ac596f972523208d47019881dee68fb8d934f69d2a7f3fe1f08f130"
   },
   "archives": [
     {
       "path": "output/publication/wishart_latex_source.zip",
-      "sha256": "195f4a25ac84208517917cbf9948032f2262f6cd7678c29013701e38ecf6d5df"
+      "sha256": "1cb78f79e7baab5cf215d99998769fe99f956d561b485de7585c936a66009fab"
     },
     {
       "path": "output/publication/wishart_review_artifact.zip",
-      "sha256": "46e744fd1e6d9468cc8a3f26a396d97649c46c47c17c8a278d34ea860d9d5d2a"
+      "sha256": "4e0498fc956b47f2ce17e7d41cb21f5cf88a7ae66fb57427eadd9938a7f1b5ce"
     },
     {
       "path": "output/publication/wishart_independent_review.zip",
-      "sha256": "f809e1cdd5e17740e09a06d0c6acd3ccf486301eed297b612d59ca848e2c22d9"
+      "sha256": "34cc455e492a5511a69205f75cd96e5599fa35af182875009f4d1ab0bc107277"
     }
   ],
   "archive_byte_integrity": "PASS: every payload hash checked after reopening ZIP",
@@ -34,5 +34,5 @@
     "Public artifact URL and human-selected license",
     "Final novelty/source review"
   ],
-  "artifact_files": 400
+  "artifact_files": 404
 }

@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.10.16)  16 OCT 2026 09:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.10.16)  16 OCT 2026 12:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./main.tex
-(main.tex
+**"D:/vibe math/theory/wishart_paper/main.tex"
+(D:/vibe math/theory/wishart_paper/main.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -675,13 +675,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 56E5AB97930A47639F3B14095A7937F3;4478.
  ) 
 Here is how much of TeX's memory you used:
- 14416 strings out of 467441
- 228303 string characters out of 5406618
- 711681 words of memory out of 5000000
+ 14421 strings out of 467441
+ 228419 string characters out of 5406618
+ 709694 words of memory out of 5000000
  43230 multiletter control sequences out of 15000+600000
- 716816 words of font info for 200 fonts, out of 8000000 for 9000
+ 717029 words of font info for 202 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,10n,79p,1003b,589s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,10n,79p,1037b,589s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
 pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
 2.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lme
@@ -701,7 +701,7 @@ public/lm/lmsy6.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1
 1/public/lm/lmtt10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/lm/lmtti10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "D:/vibe math\output\pdf\main.pdf" (12 pages, 406397 bytes).
+Output written on "D:/vibe math\output\pdf\main.pdf" (12 pages, 408054 bytes).
 PDF statistics:
  334 PDF objects out of 1000 (max. 8388607)
  66 named destinations out of 1000 (max. 500000)

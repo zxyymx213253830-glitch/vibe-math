@@ -141,5 +141,5 @@ C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb>
 fb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti1
 0.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on main.pdf (12 pages, 406397 bytes).
+Output written on main.pdf (12 pages, 408054 bytes).
 Transcript written on main.log.

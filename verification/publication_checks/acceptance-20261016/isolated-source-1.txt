@@ -86,8 +86,7 @@ ilecheck.sty
 ecounter.sty)))
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd)
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\l3backend-pd
-ftex.def)
-No file main.aux.
+ftex.def) (main.aux)
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 
@@ -106,6 +105,7 @@ mkii
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys
 .cfg))
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg)
+(main.out) (main.out)
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd)
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd)
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd)
@@ -114,130 +114,16 @@ mkii
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg)
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg)
-
-
-LaTeX Warning: Citation `jin' on page 1 undefined on input line 62.
-
 [1{C:/Users/zxy1117/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/
 zxy1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/zx
 y1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/zxy1
 117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/zx
 y1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
-
-LaTeX Warning: Citation `mathlib' on page 2 undefined on input line 97.
-
-
-LaTeX Warning: Citation `gouezel' on page 2 undefined on input line 98.
-
-
-LaTeX Warning: Citation `degenne' on page 2 undefined on input line 101.
-
-
-LaTeX Warning: Citation `bartlett' on page 2 undefined on input line 107.
-
-
-LaTeX Warning: Citation `goodman' on page 2 undefined on input line 108.
-
-
-LaTeX Warning: Citation `edelman1988' on page 2 undefined on input line 110.
-
-
-LaTeX Warning: Citation `edelman1991' on page 2 undefined on input line 110.
-
-
-LaTeX Warning: Reference `eq:sample' on page 2 undefined on input line 112.
-
-
-LaTeX Warning: Citation `avigad' on page 2 undefined on input line 116.
-
-
-LaTeX Warning: Citation `affeldt' on page 2 undefined on input line 117.
-
 (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd)
-[2]
-
-LaTeX Warning: Reference `eq:hermitian' on page 3 undefined on input line 169.
-
-
-LaTeX Warning: Reference `eq:gram' on page 3 undefined on input line 174.
-
-
-LaTeX Warning: Reference `eq:sample' on page 3 undefined on input line 198.
-
-[3{C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.
-enc}]
-
-LaTeX Warning: Reference `eq:bartlett' on page 4 undefined on input line 243.
-
-
-LaTeX Warning: Reference `eq:chart' on page 4 undefined on input line 275.
-
-[4]
-
-LaTeX Warning: Reference `eq:bartlett' on page 5 undefined on input line 287.
-
-
-LaTeX Warning: Reference `eq:sample' on page 5 undefined on input line 310.
-
-
-LaTeX Warning: Reference `eq:threshold' on page 5 undefined on input line 319.
-
-
-LaTeX Warning: Reference `thm:gram' on page 5 undefined on input line 319.
-
-
-LaTeX Warning: Citation `jinpreprint' on page 5 undefined on input line 343.
-
-
-LaTeX Warning: Citation `jin' on page 5 undefined on input line 344.
-
-[5]
-
-LaTeX Warning: Reference `thm:minimum' on page 6 undefined on input line 360.
-
-
-LaTeX Warning: Citation `tse' on page 6 undefined on input line 377.
-
-[6]
-
-LaTeX Warning: Reference `eq:sample' on page 7 undefined on input line 419.
-
-
-LaTeX Warning: Reference `eq:hardedge' on page 7 undefined on input line 442.
-
-
-LaTeX Warning: Reference `tab:map' on page 7 undefined on input line 458.
-
-[7]
-
-LaTeX Warning: Reference `tab:map' on page 8 undefined on input line 511.
-
-[8]
-
-LaTeX Warning: Reference `eq:outage' on page 9 undefined on input line 530.
-
-
-LaTeX Warning: Citation `arxivpolicy' on page 9 undefined on input line 590.
-
-[9]
-
-LaTeX Warning: Reference `eq:general' on page 10 undefined on input line 605.
-
-[10]
-
-LaTeX Warning: Citation `arxivpolicy' on page 11 undefined on input line 675.
-
-[11] [12] (main.aux)
-
-LaTeX Warning: There were undefined references.
-
+[2] [3{C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
+hex.enc}] [4] [5] [6] [7] [8] [9] [10] [11] [12] (main.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
 
  )<C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
 pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
@@ -258,5 +144,5 @@ public/lm/lmsy6.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1
 1/public/lm/lmtt10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/lm/lmtti10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (12 pages, 392154 bytes).
+Output written on main.pdf (12 pages, 408054 bytes).
 Transcript written on main.log.

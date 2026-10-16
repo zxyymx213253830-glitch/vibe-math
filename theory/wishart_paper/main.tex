@@ -224,7 +224,8 @@ The sample-defined coordinates satisfy
  \Law(S,Z,E)=\operatorname{Gamma}(2,1)\otimes\CN(0,1)
                        \otimes\operatorname{Exp}(1),
 \]
-where Gamma and exponential parameters are rates. Relative to
+where $\operatorname{Gamma}(\alpha,\beta)$ uses shape $\alpha$ and rate $\beta$,
+and $\operatorname{Exp}(r)$ uses rate $r$. Relative to
 $ds\,da\,db\,de$, their density is
 \begin{equation}\label{eq:bartlett}
  f_B(s,a,b,e)=\frac{s}{\pi}
@@ -338,6 +339,15 @@ The three principal statements are \lean{actualTwoRow_minimum_tail},
 The unmodified determinant candidate of Jin et al.\ at
 $(s,t,L)=(2,2,0)$ is also shown equal to this actual CDF in
 \lean{theorem1CentralTwoRow_candidate_eq_actualCDF}.
+In this specialization its matrix is explicitly
+\[
+ \Psi(x)=e^{-x}\begin{pmatrix}x^2+2x+2&x+1\\x+1&1\end{pmatrix},
+ \qquad \det\Psi(x)=e^{-2x},\qquad \det\Psi(0)=1.
+\]
+The Lean candidate takes norms of complex determinants. Here both
+determinants are positive real numbers, so its norm ratio equals the
+ordinary determinant ratio in the source formula. This observation is
+specific to the verified specialization, not a general sign assertion.
 This last connection is a specialization of their formula, not a proof of
 their general ordered eigenvalue distribution theorem.
 The transcription follows arXiv v2 \cite{jinpreprint}. The journal metadata in

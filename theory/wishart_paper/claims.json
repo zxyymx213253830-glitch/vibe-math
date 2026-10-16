@@ -1,6 +1,6 @@
 {
   "prepared_for_date": "2026-10-16",
-  "generated_utc": "2026-10-16T01:36:56.688550+00:00",
+  "generated_utc": "2026-10-16T04:07:11.327486+00:00",
   "toolchain": "leanprover/lean4:v4.35.0-rc2",
   "mathlib_revision": "e18afff334217588afc719a8b707b00d90521064",
   "status": "SOURCE_CHECKED_WORKING_MANUSCRIPT; independent review and author metadata pending",
@@ -25,7 +25,7 @@
     "public_declaration_count": 119,
     "all_targets_printed_standard_axioms": true,
     "binding": "verification/WISHART_PUBLICATION_AUDIT_BINDING.json",
-    "binding_sha256": "ac938198a461e5a99e65a3c3301e3f9142d26e4f57b738e32a6d232c4481d4c1",
+    "binding_sha256": "7b183ebe1ac596f972523208d47019881dee68fb8d934f69d2a7f3fe1f08f130",
     "coverage": {
       "JinWishart.actualTwoRow_BartlettCoordinates_eq_withDensity_raw": {
         "module": "JinWishartFormalization.TwoRowActualDensity",
