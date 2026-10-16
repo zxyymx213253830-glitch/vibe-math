@@ -1,0 +1,52 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:185:40: warning: Variable name `hks` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hks
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:185:54: warning: Variable name `hkt` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hkt
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:208:47: warning: Variable name `hst` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hst
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:227:6: warning: Variable name `k` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _k
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:274:48: warning: Variable name `hkt` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hkt
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:290:5: warning: Variable name `hscale` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hscale
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:290:26: warning: Variable name `hpower` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpower
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:298:57: warning: Variable name `hker` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hker
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperStatements.lean:353:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲

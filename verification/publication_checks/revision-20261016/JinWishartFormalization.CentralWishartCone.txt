@@ -1,0 +1,5 @@
+'JinWishart.hermitian_shift_posDef_iff_all_eigenvalues' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitian_shift_posDef_iff_smallest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralCone_trace_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralConeWeight_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralConeWeight_square_shift' depends on axioms: [propext, Classical.choice, Quot.sound]

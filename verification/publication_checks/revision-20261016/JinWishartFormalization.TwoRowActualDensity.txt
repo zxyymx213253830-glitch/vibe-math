@@ -1,0 +1,25 @@
+'JinWishart.stdGaussian_complex_scaled_eq_withDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_twoRowComplexDensityRaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_twoRowBartlettDensityRaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_BartlettCoordinates_eq_withDensity_raw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.measurable_twoRowBartlettRealDensityRaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_BartlettRealCoordinates_eq_withDensity_raw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.measurable_twoRowGramDensityRaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_GramRealCoordinates_eq_withDensity_raw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.twoRow_gamma_two_positive_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRow_gamma_one_positive_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowBartlettCoordinateEquiv_symm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowBartlettRealDensityRaw_positive_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowGramDensityRaw_positive_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRow_complex_scaled_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowComplexDensityRaw_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowGramDensityRaw_trace_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_GramRealCoordinates_eq_traceDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowGram_traceDensity_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_Complex_eq_normalizedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]

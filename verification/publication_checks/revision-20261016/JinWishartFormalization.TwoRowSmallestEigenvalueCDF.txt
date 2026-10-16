@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowSmallestEigenvalueCDF.lean:56:36: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowSmallestEigenvalueCDF.lean:62:35: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+'JinWishart.twoRowShiftedCone_eq_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowShiftedCone_subset_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowTraceDensity_translate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowShiftedCone_traceMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_shiftedCone_probability' depends on axioms: [propext, Classical.choice, Quot.sound]

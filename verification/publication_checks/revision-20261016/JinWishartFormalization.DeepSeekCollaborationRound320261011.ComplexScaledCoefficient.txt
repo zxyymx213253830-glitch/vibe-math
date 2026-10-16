@@ -1,0 +1,49 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:10:6: warning: Unused tactic linter: `field_simp [pow_two, mul_assoc]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:11:6: warning: Unused tactic linter: `ring_nf` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:12:6: warning: Unused tactic linter: `norm_num` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:13:6: warning: Unused tactic linter: `field_simp [pow_two, mul_assoc]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:14:6: warning: Unused tactic linter: `ring_nf` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:15:6: warning: Unused tactic linter: `norm_num` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:10:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:11:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:12:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:13:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:14:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:15:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:6:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:7:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:8:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledCoefficient.lean:9:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'deepseek_round3_ComplexScaledCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]

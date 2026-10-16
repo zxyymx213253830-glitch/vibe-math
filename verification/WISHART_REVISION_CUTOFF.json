@@ -1,0 +1,36 @@
+{
+  "saved_utc": "2026-10-16T01:28:59.509969+00:00",
+  "authorized_deadline_utc": "2026-10-15T18:03:29+00:00",
+  "post_deadline_actions": "save, archive, status reporting only; no new Lean, mathematics, model generation or experiments",
+  "automation": "PAUSED",
+  "core_source_check": {
+    "status": "PASS",
+    "checked_modules": 164,
+    "total_modules": 164,
+    "campaign_started_utc": "2026-10-15T17:00:22.325366+00:00",
+    "updated_utc": "2026-10-15T17:24:28.532898+00:00",
+    "campaign_wall_seconds": 1446.207532,
+    "full_Lake_build": "NOT_RUN"
+  },
+  "expanded_axiom_audit": {
+    "targets_generated": 111,
+    "status": "NOT_RUN",
+    "binding": "NOT_CREATED",
+    "previous_claims_json": "Previous 20-declaration release only; not a binding for revised manuscript"
+  },
+  "new_coordinate_metric_proof": {
+    "path": "theory\\wishart_paper\\pending\\HermitianCoordinateMetric.lean",
+    "status": "DRAFT_NOT_KERNEL_CHECKED",
+    "included_in_164_check": false
+  },
+  "manuscript": {
+    "source": "theory\\wishart_paper\\main.tex",
+    "sha256": "ce830f4c217f186120154ab1000d26e1cf3ad898e295d7cb88f6a8007904d375",
+    "compiled_pdf": "output/pdf/main.pdf",
+    "pdf_sha256": "2c56c57263de9eb9baba3caf542f13ce1a57a590ff80316e01c47dfcd6fc52d9",
+    "latest_layout_review": "NOT_COMPLETED",
+    "release_packages": "Previous release packages; not regenerated for revision"
+  },
+  "independent_semantic_review": "PENDING; Fubini/skew-product, Lean bodies and notation correspondence not covered",
+  "new_source_log_archive": "verification\\publication_checks\\revision-20261016"
+}

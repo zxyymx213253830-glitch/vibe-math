@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFourDimensionalCDF.lean:102:34: warning: This simp argument is unused:
+  mem_compl_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mem_inter_iff, mem_Ioi, mem_Ioc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFourDimensionalCDF.lean:110:4: warning: Unused tactic linter: `change
+  (∫ r, noncentralChiFourRadialKernel a r ∂((volume : Measure ℝ).restrict (Ioi (0 : ℝ))).restrict (Ioi b)) =
+    _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFourDimensionalCDF.lean:118:4: warning: Unused tactic linter: `change
+  (∫ r, noncentralChiFourRadialKernel a r ∂((volume : Measure ℝ).restrict (Ioi (0 : ℝ))).restrict (Ioi b)ᶜ) =
+    _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFourDimensionalCDF.lean:185:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFourDimensionalCDF.lean:214:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFourDimensionalCDF.lean:218:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲

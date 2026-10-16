@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\SampleMatrix.lean:8:91: warning: This simp argument is unused:
+  mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [complexSampleMatrix, Complex.ext_iff, smul_eq_mul, add_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\SampleMatrix.lean:8:100: warning: This simp argument is unused:
+  add_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [complexSampleMatrix, Complex.ext_iff, smul_eq_mul, mul_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\SampleMatrix.lean:9:31: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\SampleMatrix.lean:9:31: warning: Unused tactic linter: `aesop` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'JinWishart.deepseek_scaled_sampleMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]

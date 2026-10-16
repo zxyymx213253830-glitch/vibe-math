@@ -1,0 +1,100 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:20:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:21:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:22:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:23:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:24:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:25:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:26:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:27:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:28:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:29:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:30:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:31:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:32:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:33:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:34:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:35:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:19:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:20:6: warning: Unused tactic linter: `simp [Measurable.const, Measurable.id, Measurable.pow, Measurable.norm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:21:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:22:6: warning: Unused tactic linter: `simp [Measurable.const, Measurable.id, Measurable.pow, Measurable.norm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:23:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:24:6: warning: Unused tactic linter: `simp [Measurable.const, Measurable.id, Measurable.pow, Measurable.norm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:25:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:26:6: warning: Unused tactic linter: `simp [Measurable.const, Measurable.id, Measurable.pow, Measurable.norm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:27:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:28:6: warning: Unused tactic linter: `simp [Measurable.const, Measurable.id, Measurable.pow, Measurable.norm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:29:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:30:6: warning: Unused tactic linter: `simp [Measurable.const, Measurable.id, Measurable.pow, Measurable.norm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:31:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:32:6: warning: Unused tactic linter: `simp [Measurable.const, Measurable.id, Measurable.pow, Measurable.norm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:33:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:34:6: warning: Unused tactic linter: `simp [Measurable.const, Measurable.id, Measurable.pow, Measurable.norm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaboration20261010\ComplexDensityMeasurable.lean:35:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'deepseek_hour_ComplexDensityMeasurable' depends on axioms: [propext, Classical.choice, Quot.sound]

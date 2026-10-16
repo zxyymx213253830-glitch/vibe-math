@@ -1,0 +1,72 @@
+{
+  "scope": "2026-10-11 round3 runner calls only; adaptively guided observational record",
+  "model": "deepseek-prover-v2:7b",
+  "generations": 38,
+  "kernel_passed": 2,
+  "lean_rejected": 29,
+  "output_rejected_before_check": 7,
+  "accepted_cards": [
+    "ComplexScaledCoefficient",
+    "ComplexScaledNormSquare"
+  ],
+  "additional_manual_author_calls_excluded": 2,
+  "additional_manual_author_calls_passed": 0,
+  "manual_call_count_source": "notes/DEEPSEEK_CODEX_ROUND3_SUMMARY_20261011.md",
+  "p4_requests_separate_from_generation_denominator": 5,
+  "usable_p4_reviews": 0,
+  "runner_finish": {
+    "utc": "2026-10-11T05:59:33.251444+00:00",
+    "event": "FINISH",
+    "status": "FAILED",
+    "accepted": [
+      "ComplexScaledCoefficient",
+      "ComplexScaledNormSquare"
+    ]
+  },
+  "runner_failure_cause": "Malformed task template; not a full-hour throughput benchmark",
+  "event_log": "verification/workflow_evidence/round3/events.jsonl",
+  "event_log_sha256": "bad38bcbeea69f03e258947193813cc24215f4c33dd3e658b24b24a221c3413a",
+  "p4": [
+    {
+      "request": "verification/workflow_evidence/round3/codex-actual-density-p4-prompt.txt",
+      "request_sha256": "ff1bf4113c8354307896f466ce55066e6d86a5d2a8cacc1fbf120644093577e8",
+      "response": "verification/workflow_evidence/round3/codex-actual-density-p4-response.json",
+      "response_sha256": "c935b49233cd9f2ff3830d01829d59417e5c8426c112c926f3f49bbc44525193",
+      "verdict": "NONRESPONSIVE_NOT_VALID_REVIEW",
+      "response_excerpt": "### End of file\n"
+    },
+    {
+      "request": "verification/workflow_evidence/round3/codex-cn-real-api-p4-prompt.txt",
+      "request_sha256": "8ab5139daa25b7b9230f29d73c03b9ccb6e347ca0a9186f53b7669b7942bac84",
+      "response": "verification/workflow_evidence/round3/codex-cn-real-api-p4-response.json",
+      "response_sha256": "094f4a6ffb043d0fcee32ce3a0130e6631d25667624d6c84bed63263dd12998a",
+      "verdict": "NONRESPONSIVE_NOT_VALID_REVIEW",
+      "response_excerpt": "### Abstract Plan\n\n1. **Establish the Setup**:\n   - The complex Gaussian measure is a probability measure on the complex plane.\n   - The two-dimensional complex plane is modeled as a Euclidean plane.\n\n2. **Establish the "
+    },
+    {
+      "request": "verification/workflow_evidence/round3/codex-cn-real-mass-p4-prompt.txt",
+      "request_sha256": "b4bd847e4486d20d7e87653030106de62ac5a86b65f072ab192c90354926aecc",
+      "response": "verification/workflow_evidence/round3/codex-cn-real-mass-p4-response.json",
+      "response_sha256": "4e1c6c5f5488bcad25d5e6cb2addc52fdc13bef301846158fd4199e952be0b3a",
+      "verdict": "NONRESPONSIVE_NOT_VALID_REVIEW",
+      "response_excerpt": "### Step-by-Step Abstract Plan\n\n1. **Understand the Problem**: We need to prove that the integral of the Gaussian density function over the entire plane equals 1. This is a fundamental property of the Gaussian distributi"
+    },
+    {
+      "request": "verification/workflow_evidence/round3/codex-normalized-bartlett-p4-prompt.txt",
+      "request_sha256": "0479d60ab6643fce93ad36570de75deac3553f91607ff2abfdda8c35a6c10cd1",
+      "response": "verification/workflow_evidence/round3/codex-normalized-bartlett-p4-response.json",
+      "response_sha256": "d82f3fe352bc8df8f75ea28bd62d5a15c470ea56db978be6e68c8ca9bd6290f5",
+      "verdict": "NONRESPONSIVE_NOT_VALID_REVIEW",
+      "response_excerpt": "### Actual Four-Real Bartlett Density\n\nThe actual four-real Bartlett density is a key component in the analysis of Bartlett's theorem, a foundational result in probability theory. The Bartlett density arises in the analy"
+    },
+    {
+      "request": "verification/workflow_evidence/round3/codex-trace-density-p4-prompt.txt",
+      "request_sha256": "94da93e529f9e1f6110a5eff0c6ee6ff27f1e9ab324183637fe7d024c8e6b827",
+      "response": "verification/workflow_evidence/round3/codex-trace-density-p4-response.json",
+      "response_sha256": "e9b4b67b60bb345be4da16e010626b865883dba90a0fc587953cb13d3042a4b0",
+      "verdict": "NONRESPONSIVE_NOT_VALID_REVIEW",
+      "response_excerpt": "\n#print.\n"
+    }
+  ],
+  "semantic_review": "Still pending; output review is not proof review"
+}

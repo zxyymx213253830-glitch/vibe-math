@@ -1,0 +1,106 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:7:24: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.trace, Finset.sum_add_distrib, Finset.sum_sub_distrib, Finset.mul_sum, mul_add, add_mul,
+    mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:7:66: warning: This simp argument is unused:
+  Finset.sum_sub_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.trace, Matrix.mul_apply, Finset.sum_add_distrib, Finset.mul_sum, mul_add, add_mul, mul_comm,
+    mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:8:6: warning: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.trace, Matrix.mul_apply, Finset.sum_add_distrib, Finset.sum_sub_distrib, mul_add, add_mul,
+    mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:8:22: warning: This simp argument is unused:
+  mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.trace, Matrix.mul_apply, Finset.sum_add_distrib, Finset.sum_sub_distrib, Finset.mul_sum, add_mul,
+    mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:8:31: warning: This simp argument is unused:
+  add_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.trace, Matrix.mul_apply, Finset.sum_add_distrib, Finset.sum_sub_distrib, Finset.mul_sum, mul_add,
+    mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:8:50: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.trace, Matrix.mul_apply, Finset.sum_add_distrib, Finset.sum_sub_distrib, Finset.mul_sum, mul_add,
+    add_mul, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:10:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:12:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:14:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:16:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:18:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:20:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:22:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:24:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:26:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:10:4: warning: Unused tactic linter: `simp_all [Complex.ext_iff, Complex.re, Complex.im, Complex.ofReal_re,
+  Complex.ofReal_im]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:12:4: warning: Unused tactic linter: `ring_nf` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:14:4: warning: Unused tactic linter: `field_simp [Complex.ext_iff, Complex.re, Complex.im, Complex.ofReal_re,
+  Complex.ofReal_im]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:16:4: warning: Unused tactic linter: `ring_nf` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:18:4: warning: Unused tactic linter: `norm_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:20:4: warning: Unused tactic linter: `simp_all [Complex.ext_iff, Complex.re, Complex.im, Complex.ofReal_re,
+  Complex.ofReal_im]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:22:4: warning: Unused tactic linter: `ring_nf` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:24:4: warning: Unused tactic linter: `norm_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekScale20261015\CentralTrace.lean:26:4: warning: Unused tactic linter: `linarith` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'deepseek_central_trace_shift' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,68 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:38:16: warning: This simp argument is unused:
+  map_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose_apply, hermitianOfRealCoordinates, he, Ne.symm he, hl, hj, map_add, map_mul,
+    sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:38:25: warning: This simp argument is unused:
+  map_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose_apply, hermitianOfRealCoordinates, he, Ne.symm he, hl, hj, map_sub, map_mul,
+    sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:38:34: warning: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose_apply, hermitianOfRealCoordinates, he, Ne.symm he, hl, hj, map_sub, map_add,
+    sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:41:16: warning: This simp argument is unused:
+  map_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose_apply, hermitianOfRealCoordinates, he, Ne.symm he, hl, hj, map_add, map_mul,
+    sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:41:25: warning: This simp argument is unused:
+  map_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose_apply, hermitianOfRealCoordinates, he, Ne.symm he, hl, hj, map_sub, map_mul,
+    sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:41:34: warning: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose_apply, hermitianOfRealCoordinates, he, Ne.symm he, hl, hj, map_sub, map_add,
+    sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:75:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:79:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralHermitianCoordinates.lean:135:6: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hermitianOfRealCoordinates, Matrix.add_apply, Matrix.smul_apply, he, Ne.symm he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.hermitianOfRealCoordinates_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.realCoordinates_hermitianOfRealCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitianOfRealCoordinates_realCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.continuous_hermitianOfRealCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.continuous_realCoordinatesOfHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitianRealCoordinateEquiv_measurePreserving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitianOfRealCoordinates_shift' depends on axioms: [propext, Classical.choice, Quot.sound]

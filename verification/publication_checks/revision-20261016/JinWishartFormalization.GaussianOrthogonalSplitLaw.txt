@@ -1,0 +1,2 @@
+'JinWishart.stdGaussian_orthogonal_split_indep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_orthogonal_split_law' depends on axioms: [propext, Classical.choice, Quot.sound]

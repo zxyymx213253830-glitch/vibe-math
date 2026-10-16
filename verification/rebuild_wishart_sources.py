@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+import time
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "theory/jin_wishart_formalization"
@@ -57,7 +58,15 @@ def main() -> int:
     report_path = ROOT / "verification/WISHART_PUBLICATION_REBUILD.json"
     started = datetime.now(timezone.utc).isoformat()
     previous = json.loads(report_path.read_text(encoding="utf-8")) if args.resume else {}
-    prior = {item["module"]: item for item in previous.get("records", [])}
+    if args.resume and previous.get("session") != session.relative_to(ROOT).as_posix():
+        raise SystemExit("Resume requires the same recorded campaign session")
+    campaign_started = previous.get("campaign_started_utc", started)
+    batches = list(previous.get("batches", []))
+    current_batch = {"started_utc": started, "finished_utc": None,
+                     "compiled_modules": 0, "reused_modules": 0}
+    batches.append(current_batch)
+    prior = {item["module"]: item for item in previous.get("resume_record_pool_not_current_validation", [])}
+    prior.update({item["module"]: item for item in previous.get("records", [])})
     history = list(previous.get("failed_attempts", []))
     history.extend(item for item in previous.get("records", []) if item["exit_code"] != 0)
     rebuilt = set()
@@ -72,21 +81,41 @@ def main() -> int:
             # These outputs were produced by the prior fresh-source pass, not
             # copied from the project's ordinary build cache.
             records.append(cached)
+            current_batch["reused_modules"] += 1
             continue
         rebuilt.add(name)
+        if log.exists():
+            archived = log.with_name(log.stem + ".previous-" + hashlib.sha256(log.read_bytes()).hexdigest()[:12] + ".txt")
+            if not archived.exists():
+                archived.write_bytes(log.read_bytes())
+        module_started = datetime.now(timezone.utc).isoformat()
+        timer = time.monotonic()
         result = subprocess.run([sys.executable,
             str(ROOT / "tools/deepseek_prover/collaborative_check.py"),
             "--session", str(session), "--source", str(source), "--module", name,
             "--log", str(log), "--library", str(library)])
+        elapsed = time.monotonic() - timer
+        module_finished = datetime.now(timezone.utc).isoformat()
+        current_batch["compiled_modules"] += 1
         after = hashlib.sha256(source.read_bytes()).hexdigest()
         record = {"module": name, "source": source.relative_to(ROOT).as_posix(),
                   "sha256": before, "exit_code": result.returncode,
+                  "started_utc": module_started, "finished_utc": module_finished,
+                  "wall_seconds": round(elapsed, 6),
+                  "timing_scope": "helper process including gate wait and Lean; wall clock, not CPU",
                   "source_unchanged": before == after,
-                  "log_sha256": hashlib.sha256(log.read_bytes()).hexdigest() if log.exists() else None}
+                  "log_sha256": hashlib.sha256(log.read_bytes()).hexdigest() if log.exists() else None,
+                  "olean_sha256": hashlib.sha256(olean.read_bytes()).hexdigest() if olean.exists() else None}
         records.append(record)
         passed = result.returncode == 0 and before == after
         done = len(records) == len(ordered)
-        report = {"started_utc": started, "updated_utc": datetime.now(timezone.utc).isoformat(),
+        updated = datetime.now(timezone.utc).isoformat()
+        current_batch["finished_utc"] = updated
+        report = {"schema_version": 2, "campaign_started_utc": campaign_started,
+                  "started_utc": campaign_started, "updated_utc": updated,
+                  "campaign_wall_seconds": (datetime.fromisoformat(updated)-datetime.fromisoformat(campaign_started)).total_seconds(),
+                  "compiled_module_wall_seconds_sum": round(sum(r.get("wall_seconds", 0) for r in records), 6),
+                  "batches": batches, "session": session.relative_to(ROOT).as_posix(),
                   "method": "fresh project-source elaboration, cached pinned external packages, serial shared gate",
                   "full_Lake_build": "NOT_RUN", "mathlib_rebuilt_from_source": False,
                   "status": "PASS" if done and passed else "RUNNING" if passed else "FAILED",
@@ -96,6 +125,11 @@ def main() -> int:
                   "records": records}
         report["initial_started_utc"] = previous.get("initial_started_utc", previous.get("started_utc", started))
         report["failed_attempts"] = history
+        if not done:
+            # Preserve the unvisited suffix of a prior complete campaign.
+            # These are cache candidates only; each hash/dependency is checked
+            # before reuse. They do not count toward this pass's checked total.
+            report["resume_record_pool_not_current_validation"] = list(prior.values())
         report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
         print(f"{index+1}/{len(ordered)} {name}: {'PASS' if passed else 'FAILED'}", flush=True)
         if not passed:

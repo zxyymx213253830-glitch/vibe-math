@@ -1,0 +1,51 @@
+{
+  "evidence_kind": "exact finite-dimensional SymPy controls, not general Lean proof",
+  "random_seed": "not applicable: deterministic exact algebra",
+  "status": "PASS",
+  "two_row_metric": [
+    1,
+    2,
+    2,
+    1
+  ],
+  "two_row_volume_factor": 2,
+  "two_row_density_relative_to_frobenius": "(2*pi)^(-1)*exp(-trace)",
+  "rows": [
+    {
+      "n": 1,
+      "metric_determinant": "1",
+      "volume_factor": "1",
+      "identity_metric_determinant": 1
+    },
+    {
+      "n": 2,
+      "metric_determinant": "4",
+      "volume_factor": "2",
+      "identity_metric_determinant": 1
+    },
+    {
+      "n": 3,
+      "metric_determinant": "64",
+      "volume_factor": "8",
+      "identity_metric_determinant": 1
+    },
+    {
+      "n": 4,
+      "metric_determinant": "4096",
+      "volume_factor": "64",
+      "identity_metric_determinant": 1
+    },
+    {
+      "n": 5,
+      "metric_determinant": "1048576",
+      "volume_factor": "1024",
+      "identity_metric_determinant": 1
+    },
+    {
+      "n": 6,
+      "metric_determinant": "1073741824",
+      "volume_factor": "32768",
+      "identity_metric_determinant": 1
+    }
+  ]
+}

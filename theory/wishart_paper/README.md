@@ -2,6 +2,8 @@
 
 日期：2026-10-16。
 
+**当前修订尚未验收完成。** 请先读 [REVISION_STATUS.md](REVISION_STATUS.md)：164模块检查通过，但111条扩展公理审计未执行，最新PDF布局审查未完成。下述旧发布PDF和claims属于前一版本。
+
 英文工作稿：**From Gaussian Samples to a Complex Wishart Minimum Law in Lean**。
 
 - `main.tex`：完整正文与参考文献。

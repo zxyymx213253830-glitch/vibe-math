@@ -1,0 +1,70 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:136:8: warning: This simp argument is unused:
+  zero_pow (by omega : 2 * k + 1 ≠ 0)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.cos_zero, Real.cos_pi, Real.sin_zero, Real.sin_pi, mul_zero, sub_zero, zero_sub, neg_zero,
+    add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:136:65: warning: This simp argument is unused:
+  zero_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.cos_zero, Real.cos_pi, Real.sin_zero, Real.sin_pi, zero_pow (by omega : 2 * k + 1 ≠ 0),
+    mul_zero, sub_zero, neg_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:137:8: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.cos_zero, Real.cos_pi, Real.sin_zero, Real.sin_pi, zero_pow (by omega : 2 * k + 1 ≠ 0),
+    mul_zero, sub_zero, zero_sub, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:137:18: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.cos_zero, Real.cos_pi, Real.sin_zero, Real.sin_pi, zero_pow (by omega : 2 * k + 1 ≠ 0),
+    mul_zero, sub_zero, zero_sub, neg_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:152:8: warning: This simp argument is unused:
+  zero_pow (by omega : 2 * k + 2 ≠ 0)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.cos_zero, Real.cos_pi, Real.sin_zero, Real.sin_pi, mul_zero, sub_zero, zero_sub, neg_zero,
+    add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:152:65: warning: This simp argument is unused:
+  zero_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.cos_zero, Real.cos_pi, Real.sin_zero, Real.sin_pi, zero_pow (by omega : 2 * k + 2 ≠ 0),
+    mul_zero, sub_zero, neg_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:153:8: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.cos_zero, Real.cos_pi, Real.sin_zero, Real.sin_pi, zero_pow (by omega : 2 * k + 2 ≠ 0),
+    mul_zero, sub_zero, zero_sub, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:153:18: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Real.cos_zero, Real.cos_pi, Real.sin_zero, Real.sin_pi, zero_pow (by omega : 2 * k + 2 ≠ 0),
+    mul_zero, sub_zero, zero_sub, neg_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:189:2: warning: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SixDimensionalAngularBesselI2.lean:201:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

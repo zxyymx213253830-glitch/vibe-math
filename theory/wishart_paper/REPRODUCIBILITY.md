@@ -46,6 +46,16 @@ retained. The report is
 `verification/WISHART_PUBLICATION_REBUILD.json`; its status, hashes, and method
 should be read together. A resumed run is not an independent second reproduction.
 
+The previous report's `started_utc` was reset when resuming. Its approximately
+74-second top-level interval described only the last batch, not 164 module
+compilations. The original is retained as
+`verification/publication_checks/rebuild-52f8899-resumed.json`; historical
+per-module durations were not measured and are not reconstructed. Schema 2
+records one campaign origin, each batch's compiled/reused counts, and UTC
+start/finish plus monotonic wall seconds for every new module check. Wall time
+includes helper and gate overhead. The revision uses a new fresh output
+directory rather than relabeling the old cached results as new timings.
+
 ## Numerical controls
 
 From the repository root:
@@ -65,6 +75,14 @@ or proofs. Older rank-one T3 diagnostics remain separate from this experiment.
 `claims.json` maps paper claims to exact declaration identifiers and source hashes.
 `verification/prepare_wishart_publication.py` checks that these names occur in
 their source modules and builds a transitive source manifest and lexical audit.
+The expanded `ClaimsCheck.lean` audits every public theorem in all named entry
+modules, including the two general-coordinate modules, the Wishart API wrapper,
+and explicit local helper bodies. Run `verification/check_publication_axioms.py
+--session <campaign-directory>` after the fresh build and final manuscript edit.
+Its binding report records source/dependency, compiled olean, audit-source,
+actual output-log, toolchain, manifest, and manuscript hashes; it rejects
+changes during checking. Regenerate the claims manifest afterward. A changed
+manuscript also requires a new binding check, even if no Lean text changes.
 Declaration lookup and token scanning do not replace kernel checks; the rebuild
 report and the independently pending semantic review are separate evidence.
 
@@ -77,3 +95,9 @@ commit will be supplied by the human authors before submission.
 Source hashes are byte-exact. The local review ZIP preserves those bytes;
 Git checkout line-ending conversion can change a raw hash without changing the
 Lean text. Use the packaged source snapshot when comparing the recorded hashes.
+
+The revised artifact includes `WISHART_WORKFLOW_AUDIT.json` and actual round3
+events and review requests/responses. The 38 runner generations, two separate
+manual calls, and five P4 requests have distinct denominators. No controlled
+model-comparison claim is made. Internal T3 normalization experiments are not
+part of this manuscript's claims or numerical evidence package.

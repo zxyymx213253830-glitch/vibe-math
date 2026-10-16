@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartBlockStep.lean:28:27: warning: This simp argument is unused:
+  Matrix.det_fromBlocks_zero₁₂
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [centralBlockShear]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.centralBlockShear_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBlockShear_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBlockStep_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBlockStep_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBlockStep_posDef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

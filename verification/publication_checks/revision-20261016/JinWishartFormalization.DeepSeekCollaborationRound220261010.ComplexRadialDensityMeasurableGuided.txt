@@ -1,0 +1,34 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:14:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:15:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:16:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:17:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:18:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:13:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:14:6: warning: Unused tactic linter: `simp_all [Measurable.const]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:15:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:16:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:17:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound220261010\ComplexRadialDensityMeasurableGuided.lean:18:6: warning: Unused tactic linter: `apply Measurable.const` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'deepseek_round2_ComplexRadialDensityMeasurable' depends on axioms: [propext, Classical.choice, Quot.sound]

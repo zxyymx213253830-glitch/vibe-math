@@ -1,0 +1,5 @@
+'JinWishart.theorem1CentralTwoRow_PsiMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoRow_PsiDet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoRow_PsiDet_norm_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoRow_candidate_eq_expCDF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoRow_candidate_eq_actualCDF' depends on axioms: [propext, Classical.choice, Quot.sound]

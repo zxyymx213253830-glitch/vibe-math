@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\T3NormalizationAudit.lean:76:54: warning: Variable name `hst` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hst
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\T3NormalizationAudit.lean:77:5: warning: Variable name `hLs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hLs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

@@ -1,0 +1,4 @@
+'JinWishart.twoRowBartlettGram_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_Gram_eq_BartlettGram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_Gram_det_positive_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_Gram_det_zero_null' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,207 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:66:5: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:86:32: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:103:32: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:103:65: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:150:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:150:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:152:12: warning: This simp argument is unused:
+  hzero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hball]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:178:60: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sixDAxialPlaneIntegrand, sixDAxialPlaneSlice, hb] at hne
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:219:36: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:219:50: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:220:36: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:220:50: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:227:24: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.mul_re, Complex.add_re, Complex.ofReal_re, Complex.ofReal_im, Complex.I_re, Complex.I_im,
+    zero_mul, mul_zero, one_mul, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:227:34: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.mul_re, Complex.add_re, Complex.ofReal_re, Complex.ofReal_im, Complex.I_re, Complex.I_im,
+    zero_mul, mul_zero, zero_add, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:235:34: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.mul_im, Complex.add_im, Complex.ofReal_re, Complex.ofReal_im, Complex.I_re, Complex.I_im,
+    zero_mul, mul_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:279:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:282:42: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:347:18: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sixDAxialAngleChartIntegrand, sixDAxialAngleRectangleIntegrand, target, rect, Complex.polarCoord_target,
+    mem_prod, mem_Ioi, mem_Ioo, hr0, hr1, ht0, htpi, htlo]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:351:18: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sixDAxialAngleChartIntegrand, sixDAxialAngleRectangleIntegrand, target, rect, Complex.polarCoord_target,
+    mem_prod, mem_Ioi, mem_Ioo, hr0, hr1, ht0, htpi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:351:39: warning: This simp argument is unused:
+  sixDAxialAngleChartIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, sixDAxialAngleRectangleIntegrand, target, rect, Complex.polarCoord_target,
+    mem_prod, mem_Ioi, mem_Ioo, hr0, hr1, ht0, htpi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:352:14: warning: This simp argument is unused:
+  sixDAxialAngleRectangleIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, sixDAxialAngleChartIntegrand, target, rect, Complex.polarCoord_target, mem_prod,
+    mem_Ioi, mem_Ioo, hr0, hr1, ht0, htpi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:356:12: warning: This simp argument is unused:
+  sixDAxialAngleRectangleIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, sixDAxialAngleChartIntegrand, target, rect, Complex.polarCoord_target, mem_prod,
+    mem_Ioi, mem_Ioo, hr0, hr1, ht0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:360:10: warning: This simp argument is unused:
+  sixDAxialAngleRectangleIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, sixDAxialAngleChartIntegrand, target, rect, Complex.polarCoord_target, mem_prod,
+    mem_Ioi, mem_Ioo, hr0, hr1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:363:12: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sixDAxialAngleChartIntegrand, sixDAxialAngleRectangleIntegrand, target, rect, Complex.polarCoord_target,
+    mem_prod, mem_Ioi, mem_Ioo, hr0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:363:33: warning: This simp argument is unused:
+  sixDAxialAngleChartIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, sixDAxialAngleRectangleIntegrand, target, rect, Complex.polarCoord_target,
+    mem_prod, mem_Ioi, mem_Ioo, hr0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:364:8: warning: This simp argument is unused:
+  sixDAxialAngleRectangleIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, sixDAxialAngleChartIntegrand, target, rect, Complex.polarCoord_target, mem_prod,
+    mem_Ioi, mem_Ioo, hr0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:488:33: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [dist_eq_norm]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:505:39: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:505:52: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:515:39: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:515:52: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:606:33: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:606:47: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:616:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:727:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereSixDAxialMeasure.lean:798:8: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [dist_eq_norm]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

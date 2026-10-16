@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\T4CentralOneColumnAnyRows.lean:69:33: warning: This simp argument is unused:
+  Real.dist_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,56 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:33:24: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:33:39: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mul_comm, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:33:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:45:33: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.smul_apply,
+    RCLike.real_smul_eq_coe_mul, Fin.sum_univ_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:46:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:72:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:85:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:103:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoRowScaledMinimum.lean:105:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.twoRow_posDef_real_smul_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRow_smallest_real_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRow_actualGram_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRow_actualMinimum_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_scaled_minimum_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_scaled_minimum_CDF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_scaled_minimum_cdf_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_scaled_minimum_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_covariance_minimum_CDF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoRow_scaled_candidate_eq_actualCDF' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

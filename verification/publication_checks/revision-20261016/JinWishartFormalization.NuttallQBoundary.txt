@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallQBoundary.lean:31:29: warning: This simp argument is unused:
+  Nat.add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.mul_zero, pow_one, Real.rpow_one, Real.rpow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallQBoundary.lean:31:43: warning: This simp argument is unused:
+  pow_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.mul_zero, Nat.add_zero, Real.rpow_one, Real.rpow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

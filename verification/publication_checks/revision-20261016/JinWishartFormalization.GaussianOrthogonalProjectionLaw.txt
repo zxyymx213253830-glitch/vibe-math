@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianOrthogonalProjectionLaw.lean:52:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianOrthogonalProjectionLaw.lean:47:0: warning: automatically included section variable(s) unused in theorem `JinWishart.stdGaussian_half_norm_sq_law`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'JinWishart.stdGaussian_map_adjoint_norm_preserving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_orthogonalProjectionOnto_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_half_norm_sq_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_projected_half_norm_sq_law' depends on axioms: [propext, Classical.choice, Quot.sound]

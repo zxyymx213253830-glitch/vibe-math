@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarComplexCenterDisk.lean:74:10: warning: This simp argument is unused:
+  Complex.polarCoord_symm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hc, hrect, g, f, complexCenterPolarIntegrand, hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarComplexCenterDisk.lean:127:4: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.exp_ofReal_re, Complex.exp_ofReal_im, modifiedBesselI_zero_ofReal_im, Complex.ofReal_re,
+    Complex.ofReal_im, mul_zero, sub_zero] at hre
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

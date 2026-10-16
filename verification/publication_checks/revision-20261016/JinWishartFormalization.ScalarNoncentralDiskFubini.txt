@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarNoncentralDiskFubini.lean:81:10: warning: This simp argument is unused:
+  Complex.polarCoord_symm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hc, hrect, g, f, scalarPolarIntegrand, hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

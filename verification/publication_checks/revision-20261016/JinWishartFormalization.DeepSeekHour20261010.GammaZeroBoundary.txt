@@ -1,0 +1,50 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:11:22: warning: This simp argument is unused:
+  Complex.Gamma
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gammaMeasure]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:12:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:13:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:14:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:15:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:16:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:17:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:18:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:12:6: warning: Unused tactic linter: `norm_num` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:13:6: warning: Unused tactic linter: `simp_all [Complex.Gamma]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:14:6: warning: Unused tactic linter: `norm_num` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:15:6: warning: Unused tactic linter: `simp_all [Complex.Gamma]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:16:6: warning: Unused tactic linter: `norm_num` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:17:6: warning: Unused tactic linter: `simp_all [Complex.Gamma]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekHour20261010\GammaZeroBoundary.lean:18:6: warning: Unused tactic linter: `norm_num` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'deepseek_hour_GammaZeroBoundary' depends on axioms: [propext, Classical.choice, Quot.sound]

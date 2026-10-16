@@ -17,7 +17,7 @@ def sha(path: Path) -> str:
 def main() -> None:
     claims = json.loads((PAPER / "claims.json").read_text(encoding="utf-8"))
     assert claims["fresh_source_rebuild"]["status"] == "PASS"
-    assert claims["claims_audit"]["all_twenty_printed_standard_axioms"]
+    assert claims["claims_audit"]["all_targets_printed_standard_axioms"]
     output = ROOT / "output/publication"
     output.mkdir(parents=True, exist_ok=True)
     tex_archive = output / "wishart_latex_source.zip"
@@ -26,18 +26,23 @@ def main() -> None:
     paths = {ROOT / src["path"] for src in claims["all_project_sources"].values()}
     paths.update(PAPER.iterdir())
     paths.update((ROOT / "verification/publication_checks").iterdir())
+    paths.update((ROOT / "verification/workflow_evidence/round3").iterdir())
     paths.update(ROOT / p for p in [
         "theory/jin_wishart_formalization/lean-toolchain",
         "theory/jin_wishart_formalization/lakefile.toml",
         "theory/jin_wishart_formalization/lake-manifest.json",
         "experiments/two_row_log_rate_outage.py",
-        "experiments/t3_rank_one_partition_audit.py",
+        "experiments/hermitian_coordinate_metric_control.py",
         "verification/WISHART_LOG_RATE_OUTAGE.json",
-        "verification/WISHART_T3_RANK_ONE_AUDIT_20261015.json",
+        "verification/WISHART_HERMITIAN_METRIC_CONTROL.json",
+        "verification/WISHART_WORKFLOW_AUDIT.json",
+        "verification/WISHART_PUBLICATION_AUDIT_BINDING.json",
         "verification/WISHART_PUBLICATION_REBUILD.json",
         "verification/WISHART_PAPER_PDF_QA.json",
         "verification/rebuild_wishart_sources.py",
         "verification/prepare_wishart_publication.py",
+        "verification/check_publication_axioms.py",
+        "verification/wishart_workflow_audit.py",
         "verification/package_wishart_publication.py",
         "verification/WISHART_P4_REVIEW_PACKET.md",
         "verification/WISHART_P4_REVIEW_MANIFEST.json",
@@ -54,6 +59,8 @@ def main() -> None:
     result = {"prepared_for_date": "2026-10-16", "status": "LOCAL_REVIEW_PACKAGE_NOT_SUBMITTED",
               "manuscript": {"path": "theory/wishart_paper/main.tex", "sha256": sha(PAPER / "main.tex")},
               "pdf": {"path": "output/pdf/wishart_formalization.pdf", "sha256": sha(ROOT / "output/pdf/wishart_formalization.pdf")},
+              "audit_binding": {"path": "verification/WISHART_PUBLICATION_AUDIT_BINDING.json",
+                                "sha256": sha(ROOT / "verification/WISHART_PUBLICATION_AUDIT_BINDING.json")},
               "archives": [{"path": p.relative_to(ROOT).as_posix(), "sha256": sha(p)}
                            for p in [tex_archive, archive_path]],
               "release_blockers": ["Human author metadata", "Independent semantic P4 review",

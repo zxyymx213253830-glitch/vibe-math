@@ -1,0 +1,17 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralThreeRowNuttallQ.lean:42:34: warning: This simp argument is unused:
+  mem_compl_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mem_inter_iff, mem_Ioi, mem_Ioc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralThreeRowNuttallQ.lean:50:4: warning: Unused tactic linter: `change
+  (∫ r, noncentralChiSixRadialSeriesKernel a r ∂((volume : Measure ℝ).restrict (Ioi (0 : ℝ))).restrict (Ioi b)) =
+    _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralThreeRowNuttallQ.lean:64:4: warning: Unused tactic linter: `change
+  (∫ r, noncentralChiSixRadialSeriesKernel a r ∂((volume : Measure ℝ).restrict (Ioi (0 : ℝ))).restrict (Ioi b)ᶜ) =
+    _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

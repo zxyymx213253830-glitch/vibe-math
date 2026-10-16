@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallQRiceMass.lean:41:23: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sub_zero] at hInt
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

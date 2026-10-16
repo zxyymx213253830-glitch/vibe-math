@@ -1,0 +1,33 @@
+P4: You are a strict referee. Only report specific problems, do NOT write or rewrite a Lean proof. Check (a) undeclared measurability/volume/dimension assumptions, (b) unsupported steps, (c) whether statement matches proof. If no issue, say NO_SPECIFIC_ISSUE_IDENTIFIED for these two statements only. Scope is actual central complex 2x2 Wishart and CN(0,1), NOT general paper spectral theorem. Imported actual CN law and Gram positive-domain trace density were kernel checked and do not assume the desired density. The exact imported volume asset is Complex.volume_preserving_equiv_real_prod : MeasurePreserving Complex.measurableEquivRealProd volume volume. Imported map_withDensity_measurePreserving transports measurable density using a measure-preserving measurable equivalence. Imported norm bridge says norm(e.symm p)^2 = p.1^2+p.2^2. complexWishart := stdGaussian.map complexSampleGram. Local coefficient/norm-square algebra helpers have GUIDED_COLLABORATION authorship; these two composed statements are Codex. [需人工审查] variance and paper-model conventions. Review exact code:
+/-- The actual normalized circular complex Gaussian in its two real coordinates.
+Codex completes the measure-preserving transport after local attempts36-38
+failed; local normalization helpers used upstream keep their original authorship.
+[需人工审查] Complex volume convention and variance convention. -/
+theorem actualTwoRow_ComplexReal_eq_normalizedDensity :
+    ((stdGaussian ℂ).map (fun z => (Real.sqrt 2)⁻¹ • z)).map
+        Complex.measurableEquivRealProd =
+      (volume : Measure (ℝ × ℝ)).withDensity
+        (fun p => ENNReal.ofReal
+          (Real.pi⁻¹ * Real.exp (-(p.1 ^ 2 + p.2 ^ 2)))) := by
+  rw [actualTwoRow_Complex_eq_normalizedDensity]
+  have hf : Measurable (fun z : ℂ =>
+      ENNReal.ofReal (Real.pi⁻¹ * Real.exp (-‖z‖ ^ 2))) := by fun_prop
+  rw [map_withDensity_measurePreserving Complex.measurableEquivRealProd
+    volume volume Complex.volume_preserving_equiv_real_prod _ hf]
+  congr 1
+  funext p
+  simp only [Function.comp_apply, twoRow_complex_real_norm_square]
+
+/-- Expose the checked central complex 2x2 density through the existing Wishart
+probability-law API. This is an interface theorem, not a general spectral result.
+[需人工审查] Paper convention and coordinate order. -/
+theorem complexWishart_twoRow_realCoordinates_eq_traceDensity :
+    (complexWishart (m := 2) (n := 2)).map twoRowGramRealCoordinates =
+      (volume.restrict {q : GramChartSpace |
+        0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}).withDensity
+        (fun q => ENNReal.ofReal
+          (Real.pi⁻¹ * Real.exp (-(q 0 + q 3)))) := by
+  rw [complexWishart, Measure.map_map measurable_twoRowGramRealCoordinates
+    measurable_complexSampleGram]
+  exact actualTwoRow_GramRealCoordinates_eq_traceDensity
+

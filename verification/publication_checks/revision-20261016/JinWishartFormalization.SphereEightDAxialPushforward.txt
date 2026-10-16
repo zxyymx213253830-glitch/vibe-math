@@ -1,0 +1,207 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:68:5: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:88:34: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:105:34: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:105:69: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:152:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:152:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:154:12: warning: This simp argument is unused:
+  hzero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hball]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:180:64: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eightDAxialPlaneIntegrand, eightDAxialPlaneSlice, hb] at hne
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:221:38: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:221:52: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:222:38: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:222:52: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:229:24: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.mul_re, Complex.add_re, Complex.ofReal_re, Complex.ofReal_im, Complex.I_re, Complex.I_im,
+    zero_mul, mul_zero, one_mul, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:229:34: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.mul_re, Complex.add_re, Complex.ofReal_re, Complex.ofReal_im, Complex.I_re, Complex.I_im,
+    zero_mul, mul_zero, zero_add, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:237:34: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.mul_im, Complex.add_im, Complex.ofReal_re, Complex.ofReal_im, Complex.I_re, Complex.I_im,
+    zero_mul, mul_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:281:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:284:42: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:349:18: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eightDAxialAngleChartIntegrand, eightDAxialAngleRectangleIntegrand, target, rect,
+    Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo, hr0, hr1, ht0, htpi, htlo]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:353:18: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eightDAxialAngleChartIntegrand, eightDAxialAngleRectangleIntegrand, target, rect,
+    Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo, hr0, hr1, ht0, htpi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:353:39: warning: This simp argument is unused:
+  eightDAxialAngleChartIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, eightDAxialAngleRectangleIntegrand, target, rect, Complex.polarCoord_target,
+    mem_prod, mem_Ioi, mem_Ioo, hr0, hr1, ht0, htpi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:354:14: warning: This simp argument is unused:
+  eightDAxialAngleRectangleIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, eightDAxialAngleChartIntegrand, target, rect, Complex.polarCoord_target, mem_prod,
+    mem_Ioi, mem_Ioo, hr0, hr1, ht0, htpi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:358:12: warning: This simp argument is unused:
+  eightDAxialAngleRectangleIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, eightDAxialAngleChartIntegrand, target, rect, Complex.polarCoord_target, mem_prod,
+    mem_Ioi, mem_Ioo, hr0, hr1, ht0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:362:10: warning: This simp argument is unused:
+  eightDAxialAngleRectangleIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, eightDAxialAngleChartIntegrand, target, rect, Complex.polarCoord_target, mem_prod,
+    mem_Ioi, mem_Ioo, hr0, hr1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:365:12: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eightDAxialAngleChartIntegrand, eightDAxialAngleRectangleIntegrand, target, rect,
+    Complex.polarCoord_target, mem_prod, mem_Ioi, mem_Ioo, hr0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:365:33: warning: This simp argument is unused:
+  eightDAxialAngleChartIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, eightDAxialAngleRectangleIntegrand, target, rect, Complex.polarCoord_target,
+    mem_prod, mem_Ioi, mem_Ioo, hr0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:366:8: warning: This simp argument is unused:
+  eightDAxialAngleRectangleIntegrand
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_apply, eightDAxialAngleChartIntegrand, target, rect, Complex.polarCoord_target, mem_prod,
+    mem_Ioi, mem_Ioo, hr0]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:490:33: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [dist_eq_norm]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:507:41: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:507:54: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:517:41: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:517:54: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:608:35: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:608:49: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:618:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:729:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SphereEightDAxialPushforward.lean:800:8: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [dist_eq_norm]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

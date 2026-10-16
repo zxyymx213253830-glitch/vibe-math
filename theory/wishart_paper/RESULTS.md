@@ -6,13 +6,13 @@
 
 | 结果 | 严格范围 | 正文位置 | 核对入口 |
 |---|---|---|---|
-| 实际 Bartlett 乘积律与密度 | 中心复 2×2，条目 CN(0,1)；Gamma 和 Exp 均按 rate | 第3节 | `TwoRowRandomDirectionLaw`、`TwoRowActualNormalizedDensity` |
-| 实际 Gram 密度 | 四实 Hermitian 坐标，密度 π⁻¹ exp(-trace)，PD 锥支撑 | 第3节 | `actualTwoRow_GramRealCoordinates_eq_traceDensity` |
-| 实际最小特征值完整律 | 中心复 2×2；严格尾 exp(-2x)，CDF 1-exp(-2x)，x≥0 | 第4节 | `actualTwoRow_minimum_law_expTwo` |
-| 实际正尺度律 | 振幅 a>0、方差 v=a²；Exp(rate=2/a²) | 第4节 | `actualTwoRow_scaled_minimum_law` |
-| 最弱模式对数速率中断 | log 为自然对数，a>0、rho>0，R≥0；不是总 MIMO 容量 | 第5节 | `actualTwoRow_weakestLogRate_outage` |
-| 固定子空间 Gaussian 分解 | 任意有限实维，确定性子空间；投影、独立、乘积律及偶实维能量 Gamma | 第6节 | `stdGaussian_orthogonal_split_law` |
-| 非中心单列首项 | 任意正行数 m、任意确定性复均值；CDF/x^m → exp(-||M||²)/m! | 第6节 | `noncentralOneColumnSmallestCDF_div_tendsto_frobenius` |
+| 实际 Bartlett 乘积律与密度 | 中心复 2×2，条目 CN(0,1)；Gamma 和 Exp 均按 rate | 实际密度节 | `TwoRowRandomDirectionLaw`、`TwoRowActualNormalizedDensity` |
+| 实际 Gram 密度 | 四实 Hermitian 坐标，密度 π⁻¹ exp(-trace)，PD 锥支撑 | 实际密度节 | `actualTwoRow_GramRealCoordinates_eq_traceDensity` |
+| 实际最小特征值完整律 | 中心复 2×2；严格尾 exp(-2x)，CDF 1-exp(-2x)，x≥0 | 最小值节 | `actualTwoRow_minimum_law_expTwo` |
+| 实际正尺度律 | 振幅 a>0、方差 v=a²；Exp(rate=2/a²) | 尺度律小节 | `actualTwoRow_scaled_minimum_law` |
+| 最弱模式对数速率中断 | log 为自然对数，a>0、rho>0，R≥0；单调转换，不是总 MIMO 容量 | 尺度律后的remark | `actualTwoRow_weakestLogRate_outage` |
+| 固定子空间 Gaussian 分解 | 任意有限实维；mathlib独立性基础的固定投影特化 | 概率特化节 | `stdGaussian_orthogonal_split_law` |
+| 非中心单列首项 | 任意正行数 m、任意确定性复均值；CDF/x^m → exp(-||M||²)/m! | 概率特化节 | `noncentralOneColumnSmallestCDF_div_tendsto_frobenius` |
 
 已有 1×1、2×1、3×1 的实际模型与原候选公式连接作为支撑覆盖，不把每个特例包装成一项独立主要贡献。
 
@@ -27,7 +27,7 @@
 - 一般中心 Hermitian 坐标与候选核平移是确定性/积分资产；一般实际矩阵密度尚未建立。
 - 随机子空间条件律和一般 Cholesky Jacobian 仍是核心研究卡。
 - 一般非中心 G2、一般参数下原定理1–4仍开放。
-- T3 当前转录候选 >1 的见证是精确结果；秩一模拟支持残留因子2是数值证据。刊版、约定或勘误未裁决，不能称“推翻/修正刊版定理”。正文将其限定为诊断案例，可在投稿前移到附录或删去。
+- T3 已从可投稿正文删除。当前固定参数模拟至多支持倍数2，不能识别为Gamma因子；内部辨识边界见 `notes/T3_NORMALIZATION_IDENTIFIABILITY.md`。刊版全文未逐式核对，不能称“推翻/修正刊版定理”。
 - 独立 P4 尚未完成。所有换元、Fubini、Gaussian 方差和论文对应继续 `[需人工审查]`。
 
 ## 本次实际新增

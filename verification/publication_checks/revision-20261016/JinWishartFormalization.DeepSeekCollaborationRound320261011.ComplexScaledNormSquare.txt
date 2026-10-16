@@ -1,0 +1,64 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:5:8: warning: This simp argument is unused:
+  norm_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Real.sqrt_nonneg, mul_pow, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:5:19: warning: This simp argument is unused:
+  Real.sqrt_nonneg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, mul_pow, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:5:46: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_smul, Real.sqrt_nonneg, mul_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:6:6: warning: Unused tactic linter: `field_simp [pow_two]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:7:6: warning: Unused tactic linter: `ring_nf` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:8:6: warning: Unused tactic linter: `norm_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:9:6: warning: Unused tactic linter: `field_simp [pow_two]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:10:6: warning: Unused tactic linter: `ring_nf` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:11:6: warning: Unused tactic linter: `norm_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:12:6: warning: Unused tactic linter: `linarith` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:6:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:7:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:8:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:9:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:10:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:11:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DeepSeekCollaborationRound320261011\ComplexScaledNormSquare.lean:12:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'deepseek_round3_ComplexScaledNormSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
