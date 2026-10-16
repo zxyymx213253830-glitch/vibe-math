@@ -1,0 +1,268 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg
+))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+)) (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty)
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.s
+ty (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+) (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cf
+g)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.d
+ef)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
+x))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.s
+ty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-p
+dftex.def)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.c
+fg)) (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.s
+ty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefi
+nekeys.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape
+.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcm
+ds.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr
+.sty)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gett
+itlestring.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.s
+ty)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc
+.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintca
+lc.sty)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunf
+ilecheck.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqu
+ecounter.sty)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\l3backend-pd
+ftex.def)
+No file main.aux.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
+.cfg)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
+mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
+-base.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys
+.cfg))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg)
+
+
+LaTeX Warning: Citation `jin' on page 1 undefined on input line 65.
+
+[1{C:/Users/zxy1117/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/
+zxy1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/zx
+y1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/zxy1
+117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/zx
+y1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
+
+LaTeX Warning: Citation `mathlib' on page 2 undefined on input line 100.
+
+
+LaTeX Warning: Citation `gouezel' on page 2 undefined on input line 101.
+
+
+LaTeX Warning: Citation `degenne' on page 2 undefined on input line 104.
+
+
+LaTeX Warning: Citation `bartlett' on page 2 undefined on input line 110.
+
+
+LaTeX Warning: Citation `goodman' on page 2 undefined on input line 111.
+
+
+LaTeX Warning: Citation `edelman1988' on page 2 undefined on input line 113.
+
+
+LaTeX Warning: Citation `edelman1991' on page 2 undefined on input line 113.
+
+
+LaTeX Warning: Reference `eq:sample' on page 2 undefined on input line 115.
+
+
+LaTeX Warning: Citation `avigad' on page 2 undefined on input line 119.
+
+
+LaTeX Warning: Citation `affeldt' on page 2 undefined on input line 120.
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd)
+[2]
+
+LaTeX Warning: Reference `eq:hermitian' on page 3 undefined on input line 172.
+
+
+LaTeX Warning: Reference `eq:gram' on page 3 undefined on input line 177.
+
+
+LaTeX Warning: Reference `eq:sample' on page 3 undefined on input line 202.
+
+
+LaTeX Warning: Reference `sec:review' on page 3 undefined on input line 214.
+
+[3{C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.
+enc}]
+
+LaTeX Warning: Reference `eq:bartlett' on page 4 undefined on input line 247.
+
+[4]
+
+LaTeX Warning: Reference `eq:chart' on page 5 undefined on input line 282.
+
+
+LaTeX Warning: Reference `eq:bartlett' on page 5 undefined on input line 294.
+
+
+LaTeX Warning: Reference `sec:review' on page 5 undefined on input line 306.
+
+
+LaTeX Warning: Reference `eq:sample' on page 5 undefined on input line 317.
+
+
+LaTeX Warning: Reference `eq:threshold' on page 5 undefined on input line 326.
+
+
+LaTeX Warning: Reference `thm:gram' on page 5 undefined on input line 326.
+
+[5]
+
+LaTeX Warning: Citation `jinpreprint' on page 6 undefined on input line 359.
+
+
+LaTeX Warning: Citation `jin' on page 6 undefined on input line 360.
+
+
+LaTeX Warning: Reference `thm:minimum' on page 6 undefined on input line 376.
+
+
+LaTeX Warning: Citation `tse' on page 6 undefined on input line 393.
+
+[6]
+
+LaTeX Warning: Reference `eq:sample' on page 7 undefined on input line 435.
+
+
+LaTeX Warning: Reference `eq:hardedge' on page 7 undefined on input line 458.
+
+
+LaTeX Warning: Reference `tab:map' on page 7 undefined on input line 477.
+
+[7]
+
+LaTeX Warning: Reference `tab:map' on page 8 undefined on input line 530.
+
+[8]
+
+LaTeX Warning: Reference `eq:outage' on page 9 undefined on input line 550.
+
+[9]
+
+LaTeX Warning: Citation `arxivpolicy' on page 10 undefined on input line 629.
+
+
+LaTeX Warning: Reference `eq:general' on page 10 undefined on input line 641.
+
+[10]
+
+LaTeX Warning: Citation `arxivpolicy' on page 11 undefined on input line 714.
+
+[11] [12] (main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )<C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
+pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
+2.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lme
+x10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
+mmi10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
+/lmmi6.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
+m/lmmi8.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+lm/lmr10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmr12.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/lm/lmr17.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/lm/lmr6.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/lm/lmr8.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/lm/lmri10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/lm/lmsy10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/lm/lmsy6.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/lm/lmsy8.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/lm/lmtt10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/lm/lmtti10.pfb><C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (12 pages, 387462 bytes).
+Transcript written on main.log.

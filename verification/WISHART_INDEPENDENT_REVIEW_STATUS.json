@@ -1,32 +1,28 @@
 {
-  "status": "BLOCKED_EXTERNAL_REVIEW_NOT_DELIVERED",
-  "reason": "API Error: 402 TeamoRouter 钱包余额不足，请前往 https://teamorouter.cn/dashboard?buy=1 充值后继续使用",
-  "api_error_status": 402,
-  "reported_model_usage": {
-    "claude-sonnet-5-5[1m]": {
-      "inputTokens": 8,
-      "outputTokens": 4180,
-      "cacheReadInputTokens": 134730,
-      "cacheCreationInputTokens": 96732,
-      "webSearchRequests": 0,
-      "costUSD": 0.594238,
-      "contextWindow": 1000000,
-      "maxOutputTokens": 32000,
-      "thinkingTokens": 2700,
-      "canonicalModel": "claude-sonnet-5-5",
-      "provider": "firstParty",
-      "costBasis": "unknown"
-    }
-  },
-  "usable_issue_report": false,
-  "completed_independent_review": false,
+  "status": "SCOPED_CROSS_FAMILY_REVIEW_COMPLETED_HUMAN_PENDING",
+  "reason": "Existing Step-family report delivered; scoped model review is distinct from human signoff",
+  "model_family": "Step, as attributed by the existing WorkBuddy report; no new invocation claimed",
+  "usable_issue_report": true,
+  "completed_independent_review": true,
+  "scope": "32 files fully read, two statement-only; approximately 130 project modules and mathlib not proof-body reviewed",
+  "mathematical_errors_reported_in_inspected_scope": 0,
+  "Lean_sources_unchanged_from_reviewed_snapshot": true,
+  "editorial_updates_after_review": "author, PDF metadata, review status, chart domain and volume/scope clarifications",
   "human_review": "PENDING [需人工审查]",
+  "previous_failure": {
+    "result": "API Error: 402 TeamoRouter 钱包余额不足，请前往 https://teamorouter.cn/dashboard?buy=1 充值后继续使用",
+    "api_error_status": 402,
+    "evidence": "verification/publication_checks/independent-review-20261016/response.json"
+  },
   "automatic_paid_retries": 0,
   "raw_evidence": {
-    "verification/publication_checks/independent-review-20261016/invocation.json": "101c3de490480da25099108b3b687c765ee18b2ceeadecfcfd6f7b561a8e7a5f",
-    "verification/publication_checks/independent-review-20261016/request.txt": "bd0d9c2f6bdca986eee9056bc9d85c03b88389d9d908b4e7a96a21af4b3af590",
-    "verification/publication_checks/independent-review-20261016/response.json": "2105983f7b6ffe85ace8a96a8a4125650655083d59e49d71db088e8cc86d2247",
-    "verification/publication_checks/independent-review-20261016/stderr.txt": "a9b7ff45cb17a12b393c622a17eb1a1b007798864a8b743ddabb5b6c7f9d368b"
+    "notes/ARXIV_SUBMISSION_REVIEW_20261016.md": "72359810bec3e7f79275efdbe0823d226aafafb9fb8d856a087735b18fdc1ded",
+    "theory/wishart_paper/STEP_REVIEW_DISPOSITION.md": "6cfa2b973f9e29ed3230b8c74203ca4e406d584ddd262553a345315cff675479",
+    "verification/publication_checks/step-review-20261016/reviewed-main.tex": "9a96ec606f71fb5b4bc17a0be05d30125576ae12e0176b98bbef368bf526a38c",
+    "verification/publication_checks/step-review-20261016/reviewed-manifest.json": "62ab42c02e03f04bc2a97ca5cad2ef7823a555e15148cad2c382164d99fb35e7",
+    "verification/publication_checks/step-review-20261016/snapshot-validation.json": "8605eb2fec61b914ddc7fdcc42825731d046ec9cf840b9195c5a76de4fab9fd5",
+    "verification/WISHART_P4_REVIEW_RESPONSE_20261016.md": "88314249f6bff06b9d27a1ca2fcffef82bb09fa37f60c093eb8b6962272a6d70"
   },
-  "review_snapshot_sha256": "62ab42c02e03f04bc2a97ca5cad2ef7823a555e15148cad2c382164d99fb35e7"
+  "review_snapshot_sha256": "62ab42c02e03f04bc2a97ca5cad2ef7823a555e15148cad2c382164d99fb35e7",
+  "current_snapshot_sha256": "2611ea8e7cc642edb44c73e10a302c1b2578055a8031029f3c68a8c67c807b7e"
 }

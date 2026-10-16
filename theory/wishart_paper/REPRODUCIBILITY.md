@@ -84,13 +84,16 @@ actual output-log, toolchain, manifest, and manuscript hashes; it rejects
 changes during checking. Regenerate the claims manifest afterward. A changed
 manuscript also requires a new binding check, even if no Lean text changes.
 Declaration lookup and token scanning do not replace kernel checks; the rebuild
-report and the independently pending semantic review are separate evidence.
+report and scoped model review/human review are separate evidence.
 
-No independent Claude/human P4 review has been completed. The accompanying review
-packet must be used with its source hashes. In particular, `withDensity`, Fubini,
-Gaussian variance, and the interpretation of spectral events remain marked
-`[需人工审查]`. The final public artifact URL, license, author metadata, and release
-commit will be supplied by the human authors before submission.
+An existing independent WorkBuddy report (Step model family) reviewed the stated
+subset and reported no concrete mathematical errors within it. The reviewed
+96-source snapshot was rehashed before the current editorial changes; Lean
+sources are unchanged. The report, original manifest, manuscript and issue
+dispositions are included. This is not a full dependency proof-body or human
+review. Fubini/skew-product specifications, model/notation matching and intrinsic
+Frobenius volume interpretation remain [需人工审查]. Author: ZHOU XINGYUAN.
+Release rights/license and final human mathematical signoff remain separate.
 
 Source hashes are byte-exact. The local review ZIP preserves those bytes;
 Git checkout line-ending conversion can change a raw hash without changing the
@@ -114,6 +117,6 @@ retained, including Lean-generated error recovery axioms in failed logs; these
 are not accepted proof dependencies. The standalone pending draft was promoted
 to the checked project module and is no longer a second unverified source copy.
 
-The real read-only Claude invocation returned API 402 and no issue report. Its
-raw evidence and status are archived separately; no automatic paid retry was
-made. The 96-source independent-review handoff remains open, not certified.
+The earlier read-only Claude invocation returned API 402 and no issue report;
+its archived failure is historical and does not negate the subsequently
+provided Step report. No new model review is started by these packaging tools.

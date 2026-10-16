@@ -1,0 +1,8 @@
+{
+  "checked_utc": "2026-10-16T06:57:50.525688+00:00",
+  "status": "PASS",
+  "source_files": 96,
+  "manuscript_matches_reviewed_snapshot": true,
+  "manifest_sha256": "62ab42c02e03f04bc2a97ca5cad2ef7823a555e15148cad2c382164d99fb35e7",
+  "method": "Recomputed every source and manuscript SHA256 before editorial changes"
+}

@@ -1,0 +1,768 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\CN}{\mathcal{CN}}
+\newcommand{\Law}{\mathcal L}
+\newcommand{\pd}{\succ0}
+\newcommand{\lean}[1]{{\small\nolinkurl{#1}}}
+\newcommand{\review}{\par\smallskip\noindent\textbf{Human semantic review required.}\ }
+\title{From Gaussian Samples to a Complex Wishart Minimum Law in Lean}
+\author{}
+\date{Working manuscript, 16 October 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We present a Lean formalization of selected complex Gaussian Gram matrix laws,
+with a complete actual-model chain for the smallest eigenvalue of a central
+complex $2\times2$ Wishart matrix. The construction starts from independent real
+standard Gaussian coordinates, fixes the unit complex variance convention, and
+derives an independent Bartlett coordinate law. An explicit four-real-coordinate
+chart yields the normalized Gram density on the positive definite cone.
+Translation of this cone, followed by a Hermitian spectral threshold criterion,
+identifies the actual minimum law as exponential with rate two. We also formalize
+its positive scalar variance dependence, with a log-rate outage expression as
+a monotone-event corollary. Supporting developments include noncentral one-column results,
+an arbitrary-row one-column small-threshold asymptotic, and fixed-subspace
+Gaussian projection and independence interfaces. We distinguish these actual
+probability laws from general-dimensional candidate-kernel identities and
+unresolved joint spectral densities. The mathematical distribution formulas
+are classical; the contribution is their explicit formal connection to an
+underlying Gaussian sample model and the reusable interfaces needed for that
+connection. We also document the AI-assisted proof workflow and its limits:
+one recorded session contained 38 local-prover generations, of which two guided
+helper proofs passed the kernel, while five separate adversarial-review
+requests yielded no usable review. These observational records and a
+declaration-level provenance map accompany the proofs; they are not a
+controlled model benchmark. Independent semantic review remains pending.
+\end{abstract}
+
+\section{Introduction}
+Wishart eigenvalues occur in multivariate probability and in the analysis of
+multiple-antenna channels. In eigenmode transmission, an eigenvalue determines
+the gain of a scalar subchannel. Jin, McKay, Gao, and Collings
+\cite{jin} give formulas for ordered eigenvalue distributions of complex
+noncentral Wishart matrices and apply them to communication performance.
+This paper studies the formal verification of selected probability statements
+underlying that analysis.
+
+The main difficulty is connecting representations. A Gaussian sample can be
+represented by real coordinates, complex columns, a Gram matrix, coordinates
+on the Hermitian space, and ordered eigenvalues. A density identity at one level
+does not automatically establish the law at another. Variance factors, the
+reference measure, exceptional sets, and strict versus weak events must be
+tracked through each transition. We organize the development around equalities
+of pushforward measures so that a proposed density cannot enter as an assumed
+description of the model it is meant to identify.
+
+Our principal example is a central complex matrix $H\in\C^{2\times2}$ with
+independent unit-variance entries. We prove the coordinate density of $H^*H$
+and derive
+\[
+ \Prob\{\lambda_{\min}(H^*H)>x\}=e^{-2x},\qquad x\geq0.
+\]
+The proof uses a translation of the positive definite cone and does not require
+an ordered spectral Jacobian. Positive scalar covariance and a logarithmic-rate
+statistic are then obtained by transporting events through this actual law.
+
+The contribution has three parts. First, the central $2\times2$ chain exposes
+the distributional, coordinate, and spectral obligations separately. Second,
+the project specializes existing Gaussian tools to the sample encoding and
+Hermitian coordinates, together with a dimension-independent noncentral
+one-column asymptotic. Third, it supplies a source-linked account of the
+AI-assisted workflow, proof-body provenance, accepted and rejected attempts,
+and the remaining review obligations. We make no claim that
+the classical distribution formulas are new, or that this is the first
+formalization of Wishart theory. A comprehensive novelty comparison remains
+part of release preparation.
+
+The development builds on Lean and mathlib \cite{mathlib}. In particular,
+the change-of-variables infrastructure developed in mathlib \cite{gouezel}
+and its Gaussian and independence libraries carry much of the foundational
+analysis. The role of probability kernels in this ecosystem is described by
+Degenne \cite{degenne}. Our contribution specializes and connects those
+interfaces to concrete Gaussian matrix statistics; it does not replace their
+underlying general theorems.
+
+\subsection{Related mathematical and formal work}
+Bartlett's independent-factor treatment of regression is a classical source
+for the decomposition viewpoint \cite{bartlett}; Goodman developed multivariate
+complex Gaussian analysis \cite{goodman}. These precede the present
+formalization. Edelman's work treats exact Wishart extreme-eigenvalue laws
+\cite{edelman1988,edelman1991}; complex Gaussian scaling conventions must be
+converted before comparing constants. We use unit complex variance as in
+\eqref{eq:sample}, rather than assigning variance one to each real component.
+
+Probability formalization also predates this project in other systems.
+Avigad, H\"olzl, and Serafin formalized the central limit theorem in Isabelle/HOL
+\cite{avigad}; Affeldt and Cohen developed measure construction and integration
+in Coq/Mathematical Components \cite{affeldt}. These are foundational comparisons,
+not claims that either development contains the Wishart result studied here.
+Our targeted search does not establish the absence of a prior Wishart
+formalization, and no cross-system priority claim is made.
+
+Within mathlib, joint Gaussianity, zero cross covariance implying independence,
+and the product-law characterization of independent maps are existing results.
+Our orthogonal-projection statements below are wrappers and specializations
+of those results. The concrete sample encoding, its Bartlett-to-Gram chart,
+the chosen Hermitian coordinate measure, and their composition into an actual
+minimum law are the integration work reported here. We do not count general
+Gaussian independence as a new contribution.
+
+\section{Model, measures, and formal scope}\label{sec:model}
+Let $U_{ij},V_{ij}$ be independent $N(0,1)$ variables and set
+\begin{equation}\label{eq:sample}
+ H_{ij}=\frac{U_{ij}+\mathrm{i}V_{ij}}{\sqrt2},\qquad
+ X=M+H,\qquad W=X^*X.
+\end{equation}
+Thus $\E|H_{ij}|^2=1$. The complex scalar density is
+$\pi^{-1}\exp(-|z|^2)$ relative to $d\Re z\,d\Im z$.
+The sample space in Lean is a finite-dimensional real Euclidean space named
+\lean{ComplexSample}; \lean{complexSampleMatrix} performs the complex encoding.
+The underlying law is mathlib's \lean{stdGaussian}. The deterministic mean
+$M$ is added after encoding. The Gram law is a measurable pushforward, rather
+than a measure defined initially by a Wishart density formula.
+
+For a general $t\times s$ sample we use $X^*X$ when $s\leq t$.
+The Lean definition \lean{complexNoncentralSampleSmallestEigenvalue} is broader:
+for an $m\times n$ sample with $m<n$, the $n\times n$ matrix $X^*X$ is singular
+and its smallest eigenvalue is identically zero. Thus that definition alone
+does not denote the smallest \emph{nonzero} eigenvalue in the wide case.
+The actual laws in this manuscript use the tall or square convention $s\leq t$.
+For a one-column sample, the only Gram eigenvalue is $\|X\|_F^2$.
+For the main example, $s=t=2$ and $M=0$. Eigenvalues are ordered decreasingly;
+the last coordinate is the minimum. The formal real-valued statistic
+\lean{twoRowActualMinimum} is computed from the actual sample Gram matrix.
+
+\subsection{The Hermitian reference measure}
+Write
+\begin{equation}\label{eq:hermitian}
+ W=\begin{pmatrix}u&b+\mathrm{i}c\\b-\mathrm{i}c&v\end{pmatrix}.
+\end{equation}
+The reference measure is $du\,db\,dc\,dv$. The positive definite coordinate
+cone is
+\[
+ D=\{(u,b,c,v):u>0,\ b^2+c^2<uv\}.
+\]
+It is a four-dimensional real coordinate measure on Hermitian matrices.
+The Hermitian subspace is null for eight-dimensional ambient Lebesgue measure;
+restricting that ambient measure to it gives the zero measure.
+The nonzero Euclidean measure induced \emph{on} the subspace by the real
+Frobenius metric is another convention. In \eqref{eq:hermitian},
+\[
+ ds_F^2=du^2+dv^2+2\,db^2+2\,dc^2,\qquad
+ d\operatorname{vol}_F=2\,du\,db\,dc\,dv.
+\]
+Consequently \eqref{eq:gram} has coefficient $\pi^{-1}$ relative to our
+coordinate measure, and $(2\pi)^{-1}$ relative to induced Frobenius volume.
+This normalization comparison is kept distinct from the actual-law proof.
+The module \lean{HermitianCoordinateMetric} checks the coordinate energy
+identity in arbitrary dimension. In size two it exhibits the inverse frame
+$\operatorname{diag}(1,1/\sqrt2,1/\sqrt2,1)$, proves that pushing coordinate
+Lebesgue measure through this map multiplies it by two, and re-expresses the
+actual Gram law with coefficient $(2\pi)^{-1}$ relative to that frame measure.
+The exact entry point is \lean{actualTwoRow_Gram_frobeniusFrameDensity}.
+These statements specify the frame explicitly; identification with an
+intrinsically defined subspace volume remains a semantic review obligation.
+
+In dimension $s$, \lean{CentralHermitianCoordinates} constructs an explicit
+measurable equivalence between $s^2$ real coordinates and the Hermitian
+subspace. Its coordinate measure is a product of real Lebesgue measures,
+transported by this equivalence. Each unordered off-diagonal pair contributes
+two real directions of Frobenius squared length two. Thus in dimension $s$,
+induced Frobenius volume is $2^{s(s-1)/2}$ times this coordinate measure, and
+a density coefficient relative to Frobenius volume is divided by that factor.
+This construction fixes a normalization;
+it does not by itself identify any Gaussian Gram density.
+
+\subsection{Meaning of the verification claims}
+An actual-law theorem starts with the sample measure in
+\eqref{eq:sample} and identifies its pushforward. A coordinate theorem gives
+an equivalence, a Jacobian, or a transformation of integrals. A candidate
+identity simplifies a proposed analytical expression. These are recorded
+separately. In particular, a theorem about a candidate integral does not count
+as a probability theorem until its density has been derived from the sample.
+
+The named project declarations discussed below have kernel-check evidence.
+The repository's printed axiom checks use only
+\lean{propext}, \lean{Classical.choice}, and \lean{Quot.sound} for the audited
+declarations. This is a dependency statement, not a proof that the mathematical
+interpretation of every definition matches an external paper. Independent
+review of model conventions and analytical specifications remains pending.
+\review The Gaussian encoding, the Hermitian coordinate measure, and the
+identification with the communication model require independent scrutiny.
+
+\section{Actual Bartlett coordinates and the Gram density}\label{sec:density}
+Let $h_1,h_2$ be the columns of the central $2\times2$ sample.
+Set $S=\|h_1\|^2$. On the event $h_1\ne0$, normalize the first column, project
+the second column onto it, and write the resulting complex coefficient as
+$Z=A+\mathrm{i}B$. Let $E$ be the squared norm of the orthogonal residual.
+The implementation gives a measurable unit-direction fallback at zero.
+It subsequently proves that the exceptional first-column event has mass zero.
+
+\begin{theorem}[Actual Bartlett law]\label{thm:bartlett}
+The sample-defined coordinates satisfy
+\[
+ \Law(S,Z,E)=\operatorname{Gamma}(2,1)\otimes\CN(0,1)
+                       \otimes\operatorname{Exp}(1),
+\]
+where $\operatorname{Gamma}(\alpha,\beta)$ uses shape $\alpha$ and rate $\beta$,
+and $\operatorname{Exp}(r)$ uses rate $r$. Relative to
+$ds\,da\,db\,de$, their density is
+\begin{equation}\label{eq:bartlett}
+ f_B(s,a,b,e)=\frac{s}{\pi}
+           e^{-(s+a^2+b^2+e)}\,\mathbf1_{\{s>0,e>0\}}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+For each fixed encoded first column, the projection and residual calculation
+gives the same $\CN(0,1)\otimes\operatorname{Exp}(1)$ fiber law.
+The direction map is measurable and defined everywhere. The established
+Gaussian skew-product law transports this fixed-fiber statement to the actual
+two-column sample, showing independence from the first column. Its energy
+has the already established $\operatorname{Gamma}(2,1)$ law. Mapping this joint
+law to $(S,Z,E)$ gives the displayed product measure.
+The densities $s e^{-s}$, $\pi^{-1}e^{-(a^2+b^2)}$, and $e^{-e}$ multiply to
+\eqref{eq:bartlett}. The positive-domain restriction is derived from these
+actual marginal laws, including the absence of boundary mass.
+\end{proof}
+
+This step is stronger than establishing independence for a fixed projection.
+The first-column direction is random, so measurability and the invariant fiber
+law must be used explicitly. The corresponding principal declarations are
+\lean{actualTwoRow_BartlettCoordinates_law} and
+\lean{actualTwoRow_BartlettRealCoordinates_eq_normalizedDensity}.
+
+The Gram coordinate chart is
+\begin{equation}\label{eq:chart}
+ T(s,a,b,e)=(s,\sqrt{s}\,a,\sqrt{s}\,b,a^2+b^2+e).
+\end{equation}
+Its domain is $s>0,e>0$, and its image is $D$. The inverse on $D$ is
+\[
+ (u,b,c,v)\longmapsto
+ \left(u,\frac b{\sqrt u},\frac c{\sqrt u},
+             v-\frac{b^2+c^2}{u}\right).
+\]
+The formal chart is proved to reproduce the actual Bartlett Gram mapping.
+It is not an unrelated parameterization with an assumed connection to $H$.
+
+\begin{proposition}[Jacobian and actual Gram density]\label{thm:gram}
+On the positive Bartlett domain, $|\det DT|=s$. The coordinate law of $H^*H$
+has density
+\begin{equation}\label{eq:gram}
+ f_W(u,b,c,v)=\pi^{-1}e^{-(u+v)}\mathbf1_D(u,b,c,v).
+\end{equation}
+Its integral is one.
+\end{proposition}
+\begin{proof}
+The derivative of \eqref{eq:chart}, in the stated coordinate order, is
+\[
+ \begin{pmatrix}
+ 1&0&0&0\\
+ a/(2\sqrt s)&\sqrt s&0&0\\
+ b/(2\sqrt s)&0&\sqrt s&0\\
+ 0&2a&2b&1
+ \end{pmatrix},
+\]
+whose determinant is $s$. Lean verifies the Fr\'echet derivative, the determinant,
+the inverse, and the image of the domain. The change-of-variables theorem
+therefore divides the Bartlett density by $s$. The factor $s$ in
+\eqref{eq:bartlett} cancels, and the exponent becomes $-(u+v)$.
+The actual-coordinate pushforward and its almost-sure positive support identify
+the resulting measure with the actual Gram law. Normalization follows from
+that law being a probability measure; it is not an additional density premise.
+\end{proof}
+
+The main declaration is
+\lean{actualTwoRow_GramRealCoordinates_eq_traceDensity}; the existing
+Wishart-measure API is exposed by
+\lean{complexWishart_twoRow_realCoordinates_eq_traceDensity}.
+\review Product-measure transport, complex-to-real volume normalization,
+the orientation of the Gram coordinates, and the inverse Jacobian are retained
+as explicit items in the independent review packet.
+
+\section{From the positive cone to the minimum law}\label{sec:minimum}
+For a Hermitian matrix $W$,
+\begin{equation}\label{eq:threshold}
+ \lambda_{\min}(W)>x\quad\Longleftrightarrow\quad W-xI\pd.
+\end{equation}
+The project proves this spectral criterion and its concrete four-coordinate
+version. It uses the smallest coordinate of the decreasing ordered spectrum.
+
+\begin{theorem}[Central complex $2\times2$ minimum]\label{thm:minimum}
+For the actual sample \eqref{eq:sample} with $M=0$ and $s=t=2$, and $x\geq0$,
+\begin{align}
+ \Prob\{\lambda_{\min}(H^*H)>x\}&=e^{-2x},\label{eq:tail}\\
+ \Prob\{\lambda_{\min}(H^*H)\leq x\}&=1-e^{-2x}.\label{eq:cdf}
+\end{align}
+For $x<0$ the CDF is zero. The complete minimum law is
+$\operatorname{Exp}(2)$.
+\end{theorem}
+\begin{proof}
+By \eqref{eq:threshold} and Proposition~\ref{thm:gram}, the tail is the integral
+of $\pi^{-1}e^{-\tr W}$ over $W\succ xI$. For $x\geq0$ this region lies in
+the positive definite support. Substitute $W=V+xI$. Translation preserves
+the four-real-coordinate measure, while
+$\tr(V+xI)=\tr V+2x$. Hence the integral is
+\[
+ e^{-2x}\int_{V\pd}\pi^{-1}e^{-\tr V}\,dV=e^{-2x},
+\]
+using the normalization already derived from the actual Gram law.
+The complement of the strict tail event is exactly the weak CDF event;
+no exchange of strict and weak inequalities is needed here.
+Positive semidefiniteness of a Gram matrix gives the negative-threshold case.
+Finally, uniqueness of probability measures with a common CDF identifies the
+whole pushforward measure with $\operatorname{Exp}(2)$.
+\end{proof}
+
+The three principal statements are \lean{actualTwoRow_minimum_tail},
+\lean{actualTwoRow_minimum_CDF}, and
+\lean{actualTwoRow_minimum_law_expTwo}.
+The unmodified determinant candidate of Jin et al.\ at
+$(s,t,L)=(2,2,0)$ is also shown equal to this actual CDF in
+\lean{theorem1CentralTwoRow_candidate_eq_actualCDF}.
+In this specialization its matrix is explicitly
+\[
+ \Psi(x)=e^{-x}\begin{pmatrix}x^2+2x+2&x+1\\x+1&1\end{pmatrix},
+ \qquad \det\Psi(x)=e^{-2x},\qquad \det\Psi(0)=1.
+\]
+The Lean candidate takes norms of complex determinants. Here both
+determinants are positive real numbers, so its norm ratio equals the
+ordinary determinant ratio in the source formula. This observation is
+specific to the verified specialization, not a general sign assertion.
+This last connection is a specialization of their formula, not a proof of
+their general ordered eigenvalue distribution theorem.
+The transcription follows arXiv v2 \cite{jinpreprint}. The journal metadata in
+\cite{jin} has been verified; an equation-by-equation journal comparison is
+not claimed.
+
+\subsection{Positive scalar covariance}
+\begin{corollary}[Scale convention]\label{thm:scale}
+Let $a>0$, $v=a^2$, and $W_a=(aH)^*(aH)$. Then
+\[
+ \lambda_{\min}(W_a)=a^2\lambda_{\min}(H^*H),\qquad
+ \Law(\lambda_{\min}(W_a))=\operatorname{Exp}(2/a^2).
+\]
+In particular, the CDF for variance $v>0$ is $1-e^{-2x/v}$ for $x\geq0$.
+\end{corollary}
+\begin{proof}
+The actual encoded sample matrix respects real scalar multiplication.
+Consequently its Gram matrix scales by $a^2$. The spectral threshold criterion
+identifies the corresponding minimum scaling, and transporting the events in
+Theorem~\ref{thm:minimum} gives the CDF. CDF uniqueness again gives the full law.
+\end{proof}
+Here $a$ is an amplitude and $v$ is an entry variance. The result addresses a
+positive scalar covariance; it does not address arbitrary correlated columns.
+
+\begin{remark}[Monotone log-rate application]\label{rem:outage}
+For $a,\rho>0$, define the nats-per-mode statistic
+$C_{\min}=\log(1+\rho\lambda_{\min}((aH)^*(aH)))$. Then, for $R\geq0$,
+\begin{equation}\label{eq:outage}
+ \Prob\{C_{\min}(H;a,\rho)\leq R\}
+ =1-\exp\left(-\frac{2(e^R-1)}{\rho a^2}\right).
+\end{equation}
+For $R<0$ the probability is zero. This follows immediately from
+$\log(1+\rho g)\leq R\iff g\leq(e^R-1)/\rho$ for $g\geq0$, followed by the
+scaled CDF. The declaration is \lean{actualTwoRow_weakestLogRate_outage}.
+This application is not counted as a separate principal contribution.
+A target in bits uses $R\log2$; coding theorems, power allocation, and total
+MIMO mutual information are outside the formal statement \cite{tse}.
+The operational interpretation of $\rho$ remains subject to human review.
+\end{remark}
+
+\section{Probability specializations and supporting results}
+\subsection{Fixed orthogonal Gaussian decompositions}
+Let $G$ have the standard Gaussian law on a finite-dimensional real Hilbert
+space $E$, and let $K$ be a fixed linear subspace. Write $P_K$ and $P_{K^\perp}$
+for the subspace-valued orthogonal projections.
+
+\begin{proposition}[Actual orthogonal split]\label{thm:split}
+The projected variables have their subspace standard Gaussian laws and satisfy
+\[
+ \Law(P_KG,P_{K^\perp}G)=\gamma_K\otimes\gamma_{K^\perp}.
+\]
+If $\dim_\R K=2k$ with $k>0$, then
+$\|P_KG\|^2/2\sim\operatorname{Gamma}(k,1)$.
+\end{proposition}
+\begin{proof}
+The characteristic function of a linear image is obtained by composing with
+the adjoint. For a coisometry the adjoint preserves norm, so the standard
+Gaussian characteristic function is unchanged. This identifies the projected
+laws. Joint Gaussianity follows by linear transport, and the cross covariance
+vanishes by orthogonality. The existing Gaussian independence theorem then
+gives independence and the product law. The norm statement transports the
+established Euclidean radial Gamma law through an orthonormal coordinate
+isometry; it does not require a new radial integration proof.
+\end{proof}
+These interfaces are
+\lean{stdGaussian_orthogonalProjectionOnto_law},
+\lean{stdGaussian_orthogonal_split_law}, and
+\lean{stdGaussian_projected_half_norm_sq_law}.
+They reuse mathlib's Gaussian characterization and independence machinery.
+In particular, \lean{HasGaussianLaw.indepFun_of_covariance_inner} and
+\lean{IndepFun.map_prod_eq_prod_map_map} already supply the independence and
+product-law steps; our code verifies their hypotheses for these projections.
+The word \emph{fixed} is essential: substituting a random earlier-column
+subspace requires a separate measurable conditional-law argument.
+
+\subsection{Noncentral one-column small-threshold behavior}
+\begin{theorem}[Arbitrary positive row count]\label{thm:onecolumn}
+For an integer $m>0$, a deterministic $M\in\C^{m\times1}$, and the sample
+convention \eqref{eq:sample}, let
+$F_M(x)=\Prob\{\|M+H\|_F^2\leq x\}$. Then
+\begin{equation}\label{eq:hardedge}
+ \lim_{x\downarrow0}\frac{F_M(x)}{x^m}
+       =\frac{e^{-\|M\|_F^2}}{m!}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Let $\mu$ be the real encoded mean, so $\|\mu\|^2=2\|M\|_F^2$.
+The actual event is a real Gaussian ball of radius $r=\sqrt{2x}$.
+For its centered density $\varphi$, translation gives
+\[
+ \varphi(z-\mu)=e^{-\|\mu\|^2/2+\langle z,\mu\rangle}\varphi(z).
+\]
+Cauchy--Schwarz bounds the inner product on that ball by
+$\pm r\|\mu\|$. Integrating yields
+\[
+ e^{-\|M\|_F^2-r\|\mu\|}F_0(x)
+ \leq F_M(x)\leq
+ e^{-\|M\|_F^2+r\|\mu\|}F_0(x).
+\]
+The central energy has the already proved $\operatorname{Gamma}(m,1)$ law,
+with $F_0(x)/x^m\to1/m!$. Dividing the inequalities by $x^m$ and applying
+the squeeze theorem proves \eqref{eq:hardedge}.
+\end{proof}
+The theorem is
+\lean{noncentralOneColumnSmallestCDF_div_tendsto_frobenius}.
+It includes zero mean and does not assume a noncentral spectral density.
+Exact actual-model formula connections for one-column row counts one, two,
+and three are also present, with the noncentrality parameter matched to the
+Frobenius mean norm. They are supporting coverage, not a general multi-column
+noncentral result.
+
+\section{Workflow, verification, and reproducibility}\label{sec:verification}
+\subsection{Declaration-level evidence}
+The pinned toolchain is Lean \lean{v4.35.0-rc2}; the mathlib revision is
+\lean{e18afff334217588afc719a8b707b00d90521064}.
+The repository's \lean{lean-toolchain} and \lean{lake-manifest.json} fix these
+dependencies. No toolchain upgrade is part of the reported development.
+Table~\ref{tab:map} gives module entry points; the companion claims manifest
+records exact declarations and source hashes.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.62\linewidth}}
+\toprule Result & Principal source module(s)\\\midrule
+Actual coordinate density & \lean{TwoRowActualDensity}; \lean{TwoRowActualNormalizedDensity}\\
+Frobenius frame normalization & \lean{HermitianCoordinateMetric}\\
+Spectral tail and full CDF & \lean{TwoRowMinimumLaw}\\
+Original central candidate & \lean{Theorem1CentralTwoRowActualCDF}\\
+Positive scalar covariance & \lean{TwoRowScaledMinimum}\\
+Log-rate outage & \lean{TwoRowLogRateOutage}\\
+Projection and independent split & \lean{GaussianOrthogonalProjectionLaw}; \lean{GaussianOrthogonalSplitLaw}\\
+Noncentral one-column asymptotic & \lean{T4NoncentralOneColumnAnyRows}\\
+General coordinate cone integral & \lean{CentralHermitianCoordinates}; \lean{CentralWishartConeIntegral}\\
+\bottomrule
+\end{tabular}
+\caption{Entry points for the reported statements. The last row is a
+candidate-kernel identity, not an actual general Wishart law.}\label{tab:map}
+\end{table}
+
+Three verification levels are kept distinct: elaborating a leaf module,
+elaborating the aggregate project entry point, and rebuilding all project
+sources into fresh output. A cached entry-point check is not a clean rebuild.
+The publication tooling records fresh-source re-elaboration separately from
+a full Lake build and does not claim to rebuild mathlib from source.
+All 164 project modules, counting generated submodules and the aggregate entry,
+passed this fresh-output source check. One stale theorem identifier in an
+unreferenced four-row support file was repaired without changing its statement;
+the interrupted run was then resumed using only unchanged successful outputs.
+This is one completed source-check campaign, not two independent reproductions.
+The original report's top-level 74-second interval described only the resumed
+batch: its initial campaign began earlier, and most successful source outputs
+were reused within that campaign. No individual historical durations were
+recorded, so they cannot be reconstructed as measured compilation times.
+The revision performs a separate fresh-output pass with per-module UTC start
+and finish times, monotonic wall durations, and explicit batch and campaign
+origins. Wall durations include helper startup and lock waiting, not just
+Lean CPU time. The executable status is in the accompanying verification report.
+That pass checked 164 modules without reuse in 1446.21 seconds. The subsequent
+acceptance batch adds the frame-normalization module and rechecks the changed
+aggregate entry, while validating the source and output hashes of reused
+modules. The resulting snapshot contains 165 modules. This incremental
+acceptance batch is not another independent full-source reproduction.
+
+The source audit removes nested comments and string literals before searching
+for prohibited proof placeholders or new axiom declarations. Lexical absence
+alone is insufficient: declaration-level axiom dependencies and reproducible
+kernel checking provide the stronger evidence. Independent semantic review
+is an additional obligation, particularly for the correspondence between
+formal objects and the intended probabilistic model.
+The audit enumerates all public theorem declarations in every module in
+Table~\ref{tab:map}, including the Wishart API wrapper and both general-coordinate
+modules. Its binding record contains the source/dependency snapshot hash,
+the exact audit-source and output-log hashes, compiled-output hashes, the
+toolchain/manifest hashes, and the manuscript hash. Changing any source or
+the manuscript invalidates this binding until it is regenerated and checked.
+
+\subsection{Numerical controls}
+Numerical calculations are used to reject specification mistakes before
+formal proof work, and as controls for the computational interpretations.
+They are not proof substitutes. The new log-rate preflight uses seed
+20261015 and 200000 actual independent complex Gaussian $2\times2$ samples.
+It checks the trace against $\operatorname{Gamma}(4,1)$, the minimum against
+$\operatorname{Exp}(2)$, and the Hermitian quadratic eigenvalue formula against
+a numerical eigensolver. The corresponding Kolmogorov--Smirnov statistics are
+approximately $0.00238$ and $0.00124$; the maximum eigenvalue-formula discrepancy
+is below $5\cdot10^{-15}$.
+
+Fifteen combinations of amplitude, per-mode coefficient, and target rate
+verify the event transformation and compare its empirical probability with
+\eqref{eq:outage}. The reported tolerance is eight binomial standard errors
+plus $8/N$, not a formal simultaneous confidence guarantee. The script and
+its JSON output preserve the seed, model, controls, and individual results.
+
+\subsection{Recorded AI-assisted workflow and proof-body provenance}
+The development used Codex for proof decomposition, implementation, numerical
+controls, and drafting. The local Ollama model
+\lean{deepseek-prover-v2:7b} was used as a bounded proof-completion tool for
+short, precisely stated lemmas. Accepted generated proof bodies retain their
+provenance and the label \lean{GUIDED_COLLABORATION} where applicable.
+
+One archived session (11 October 2026, round three) records 38 runner
+generations: two passed Lean, 29 were rejected by Lean, and seven were rejected
+before checking for unusable output. The two accepted bodies establish a
+normalization coefficient and a squared-norm identity, with targets and assets
+supplied by Codex; they are not independent density derivations. Two additional
+manual authoring calls failed and are excluded from the 38-call denominator.
+Five separate P4-style review requests produced zero usable issue reports.
+They are not counted as accepted proofs or completed review. These are
+observational counts from one adaptively guided session, not a controlled
+benchmark or an estimate of general model accuracy. The runner also stopped
+on a task-template error; the counts do not measure a full hour of throughput.
+The artifact includes the event log, actual review requests/responses, and
+their hashes rather than reporting only successful examples.
+The rejected review outputs include an end-of-file response, a bare
+\texttt{\#print.}, and expository plans instead of issue reports. Thus proof
+completion and review compliance are separate acceptance criteria: a prover
+can supply a useful term without being a suitable adversarial reviewer.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.49\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.28\linewidth}}
+\toprule Declaration or family & Direct body & Guidance/upstream composition\\\midrule
+\lean{deepseek_scaled_sampleMatrix} & Local DS & Codex target/assets; guided\\
+\lean{deepseek_minimum_DeterminantFactor} & Local DS & Codex target/assets; guided\\
+\lean{deepseek_round3_ComplexScaledCoefficient}; \lean{deepseek_round3_ComplexScaledNormSquare} & Local DS & Codex decomposition; guided\\
+\lean{actualTwoRow_GramRealCoordinates_eq_traceDensity} & Codex & Reuses guided DS normalization helpers\\
+\lean{actualTwoRow_minimum_law_expTwo} & Codex & Actual-density dependency chain\\
+\lean{theorem1CentralTwoRow_candidate_eq_actualCDF} & Codex & Reuses DS determinant body\\
+\lean{actualTwoRow_scaled_minimum_law} & Codex & Reuses DS sample-scaling body\\
+\lean{actualTwoRow_weakestLogRate_outage} & Codex & Reuses actual scaled CDF\\
+\bottomrule
+\end{tabular}
+\caption{Proof-body provenance for selected declarations in the headline chain.
+DS denotes the local prover tool, not an academic author. Source hashes and
+the transitive helper list are in the artifact.}\label{tab:provenance}
+\end{table}
+
+Here ``Codex'' describes the immediate proof body; it does not erase local
+prover bodies in its dependencies. Conversely, a local helper in the graph
+does not make the complete density proof a locally generated result.
+
+\subsection{Independent review boundary}
+Local prover responses did not supply an adequate independent adversarial
+review. A review packet identifies measure changes, Fubini uses, parameter
+matching, and strict/weak spectral events for review by a different model
+family and a mathematically qualified human. No such completed review is
+claimed in this version. AI tools are not listed as authors; the final human
+authors must verify and take responsibility for the mathematical and
+bibliographic content, consistently with arXiv's tool-disclosure policy
+\cite{arxivpolicy}. The editorial report prompting this revision did not
+audit the Fubini/skew-product arguments, Lean proof bodies, or the mapping
+from formal definitions to the source paper's notation. Those obligations
+remain open; this report is not a substitute for their independent review.
+
+\section{Generalization boundary and research direction}\label{sec:future}
+For $0<s\leq t$, the desired actual central Gram density relative to a fixed
+$s^2$-real-coordinate Hermitian volume is
+\begin{equation}\label{eq:general}
+ K_{s,t}\det(W)^{t-s}e^{-\tr W}\mathbf1_{W\pd},\qquad
+ K_{s,t}=\left(\pi^{s(s-1)/2}\prod_{j=1}^s(t-j)!\right)^{-1}.
+\end{equation}
+This is the coordinate-volume coefficient. Relative to induced Frobenius
+volume it becomes $2^{-s(s-1)/2}K_{s,t}$; convention differences must be
+resolved before comparing a coefficient with an external source.
+The project has \emph{not} derived \eqref{eq:general} from the actual Gaussian
+sample in arbitrary dimension. What is formalized is the translation identity
+for the corresponding candidate-kernel integral. If the actual density and
+normalization are subsequently established, the translation would give, for
+$x\geq0$,
+\[
+ \Prob\{\lambda_{\min}>x\}
+ =e^{-sx}K_{s,t}\int_{V\pd}
+                \det(V+xI)^{t-s}e^{-\tr V}\,dV.
+\]
+The determinant factor must be retained when $t>s$. The kernel identity itself
+can be stated for negative $x$; its interpretation as a tail probability then
+requires the original positive-support indicator and cannot simply be reused
+unchanged.
+
+The next substantive step is a general Cholesky density induction, rather than
+a collection of further low-dimensional charts. Four obligations are explicit.
+First, measurable parameterized projections must lift the fixed-subspace laws
+to the random earlier-column conditional setting. Second, for $r>0$ and
+$z\in\C^{s-1}$ the block map
+\[
+ (r,z,B)\longmapsto
+ \begin{pmatrix}r&\sqrt r\,z^*\\\sqrt r\,z&B+zz^*\end{pmatrix}
+\]
+must have a dimension-independent real-coordinate absolute Jacobian
+$r^{s-1}$. Small-dimensional symbolic controls are available but are not a
+general Lean proof. Third, the determinant and trace identities must combine
+with this Jacobian and the recurrence
+\[
+ K_{s,t}=\frac{K_{s-1,t-1}}{\pi^{s-1}(t-1)!}.
+\]
+Finally, exceptional sets and full-rank support must be connected to the
+actual pushforward measure. These obligations identify reusable probability
+and multivariate-calculus contributions beyond the present example.
+
+General noncentral ordered spectral densities and the full parameter range of
+the original Theorems~1--4 remain outside the established results. In
+particular, the present cone method does not supply a noncentral unitary
+integration formula. The current work supplies a verified example and
+interfaces for pursuing those questions, rather than a completed
+formalization of the whole source paper.
+
+\section{Conclusion}
+The development connects real Gaussian samples to an actual complex Gram
+density and then to a smallest-eigenvalue law, with scalar covariance and
+logarithmic-rate event transport made explicit. Its main reusable lesson is
+the separation of actual pushforward laws, coordinate transformations, and
+candidate formulas. The arbitrary-row one-column asymptotic and fixed
+orthogonal Gaussian split provide further foundations for a general density
+induction. Release preparation must still complete independent semantic
+review, the related-work assessment, author metadata, and a public immutable
+artifact reference.
+
+\appendix
+\section{Artifact organization and release conditions}
+The companion repository places Lean sources under
+\path{theory/jin_wishart_formalization/}, numerical controls under
+\path{experiments/}, and exact claims and verification reports under
+\path{verification/}. This manuscript is self-contained LaTeX; its bibliography
+is included below, with no external images, custom class, or local input files.
+The files \path{claims.json}, \path{REPRODUCIBILITY.md}, and
+\path{SUBMISSION_READINESS.md} accompany the working manuscript.
+
+Before submission, the author line must be completed, an accessible repository
+or archival artifact URL must be supplied, fresh-source evidence must be
+checked against the release commit, and the independent review items must be
+resolved or explicitly narrowed. A final related-work search must support
+the precise contribution claims. Internal normalization diagnostics are excluded
+from this manuscript pending source reconciliation and identifiable parameter
+tests. arXiv moderation is not peer review
+\cite{arxivpolicy}; formatting compliance does not imply acceptance.
+
+\begin{thebibliography}{99}
+\bibitem{jin}
+S. Jin, M. R. McKay, X. Gao, and I. B. Collings.
+\emph{MIMO Multichannel Beamforming: SER and Outage Using New Eigenvalue
+Distributions of Complex Noncentral Wishart Matrices}.
+\emph{IEEE Transactions on Communications}, 56(3):424--434, 2008.
+\url{https://doi.org/10.1109/TCOMM.2008.060115}.
+
+\bibitem{jinpreprint}
+S. Jin, M. R. McKay, X. Gao, and I. B. Collings.
+\emph{MIMO Multichannel Beamforming: SER and Outage Using New Eigenvalue
+Distributions of Complex Noncentral Wishart Matrices}.
+arXiv:cs/0611007v2, 2006.
+\url{https://arxiv.org/abs/cs/0611007v2}.
+
+\bibitem{bartlett}
+M. S. Bartlett. \emph{On the theory of statistical regression}.
+Proceedings of the Royal Society of Edinburgh, 53:260--283.
+Issued separately 1933; bound volume 1934.
+\url{https://doi.org/10.1017/S0370164600015637}.
+
+\bibitem{goodman}
+N. R. Goodman. \emph{Statistical analysis based on a certain multivariate
+complex Gaussian distribution (an introduction)}.
+The Annals of Mathematical Statistics, 34(1):152--177, 1963.
+\url{https://doi.org/10.1214/aoms/1177704250}.
+
+\bibitem{edelman1988}
+A. Edelman. \emph{Eigenvalues and condition numbers of random matrices}.
+SIAM Journal on Matrix Analysis and Applications, 9(4):543--560, 1988.
+\url{https://doi.org/10.1137/0609045}.
+
+\bibitem{edelman1991}
+A. Edelman. \emph{The distribution and moments of the smallest eigenvalue
+of a random matrix of Wishart type}.
+Linear Algebra and its Applications, 159:55--80, 1991.
+\url{https://doi.org/10.1016/0024-3795(91)90076-9}.
+
+\bibitem{avigad}
+J. Avigad, J. H\"olzl, and L. Serafin.
+\emph{A formally verified proof of the Central Limit Theorem}.
+arXiv:1405.7012v4, 2017.
+\url{https://arxiv.org/abs/1405.7012v4}.
+
+\bibitem{affeldt}
+R. Affeldt and C. Cohen.
+\emph{Measure construction by extension in dependent type theory with
+application to integration}.
+Journal of Automated Reasoning, 67, article 28, 2023.
+\url{https://arxiv.org/abs/2209.02345v3}.
+
+\bibitem{mathlib}
+The mathlib Community.
+\emph{The Lean mathematical library}.
+arXiv:1910.09336, 2019.
+\url{https://arxiv.org/abs/1910.09336}.
+
+\bibitem{gouezel}
+S. Gou\"ezel.
+\emph{A formalization of the change of variables formula for integrals in mathlib}.
+arXiv:2207.12742, 2022.
+\url{https://arxiv.org/abs/2207.12742}.
+
+\bibitem{degenne}
+R. Degenne.
+\emph{Markov kernels in Mathlib's probability library}.
+arXiv:2510.04070, 2025; version 2, 2026.
+\url{https://arxiv.org/abs/2510.04070}.
+
+\bibitem{tse}
+D. Tse and P. Viswanath.
+\emph{Fundamentals of Wireless Communication}.
+Cambridge University Press, 2005.
+Author-hosted material: \url{https://stanford.edu/~dntse/wireless_book.html}.
+
+\bibitem{arxivpolicy}
+arXiv. \emph{Content moderation}, including the policy on generative AI tools.
+Rechecked 16 October 2026, section ``Policy for authors' use of generative AI
+language tools''.
+\url{https://info.arxiv.org/help/moderation/index.html#policy-for-authors-use-of-generative-ai-language-tools}.
+\end{thebibliography}
+\end{document}

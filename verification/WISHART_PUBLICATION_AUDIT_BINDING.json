@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "started_utc": "2026-10-16T04:03:53.383744+00:00",
-  "finished_utc": "2026-10-16T04:06:10.448455+00:00",
-  "wall_seconds": 136.7162657000008,
+  "started_utc": "2026-10-16T07:02:35.895300+00:00",
+  "finished_utc": "2026-10-16T07:02:59.743927+00:00",
+  "wall_seconds": 23.5046444000036,
   "exit_code": 0,
   "snapshot_unchanged_during_check": true,
   "project_source_snapshot_sha256": "ba1377dec9a5f21884f1c49bf7f9ce97a9998596fd8539fa262fdc65c0451397",
@@ -845,7 +845,7 @@
   },
   "manuscript": {
     "path": "theory/wishart_paper/main.tex",
-    "sha256": "9a96ec606f71fb5b4bc17a0be05d30125576ae12e0176b98bbef368bf526a38c"
+    "sha256": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049"
   },
   "toolchain_sha256": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
   "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",

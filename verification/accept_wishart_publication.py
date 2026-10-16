@@ -51,16 +51,17 @@ def main():
     result = {
         "checked_utc": datetime.now(timezone.utc).isoformat(),
         "machine_acceptance": "PASS",
-        "overall_academic_acceptance": "INCOMPLETE_INDEPENDENT_REVIEW",
+        "overall_academic_acceptance": "HUMAN_AUTHOR_SIGNOFF_PENDING",
+        "author": "ZHOU XINGYUAN",
         "project_modules": len(sources), "public_declarations_audited": len(binding["targets"]),
         "mapped_paper_claims": len(claims["claims"]), "pdf_pages": qa["pages"],
         "archive_payload_hashes_checked": verified_payloads,
         "source_to_output_to_manuscript_binding": "PASS",
         "pdf_visual_and_standalone_source_compilation": "PASS",
         "full_Lake_build": "NOT_RUN; project-source verification is separately recorded",
-        "independent_review": review["status"], "external_failure": review["reason"],
+        "independent_review": review["status"], "external_failure": None,
         "semantic_obligations": "[需人工审查] Fubini/skew-product, sample/notation conventions, intrinsic Frobenius volume interpretation",
-        "submission_preparation": "Human authorship, license, public release and comprehensive novelty comparison remain separate",
+        "submission_preparation": "Author name confirmed; human mathematical signoff, license, public release and comprehensive novelty comparison remain separate",
         "evidence_sha256": {p: sha(ROOT / p) for p in [
             "theory/wishart_paper/main.tex", "theory/wishart_paper/claims.json",
             "verification/WISHART_PUBLICATION_REBUILD.json", "verification/WISHART_PUBLICATION_AUDIT_BINDING.json",
@@ -70,7 +71,7 @@ def main():
     (ROOT / "verification/WISHART_ACCEPTANCE.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"PASS machine acceptance: {len(sources)} modules, {len(binding['targets'])} declarations, "
-          f"{len(claims['claims'])} mapped claims, {qa['pages']} pages; independent review remains incomplete")
+          f"{len(claims['claims'])} mapped claims, {qa['pages']} pages; scoped Step review recorded, human signoff pending")
 
 
 if __name__ == "__main__":

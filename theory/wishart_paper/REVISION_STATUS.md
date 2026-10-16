@@ -10,10 +10,12 @@
 | 发布源码绑定 | PASS：源码/依赖、olean、实际日志、工具链、稿件哈希绑定 | WISHART_PUBLICATION_AUDIT_BINDING.json |
 | 占位符与编码 | PASS：UTF-8严格读取，排除注释/字符串后无禁止证明token | claims.json |
 | PDF | PASS：最新12页实际编译、引用解析、逐页渲染检查，无溢出或遮挡 | WISHART_PAPER_PDF_QA.json |
-| 独立P4及人工语义审查 | **未完成：外部阻塞**。真实只读Claude调用返回API 402余额不足，无有效审查报告，未自动重试 | WISHART_INDEPENDENT_REVIEW_STATUS.json |
+| 独立P4及人工语义审查 | 已有Step家族范围限定的独立语义P4；范围内未报告数学错误。人工语义审查未完成；旧Claude 402失败保留为历史 | WISHART_INDEPENDENT_REVIEW_STATUS.json |
 
 完整Lake构建与重建mathlib没有执行，不混同165模块源码检查。一般G2/T3概率桥没有新增结论。期刊版逐式核对没有完成；T3诊断已撤出正文，本文未声称裁决刊版错误。
 
-论文PDF、LaTeX源码包和带逐字节哈希的审查包已更新。独立交接包包含96份源码及其完整证明体，供独立模型/人类审阅。作者、许可、公开地址及全面相关工作比较仍是投稿准备事项，不属于机器证明能代填的信息。
+论文PDF、LaTeX源码包和带逐字节哈希的审查包已更新。独立交接包包含96份源码及其完整证明体，供独立模型/人类审阅。作者署名已设为ZHOU XINGYUAN；许可、实际公开发布及全面相关工作比较仍是投稿准备事项，不属于机器证明能代填的信息。
 
 **机器验收通过不等于所有学术验收完成。** Fubini/skew-product、模型与论文记号、内在Frobenius体积解释继续标记 [需人工审查]。
+
+现有Step报告原样保留，96源码+旧稿哈希已重新核对。I-1/I-2/I-5文档建议和作者/PDF元数据已处理；详见STEP_REVIEW_DISPOSITION.md。Lean源码未变化。

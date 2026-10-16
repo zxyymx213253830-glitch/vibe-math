@@ -1,6 +1,6 @@
 {
-  "created_utc": "2026-10-16T04:07:11.621292+00:00",
-  "status": "READY_FOR_INDEPENDENT_REVIEW_NOT_REVIEWED",
+  "created_utc": "2026-10-16T07:04:29.438480+00:00",
+  "status": "CURRENT_SNAPSHOT_SCOPED_REVIEW_WITH_EDITORIAL_UPDATE",
   "entries": [
     "JinWishartFormalization.CentralHermitianCoordinates",
     "JinWishartFormalization.CentralWishartConeIntegral",
@@ -20,7 +20,7 @@
   ],
   "manuscript": {
     "path": "theory/wishart_paper/main.tex",
-    "sha256": "9a96ec606f71fb5b4bc17a0be05d30125576ae12e0176b98bbef368bf526a38c"
+    "sha256": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049"
   },
   "sources": {
     "JinWishartFormalization.BesselI0Angle": {
@@ -1692,5 +1692,11 @@
       ]
     }
   },
-  "instruction": "AGENTS P4, issues only, different model family; human semantic acceptance is separate"
+  "instruction": "AGENTS P4, issues only, different model family; human semantic acceptance is separate",
+  "reviewed_snapshot": {
+    "path": "verification/publication_checks/step-review-20261016/reviewed-manifest.json",
+    "sha256": "62ab42c02e03f04bc2a97ca5cad2ef7823a555e15148cad2c382164d99fb35e7",
+    "Lean_sources_unchanged": true,
+    "editorial_manuscript_update_not_rereviewed": true
+  }
 }

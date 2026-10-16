@@ -3,36 +3,37 @@
   "status": "LOCAL_REVIEW_PACKAGE_NOT_SUBMITTED",
   "manuscript": {
     "path": "theory/wishart_paper/main.tex",
-    "sha256": "9a96ec606f71fb5b4bc17a0be05d30125576ae12e0176b98bbef368bf526a38c"
+    "sha256": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049"
   },
   "pdf": {
     "path": "output/pdf/wishart_formalization.pdf",
-    "sha256": "60a1bb5cdeae08ec1c99ea4a06981cc356ad2dd44a96b9a30053c05811ed7d80"
+    "sha256": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203"
   },
   "audit_binding": {
     "path": "verification/WISHART_PUBLICATION_AUDIT_BINDING.json",
-    "sha256": "7b183ebe1ac596f972523208d47019881dee68fb8d934f69d2a7f3fe1f08f130"
+    "sha256": "1b35924410ff2741f24e50c2a48bf4abeca9b110fca06084dfd60c3187b77251"
   },
   "archives": [
     {
       "path": "output/publication/wishart_latex_source.zip",
-      "sha256": "1cb78f79e7baab5cf215d99998769fe99f956d561b485de7585c936a66009fab"
+      "sha256": "0b5b37f48192d9822ad63f3e0fcd78dc35e397c921cd67bc8cf815f6746716a4"
     },
     {
       "path": "output/publication/wishart_review_artifact.zip",
-      "sha256": "4e0498fc956b47f2ce17e7d41cb21f5cf88a7ae66fb57427eadd9938a7f1b5ce"
+      "sha256": "be9ea0da86b1d2e15d1a168cf5587c9d6c67d4ae62ddeb9753724bd8e29cce73"
     },
     {
       "path": "output/publication/wishart_independent_review.zip",
-      "sha256": "34cc455e492a5511a69205f75cd96e5599fa35af182875009f4d1ab0bc107277"
+      "sha256": "7b2dbf6cec8aeff4252a6a1981c1aa0b0e5bf1a2cca76aedd4a3e272e892b646"
     }
   ],
   "archive_byte_integrity": "PASS: every payload hash checked after reopening ZIP",
+  "author": "ZHOU XINGYUAN",
   "release_blockers": [
-    "Human author metadata",
-    "Independent semantic P4 review",
-    "Public artifact URL and human-selected license",
+    "Human mathematical signoff",
+    "Human-selected release license",
+    "Actual public submission/release",
     "Final novelty/source review"
   ],
-  "artifact_files": 404
+  "artifact_files": 416
 }

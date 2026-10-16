@@ -28,7 +28,7 @@
 - 随机子空间条件律和一般 Cholesky Jacobian 仍是核心研究卡。
 - 一般非中心 G2、一般参数下原定理1–4仍开放。
 - T3 已从可投稿正文删除。当前固定参数模拟至多支持倍数2，不能识别为Gamma因子；内部辨识边界见 `notes/T3_NORMALIZATION_IDENTIFIABILITY.md`。刊版全文未逐式核对，不能称“推翻/修正刊版定理”。
-- 独立 P4 尚未完成。所有换元、Fubini、Gaussian 方差和论文对应继续 `[需人工审查]`。
+- 已有Step家族范围限定P4，范围内未报告数学错误。所有换元、Fubini、Gaussian方差和论文对应仍保留人工确认边界 `[需人工审查]`，不把模型审查当人工验收。
 
 ## 本次实际新增
 
@@ -38,4 +38,4 @@
 
 确切源码哈希、实际重新检查状态见 `claims.json` 和 `../../verification/WISHART_PUBLICATION_REBUILD.json`。
 
-本次验收补充：HermitianCoordinateMetric八声明已通过，建立一般坐标能量恒等式、2×2框架体积乘二及实际密度系数除二。这是已有真实分布的参考测度转换，不是一般Wishart密度突破。当前165模块/119公理审计/22论文主张绑定及12页PDF验收已完成；独立P4仍未完成。
+本次验收补充：HermitianCoordinateMetric八声明已通过，建立一般坐标能量恒等式、2×2框架体积乘二及实际密度系数除二。这是已有真实分布的参考测度转换，不是一般Wishart密度突破。当前165模块/119公理审计/22论文主张绑定已完成；PDF以最新QA记录为准。后续Step模型审查的范围及文档修订见STEP_REVIEW_DISPOSITION.md。

@@ -1,9 +1,11 @@
 {
   "status": "PASS",
-  "checked_utc": "2026-10-16T04:07:41.543335+00:00",
-  "pdf_sha256": "60a1bb5cdeae08ec1c99ea4a06981cc356ad2dd44a96b9a30053c05811ed7d80",
-  "manuscript_sha256": "9a96ec606f71fb5b4bc17a0be05d30125576ae12e0176b98bbef368bf526a38c",
+  "checked_utc": "2026-10-16T07:04:29.785413+00:00",
+  "pdf_sha256": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+  "manuscript_sha256": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
   "pages": 12,
+  "author": "ZHOU XINGYUAN",
+  "pdf_metadata_author_verified": true,
   "latex_success": true,
   "undefined_references": false,
   "overfull_boxes": false,
@@ -23,34 +25,35 @@
     12
   ],
   "render_dpi": 80,
-  "visual_reviewer": "Codex (not independent semantic review)",
-  "visual_findings": "All 12 final pages inspected; formulas, tables, page numbers and references legible, no clipping or overlap observed",
+  "visual_reviewer": "Codex (layout only; not independent semantic review)",
+  "visual_findings": "All pages inspected. Final pages 1-11 byte-identical PNGs to inspected author render; final bibliography page 12 inspected again after reducing bibliography font. No clipping, overlap, unreadable formulas or orphan final reference page.",
   "rendered_page_sha256": {
-    "selfreview-01.png": "80e842baf4e790fe3e1f21a488cca186081edba433152e13523e164c32ab1b1d",
-    "selfreview-02.png": "c70bce416c8eac7ca0c26207f9fc1ebd32d9c13aa6263304d75a79290b5e6482",
-    "selfreview-03.png": "0db9a9153c62f82e223ab78d7121d0d11a3d4bbf49eeb99ca1262b5dfe265857",
-    "selfreview-04.png": "32e9804ae7a850fc33e47af23bc5efea17476a41ecd04cc4d60ca3193509bec2",
-    "selfreview-05.png": "20142673f182b8963c5d58da1e0707c82a08b7e21e6fbb9cf72a6ca2bdc18602",
-    "selfreview-06.png": "c1af9fe2c25c8edaf7e0632b50af1488101661bd1cd3959ce146cf164506fcd6",
-    "selfreview-07.png": "ad8988fa4bc2d9aba373883ba097466372d4b6bb8116a3dd0069b2968a9c25be",
-    "selfreview-08.png": "a2e7b1a9aa72380f10d77235c66a66dd2de8acfaa3c0220848b0c22cb3c2ef53",
-    "selfreview-09.png": "c7f16a30589dda5d54fc477721d28289bbf3669606a93d1fd9ef21e751efd1f4",
-    "selfreview-10.png": "881a35128ef1efd69a203841248b73012485ce4ed2ed518f0a050b13034e9427",
-    "selfreview-11.png": "12a9060f404318206ee5e4fecb25f81cf8c473ac84da0de428da2083c788929a",
-    "selfreview-12.png": "e0bcbf5b3a18b3e9261393e1483a621db2da3a605858ce3f7c3085fba3ea090b"
+    "final-author-01.png": "03f092aa3bc4468c129fb6d5c7b1a9e2be72f7b09ed2268d2272efc5ffc2bc86",
+    "final-author-02.png": "c70bce416c8eac7ca0c26207f9fc1ebd32d9c13aa6263304d75a79290b5e6482",
+    "final-author-03.png": "530c7af62f995010070fe40ce404ce5872393ee8619fa8cf5c01395a52134282",
+    "final-author-04.png": "8d4d9be2f2f152a68f6f8bf4287fd48def63ff94422f1e6a7a75ab82d3b69907",
+    "final-author-05.png": "c57b3f124e777e899d127104a50a3a2cd8912e70119b5832651bd48bcf959362",
+    "final-author-06.png": "c1af9fe2c25c8edaf7e0632b50af1488101661bd1cd3959ce146cf164506fcd6",
+    "final-author-07.png": "793b2103ab5163d62ffc443ddff9c6b35640e0d85008ffc0dc7cd4eeed4e7892",
+    "final-author-08.png": "a2e7b1a9aa72380f10d77235c66a66dd2de8acfaa3c0220848b0c22cb3c2ef53",
+    "final-author-09.png": "2ff93609b43ed7588f2411babc97115e267e33527e027b6d3249be4983a34c7c",
+    "final-author-10.png": "b3d92e4fa341c4e42649cb5ed013a83617e3a2c51da0062f2c39674597ae76d8",
+    "final-author-11.png": "5e018f7dfb95b655d50ccce172117f6ca55f365499297bb59041544311290fd5",
+    "final-author-12.png": "a92ac6fa4147e601851244d19d3f68b2895a55cc95e5e95c72d9f6e4e7891544"
   },
   "latex_log": {
-    "path": "verification/publication_checks/acceptance-20261016/latex-final-log.txt",
-    "sha256": "600faca8294c94af414a27e374c864226ef6d51dd5e5e7ed0b83c7317a9c390c"
+    "path": "verification/publication_checks/final-author-20261016/latex-final-log.txt",
+    "sha256": "1b9a3bced1cf5284dbaca05457e0c160f0503b5a9d931d342de8e963865498d5"
   },
-  "independent_semantic_review": "PENDING [需人工审查]; actual Claude invocation failed with API 402",
+  "independent_semantic_review": "Existing scoped Step-family review delivered; human review pending [需人工审查]",
   "standalone_source_archive_check": {
     "status": "PASS",
-    "source_zip_sha256": "1cb78f79e7baab5cf215d99998769fe99f956d561b485de7585c936a66009fab",
+    "source_zip_sha256": "0b5b37f48192d9822ad63f3e0fcd78dc35e397c921cd67bc8cf815f6746716a4",
     "only_input": "main.tex",
     "pdf_pages": 12,
     "extracted_text_matches_final_pdf": true,
+    "metadata_author_matches": true,
     "runs": 2,
-    "method": "Actual updated ZIP extracted and compiled twice in isolation; timestamp-dependent PDF bytes not claimed identical"
+    "method": "Actual final source ZIP extracted and compiled twice in an isolated directory; PDF text and author metadata match final PDF; timestamp-dependent bytes not claimed identical"
   }
 }

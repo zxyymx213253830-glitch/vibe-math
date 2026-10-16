@@ -1,0 +1,145 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(D:/vibe math/theory/wishart_paper/main.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg
+))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+)) (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty)
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.s
+ty (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+) (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cf
+g)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.d
+ef)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
+x))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.s
+ty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-p
+dftex.def)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.c
+fg)) (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.s
+ty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefi
+nekeys.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape
+.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcm
+ds.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr
+.sty)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gett
+itlestring.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.s
+ty)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc
+.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintca
+lc.sty)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunf
+ilecheck.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqu
+ecounter.sty)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\l3backend-pd
+ftex.def) (D:/vibe math\output\pdf\main.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
+.cfg)))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
+mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
+-base.sty
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys
+.cfg))
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg)
+(D:/vibe math\output\pdf\main.out) (D:/vibe math\output\pdf\main.out)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg)
+[1{C:/Users/zxy1117/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/
+zxy1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/zx
+y1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/zxy1
+117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/zx
+y1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
+(C:\Users\zxy1117\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd)
+[2] [3{C:/Users/zxy1117/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
+hex.enc}] [4] [5] [6] [7] [8] [9] [10] [11] [12]
+(D:/vibe math\output\pdf\main.aux) )<C:/Users/zxy1117/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/zxy1117/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/zxy1117/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/zxy1117/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/zxy1117/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/zxy1117/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/zxy1117/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/zxy1117/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/zxy1117/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/zxy1117/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/zxy1117/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/zxy1117/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/zxy1117/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/zxy1117/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/zxy1117/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/zxy1117/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/zxy1117/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb><C:/Users/zxy1117/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "D:/vibe math\output\pdf\main.pdf" (12 pages, 402143 bytes).
+Transcript written on "D:/vibe math\output\pdf\main.log".

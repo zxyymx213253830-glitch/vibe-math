@@ -62,6 +62,8 @@ def main() -> None:
         "verification/package_wishart_publication.py",
         "verification/WISHART_P4_REVIEW_PACKET.md",
         "verification/WISHART_P4_REVIEW_MANIFEST.json",
+        "verification/WISHART_P4_REVIEW_RESPONSE_20261016.md",
+        "notes/ARXIV_SUBMISSION_REVIEW_20261016.md",
         "notes/WISHART_STATUS.md",
         "output/pdf/wishart_formalization.pdf",
         "AGENTS.md",
@@ -81,6 +83,9 @@ def main() -> None:
     for p in manifest["sources"].values():
         assert sha(ROOT / p["path"]) == p["sha256"]
     review_paths.update([manifest_path, ROOT / "verification/WISHART_P4_REVIEW_PACKET.md",
+                         ROOT / "verification/WISHART_P4_REVIEW_RESPONSE_20261016.md",
+                         ROOT / "verification/WISHART_INDEPENDENT_REVIEW_STATUS.json",
+                         PAPER / "STEP_REVIEW_DISPOSITION.md",
                          ROOT / "AGENTS.md", PAPER / "main.tex", PAPER / "claims.json",
                          PAPER / "REVISION_STATUS.md"])
     review_archive = output / "wishart_independent_review.zip"
@@ -102,8 +107,9 @@ def main() -> None:
               "archives": [{"path": p.relative_to(ROOT).as_posix(), "sha256": sha(p)}
                            for p in [tex_archive, archive_path, review_archive]],
               "archive_byte_integrity": "PASS: every payload hash checked after reopening ZIP",
-              "release_blockers": ["Human author metadata", "Independent semantic P4 review",
-                                   "Public artifact URL and human-selected license", "Final novelty/source review"],
+              "author": "ZHOU XINGYUAN",
+              "release_blockers": ["Human mathematical signoff", "Human-selected release license",
+                                   "Actual public submission/release", "Final novelty/source review"],
               "artifact_files": len(paths)}
     (ROOT / "verification/WISHART_PAPER_DELIVERY.json").write_text(
         json.dumps(result, indent=2) + "\n", encoding="utf-8")

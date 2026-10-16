@@ -9,7 +9,10 @@
 \usepackage{microtype}
 \usepackage{xurl}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,
+pdftitle={From Gaussian Samples to a Complex Wishart Minimum Law in Lean},
+pdfauthor={ZHOU XINGYUAN},pdfsubject={Formal verification of complex Gaussian Gram matrix laws},
+pdfkeywords={Lean, mathlib, complex Wishart, Gaussian measure, formal verification}}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -23,10 +26,9 @@
 \newcommand{\Law}{\mathcal L}
 \newcommand{\pd}{\succ0}
 \newcommand{\lean}[1]{{\small\nolinkurl{#1}}}
-\newcommand{\review}{\par\smallskip\noindent\textbf{Human semantic review required.}\ }
 \title{From Gaussian Samples to a Complex Wishart Minimum Law in Lean}
-\author{}
-\date{Working manuscript, 16 October 2026}
+\author{ZHOU XINGYUAN}
+\date{}
 
 \begin{document}
 \maketitle
@@ -52,7 +54,8 @@ one recorded session contained 38 local-prover generations, of which two guided
 helper proofs passed the kernel, while five separate adversarial-review
 requests yielded no usable review. These observational records and a
 declaration-level provenance map accompany the proofs; they are not a
-controlled model benchmark. Independent semantic review remains pending.
+controlled model benchmark. A subsequent scoped cross-family model review
+reported no concrete mathematical errors; human mathematical review remains open.
 \end{abstract}
 
 \section{Introduction}
@@ -190,7 +193,8 @@ transported by this equivalence. Each unordered off-diagonal pair contributes
 two real directions of Frobenius squared length two. Thus in dimension $s$,
 induced Frobenius volume is $2^{s(s-1)/2}$ times this coordinate measure, and
 a density coefficient relative to Frobenius volume is divided by that factor.
-This construction fixes a normalization;
+This general volume factor is derived here geometrically; we do not claim
+a general-dimensional Lean volume theorem. This construction fixes a normalization;
 it does not by itself identify any Gaussian Gram density.
 
 \subsection{Meaning of the verification claims}
@@ -206,9 +210,8 @@ The repository's printed axiom checks use only
 \lean{propext}, \lean{Classical.choice}, and \lean{Quot.sound} for the audited
 declarations. This is a dependency statement, not a proof that the mathematical
 interpretation of every definition matches an external paper. Independent
-review of model conventions and analytical specifications remains pending.
-\review The Gaussian encoding, the Hermitian coordinate measure, and the
-identification with the communication model require independent scrutiny.
+human review of model conventions and analytical specifications remains pending;
+the scope of the completed model review is specified in Section~\ref{sec:review}.
 
 \section{Actual Bartlett coordinates and the Gram density}\label{sec:density}
 Let $h_1,h_2$ be the columns of the central $2\times2$ sample.
@@ -255,7 +258,10 @@ The Gram coordinate chart is
 \begin{equation}\label{eq:chart}
  T(s,a,b,e)=(s,\sqrt{s}\,a,\sqrt{s}\,b,a^2+b^2+e).
 \end{equation}
-Its domain is $s>0,e>0$, and its image is $D$. The inverse on $D$ is
+On the positive Bartlett support $s>0,e>0$, its image is $D$.
+An auxiliary change-of-variables identity is stated on the larger domain
+$s>0$; the actual-density application restricts it to this almost-sure
+positive support. The inverse on $D$ is
 \[
  (u,b,c,v)\longmapsto
  \left(u,\frac b{\sqrt u},\frac c{\sqrt u},
@@ -295,9 +301,9 @@ The main declaration is
 \lean{actualTwoRow_GramRealCoordinates_eq_traceDensity}; the existing
 Wishart-measure API is exposed by
 \lean{complexWishart_twoRow_realCoordinates_eq_traceDensity}.
-\review Product-measure transport, complex-to-real volume normalization,
-the orientation of the Gram coordinates, and the inverse Jacobian are retained
-as explicit items in the independent review packet.
+Product-measure transport, complex-to-real volume normalization, Gram-coordinate
+orientation, and the inverse Jacobian are included in the review scope
+and human review obligations described in Section~\ref{sec:review}.
 
 \section{From the positive cone to the minimum law}\label{sec:minimum}
 For a Hermitian matrix $W$,
@@ -456,8 +462,11 @@ The theorem is
 It includes zero mean and does not assume a noncentral spectral density.
 Exact actual-model formula connections for one-column row counts one, two,
 and three are also present, with the noncentrality parameter matched to the
-Frobenius mean norm. They are supporting coverage, not a general multi-column
-noncentral result.
+Frobenius mean norm. In particular, the supporting candidate-to-actual-CDF
+connections include $(s,t,L)=(1,2,1)$ and $(1,3,1)$, with positive
+noncentrality and the stated mean-parameter compatibility hypotheses; zero
+mean is treated by the central branches. These are supporting coverage,
+not a general multi-column noncentral result.
 
 \section{Workflow, verification, and reproducibility}\label{sec:verification}
 \subsection{Declaration-level evidence}
@@ -532,7 +541,8 @@ They are not proof substitutes. The new log-rate preflight uses seed
 It checks the trace against $\operatorname{Gamma}(4,1)$, the minimum against
 $\operatorname{Exp}(2)$, and the Hermitian quadratic eigenvalue formula against
 a numerical eigensolver. The corresponding Kolmogorov--Smirnov statistics are
-approximately $0.00238$ and $0.00124$; the maximum eigenvalue-formula discrepancy
+approximately $0.00238$ for trace--Gamma$(4,1)$ and $0.00124$ for
+minimum--Exp$(2)$; the maximum eigenvalue-formula discrepancy
 is below $5\cdot10^{-15}$.
 
 Fifteen combinations of amplitude, per-mode coefficient, and target rate
@@ -589,18 +599,34 @@ Here ``Codex'' describes the immediate proof body; it does not erase local
 prover bodies in its dependencies. Conversely, a local helper in the graph
 does not make the complete density proof a locally generated result.
 
-\subsection{Independent review boundary}
-Local prover responses did not supply an adequate independent adversarial
-review. A review packet identifies measure changes, Fubini uses, parameter
-matching, and strict/weak spectral events for review by a different model
-family and a mathematically qualified human. No such completed review is
-claimed in this version. AI tools are not listed as authors; the final human
-authors must verify and take responsibility for the mathematical and
-bibliographic content, consistently with arXiv's tool-disclosure policy
-\cite{arxivpolicy}. The editorial report prompting this revision did not
-audit the Fubini/skew-product arguments, Lean proof bodies, or the mapping
-from formal definitions to the source paper's notation. Those obligations
-remain open; this report is not a substitute for their independent review.
+\subsection{Independent review boundary}\label{sec:review}
+The failed local-prover review requests are distinct from a subsequent
+cross-family semantic review by WorkBuddy (Step model family). Its existing
+report inspected the central $2\times2$ chain, supporting two- and three-row
+one-column statements, scaling and outage, fixed-subspace interfaces, the
+one-column asymptotic, and Frobenius normalization. Within its inspected
+scope it reported no concrete mathematical errors or hidden assumptions.
+Its documentary suggestions about chart domains, supporting specializations,
+and the general-dimensional volume-factor derivation are incorporated here.
+The report, reviewed snapshot hashes, and an issue-disposition record accompany
+the artifact. The Lean sources are unchanged from that reviewed snapshot;
+the present author, metadata, and editorial updates are separately recorded.
+
+This was a scoped model review, not comprehensive human mathematical review.
+The report lists 32 files read in full, two auxiliary files checked only at
+their statement signatures, and approximately 130 project modules plus mathlib
+outside its proof-body review. In particular, full radial/Bessel dependencies,
+the general cone-integral implementation, and general source-formula branches
+are not covered by that report. Human obligations remain: checking measurable
+skew-product and Fubini specifications, complex-to-real and intrinsic Frobenius
+volume interpretations, sample variance and Gram orientation, strict/weak
+spectral events, and formal-definition correspondence to source notation.
+No general journal equation comparison or complete semantic acceptance follows
+from the absence of findings in the inspected subset.
+
+AI tools are not authors. The named human author must verify and take
+responsibility for the mathematical and bibliographic content, consistently
+with arXiv's tool-disclosure policy \cite{arxivpolicy}.
 
 \section{Generalization boundary and research direction}\label{sec:future}
 For $0<s\leq t$, the desired actual central Gram density relative to a fixed
@@ -661,9 +687,9 @@ logarithmic-rate event transport made explicit. Its main reusable lesson is
 the separation of actual pushforward laws, coordinate transformations, and
 candidate formulas. The arbitrary-row one-column asymptotic and fixed
 orthogonal Gaussian split provide further foundations for a general density
-induction. Release preparation must still complete independent semantic
-review, the related-work assessment, author metadata, and a public immutable
-artifact reference.
+induction. The completed cross-family review has a stated scope; final human
+mathematical signoff, the related-work assessment, and release-rights decisions
+remain the responsibility of the author.
 
 \appendix
 \section{Artifact organization and release conditions}
@@ -675,16 +701,20 @@ is included below, with no external images, custom class, or local input files.
 The files \path{claims.json}, \path{REPRODUCIBILITY.md}, and
 \path{SUBMISSION_READINESS.md} accompany the working manuscript.
 
-Before submission, the author line must be completed, an accessible repository
-or archival artifact URL must be supplied, fresh-source evidence must be
-checked against the release commit, and the independent review items must be
-resolved or explicitly narrowed. A final related-work search must support
+The submission source layout includes a code archive under
+\path{anc/wishart_formalization_code.zip}, preserving the project paths,
+exact dependency pins, claims, and verification evidence. This local preparation
+does not itself publish the artifact. Before submission, the author must
+confirm release rights and the applicable license, verify the final arXiv
+output, and resolve or explicitly narrow the remaining human review items.
+Fresh-source evidence must be checked against the packaged source snapshot. A final related-work search must support
 the precise contribution claims. Internal normalization diagnostics are excluded
 from this manuscript pending source reconciliation and identifiable parameter
 tests. arXiv moderation is not peer review
 \cite{arxivpolicy}; formatting compliance does not imply acceptance.
 
 \begin{thebibliography}{99}
+\small
 \bibitem{jin}
 S. Jin, M. R. McKay, X. Gao, and I. B. Collings.
 \emph{MIMO Multichannel Beamforming: SER and Outage Using New Eigenvalue

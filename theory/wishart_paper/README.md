@@ -2,7 +2,7 @@
 
 日期：2026-10-16。
 
-**机器验收已完成，独立语义审查未完成。** 请先读 [REVISION_STATUS.md](REVISION_STATUS.md)：165模块检查与119声明公理审计通过，最新12页PDF已逐页核验；Claude审查调用因API 402中止，不能标为P4通过。
+**机器验收通过，已有Step家族范围限定的独立模型审查；人工数学审查待完成。** 请先读 [REVISION_STATUS.md](REVISION_STATUS.md) 和 [STEP_REVIEW_DISPOSITION.md](STEP_REVIEW_DISPOSITION.md)：165模块检查与119声明公理审计通过。旧Claude API 402是历史失败，之后用户提供的Step报告已正式记录。
 
 英文工作稿：**From Gaussian Samples to a Complex Wishart Minimum Law in Lean**。
 
@@ -13,10 +13,10 @@
 - `REPRODUCIBILITY.md`：锁定工具链、实际检查方法和实验复现。
 - `SUBMISSION_READINESS.md`：arXiv官方要求对应的完成项和仍需人类完成的事项。
 
-论文PDF在仓库 `output/pdf/wishart_formalization.pdf`。工作稿已完成并不表示已投稿或已通过独立语义审查。作者资料和公开仓库地址未填写，不猜测；PDF暂不列作者。
+论文PDF在仓库 `output/pdf/wishart_formalization.pdf`。署名及PDF元数据均为 **ZHOU XINGYUAN**，未猜测单位或邮箱。已完成本地打包，尚未实际投稿或公开；许可和最终人工内容确认仍由作者决定。
 
 主线从实际样本概率律推导中心复2×2的密度和最小特征值分布，之后处理尺度与最弱模式对数速率中断。论文的主要价值在形式化证明链和可复用基础；经典公式不包装成新数学定理。
 
 附加交付：`output/publication/wishart_independent_review.zip` 为96文件独立审查包。原截止归档保存在 WISHART_REVISION_CUTOFF.json，仅记录上一窗口状态，不代表本次新验收结果。
 
-2026-10-16自审报告：[SELF_REVIEW_20261016.md](SELF_REVIEW_20261016.md)。已澄清Gamma参数和中央候选的范数/行列式对应；未发现新的主链反例，不代表独立P4完成。
+2026-10-16历史自审报告：[SELF_REVIEW_20261016.md](SELF_REVIEW_20261016.md)。其中空署名与缺独立模型报告两项已由后续修订解决；不追改历史结论。提交代码和上传包说明见 [SUBMISSION_CODE_SUMMARY.md](SUBMISSION_CODE_SUMMARY.md)。

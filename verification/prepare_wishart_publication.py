@@ -203,7 +203,7 @@ def main() -> None:
     numerical = ROOT / "verification/WISHART_LOG_RATE_OUTAGE.json"
     data = {"prepared_for_date": "2026-10-16", "generated_utc": datetime.now(timezone.utc).isoformat(),
             "toolchain": rebuild["toolchain"], "mathlib_revision": "e18afff334217588afc719a8b707b00d90521064",
-            "status": "SOURCE_CHECKED_WORKING_MANUSCRIPT; independent review and author metadata pending",
+            "status": "SOURCE_CHECKED_MANUSCRIPT; author ZHOU XINGYUAN; human semantic signoff pending",
             "fresh_source_rebuild": {"status": rebuild["status"], "modules": len(sources),
                                      "report": "verification/WISHART_PUBLICATION_REBUILD.json",
                                      "report_sha256": sha(ROOT / "verification/WISHART_PUBLICATION_REBUILD.json"),
