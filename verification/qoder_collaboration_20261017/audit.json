@@ -1,0 +1,189 @@
+{
+  "collected_utc": "2026-10-17T10:01:04.970521+00:00",
+  "declarations": [
+    {
+      "name": "JinWishart.gramColumnMap_leftInverse",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gramColumnMap_injective",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gramColumnSpace_finrank_complex",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gramColumnSpace_finrank_real",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.totalGramColumnSpaceReal_finrank",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.totalGramColumnSpaceReal_orthogonal_finrank",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.stdGaussian_gram_column_energy_law",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    }
+  ],
+  "source_sha256": "0c3eec12f1fea3a7da9660ac03faf42648eaaa78ad81cc1ef6047397a3e758aa",
+  "log_sha256": "ff25ee8804a42e0cf1a469f68094bc9520b68bcce862c2c6142f71bc60d7c283",
+  "olean_sha256": "433d61bdd9643b6d183bafa9565b1bf1623e69834a09d9dbfc0ac7bb64264963",
+  "experiment_sha256": "214b4f9783ab741746b9f8fb8913bc9ecd5219c27b65adf38938549a512638f5",
+  "control_sha256": "9ee54351ea30c202ca22ef4dd1a354ac0ca77db6aff1b0d12be34a1817ac4592",
+  "direct_imports": {
+    "JinWishartFormalization.GaussianGramProjector": {
+      "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianGramProjector.olean",
+      "sha256": "876bd38a0bc86d546d4b3b45288feead44a8445fd5b51215a64a69c9f76d36fb",
+      "use": "Existing compiled dependency, not rebuilt in this milestone"
+    },
+    "JinWishartFormalization.GaussianRandomSubspaceLaw": {
+      "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianRandomSubspaceLaw.olean",
+      "sha256": "207874ce35dd9235e35cf3a2b951105e220d6fead6672872ee18babe7420614b",
+      "use": "Existing compiled dependency, not rebuilt in this milestone"
+    },
+    "Mathlib.LinearAlgebra.Complex.FiniteDimensional": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Complex/FiniteDimensional.olean",
+      "sha256": "074ba03158da76ea5846e885eb3ccbfb76af1a69f1d6dfe5467f499bf0e6d982",
+      "use": "Existing compiled dependency, not rebuilt in this milestone"
+    },
+    "Mathlib.LinearAlgebra.Dimension.Finrank": {
+      "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Dimension/Finrank.olean",
+      "sha256": "dc66a6d010e88d57eebab3068ff478131282ccf6da2180d0534757ab59bc698d",
+      "use": "Existing compiled dependency, not rebuilt in this milestone"
+    }
+  },
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "dependency_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "kernel_exit_code": 0,
+  "failed_kernel_attempts": 3,
+  "reviews": {
+    "p4": {
+      "raw_sha256": "97aa7ccf065fbc3c5ffffea170da6f4df27d57f0dff833111f0c2c82c1836dfc",
+      "prompt_sha256": "081f588c5c7ff968008f81c358ed6ead7f65f773531c316ab225bfa1ff053207",
+      "backend_label": [
+        "qmodel_38max"
+      ],
+      "credits_reported": 0.9667842857142857,
+      "scope": "Target dimension module plus two supplied support modules; no independent compilation"
+    },
+    "p4-final": {
+      "raw_sha256": "51d293dae3af827a6e9fec0db9c05d5ca59c762088d43cd3092c3748cc0f395b",
+      "prompt_sha256": "e8a5b96cf27232f0d645e78f2476674ecf20faba75593278f69c7e7c7cd3fb21",
+      "backend_label": [
+        "qmodel_38max"
+      ],
+      "credits_reported": 0.9930342857142855,
+      "scope": "Target dimension module plus two supplied support modules; no independent compilation"
+    },
+    "p4-checked": {
+      "raw_sha256": "062e1fd5b3f9b0099ae67c4950f905b66b01ac6ad526bd5460c500720df6f565",
+      "prompt_sha256": "6cb475f52c877af275961221edef626a1a8e673b6a794d928d35b56ecae9a0bf",
+      "backend_label": [
+        "qmodel_38max"
+      ],
+      "credits_reported": 0.9214199999999999,
+      "scope": "Target dimension module plus two supplied support modules; no independent compilation"
+    }
+  },
+  "review_caveat": "Earlier reviews missed real elaboration failures. Final review is model-only, not independent compilation or human review.",
+  "provenance": "Codex proof bodies; Qoder/Qwen3.8-Max P1 route comparison and P4 observations. No local DS proof body in this milestone.",
+  "actual_gaussian_full_rank": "OPEN",
+  "general_wishart_density_G2": "OPEN",
+  "human_review": "REQUIRED",
+  "facade_or_full_build": "NOT_RUN",
+  "paper_and_release": "UNCHANGED",
+  "evidence": {
+    "audit.py": "0542e6d242001ac3b84159346bf82920574fb398b9feb531c7763f6de14cacfa",
+    "connection-prompt.txt": "a83148ae446d42fe6d0744600e3cc1c0e819e3d7b03e02f0646257eaa908ac92",
+    "connection-result.json": "e1dc816e71d00434a50259183d79b77dd50e0fd1e67348f816277c12ca2e44b4",
+    "connection.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "connection.stdout.json": "d12f5d1a7a78c8d5ecbe493ceedca00c3ea90f4556e220a24929470a2d946046",
+    "gram-dimensions-1.txt": "5a8677154ab3f613bdccd6b0d1c7e3de046703c33b4926cf52b35f6319f977ed",
+    "gram-dimensions-2.txt": "edf857c0001301b85c5b898a65fe9fe1a7a132bbb91518ad761d6c51edbcf9b7",
+    "gram-dimensions-3.txt": "9dd9b4efd2c48c0f492a10e6f74461345047eef5a2872d28f36ba1447d41670d",
+    "gram-dimensions-4.txt": "ff25ee8804a42e0cf1a469f68094bc9520b68bcce862c2c6142f71bc60d7c283",
+    "p4-checked-prompt.txt": "6cb475f52c877af275961221edef626a1a8e673b6a794d928d35b56ecae9a0bf",
+    "p4-checked-request.json": "1ec3fcd78be38f85b45cb650858a49d27233263b3d2e3dab2f379106c1329adf",
+    "p4-checked-response.md": "31e3292199e70548eb93fa00896d42525c677f71c2b14b01a3fdcf11224a8402",
+    "p4-checked-result.json": "e085918de2491f8953d798e270ae2384c2f2314788f7c7673f62730e533fc4ed",
+    "p4-checked.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p4-checked.stdout.json": "062e1fd5b3f9b0099ae67c4950f905b66b01ac6ad526bd5460c500720df6f565",
+    "p4-final-prompt.txt": "e8a5b96cf27232f0d645e78f2476674ecf20faba75593278f69c7e7c7cd3fb21",
+    "p4-final-request.json": "0b203ea0b061a4200f2eb214ab719fde915a22321d3776d4ed9fdf52228061e0",
+    "p4-final-response.md": "7f166bccc2ad4f527d4940623d427ddc4a04ad1e1deb957e7d732b9e9676637e",
+    "p4-final-result.json": "61cf44dd167fd6e16894493968526364fa93ae7062fa122cae086041824d0236",
+    "p4-final.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p4-final.stdout.json": "51d293dae3af827a6e9fec0db9c05d5ca59c762088d43cd3092c3748cc0f395b",
+    "p4-prompt.txt": "081f588c5c7ff968008f81c358ed6ead7f65f773531c316ab225bfa1ff053207",
+    "p4-response.md": "4327a0939afcbf4b6b46b7cd33e55aec3db7fec6b24f788616b3066d0c6ac916",
+    "p4-result.json": "967c7f966828e41f166ad31156f992cf464636168d554fd6fe7424588363f858",
+    "p4.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p4.stdout.json": "97aa7ccf065fbc3c5ffffea170da6f4df27d57f0dff833111f0c2c82c1836dfc",
+    "prepare_review.py": "6b087c82c2f6ef9a3a7014f03681a141cf981ef019c9f1cc468335a1c3fcac1d",
+    "rank-assets.txt": "ede42288f81c02e4580374db6fa8dae39526a1d1c251fc5f921b1b41384380f7",
+    "rank-control.json": "9ee54351ea30c202ca22ef4dd1a354ac0ca77db6aff1b0d12be34a1817ac4592",
+    "rank-prompt.txt": "b022691e972b041f99971502b2de80af4d2a72c105793e174fddf35cacfa059e",
+    "rank-result.json": "6b0274e8d4d2c61a259f2b0671be0ea053bef5fec6a252b647470b03261d50e7",
+    "rank-route-prompt.txt": "0d8ef56036abc1cb0eecc8804e7bf98e277f7e5550b934af999d425928536ba9",
+    "rank-route-response.md": "5dc107bb344d4aa35c25de86f5bdaf651ba39f6fbf073c86b964edba0179968e",
+    "rank-route-result.json": "0a6089b2fe8c99490d33fbb001b8ef8573d8438d7bbe080d03bc04a885d8562f",
+    "rank-route.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rank-route.stdout.json": "db3517eb3179d8ef0f86884c4bd7e259cd8531a76e0ee5b016a953cfe55ae9a8",
+    "rank.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rank.stdout.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "RankAssets.lean": "6f29e1965ef301713acd224bc46664cb004b46fe01cf7901af18219591b1cf6e",
+    "README.md": "5072895c39f9a2f9fa62467357a2e51db09cd8c133ed4b8b731cdc1177ec2ba8",
+    "review-request.json": "3eb0ad3a917f85d5f37300caa6c0cee3cec3df23d493c9258a8eb089f20b37ae",
+    "run_partner.py": "cfc6f5c14c8c9744ea2cc30b342d6898ca900b85777012ca7822e35ee6e0220f",
+    "p4-checked-snapshot/GaussianGramDimensions.lean": "0c3eec12f1fea3a7da9660ac03faf42648eaaa78ad81cc1ef6047397a3e758aa",
+    "p4-checked-snapshot/GaussianGramProjector.lean": "7bc2b1455bd7d7f0b45fed53f69d6d3a1aba1b41f3da445116292a7f450fc65d",
+    "p4-checked-snapshot/GaussianRandomSubspaceLaw.lean": "7dcfc1e325815e5f4e36c6abf953fd772b3cd40f6eefc6ff99fd96af9d849288",
+    "p4-final-snapshot/GaussianGramDimensions.lean": "b631f1c352f42b590b50cca77402b927426ebb6aac53564aaf786e98756ee9f2",
+    "p4-final-snapshot/GaussianGramProjector.lean": "7bc2b1455bd7d7f0b45fed53f69d6d3a1aba1b41f3da445116292a7f450fc65d",
+    "p4-final-snapshot/GaussianRandomSubspaceLaw.lean": "7dcfc1e325815e5f4e36c6abf953fd772b3cd40f6eefc6ff99fd96af9d849288",
+    "p4-snapshot/GaussianGramDimensions.lean": "03c30e7af658505f11c32235c831281472acb1bd50156e80963ca4a150f72af8",
+    "p4-snapshot/GaussianGramProjector.lean": "7bc2b1455bd7d7f0b45fed53f69d6d3a1aba1b41f3da445116292a7f450fc65d",
+    "p4-snapshot/GaussianRandomSubspaceLaw.lean": "7dcfc1e325815e5f4e36c6abf953fd772b3cd40f6eefc6ff99fd96af9d849288"
+  },
+  "status": "PASS seven kernel declarations, standard axioms, exact controls and final review/source bindings"
+}

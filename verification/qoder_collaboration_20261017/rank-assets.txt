@@ -1,0 +1,20 @@
+Matrix.toLpLin_mul_same.{u_1, u_2, u_3, u_4} {m : Type u_1} {n : Type u_2} {o : Type u_3} {R : Type u_4} [Fintype n]
+  [DecidableEq n] [CommRing R] (p : ENNReal) [Fintype o] [DecidableEq o] (A : Matrix m n R) (B : Matrix n o R) :
+  (Matrix.toLpLin p p) (A * B) = (Matrix.toLpLin p p) A ∘ₗ (Matrix.toLpLin p p) B
+Matrix.toLpLin_one.{u_2, u_4} {n : Type u_2} {R : Type u_4} [Fintype n] [DecidableEq n] [CommRing R] (p : ENNReal) :
+  (Matrix.toLpLin p p) 1 = LinearMap.id
+Matrix.toEuclideanLin.{u_3, u_7, u_8} {𝕜 : Type u_3} [RCLike 𝕜] {m : Type u_7} {n : Type u_8} [Fintype n]
+  [DecidableEq n] : Matrix m n 𝕜 ≃ₗ[𝕜] EuclideanSpace 𝕜 n →ₗ[𝕜] EuclideanSpace 𝕜 m
+LinearMap.finrank_range_of_inj.{u, v, w} {R : Type u} {M : Type v} {N : Type w} [Semiring R] [AddCommMonoid M]
+  [Module R M] [AddCommMonoid N] [Module R N] {f : M →ₗ[R] N} (hf : Function.Injective ⇑f) :
+  Module.finrank R ↥f.range = Module.finrank R M
+finrank_real_of_complex.{u_1} (E : Type u_1) [AddCommGroup E] [Module ℂ E] : Module.finrank ℝ E = 2 * Module.finrank ℂ E
+Submodule.restrictScalarsEquiv.{u_1, u_2, u_3} (S : Type u_1) (R : Type u_2) (M : Type u_3) [Semiring R]
+  [AddCommMonoid M] [Semiring S] [Module S M] [Module R M] [SMul S R] [IsScalarTower S R M] (p : Submodule R M) :
+  ↥(Submodule.restrictScalars S p) ≃ₗ[R] ↥p
+LinearEquiv.restrictScalars.{u_1, u_4, u_5, u_7} (R : Type u_1) {S : Type u_4} {M : Type u_5} {M₂ : Type u_7}
+  [Semiring R] [Semiring S] [AddCommMonoid M] [AddCommMonoid M₂] [Module R M] [Module R M₂] [Module S M] [Module S M₂]
+  [LinearMap.CompatibleSMul M M₂ R S] (f : M ≃ₗ[S] M₂) : M ≃ₗ[R] M₂
+finrank_euclideanSpace_fin.{u_3} {𝕜 : Type u_3} [RCLike 𝕜] {n : ℕ} : Module.finrank 𝕜 (EuclideanSpace 𝕜 (Fin n)) = n
+Function.LeftInverse.injective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} {g : β → α} {f : α → β} :
+  Function.LeftInverse g f → Function.Injective f

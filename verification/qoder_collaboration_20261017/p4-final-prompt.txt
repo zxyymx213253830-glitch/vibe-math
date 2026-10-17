@@ -1,0 +1,433 @@
+You are a strict independent reviewer from a model family different from the Codex proof author.
+P4: Report only concrete issues, do NOT rewrite proofs. For each issue identify
+(a) undeclared measurability, Fubini, independence, dimensions or variance assumptions;
+(b) unsupported steps needing lemmas; (c) mismatch between statement and proof.
+Target is GaussianGramDimensions.lean; the other two files are supporting interfaces.
+No tools: you cannot independently compile. Source header correctly leaves Gaussian a.e.
+full rank and general Wishart density OPEN. Do not criticize these as if claimed proved.
+Pay attention to n=0, n=m, impossible n>m under Gram nonsingularity, real/complex rank
+doubling, the singular patched-zero space, and half-real-norm variance convention.
+If no concrete issue is found, say so scoped to supplied source. At most 500 words.
+This model review does not replace human review. Do not restate the whole proof.
+
+Follow-up to your initial review: Lean rejected the first source at
+totalGramColumnSpaceReal_finrank: ite_eq_left hA failed to simplify the if.
+The supplied FINAL source uses if_pos hA instead. Your earlier assertion that all
+simpa targets matched was not reliable; do not claim to have compiled the code.
+Also n<=m is a CONSEQUENCE of hA, not a missing assumption. The orthogonal dimension
+proof has only hA and obtains the bound from nonnegative dimension plus its sum
+identity, not from hnm. Positivity n>0 and n<m are intentional only in the probability
+interface because Gamma shape parameters must be positive. Please distinguish
+actual bugs from these deliberate domain differences. Report remaining concrete
+issues only. If none, say none found in supplied source, with no human-review claim.
+
+
+FILE GaussianGramDimensions.lean
+import JinWishartFormalization.GaussianGramProjector
+import JinWishartFormalization.GaussianRandomSubspaceLaw
+import Mathlib.LinearAlgebra.Complex.FiniteDimensional
+import Mathlib.LinearAlgebra.Dimension.Finrank
+
+/-!
+# Real dimensions of the Gram column-space projector
+
+Proof bodies by Codex. Qoder / Qwen3.8-Max supplied a bounded P1 comparison
+confirming the left-inverse / restriction-of-scalars route; no Qoder proof
+body is claimed. Original responses and the failed longer request are kept
+in verification/qoder_collaboration_20261017.
+
+Nonsingularity is explicit. The probability interface still assumes a.e.
+full rank of the preceding columns; this file does not prove that premise
+for a Gaussian matrix and does not establish a general Wishart density.
+
+[需人工审查] Real/complex dimension conventions, variance convention and
+skew-product/model correspondence in the inherited probability interface.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem gramColumnMap_leftInverse {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    Function.LeftInverse (((Aᴴ * A)⁻¹ * Aᴴ).toEuclideanLin) A.toEuclideanLin := by
+  intro x
+  have hmat : ((Aᴴ * A)⁻¹ * Aᴴ) * A = 1 := by
+    rw [Matrix.mul_assoc, Matrix.nonsing_inv_mul _ hA]
+  have h := congrArg (fun B : Matrix (Fin n) (Fin n) ℂ => B.toEuclideanLin x) hmat
+  simpa only [Matrix.toEuclideanLin, Matrix.toLpLin_mul_same,
+    LinearMap.comp_apply, Matrix.toLpLin_one, LinearMap.id_apply] using h
+
+theorem gramColumnMap_injective {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    Function.Injective A.toEuclideanLin :=
+  (gramColumnMap_leftInverse A hA).injective
+
+theorem gramColumnSpace_finrank_complex {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    Module.finrank ℂ A.toEuclideanLin.range = n := by
+  rw [LinearMap.finrank_range_of_inj (gramColumnMap_injective A hA)]
+  exact finrank_euclideanSpace_fin
+
+theorem gramColumnSpace_finrank_real {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    Module.finrank ℝ (A.toEuclideanLin.range.restrictScalars ℝ) = 2 * n := by
+  calc
+    _ = Module.finrank ℝ A.toEuclideanLin.range :=
+      ((Submodule.restrictScalarsEquiv ℝ ℂ (EuclideanSpace ℂ (Fin m))
+        A.toEuclideanLin.range).restrictScalars ℝ).finrank_eq
+    _ = 2 * Module.finrank ℂ A.toEuclideanLin.range :=
+      finrank_real_of_complex _
+    _ = 2 * n := by rw [gramColumnSpace_finrank_complex A hA]
+
+theorem totalGramColumnSpaceReal_finrank {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    Module.finrank ℝ (totalGramColumnSpaceReal A) = 2 * n := by
+  simpa only [totalGramColumnSpaceReal, if_pos hA] using
+    gramColumnSpace_finrank_real A hA
+
+theorem totalGramColumnSpaceReal_orthogonal_finrank {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    Module.finrank ℝ (totalGramColumnSpaceReal A)ᗮ = 2 * (m - n) := by
+  have hsum := (totalGramColumnSpaceReal A).finrank_add_finrank_orthogonal
+  rw [totalGramColumnSpaceReal_finrank A hA, finrank_real_of_complex,
+    finrank_euclideanSpace_fin] at hsum
+  omega
+
+/-- Previous abstract rank hypotheses are discharged by the explicit Gram
+nonsingularity event. A Gaussian a.e. full-rank proof is still required before
+instantiating this with the actual preceding Gaussian columns. -/
+theorem stdGaussian_gram_column_energy_law (m n : ℕ)
+    (μ : Measure (Matrix (Fin m) (Fin n) ℂ)) [SFinite μ]
+    (hn : 0 < n) (hnm : n < m)
+    (hfull : ∀ᵐ A ∂μ, IsUnit (Aᴴ * A).det) :
+    (μ.prod (stdGaussian (EuclideanSpace ℂ (Fin m)))).map
+      (fun p => (p.1, gaussianSplitEnergy (totalGramColumnSpaceReal p.1) p.2)) =
+      μ.prod ((gammaMeasure (n : ℝ) 1).prod (gammaMeasure ((m - n : ℕ) : ℝ) 1)) := by
+  apply stdGaussian_random_split_energy_law μ totalGramColumnSpaceReal
+    (measurable_totalGramColumnSpaceReal_projection m n) n (m - n) hn
+    (Nat.sub_pos_of_lt hnm)
+  · filter_upwards [hfull] with A hA
+    exact totalGramColumnSpaceReal_finrank A hA
+  · filter_upwards [hfull] with A hA
+    exact totalGramColumnSpaceReal_orthogonal_finrank A hA
+
+end
+end JinWishart
+
+#print axioms JinWishart.gramColumnMap_leftInverse
+#print axioms JinWishart.gramColumnMap_injective
+#print axioms JinWishart.gramColumnSpace_finrank_complex
+#print axioms JinWishart.gramColumnSpace_finrank_real
+#print axioms JinWishart.totalGramColumnSpaceReal_finrank
+#print axioms JinWishart.totalGramColumnSpaceReal_orthogonal_finrank
+#print axioms JinWishart.stdGaussian_gram_column_energy_law
+
+
+FILE GaussianGramProjector.lean
+import Mathlib.Analysis.Matrix.MeasurableSpace
+import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+import Mathlib.Analysis.InnerProductSpace.Adjoint
+import Mathlib.Analysis.Matrix.PosDef
+import Mathlib.MeasureTheory.Constructions.BorelSpace.Complex
+import Mathlib.MeasureTheory.Group.Arithmetic
+import Mathlib.Analysis.Normed.Lp.MeasurableSpace
+
+/-!
+# Explicit Gram-inverse projector for the random-column-space route
+
+Codex proofs. The formula is total, using the zero-valued nonsingular inverse
+on singular Gram matrices. It is an orthogonal column-space projector only
+when the Gram determinant is a unit. In particular, full rank is not assumed
+silently or inferred from a finite numerical experiment.
+
+[需人工审查] Joint measurability, real/complex coordinate conventions and eventual
+Gaussian-model correspondence. Identification with the real orthogonal projection
+is proved here; actual Gaussian full-rank exceptions and ranks remain separate.
+-/
+
+open MeasureTheory Matrix
+namespace JinWishart
+noncomputable section
+
+/-- Total inverse is Borel measurable, including its singular branch. -/
+theorem measurable_complex_matrix_inverse (n : ℕ) :
+    Measurable (fun A : Matrix (Fin n) (Fin n) ℂ => A⁻¹) := by
+  simp_rw [Matrix.inv_def, Ring.inverse_eq_inv]
+  exact continuous_id.matrix_det.measurable.inv.smul
+    continuous_id.matrix_adjugate.measurable
+
+/-- This total formula agrees with the column-space projector at full rank. -/
+def gramInverseProjector {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) :
+    Matrix (Fin m) (Fin m) ℂ := A * (Aᴴ * A)⁻¹ * Aᴴ
+
+/-- Measurability holds globally, without excluding singular matrices. -/
+theorem measurable_gramInverseProjector (m n : ℕ) :
+    Measurable (gramInverseProjector (m := m) (n := n)) := by
+  have hGram : Continuous (fun A : Matrix (Fin m) (Fin n) ℂ => Aᴴ * A) := by
+    fun_prop
+  have hInv := (measurable_complex_matrix_inverse n).comp hGram.measurable
+  have hAdj : Measurable (fun A : Matrix (Fin m) (Fin n) ℂ => Aᴴ) :=
+    continuous_id.matrix_conjTranspose.measurable
+  apply Measurable.of_eval_matrix
+  intro i j
+  simp only [gramInverseProjector, Matrix.mul_apply]
+  apply Finset.measurable_sum
+  intro a _
+  apply Measurable.mul
+  · apply Finset.measurable_sum
+    intro b _
+    exact measurable_id.eval_matrix.mul hInv.eval_matrix
+  · exact hAdj.eval_matrix
+
+/-- The explicit projected vector is jointly measurable in preceding columns
+and in the fresh vector; no measurable basis selection is needed. -/
+theorem measurable_gramInverseProjector_mulVec (m n : ℕ) :
+    Measurable (fun p : Matrix (Fin m) (Fin n) ℂ × (Fin m → ℂ) =>
+      gramInverseProjector p.1 *ᵥ p.2) := by
+  have hProj : Measurable (fun p : Matrix (Fin m) (Fin n) ℂ × (Fin m → ℂ) =>
+      gramInverseProjector p.1) :=
+    (measurable_gramInverseProjector m n).comp measurable_fst
+  apply Measurable.of_eval
+  intro i
+  simp only [Matrix.mulVec, dotProduct]
+  apply Finset.measurable_sum
+  intro j _
+  exact hProj.eval_matrix.mul (measurable_snd.eval)
+
+theorem gramInverseProjector_isHermitian {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) :
+    (gramInverseProjector A).IsHermitian := by
+  show (gramInverseProjector A)ᴴ = gramInverseProjector A
+  simp only [gramInverseProjector, Matrix.conjTranspose_mul,
+    Matrix.conjTranspose_nonsing_inv, Matrix.conjTranspose_conjTranspose,
+    Matrix.mul_assoc]
+
+/-- On the full-rank locus the explicit projector fixes each original column. -/
+theorem gramInverseProjector_mul_self {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    gramInverseProjector A * A = A := by
+  simp only [gramInverseProjector, Matrix.mul_assoc]
+  rw [Matrix.nonsing_inv_mul _ hA, Matrix.mul_one]
+
+theorem gramInverseProjector_idempotent {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    gramInverseProjector A * gramInverseProjector A = gramInverseProjector A := by
+  change gramInverseProjector A * (A * (Aᴴ * A)⁻¹ * Aᴴ) = _
+  rw [← Matrix.mul_assoc, ← Matrix.mul_assoc, gramInverseProjector_mul_self A hA]
+  rfl
+
+theorem gramInverseProjector_normal_equation {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det) :
+    Aᴴ * gramInverseProjector A = Aᴴ := by
+  have h := congrArg Matrix.conjTranspose (gramInverseProjector_mul_self A hA)
+  simpa only [Matrix.conjTranspose_mul, (gramInverseProjector_isHermitian A).eq] using h
+
+/-- On the full-rank locus this is precisely the real orthogonal projection,
+not merely an abstract idempotent matrix. -/
+theorem gramInverseProjector_eq_real_projection {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hA : IsUnit (Aᴴ * A).det)
+    (z : EuclideanSpace ℂ (Fin m)) :
+    ((A.toEuclideanLin.range).restrictScalars ℝ).starProjection z =
+      (gramInverseProjector A).toEuclideanLin z := by
+  let K := A.toEuclideanLin.range
+  have hmem : (gramInverseProjector A).toEuclideanLin z ∈ K := by
+    refine ⟨((Aᴴ * A)⁻¹).toEuclideanLin (Aᴴ.toEuclideanLin z), ?_⟩
+    simp only [gramInverseProjector, Matrix.toEuclideanLin,
+      Matrix.toLpLin_mul_same, LinearMap.comp_apply]
+  have hres : z - (gramInverseProjector A).toEuclideanLin z ∈ Kᗮ := by
+    rw [LinearMap.orthogonal_range]
+    change A.toEuclideanLin.adjoint (z - (gramInverseProjector A).toEuclideanLin z) = 0
+    rw [← Matrix.toEuclideanLin_conjTranspose_eq_adjoint, map_sub]
+    apply sub_eq_zero.mpr
+    have h := congrArg (fun B : Matrix (Fin n) (Fin m) ℂ => B.toEuclideanLin z)
+      (gramInverseProjector_normal_equation A hA)
+    simpa only [Matrix.toEuclideanLin, Matrix.toLpLin_mul_same,
+      LinearMap.comp_apply] using h.symm
+  apply (K.restrictScalars ℝ).eq_starProjection_of_mem_orthogonal hmem
+  rw [Submodule.mem_orthogonal]
+  intro u hu
+  have h := (K.mem_orthogonal _).mp hres u hu
+  simpa only [PiLp.inner_apply, RCLike.inner_apply, Complex.inner,
+    Complex.re_sum, Complex.zero_re]
+    using congrArg Complex.re h
+
+/-- Use zero on the exceptional singular set. Agreement with the actual
+column space is asserted only on the full-rank locus, rather than silently
+identifying the two spaces at singular matrices. -/
+def totalGramColumnSpaceReal {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) :
+    Submodule ℝ (EuclideanSpace ℂ (Fin m)) := by
+  classical
+  exact if IsUnit (Aᴴ * A).det then A.toEuclideanLin.range.restrictScalars ℝ else ⊥
+
+theorem totalGramColumnSpaceReal_projection {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (z : EuclideanSpace ℂ (Fin m)) :
+    (totalGramColumnSpaceReal A).starProjection z =
+      (gramInverseProjector A).toEuclideanLin z := by
+  by_cases hA : IsUnit (Aᴴ * A).det
+  · simpa only [totalGramColumnSpaceReal, ite_eq_left hA] using
+      gramInverseProjector_eq_real_projection A hA z
+  · have hzero : gramInverseProjector A = 0 := by
+      simp only [gramInverseProjector, Matrix.nonsing_inv_apply_not_isUnit _ hA,
+        Matrix.mul_zero, Matrix.zero_mul]
+    rw [totalGramColumnSpaceReal, ite_eq_right hA, hzero]
+    simp
+
+theorem measurable_gramInverseProjector_euclidean (m n : ℕ) :
+    Measurable (fun p : Matrix (Fin m) (Fin n) ℂ × EuclideanSpace ℂ (Fin m) =>
+      (gramInverseProjector p.1).toEuclideanLin p.2) := by
+  change Measurable (fun p : Matrix (Fin m) (Fin n) ℂ × EuclideanSpace ℂ (Fin m) =>
+    WithLp.toLp 2 (gramInverseProjector p.1 *ᵥ WithLp.ofLp p.2))
+  have hOf : Measurable (WithLp.ofLp : EuclideanSpace ℂ (Fin m) → (Fin m → ℂ)) :=
+    (PiLp.continuous_ofLp 2 (fun _ : Fin m => ℂ)).measurable
+  have hTo : Measurable (WithLp.toLp 2 : (Fin m → ℂ) → EuclideanSpace ℂ (Fin m)) :=
+    (PiLp.continuous_toLp 2 (fun _ : Fin m => ℂ)).measurable
+  have hInput : Measurable
+      (fun p : Matrix (Fin m) (Fin n) ℂ × EuclideanSpace ℂ (Fin m) =>
+        (p.1, WithLp.ofLp p.2)) :=
+    measurable_fst.prodMk (hOf.comp measurable_snd)
+  have hMid := (measurable_gramInverseProjector_mulVec m n).comp hInput
+  simpa only [Function.comp_def] using hTo.comp hMid
+
+/-- This supplies the exact joint real-projector measurability premise of
+GaussianRandomSubspaceLaw. Full-rank probability and ranks are still separate. -/
+theorem measurable_totalGramColumnSpaceReal_projection (m n : ℕ) :
+    Measurable (fun p : Matrix (Fin m) (Fin n) ℂ × EuclideanSpace ℂ (Fin m) =>
+      (totalGramColumnSpaceReal p.1).starProjection p.2) := by
+  simp_rw [totalGramColumnSpaceReal_projection]
+  exact measurable_gramInverseProjector_euclidean m n
+
+end
+end JinWishart
+
+#print axioms JinWishart.measurable_complex_matrix_inverse
+#print axioms JinWishart.measurable_gramInverseProjector
+#print axioms JinWishart.measurable_gramInverseProjector_mulVec
+#print axioms JinWishart.gramInverseProjector_isHermitian
+#print axioms JinWishart.gramInverseProjector_mul_self
+#print axioms JinWishart.gramInverseProjector_idempotent
+#print axioms JinWishart.gramInverseProjector_normal_equation
+#print axioms JinWishart.gramInverseProjector_eq_real_projection
+#print axioms JinWishart.totalGramColumnSpaceReal_projection
+#print axioms JinWishart.measurable_gramInverseProjector_euclidean
+#print axioms JinWishart.measurable_totalGramColumnSpaceReal_projection
+
+
+FILE GaussianRandomSubspaceLaw.lean
+import JinWishartFormalization.GaussianOrthogonalSplitLaw
+import Mathlib.MeasureTheory.Measure.Prod
+
+/-!+# Gaussian energies in a random orthogonal splitting
+
+Codex proofs. Two bounded local DeepSeek attempts on the fixed-fiber lemma were
+not accepted (placeholder, then failed proof search). The complete targets,
+responses and actual checker output are preserved separately. The final proof
+below is a Codex completion, rather than an independently verified local proof.
+
+The subspace may depend on arbitrary preceding data, independent of the fresh
+Gaussian vector. Joint measurability of its ambient projection and almost-everywhere
+constant even ranks are explicit premises. No target density is assumed.
+
+[需人工审查] Skew-product/Fubini use, measurability and the eventual identification
+of the preceding-column subspace in the actual Bartlett construction. These laws
+do not yet prove a general QR/Bartlett matrix law or the general Wishart density.
+-/
+
+open MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] [CompleteSpace E]
+
+/-- Fixed-fiber joint energy law, reusing the checked Gaussian splitting and
+the existing radial Gamma laws without performing new radial integration. -/
+theorem stdGaussian_orthogonal_energy_pair_law (K : Submodule ℝ E)
+    (k l : ℕ) (hk : 0 < k) (hl : 0 < l)
+    (hdimK : Module.finrank ℝ K = 2 * k)
+    (hdimC : Module.finrank ℝ Kᗮ = 2 * l) :
+    (stdGaussian E).map (fun z : E =>
+      (‖K.orthogonalProjectionOnto z‖ ^ 2 / 2,
+       ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2)) =
+      (gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1) := by
+  have hi : IndepFun (fun z : E => ‖K.orthogonalProjectionOnto z‖ ^ 2 / 2)
+      (fun z : E => ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2) (stdGaussian E) := by
+    exact (stdGaussian_orthogonal_split_indep K).comp
+      (φ := fun x : K => ‖x‖ ^ 2 / 2) (ψ := fun y : Kᗮ => ‖y‖ ^ 2 / 2)
+      (by fun_prop) (by fun_prop)
+  rw [hi.map_prod_eq_prod_map_map (by fun_prop) (by fun_prop),
+    stdGaussian_projected_half_norm_sq_law K k hk hdimK,
+    stdGaussian_projected_half_norm_sq_law Kᗮ l hl hdimC]
+
+/-- Energies use the half-real-norm convention for the standard real Gaussian.
+For complex CN(0,1) coordinates this is the usual complex squared norm. -/
+def gaussianSplitEnergy (K : Submodule ℝ E) (z : E) : ℝ × ℝ :=
+  (‖K.orthogonalProjectionOnto z‖ ^ 2 / 2,
+   ‖Kᗮ.orthogonalProjectionOnto z‖ ^ 2 / 2)
+
+theorem gaussianSplitEnergy_eq_ambient (K : Submodule ℝ E) (z : E) :
+    gaussianSplitEnergy K z =
+      (‖K.starProjection z‖ ^ 2 / 2, ‖z - K.starProjection z‖ ^ 2 / 2) := by
+  rw [← K.starProjection_orthogonal_val z]
+  rfl
+
+variable {A : Type*} [MeasurableSpace A]
+
+/-- No measurable choice of an orthonormal basis is used: measurability of the
+ambient projector suffices for both energies, including the residual. -/
+theorem measurable_gaussianSplitEnergy (K : A → Submodule ℝ E)
+    (hproj : Measurable (fun p : A × E => (K p.1).starProjection p.2)) :
+    Measurable (fun p : A × E => gaussianSplitEnergy (K p.1) p.2) := by
+  simp_rw [gaussianSplitEnergy_eq_ambient]
+  exact ((hproj.norm.pow_const 2).div_const 2).prodMk
+    (((measurable_snd.sub hproj).norm.pow_const 2).div_const 2)
+
+/-- The entire parameter and the two energies have a product law. Ranks may
+fail on a null set (for example, a rank-deficient set of preceding columns). -/
+theorem stdGaussian_random_split_energy_law (μ : Measure A) [SFinite μ]
+    (K : A → Submodule ℝ E)
+    (hproj : Measurable (fun p : A × E => (K p.1).starProjection p.2))
+    (k l : ℕ) (hk : 0 < k) (hl : 0 < l)
+    (hdimK : ∀ᵐ a ∂μ, Module.finrank ℝ (K a) = 2 * k)
+    (hdimC : ∀ᵐ a ∂μ, Module.finrank ℝ (K a)ᗮ = 2 * l) :
+    (μ.prod (stdGaussian E)).map (fun p : A × E =>
+      (p.1, gaussianSplitEnergy (K p.1) p.2)) =
+      μ.prod ((gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1)) := by
+  have hFiber : ∀ᵐ a ∂μ,
+      (stdGaussian E).map (gaussianSplitEnergy (K a)) =
+        (gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1) := by
+    filter_upwards [hdimK, hdimC] with a ha hb
+    exact stdGaussian_orthogonal_energy_pair_law (K a) k l hk hl ha hb
+  exact ((MeasurePreserving.id μ).skew_product
+    (measurable_gaussianSplitEnergy K hproj) hFiber).map_eq
+
+/-- Transfer the random-subspace law to actual independent random variables.
+Independence from the fresh Gaussian vector is essential, rather than inferred
+from a fixed-subspace calculation. -/
+theorem indep_stdGaussian_random_split_energy_law
+    {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+    (X : Ω → A) (Y : Ω → E) (hX : Measurable X) (hY : Measurable Y)
+    (hXY : IndepFun X Y P) (hGaussian : P.map Y = stdGaussian E)
+    (K : A → Submodule ℝ E)
+    (hproj : Measurable (fun p : A × E => (K p.1).starProjection p.2))
+    (k l : ℕ) (hk : 0 < k) (hl : 0 < l)
+    (hdimK : ∀ᵐ a ∂P.map X, Module.finrank ℝ (K a) = 2 * k)
+    (hdimC : ∀ᵐ a ∂P.map X, Module.finrank ℝ (K a)ᗮ = 2 * l) :
+    P.map (fun ω => (X ω, gaussianSplitEnergy (K (X ω)) (Y ω))) =
+      (P.map X).prod ((gammaMeasure (k : ℝ) 1).prod (gammaMeasure (l : ℝ) 1)) := by
+  have hPair := hXY.map_prod_eq_prod_map_map hX.aemeasurable hY.aemeasurable
+  rw [hGaussian] at hPair
+  have hLaw := stdGaussian_random_split_energy_law (P.map X) K hproj k l hk hl hdimK hdimC
+  rw [← hPair, Measure.map_map
+    (measurable_fst.prodMk (measurable_gaussianSplitEnergy K hproj))
+    (hX.prodMk hY)] at hLaw
+  exact hLaw
+
+end
+end JinWishart
+
+#print axioms JinWishart.gaussianSplitEnergy_eq_ambient
+#print axioms JinWishart.stdGaussian_orthogonal_energy_pair_law
+#print axioms JinWishart.measurable_gaussianSplitEnergy
+#print axioms JinWishart.stdGaussian_random_split_energy_law
+#print axioms JinWishart.indep_stdGaussian_random_split_energy_law

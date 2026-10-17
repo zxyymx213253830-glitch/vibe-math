@@ -1,0 +1,21 @@
+You are collaborating on a locked Lean 4/mathlib project. You have no tools or repository access. Reply using only the supplied exact assets; mark uncertain names UNVERIFIED. No sorry/admit/axiom/native_decide. Do not claim a general Wishart density or Gaussian full-rank probability is proved.
+
+Target: for A : Matrix (Fin m) (Fin n) Complex with hA : IsUnit (A.conjTranspose * A).det, prove that A.toEuclideanLin is injective and its column range, regarded as a real submodule of EuclideanSpace Complex (Fin m), has real dimension 2*n, with real orthogonal complement dimension 2*(m-n). This is deterministic under hA; actual Gaussian a.e. full rank remains a separate future target. Existing totalGramColumnSpaceReal A is that real range if hA, otherwise bottom.
+
+First do a compact P1: compare 3 proof routes and state hidden assumptions, shortest reliable route, failure modes. Then propose precise Lean proofs of only these deterministic dimension facts using the exact assets below. State the extra Gaussian a.e. full-rank obligation separately; do not assume a density as a workaround. No external literature claims needed.
+
+Exact available facts:
+Matrix.nonsing_inv_mul (A.conjTranspose * A) hA : (A.conjTranspose * A)^(-1) * (A.conjTranspose * A) = 1
+Matrix.toEuclideanLin; Matrix.toLpLin_mul_same; LinearMap.comp_apply
+These have successfully been used as simp only [Matrix.toEuclideanLin, Matrix.toLpLin_mul_same, LinearMap.comp_apply].
+Matrix.mul_assoc; Matrix.one_mul; Matrix.one_mulVec; LinearMap.id_apply
+LinearMap.finrank_range_of_inj {f : M ->_l[R] N} (hf : Function.Injective f) : Module.finrank R (LinearMap.range f) = Module.finrank R M
+finrank_real_of_complex (E) : Module.finrank Real E = 2 * Module.finrank Complex E
+Submodule.restrictScalarsEquiv (S) (p : Submodule R M) : p.restrictScalars S equiv_l[R] p
+LinearEquiv.finrank_eq
+Submodule.finrank_add_finrank_orthogonal (K : Submodule k E) : Module.finrank k K + Module.finrank k K.orthogonal = Module.finrank k E
+Module.finrank_pi; FiniteDimensional.finrank_euclideanSpace; Fintype.card_fin
+
+The actual library declaration restrictScalarsEquiv in its namespace is:
+def restrictScalarsEquiv (p : Submodule R M) : p.restrictScalars S equiv_l[R] p := ...
+Here S is an explicit namespace variable; check argument order conceptually. We will Lean-test code and return real errors if necessary. Avoid unbounded tactics; label candidate code uncompiled.

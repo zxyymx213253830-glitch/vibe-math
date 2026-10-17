@@ -1,0 +1,4 @@
+# Preserve the exact bytes bound by this milestone's audit and review records.
+/verification/qoder_collaboration_20261017/** -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramDimensions.lean -text
+/experiments/gram_real_dimension_control.py -text

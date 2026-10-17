@@ -1,0 +1,16 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramDimensions.lean:61:2: error: Type mismatch: After simplification, term
+  gramColumnSpace_finrank_real A hA
+ has type
+  Module.finrank ℝ ↥(Submodule.restrictScalars ℝ (toEuclideanLin A).range) = 2 * n
+but is expected to have type
+  Module.finrank ℝ ↥(if IsUnit (Aᴴ * A).det then Submodule.restrictScalars ℝ (toEuclideanLin A).range else ⊥) = 2 * n
+'JinWishart.gramColumnMap_leftInverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramColumnMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramColumnSpace_finrank_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramColumnSpace_finrank_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.totalGramColumnSpaceReal_finrank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.totalGramColumnSpaceReal_orthogonal_finrank' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.stdGaussian_gram_column_energy_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

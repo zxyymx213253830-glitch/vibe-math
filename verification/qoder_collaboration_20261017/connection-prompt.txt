@@ -1,0 +1,1 @@
+Do not call tools. This is a connectivity check only. Reply with exactly: OK

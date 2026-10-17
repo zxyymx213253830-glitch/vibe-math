@@ -1,0 +1,11 @@
+{
+  "inputs": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramDimensions.lean": "03c30e7af658505f11c32235c831281472acb1bd50156e80963ca4a150f72af8",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramProjector.lean": "7bc2b1455bd7d7f0b45fed53f69d6d3a1aba1b41f3da445116292a7f450fc65d",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRandomSubspaceLaw.lean": "7dcfc1e325815e5f4e36c6abf953fd772b3cd40f6eefc6ff99fd96af9d849288"
+  },
+  "prompt_sha256": "081f588c5c7ff968008f81c358ed6ead7f65f773531c316ab225bfa1ff053207",
+  "author": "Codex",
+  "reviewer_requested": "Qoder Qwen3.8-Max",
+  "scope": "Target dimension module plus two supplied support modules; no independent compilation"
+}

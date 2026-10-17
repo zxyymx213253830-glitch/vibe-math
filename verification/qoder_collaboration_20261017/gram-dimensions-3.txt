@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramDimensions.lean:64:19: warning: unused name: h
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramDimensions.lean:66:4: error: No goals to be solved
+'JinWishart.gramColumnMap_leftInverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramColumnMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramColumnSpace_finrank_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramColumnSpace_finrank_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.totalGramColumnSpaceReal_finrank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.totalGramColumnSpaceReal_orthogonal_finrank' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.stdGaussian_gram_column_energy_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
