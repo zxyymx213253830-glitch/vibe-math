@@ -1,0 +1,6 @@
+'JinWishart.measurable_shiftedComplexSampleMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.isProbabilityMeasure_complexGaussianMatrixLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurableSet_gram_det_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_gram_isUnit_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_split_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSample_freshGaussian_split_energy' depends on axioms: [propext, Classical.choice, Quot.sound]

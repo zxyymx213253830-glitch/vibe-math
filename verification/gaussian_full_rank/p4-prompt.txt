@@ -1,0 +1,490 @@
+P4 independent cross-family review. You are the strict reviewer, Codex wrote these proofs.
+Report ONLY concrete problems: undeclared assumptions, unsupported steps, or statement/proof mismatches.
+Do not rewrite proofs. Do not assert compilation verification; tools are disabled.
+All three targets have already locally compiled with only the three standard Lean axioms.
+Check arbitrary fixed complex means, n=0, n=m and both Gram orientations. The new energy law
+uses an ACTUAL preceding CN(0,1) matrix and independent stdGaussian on complex column space:
+the latter has real coordinate variance 1, so dividing norm squared by 2 gives CN(0,1) energies.
+There is NO new general Wishart density or Bartlett coefficient/joint-matrix law claimed.
+Gaussian a.e. full rank is now to be established by a NONZERO determinant polynomial, not merely
+simple spectrum or assuming target density. Existing sampleEval_ne_zero_ae is a reused kernel theorem;
+its underlying Fubini/absolute-continuity proof is NOT fully supplied for re-review here.
+Distinguish an intentional domain restriction from a missing hypothesis. At most 500 words.
+If no concrete issue, say so scoped to supplied sources. Model review is not human review.
+
+
+FILE GaussianGramFullRank.lean
+import JinWishartFormalization.ComplexGramSimpleSpectrum
+import JinWishartFormalization.GaussianGramDimensions
+
+/-!
+# Full column rank of actual shifted complex Gaussian matrices
+
+Codex proofs, reusing the existing generic Gram encoding, diagonal witness and
+nonzero-polynomial Gaussian null-set theorem. No new density hypothesis, QR
+basis selection or radial integration is introduced.
+
+The column-Gram assertions require n <= m, include n=0, and allow any fixed
+complex mean. General Wishart matrix and spectral densities are separate.
+[需人工审查] Inherited polynomial null-set/Fubini argument, Gaussian absolute
+continuity, real coordinate encoding and its variance convention.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+variable {m n : ℕ}
+
+theorem genericComplexGram_det_eval (z : ComplexSample (m := m) (n := n)) :
+    sampleEval z (genericComplexGram m n).det =
+      (complexGram (complexSampleMatrix z)).det := by
+  rw [RingHom.map_det]
+  change ((genericComplexGram m n).map (sampleEval z)).det = _
+  rw [genericComplexGram_map]
+
+theorem complexGram_witnessMean_det_ne_zero (hnm : n ≤ m) :
+    (complexGram (witnessMean hnm)).det ≠ 0 := by
+  rw [complexGram_witnessMean, Matrix.det_diagonal]
+  apply Finset.prod_ne_zero_iff.mpr
+  intro j _
+  exact_mod_cast (show (((j : ℕ) : ℝ) + 1) ^ 2 ≠ 0 by positivity)
+
+theorem genericComplexGram_det_ne_zero (hnm : n ≤ m) :
+    (genericComplexGram m n).det ≠ 0 := by
+  intro hzero
+  have h := genericComplexGram_det_eval (complexSampleMean (witnessMean hnm))
+  rw [hzero, map_zero, complexSampleMatrix_complexSampleMean] at h
+  exact complexGram_witnessMean_det_ne_zero hnm h.symm
+
+/-- Actual noncentral Gaussian column Gram is nonsingular almost surely. -/
+theorem complexSample_shiftedGram_det_ne_zero_ae (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      (complexGram (complexSampleMatrix z + M)).det ≠ 0 := by
+  have h := sampleEval_ne_zero_ae (genericComplexGram_det_ne_zero hnm) M
+  filter_upwards [h] with z hz
+  rwa [genericComplexGram_det_eval, complexSampleMatrix_add_mean] at hz
+
+theorem complexSample_shiftedGram_isUnit_det_ae (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      IsUnit (complexGram (complexSampleMatrix z + M)).det := by
+  filter_upwards [complexSample_shiftedGram_det_ne_zero_ae hnm M] with z hz
+  exact isUnit_iff_ne_zero.mpr hz
+
+/-- PSD becomes strictly positive definite after the actual null-set proof. -/
+theorem complexSample_shiftedGram_posDef_ae (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      (complexGram (complexSampleMatrix z + M)).PosDef := by
+  filter_upwards [complexSample_shiftedGram_det_ne_zero_ae hnm M] with z hz
+  exact (complexGram_posSemidef _).posDef_iff_det_ne_zero.mpr hz
+
+theorem complexSample_shiftedColumnMap_injective_ae (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      Function.Injective (complexSampleMatrix z + M).toEuclideanLin := by
+  filter_upwards [complexSample_shiftedGram_isUnit_det_ae hnm M] with z hz
+  exact gramColumnMap_injective _ hz
+
+theorem complexSample_shiftedColumnSpace_finrank_real_ae (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      Module.finrank ℝ (totalGramColumnSpaceReal (complexSampleMatrix z + M)) = 2 * n := by
+  filter_upwards [complexSample_shiftedGram_isUnit_det_ae hnm M] with z hz
+  exact totalGramColumnSpaceReal_finrank _ hz
+
+theorem complexSample_shiftedColumnSpace_orthogonal_finrank_ae (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      Module.finrank ℝ (totalGramColumnSpaceReal (complexSampleMatrix z + M))ᗮ =
+        2 * (m - n) := by
+  filter_upwards [complexSample_shiftedGram_isUnit_det_ae hnm M] with z hz
+  exact totalGramColumnSpaceReal_orthogonal_finrank _ hz
+
+end
+end JinWishart
+
+#print axioms JinWishart.genericComplexGram_det_eval
+#print axioms JinWishart.complexGram_witnessMean_det_ne_zero
+#print axioms JinWishart.genericComplexGram_det_ne_zero
+#print axioms JinWishart.complexSample_shiftedGram_det_ne_zero_ae
+#print axioms JinWishart.complexSample_shiftedGram_isUnit_det_ae
+#print axioms JinWishart.complexSample_shiftedGram_posDef_ae
+#print axioms JinWishart.complexSample_shiftedColumnMap_injective_ae
+#print axioms JinWishart.complexSample_shiftedColumnSpace_finrank_real_ae
+#print axioms JinWishart.complexSample_shiftedColumnSpace_orthogonal_finrank_ae
+
+
+FILE GaussianGramEnergyLaw.lean
+import JinWishartFormalization.GaussianGramFullRank
+
+/-!
+# Actual Gaussian preceding columns in the random-subspace energy law
+
+Codex proofs. The preceding matrix has its actual shifted CN(0,1) law, and
+the fresh vector is independent standard real Gaussian on the complex column
+space. The half squared norms therefore use the CN(0,1) energy convention.
+No a.e. full-rank or rank hypotheses remain in these public laws: they are
+discharged by GaussianGramFullRank. This is not a full Bartlett matrix law.
+[需人工审查] Joint measurability, skew products and real/complex variance.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+variable {m n : ℕ}
+
+theorem measurable_shiftedComplexSampleMatrix (M : Matrix (Fin m) (Fin n) ℂ) :
+    Measurable (fun z : ComplexSample (m := m) (n := n) => complexSampleMatrix z + M) := by
+  apply Measurable.of_eval_matrix
+  intro i j
+  simp only [Matrix.add_apply, complexSampleMatrix]
+  fun_prop
+
+def complexGaussianMatrixLaw (M : Matrix (Fin m) (Fin n) ℂ) :
+    Measure (Matrix (Fin m) (Fin n) ℂ) :=
+  (stdGaussian (ComplexSample (m := m) (n := n))).map
+    (fun z => complexSampleMatrix z + M)
+
+instance isProbabilityMeasure_complexGaussianMatrixLaw (M : Matrix (Fin m) (Fin n) ℂ) :
+    IsProbabilityMeasure (complexGaussianMatrixLaw M) := by
+  unfold complexGaussianMatrixLaw
+  infer_instance
+
+theorem measurableSet_gram_det_isUnit (m n : ℕ) :
+    MeasurableSet {A : Matrix (Fin m) (Fin n) ℂ | IsUnit (Aᴴ * A).det} := by
+  simp only [isUnit_iff_ne_zero]
+  exact (isOpen_ne.preimage (by fun_prop : Continuous
+    (fun A : Matrix (Fin m) (Fin n) ℂ => (Aᴴ * A).det))).measurableSet
+
+theorem complexGaussianMatrixLaw_gram_isUnit_ae (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ A ∂complexGaussianMatrixLaw M, IsUnit (Aᴴ * A).det := by
+  apply (ae_map_iff (measurable_shiftedComplexSampleMatrix M).aemeasurable
+    (measurableSet_gram_det_isUnit m n)).2
+  exact complexSample_shiftedGram_isUnit_det_ae hnm M
+
+/-- Actual preceding-matrix law, with no abstract rank/full-rank assumptions. -/
+theorem complexGaussianMatrixLaw_split_energy (hn : 0 < n) (hnm : n < m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ((complexGaussianMatrixLaw M).prod (stdGaussian (EuclideanSpace ℂ (Fin m)))).map
+      (fun p => (p.1, gaussianSplitEnergy (totalGramColumnSpaceReal p.1) p.2)) =
+      (complexGaussianMatrixLaw M).prod
+        ((gammaMeasure (n : ℝ) 1).prod (gammaMeasure ((m - n : ℕ) : ℝ) 1)) := by
+  exact stdGaussian_gram_column_energy_law m n (complexGaussianMatrixLaw M) hn hnm
+    (complexGaussianMatrixLaw_gram_isUnit_ae (Nat.le_of_lt hnm) M)
+
+/-- The preceding actual real Gaussian source can also be kept explicit. -/
+theorem complexSample_freshGaussian_split_energy (hn : 0 < n) (hnm : n < m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ((stdGaussian (ComplexSample (m := m) (n := n))).prod
+      (stdGaussian (EuclideanSpace ℂ (Fin m)))).map
+      (fun p => (complexSampleMatrix p.1 + M,
+        gaussianSplitEnergy (totalGramColumnSpaceReal (complexSampleMatrix p.1 + M)) p.2)) =
+      (complexGaussianMatrixLaw M).prod
+        ((gammaMeasure (n : ℝ) 1).prod (gammaMeasure ((m - n : ℕ) : ℝ) 1)) := by
+  have hmap : ((stdGaussian (ComplexSample (m := m) (n := n))).prod
+      (stdGaussian (EuclideanSpace ℂ (Fin m)))).map
+      (Prod.map (fun z => complexSampleMatrix z + M) id) =
+      (complexGaussianMatrixLaw M).prod (stdGaussian (EuclideanSpace ℂ (Fin m))) := by
+    rw [← Measure.map_prod_map _ _ (measurable_shiftedComplexSampleMatrix M) measurable_id,
+      Measure.map_id]
+    rfl
+  have hLaw := complexGaussianMatrixLaw_split_energy hn hnm M
+  rw [← hmap, Measure.map_map
+    (measurable_fst.prodMk (measurable_gaussianSplitEnergy totalGramColumnSpaceReal
+      (measurable_totalGramColumnSpaceReal_projection m n)))
+    ((measurable_shiftedComplexSampleMatrix M).prodMap measurable_id)] at hLaw
+  exact hLaw
+
+end
+end JinWishart
+
+#print axioms JinWishart.measurable_shiftedComplexSampleMatrix
+#print axioms JinWishart.isProbabilityMeasure_complexGaussianMatrixLaw
+#print axioms JinWishart.measurableSet_gram_det_isUnit
+#print axioms JinWishart.complexGaussianMatrixLaw_gram_isUnit_ae
+#print axioms JinWishart.complexGaussianMatrixLaw_split_energy
+#print axioms JinWishart.complexSample_freshGaussian_split_energy
+
+
+FILE GaussianGramSupport.lean
+import JinWishartFormalization.GaussianGramFullRank
+
+/-!
+# Strict positive support in both rectangular Gaussian Gram orientations
+
+Codex proofs. Reuse the generic row Gram/witness and the already-proved
+polynomial null-set transfer, then choose the paper's smaller-side matrix.
+No general Wishart density is assumed or established.
+[需人工审查] Inherited Gaussian null-set argument, matrix-event measurability
+and the correspondence of the smaller-side orientation with paper notation.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+variable {m n : ℕ}
+
+theorem genericComplexRowGram_det_eval (z : ComplexSample (m := m) (n := n)) :
+    sampleEval z (genericComplexRowGram m n).det =
+      (complexSampleMatrix z * (complexSampleMatrix z)ᴴ).det := by
+  rw [RingHom.map_det]
+  change ((genericComplexRowGram m n).map (sampleEval z)).det = _
+  rw [genericComplexRowGram_map]
+
+theorem rowGram_witnessRowMean_det_ne_zero (hmn : m ≤ n) :
+    (witnessRowMean hmn * (witnessRowMean hmn)ᴴ).det ≠ 0 := by
+  rw [rowGram_witnessRowMean, Matrix.det_diagonal]
+  apply Finset.prod_ne_zero_iff.mpr
+  intro i _
+  exact_mod_cast (show (((i : ℕ) : ℝ) + 1) ^ 2 ≠ 0 by positivity)
+
+theorem genericComplexRowGram_det_ne_zero (hmn : m ≤ n) :
+    (genericComplexRowGram m n).det ≠ 0 := by
+  intro hzero
+  have h := genericComplexRowGram_det_eval (complexSampleMean (witnessRowMean hmn))
+  rw [hzero, map_zero, complexSampleMatrix_complexSampleMean] at h
+  exact rowGram_witnessRowMean_det_ne_zero hmn h.symm
+
+theorem complexSample_shiftedRowGram_det_ne_zero_ae (hmn : m ≤ n)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      ((complexSampleMatrix z + M) * (complexSampleMatrix z + M)ᴴ).det ≠ 0 := by
+  have h := sampleEval_ne_zero_ae (genericComplexRowGram_det_ne_zero hmn) M
+  filter_upwards [h] with z hz
+  rwa [genericComplexRowGram_det_eval, complexSampleMatrix_add_mean] at hz
+
+theorem complexSample_shiftedRowGram_posDef_ae (hmn : m ≤ n)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      ((complexSampleMatrix z + M) * (complexSampleMatrix z + M)ᴴ).PosDef := by
+  filter_upwards [complexSample_shiftedRowGram_det_ne_zero_ae hmn M] with z hz
+  exact (Matrix.posSemidef_self_mul_conjTranspose _).posDef_iff_det_ne_zero.mpr hz
+
+/-- Any rectangular shape and fixed mean: the actual smaller-side Gram is PD a.s. -/
+theorem paperSmallSideGram_posDef_ae (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      (paperSmallSideGram (complexSampleMatrix z + M)).PosDef := by
+  classical
+  by_cases hmn : m ≤ n
+  · filter_upwards [complexSample_shiftedRowGram_posDef_ae hmn M] with z hz
+    simpa [paperSmallSideGram, hmn] using
+      hz.submatrix (finMinEquivLeft hmn).injective
+  · have hnm : n ≤ m := le_of_not_ge hmn
+    filter_upwards [complexSample_shiftedGram_posDef_ae hnm M] with z hz
+    simpa [paperSmallSideGram, hmn, complexGram] using
+      hz.submatrix (finMinEquivRight hnm).injective
+
+theorem measurableSet_complex_posDef (n : ℕ) :
+    MeasurableSet {A : Matrix (Fin n) (Fin n) ℂ | A.PosDef} := by
+  have hset : {A : Matrix (Fin n) (Fin n) ℂ | A.PosDef} =
+      {A | A.PosSemidef} ∩ {A | A.det ≠ 0} := by
+    ext A
+    exact ⟨fun h => ⟨h.posSemidef, h.posSemidef.posDef_iff_det_ne_zero.mp h⟩,
+      fun h => h.1.posDef_iff_det_ne_zero.mpr h.2⟩
+  rw [hset]
+  exact Matrix.posSemidef_is_closed.measurableSet.inter
+    (isOpen_ne.preimage continuous_id.matrix_det).measurableSet
+
+theorem complexNoncentralWishart_posDef_ae (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ W ∂complexNoncentralWishart M, W.PosDef := by
+  apply (ae_map_iff (measurable_shiftedComplexSampleGram M).aemeasurable
+    (measurableSet_complex_posDef n)).2
+  exact complexSample_shiftedGram_posDef_ae hnm M
+
+theorem complexNoncentralWishart_measure_posDef (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    complexNoncentralWishart M {W | W.PosDef} = 1 := by
+  exact (mem_ae_iff_prob_eq_one (measurableSet_complex_posDef n)).mp
+    (complexNoncentralWishart_posDef_ae hnm M)
+
+end
+end JinWishart
+
+#print axioms JinWishart.genericComplexRowGram_det_eval
+#print axioms JinWishart.rowGram_witnessRowMean_det_ne_zero
+#print axioms JinWishart.genericComplexRowGram_det_ne_zero
+#print axioms JinWishart.complexSample_shiftedRowGram_det_ne_zero_ae
+#print axioms JinWishart.complexSample_shiftedRowGram_posDef_ae
+#print axioms JinWishart.paperSmallSideGram_posDef_ae
+#print axioms JinWishart.measurableSet_complex_posDef
+#print axioms JinWishart.complexNoncentralWishart_posDef_ae
+#print axioms JinWishart.complexNoncentralWishart_measure_posDef
+
+
+EXACT SUPPORT ComplexGramSimpleSpectrum.lean lines 180-184
+theorem complexMvPolynomial_realZeroSet_volume_eq_zero {ι : Type*} [Fintype ι]
+    (p : MvPolynomial ι ℂ) (hp : p ≠ 0) :
+    volume {x : ι → ℝ | MvPolynomial.eval (fun i => (x i : ℂ)) p = 0} = 0 := by
+  classical
+  let e : ι ≃ Fin (Fintype.card ι) := Fintype.equivFin ι
+
+EXACT SUPPORT ComplexGramSimpleSpectrum.lean lines 211-263
+abbrev SampleIdx (m n : ℕ) := (Fin m × Fin n) × Fin 2
+
+/-- The generic complex sample, entries `(x_re + i x_im) / √2`, over the complex
+polynomial ring in the real coordinates. -/
+def genericComplexSample (m n : ℕ) :
+    Matrix (Fin m) (Fin n) (MvPolynomial (SampleIdx m n) ℂ) :=
+  fun i j => (MvPolynomial.X ((i, j), 0) +
+      MvPolynomial.C Complex.I * MvPolynomial.X ((i, j), 1)) *
+    MvPolynomial.C ((Real.sqrt 2 : ℂ))⁻¹
+
+/-- Conjugate transpose of the generic sample, written out entrywise (complex
+conjugation is not a ring map on the polynomial ring). -/
+def genericComplexSampleConjT (m n : ℕ) :
+    Matrix (Fin n) (Fin m) (MvPolynomial (SampleIdx m n) ℂ) :=
+  fun j i => (MvPolynomial.X ((i, j), 0) -
+      MvPolynomial.C Complex.I * MvPolynomial.X ((i, j), 1)) *
+    MvPolynomial.C ((Real.sqrt 2 : ℂ))⁻¹
+
+/-- The generic column Gram matrix `XᴴX`. -/
+def genericComplexGram (m n : ℕ) :
+    Matrix (Fin n) (Fin n) (MvPolynomial (SampleIdx m n) ℂ) :=
+  genericComplexSampleConjT m n * genericComplexSample m n
+
+/-- Resultant of the generic Gram charpoly with its derivative. -/
+def genericComplexGramResultant (m n : ℕ) : MvPolynomial (SampleIdx m n) ℂ :=
+  resultant (genericComplexGram m n).charpoly
+    (genericComplexGram m n).charpoly.derivative n (n - 1)
+
+variable {m n : ℕ}
+
+/-- Evaluation of coordinate polynomials at an actual real sample. -/
+def sampleEval (z : ComplexSample (m := m) (n := n)) :
+    MvPolynomial (SampleIdx m n) ℂ →+* ℂ :=
+  MvPolynomial.eval (fun k => ((z k : ℝ) : ℂ))
+
+theorem genericComplexSample_map (z : ComplexSample (m := m) (n := n)) :
+    (genericComplexSample m n).map (sampleEval z) = complexSampleMatrix z := by
+  ext i j
+  simp [genericComplexSample, sampleEval, complexSampleMatrix, div_eq_mul_inv]
+
+theorem genericComplexSampleConjT_map (z : ComplexSample (m := m) (n := n)) :
+    (genericComplexSampleConjT m n).map (sampleEval z) = (complexSampleMatrix z)ᴴ := by
+  ext j i
+  simp only [Matrix.map_apply, Matrix.conjTranspose_apply, genericComplexSampleConjT,
+    complexSampleMatrix, sampleEval]
+  apply Complex.ext <;> simp [div_eq_mul_inv]
+
+theorem genericComplexGram_map (z : ComplexSample (m := m) (n := n)) :
+    (genericComplexGram m n).map (sampleEval z) = complexGram (complexSampleMatrix z) := by
+  rw [genericComplexGram, Matrix.map_mul, genericComplexSampleConjT_map,
+    genericComplexSample_map]
+  rfl
+
+
+EXACT SUPPORT ComplexGramSimpleSpectrum.lean lines 313-347
+/-- Mean matrix with `√`-free real diagonal `1, 2, …, n` embedded in the first
+`n` rows. -/
+def witnessMean (hnm : n ≤ m) : Matrix (Fin m) (Fin n) ℂ :=
+  fun i j => if i = Fin.castLE hnm j then ((((j : ℕ) : ℝ) + 1 : ℝ) : ℂ) else 0
+
+theorem complexGram_witnessMean (hnm : n ≤ m) :
+    complexGram (witnessMean hnm) =
+      diagonal (fun j : Fin n => (((((j : ℕ) : ℝ) + 1) ^ 2 : ℝ) : ℂ)) := by
+  ext j k
+  simp only [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply, witnessMean,
+    Matrix.diagonal_apply]
+  by_cases hjk : j = k
+  · subst hjk
+    simp [apply_ite star, ite_mul, Finset.sum_ite_eq', sq]
+  · have hne : Fin.castLE hnm j ≠ Fin.castLE hnm k := fun h =>
+      hjk (Fin.castLE_injective hnm h)
+    simp only [hjk, ite_false]
+    apply Finset.sum_eq_zero
+    intro i _
+    by_cases hij : i = Fin.castLE hnm j
+    · subst hij
+      simp [hne]
+    · simp [hij]
+
+theorem complexSampleMatrix_zero :
+    complexSampleMatrix (0 : ComplexSample (m := m) (n := n)) = 0 := by
+  ext i j
+  simp [complexSampleMatrix]
+
+theorem complexSampleMatrix_complexSampleMean (M : Matrix (Fin m) (Fin n) ℂ) :
+    complexSampleMatrix (complexSampleMean M) = M := by
+  have h := complexSampleMatrix_add_mean (0 : ComplexSample (m := m) (n := n)) M
+  rw [zero_add, complexSampleMatrix_zero, zero_add] at h
+  exact h
+
+
+EXACT SUPPORT ComplexGramSimpleSpectrum.lean lines 428-440
+def genericComplexRowGram (m n : ℕ) :
+    Matrix (Fin m) (Fin m) (MvPolynomial (SampleIdx m n) ℂ) :=
+  genericComplexSample m n * genericComplexSampleConjT m n
+
+def genericComplexRowGramResultant (m n : ℕ) : MvPolynomial (SampleIdx m n) ℂ :=
+  resultant (genericComplexRowGram m n).charpoly
+    (genericComplexRowGram m n).charpoly.derivative m (m - 1)
+
+theorem genericComplexRowGram_map (z : ComplexSample (m := m) (n := n)) :
+    (genericComplexRowGram m n).map (sampleEval z) =
+      complexSampleMatrix z * (complexSampleMatrix z)ᴴ := by
+  rw [genericComplexRowGram, Matrix.map_mul, genericComplexSampleConjT_map,
+    genericComplexSample_map]
+
+EXACT SUPPORT ComplexGramSimpleSpectrum.lean lines 461-482
+/-- Row witness mean: real diagonal `1, 2, …, m` in the first `m` columns. -/
+def witnessRowMean (hmn : m ≤ n) : Matrix (Fin m) (Fin n) ℂ :=
+  fun i j => if j = Fin.castLE hmn i then ((((i : ℕ) : ℝ) + 1 : ℝ) : ℂ) else 0
+
+theorem rowGram_witnessRowMean (hmn : m ≤ n) :
+    witnessRowMean hmn * (witnessRowMean hmn)ᴴ =
+      diagonal (fun i : Fin m => (((((i : ℕ) : ℝ) + 1) ^ 2 : ℝ) : ℂ)) := by
+  ext i k
+  simp only [Matrix.mul_apply, Matrix.conjTranspose_apply, witnessRowMean,
+    Matrix.diagonal_apply]
+  by_cases hik : i = k
+  · subst hik
+    simp [apply_ite star, mul_ite, Finset.sum_ite_eq', sq]
+  · have hne : Fin.castLE hmn i ≠ Fin.castLE hmn k := fun h =>
+      hik (Fin.castLE_injective hmn h)
+    simp only [hik, ite_false]
+    apply Finset.sum_eq_zero
+    intro j _
+    by_cases hji : j = Fin.castLE hmn i
+    · subst hji
+      simp [hne.symm, hik]
+    · simp [hji]
+
+EXACT SUPPORT ComplexGramSimpleSpectrum.lean lines 505-536
+theorem sampleEval_ne_zero_ae {P : MvPolynomial (SampleIdx m n) ℂ} (hP : P ≠ 0)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      sampleEval (z + complexSampleMean M) P ≠ 0 := by
+  let S := {z : ComplexSample (m := m) (n := n) | sampleEval z P = 0}
+  have hS : volume S = 0 := by
+    have hfun := complexMvPolynomial_realZeroSet_volume_eq_zero _ hP
+    let e : (SampleIdx m n → ℝ) ≃ᵐ ComplexSample (m := m) (n := n) :=
+      MeasurableEquiv.toLp 2 _
+    have hpres : MeasurePreserving e volume volume :=
+      PiLp.volume_preserving_toLp (SampleIdx m n)
+    have hpre : e ⁻¹' S =
+        {x : SampleIdx m n → ℝ | MvPolynomial.eval (fun i => (x i : ℂ)) P = 0} := by
+      ext x
+      simp [e, S, sampleEval]
+    rw [← hpres.measure_preimage_equiv, hpre]
+    exact hfun
+  have hshift : volume ((fun z => z + complexSampleMean M) ⁻¹' S) = 0 := by
+    rw [measure_preimage_add_right]
+    exact hS
+  have hac : stdGaussian (ComplexSample (m := m) (n := n))
+      ((fun z => z + complexSampleMean M) ⁻¹' S) = 0 := by
+    rw [stdGaussian_euclidean_eq_radialDensity]
+    exact withDensity_absolutelyContinuous volume _ hshift
+  rw [ae_iff]
+  apply measure_mono_null _ hac
+  intro z hz
+  simpa [S] using hz
+
+/-- **Paper-facing simple spectrum.** For every rectangular shape `m × n` and
+every deterministic complex mean `M`, the ordered eigenvalues of the paper's
+smaller-side (`s = min m n`) Gram matrix of the shifted complex Gaussian sample

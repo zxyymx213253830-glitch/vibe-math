@@ -1,0 +1,45 @@
+{
+  "seed": 20261017,
+  "collected_utc": "2026-10-17T10:04:31.617160+00:00",
+  "records": [
+    {
+      "m": 2,
+      "n": 1,
+      "N": 200000,
+      "trace_standard_errors": 0.2355535057895924,
+      "logdet_standard_errors": -0.4164980728366591,
+      "logdet_variance_ratio": 1.0071515558051918,
+      "minimum_observed_eigenvalue": 0.0011738704255539049
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "N": 200000,
+      "trace_standard_errors": -0.8432106057648955,
+      "logdet_standard_errors": -1.2959281923088068,
+      "logdet_variance_ratio": 1.0016126313013827,
+      "minimum_observed_eigenvalue": 0.0009210737484898202
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "N": 200000,
+      "trace_standard_errors": -0.31933816551877137,
+      "logdet_standard_errors": 0.2811499335436407,
+      "logdet_variance_ratio": 0.9996551120226406,
+      "minimum_observed_eigenvalue": 8.506412481758011e-07
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "N": 200000,
+      "trace_standard_errors": 0.3862800931428943,
+      "logdet_standard_errors": 1.1259230236141666,
+      "logdet_variance_ratio": 0.9960231298715865,
+      "minimum_observed_eigenvalue": 0.019839855770356463
+    }
+  ],
+  "source_sha256": "75a1ccf3b1bd2e9df48c9b182e16a5de5bda5c24dc2ee2c7fa8ed433c03b3e4d",
+  "control": "Actual CN(0,1) trace Gamma(m*n,1), known Bartlett log-det moments; wide negative control",
+  "status": "PASS numerical controls only; not proof of a.e. full rank"
+}

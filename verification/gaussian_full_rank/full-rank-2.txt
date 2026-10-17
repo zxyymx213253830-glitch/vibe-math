@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramFullRank.lean:26:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (genericComplexGram ?m.30 ?m.31).map ⇑(sampleEval ?z)
+in the target expression
+  ((sampleEval z).mapMatrix (genericComplexGram m n)).det = (complexGram (complexSampleMatrix z)).det
+
+m n : ℕ
+z : ComplexSample
+⊢ ((sampleEval z).mapMatrix (genericComplexGram m n)).det = (complexGram (complexSampleMatrix z)).det
+'JinWishart.genericComplexGram_det_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGram_witnessMean_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.genericComplexGram_det_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexSample_shiftedGram_det_ne_zero_ae' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexSample_shiftedGram_isUnit_det_ae' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexSample_shiftedGram_posDef_ae' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexSample_shiftedColumnMap_injective_ae' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexSample_shiftedColumnSpace_finrank_real_ae' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexSample_shiftedColumnSpace_orthogonal_finrank_ae' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

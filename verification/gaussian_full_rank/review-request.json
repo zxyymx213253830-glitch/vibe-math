@@ -1,0 +1,50 @@
+{
+  "inputs": {
+    "GaussianGramFullRank.lean": {
+      "sha256": "9674093816471e7e863290cc2212cb1db601dcdc4d27da90537eb07fded36985",
+      "supplied": "Full source"
+    },
+    "GaussianGramEnergyLaw.lean": {
+      "sha256": "6cdce49cfe941d5472c5a7fd35822a441b0d58edd2aec65d5bed14fa7a27efd4",
+      "supplied": "Full source"
+    },
+    "GaussianGramSupport.lean": {
+      "sha256": "8296c509a78fa34f9be8a5cf5881e27eae711607473819ce54f599303c631db5",
+      "supplied": "Full source"
+    },
+    "ComplexGramSimpleSpectrum.lean": {
+      "sha256": "0ba21967c9d5d97c4534709bf6a73900e1a8dd10c16b84c944138179f62b8adf",
+      "supplied_line_ranges": [
+        [
+          180,
+          184
+        ],
+        [
+          211,
+          263
+        ],
+        [
+          313,
+          347
+        ],
+        [
+          428,
+          440
+        ],
+        [
+          461,
+          482
+        ],
+        [
+          505,
+          536
+        ]
+      ],
+      "caveat": "Full inherited Fubini proof not supplied"
+    }
+  },
+  "prompt_sha256": "87af3d19a3dad25d4368858bb9ff32afd10e56930f40f3552a58b3a2216d4e0c",
+  "proof_author": "Codex",
+  "reviewer_requested": "Qoder Qwen3.8-Max",
+  "independent_compilation": false
+}

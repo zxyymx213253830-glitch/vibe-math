@@ -2,3 +2,8 @@
 /verification/qoder_collaboration_20261017/** -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramDimensions.lean -text
 /experiments/gram_real_dimension_control.py -text
+/verification/gaussian_full_rank/** -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramFullRank.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramEnergyLaw.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramSupport.lean -text
+/experiments/gaussian_full_rank_control.py -text

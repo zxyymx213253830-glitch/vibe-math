@@ -1,0 +1,302 @@
+{
+  "collected_utc": "2026-10-17T10:12:27.804257+00:00",
+  "targets": {
+    "GaussianGramFullRank": {
+      "declarations": [
+        {
+          "name": "JinWishart.genericComplexGram_det_eval",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGram_witnessMean_det_ne_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.genericComplexGram_det_ne_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_shiftedGram_det_ne_zero_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_shiftedGram_isUnit_det_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_shiftedGram_posDef_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_shiftedColumnMap_injective_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_shiftedColumnSpace_finrank_real_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_shiftedColumnSpace_orthogonal_finrank_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "9674093816471e7e863290cc2212cb1db601dcdc4d27da90537eb07fded36985",
+      "log_sha256": "1ef48d05f1fc3d0400ecff2ac357f3b2f1e04e9744ed0cb9a729c79b76656c08",
+      "olean_sha256": "99ae53e12d8522a40736e0c0949d90cc5a7de8d9d033a2362c2fd7de087c3313",
+      "kernel_exit_code": 0,
+      "direct_imports": {
+        "JinWishartFormalization.ComplexGramSimpleSpectrum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGramSimpleSpectrum.olean",
+          "sha256": "a76490e9e80bdd200883f7e08421437484f39ccd4eb13688dd90ba1c6da66190"
+        },
+        "JinWishartFormalization.GaussianGramDimensions": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianGramDimensions.olean",
+          "sha256": "433d61bdd9643b6d183bafa9565b1bf1623e69834a09d9dbfc0ac7bb64264963"
+        }
+      }
+    },
+    "GaussianGramEnergyLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_shiftedComplexSampleMatrix",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.isProbabilityMeasure_complexGaussianMatrixLaw",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurableSet_gram_det_isUnit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGaussianMatrixLaw_gram_isUnit_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGaussianMatrixLaw_split_energy",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_freshGaussian_split_energy",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "6cdce49cfe941d5472c5a7fd35822a441b0d58edd2aec65d5bed14fa7a27efd4",
+      "log_sha256": "01d5d5dd6ade66a1182b74a3b7b8124b89b54f28027fa8d12aa39df781570e29",
+      "olean_sha256": "f262d79c455a7dd474d1ad7903fdedc24bc1cdd6cb86f40e2eacdf3b07824a4a",
+      "kernel_exit_code": 0,
+      "direct_imports": {
+        "JinWishartFormalization.GaussianGramFullRank": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianGramFullRank.olean",
+          "sha256": "99ae53e12d8522a40736e0c0949d90cc5a7de8d9d033a2362c2fd7de087c3313"
+        }
+      }
+    },
+    "GaussianGramSupport": {
+      "declarations": [
+        {
+          "name": "JinWishart.genericComplexRowGram_det_eval",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.rowGram_witnessRowMean_det_ne_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.genericComplexRowGram_det_ne_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_shiftedRowGram_det_ne_zero_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSample_shiftedRowGram_posDef_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.paperSmallSideGram_posDef_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurableSet_complex_posDef",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexNoncentralWishart_posDef_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexNoncentralWishart_measure_posDef",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "8296c509a78fa34f9be8a5cf5881e27eae711607473819ce54f599303c631db5",
+      "log_sha256": "202596bd9bac68ffbbf53d13bb15471fe3ad6a63aa28180b1541dc539f3306e0",
+      "olean_sha256": "baa3a69ff2551a0ea3165e19f14c0cd029ba7f84e1ed5871a249e72e2de17c7f",
+      "kernel_exit_code": 0,
+      "direct_imports": {
+        "JinWishartFormalization.GaussianGramFullRank": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianGramFullRank.olean",
+          "sha256": "99ae53e12d8522a40736e0c0949d90cc5a7de8d9d033a2362c2fd7de087c3313"
+        }
+      }
+    }
+  },
+  "total_declarations": 24,
+  "actual_gaussian_full_rank": "PROVED for n<=m, any fixed mean",
+  "smaller_side_positive_definite": "PROVED every rectangular shape, any fixed mean",
+  "actual_preceding_matrix_energy_product": "PROVED for 0<n<m, fresh independent central Gaussian",
+  "convention": "Fresh stdGaussian complex column has real-coordinate variance1; energies divide by2",
+  "general_matrix_density_and_G2": "OPEN",
+  "joint_Bartlett_matrix_law": "OPEN",
+  "review": "Actual Qoder/Qwen3.8-Max model-only P4, supplied target sources and specified excerpts",
+  "human_review": "REQUIRED: inherited Fubini/null-set, variance/model correspondence",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "dependency_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "facade_and_full_build": "NOT_RUN",
+  "publication": "UNCHANGED",
+  "evidence": {
+    "audit.py": "2d180a3fb1dd8ac555c6764ba3de01be18992361ba95f9ad333f28d291c844e3",
+    "control.json": "b0e46b209596e3d59335085b499270243e6d07d143f53542b89a9c6e4ed92df7",
+    "energy-law-1.txt": "0f2e8632591a757791790fdbdc03c72aa34b590696a2941e93cea8ab9719932b",
+    "energy-law-2.txt": "01d5d5dd6ade66a1182b74a3b7b8124b89b54f28027fa8d12aa39df781570e29",
+    "full-rank-1.txt": "845c6669863db249ce60bc19a0296ea43702730b08f679e4cbde591ad8781902",
+    "full-rank-2.txt": "8d337a8444b1b2fffbeca4740bfcee159a703cd987a8d5058ae4465856e61a0b",
+    "full-rank-3.txt": "1ef48d05f1fc3d0400ecff2ac357f3b2f1e04e9744ed0cb9a729c79b76656c08",
+    "p4-prompt.txt": "87af3d19a3dad25d4368858bb9ff32afd10e56930f40f3552a58b3a2216d4e0c",
+    "p4.raw.json": "df8ab9bbe532a50850d5019da1c699be3b36fae5140437baa42a43399e8a9312",
+    "p4.receipt.json": "00a1053769f29a5ef1300ff5463ade35b99030033d0d5200cae21e7b94937d95",
+    "p4.response.md": "0e9e8280d162bc760c89b9a633911ebe04d4ac8bae0f295f2f4018af069cfe38",
+    "p4.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare_review.py": "c8d0bb78e6f1e3507024897ef9272d1b9d81c23ab436d58b931fca3d5c8cdf90",
+    "README.md": "8f2772c48ffbcdf376f15f4213fef55127a761726d18f0372afe2aed86c0d0da",
+    "review-request.json": "64c40ffeb499efdd86e1cb29520a09c155785024b266fe415d10fdc32a3bc8c7",
+    "support-1.txt": "202596bd9bac68ffbbf53d13bb15471fe3ad6a63aa28180b1541dc539f3306e0",
+    "review-snapshot/GaussianGramEnergyLaw.lean": "6cdce49cfe941d5472c5a7fd35822a441b0d58edd2aec65d5bed14fa7a27efd4",
+    "review-snapshot/GaussianGramFullRank.lean": "9674093816471e7e863290cc2212cb1db601dcdc4d27da90537eb07fded36985",
+    "review-snapshot/GaussianGramSupport.lean": "8296c509a78fa34f9be8a5cf5881e27eae711607473819ce54f599303c631db5"
+  },
+  "status": "PASS 24 declarations, standard axioms, controls, source/artifact/review bindings"
+}

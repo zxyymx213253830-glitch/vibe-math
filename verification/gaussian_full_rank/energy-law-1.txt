@@ -1,0 +1,20 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramEnergyLaw.lean:34:8: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.isProbabilityMeasure_map`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramEnergyLaw.lean:39:9: error: Function expected at
+  isOpen_ne
+but this term has type
+  IsOpen {y | y ≠ ?m.25}
+
+Note: Expected a function because this term is being applied to the argument
+  (by fun_prop : Continuous (fun A : Matrix (Fin m) (Fin n) ℂ => (Aᴴ * A).det))
+'JinWishart.measurable_shiftedComplexSampleMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.isProbabilityMeasure_complexGaussianMatrixLaw' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.measurableSet_gram_det_isUnit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_gram_isUnit_ae' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_split_energy' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexSample_freshGaussian_split_energy' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

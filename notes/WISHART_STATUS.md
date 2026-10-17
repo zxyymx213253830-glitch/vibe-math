@@ -113,3 +113,5 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-16 后续CLI安装授权：官方npm Qoder CLI1.1.72已安装D:\QoderCLI，待浏览器授权；找到桌面内置官方ZCode CLI0.16.5并配置D:\ZCodeCLI入口，doctor通过，但独立CLI缺模型配置，未冒称GLM调用成功。Claude Code最小位置参数与匹配stdin对照均返回OK，旧超时根因未确证；新完整P4请求32.75秒退出0，客户端报告Claude Sonnet5，在四份提供源码范围内未发现阻断数学错误，未独立编译且未覆盖实际满秩/一般密度。原始回应、四源码及请求哈希见`verification/cli_collaboration_setup_20261016/`；源码/论文/发布包未改，人审仍需完成。旧失败证据保留，用户现有登录/代理设置未修改。
 
 2026-10-17 用户完成Qoder登录：Qwen3.8-Max真实最小请求、P1短路线与P4调用成功。Codex新增GaussianGramDimensions七声明叶子PASS标准三公理：Gram非奇异下左逆/单射/复实列空间及正交补维数，既有Gaussian能量律的维数条件归结到显式a.e.满秩前提；该实际Gaussian前提、一般Jacobian/密度/G2仍开放。五组固定seed精确维数控制和奇异反例控制PASS，非概率证明。长请求超时、三次Lean失败及Qoder漏报化简错误均原样归档；仅p4-checked绑定最终通过源码，模型审查不替代人审，[需人工审查]保留。证据verification/qoder_collaboration_20261017/audit.json。证明体归Codex，Qoder只提供路线与审查；未改论文/发布包/主入口，无完整构建、自动任务或推送。
+
+2026-10-17 持续研究里程碑：实际Gaussian任意固定均值n<=m满列秩/Gram正定已由复多项式非零见证与现有零集转移闭合；任意矩形小侧Gram正定、真实前置列矩阵与新Gaussian投影/残差Gamma乘积律均已证，三个新模块24声明标准三公理PASS。四形状各200000样本trace/logdet闭式控制PASS，仅数值控制。Qoder真实P4对最终三源码/限定依赖片段未报具体问题，不等于独立编译/人审；完整Fubini/方差/论文对应[需人工审查]。源码/olean/日志/审查绑定verification/gaussian_full_rank/audit.json。一般Cholesky Jacobian、Bartlett联合系数律、实际矩阵密度/G2仍开放；论文/发布包/主入口未改，无完整构建或推送。
