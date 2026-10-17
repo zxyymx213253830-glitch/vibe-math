@@ -1,0 +1,32 @@
+{
+  "seed": 20261017,
+  "records": [
+    {
+      "complex_dimension": 1,
+      "N": 128,
+      "max_unitary_or_frame_error": 1.3322676295501878e-15,
+      "matrix_Gram_invariance_error": 1.0658141036401503e-14
+    },
+    {
+      "complex_dimension": 2,
+      "N": 128,
+      "max_unitary_or_frame_error": 1.1102230246251565e-15,
+      "matrix_Gram_invariance_error": 7.105427357601002e-15
+    },
+    {
+      "complex_dimension": 3,
+      "N": 128,
+      "max_unitary_or_frame_error": 1.1102230246251565e-15,
+      "matrix_Gram_invariance_error": 1.7763568394002505e-14
+    },
+    {
+      "complex_dimension": 5,
+      "N": 128,
+      "max_unitary_or_frame_error": 1.1102230246251565e-15,
+      "matrix_Gram_invariance_error": 1.9539925233402755e-14
+    }
+  ],
+  "source_sha256": "41ea5ffe77fea7a5350c9869a52623c8e40ebecb10be56a0d9453a643f89c4ad",
+  "control": "QR orthonormality and phase-corrected first column mapped to canonical vector",
+  "status": "PASS finite algebra only; no global measurable frame constructed"
+}

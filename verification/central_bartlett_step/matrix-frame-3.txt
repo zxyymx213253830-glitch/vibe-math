@@ -1,0 +1,8 @@
+'JinWishart.complexSampleByColumns_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.encodedComplexMatrixFrame_gaussianLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleByColumns_encoded_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleMatrix_column_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_unitaryActColumns' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleMatrix_encoded_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_unitary_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGram_unitaryActColumns' depends on axioms: [propext, Classical.choice, Quot.sound]

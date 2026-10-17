@@ -1,0 +1,179 @@
+{
+  "collected_utc": "2026-10-17T10:33:12.913367+00:00",
+  "spec_sha256": "459cd454b3faec7ea15a4428020c489dd09cfc9331cbcad28dc094362b4d03ec",
+  "auditor_sha256": "7cdbabdf0692a1e4d4599db5592b9145b9365252cff4264a07f02247c1efe847",
+  "modules": {
+    "JinWishartFormalization.GaussianComplexFrameExists": {
+      "declarations": [
+        {
+          "name": "JinWishart.exists_complex_unit_frame",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.exists_complex_nonzero_frame",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.exists_complex_nonzero_gaussian_frame",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complex_unit_frame_first_coordinate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "8c082bb61f3eb2867422f4b49dc00bccbcd864a54da586f8fb76ddd3a6456ee9",
+      "olean_sha256": "ba9747a0fe8c9d56823b8bd6ce3cefd26b563047901cf2190ca0a88d2f841f1a",
+      "log_sha256": "f56ffe62b7e9ec23584068b7515048fecdf0bbc05d655acf0c2b1f1004e270c5",
+      "imports": {
+        "JinWishartFormalization.GaussianComplexColumnFrame": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianComplexColumnFrame.olean",
+          "sha256": "7ec3a93c6e351f7dba39de09cce0241b2d618d167fede90732e9caeb1e5fd518"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianComplexMatrixFrame": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexSampleByColumns_apply",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.encodedComplexMatrixFrame_gaussianLaw",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSampleByColumns_encoded_frame",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSampleMatrix_column_coordinates",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_unitaryActColumns",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSampleMatrix_encoded_frame",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGaussianMatrixLaw_unitary_invariant",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGram_unitaryActColumns",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "f397e4f30ca759374d8d631102a70e4157118551a304254ff7135046bcb1e7a3",
+      "olean_sha256": "69dbdbad46b6f50a61b627b1b86c4d24fc17833e47657453a5a7597fbaf0b6b5",
+      "log_sha256": "b105a64c2ca7fe710511c1a159f2afd26da1de679dce4458439a14f46bc81744",
+      "imports": {
+        "JinWishartFormalization.GaussianComplexFrameExists": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianComplexFrameExists.olean",
+          "sha256": "ba9747a0fe8c9d56823b8bd6ce3cefd26b563047901cf2190ca0a88d2f841f1a"
+        },
+        "JinWishartFormalization.GaussianGramEnergyLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianGramEnergyLaw.olean",
+          "sha256": "f262d79c455a7dd474d1ad7903fdedc24bc1cdd6cb86f40e2eacdf3b07824a4a"
+        }
+      }
+    }
+  },
+  "total_declarations": 12,
+  "controls": [
+    {
+      "script": "experiments/complex_unit_frame_control.py",
+      "script_sha256": "41ea5ffe77fea7a5350c9869a52623c8e40ebecb10be56a0d9453a643f89c4ad",
+      "result_sha256": "461a3440d582bb589d09395ba1ae514d5ea722bdb8b1ef56bb43cd0ece57e4ef",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/central_bartlett_step_control.py",
+      "script_sha256": "80fd1ba86f8040a7aeaed15bbb3e4d89eb085a022c9f770e175b4da55aa8b8cf",
+      "result_sha256": "d0ae13a0760c9b501f49878c3195eb68d965bd7a754a96658a58a7586074f36f",
+      "interpretation": "Reproducible control, not a proof"
+    }
+  ],
+  "reviews": [
+    {
+      "request_sha256": "ae8e5d972caf4c871df489089cb9df000ec478f69c50e82653c994b21dd09699",
+      "prompt_sha256": "b50d806f425716ef74dc4b9380ba9e22000402fc162e71bdcf9534aa97ed8a59",
+      "raw_response_sha256": "9de9c2f7c642ce7e55028949a439fcbc7753852c2c1b82b0f103847f971ad769",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    }
+  ],
+  "scope": "Fixed existential complex frames and actual central Gaussian matrix invariance, not a jointly measurable frame or the full Bartlett matrix law",
+  "human_review": "REQUIRED for stated measure/model interpretation",
+  "full_build": "NOT_RUN",
+  "paper_and_submission": "UNCHANGED",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "status": "PASS specified leaf bundle and bindings"
+}

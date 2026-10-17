@@ -1,0 +1,20 @@
+{
+  "inputs": {
+    "GaussianComplexFrameExists.lean": {
+      "sha256": "8c082bb61f3eb2867422f4b49dc00bccbcd864a54da586f8fb76ddd3a6456ee9",
+      "supplied": "Full source"
+    },
+    "GaussianComplexMatrixFrame.lean": {
+      "sha256": "f397e4f30ca759374d8d631102a70e4157118551a304254ff7135046bcb1e7a3",
+      "supplied": "Full source"
+    },
+    "GaussianComplexColumnFrame.lean": {
+      "sha256": "552abdf336c04c7531fde94e1a0059908e7e3273f5dd48b942aa66623446bf72",
+      "supplied_lines": [
+        1,
+        79
+      ]
+    }
+  },
+  "prompt_sha256": "b50d806f425716ef74dc4b9380ba9e22000402fc162e71bdcf9534aa97ed8a59"
+}

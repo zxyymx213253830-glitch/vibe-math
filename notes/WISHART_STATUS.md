@@ -117,3 +117,5 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-17 持续研究里程碑：实际Gaussian任意固定均值n<=m满列秩/Gram正定已由复多项式非零见证与现有零集转移闭合；任意矩形小侧Gram正定、真实前置列矩阵与新Gaussian投影/残差Gamma乘积律均已证，三个新模块24声明标准三公理PASS。四形状各200000样本trace/logdet闭式控制PASS，仅数值控制。Qoder真实P4对最终三源码/限定依赖片段未报具体问题，不等于独立编译/人审；完整Fubini/方差/论文对应[需人工审查]。源码/olean/日志/审查绑定verification/gaussian_full_rank/audit.json。一般Cholesky Jacobian、Bartlett联合系数律、实际矩阵密度/G2仍开放；论文/发布包/主入口未改，无完整构建或推送。
 
 2026-10-17 同一实际m×(n+1)样本的首列/剩余列独立拆分、sqrt2方差精确换算、首列投影/残差Gamma乘积律十声明PASS；实际满秩前提已经消去。证据verification/gaussian_column_append/audit.json，Qoder限定P4无具体错误，索引疑问由已证rfl点态身份回答，仍需人审。一般Bartlett矩阵步三形状各200000固定seed控制PASS（非证明），按实读skew_product选固定纤维存在框架路线；Qoder covariance捷径和可测选择疑虑已在notes/CENTRAL_BARTLETT_ROUTE.md纠正。矩阵步/密度/G2仍开放，未改论文/投稿包。
+
+2026-10-17 一般Bartlett基础继续闭合：固定非零复列的存在酉框架4声明、全矩阵逐列固定酉作用/实际中央矩阵Gaussian律不变/Gram不变8声明，均默认Lean设置及标准三公理PASS。无全局可测框架选择声明；Qoder真实P4限定范围无阻断问题，仍需人审。统一验收工具与frame-spec.json绑定12声明、控制和审查快照，verification/central_bartlett_step/frame-audit.json。下一步实际行列完整块乘积律在核验；完整联合残余Gram Bartlett律/密度/G2未闭合。

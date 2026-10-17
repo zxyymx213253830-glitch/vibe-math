@@ -1,0 +1,15 @@
+{
+  "library": ".tools/publication-revision-20261016/fresh-project-library",
+  "targets": [
+    {"module": "JinWishartFormalization.GaussianComplexFrameExists", "count": 4, "log": "verification/central_bartlett_step/frame-2.txt", "kernel_exit_code_recorded": 0},
+    {"module": "JinWishartFormalization.GaussianComplexMatrixFrame", "count": 8, "log": "verification/central_bartlett_step/matrix-frame-3.txt", "kernel_exit_code_recorded": 0}
+  ],
+  "controls": [
+    {"script": "experiments/complex_unit_frame_control.py", "result": "verification/central_bartlett_step/unit-frame-control.json", "seed": 20261017},
+    {"script": "experiments/central_bartlett_step_control.py", "result": "verification/central_bartlett_step/control.json", "seed": 20261017}
+  ],
+  "reviews": [
+    {"request": "verification/central_bartlett_step/frame-review-request.json", "prompt": "verification/central_bartlett_step/p4-frame-prompt.txt", "receipt": "verification/central_bartlett_step/p4-frame.receipt.json", "raw": "verification/central_bartlett_step/p4-frame.raw.json", "snapshot": "verification/central_bartlett_step/frame-review-snapshot"}
+  ],
+  "scope": "Fixed existential complex frames and actual central Gaussian matrix invariance, not a jointly measurable frame or the full Bartlett matrix law"
+}

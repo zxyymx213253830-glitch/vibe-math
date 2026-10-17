@@ -1,0 +1,4 @@
+'JinWishart.exists_complex_unit_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_complex_nonzero_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_complex_nonzero_gaussian_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complex_unit_frame_first_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]

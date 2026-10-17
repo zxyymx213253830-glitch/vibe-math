@@ -1,0 +1,315 @@
+P4 issues-only review, Codex authored these proofs; you are Qwen, another family.
+Review the exact two new source files. Both have already passed local Lean standard-axiom checks,
+4 + 8 statements. You do not independently compile. Check complex vs real linearity, all columns,
+sqrt2 convention, direction of coordinate curry, and full actual matrix law vs scalar energy law.
+The existential frame is fixed separately for each nonzero vector; NO measurable global choice
+is claimed. The future fixed-fiber Bartlett matrix law is explicitly OPEN. Full matrix density
+and G2 are not claimed. Do not call the absence of a global selector a bug in this target.
+Report only concrete issues, max350 words. If none, state supplied scope and human-review limit.
+
+FILE GaussianComplexFrameExists.lean
+import JinWishartFormalization.GaussianComplexColumnFrame
+
+/-!
+# A fixed complex frame for a nonzero Gaussian column
+
+Codex proofs using the locked orthonormal-basis extension theorem. These are
+pointwise existential frames only. No joint measurable choice of frame is
+asserted or needed by the planned fixed-fiber proof of a Gram-valued law.
+[需人工审查] Future use of these frames inside fixed-fiber measure proofs and
+the distinction between complex-unitary and merely real rotations.
+-/
+
+open MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def complexFirstBasisVector (m : ℕ) : EuclideanSpace ℂ (Fin (m + 1)) :=
+  EuclideanSpace.single 0 1
+
+theorem exists_complex_unit_frame (m : ℕ) (a : EuclideanSpace ℂ (Fin (m + 1)))
+    (ha : ‖a‖ = 1) :
+    ∃ U : EuclideanSpace ℂ (Fin (m + 1)) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin (m + 1)),
+      U a = complexFirstBasisVector m := by
+  classical
+  have horth : Orthonormal ℂ
+      (({0} : Set (Fin (m + 1))).domRestrict
+        (fun _ : Fin (m + 1) => a)) := by
+    rw [orthonormal_iff_ite]
+    intro i j
+    have hi : (i : Fin (m + 1)) = 0 := Set.mem_singleton_iff.mp i.property
+    have hj : (j : Fin (m + 1)) = 0 := Set.mem_singleton_iff.mp j.property
+    have hij : i = j := Subtype.ext (hi.trans hj.symm)
+    subst j
+    simp [inner_self_eq_norm_sq_to_K, ha]
+  obtain ⟨b, hb⟩ := Orthonormal.exists_orthonormalBasis_extension_of_card_eq
+    (by simp : Module.finrank ℂ (EuclideanSpace ℂ (Fin (m + 1))) =
+      Fintype.card (Fin (m + 1))) horth
+  refine ⟨b.repr, ?_⟩
+  have hb0 : b 0 = a := hb 0 (by simp)
+  rw [← hb0]
+  exact b.repr_self 0
+
+theorem exists_complex_nonzero_frame (m : ℕ) (a : EuclideanSpace ℂ (Fin (m + 1)))
+    (ha : a ≠ 0) :
+    ∃ U : EuclideanSpace ℂ (Fin (m + 1)) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin (m + 1)),
+      U a = ‖a‖ • complexFirstBasisVector m := by
+  have hpos : 0 < ‖a‖ := norm_pos_iff.mpr ha
+  have hnorm : ‖‖a‖⁻¹ • a‖ = 1 := by
+    rw [norm_smul, Real.norm_eq_abs, abs_of_pos (inv_pos.mpr hpos),
+      inv_mul_cancel₀ (ne_of_gt hpos)]
+  obtain ⟨U, hU⟩ := exists_complex_unit_frame m (‖a‖⁻¹ • a) hnorm
+  refine ⟨U, ?_⟩
+  calc
+    U a = U (‖a‖ • (‖a‖⁻¹ • a)) := by
+      rw [smul_smul, mul_inv_cancel₀ (ne_of_gt hpos), one_smul]
+    _ = ‖a‖ • U (‖a‖⁻¹ • a) := (complexFrameToReal U).map_smul _ _
+    _ = _ := by rw [hU]
+
+/-- A fixed complex frame preserves the actual real standard Gaussian law. -/
+theorem exists_complex_nonzero_gaussian_frame (m : ℕ)
+    (a : EuclideanSpace ℂ (Fin (m + 1))) (ha : a ≠ 0) :
+    ∃ U : EuclideanSpace ℂ (Fin (m + 1)) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin (m + 1)),
+      U a = ‖a‖ • complexFirstBasisVector m ∧
+      (stdGaussian (EuclideanSpace ℂ (Fin (m + 1)))).map U =
+        stdGaussian (EuclideanSpace ℂ (Fin (m + 1))) := by
+  obtain ⟨U, hU⟩ := exists_complex_nonzero_frame m a ha
+  exact ⟨U, hU, stdGaussian_map (complexFrameToReal U)⟩
+
+theorem complex_unit_frame_first_coordinate {m : ℕ}
+    (a v : EuclideanSpace ℂ (Fin (m + 1)))
+    (U : EuclideanSpace ℂ (Fin (m + 1)) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin (m + 1)))
+    (hU : U a = complexFirstBasisVector m) :
+    U v 0 = inner ℂ a v := by
+  have h := U.inner_map_map a v
+  rw [hU] at h
+  simpa [complexFirstBasisVector, EuclideanSpace.inner_single_left] using h
+
+end
+end JinWishart
+
+#print axioms JinWishart.exists_complex_unit_frame
+#print axioms JinWishart.exists_complex_nonzero_frame
+#print axioms JinWishart.exists_complex_nonzero_gaussian_frame
+#print axioms JinWishart.complex_unit_frame_first_coordinate
+
+FILE GaussianComplexMatrixFrame.lean
+import JinWishartFormalization.GaussianComplexFrameExists
+import JinWishartFormalization.GaussianGramEnergyLaw
+
+/-!
+# Fixed complex unitary frames acting on all columns of an actual sample
+
+Codex proofs. An explicit finite coordinate curry turns the same fixed complex
+unitary on each column into a real linear isometry of the entire real Gaussian
+source. Its pushforward preserves the ACTUAL central complex matrix law.
+This file chooses no frame as a function of a random column and proves no
+general Wishart density. [需人工审查] Coordinate curry, variance and future
+use of fixed-frame invariance in the Gram-valued Bartlett fiber law.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def matrixColumnIndexEquiv (m n : ℕ) :
+    ((Fin m × Fin n) × Fin 2) ≃ (Σ _ : Fin n, Fin m × Fin 2) where
+  toFun := fun p => ⟨p.1.2, p.1.1, p.2⟩
+  invFun := fun q => ((q.2.1, q.1), q.2.2)
+  left_inv := by intro p; rfl
+  right_inv := by intro q; rfl
+
+def complexSampleByColumns (m n : ℕ) :
+    ComplexSample (m := m) (n := n) ≃ₗᵢ[ℝ]
+      PiLp 2 (fun _ : Fin n => TwoColumnBlock m) :=
+  (LinearIsometryEquiv.piLpCongrLeft 2 ℝ ℝ (matrixColumnIndexEquiv m n)).trans
+    (LinearIsometryEquiv.piLpCurry ℝ 2 (fun (_ : Fin n) (_ : Fin m × Fin 2) => ℝ))
+
+theorem complexSampleByColumns_apply {m n : ℕ}
+    (z : ComplexSample (m := m) (n := n)) (j : Fin n) (i : Fin m) (k : Fin 2) :
+    complexSampleByColumns m n z j (i, k) = z ((i, j), k) := by
+  rfl
+
+def encodedComplexMatrixFrame {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m)) :
+    ComplexSample (m := m) (n := n) ≃ₗᵢ[ℝ] ComplexSample (m := m) (n := n) :=
+  (complexSampleByColumns m n).trans
+    ((LinearIsometryEquiv.piLpCongrRight 2 (fun _ : Fin n => encodedComplexFrame U)).trans
+      (complexSampleByColumns m n).symm)
+
+theorem encodedComplexMatrixFrame_gaussianLaw {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m)) :
+    (stdGaussian (ComplexSample (m := m) (n := n))).map (encodedComplexMatrixFrame U) =
+      stdGaussian (ComplexSample (m := m) (n := n)) :=
+  stdGaussian_map _
+
+theorem complexSampleByColumns_encoded_frame {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m))
+    (z : ComplexSample (m := m) (n := n)) (j : Fin n) :
+    complexColumnCoordinates m (complexSampleByColumns m n (encodedComplexMatrixFrame U z) j) =
+      U (complexColumnCoordinates m (complexSampleByColumns m n z j)) := by
+  simp only [encodedComplexMatrixFrame, LinearIsometryEquiv.trans_apply,
+    LinearIsometryEquiv.apply_symm_apply, LinearIsometryEquiv.piLpCongrRight_apply,
+    PiLp.toLp_apply]
+  exact complexColumnCoordinates_encodedFrame U _
+
+def complexMatrixColumn {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) (j : Fin n) :
+    EuclideanSpace ℂ (Fin m) := WithLp.toLp 2 (fun i => A i j)
+
+theorem complexSampleMatrix_column_coordinates {m n : ℕ}
+    (z : ComplexSample (m := m) (n := n)) (j : Fin n) :
+    complexMatrixColumn (complexSampleMatrix z) j =
+      (Real.sqrt 2)⁻¹ • complexColumnCoordinates m (complexSampleByColumns m n z j) := by
+  ext i
+  change ((z ((i, j), 0) : ℂ) + Complex.I * z ((i, j), 1)) / (Real.sqrt 2 : ℂ) =
+    (Real.sqrt (2 : ℝ))⁻¹ • ((z ((i, j), 0) : ℂ) + z ((i, j), 1) * Complex.I)
+  simp only [Complex.real_smul, Complex.ofReal_inv, div_eq_mul_inv]
+  ring
+
+def unitaryActColumns {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m))
+    (A : Matrix (Fin m) (Fin n) ℂ) : Matrix (Fin m) (Fin n) ℂ :=
+  fun i j => U (complexMatrixColumn A j) i
+
+theorem measurable_unitaryActColumns {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m)) :
+    Measurable (unitaryActColumns (n := n) U) := by
+  unfold unitaryActColumns complexMatrixColumn
+  fun_prop
+
+theorem complexSampleMatrix_encoded_frame {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m))
+    (z : ComplexSample (m := m) (n := n)) :
+    complexSampleMatrix (encodedComplexMatrixFrame U z) =
+      unitaryActColumns U (complexSampleMatrix z) := by
+  ext i j
+  have hleft := complexSampleMatrix_column_coordinates (encodedComplexMatrixFrame U z) j
+  have hright := complexSampleMatrix_column_coordinates z j
+  rw [complexSampleByColumns_encoded_frame] at hleft
+  have hsmul := (complexFrameToReal U).map_smul (Real.sqrt 2)⁻¹
+    (complexColumnCoordinates m (complexSampleByColumns m n z j))
+  have hcol : complexMatrixColumn (complexSampleMatrix (encodedComplexMatrixFrame U z)) j =
+      U (complexMatrixColumn (complexSampleMatrix z) j) := by
+    rw [hleft, hright]
+    exact hsmul.symm
+  exact congrArg (fun v : EuclideanSpace ℂ (Fin m) => v i) hcol
+
+/-- The full central matrix law, rather than only one column or its energy. -/
+theorem complexGaussianMatrixLaw_unitary_invariant {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m)) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)).map (unitaryActColumns U) =
+      complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ) := by
+  let g : ComplexSample (m := m) (n := n) → Matrix (Fin m) (Fin n) ℂ :=
+    fun z => complexSampleMatrix z + 0
+  have hg : Measurable g := measurable_shiftedComplexSampleMatrix _
+  change ((stdGaussian (ComplexSample (m := m) (n := n))).map g).map
+    (unitaryActColumns U) = (stdGaussian (ComplexSample (m := m) (n := n))).map g
+  rw [Measure.map_map (measurable_unitaryActColumns U) hg]
+  have hfun : unitaryActColumns U ∘ g = g ∘ encodedComplexMatrixFrame U := by
+    funext z
+    simp only [g, Function.comp_def, add_zero, complexSampleMatrix_encoded_frame]
+  rw [hfun, ← Measure.map_map hg (encodedComplexMatrixFrame U).continuous.measurable,
+    encodedComplexMatrixFrame_gaussianLaw]
+
+theorem complexGram_unitaryActColumns {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m))
+    (A : Matrix (Fin m) (Fin n) ℂ) :
+    complexGram (unitaryActColumns U A) = complexGram A := by
+  ext j k
+  have h := U.inner_map_map (complexMatrixColumn A j) (complexMatrixColumn A k)
+  simpa only [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    unitaryActColumns, complexMatrixColumn, PiLp.inner_apply, RCLike.inner_apply,
+    Complex.inner, RCLike.star_def, mul_comm] using h
+
+end
+end JinWishart
+
+#print axioms JinWishart.complexSampleByColumns_apply
+#print axioms JinWishart.encodedComplexMatrixFrame_gaussianLaw
+#print axioms JinWishart.complexSampleByColumns_encoded_frame
+#print axioms JinWishart.complexSampleMatrix_column_coordinates
+#print axioms JinWishart.measurable_unitaryActColumns
+#print axioms JinWishart.complexSampleMatrix_encoded_frame
+#print axioms JinWishart.complexGaussianMatrixLaw_unitary_invariant
+#print axioms JinWishart.complexGram_unitaryActColumns
+
+SUPPORT GaussianComplexColumnFrame.lean lines1-79
+import JinWishartFormalization.GaussianTwoColumnIntegration
+
+/-!
+# Complex unitary frames in actual two-column Gaussian coordinates
+
+Complex linear isometries preserve the complex inner product, unlike arbitrary
+real rotations. The real/complex conversion is explicit, with no sqrt(2) in
+the isometry; the actual complex sample has the additional variance factor.
+[需人工审查] Coordinate convention and measurable frame hypotheses.
+-/
+
+open MeasureTheory ProbabilityTheory
+open scoped ENNReal
+
+namespace JinWishart
+
+noncomputable section
+
+abbrev ComplexColumnSpace (m : ℕ) := EuclideanSpace ℂ (Fin m)
+
+/-- The product of the existing `1,I` bases gives a real isometry to complex columns. -/
+def complexColumnCoordinates (m : ℕ) : TwoColumnBlock m ≃ₗᵢ[ℝ] ComplexColumnSpace m :=
+  (LinearIsometryEquiv.piLpCongrLeft 2 ℝ ℝ (Equiv.sigmaEquivProd (Fin m) (Fin 2)).symm).trans
+    (Pi.orthonormalBasis (fun _ : Fin m => Complex.orthonormalBasisOneI)).repr.symm
+
+theorem complexColumnCoordinates_apply {m : ℕ} (u : TwoColumnBlock m) (i : Fin m) :
+    complexColumnCoordinates m u i = (u (i, 0) : ℂ) + u (i, 1) * Complex.I := by
+  rfl
+
+theorem complexColumnCoordinates_join_first {m : ℕ} (u v : TwoColumnBlock m) (i : Fin m) :
+    complexSampleMatrix (twoColumnJoin (u, v)) i 0 =
+      complexColumnCoordinates m u i / Real.sqrt 2 := by
+  rw [twoColumnJoin_complex_first, complexColumnCoordinates_apply]
+  congr 2
+  ring
+
+theorem complexColumnCoordinates_join_second {m : ℕ} (u v : TwoColumnBlock m) (i : Fin m) :
+    complexSampleMatrix (twoColumnJoin (u, v)) i 1 =
+      complexColumnCoordinates m v i / Real.sqrt 2 := by
+  rw [twoColumnJoin_complex_second, complexColumnCoordinates_apply]
+  congr 2
+  ring
+
+/-- Restrict a genuine complex unitary isometry to real scalars, keeping its norm. -/
+def complexFrameToReal {m : ℕ} (U : ComplexColumnSpace m ≃ₗᵢ[ℂ] ComplexColumnSpace m) :
+    ComplexColumnSpace m ≃ₗᵢ[ℝ] ComplexColumnSpace m where
+  toLinearEquiv := U.toLinearEquiv.restrictScalars ℝ
+  norm_map' := U.norm_map
+
+/-- Express a complex unitary frame as an encoded real-coordinate isometry. -/
+def encodedComplexFrame {m : ℕ} (U : ComplexColumnSpace m ≃ₗᵢ[ℂ] ComplexColumnSpace m) :
+    TwoColumnBlock m ≃ₗᵢ[ℝ] TwoColumnBlock m :=
+  (complexColumnCoordinates m).trans
+    ((complexFrameToReal U).trans (complexColumnCoordinates m).symm)
+
+theorem complexColumnCoordinates_encodedFrame {m : ℕ}
+    (U : ComplexColumnSpace m ≃ₗᵢ[ℂ] ComplexColumnSpace m) (u : TwoColumnBlock m) :
+    complexColumnCoordinates m (encodedComplexFrame U u) = U (complexColumnCoordinates m u) := by
+  simp only [encodedComplexFrame, LinearIsometryEquiv.trans_apply,
+    LinearIsometryEquiv.apply_symm_apply]
+  rfl
+
+/-- The Gram off-diagonal inner product is preserved by a genuine complex frame. -/
+theorem complexFrame_inner_preserved {m : ℕ}
+    (U : ComplexColumnSpace m ≃ₗᵢ[ℂ] ComplexColumnSpace m) (u v : TwoColumnBlock m) :
+    inner ℂ (complexColumnCoordinates m (encodedComplexFrame U u))
+      (complexColumnCoordinates m (encodedComplexFrame U v)) =
+    inner ℂ (complexColumnCoordinates m u) (complexColumnCoordinates m v) := by
+  rw [complexColumnCoordinates_encodedFrame, complexColumnCoordinates_encodedFrame]
+  exact U.inner_map_map _ _
+
+/-- The actual encoded Gaussian column is invariant under a fixed complex frame. -/
+theorem encodedComplexFrame_gaussianLaw {m : ℕ}
+    (U : ComplexColumnSpace m ≃ₗᵢ[ℂ] ComplexColumnSpace m) :
+    (stdGaussian (TwoColumnBlock m)).map (encodedComplexFrame U) =
+      stdGaussian (TwoColumnBlock m) := stdGaussian_map _
+
+/-- Preserve the second-column Gaussian law in a measurable complex unitary
+frame selected from the first column, on the actual matrix sample. -/

@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixBlockLaw.lean:43:4: error: Type mismatch
+  Measurable.prodMk (Measurable.const_smul measurable_snd ?m.69)
+    (Measurable.comp (measurable_shiftedComplexSampleMatrix 0) measurable_fst)
+has type
+  Measurable fun a => ((?m.69 • Prod.snd) a, ((fun z => complexSampleMatrix z + 0) ∘ Prod.fst) a)
+but is expected to have type
+  Measurable F
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixBlockLaw.lean:100:34: error(lean.unknownIdentifier): Unknown constant `Matrix.add_zero`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixBlockLaw.lean:98:45: error: unsolved goals
+m n : ℕ
+z : ComplexSample
+⊢ (complexSampleMatrix z + 0)ᵀ = (complexSampleMatrix z)ᵀ + 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixBlockLaw.lean:127:48: error: `fun_prop` was unable to prove `Measurable (matrixColumnSplit ∘ transpose)`
+
+Issues:
+  No theorems found for `JinWishart.matrixColumnSplit` in order to prove `Measurable fun a2 => matrixColumnSplit a2`
+  No theorems found for `JinWishart.matrixColumnSplit` in order to prove `Measurable fun a => matrixColumnSplit aᵀ`
+'JinWishart.isProbabilityMeasure_standardComplexColumnLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_matrixColumnSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_columnSplit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexSampleMatrix_transpose_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_transpose' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.measurable_matrixRowSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_rowSplit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

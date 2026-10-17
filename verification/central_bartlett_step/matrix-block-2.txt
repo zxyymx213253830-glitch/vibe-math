@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixBlockLaw.lean:58:46: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixBlockLaw.lean:59:8: error: (deterministic) timeout at `elaborator`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixBlockLaw.lean:36:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixBlockLaw.lean:126:8: error: (kernel) unknown constant 'JinWishart.complexGaussianMatrixLaw_columnSplit'
+'JinWishart.isProbabilityMeasure_standardComplexColumnLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_matrixColumnSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_columnSplit' does not depend on any axioms
+'JinWishart.complexSampleMatrix_transpose_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_matrixRowSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_rowSplit' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.complexGaussianMatrixLaw_rowSplit,
+ Quot.sound]

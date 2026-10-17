@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianComplexFrameExists.lean:30:42: error: Type mismatch: After simplification, term
+  i.property
+ has type
+  True
+but is expected to have type
+  ↑i = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianComplexFrameExists.lean:31:42: error: Type mismatch: After simplification, term
+  j.property
+ has type
+  True
+but is expected to have type
+  ↑j = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianComplexFrameExists.lean:76:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  inner ℂ (EuclideanSpace.single 0 1) (U v) = inner ℂ a v
+but is expected to have type
+  (U v).ofLp 0 = inner ℂ a v
+'JinWishart.exists_complex_unit_frame' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.exists_complex_nonzero_frame' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.exists_complex_nonzero_gaussian_frame' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complex_unit_frame_first_coordinate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,41 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianComplexMatrixFrame.lean:97:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (complexFrameToReal U) ((√2)⁻¹ • (complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j))
+in the target expression
+  (√2)⁻¹ • U ((complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j)) =
+    U ((√2)⁻¹ • (complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j))
+
+m n : ℕ
+U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m)
+z : ComplexSample
+i : Fin m
+j : Fin n
+hleft :
+  complexMatrixColumn (complexSampleMatrix ((encodedComplexMatrixFrame U) z)) j =
+    (√2)⁻¹ • U ((complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j))
+hright :
+  complexMatrixColumn (complexSampleMatrix z) j =
+    (√2)⁻¹ • (complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j)
+hsmul :
+  (complexFrameToReal U) ((√2)⁻¹ • (complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j)) =
+    (√2)⁻¹ • (complexFrameToReal U) ((complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j))
+⊢ (√2)⁻¹ • U ((complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j)) =
+    U ((√2)⁻¹ • (complexColumnCoordinates m) (((complexSampleByColumns m n) z).ofLp j))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianComplexMatrixFrame.lean:123:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  ∑ x, (U (WithLp.toLp 2 fun i => A i k)).ofLp x * (starRingEnd ℂ) ((U (WithLp.toLp 2 fun i => A i j)).ofLp x) =
+    ∑ x, A x k * (starRingEnd ℂ) (A x j)
+but is expected to have type
+  ∑ j_1, star ((U (WithLp.toLp 2 fun i => A i j)).ofLp j_1) * (U (WithLp.toLp 2 fun i => A i k)).ofLp j_1 =
+    ∑ j_1, star (A j_1 j) * A j_1 k
+'JinWishart.complexSampleByColumns_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.encodedComplexMatrixFrame_gaussianLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleByColumns_encoded_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleMatrix_column_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_unitaryActColumns' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleMatrix_encoded_frame' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_unitary_invariant' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGram_unitaryActColumns' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
