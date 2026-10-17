@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianColumnAppendLaw.lean:114:2: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianColumnAppendLaw.lean:111:56: warning: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sampleFirstComplexColumn, PiLp.smul_apply, Complex.real_smul, complexSampleMatrix]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianColumnAppendLaw.lean:146:11: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'JinWishart.measurable_firstColumnSplitReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplitReal_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_firstColumnSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_previous_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_fresh_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_previous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_fresh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gaussianSplitEnergy_sqrtTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualColumnAppend_split_energy_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

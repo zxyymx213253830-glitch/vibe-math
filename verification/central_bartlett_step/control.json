@@ -1,0 +1,141 @@
+{
+  "seed": 20261017,
+  "collected_utc": "2026-10-17T10:19:09.388547+00:00",
+  "records": [
+    {
+      "rows": 3,
+      "remaining_columns": 2,
+      "N": 200000,
+      "checks": [
+        {
+          "label": "r_Gamma_m",
+          "deviation_standard_errors": -0.303159037254837
+        },
+        {
+          "label": "z_energy_Gamma_n",
+          "deviation_standard_errors": 1.553454488655399
+        },
+        {
+          "label": "B_trace_Gamma",
+          "deviation_standard_errors": -0.3969701568485925
+        },
+        {
+          "label": "joint_r_z_B",
+          "deviation_standard_errors": 1.068037184260685
+        },
+        {
+          "label": "small_r",
+          "N": 115295,
+          "deviation_standard_errors": 1.3179249304600775
+        },
+        {
+          "label": "large_r",
+          "N": 84705,
+          "deviation_standard_errors": -0.3311459278858514
+        },
+        {
+          "label": "direction_minus",
+          "N": 99677,
+          "deviation_standard_errors": 2.025390207804854
+        },
+        {
+          "label": "direction_plus",
+          "N": 100323,
+          "deviation_standard_errors": -0.9102902291678658
+        }
+      ],
+      "residual_logdet_deviation_standard_errors": -0.34259014650364844
+    },
+    {
+      "rows": 5,
+      "remaining_columns": 2,
+      "N": 200000,
+      "checks": [
+        {
+          "label": "r_Gamma_m",
+          "deviation_standard_errors": -0.05559464668272188
+        },
+        {
+          "label": "z_energy_Gamma_n",
+          "deviation_standard_errors": 0.21022632643721506
+        },
+        {
+          "label": "B_trace_Gamma",
+          "deviation_standard_errors": 0.7014884823762582
+        },
+        {
+          "label": "joint_r_z_B",
+          "deviation_standard_errors": -0.9334683569616319
+        },
+        {
+          "label": "small_r",
+          "N": 111889,
+          "deviation_standard_errors": -1.0021317483741827
+        },
+        {
+          "label": "large_r",
+          "N": 88111,
+          "deviation_standard_errors": 1.196785493848169
+        },
+        {
+          "label": "direction_minus",
+          "N": 100168,
+          "deviation_standard_errors": 0.840601390511827
+        },
+        {
+          "label": "direction_plus",
+          "N": 99832,
+          "deviation_standard_errors": -0.7786002376691785
+        }
+      ],
+      "residual_logdet_deviation_standard_errors": -0.3104167705826895
+    },
+    {
+      "rows": 4,
+      "remaining_columns": 3,
+      "N": 200000,
+      "checks": [
+        {
+          "label": "r_Gamma_m",
+          "deviation_standard_errors": -0.6451443955979885
+        },
+        {
+          "label": "z_energy_Gamma_n",
+          "deviation_standard_errors": -1.488933774464397
+        },
+        {
+          "label": "B_trace_Gamma",
+          "deviation_standard_errors": 1.0978573696484366
+        },
+        {
+          "label": "joint_r_z_B",
+          "deviation_standard_errors": -2.294312418041476
+        },
+        {
+          "label": "small_r",
+          "N": 113163,
+          "deviation_standard_errors": -2.225659886954464
+        },
+        {
+          "label": "large_r",
+          "N": 86837,
+          "deviation_standard_errors": 1.2173220103241331
+        },
+        {
+          "label": "direction_minus",
+          "N": 99956,
+          "deviation_standard_errors": -1.5516856038111697
+        },
+        {
+          "label": "direction_plus",
+          "N": 100044,
+          "deviation_standard_errors": 0.31803777307445813
+        }
+      ],
+      "residual_logdet_deviation_standard_errors": -1.0824610888091377
+    }
+  ],
+  "source_sha256": "80fd1ba86f8040a7aeaed15bbb3e4d89eb085a022c9f770e175b4da55aa8b8cf",
+  "control": "Gamma r/z/B-trace and lower-row Wishart logdet closed moments, joint/bin controls",
+  "status": "PASS numerical preflight only; full B matrix law remains a proof obligation"
+}

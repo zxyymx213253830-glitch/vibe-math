@@ -7,3 +7,9 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramEnergyLaw.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianGramSupport.lean -text
 /experiments/gaussian_full_rank_control.py -text
+/tools/partners/qoder_request.py -text
+/verification/gaussian_column_append/** -text whitespace=cr-at-eol
+/verification/central_bartlett_step/** -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianColumnAppendLaw.lean -text
+/experiments/gaussian_column_append_control.py -text
+/experiments/central_bartlett_step_control.py -text

@@ -1,0 +1,50 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianColumnAppendLaw.lean:148:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map
+    (fun a =>
+      (((fun z => complexSampleMatrix z + 0) ∘ Prod.fst) a,
+        ((fun p => gaussianSplitEnergy (totalGramColumnSpaceReal p.1) p.2) ∘ fun p =>
+            (complexSampleMatrix p.1 + 0, p.2))
+          a))
+    (Measure.map firstColumnSplit ?m.179)
+in the target expression
+  Measure.map
+      (fun p =>
+        (complexSampleMatrix p.1 + 0, gaussianSplitEnergy (totalGramColumnSpaceReal (complexSampleMatrix p.1 + 0)) p.2))
+      (Measure.map firstColumnSplit (stdGaussian ComplexSample)) =
+    (complexGaussianMatrixLaw 0).prod ((gammaMeasure (↑n) 1).prod (gammaMeasure (↑(m - n)) 1))
+
+m n : ℕ
+hn : 0 < n
+hnm : n < m
+hLaw :
+  Measure.map
+      (fun p =>
+        (complexSampleMatrix p.1 + 0, gaussianSplitEnergy (totalGramColumnSpaceReal (complexSampleMatrix p.1 + 0)) p.2))
+      (Measure.map firstColumnSplit (stdGaussian ComplexSample)) =
+    (complexGaussianMatrixLaw 0).prod ((gammaMeasure (↑n) 1).prod (gammaMeasure (↑(m - n)) 1))
+hInput : Measurable fun p => (complexSampleMatrix p.1 + 0, p.2)
+hEnergy :
+  Measurable
+    ((fun p => gaussianSplitEnergy (totalGramColumnSpaceReal p.1) p.2) ∘ fun p => (complexSampleMatrix p.1 + 0, p.2))
+hF :
+  Measurable fun a =>
+    (((fun z => complexSampleMatrix z + 0) ∘ Prod.fst) a,
+      ((fun p => gaussianSplitEnergy (totalGramColumnSpaceReal p.1) p.2) ∘ fun p => (complexSampleMatrix p.1 + 0, p.2))
+        a)
+⊢ Measure.map
+      (fun z =>
+        (sampleRemainingComplexColumns z,
+          complexColumnSplitEnergy (totalGramColumnSpaceReal (sampleRemainingComplexColumns z))
+            (sampleFirstComplexColumn z)))
+      (stdGaussian ComplexSample) =
+    (complexGaussianMatrixLaw 0).prod ((gammaMeasure (↑n) 1).prod (gammaMeasure (↑(m - n)) 1))
+'JinWishart.measurable_firstColumnSplitReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplitReal_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_firstColumnSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_previous_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_fresh_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_previous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.firstColumnSplit_fresh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gaussianSplitEnergy_sqrtTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualColumnAppend_split_energy_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

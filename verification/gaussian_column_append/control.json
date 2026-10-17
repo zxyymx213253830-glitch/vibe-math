@@ -1,0 +1,29 @@
+{
+  "seed": 20261017,
+  "N_coordinate_cases": 100,
+  "records": [
+    {
+      "m": 1,
+      "previous_columns": 0,
+      "coordinate_variance_error": 1.3322676295501878e-15
+    },
+    {
+      "m": 2,
+      "previous_columns": 1,
+      "coordinate_variance_error": 1.7763568394002505e-15
+    },
+    {
+      "m": 3,
+      "previous_columns": 2,
+      "coordinate_variance_error": 1.7763568394002505e-15
+    },
+    {
+      "m": 5,
+      "previous_columns": 2,
+      "coordinate_variance_error": 3.552713678800501e-15
+    }
+  ],
+  "inherited_law_control_sha256": "cfe40151fff28975f02cdf79e7871c9bfa2e9ac735bd0dc11a833b243793ceaf",
+  "source_sha256": "2e48a613bbd3a97e96ad9299a879075efd2d2f36731e334c6b422bfd814ff1de",
+  "status": "PASS coordinate controls; inherited 200000-sample Gamma controls reused, not rerun or proof"
+}

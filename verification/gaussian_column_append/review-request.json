@@ -1,0 +1,40 @@
+{
+  "inputs": {
+    "GaussianColumnAppendLaw.lean": {
+      "sha256": "34b2e597c78d67b258446e563f3958aa12d8a52d446178ed2b43bafedb880321",
+      "supplied": "Full source"
+    },
+    "GaussianGramEnergyLaw.lean": {
+      "sha256": "6cdce49cfe941d5472c5a7fd35822a441b0d58edd2aec65d5bed14fa7a27efd4",
+      "supplied": "Full source"
+    },
+    "GaussianTwoColumnIntegration.lean": {
+      "sha256": "bbee1b5baecba5991eb02f61d4b1f9163a1ccc5ad9d3a41d9e2dec244a99878d",
+      "supplied_line_ranges": [
+        [
+          15,
+          39
+        ]
+      ]
+    },
+    "GaussianComplexColumnFrame.lean": {
+      "sha256": "552abdf336c04c7531fde94e1a0059908e7e3273f5dd48b942aa66623446bf72",
+      "supplied_line_ranges": [
+        [
+          19,
+          34
+        ]
+      ]
+    },
+    "GaussianGramDimensions.lean": {
+      "sha256": "0c3eec12f1fea3a7da9660ac03faf42648eaaa78ad81cc1ef6047397a3e758aa",
+      "supplied_line_ranges": [
+        [
+          77,
+          90
+        ]
+      ]
+    }
+  },
+  "prompt_sha256": "4a32402745ae9d92672d0c5939f278fda17cb693470b3561c7c60209389cffb2"
+}

@@ -1,0 +1,130 @@
+{
+  "collected_utc": "2026-10-17T10:22:31.439803+00:00",
+  "declarations": [
+    {
+      "name": "JinWishart.measurable_firstColumnSplitReal",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.firstColumnSplitReal_law",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.measurable_firstColumnSplit",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.firstColumnSplit_law",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.firstColumnSplit_previous_apply",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.firstColumnSplit_fresh_apply",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.firstColumnSplit_previous",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.firstColumnSplit_fresh",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.gaussianSplitEnergy_sqrtTwo",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    },
+    {
+      "name": "JinWishart.actualColumnAppend_split_energy_law",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "author": "Codex"
+    }
+  ],
+  "source_sha256": "34b2e597c78d67b258446e563f3958aa12d8a52d446178ed2b43bafedb880321",
+  "log_sha256": "58163e4f0e103970298ef3c53da2fa0c2962d0c564ff33a4e6928c6f9b71ad61",
+  "olean_sha256": "1b0dff0a4021812ab1a07f5ff294b88b297a18508030c41dd0cef3e8428fbf44",
+  "imports": {
+    "JinWishartFormalization.GaussianGramEnergyLaw": "f262d79c455a7dd474d1ad7903fdedc24bc1cdd6cb86f40e2eacdf3b07824a4a",
+    "JinWishartFormalization.GaussianComplexColumnFrame": "7ec3a93c6e351f7dba39de09cce0241b2d618d167fede90732e9caeb1e5fd518"
+  },
+  "kernel_exit_code": 0,
+  "proof_author": "Codex",
+  "model_review": "Qoder/Qwen3.8-Max; no concrete issue in supplied scope",
+  "review_resolution": "Potential index warning resolved by exact previous_apply/fresh_apply rfl identities and final source law. No independent compile by reviewer.",
+  "human_review": "REQUIRED: product/Fubini, indexing/variance and model correspondence",
+  "general_Bartlett_matrix_law": "OPEN; only the actual column energy step is proved",
+  "facade_and_full_build": "NOT_RUN",
+  "paper_and_submission": "UNCHANGED",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "dependency_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "evidence": {
+    "append-1.txt": "36bbb767e20ef87af1849d89c851534309cbf1fce614321392c572f26bb5dd56",
+    "append-2.txt": "133595c552cd5c230664905ef2a48d86c6ae23bf560e952fde7709f003537c3b",
+    "append-3.txt": "58163e4f0e103970298ef3c53da2fa0c2962d0c564ff33a4e6928c6f9b71ad61",
+    "audit.py": "73dc4f648b8172d1e38577e5acec23ab797270ef6251254a175878ffa6865512",
+    "control.json": "3c3a5148fda59873d57fe3c8398fe8fffd43b51bbf17cc3e7b00133b3554790d",
+    "p4-prompt.txt": "4a32402745ae9d92672d0c5939f278fda17cb693470b3561c7c60209389cffb2",
+    "p4.raw.json": "cea054fcbb48b427614fa3c19ea17dd7782ff53ea749741dbb3711d3b8e85ec4",
+    "p4.receipt.json": "24986e79714ceef401801ff33de6ce91c9af79fd20cf3a05df0e4003f88f9325",
+    "p4.response.md": "3d9c8aec7d3008265bf770e536abe5f27468b1659202815f7f2a43bce77e06fd",
+    "p4.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare_review.py": "536ad45e52ebe7414147f640c1ca5868ac9d5795aae6afa2abd51e02fd018832",
+    "README.md": "2f54e033a1631aac485a6e1d0d8924fbd26b54d7d720e38c999ccd15e7cb4f34",
+    "review-request.json": "446de83df6d91e98ed1aceabe48d5267d03db7e17a44bdfb28b68e8802aa8d4b",
+    "review-snapshot/GaussianColumnAppendLaw.lean": "34b2e597c78d67b258446e563f3958aa12d8a52d446178ed2b43bafedb880321",
+    "review-snapshot/GaussianGramEnergyLaw.lean": "6cdce49cfe941d5472c5a7fd35822a441b0d58edd2aec65d5bed14fa7a27efd4"
+  },
+  "status": "PASS ten declarations and source/artifact/review/control bindings"
+}
