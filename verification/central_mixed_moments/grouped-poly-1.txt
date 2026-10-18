@@ -1,0 +1,6 @@
+'JinWishart.centralMixedMinorMoment_eq_byCards' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoExtraRowMinimumPolynomial_eq_grouped' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoExtraRows_minimum_CDF_grouped' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualTwoExtraRows_covariance_minimum_CDF_grouped' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

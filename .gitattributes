@@ -76,3 +76,6 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartShiftedSecondMoment.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartMinimumBridge.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/RectangularWishartTwoExtraRows.lean -text whitespace=cr-at-eol
+/experiments/central_subset_pair_group_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteSubsetPairGrouping.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoExtraRowsGroupedPolynomial.lean -text whitespace=cr-at-eol

@@ -295,3 +295,21 @@ in n-many cardinality groups is a useful next finite-combinatorics step.
 General d>2 requires moments of three or more overlapping minors; two-minor
 moments do not suffice. Noncentral G2, original general T1--4 and T3 publication
 source issue are unchanged. Frozen manuscript/PDF/submission archives unchanged.
+
+
+### Same actual CDF, cubic-count cardinality sum
+
+The double-subset polynomial has now been proved equal to a three-cardinality
+sum. Let a=|S|, c=|S intersection T|, b=|T\S|. The multiplicity is exactly
+choose(n,a) choose(a,c) choose(n-a,b), with 0<=a<=n,0<=c<=a,0<=b<=n-a.
+The grouped summand uses x^(n-a+n-(c+b)) times the proved mixed-moment
+coefficient. `twoExtraRowMinimumPolynomial_eq_grouped` and both actual CDF
+and covariance CDF wrappers preserve the earlier probability theorem.
+This reduces the NUMBER OF SUMMANDS from4^n to cubic in n; each coefficient
+still has its explicit factorial/product cost. FiniteSubsetPairGrouping is
+independent reusable combinatorics. Exact enumeration n=0..8 matches all pair
+histograms and total4^n, not a substitute for the general Lean proof.
+Current audited bundle:61 theorem/instance declarations plus1 finite witness.
+Qoder's latest truncated-subtraction objection was rejected by the universal
+Nat.sub_sub identity and distinction between coefficient function and actual
+moment theorem. All scope limits and human-review flags remain.

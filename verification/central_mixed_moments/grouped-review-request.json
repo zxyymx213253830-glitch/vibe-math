@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "FiniteSubsetPairGrouping.lean": {
+      "sha256": "c46f1c70992712cd1f8ed48738cadde5a774a6ba9e25aae233ea40a457955fd7",
+      "supplied": "Full source"
+    },
+    "TwoExtraRowsGroupedPolynomial.lean": {
+      "sha256": "1728243a12a9eaf999ecb0132a8c6118b2558272927acec493879996737eb765",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "1a8cbe79205507de6a2e00f49542171f1a2c01593d6391882aecf6a5b3f11d62"
+}

@@ -1,0 +1,1 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:1:0: error: object file 'D:\vibe math\theory\jin_wishart_formalization\.lake\packages\mathlib\.lake\build\lib\lean\Mathlib\Algebra\BigOperators\Group\Finset\Prod.olean' of module Mathlib.Algebra.BigOperators.Group.Finset.Prod does not exist

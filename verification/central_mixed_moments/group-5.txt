@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:73:13: warning: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.sum_prod_type, finsetPartitionEquiv_symm_card, finsetPartitionEquiv_inter_card] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.finsetPartitionEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finsetPartitionEquiv_symm_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finsetPartitionEquiv_inter_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_card_fintype' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_intersection_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_pair_cardinalities' depends on axioms: [propext, Classical.choice, Quot.sound]

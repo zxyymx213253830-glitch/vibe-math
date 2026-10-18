@@ -1,0 +1,184 @@
+{
+  "seed": 2026101904,
+  "samples": 200000,
+  "source_sha256": "8a92c5f8ac2ff204250a4bb43920b2a1869e5ea0b18f4c5f08f5d493aed97d43",
+  "status": "PASS actual mixed monomials with Exp(1) energy/Gamma-factorial controls; not proof",
+  "Exp1_energy_se": -0.16660449271886582,
+  "records": [
+    {
+      "p": 0,
+      "q": 0,
+      "target": 1,
+      "empirical_real": 1.0,
+      "empirical_imag": 0.0
+    },
+    {
+      "p": 0,
+      "q": 1,
+      "target": 0,
+      "empirical_real": -0.0027231649330147173,
+      "empirical_imag": -0.0011349550009584484
+    },
+    {
+      "p": 0,
+      "q": 2,
+      "target": 0,
+      "empirical_real": 0.0023774619483657305,
+      "empirical_imag": -0.002106682619674426
+    },
+    {
+      "p": 0,
+      "q": 3,
+      "target": 0,
+      "empirical_real": 0.004786974192244913,
+      "empirical_imag": -0.004764118755157449
+    },
+    {
+      "p": 0,
+      "q": 4,
+      "target": 0,
+      "empirical_real": -0.0017593781398484276,
+      "empirical_imag": 0.00011851696366047917
+    },
+    {
+      "p": 1,
+      "q": 0,
+      "target": 0,
+      "empirical_real": -0.0027231649330147173,
+      "empirical_imag": 0.0011349550009584484
+    },
+    {
+      "p": 1,
+      "q": 1,
+      "target": 1,
+      "empirical_real": 0.9996274610289237,
+      "empirical_imag": 5.1615357535703565e-20
+    },
+    {
+      "p": 1,
+      "q": 2,
+      "target": 0,
+      "empirical_real": -0.00960159696193306,
+      "empirical_imag": -0.0007691528933378954
+    },
+    {
+      "p": 1,
+      "q": 3,
+      "target": 0,
+      "empirical_real": 0.004050282703161041,
+      "empirical_imag": -0.004378584813065961
+    },
+    {
+      "p": 1,
+      "q": 4,
+      "target": 0,
+      "empirical_real": 0.021034192150739237,
+      "empirical_imag": -0.021496540932857078
+    },
+    {
+      "p": 2,
+      "q": 0,
+      "target": 0,
+      "empirical_real": 0.0023774619483657305,
+      "empirical_imag": 0.002106682619674426
+    },
+    {
+      "p": 2,
+      "q": 1,
+      "target": 0,
+      "empirical_real": -0.00960159696193306,
+      "empirical_imag": 0.0007691528933378959
+    },
+    {
+      "p": 2,
+      "q": 2,
+      "target": 2,
+      "empirical_real": 1.9963579330318828,
+      "empirical_imag": 3.4463725769583776e-19
+    },
+    {
+      "p": 2,
+      "q": 3,
+      "target": 0,
+      "empirical_real": -0.047576899527854204,
+      "empirical_imag": 0.005917927281208875
+    },
+    {
+      "p": 2,
+      "q": 4,
+      "target": 0,
+      "empirical_real": 0.010964082201209667,
+      "empirical_imag": 0.010063052647669333
+    },
+    {
+      "p": 3,
+      "q": 0,
+      "target": 0,
+      "empirical_real": 0.004786974192244913,
+      "empirical_imag": 0.004764118755157449
+    },
+    {
+      "p": 3,
+      "q": 1,
+      "target": 0,
+      "empirical_real": 0.004050282703161041,
+      "empirical_imag": 0.004378584813065963
+    },
+    {
+      "p": 3,
+      "q": 2,
+      "target": 0,
+      "empirical_real": -0.047576899527854204,
+      "empirical_imag": -0.0059179272812088755
+    },
+    {
+      "p": 3,
+      "q": 3,
+      "target": 6,
+      "empirical_real": 6.0032862662622986,
+      "empirical_imag": 5.09598134299395e-19
+    },
+    {
+      "p": 3,
+      "q": 4,
+      "target": 0,
+      "empirical_real": -0.30848180507993106,
+      "empirical_imag": 0.03620043793891278
+    },
+    {
+      "p": 4,
+      "q": 0,
+      "target": 0,
+      "empirical_real": -0.0017593781398484276,
+      "empirical_imag": -0.00011851696366047917
+    },
+    {
+      "p": 4,
+      "q": 1,
+      "target": 0,
+      "empirical_real": 0.021034192150739237,
+      "empirical_imag": 0.021496540932857078
+    },
+    {
+      "p": 4,
+      "q": 2,
+      "target": 0,
+      "empirical_real": 0.010964082201209667,
+      "empirical_imag": -0.010063052647669345
+    },
+    {
+      "p": 4,
+      "q": 3,
+      "target": 0,
+      "empirical_real": -0.30848180507993106,
+      "empirical_imag": -0.036200437938912845
+    },
+    {
+      "p": 4,
+      "q": 4,
+      "target": 24,
+      "empirical_real": 24.339958711552462,
+      "empirical_imag": 8.860233906693976e-18
+    }
+  ]
+}

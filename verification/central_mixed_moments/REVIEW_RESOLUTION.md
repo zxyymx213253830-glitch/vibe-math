@@ -94,3 +94,17 @@ The reference integral retains exp(-tr V) through centralConeWeight 0; the
 review's shortened displayed equation dropping that factor is not the code.
 Strict-tail/weak-CDF are exact complements; no boundary-nullity premise added.
 No general original T1 or G2 equality is inferred from this new polynomial.
+
+
+## Grouping review and natural-subtraction false alarm
+
+The real grouped-source P4 verifies the multiplicity formula but asserts that
+`centralMixedMinorMoment_eq_byCards` needs t>=S.card/T.card because omega is
+"unsound" with truncated subtraction. This is false. For ALL naturals,
+(t-c)-a=t-(c+a); finiteMinorOverlap_left_card gives c+a=S.card. This holds
+also for t<S.card, e.g. t=0,c=a=1 yields0=0. The theorem only equates two
+explicit coefficient FUNCTIONS there, not a wide-Wishart actual moment.
+The actual moment theorem separately requires n<=t. No guard is missing.
+The remaining embedding/simp/rewrite warnings are proof-engine API speculation
+already answered by final exit0 checks. No source change or extra assumption
+was made merely to placate those false alarms; human model review remains.

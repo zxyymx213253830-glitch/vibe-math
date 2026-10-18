@@ -1,0 +1,34 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:1:0: warning: 
+'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:68:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (Finset ↥S × Finset { i // i ∉ S })
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:70:33: error(lean.unknownIdentifier): Unknown constant `Fintype.sum_prod_type`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:70:2: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:91:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ S, ?f S.card
+in the target expression
+  ∑ x,
+      ∑ c ∈ Finset.range (x.card + 1),
+        ∑ b ∈ Finset.range (n - x.card + 1), ↑(x.card.choose c) * ↑((n - x.card).choose b) * f x.card (c + b) c =
+    ∑ a ∈ Finset.range (n + 1),
+      ∑ c ∈ Finset.range (a + 1),
+        ∑ b ∈ Finset.range (n - a + 1), ↑(n.choose a) * ↑(a.choose c) * ↑((n - a).choose b) * f a (c + b) c
+
+n : ℕ
+f : ℕ → ℕ → ℕ → ℝ
+⊢ ∑ x,
+      ∑ c ∈ Finset.range (x.card + 1),
+        ∑ b ∈ Finset.range (n - x.card + 1), ↑(x.card.choose c) * ↑((n - x.card).choose b) * f x.card (c + b) c =
+    ∑ a ∈ Finset.range (n + 1),
+      ∑ c ∈ Finset.range (a + 1),
+        ∑ b ∈ Finset.range (n - a + 1), ↑(n.choose a) * ↑(a.choose c) * ↑((n - a).choose b) * f a (c + b) c
+'JinWishart.finsetPartitionEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finsetPartitionEquiv_symm_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finsetPartitionEquiv_inter_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_card_fintype' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_intersection_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_pair_cardinalities' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

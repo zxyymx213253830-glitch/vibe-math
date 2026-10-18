@@ -1,0 +1,44 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:74:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ S, ?f S.card
+in the target expression
+  ∑ x, ∑ x_1, f (x.card + x_1.card) x.card =
+    ∑ c ∈ Finset.range (S.card + 1),
+      ∑ b ∈ Finset.range (n - S.card + 1), ↑(S.card.choose c) * ↑((n - S.card).choose b) * f (c + b) c
+
+n : ℕ
+S : Finset (Fin n)
+f : ℕ → ℕ → ℝ
+h : ∑ x, ∑ x_1, f (x.card + x_1.card) x.card = ∑ i, f i.card (S ∩ i).card
+⊢ ∑ x, ∑ x_1, f (x.card + x_1.card) x.card =
+    ∑ c ∈ Finset.range (S.card + 1),
+      ∑ b ∈ Finset.range (n - S.card + 1), ↑(S.card.choose c) * ↑((n - S.card).choose b) * f (c + b) c
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:72:13: warning: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.sum_prod_type, finsetPartitionEquiv_symm_card, finsetPartitionEquiv_inter_card] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:100:6: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:90:86: error: unsolved goals
+n : ℕ
+f : ℕ → ℕ → ℕ → ℝ
+hG :
+  ∑ S,
+      ∑ c ∈ Finset.range (S.card + 1),
+        ∑ b ∈ Finset.range (n - S.card + 1), ↑(S.card.choose c) * ↑((n - S.card).choose b) * f S.card (c + b) c =
+    ∑ k ∈ Finset.range (Fintype.card (Fin n) + 1),
+      ↑((Fintype.card (Fin n)).choose k) *
+        ∑ c ∈ Finset.range (k + 1), ∑ b ∈ Finset.range (n - k + 1), ↑(k.choose c) * ↑((n - k).choose b) * f k (c + b) c
+a : ℕ
+a✝ : a ∈ Finset.range (n + 1)
+⊢ ↑(n.choose a) *
+      ∑ c ∈ Finset.range (a + 1), ∑ b ∈ Finset.range (n - a + 1), ↑(a.choose c) * ↑((n - a).choose b) * f a (c + b) c =
+    ∑ c ∈ Finset.range (a + 1),
+      ∑ b ∈ Finset.range (n - a + 1), ↑(n.choose a) * ↑(a.choose c) * ↑((n - a).choose b) * f a (c + b) c
+'JinWishart.finsetPartitionEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finsetPartitionEquiv_symm_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finsetPartitionEquiv_inter_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_card_fintype' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_intersection_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_pair_cardinalities' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

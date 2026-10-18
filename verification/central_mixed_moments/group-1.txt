@@ -1,0 +1,60 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:51:66: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:52:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (Finset α)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:55:8: error(lean.unknownIdentifier): Unknown constant `Finset.powerset_univ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:53:80: error: unsolved goals
+α : Type u_1
+inst✝ : Fintype α
+f : ℕ → sorry
+⊢ sorry = ∑ k ∈ Finset.range (Fintype.card α + 1), sorry
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:77:3: error: unknown tactic
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:59:80: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:60:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (Finset (Fin n))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:62:27: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:62:55: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:64:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (Finset ↥S × Finset { i // i ∉ S })
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:66:33: error(lean.unknownIdentifier): Unknown constant `Fintype.sum_prod_type`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:97:3: error: unknown tactic
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:80:64: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:81:7: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (Finset (Fin n))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:81:29: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype (Finset (Fin n))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:84:24: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:84:43: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:84:66: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:86:11: error(lean.unknownIdentifier): Unknown identifier `sum_finsets_intersection_card`
+'JinWishart.finsetPartitionEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finsetPartitionEquiv_symm_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finsetPartitionEquiv_inter_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:104:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.sum_finsets_card_fintype`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:105:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.sum_finsets_intersection_card`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetPairGrouping.lean:106:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.sum_finsets_pair_cardinalities`
