@@ -1,0 +1,41 @@
+{
+  "inputs": {
+    "HermitianBlockCoordinates.lean": {
+      "sha256": "9413ba2608dfab5069f902b462ee4cb5633ddf854c7c5f76061e6717cd2aea84",
+      "supplied": "Full source"
+    },
+    "CentralBartlettCoordinateJacobian.lean": {
+      "sha256": "2f373dcc3dabdf4530adba5770f4cc11953845d4a64fb4b50f912cf72e8cded8",
+      "supplied": "Full source"
+    },
+    "CentralWishartAbsoluteContinuity.lean": {
+      "sha256": "af8487bcac5aa85efeb70132fef7fa1ea05e753edd9014fa7a5a509f218422e3",
+      "supplied": "Full source"
+    },
+    "CentralBartlettVolumeTransport.lean": {
+      "sha256": "6977c55e81b64ab80e9e71098d412450eadf83ffb35a2db9402f58693d153417",
+      "supplied_declarations": [
+        "centralBartlettVolumeMap_weighted_volume"
+      ]
+    },
+    "CentralBartlettFiberVolume.lean": {
+      "sha256": "b6487413a7b581aed9214f6a8ed704630aa2f3bd5363738bc3c01c368d5ade7d",
+      "supplied_declarations": [
+        "centralBartlettVolumeFiber_map_volume"
+      ]
+    },
+    "GaussianComplexColumnDensity.lean": {
+      "sha256": "a5f3e93c997ce67a7681a2a96c64faf6576b13185309768e1596396ba1d7d812",
+      "supplied_declarations": [
+        "standardComplexColumnLaw_eq_withDensity"
+      ]
+    },
+    "GaussianBartlettGramRecursion.lean": {
+      "sha256": "d5637fa4b1fbe94fba5a3dd1edd6e17dda2f3c78419091343cc9fd64718fcde7",
+      "supplied_declarations": [
+        "complexWishart_centralBartlett_recursion"
+      ]
+    }
+  },
+  "prompt_sha256": "39f74578eaff442e9753359ce20597124297a702ab9fb2aa5cfd4b5e3d8cb1b6"
+}

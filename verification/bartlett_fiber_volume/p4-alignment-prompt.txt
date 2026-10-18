@@ -1,0 +1,362 @@
+P4 math/semantic review, different family from proof author Codex. Report concrete problems only, max700words; no rewrites, tools or independent compilation. THREE full new files below passed kernel standard-axiom checks. Claim: actual CENTRAL CN(0,1) t-by-s Gram, s<=t, has an absolutely continuous law in EXPLICIT s^2 Hermitian real coordinates. Includes s=0, where coordinate measure is mass-one on the unique empty matrix. No explicit determinant/trace density or spectral G2 yet. Main new geometry: split matrix real coordinates into pivot r, complex upper ROW, n*n residual reals; splitting preserves volume (no Frobenius normalization factor). Fixed fiber (z,Q)->(sqrt(r)*z,Q+coords(z^H z)), r>0, has inverse-volume r^-n. Prior generic weighted mixed-coordinate theorem is supplied by signature; source weight r^n maps to target volume restricted positive pivot. Its proof is Tonelli + actual fixed fiber scaling, NOT a radial probability input. New full coordinate theorem composes the volume-preserving split inverse. Actual probability recurrence uses the entire checked Bartlett joint law and a.e. Hermitian residual B; no density assumption. Absolute continuity proof inducts on columns with row surplus d, Gamma dominated by positive-real Lebesgue, actual CN dominated by its volume, and lower actual law by IH. Source is dominated by weighted volume because r^n>0 a.e. (strict restriction r>0), then mapped to Hermitian volume. Review dimensions, measure orientation, zero/rank/variance exceptions, product independence, map_congr ae assumptions, no disguised target-density premise. Source support is limited to supplied excerpts/signatures, prior actual block and real Gaussian density chain was checked in prior milestones. Human review remains required.
+
+FULL TARGET HermitianBlockCoordinates.lean
+import JinWishartFormalization.CentralBartlettFiberVolume
+import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+
+/-!
+# Volume-preserving general Hermitian real-coordinate block splitting
+
+Codex proofs. One pivot, n complex upper-row coordinates, and n^2 real lower
+coordinates exhaust (n+1)^2 real coordinates with no Frobenius factor.
+[需人工审查] Coordinate ordering, product Lebesgue normalization and later use.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def realImagColumnIndexEquiv (n : ℕ) : Fin n ⊕ Fin n ≃ Fin n × Fin 2 where
+  toFun := Sum.elim (fun i => (i, 0)) (fun i => (i, 1))
+  invFun := fun p => if p.2 = 0 then .inl p.1 else .inr p.1
+  left_inv := by intro p; cases p <;> simp
+  right_inv := by rintro ⟨i, k⟩; fin_cases k <;> simp
+
+def realImagToColumnEquiv (n : ℕ) :
+    ((Fin n → ℝ) × (Fin n → ℝ)) ≃ᵐ EuclideanSpace ℂ (Fin n) :=
+  (MeasurableEquiv.sumPiEquivProdPi (fun _ : Fin n ⊕ Fin n => ℝ)).symm.trans
+    ((MeasurableEquiv.piCongrLeft (fun _ : Fin n × Fin 2 => ℝ)
+      (realImagColumnIndexEquiv n)).trans
+      ((MeasurableEquiv.toLp 2 _).trans (complexColumnCoordinates n).toMeasurableEquiv))
+
+theorem realImagToColumnEquiv_apply (n : ℕ) (p : (Fin n → ℝ) × (Fin n → ℝ)) (j : Fin n) :
+    realImagToColumnEquiv n p j = (p.1 j : ℂ) + (p.2 j : ℂ) * Complex.I := by
+  rfl
+
+theorem realImagToColumnEquiv_measurePreserving (n : ℕ) :
+    MeasurePreserving (realImagToColumnEquiv n) := by
+  exact ((complexColumnCoordinates n).measurePreserving.comp
+    (PiLp.volume_preserving_toLp (Fin n × Fin 2))).comp
+      ((volume_measurePreserving_piCongrLeft (fun _ : Fin n × Fin 2 => ℝ)
+        (realImagColumnIndexEquiv n)).comp
+        (volume_measurePreserving_sumPiEquivProdPi_symm (fun _ : Fin n ⊕ Fin n => ℝ)))
+
+def realMatrixBlockEquiv (n : ℕ) :
+    Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ ≃ᵐ
+      (ℝ × (Fin n → ℝ)) × ((Fin n → ℝ) × (Fin n → Fin n → ℝ)) :=
+  (Matrix.ofMeasurableEquiv (Fin (n + 1)) (Fin (n + 1)) ℝ).symm.trans
+    ((MeasurableEquiv.piFinSuccAbove (fun _ : Fin (n + 1) => Fin (n + 1) → ℝ) 0).trans
+      (MeasurableEquiv.prodCongr
+        (MeasurableEquiv.piFinSuccAbove (fun _ : Fin (n + 1) => ℝ) 0)
+        ((MeasurableEquiv.piCongrRight (fun _ : Fin n =>
+          MeasurableEquiv.piFinSuccAbove (fun _ : Fin (n + 1) => ℝ) 0)).trans
+          (MeasurableEquiv.arrowProdEquivProdArrow ℝ (Fin n → ℝ) (Fin n)))))
+
+theorem realMatrixBlockEquiv_measurePreserving (n : ℕ) :
+    MeasurePreserving (realMatrixBlockEquiv n) (hermitianRealCoordinateMeasure (n + 1)) volume := by
+  have hbase : MeasurePreserving
+      (Matrix.ofMeasurableEquiv (Fin (n + 1)) (Fin (n + 1)) ℝ).symm
+      (hermitianRealCoordinateMeasure (n + 1)) volume := by
+    refine ⟨(Matrix.ofMeasurableEquiv _ _ _).symm.measurable, ?_⟩
+    exact Measure.map_id
+  have hrow := volume_preserving_piFinSuccAbove (fun _ : Fin (n + 1) => Fin (n + 1) → ℝ) 0
+  have hfirst := volume_preserving_piFinSuccAbove (fun _ : Fin (n + 1) => ℝ) 0
+  have hlower := (volume_measurePreserving_arrowProdEquivProdArrow ℝ (Fin n → ℝ) (Fin n)).comp
+    (volume_preserving_pi (fun _ : Fin n => hfirst))
+  exact ((hfirst.prod hlower).comp hrow).comp hbase
+
+def hermitianBlockCoordinateEquiv (n : ℕ) :
+    Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ ≃ᵐ
+      ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) :=
+  (realMatrixBlockEquiv n).trans
+    (MeasurableEquiv.prodAssoc.trans
+      ((MeasurableEquiv.prodCongr (MeasurableEquiv.refl ℝ) MeasurableEquiv.prodAssoc.symm).trans
+        (MeasurableEquiv.prodCongr (MeasurableEquiv.refl ℝ)
+          (MeasurableEquiv.prodCongr (realImagToColumnEquiv n)
+            (Matrix.ofMeasurableEquiv (Fin n) (Fin n) ℝ)))))
+
+theorem hermitianBlockCoordinateEquiv_apply (n : ℕ)
+    (q : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ) :
+    hermitianBlockCoordinateEquiv n q =
+      (q 0 0, (WithLp.toLp 2 (fun j : Fin n => (q 0 j.succ : ℂ) + (q j.succ 0 : ℂ) * Complex.I),
+        Matrix.of (fun i j : Fin n => q i.succ j.succ))) := by
+  rfl
+
+theorem hermitianBlockCoordinateEquiv_measurePreserving (n : ℕ) :
+    MeasurePreserving (hermitianBlockCoordinateEquiv n)
+      (hermitianRealCoordinateMeasure (n + 1))
+      ((volume : Measure ℝ).prod ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod
+        (hermitianRealCoordinateMeasure n))) := by
+  have hi : MeasurePreserving (MeasurableEquiv.refl ℝ) := ⟨measurable_id, Measure.map_id⟩
+  have hmat : MeasurePreserving (Matrix.ofMeasurableEquiv (Fin n) (Fin n) ℝ)
+      volume (hermitianRealCoordinateMeasure n) := by
+    refine ⟨(Matrix.ofMeasurableEquiv _ _ _).measurable, ?_⟩
+    exact Measure.map_id
+  have hshuffle := (hi.prod
+    (volume_preserving_prodAssoc (α₁ := Fin n → ℝ) (β₁ := Fin n → ℝ)
+      (γ₁ := Fin n → Fin n → ℝ)).symm).comp
+        (volume_preserving_prodAssoc (α₁ := ℝ) (β₁ := Fin n → ℝ)
+          (γ₁ := (Fin n → ℝ) × (Fin n → Fin n → ℝ)))
+  exact ((hi.prod ((realImagToColumnEquiv_measurePreserving n).prod hmat)).comp hshuffle).comp
+    (realMatrixBlockEquiv_measurePreserving n)
+
+end
+end JinWishart
+
+#print axioms JinWishart.realImagToColumnEquiv_apply
+#print axioms JinWishart.realImagToColumnEquiv_measurePreserving
+#print axioms JinWishart.realMatrixBlockEquiv_measurePreserving
+#print axioms JinWishart.hermitianBlockCoordinateEquiv_apply
+#print axioms JinWishart.hermitianBlockCoordinateEquiv_measurePreserving
+
+FULL TARGET CentralBartlettCoordinateJacobian.lean
+import JinWishartFormalization.HermitianBlockCoordinates
+import JinWishartFormalization.CentralBartlettVolumeTransport
+import Mathlib.Dynamics.Ergodic.MeasurePreserving
+
+/-!
+# General Bartlett weighted volume map in canonical Hermitian coordinates
+
+Codex proofs. The mixed positive-pivot map is aligned with the explicit
+(n+1)^2-real-coordinate measure by a volume-preserving equivalence. The
+forward weight is r^n. This is a general change-of-volume theorem, not yet
+the actual Wishart density induction or a spectral Jacobian.
+[需人工审查] Measure restriction, coordinate normalization and later model use.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def centralBartlettCoordinateChart {n : ℕ}
+    (p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ)) :
+    Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ :=
+  (hermitianBlockCoordinateEquiv n).symm (centralBartlettVolumeMap p)
+
+theorem hermitianBlockCoordinateEquiv_gram (n : ℕ) (r : ℝ)
+    (z : EuclideanSpace ℂ (Fin n)) (Q : Matrix (Fin n) (Fin n) ℝ) :
+    hermitianBlockCoordinateEquiv n
+      (realCoordinatesOfHermitian (centralBartlettGram r z (hermitianOfRealCoordinates Q))) =
+        centralBartlettVolumeMap (r, (z, Q)) := by
+  rw [hermitianBlockCoordinateEquiv_apply]
+  apply Prod.ext
+  · simp [realCoordinatesOfHermitian, centralBartlettGram, centralBartlettVolumeMap]
+  · apply Prod.ext
+    · ext j
+      apply Complex.ext <;>
+        simp [centralBartlettVolumeMap, centralBartlettVolumeFiber, realCoordinatesOfHermitian,
+          centralBartlettGram, Complex.real_smul, mul_comm]
+    · have h := centralBartlettResidualShift_coordinates Q z
+      ext i j
+      have hij := congrArg (fun M => M i j) h
+      simpa [realCoordinatesOfHermitian, centralBartlettGram, complexVectorGramRankOne,
+        centralBartlettVolumeMap, centralBartlettVolumeFiber, Matrix.add_apply] using hij
+
+theorem centralBartlettCoordinateChart_eq_realGram (n : ℕ) (r : ℝ)
+    (z : EuclideanSpace ℂ (Fin n)) (Q : Matrix (Fin n) (Fin n) ℝ) :
+    centralBartlettCoordinateChart (r, (z, Q)) =
+      realCoordinatesOfHermitian (centralBartlettGram r z (hermitianOfRealCoordinates Q)) := by
+  apply (hermitianBlockCoordinateEquiv n).injective
+  rw [centralBartlettCoordinateChart, MeasurableEquiv.apply_symm_apply,
+    hermitianBlockCoordinateEquiv_gram]
+
+/-- The actual canonical real-coordinate volume formula, every n including 0. -/
+theorem centralBartlettCoordinateChart_weighted_volume (n : ℕ) :
+    ((((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+      ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))).withDensity
+        (fun p => ENNReal.ofReal (p.1 ^ n))).map centralBartlettCoordinateChart =
+      (hermitianRealCoordinateMeasure (n + 1)).restrict
+        {q : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ | 0 < q 0 0} := by
+  let ν := (volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n)
+  let e := hermitianBlockCoordinateEquiv n
+  have hs : MeasurableSet {p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) |
+      0 < p.1} := measurableSet_lt measurable_const measurable_fst
+  have hpre : e ⁻¹' {p | 0 < p.1} = {q | 0 < q 0 0} := by
+    ext q
+    simp only [Set.mem_preimage, Set.mem_ofPred_eq, e, hermitianBlockCoordinateEquiv_apply]
+  have hp := (hermitianBlockCoordinateEquiv_measurePreserving n).restrict_preimage hs
+  change MeasurePreserving e _ _ at hp
+  rw [hpre] at hp
+  have hi := MeasurePreserving.symm e hp
+  have hrestrict : ((volume : Measure ℝ).prod ν).restrict {p | 0 < p.1} =
+      ((volume : Measure ℝ).restrict (Set.Ioi 0)).prod ν := by
+    rw [show {p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) | 0 < p.1} =
+      Set.Ioi 0 ×ˢ Set.univ by ext p; simp]
+    exact (Measure.restrict_prod_eq_prod_univ (μ := (volume : Measure ℝ)) (ν := ν) (Set.Ioi 0)).symm
+  rw [hrestrict] at hi
+  change Measure.map ((e.symm : _ → _) ∘ centralBartlettVolumeMap) _ = _
+  rw [← Measure.map_map e.symm.measurable (continuous_centralBartlettVolumeMap n).measurable,
+    centralBartlettVolumeMap_weighted_volume]
+  exact hi.map_eq
+
+end
+end JinWishart
+
+#print axioms JinWishart.hermitianBlockCoordinateEquiv_gram
+#print axioms JinWishart.centralBartlettCoordinateChart_eq_realGram
+#print axioms JinWishart.centralBartlettCoordinateChart_weighted_volume
+
+FULL TARGET CentralWishartAbsoluteContinuity.lean
+import JinWishartFormalization.CentralBartlettCoordinateJacobian
+import JinWishartFormalization.GaussianComplexColumnDensity
+
+/-!
+# Actual central complex Wishart is absolutely continuous in Hermitian coordinates
+
+Codex proofs. Induct on the number of columns using the ACTUAL Bartlett block
+law and the general coordinate-volume theorem. No target density is a premise.
+The reference measure is exactly the nested n^2-real-coordinate Pi Lebesgue
+measure. This establishes absolute continuity, not the closed determinant/trace
+density or a joint spectral density. [需人工审查] Null-set transport, finite
+products, variance, and correspondence with the paper model.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem centralBartlettCoordinateChart_quasiMeasurePreserving (n : ℕ) :
+    Measure.QuasiMeasurePreserving (centralBartlettCoordinateChart (n := n))
+      (((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+        ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n)))
+      (hermitianRealCoordinateMeasure (n + 1)) := by
+  let μ := ((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+    ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))
+  have hF : Measurable (centralBartlettCoordinateChart (n := n)) :=
+    (hermitianBlockCoordinateEquiv n).symm.measurable.comp
+      (continuous_centralBartlettVolumeMap n).measurable
+  have hw : Measurable (fun p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) =>
+      ENNReal.ofReal (p.1 ^ n)) := by fun_prop
+  have hp : ∀ᵐ p ∂μ, ENNReal.ofReal (p.1 ^ n) ≠ 0 := by
+    apply (Measure.ae_prod_iff_ae_ae (by measurability)).2
+    filter_upwards [ae_restrict_mem measurableSet_Ioi] with r hr
+    exact ae_of_all _ (fun _ => ne_of_gt (ENNReal.ofReal_pos.mpr (pow_pos hr n)))
+  have hmp : MeasurePreserving centralBartlettCoordinateChart
+      (μ.withDensity (fun p => ENNReal.ofReal (p.1 ^ n)))
+      ((hermitianRealCoordinateMeasure (n + 1)).restrict {q | 0 < q 0 0}) :=
+    ⟨hF, centralBartlettCoordinateChart_weighted_volume n⟩
+  exact (hmp.quasiMeasurePreserving.mono_left
+    (withDensity_absolutelyContinuous' hw.aemeasurable hp)).mono_right
+      Measure.absolutelyContinuous_restrict
+
+/-- Entire actual Gram law in the canonical real coordinate block chart. -/
+theorem complexWishart_realCoordinates_bartlett_recursion (m n : ℕ) :
+    (complexWishart (m := m + 1) (n := n + 1)).map realCoordinatesOfHermitian =
+      ((gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod
+          ((complexWishart (m := m) (n := n)).map realCoordinatesOfHermitian))).map
+            centralBartlettCoordinateChart := by
+  let γ := gammaMeasure ((m + 1 : ℕ) : ℝ) 1
+  let C := standardComplexColumnLaw n
+  let W := complexWishart (m := m) (n := n)
+  letI : IsProbabilityMeasure γ := isProbabilityMeasure_gammaMeasure (by positivity) (by norm_num)
+  have hR := (continuous_realCoordinatesOfHermitian (n := n)).measurable
+  have hchart : Measurable (centralBartlettCoordinateChart (n := n)) :=
+    (hermitianBlockCoordinateEquiv n).symm.measurable.comp
+      (continuous_centralBartlettVolumeMap n).measurable
+  have hinner : (C.prod W).map (Prod.map id realCoordinatesOfHermitian) =
+      C.prod (W.map realCoordinatesOfHermitian) := by
+    rw [← Measure.map_prod_map _ _ measurable_id hR, Measure.map_id]
+  have houter : (γ.prod (C.prod W)).map (Prod.map id (Prod.map id realCoordinatesOfHermitian)) =
+      γ.prod (C.prod (W.map realCoordinatesOfHermitian)) := by
+    rw [← Measure.map_prod_map _ _ measurable_id (measurable_id.prodMap hR),
+      Measure.map_id, hinner]
+  have hPSD : ∀ᵐ B ∂W, B.PosSemidef :=
+    (mem_ae_iff_prob_eq_one Matrix.posSemidef_is_closed.measurableSet).mpr complexWishart_measure_posSemidef
+  have hproj : MeasurePreserving
+      (fun p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ) => p.2.2)
+      (γ.prod (C.prod W)) W :=
+    (measurePreserving_snd (μ := C) (ν := W)).comp
+      (measurePreserving_snd (μ := γ) (ν := C.prod W))
+  have hB := hproj.quasiMeasurePreserving.ae hPSD
+  rw [complexWishart_centralBartlett_recursion,
+    Measure.map_map (continuous_realCoordinatesOfHermitian (n := n + 1)).measurable
+      (continuous_centralBartlettGram n).measurable]
+  change Measure.map _ (γ.prod (C.prod W)) = _
+  rw [← houter, Measure.map_map hchart (measurable_id.prodMap (measurable_id.prodMap hR))]
+  apply Measure.map_congr
+  filter_upwards [hB] with p hp
+  change realCoordinatesOfHermitian (centralBartlettGram p.1 p.2.1 p.2.2) =
+    centralBartlettCoordinateChart (p.1, (p.2.1, realCoordinatesOfHermitian p.2.2))
+  rw [centralBartlettCoordinateChart_eq_realGram,
+    hermitianOfRealCoordinates_realCoordinates _ hp.isHermitian]
+
+theorem gammaMeasure_nat_succ_absolutelyContinuous_positive (m : ℕ) :
+    gammaMeasure ((m + 1 : ℕ) : ℝ) 1 ≪ (volume : Measure ℝ).restrict (Set.Ioi 0) := by
+  have hv : gammaMeasure ((m + 1 : ℕ) : ℝ) 1 ≪ (volume : Measure ℝ) :=
+    withDensity_absolutelyContinuous _ _
+  have hp : ∀ᵐ r ∂gammaMeasure ((m + 1 : ℕ) : ℝ) 1, r ∈ Set.Ioi 0 := by
+    change ∀ᵐ r ∂gammaMeasure ((m + 1 : ℕ) : ℝ) 1, 0 < r
+    rw [← standardComplexColumnLaw_norm_sq_law (m + 1) (Nat.succ_pos m),
+      ae_map_iff (by fun_prop) measurableSet_Ioi]
+    filter_upwards [standardComplexColumnLaw_nonzero_ae (m + 1) (Nat.succ_pos m)] with u hu
+    exact sq_pos_of_pos (norm_pos_iff.mpr hu)
+  simpa only [Measure.restrict_eq_self_of_ae_mem hp] using hv.restrict (Set.Ioi 0)
+
+/-- General actual CENTRAL full-dimensional absolute continuity, row surplus d. -/
+theorem complexWishart_realCoordinates_absolutelyContinuous (d n : ℕ) :
+    (complexWishart (m := d + n) (n := n)).map realCoordinatesOfHermitian ≪
+      hermitianRealCoordinateMeasure n := by
+  induction n with
+  | zero =>
+      have hconst : (realCoordinatesOfHermitian (n := 0)) =
+          fun _ => (0 : Matrix (Fin 0) (Fin 0) ℝ) := by
+        funext A
+        exact Subsingleton.elim _ _
+      have hvol : hermitianRealCoordinateMeasure 0 =
+          Measure.dirac (0 : Matrix (Fin 0) (Fin 0) ℝ) := by
+        exact Measure.pi_of_empty _ _
+      rw [hconst, Measure.map_const, measure_univ, one_smul, hvol]
+  | succ n ih =>
+      have hC : standardComplexColumnLaw n ≪ (volume : Measure (EuclideanSpace ℂ (Fin n))) := by
+        rw [standardComplexColumnLaw_eq_withDensity]
+        exact withDensity_absolutelyContinuous _ _
+      have hinput := (gammaMeasure_nat_succ_absolutelyContinuous_positive (d + n)).prod (hC.prod ih)
+      have hmap := (centralBartlettCoordinateChart_quasiMeasurePreserving n).mono_left hinput
+      rw [show d + (n + 1) = (d + n) + 1 by omega,
+        complexWishart_realCoordinates_bartlett_recursion]
+      exact hmap.absolutelyContinuous
+
+theorem complexWishart_realCoordinates_absolutelyContinuous_of_le (t s : ℕ) (hst : s ≤ t) :
+    (complexWishart (m := t) (n := s)).map realCoordinatesOfHermitian ≪
+      hermitianRealCoordinateMeasure s := by
+  simpa only [Nat.sub_add_cancel hst] using complexWishart_realCoordinates_absolutelyContinuous (t - s) s
+
+end
+end JinWishart
+
+#print axioms JinWishart.centralBartlettCoordinateChart_quasiMeasurePreserving
+#print axioms JinWishart.complexWishart_realCoordinates_bartlett_recursion
+#print axioms JinWishart.gammaMeasure_nat_succ_absolutelyContinuous_positive
+#print axioms JinWishart.complexWishart_realCoordinates_absolutelyContinuous
+#print axioms JinWishart.complexWishart_realCoordinates_absolutelyContinuous_of_le
+
+SUPPORT SIGNATURE CentralBartlettVolumeTransport.lean
+theorem centralBartlettVolumeMap_weighted_volume (n : ℕ) :
+    ((((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+      ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))).withDensity
+        (fun p => ENNReal.ofReal (p.1 ^ n))).map centralBartlettVolumeMap =
+      ((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+        ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))  := by [kernel-checked proof omitted]
+
+SUPPORT SIGNATURE CentralBartlettFiberVolume.lean
+theorem centralBartlettVolumeFiber_map_volume (n : ℕ) (r : ℝ) (hr : 0 < r) :
+    ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod
+      (hermitianRealCoordinateMeasure n)).map (centralBartlettVolumeFiber r) =
+      ENNReal.ofReal ((r ^ n)⁻¹) • ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod
+        (hermitianRealCoordinateMeasure n))  := by [kernel-checked proof omitted]
+
+SUPPORT SIGNATURE GaussianComplexColumnDensity.lean
+theorem standardComplexColumnLaw_eq_withDensity (n : ℕ) :
+    standardComplexColumnLaw n =
+      (volume : Measure (EuclideanSpace ℂ (Fin n))).withDensity
+        (fun z => ENNReal.ofReal ((Real.pi⁻¹) ^ n * Real.exp (-‖z‖ ^ 2)))  := by [kernel-checked proof omitted]
+
+SUPPORT SIGNATURE GaussianBartlettGramRecursion.lean
+theorem complexWishart_centralBartlett_recursion (m n : ℕ) :
+    complexWishart (m := m + 1) (n := n + 1) =
+      ((gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n)))).map
+          (fun p => centralBartlettGram p.1 p.2.1 p.2.2)  := by [kernel-checked proof omitted]

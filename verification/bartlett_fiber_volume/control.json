@@ -1,0 +1,33 @@
+{
+  "seed": 0,
+  "random_sampling": false,
+  "collected_utc": "2026-10-18T06:12:27.300599+00:00",
+  "source_sha256": "3c0fccf513a09e88e283d5936252025e12a257083f36389c25925859179dbf96",
+  "records": [
+    {
+      "n": 0,
+      "real_dimension": 0,
+      "determinant": "1",
+      "expected": "1"
+    },
+    {
+      "n": 1,
+      "real_dimension": 3,
+      "determinant": "r",
+      "expected": "r"
+    },
+    {
+      "n": 2,
+      "real_dimension": 8,
+      "determinant": "r**2",
+      "expected": "r**2"
+    },
+    {
+      "n": 3,
+      "real_dimension": 15,
+      "determinant": "r**3",
+      "expected": "r**3"
+    }
+  ],
+  "status": "PASS exact n=0,1,2,3 controls only; no dimension-independent probability proof"
+}

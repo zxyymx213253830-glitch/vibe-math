@@ -1,0 +1,43 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettVolumeTransport.lean:43:58: error: unsolved goals
+n : ℕ
+ν : Measure (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) := ℙ.prod (hermitianRealCoordinateMeasure n)
+μ : Measure ℝ := ℙ.restrict (Set.Ioi 0)
+hF : Measurable centralBartlettVolumeMap
+f : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ → ℝ≥0∞
+hf : Measurable f
+r : ℝ
+hr : 0 < r
+hfr : Measurable fun p => f (r, p)
+⊢ ENNReal.ofReal (r ^ n)⁻¹ •
+      ∫⁻ (a : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ),
+        f (r, a) ∂ℙ.prod (hermitianRealCoordinateMeasure n) =
+    ENNReal.ofReal (r ^ n)⁻¹ * ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, p) ∂ν
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettVolumeTransport.lean:58:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (a : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ),
+    ?m.419 * (f ∘ fun a => (?m.433, centralBartlettVolumeFiber r a)) a ∂?m.418
+in the target expression
+  ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ),
+      ENNReal.ofReal (r ^ n) * f (r, centralBartlettVolumeFiber r p) ∂ν =
+    ∫⁻ (y : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, y) ∂ν
+
+n : ℕ
+ν : Measure (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) := ℙ.prod (hermitianRealCoordinateMeasure n)
+μ : Measure ℝ := ℙ.restrict (Set.Ioi 0)
+hF : Measurable centralBartlettVolumeMap
+f : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ → ℝ≥0∞
+hf : Measurable f
+hfixed :
+  ∀ (r : ℝ),
+    0 < r →
+      ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, centralBartlettVolumeFiber r p) ∂ν =
+        ENNReal.ofReal (r ^ n)⁻¹ * ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, p) ∂ν
+r : ℝ
+hr : 0 < r
+⊢ ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ),
+      ENNReal.ofReal (r ^ n) * f (r, centralBartlettVolumeFiber r p) ∂ν =
+    ∫⁻ (y : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, y) ∂ν
+'JinWishart.continuous_centralBartlettVolumeMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettVolumeMap_weighted_volume' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

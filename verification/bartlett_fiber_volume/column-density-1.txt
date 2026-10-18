@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianComplexColumnDensity.lean:39:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map (⇑e.toMeasurableEquiv) (ℙ.withDensity fun x => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖x‖ ^ 2)))
+in the target expression
+  Measure.map (⇑e) (ℙ.withDensity fun z => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z‖ ^ 2))) =
+    ℙ.withDensity fun z => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z‖ ^ 2))
+
+n : ℕ
+e : TwoColumnBlock n ≃ₗᵢ[ℝ] ComplexColumnSpace n := complexColumnCoordinates n
+hraw :
+  Measure.map (fun z => (√2)⁻¹ • z) (stdGaussian (EuclideanSpace ℝ (Fin n × Fin 2))) =
+    ℙ.withDensity fun z => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z‖ ^ 2))
+hfun : (fun z => (√2)⁻¹ • z) ∘ ⇑e = ⇑e ∘ fun x => (√2)⁻¹ • x
+h :
+  Measure.map (⇑e.toMeasurableEquiv) (ℙ.withDensity fun x => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖x‖ ^ 2))) =
+    ℙ.withDensity ((fun x => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖x‖ ^ 2))) ∘ ⇑e.toMeasurableEquiv.symm)
+⊢ Measure.map (⇑e) (ℙ.withDensity fun z => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z‖ ^ 2))) =
+    ℙ.withDensity fun z => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z‖ ^ 2))
+'JinWishart.standardComplexColumnLaw_eq_withDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

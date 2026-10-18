@@ -1,0 +1,7 @@
+'JinWishart.stdGaussian_shift_absolutelyContinuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexNoncentralWishart_absolutelyContinuous_central' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexNoncentralWishart_realCoordinates_absolutelyContinuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

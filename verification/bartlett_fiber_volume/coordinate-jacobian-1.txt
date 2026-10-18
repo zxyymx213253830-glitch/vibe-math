@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettCoordinateJacobian.lean:34:4: error: unsolved goals
+case snd.fst.a
+n : ℕ
+r : ℝ
+z : EuclideanSpace ℂ (Fin n)
+Q : Matrix (Fin n) (Fin n) ℝ
+j : Fin n
+⊢ (z.ofLp j).im * √r = √r * (z.ofLp j).im
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettCoordinateJacobian.lean:41:6: error: Type mismatch: After simplification, term
+  hij
+ has type
+  (if i ≤ j then (hermitianOfRealCoordinates Q i j).re + (complexVectorGramRankOne z i j).re
+    else -(complexVectorGramRankOne z i j).im + -(hermitianOfRealCoordinates Q i j).im) =
+    Q i j + centralBartlettResidualShift z i j
+but is expected to have type
+  (if i ≤ j then (hermitianOfRealCoordinates Q i j).re + ((z.ofLp i).re * (z.ofLp j).re + (z.ofLp i).im * (z.ofLp j).im)
+    else (z.ofLp i).im * (z.ofLp j).re + -((z.ofLp i).re * (z.ofLp j).im) + -(hermitianOfRealCoordinates Q i j).im) =
+    Q i j + centralBartlettResidualShift z i j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettCoordinateJacobian.lean:62:21: error: `MeasurableSet {p | 0 < p.1}` is not a `fun_prop` goal! Consider marking `MeasurableSet` with `@[fun_prop]`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettCoordinateJacobian.lean:65:33: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettCoordinateJacobian.lean:72:4: error: Type mismatch: After simplification, term
+  Eq.symm (Measure.restrict_prod_eq_prod_univ (Set.Ioi 0))
+ has type
+  (ℙ.prod ν).restrict ({x | 0 < x} ×ˢ Set.univ) = (ℙ.restrict {x | 0 < x}).prod ν
+but is expected to have type
+  (ℙ.prod ν).restrict {p | 0 < p.1} = (ℙ.restrict {x | 0 < x}).prod ν
+'JinWishart.hermitianBlockCoordinateEquiv_gram' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_eq_realGram' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_weighted_volume' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,11 @@
+'JinWishart.continuous_centralBartlettResidualShift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.continuous_centralBartlettVolumeFiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sigmaFinite_hermitianRealCoordinateMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.isAddRightInvariant_hermitianRealCoordinateMeasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralBartlett_sqrt_scale_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettVolumeFiber_map_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettVolumeFiber_density_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.realCoordinatesOfHermitian_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettResidualShift_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]

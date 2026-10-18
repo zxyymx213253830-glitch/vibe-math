@@ -1,0 +1,47 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettFiberVolume.lean:40:9: error: typeclass instance problem is stuck
+  ContinuousConstSMul ?m.10 (EuclideanSpace ℂ (Fin n))
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and fourth type arguments to `ContinuousConstSMul` are metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettFiberVolume.lean:56:23: error: Type mismatch
+  Continuous.measurable
+    (Continuous.prodMk (Continuous.const_smul continuous_fst ?m.61)
+      (Continuous.sub continuous_snd
+        (Continuous.comp (continuous_centralBartlettResidualShift n) (Continuous.const_smul continuous_fst ?m.102))))
+has type
+  Measurable fun x => ((?m.61 • Prod.fst) x, (Prod.snd - centralBartlettResidualShift ∘ (?m.102 • Prod.fst)) x)
+but is expected to have type
+  Measurable
+    ⇑{ toFun := centralBartlettVolumeFiber r,
+          invFun := fun p => ((√r)⁻¹ • p.1, p.2 - centralBartlettResidualShift ((√r)⁻¹ • p.1)), left_inv := ⋯,
+          right_inv := ⋯ }.symm
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettFiberVolume.lean:75:8: error: Type mismatch
+  ℙ
+has type
+  @Measure ?m.35 MeasureSpace.toMeasurableSpace
+but is expected to have type
+  @Measure (Matrix (Fin n) (Fin n) ℝ) instMeasurableSpace
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettFiberVolume.lean:90:69: error: unsolved goals
+case neg
+n : ℕ
+A B : Matrix (Fin n) (Fin n) ℂ
+i j : Fin n
+hij : ¬i ≤ j
+⊢ -(B i j).im + -(A i j).im = -(A i j).im + -(B i j).im
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettFiberVolume.lean:93:61: warning: This simp argument is unused:
+  neg_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [realCoordinatesOfHermitian, hij, Matrix.add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.continuous_centralBartlettResidualShift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.continuous_centralBartlettVolumeFiber' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlett_sqrt_scale_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettFiberVolume.lean:109:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.centralBartlettVolumeFiber_map_volume`
+'JinWishart.realCoordinatesOfHermitian_add' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettResidualShift_coordinates' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

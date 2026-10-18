@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralWishartAbsoluteContinuity.lean:31:13: error: Tactic `unfold` failed to unfold `euclideanStdGaussianDensity` in
+  AEMeasurable (fun x => ENNReal.ofReal ((√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-‖x‖ ^ 2 / 2))) ℙ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralWishartAbsoluteContinuity.lean:37:13: error: Tactic `unfold` failed to unfold `euclideanStdGaussianDensity` in
+  0 < (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-‖x‖ ^ 2 / 2)
+'JinWishart.stdGaussian_shift_absolutelyContinuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexNoncentralWishart_absolutelyContinuous_central' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexNoncentralWishart_realCoordinates_absolutelyContinuous' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

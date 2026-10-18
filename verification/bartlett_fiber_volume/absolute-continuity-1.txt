@@ -1,0 +1,76 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:21:4: error(lean.unknownIdentifier): Unknown identifier `QuasiMeasurePreserving`
+
+Note: It is not possible to treat `QuasiMeasurePreserving` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:66:23: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:67:4: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.mem_ae_iff_prob_eq_one.mpr`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:50:46: error: unsolved goals
+m n : ℕ
+γ : Measure ℝ := gammaMeasure (↑(m + 1)) 1
+C : Measure (EuclideanSpace ℂ (Fin n)) := standardComplexColumnLaw n
+W : Measure (Matrix (Fin n) (Fin n) ℂ) := complexWishart
+this : IsProbabilityMeasure γ :=
+  isProbabilityMeasure_gammaMeasure
+    (Nat.cast_pos'.mpr
+      (Right.add_pos_of_nonneg_of_pos zero_le
+        (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+          (Eq.refl (Nat.ble 1 1)))))
+    (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+hR : Measurable realCoordinatesOfHermitian
+hchart : Measurable centralBartlettCoordinateChart
+hinner :
+  Measure.map (Prod.map id realCoordinatesOfHermitian) (C.prod W) = C.prod (Measure.map realCoordinatesOfHermitian W)
+houter :
+  Measure.map (Prod.map id (Prod.map id realCoordinatesOfHermitian)) (γ.prod (C.prod W)) =
+    γ.prod (C.prod (Measure.map realCoordinatesOfHermitian W))
+hPSD : ∀ᵐ (B : Matrix (Fin n) (Fin n) ℂ) ∂W, sorry
+hproj : MeasurePreserving (fun p => p.2.2) (γ.prod (C.prod W)) W
+hB : ∀ᵐ (x : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ) ∂γ.prod (C.prod W), sorry
+p : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ
+hp : sorry
+⊢ realCoordinatesOfHermitian (centralBartlettGram p.1 p.2.1 p.2.2) =
+    realCoordinatesOfHermitian
+      (centralBartlettGram p.1 p.2.1 (hermitianOfRealCoordinates (realCoordinatesOfHermitian p.2.2)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:92:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  @Filter.Eventually ?m.82 (fun y => ?m.87 < y) (ae (Measure.map ?m.79 ?m.78))
+in the target expression
+  @Filter.Eventually ℝ (fun r => r ∈ Set.Ioi 0) (ae (Measure.map (fun u => ‖u‖ ^ 2) (standardComplexColumnLaw (m + 1))))
+
+m : ℕ
+hv : gammaMeasure (↑(m + 1)) 1 ≪ ℙ
+⊢ ∀ᵐ (r : ℝ) ∂Measure.map (fun u => ‖u‖ ^ 2) (standardComplexColumnLaw (m + 1)), r ∈ Set.Ioi 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:92:21: error: `fun_prop` was unable to prove `AEMeasurable ?m.79 ?m.78`
+
+Issues:
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:92:21: error: `fun_prop` was unable to prove `AEMeasurable ?m.79 ?m.78`
+
+Issues:
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:111:6: error: No goals to be solved
+'JinWishart.centralBartlettCoordinateChart_quasiMeasurePreserving' does not depend on any axioms
+'JinWishart.complexWishart_realCoordinates_bartlett_recursion' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gammaMeasure_nat_succ_absolutelyContinuous_positive' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_realCoordinates_absolutelyContinuous' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_realCoordinates_absolutelyContinuous_of_le' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

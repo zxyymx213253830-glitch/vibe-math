@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettFiberVolume.lean:66:2: error: failed to synthesize
+  ℙ.IsAddHaarMeasure
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettFiberVolume.lean:95:50: error: Function expected at
+  Measure.prod_smul_left ?m.209
+but this term has type
+  (?m.209 • ?m.205).prod ?m.203 = ?m.209 • Measure.prod ?m.205 ?m.203
+
+Note: Expected a function because this term is being applied to the argument
+  _
+'JinWishart.continuous_centralBartlettResidualShift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.continuous_centralBartlettVolumeFiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sigmaFinite_hermitianRealCoordinateMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.isAddHaarMeasure_hermitianRealCoordinateMeasure' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralBartlett_sqrt_scale_volume' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettVolumeFiber_map_volume' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.realCoordinatesOfHermitian_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettResidualShift_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]

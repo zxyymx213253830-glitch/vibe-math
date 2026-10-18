@@ -1,0 +1,57 @@
+{
+  "inputs": {
+    "CentralBartlettFiberVolume.lean": {
+      "sha256": "b6487413a7b581aed9214f6a8ed704630aa2f3bd5363738bc3c01c368d5ade7d",
+      "supplied": "Full source"
+    },
+    "CentralBartlettVolumeTransport.lean": {
+      "sha256": "6977c55e81b64ab80e9e71098d412450eadf83ffb35a2db9402f58693d153417",
+      "supplied": "Full source"
+    },
+    "GaussianComplexColumnDensity.lean": {
+      "sha256": "a5f3e93c997ce67a7681a2a96c64faf6576b13185309768e1596396ba1d7d812",
+      "supplied": "Full source"
+    },
+    "GaussianComplexColumnFrame.lean": {
+      "sha256": "552abdf336c04c7531fde94e1a0059908e7e3273f5dd48b942aa66623446bf72",
+      "supplied_line_ranges": [
+        [
+          18,
+          28
+        ]
+      ]
+    },
+    "GaussianRawCoordinates.lean": {
+      "sha256": "0c9a57b41b20d849eb18e1a3b42e2bbf8d53d0ca3ae662adc1f5e93f037557e1",
+      "supplied_line_ranges": [
+        [
+          91,
+          114
+        ]
+      ]
+    },
+    "CentralHermitianCoordinates.lean": {
+      "sha256": "7d9207ab7c13dbcf6d3ad293a14f4d8ff3848d65cae642fe075513f012010e22",
+      "supplied_line_ranges": [
+        [
+          18,
+          31
+        ],
+        [
+          118,
+          121
+        ]
+      ]
+    },
+    "GaussianRadialLaw.lean": {
+      "sha256": "13f4c9957b1405432b7e35066cb49c56e17847dc3167a7b650418265939fb663",
+      "supplied_line_ranges": [
+        [
+          12,
+          28
+        ]
+      ]
+    }
+  },
+  "prompt_sha256": "d1ddab29b4def7a2c6fd02bd495fc8dd9049fa0a364481bb2f24295a604f9134"
+}

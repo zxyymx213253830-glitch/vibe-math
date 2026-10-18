@@ -1,8 +1,8 @@
-# General central block step: precise next obligation
+# General central Bartlett route: proved blocks and next density obligation
 
-For m>n>=1 and the actual CN(0,1) matrix [u,V], define off u=0
+For m>=1, n>=0 and the actual CN(0,1) matrix [u,V], define off u=0
 `r=||u||^2`, `z_j=<u,V_j>/||u||`, `B=V^H V-z^H z`.
-Target, still OPEN: joint `(r,z,B)` law equals Gamma(m,rate1) times
+Original target, now CLOSED (2026-10-18): joint `(r,z,B)` law equals Gamma(m,rate1) times
 CN(0,I_n) times actual complexWishart(rows=m-1,columns=n).
 Trace or determinant marginals alone are not this matrix-valued law.
 
@@ -42,19 +42,27 @@ Do not accept the following suggestions without correction:
 - Claims about topological phase obstruction or a guessed number of lines
   are not verified library facts and do not drive the selection.
 
-## Remaining cards
+## Original cards and current status (2026-10-18)
 
-1. Complex unit-vector frame existence, no measurable-selection claim.
-2. A fixed complex unitary acting on every remaining column preserves its
+1. CLOSED: Complex unit-vector frame existence, no measurable-selection claim.
+2. CLOSED: A fixed complex unitary acting on every remaining column preserves its
    actual Gaussian matrix law; use real isometry and fixed coordinate curry.
-3. For fixed nonzero u, identify the entire z and residual B with disjoint
+3. CLOSED: For fixed nonzero u, identify the entire z and residual B with disjoint
    first-row/lower-row coordinates after rotation. They have product law.
-4. Define the joint invariant g directly, patch u=0 measurably, exclude it by
+4. CLOSED: Define the joint invariant g directly, patch u=0 measurably, exclude it by
    actual one-column Gamma law, and use skew_product.
-5. Combine with the full-dimensional Hermitian measure and block Jacobian
-   or equivalent fiber scaling/translation to prove actual matrix density.
+5. PARTIAL: full-dimensional real Hermitian block splitting is volume preserving;
+   positive-pivot fiber scaling/translation and Tonelli give the general r^n
+   weighted volume map in canonical coordinates. Actual CN(n) density and
+   central/noncentral t>=s absolute continuity are now proved. The closed
+   determinant/trace density and its normalization recurrence remain open.
 
-Parallel intermediate objective: Gram determinant recursion through the
-already-proved residual energy law may yield its actual product-Gamma law
-without completing the entire Bartlett matrix law. It must not be mislabeled
-as the missing density/G2.
+The parallel determinant objective is CLOSED: actual t-by-s central determinant
+has the product law of independent Gamma(t-s+1,...,t;rate1), proved from the
+entire block law, not only residual energies. Evidence is bound in
+verification/bartlett_gram_reconstruction/audit.json. The volume and actual
+absolute-continuity evidence is in verification/bartlett_fiber_volume/audit.json.
+Both are actual-model results; neither is the missing explicit general
+matrix density or spectral G2. Prior paper/PDF/submission artifacts are frozen
+and do not yet include this new research. [需人工审查] remains for the stated
+measure, variance and model correspondence.

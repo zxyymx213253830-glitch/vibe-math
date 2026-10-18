@@ -27,3 +27,12 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartDeterminantProduct.lean -text
 /experiments/bartlett_gram_reconstruction_control.py -text
 /verification/bartlett_gram_reconstruction/** -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralBartlettFiberVolume.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralBartlettVolumeTransport.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianComplexColumnDensity.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/HermitianBlockCoordinates.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralBartlettCoordinateJacobian.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartAbsoluteContinuity.lean -text
+/experiments/bartlett_fiber_volume_control.py -text
+/verification/bartlett_fiber_volume/** -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/NoncentralWishartAbsoluteContinuity.lean -text

@@ -1,0 +1,44 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettVolumeTransport.lean:44:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (a : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ),
+    (f ∘ Prod.mk ?m.149) (centralBartlettVolumeFiber r a) ∂?m.134
+in the target expression
+  ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, centralBartlettVolumeFiber r p) ∂ν =
+    ENNReal.ofReal (r ^ n)⁻¹ * ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, p) ∂ν
+
+n : ℕ
+ν : Measure (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) := ℙ.prod (hermitianRealCoordinateMeasure n)
+μ : Measure ℝ := ℙ.restrict (Set.Ioi 0)
+hF : Measurable centralBartlettVolumeMap
+f : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ → ℝ≥0∞
+hf : Measurable f
+r : ℝ
+hr : 0 < r
+⊢ ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, centralBartlettVolumeFiber r p) ∂ν =
+    ENNReal.ofReal (r ^ n)⁻¹ * ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, p) ∂ν
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettVolumeTransport.lean:51:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (a : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ),
+    (f ∘ centralBartlettVolumeMap) a ∂Measure.withDensity ?m.199 ?m.200
+in the target expression
+  (∫⁻ (a : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ),
+      f (centralBartlettVolumeMap a) ∂(μ.prod ν).withDensity fun p => ENNReal.ofReal (p.1 ^ n)) =
+    ∫⁻ (p : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f p ∂μ.prod ν
+
+n : ℕ
+ν : Measure (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) := ℙ.prod (hermitianRealCoordinateMeasure n)
+μ : Measure ℝ := ℙ.restrict (Set.Ioi 0)
+hF : Measurable centralBartlettVolumeMap
+f : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ → ℝ≥0∞
+hf : Measurable f
+hfixed :
+  ∀ (r : ℝ),
+    0 < r →
+      ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, centralBartlettVolumeFiber r p) ∂ν =
+        ENNReal.ofReal (r ^ n)⁻¹ * ∫⁻ (p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f (r, p) ∂ν
+⊢ (∫⁻ (a : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ),
+      f (centralBartlettVolumeMap a) ∂(μ.prod ν).withDensity fun p => ENNReal.ofReal (p.1 ^ n)) =
+    ∫⁻ (p : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ), f p ∂μ.prod ν
+'JinWishart.continuous_centralBartlettVolumeMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettVolumeMap_weighted_volume' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

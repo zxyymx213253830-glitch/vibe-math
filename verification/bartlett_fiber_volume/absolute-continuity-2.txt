@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartAbsoluteContinuity.lean:54:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'JinWishart.centralBartlettCoordinateChart_quasiMeasurePreserving' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_realCoordinates_bartlett_recursion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gammaMeasure_nat_succ_absolutelyContinuous_positive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_realCoordinates_absolutelyContinuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_realCoordinates_absolutelyContinuous_of_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

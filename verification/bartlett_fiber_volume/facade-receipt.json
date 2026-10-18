@@ -1,0 +1,12 @@
+{
+  "collected_utc": "2026-10-18T06:42:19.060572+00:00",
+  "kernel_exit_code_recorded": 0,
+  "execution_evidence": "Final live collaborative_check unified session94154 completed exit0 after importing NoncentralWishartAbsoluteContinuity and the determinant product law. Ring suggestions are preserved, nonfatal.",
+  "scope": "Cached checked project/external dependency main-entry compile; NOT full Lake/mathlib rebuild",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
+  "log": "verification/bartlett_fiber_volume/facade-final.txt",
+  "compiled": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization.olean",
+  "source_sha256": "313ed63b00fd58f517a42de1f0cb5b22fa792e2e5f52bc8f41c7b6331e80ea64",
+  "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+  "compiled_sha256": "9665cf2275f92791107a3aa7776bf5d47ce325f551193b265eabcb4f2a388e82"
+}

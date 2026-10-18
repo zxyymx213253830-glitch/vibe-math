@@ -1,0 +1,3 @@
+'JinWishart.hermitianBlockCoordinateEquiv_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_eq_realGram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_weighted_volume' depends on axioms: [propext, Classical.choice, Quot.sound]

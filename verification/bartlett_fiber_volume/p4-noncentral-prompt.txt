@@ -1,0 +1,140 @@
+P4 only concrete mathematical/semantic issues, max400words; different family from proof author Codex. No tools/independent compile or rewrite. The full target below passed local Lean with only standard axioms. It extends proved central Wishart absolute continuity (s<=t, explicit s^2 real coordinate Lebesgue) to ANY deterministic complex mean M. First prove shifted finite-dimensional standard real Gaussian is dominated by original Gaussian, using existing shifted density and strictly positive central density, then pushforward by central Gram. The sqrt2 mean encoding identity is supplied and avoids changing variance. Gram domination noncentral<<central holds for ALL rectangular shapes, including wide where both are singular; final domination by full-dimensional Hermitian-coordinate measure ONLY claims columns<=rows. Includes zero dimension/empty columns. No explicit noncentral or spectral density claim. Review actual-vs-candidate density, scalar/mean orientation, reference measures, and null-set chain; human review remains required.
+
+FULL TARGET
+import JinWishartFormalization.CentralWishartAbsoluteContinuity
+
+/-!
+# Actual noncentral complex Wishart absolute continuity
+
+Codex proofs. A finite-dimensional shifted Gaussian is dominated by the
+unshifted Gaussian because both have a strictly positive Lebesgue density.
+Pushforward preserves domination. Consequently the new central coordinate
+absolute-continuity theorem extends to ANY deterministic complex mean when
+columns <= rows. This is not an explicit noncentral density or spectral G2.
+[需人工审查] Null-set transport, encoded mean, variance and model interpretation.
+Existing rank-one noncentral trace/ncx2 controls are reused, not rerun.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+theorem stdGaussian_shift_absolutelyContinuous {ι : Type*} [Fintype ι]
+    (a : EuclideanSpace ℝ ι) :
+    (stdGaussian (EuclideanSpace ℝ ι)).map (fun z => z + a) ≪
+      stdGaussian (EuclideanSpace ℝ ι) := by
+  have hshift : (stdGaussian (EuclideanSpace ℝ ι)).map (fun z => z + a) ≪
+      (volume : Measure (EuclideanSpace ℝ ι)) := by
+    rw [stdGaussian_shift_eq_withDensity]
+    exact withDensity_absolutelyContinuous _ _
+  have hpos : (volume : Measure (EuclideanSpace ℝ ι)) ≪ stdGaussian (EuclideanSpace ℝ ι) := by
+    rw [stdGaussian_euclidean_eq_radialDensity]
+    apply withDensity_absolutelyContinuous'
+    · fun_prop
+    · apply ae_of_all
+      intro x
+      apply ne_of_gt
+      apply ENNReal.ofReal_pos.mpr
+      positivity
+  exact hshift.trans hpos
+
+/-- All rectangular shapes: the actual noncentral Gram is dominated by the
+actual central Gram, including shapes where BOTH laws are singular. -/
+theorem complexNoncentralWishart_absolutelyContinuous_central {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    complexNoncentralWishart M ≪ complexWishart (m := m) (n := n) := by
+  have hlaw : complexNoncentralWishart M =
+      ((stdGaussian (ComplexSample (m := m) (n := n))).map
+        (fun z => z + complexSampleMean M)).map complexSampleGram := by
+    rw [Measure.map_map measurable_complexSampleGram (by fun_prop)]
+    unfold complexNoncentralWishart
+    congr 1
+    funext z
+    simp only [Function.comp_def, complexSampleGram, complexSampleMatrix_add_mean]
+  rw [hlaw]
+  exact (stdGaussian_shift_absolutelyContinuous (complexSampleMean M)).map measurable_complexSampleGram
+
+/-- Full-dimensional noncentral Hermitian coordinate domination for s<=t. -/
+theorem complexNoncentralWishart_realCoordinates_absolutelyContinuous {t s : ℕ}
+    (M : Matrix (Fin t) (Fin s) ℂ) (hst : s ≤ t) :
+    (complexNoncentralWishart M).map realCoordinatesOfHermitian ≪
+      hermitianRealCoordinateMeasure s := by
+  exact ((complexNoncentralWishart_absolutelyContinuous_central M).map
+    continuous_realCoordinatesOfHermitian.measurable).trans
+      (complexWishart_realCoordinates_absolutelyContinuous_of_le t s hst)
+
+end
+end JinWishart
+
+#print axioms JinWishart.stdGaussian_shift_absolutelyContinuous
+#print axioms JinWishart.complexNoncentralWishart_absolutelyContinuous_central
+#print axioms JinWishart.complexNoncentralWishart_realCoordinates_absolutelyContinuous
+
+SUPPORT GaussianMatrixSpectralIntegral.lean lines24-35
+theorem stdGaussian_shift_eq_withDensity {ι : Type*} [Fintype ι]
+    (μ : EuclideanSpace ℝ ι) :
+    (stdGaussian (EuclideanSpace ℝ ι)).map (fun z => z + μ) =
+      volume.withDensity (fun z => ENNReal.ofReal (euclideanStdGaussianDensity (z - μ))) := by
+  let e : EuclideanSpace ℝ ι ≃ᵐ EuclideanSpace ℝ ι := MeasurableEquiv.addRight μ
+  have hmp : MeasurePreserving e volume volume := measurePreserving_add_right volume μ
+  rw [stdGaussian_euclidean_eq_radialDensity]
+  have h := map_withDensity_measurePreserving e volume volume hmp
+    (fun z => ENNReal.ofReal (euclideanStdGaussianDensity z)) (by
+      unfold euclideanStdGaussianDensity
+      fun_prop)
+  simpa [e, Function.comp_def, euclideanStdGaussianDensity, sub_eq_add_neg] using h
+SUPPORT WishartProbability.lean lines65-76
+    field_simp [hsqrt]
+
+/-- Complex Gram matrix `Xᴴ X`. -/
+def complexGram (X : Matrix (Fin m) (Fin n) ℂ) : Matrix (Fin n) (Fin n) ℂ :=
+  Xᴴ * X
+
+/-- In the `1 × 1` central model, the Gram entry is the squared radius of the
+two real Gaussian coordinates divided by two. This reduces the outstanding
+distribution theorem to a two-dimensional radial Gaussian integral. -/
+theorem complexGram_centralScalar_entry
+    (x : ComplexSample (m := 1) (n := 1)) :
+    complexGram (complexSampleMatrix x) 0 0 =
+SUPPORT GaussianEuclideanBallDensity.lean lines1-36
+import JinWishartFormalization.GaussianRadialLaw
+
+/-!
+# Finite-dimensional Gaussian density on shifted Euclidean balls
+
+These lemmas turn the real Gaussian measure of a closed ball into an explicit
+Lebesgue integral and translate that integral to a centered ball. They apply
+to the four-dimensional real model underlying a two-row complex sample.
+-/
+
+open MeasureTheory Set ProbabilityTheory
+
+namespace JinWishart
+
+noncomputable section
+
+/-- The real density factor for a standard Gaussian in a finite Euclidean
+coordinate space. -/
+def euclideanStdGaussianDensity {ι : Type*} [Fintype ι]
+    (x : EuclideanSpace ℝ ι) : ℝ :=
+  (Real.sqrt (2 * Real.pi))⁻¹ ^ Fintype.card ι *
+    Real.exp (-(‖x‖ ^ 2) / 2)
+
+/-- The probability of a closed ball under finite-dimensional standard
+Gaussian measure is its explicit density integral. -/
+theorem stdGaussian_euclidean_ball_real_eq_densityIntegral
+    {ι : Type*} [Fintype ι] (μ : EuclideanSpace ℝ ι) (R : ℝ) :
+    (stdGaussian (EuclideanSpace ℝ ι)).real (Metric.closedBall μ R) =
+      ∫ x in Metric.closedBall μ R, euclideanStdGaussianDensity x := by
+  let f : EuclideanSpace ℝ ι → ℝ := euclideanStdGaussianDensity
+  have hfR : Measurable f := by
+    change Measurable (fun z : EuclideanSpace ℝ ι =>
+      (Real.sqrt (2 * Real.pi))⁻¹ ^ Fintype.card ι *
+        Real.exp (-(‖z‖ ^ 2) / 2))
+    fun_prop
+  have hf : Measurable (fun z : EuclideanSpace ℝ ι => ENNReal.ofReal (f z)) :=
+SUPPORT SIGNATURE
+theorem complexWishart_realCoordinates_absolutelyContinuous_of_le (t s : ℕ) (hst : s ≤ t) :
+    (complexWishart (m := t) (n := s)).map realCoordinatesOfHermitian ≪
+      hermitianRealCoordinateMeasure s  := by [kernel proof omitted]

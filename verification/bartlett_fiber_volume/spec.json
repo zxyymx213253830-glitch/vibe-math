@@ -1,0 +1,22 @@
+{
+  "library": ".tools/publication-revision-20261016/fresh-project-library",
+  "targets": [
+    {"module":"JinWishartFormalization.CentralBartlettFiberVolume","count":9,"log":"verification/bartlett_fiber_volume/fiber-6.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.CentralBartlettVolumeTransport","count":2,"log":"verification/bartlett_fiber_volume/transport-3.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.GaussianComplexColumnDensity","count":1,"log":"verification/bartlett_fiber_volume/column-density-2.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.HermitianBlockCoordinates","count":5,"log":"verification/bartlett_fiber_volume/block-coordinates-1.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.CentralBartlettCoordinateJacobian","count":3,"log":"verification/bartlett_fiber_volume/coordinate-jacobian-2.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.CentralWishartAbsoluteContinuity","count":5,"log":"verification/bartlett_fiber_volume/absolute-continuity-2.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.NoncentralWishartAbsoluteContinuity","count":3,"log":"verification/bartlett_fiber_volume/noncentral-2.txt","kernel_exit_code_recorded":0}
+  ],
+  "controls": [
+    {"script":"experiments/bartlett_fiber_volume_control.py","result":"verification/bartlett_fiber_volume/control.json","seed":0},
+    {"script":"experiments/gaussian_full_rank_control.py","result":"verification/gaussian_full_rank/control.json","seed":20261017}
+  ],
+  "reviews": [
+    {"request":"verification/bartlett_fiber_volume/review-request.json","prompt":"verification/bartlett_fiber_volume/p4-prompt.txt","receipt":"verification/bartlett_fiber_volume/p4.receipt.json","raw":"verification/bartlett_fiber_volume/p4.raw.json","snapshot":"verification/bartlett_fiber_volume/review-snapshot"},
+    {"request":"verification/bartlett_fiber_volume/alignment-review-request.json","prompt":"verification/bartlett_fiber_volume/p4-alignment-prompt.txt","receipt":"verification/bartlett_fiber_volume/p4-alignment.receipt.json","raw":"verification/bartlett_fiber_volume/p4-alignment.raw.json","snapshot":"verification/bartlett_fiber_volume/alignment-review-snapshot"},
+    {"request":"verification/bartlett_fiber_volume/noncentral-review-request.json","prompt":"verification/bartlett_fiber_volume/p4-noncentral-prompt.txt","receipt":"verification/bartlett_fiber_volume/p4-noncentral.receipt.json","raw":"verification/bartlett_fiber_volume/p4-noncentral.raw.json","snapshot":"verification/bartlett_fiber_volume/noncentral-review-snapshot"}
+  ],
+  "scope": "General canonical Hermitian-coordinate Bartlett r^n weighted volume; actual CN(n) density; actual central and any-mean noncentral t>=s coordinate absolute continuity. No closed general Wishart density or general spectral G2/paper T1-4 claim. Real scoped P4 reviews received, with explicit evidence responses to incorrect/hypothetical concerns; not blanket approval or human review. See REVIEW_RESOLUTION.md. Frozen manuscript/releases unchanged."
+}

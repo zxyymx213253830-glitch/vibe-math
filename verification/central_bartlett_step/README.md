@@ -1,7 +1,7 @@
-# General central Bartlett step: checked foundations and open matrix law
+# General central Bartlett step: checked foundations and complete block law
 
 This directory rolls forward the same route, not a new hourly research loop.
-The actual joint `(r,z,B)` block law is still OPEN. The numeric 3x200000
+The actual joint `(r,z,B)` block law is now CLOSED. The numeric 3x200000
 preflight and real Qoder P1 response are archived; the route decision and
 corrections to the response are in notes/CENTRAL_BARTLETT_ROUTE.md.
 
@@ -66,7 +66,8 @@ main-entry check after adding the new block law and general positive support.
 Its ring suggestions are diagnostics, not errors. This is a cached-dependency
 entry check, NOT a full Lake/mathlib rebuild.
 
-The missing generic Gram reconstruction / full-dimensional change of variables
-and actual general matrix density/G2 remain OPEN. Earlier paragraphs describing
-the joint block law as open record the pre-milestone route and are superseded
-by this explicit final status. Paper and submission archives remain unchanged.
+Subsequent generic Gram reconstruction, determinant product-Gamma law, canonical
+full-dimensional weighted volume and actual central/noncentral absolute
+continuity are checked in bartlett_gram_reconstruction/ and
+bartlett_fiber_volume/. The closed general matrix density and spectral G2
+remain OPEN. Paper and submission archives remain unchanged.

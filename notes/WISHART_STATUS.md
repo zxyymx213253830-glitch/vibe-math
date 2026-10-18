@@ -123,3 +123,5 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-18 接续归档：上次一般中央Bartlett完整块联合律已闭合，GaussianMatrixBlockLaw/Fiber/BlockLaw共20声明内核PASS标准三公理；实际(r,z,B)律为Gamma(m+1,rate1)×CN(n)×实际Wishart(m,n)，包含整个残余矩阵及联合独立性，所有自然维数有效。变化主入口退出0，非完整Lake构建。Qoder两次真实P4均保留：首份错误共轭建议被精确反例和已证Gram分块式否定，后续率/尺度及零维疑虑按锁定定义澄清，不冒称无条件审查通过；测度/方差/模型仍[需人工审查]。审计block-audit.json绑定源码/编译/日志/审查；Gram重构、一般Jacobian/实际矩阵密度/G2仍开放，论文及投稿包未更新。
 
 2026-10-18 新研究里程碑：一般Bartlett块回到实际Gram的点态重构（含零首列）及完整Wishart递推、r>0下det(W)=r det(B)、实际行列式递推和任意t>=s中央复Wishart行列式的独立Gamma(t-s+1,...,t;rate1)乘积律均闭合。四模块12声明标准三公理及变化主入口PASS；不是一般矩阵密度/谱密度。seed20261018五形状代数/精确控制及既有200000实际样本logdet控制支持前检，非证明；Qoder真实跨家族P4未报具体致命问题，所提概率实例/乘积次序/可测嵌入由明确内核义务回应，人审仍保留。源码/olean/日志/控制/真实审查绑定verification/bartlett_gram_reconstruction/audit.json；一般Jacobian/实际矩阵密度/G2仍开放。证明体归Codex，论文PDF/投稿包未更新，未完整Lake构建、未推送。
+
+2026-10-18 后续核心进展：通用正主元Bartlett体积换元已对齐(n+1)^2实Hermitian坐标（r^n加权体积公式，非逐点导数声明）；实际任意维CN(n)密度、实际中央及任意确定均值非中央t>=s的Hermitian实坐标律绝对连续性均由实际样本律闭合，不以待证密度为前提。七模块28声明标准三公理及最终主入口PASS，证据verification/bartlett_fiber_volume/audit.json；连同本次先前12声明共新增40。Qoder三份真实P4保留，第二份限制方向/边界/PSD/独立性误读逐项回应，非人工审查完成。闭式一般矩阵密度及归一化/一般谱G2/T1-4、T3刊版问题仍开放；论文PDF/投稿包未刷新，未完整Lake构建，未推远端。
