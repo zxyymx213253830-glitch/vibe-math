@@ -1,0 +1,9 @@
+{
+  "source_sha256": "6ee7960bf63ef97224526e54bd27d0669b01806fbc44adc8a38aef03c5a92b31",
+  "compiled_sha256": "79d5042dd960988c645862fd457590731e8c1687916d83c1e780a2fc2d9c46fd",
+  "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+  "observed_wrapper_exit_code": 0,
+  "command_helper": "tools/deepseek_prover/collaborative_check.py",
+  "full_build": "NOT_RUN",
+  "note": "Old imported tactic informational Try this/ring diagnostics are not compiler errors; wrapper exit0 recorded. No fresh whole-library rebuild claimed."
+}

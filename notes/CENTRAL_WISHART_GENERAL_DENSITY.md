@@ -199,3 +199,11 @@ Next core obstacle: for surplus d>1 the integrand is a POWER of a shifted
 determinant. Single principal-minor means alone do not determine the needed
 mixed moments. General noncentral density/G2 and original general T1--T4
 remain distinct open obligations; avoid another one-size-at-a-time chart route.
+
+
+P1 follow-up caution: Qoder's suggested cone-derivative recurrence was rejected
+BEFORE Lean work: it misses a determinant factor and incorrectly discards
+shifted-kernel boundary terms. Scalar exact counterexample and seeded closed
+control are saved in verification/rectangular_minimum/next-route-control.json.
+The next candidate route is finite Gaussian polynomial/Wick moments to obtain
+mixed principal-minor expectations; no all-d closed recurrence has been proved.

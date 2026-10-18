@@ -1,0 +1,20 @@
+{
+  "seed": 2026101803,
+  "samples": 200000,
+  "source_sha256": "7a86049b693664b01988a94409eb63cf2dcb46e6b054a5d8960d672b4d0aad73",
+  "status": "PASS counterexample and Exp(1) closed control; reject proposed derivative",
+  "exact_counterexample": {
+    "d": 1,
+    "s": 1,
+    "v": 1,
+    "x": 1,
+    "actual_derivative": "1",
+    "proposed": "1/2"
+  },
+  "integral_baseline": "I(1,1,x)=1+x, derivative=1",
+  "proposed_integral_at_one": 0.5963473623231946,
+  "empirical": 0.5962031719133786,
+  "standard_errors": -0.2942059444362518,
+  "shifted_kernel_boundary_at_v0_x1": "1, not zero",
+  "interpretation": "Counterexample to partner proposal; no new general integral theorem"
+}

@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-18T14:57:55.368988+00:00",
-  "spec_sha256": "ec47069b1a2e692e4a85e26591c86415c15651b207425c50f01dfdfc9d9e077c",
+  "collected_utc": "2026-10-18T15:02:32.099435+00:00",
+  "spec_sha256": "765c016b32e9fb9e1efefcaf735d02b87ea206752469fdfcf8f7670468ea64d7",
   "auditor_sha256": "f8bfa7b35589934b00c2127e131b97c9243e7d78b7527fc851ad8c4f421654f8",
   "modules": {
     "JinWishartFormalization.GammaIntegerMoments": {
@@ -608,6 +608,12 @@
       "script": "experiments/rectangular_hard_edge_control.py",
       "script_sha256": "ccdc663322e76ffb86623795c09602441bda160ed7cd118c50df90c73d2c7bf9",
       "result_sha256": "706a7eeebc1a2e04faba9dc4b64b0bc54fd57d099435358894bb627222035c38",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/central_next_route_derivative_control.py",
+      "script_sha256": "7a86049b693664b01988a94409eb63cf2dcb46e6b054a5d8960d672b4d0aad73",
+      "result_sha256": "bca10c76f7e7440cc8eb8ff3ff15355e55f5da690fc8acba2d734850fb312f4b",
       "interpretation": "Reproducible control, not a proof"
     }
   ],

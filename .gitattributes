@@ -61,3 +61,4 @@
 /tools/partners/claude_review.py -text
 /theory/jin_wishart_formalization/JinWishartFormalization/RectangularWishartHardEdge.lean -text whitespace=cr-at-eol
 /experiments/rectangular_hard_edge_control.py -text whitespace=cr-at-eol
+/experiments/central_next_route_derivative_control.py -text whitespace=cr-at-eol

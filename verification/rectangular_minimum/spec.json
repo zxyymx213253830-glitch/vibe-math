@@ -66,6 +66,11 @@
       "script": "experiments/rectangular_hard_edge_control.py",
       "result": "verification/rectangular_minimum/hard-edge-control.json",
       "seed": 2026101802
+    },
+    {
+      "script": "experiments/central_next_route_derivative_control.py",
+      "result": "verification/rectangular_minimum/next-route-control.json",
+      "seed": 2026101803
     }
   ],
   "reviews": [

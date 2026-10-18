@@ -1,0 +1,149 @@
+{
+  "collected_utc": "2026-10-18T15:03:19.095775+00:00",
+  "window_started_utc": "2026-10-18T14:05:10+00:00",
+  "hard_cutoff_utc": "2026-10-18T15:05:10+00:00",
+  "proof_commits": [
+    "f8a1e3b",
+    "658aeb0"
+  ],
+  "public_declarations": 47,
+  "modules": 9,
+  "leaf_audit_sha256": "18f8815798f6fa8c5bc6a47edcab3a3ce26d27d42a8ec096073251e623060434",
+  "spec_sha256": "765c016b32e9fb9e1efefcaf735d02b87ea206752469fdfcf8f7670468ea64d7",
+  "facade_binding_sha256": "875122024ab7c872780104b1f408692c49941b34989dea571e095da62c6cfce8",
+  "reviews": {
+    "coefficient": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T14:21:22.137658+00:00",
+      "ended_utc": "2026-10-18T14:21:49.744458+00:00",
+      "seconds": 27.606807700009085,
+      "receipt_sha256": "96ff6046508d467fce8645a5f1c08a11f3f112b74dac31c65e8316e1d2960c84",
+      ".raw.json": "4a2817f0eb475acd683e0c169af60fa4f007d5009a109b292d0b5e0c91ce62d5",
+      ".response.md": "684888683247306151fa2bad1f50aa19093746c389649f635a816f6ca71723a7",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "next-route-correction": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T15:01:45.315275+00:00",
+      "ended_utc": "2026-10-18T15:02:03.682112+00:00",
+      "seconds": 18.366868999990402,
+      "receipt_sha256": "dcd213bd9ffa4e7326869b440def43dd21eb8ab61bf47b7763210919d967c6f4",
+      ".raw.json": "6bcb3b69c084ed7cf76c2bf5d081d0165d4b59d5a8299d70ae0c7d06ffff11b6",
+      ".response.md": "a0b9108bcedda525e7a0e1235a6325030d193db7430a129d102769a1d09fe95a",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "next-route": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T14:59:27.983423+00:00",
+      "ended_utc": "2026-10-18T15:00:18.472701+00:00",
+      "seconds": 50.489280299982056,
+      "receipt_sha256": "24ad806946abc8f3c3eaebe9d12da98d1738d030d4054d42b11d091f65d57997",
+      ".raw.json": "9de078ba719df241bdf04d6020870664fb5656d220d257b745956cc06a21bbf8",
+      ".response.md": "2182d069c038be10f9b07294ef395ec2805e5e610224fc18edf8a1a475732064",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p1": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T14:07:30.280126+00:00",
+      "ended_utc": "2026-10-18T14:08:15.983387+00:00",
+      "seconds": 45.7032779000001,
+      "receipt_sha256": "27b2360936b92e11fb782d4785d9800e1a59c6f34b3950ffd8941aa7c53a370c",
+      ".raw.json": "22c6037b53ff8d9ce4804eefd9b8f914b3890c85d494426faef38a99f611b5f4",
+      ".response.md": "f35a98420f713f61e60c52e29c7e2b4701dc1fef7e411dc81f172ee3d4f4278f",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p4-hard-edge": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T14:54:54.604633+00:00",
+      "ended_utc": "2026-10-18T14:55:45.973438+00:00",
+      "seconds": 51.368807499995455,
+      "receipt_sha256": "6e51fb1990a87e7e5091e1a2131fb115bcd92c85e3b52781bb46e3e1c646aebd",
+      ".raw.json": "4e54b55a6f38f5cbd047fbbd5a644adb337300303a12bd09541ab4e7cfcfe537",
+      ".response.md": "810a7d37ea2e8be4018cca2799f55df7a0264e2f5fefab2eb871080773755231",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p4-moments": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T14:24:27.283590+00:00",
+      "ended_utc": "2026-10-18T14:25:07.978026+00:00",
+      "seconds": 40.694439600018086,
+      "receipt_sha256": "2364108e81474daa5add343021e8e7628cb4f657915010c9e105ccc0a4e9424a",
+      ".raw.json": "fec21d82a24e3fc9f84f3e3c2593fd3d514320a793cda2959ebdde43a3691751",
+      ".response.md": "f0cca571a123780e26f5fbf7de9bf48d1147ad5f369ca7bc9256103b4c670d04",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p4-polynomial": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T14:35:03.029635+00:00",
+      "ended_utc": "2026-10-18T14:35:32.725944+00:00",
+      "seconds": 29.696335600019665,
+      "receipt_sha256": "8a6626799f879a199ab4c5374957bc2d3e42a6fbe3e84d135daf05229f21001c",
+      ".raw.json": "dced70bcf8ae10d4927f4f7097a426fd0297bd9fd38c2657f90c3a4c15bad593",
+      ".response.md": "606b22efa899b034a3a72266fd28da4abd13b2a0bfe8bf18b684b6200f9f85b7",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p4-rectangular": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T14:36:36.128578+00:00",
+      "ended_utc": "2026-10-18T14:37:06.566240+00:00",
+      "seconds": 30.43766689999029,
+      "receipt_sha256": "b5a2db10afd870409cb66aeeb30cfd3697fc08bc69248c4bfc30359b86f41014",
+      ".raw.json": "13a2b458e496e16580ba90fd9fc1252cb1ada34ca1ecea13b376b39d5415074f",
+      ".response.md": "8221a8a8102a016a9ffbd5f5c41a412dab58f6a57fb2030f1575321cd2fdca55",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p4-t1-context": {
+      "exit_code": 124,
+      "started_utc": "2026-10-18T14:47:10.334790+00:00",
+      "ended_utc": "2026-10-18T14:49:10.521481+00:00",
+      "seconds": 120.18668869999237,
+      "receipt_sha256": "cf993694b8ee50a443849046299392663e0477eead3f8ebf986f6d71808df61c",
+      ".raw.jsonl": "0b2750c1746f4ab84012c23e8e69e9b4ec3751b9645c1aadd4c49107173e61e9",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p4-t1": {
+      "exit_code": 0,
+      "started_utc": "2026-10-18T14:41:34.171482+00:00",
+      "ended_utc": "2026-10-18T14:42:45.748012+00:00",
+      "seconds": 71.5765234999999,
+      "receipt_sha256": "93dcb36bd01c15d4b59e871c7d5cd1c53930f11e3bc055a48e01ebb10a59b2ef",
+      ".raw.jsonl": "0017fe94d11c133100aff076eeb14457e6c2f70b42fe96105b808220693f5604",
+      ".response.md": "c749de849482a2b6a2a2e6fb098845702679530da671a0d35a53c6bc94a6210c",
+      ".stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "interpretation": "Delivered model feedback includes false alarms and wrong route suggestions. No blanket independent approval or human review claimed. All proof bodies this window Codex. Older imported authors unchanged.",
+  "full_build": "NOT_RUN",
+  "frozen_publication": {
+    "theory/wishart_paper/main.tex": {
+      "exists": true,
+      "sha256": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+      "modified_this_window": false
+    },
+    "output/pdf/wishart_formalization.pdf": {
+      "exists": true,
+      "sha256": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+      "modified_this_window": false
+    },
+    "output/publication/wishart_arxiv_upload.zip": {
+      "exists": true,
+      "sha256": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+      "modified_this_window": false
+    },
+    "output/publication/wishart_formalization_code.zip": {
+      "exists": true,
+      "sha256": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b",
+      "modified_this_window": false
+    }
+  },
+  "automation": "No new automation or runner created; existing paused automation not changed.",
+  "processes": "All Lean and bounded CLI requests returned; gate verified empty. No local Ollama model/server started in this window.",
+  "remaining": [
+    "General central surplus d>1 mixed-minor integral",
+    "Original central T1 determinant alignment beyond checked special cases",
+    "General noncentral density/G2/T1-4",
+    "T3 published-source interpretation",
+    "Human measure/model review",
+    "Publication refresh"
+  ]
+}

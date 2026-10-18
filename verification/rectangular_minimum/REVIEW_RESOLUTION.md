@@ -96,3 +96,38 @@ inference and typed event-congruence issues and are retained; they are not
 claimed as final passes. Upstream normalization/variance/measure interpretation
 remains [需人工审查]. This P4 is a delivered critical response, not blanket
 approval, independent compilation or a replacement for human review.
+
+## Next-route P1 is NOT a proof: reject the derivative before formalization
+
+The final route discussion proposed an integration-by-parts recurrence with an
+unspecified correction, and differentiated det(V+xI)^d incorrectly. In s=d=1,
+V=[1],x=1 the true derivative is1 while its displayed expression is1/2.
+`central_next_route_derivative_control.py` records this exact symbolic
+counterexample and a fixed-seed200000 Exp(1) closed integral control:
+I(1,1,x)=1+x, whereas its proposed RHS at x=1 is e*E1(1), about0.596347.
+The SHIFTED kernel also does not vanish at cone boundary for x>0 (scalar
+v=0,x=1 gives1), even when d>=1, invalidating the proposed blanket boundary
+argument. Correct derivative uses d det(A)^d tr(A^-1), or the polynomial
+adjugate version d det(A)^(d-1) tr(adj A).
+
+Other unaccepted route claims: moment sequences alone do not automatically
+determine a distribution; a Weyl integral theorem need not choose a global
+measurable eigenbasis section; the stated Weyl constant was not checked;
+Vandermonde squared has no collision singularity needing d>=s-1. Smoothness
+alone also does not justify differentiation under an integral without a
+valid integrable bound. None of these assertions were added to Lean.
+
+The practical next obligation is to derive and test finite Gaussian polynomial
+moment evaluation, then joint/overlapping principal-minor moments for d>1.
+The current single-minor means cannot be multiplied for overlapping blocks.
+No new all-d recurrence or density premise is introduced. Full route response
+and corrective exchange are retained as research feedback, not accepted facts.
+
+The bounded corrective Qoder response acknowledges the exact derivative and
+boundary counterexamples. It still compares I(1,1,1)=2 to the proposed DERIVATIVE
+integral0.5963 (the correct derivative is1), and switches to real X^T X with
+Gamma factors n,n+2,... rather than our complex X^H X with shapes stepping by1.
+It also proposes redoing determinant moments already proved this window.
+These parts are rejected, not incorporated. No further retries were made.
+The saved actionable next gap remains MIXED moments of different minors in
+the complex model, not marginal powers of the same determinant.
