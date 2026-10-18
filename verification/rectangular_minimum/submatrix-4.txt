@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianSubmatrixLaw.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'JinWishart.pi_gaussianReal_map_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_map_injective_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_sampleColumnSelection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_sampleColumnSelection_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleMatrix_columnSelection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGram_columnSelection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_principalSubmatrix_law' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianShiftDeterminant.lean:30:4: error: `simp` made no progress
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+x : ℂ
+D : (Fin n → ℂ) [⋀^Fin n]→ₗ[ℂ] ℂ := detRowAlternating
+S : Finset (Fin n)
+a✝ : S ∈ Finset.univ
+he :
+  (S.piecewise (fun i => A i) fun i => (x • 1) i) = fun i =>
+    (if i ∈ S then 1 else x) • S.piecewise (fun i => A i) (fun i => 1 i) i
+⊢ (∏ i, if i ∈ S then 1 else x) = x ^ (n - S.card)
+'JinWishart.det_add_scalar_eq_sum_principalMinors' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

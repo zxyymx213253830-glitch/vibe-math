@@ -1,0 +1,264 @@
+P4: rigorous semantic reviewer, different model family than Codex proof author. Report concrete issues only, <=700 words, no rewrites/tools/independent compilation. Three exact full sources below passed locked Lean kernel with standard axioms only. Gamma shape k+1,rate1 and integer power p: weighted Gamma measure = factorial(k+p)/factorial(k) times Gamma(k+p+1), from density shape shift and zero nonpositive mass. Actual determinant law already checked: central CN(0,1) (d+n)-by-n Gram determinant = product independent Gamma(d+j+1,rate1),j=0..n-1; n0 emptydet/product1. New integer determinant norm moments use that actual law, not target density. Generic arbitrary injective coordinate projection of real Gaussian finite vector yields standard Gaussian at selected indices; proof via pi subtype split, projection, reindex and toLp. For actual complex source entries (z0+i*z1)/sqrt2, selected columns match literal sample column selection and Gram principal submatrix. Same n-row source maps to k selected columns, surplus n-k. No desired min tail formula assumed. Review probability instances, index orientation, zero dimensions, measure transport, factorial ranges, real-vs-complex variance. [需人工审查] remains. Qoder helped route comparison, not these Lean proof bodies. Previous P1 incorrectly called principal minor surplus0; actual law keeps m rows unchanged.
+
+
+FULL SOURCE GammaIntegerMoments.lean
+import JinWishartFormalization.CentralWishartClosedDensity
+
+/-!
+# Integer power bias and moments of positive-integer Gamma laws
+
+Codex proof bodies. Shape shift reuses actual normalized Gamma densities and
+strictly positive support; it does not introduce a radial integral assumption.
+[需人工审查] Weighted-measure and nonnegative moment interpretation.
+-/
+open MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+theorem gammaPDF_nat_power_shift (k p : ℕ) (r : ℝ) (hr : 0 < r) :
+    gammaPDF ((k + 1 : ℕ) : ℝ) 1 r * ENNReal.ofReal (r ^ p) =
+      ENNReal.ofReal (((Nat.factorial (k + p) : ℕ) : ℝ) /
+        ((Nat.factorial k : ℕ) : ℝ)) * gammaPDF ((k + p + 1 : ℕ) : ℝ) 1 r := by
+  rw [gammaPDF_nat_succ_positive k r hr, gammaPDF_nat_succ_positive (k + p) r hr,
+    ← ENNReal.ofReal_mul (by positivity), ← ENNReal.ofReal_mul (by positivity)]
+  congr 1
+  rw [pow_add]
+  have hk : ((Nat.factorial k : ℕ) : ℝ) ≠ 0 := by positivity
+  have hkp : ((Nat.factorial (k + p) : ℕ) : ℝ) ≠ 0 := by positivity
+  field_simp
+
+theorem gammaMeasure_nat_power_bias (k p : ℕ) :
+    (gammaMeasure ((k + 1 : ℕ) : ℝ) 1).withDensity (fun r => ENNReal.ofReal (r ^ p)) =
+      ENNReal.ofReal (((Nat.factorial (k + p) : ℕ) : ℝ) /
+        ((Nat.factorial k : ℕ) : ℝ)) • gammaMeasure ((k + p + 1 : ℕ) : ℝ) 1 := by
+  have hG : Measurable (gammaPDF ((k + 1 : ℕ) : ℝ) 1) :=
+    ENNReal.measurable_ofReal.comp (measurable_gammaPDFReal _ _)
+  have hP : Measurable (fun r : ℝ => ENNReal.ofReal (r ^ p)) := by fun_prop
+  rw [gammaMeasure_nat_succ_eq_positive_density k,
+    gammaMeasure_nat_succ_eq_positive_density (k + p),
+    ← withDensity_mul _ hG hP, ← withDensity_smul' _ _ ENNReal.ofReal_ne_top]
+  apply withDensity_congr_ae
+  filter_upwards [ae_restrict_mem measurableSet_Ioi] with r hr
+  exact gammaPDF_nat_power_shift k p r hr
+
+theorem lintegral_gammaMeasure_nat_power (k p : ℕ) :
+    ∫⁻ r, ENNReal.ofReal (r ^ p) ∂gammaMeasure ((k + 1 : ℕ) : ℝ) 1 =
+      ENNReal.ofReal (((Nat.factorial (k + p) : ℕ) : ℝ) /
+        ((Nat.factorial k : ℕ) : ℝ)) := by
+  letI : IsProbabilityMeasure (gammaMeasure ((k + p + 1 : ℕ) : ℝ) 1) :=
+    isProbabilityMeasure_gammaMeasure (by positivity) (by norm_num)
+  have h := congrArg (fun μ : Measure ℝ => μ Set.univ) (gammaMeasure_nat_power_bias k p)
+  rw [withDensity_apply _ MeasurableSet.univ, Measure.restrict_univ,
+    Measure.smul_apply, measure_univ] at h
+  simpa only [smul_eq_mul, mul_one] using h
+
+theorem lintegral_gammaMeasure_nat_abs_power (k p : ℕ) :
+    ∫⁻ r, ENNReal.ofReal (|r| ^ p) ∂gammaMeasure ((k + 1 : ℕ) : ℝ) 1 =
+      ENNReal.ofReal (((Nat.factorial (k + p) : ℕ) : ℝ) /
+        ((Nat.factorial k : ℕ) : ℝ)) := by
+  rw [← lintegral_gammaMeasure_nat_power k p]
+  apply lintegral_congr_ae
+  have hp : ∀ᵐ r ∂gammaMeasure ((k + 1 : ℕ) : ℝ) 1, 0 < r :=
+    (gammaMeasure_nat_succ_absolutelyContinuous_positive k).ae_le
+      (ae_restrict_mem measurableSet_Ioi)
+  filter_upwards [hp] with r hr
+  rw [abs_of_pos hr]
+
+end
+end JinWishart
+
+#print axioms JinWishart.gammaPDF_nat_power_shift
+#print axioms JinWishart.gammaMeasure_nat_power_bias
+#print axioms JinWishart.lintegral_gammaMeasure_nat_power
+#print axioms JinWishart.lintegral_gammaMeasure_nat_abs_power
+
+
+FULL SOURCE GaussianSubmatrixLaw.lean
+import JinWishartFormalization.GaussianMatrixBlockLaw
+import Mathlib.MeasureTheory.Constructions.Pi
+
+/-!
+# Actual Gaussian column selections, not only ordered first-column splits
+
+Codex proof bodies; route discussion assisted by Qoder.
+[需人工审查] Finite coordinate marginalization and actual Gaussian variance.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem pi_gaussianReal_map_injective {ι κ : Type*} [Fintype ι] [Fintype κ]
+    (e : κ → ι) (he : Function.Injective e) :
+    (Measure.pi (fun _ : ι => gaussianReal 0 1)).map (fun x => fun i => x (e i)) =
+      Measure.pi (fun _ : κ => gaussianReal 0 1) := by
+  classical
+  letI : Fintype (Set.range e) := Subtype.fintype (fun i => i ∈ Set.range e)
+  let eR : κ ≃ Set.range e := Equiv.ofInjective e he
+  have hs := measurePreserving_piEquivPiSubtypeProd
+    (fun _ : ι => gaussianReal 0 1) (fun i => i ∈ Set.range e)
+  have hp := (measurePreserving_fst
+    (μ := Measure.pi (fun _ : Set.range e => gaussianReal 0 1))
+    (ν := Measure.pi (fun _ : {i : ι // i ∉ Set.range e} => gaussianReal 0 1))).comp hs
+  have hr := measurePreserving_piCongrLeft (fun _ : Set.range e => gaussianReal 0 1) eR
+  exact (hr.symm.comp hp).map_eq
+
+theorem stdGaussian_map_injective_coordinates {ι κ : Type*} [Fintype ι] [Fintype κ]
+    (e : κ → ι) (he : Function.Injective e) :
+    (stdGaussian (EuclideanSpace ℝ ι)).map
+      (fun z => (WithLp.toLp 2 (fun i => z (e i)) : EuclideanSpace ℝ κ)) =
+        stdGaussian (EuclideanSpace ℝ κ) := by
+  rw [← map_pi_eq_stdGaussian, Measure.map_map (by fun_prop) (by fun_prop)]
+  have hf : (fun z : EuclideanSpace ℝ ι =>
+      (WithLp.toLp 2 (fun i => z (e i)) : EuclideanSpace ℝ κ)) ∘ WithLp.toLp 2 =
+      WithLp.toLp 2 ∘ (fun z : ι → ℝ => fun i => z (e i)) := rfl
+  rw [hf, ← Measure.map_map (by fun_prop) (by fun_prop),
+    pi_gaussianReal_map_injective e he, map_pi_eq_stdGaussian]
+
+def sampleColumnSelection {m n k : ℕ} (e : Fin k → Fin n)
+    (z : ComplexSample (m := m) (n := n)) : ComplexSample (m := m) (n := k) :=
+  WithLp.toLp 2 (fun ijl => z ((ijl.1.1, e ijl.1.2), ijl.2))
+
+@[fun_prop]
+theorem measurable_sampleColumnSelection {m n k : ℕ} (e : Fin k → Fin n) :
+    Measurable (sampleColumnSelection (m := m) e) := by
+  unfold sampleColumnSelection
+  fun_prop
+
+theorem stdGaussian_sampleColumnSelection_law {m n k : ℕ}
+    (e : Fin k → Fin n) (he : Function.Injective e) :
+    (stdGaussian (ComplexSample (m := m) (n := n))).map (sampleColumnSelection e) =
+      stdGaussian (ComplexSample (m := m) (n := k)) := by
+  apply stdGaussian_map_injective_coordinates
+  rintro ⟨⟨i, j⟩, l⟩ ⟨⟨i', j'⟩, l'⟩ h
+  simp only [Prod.mk.injEq] at h
+  rcases h with ⟨⟨hi, hj⟩, hl⟩
+  simp only [hi, he hj, hl]
+
+theorem complexSampleMatrix_columnSelection {m n k : ℕ} (e : Fin k → Fin n)
+    (z : ComplexSample (m := m) (n := n)) :
+    complexSampleMatrix (sampleColumnSelection e z) = (complexSampleMatrix z).submatrix id e := by
+  ext i j
+  rfl
+
+theorem complexGram_columnSelection {m n k : ℕ} (e : Fin k → Fin n)
+    (X : Matrix (Fin m) (Fin n) ℂ) :
+    complexGram (X.submatrix id e) = (complexGram X).submatrix e e := by
+  ext i j
+  simp [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.submatrix_apply]
+
+/-- Entire actual principal block distribution for any injective ordered columns. -/
+theorem complexWishart_principalSubmatrix_law {m n k : ℕ}
+    (e : Fin k → Fin n) (he : Function.Injective e) :
+    (complexWishart (m := m) (n := n)).map (fun A => A.submatrix e e) =
+      complexWishart (m := m) (n := k) := by
+  have hf : (fun A : Matrix (Fin n) (Fin n) ℂ => A.submatrix e e) ∘ complexSampleGram =
+      complexSampleGram ∘ sampleColumnSelection (m := m) e := by
+    funext z
+    change (complexGram (complexSampleMatrix z)).submatrix e e = _
+    rw [← complexGram_columnSelection, ← complexSampleMatrix_columnSelection]
+    rfl
+  rw [complexWishart, Measure.map_map (by fun_prop) measurable_complexSampleGram,
+    hf, ← Measure.map_map measurable_complexSampleGram (measurable_sampleColumnSelection e),
+    stdGaussian_sampleColumnSelection_law e he]
+  rfl
+
+end
+end JinWishart
+
+#print axioms JinWishart.pi_gaussianReal_map_injective
+#print axioms JinWishart.stdGaussian_map_injective_coordinates
+#print axioms JinWishart.measurable_sampleColumnSelection
+#print axioms JinWishart.stdGaussian_sampleColumnSelection_law
+#print axioms JinWishart.complexSampleMatrix_columnSelection
+#print axioms JinWishart.complexGram_columnSelection
+#print axioms JinWishart.complexWishart_principalSubmatrix_law
+
+
+FULL SOURCE CentralWishartDeterminantMoments.lean
+import JinWishartFormalization.GammaIntegerMoments
+import JinWishartFormalization.CentralWishartDeterminantProduct
+
+/-!
+# Actual determinant integer moments, all central full-rank shapes
+
+Codex proof bodies, following the principal-minor route discussed with Qoder.
+[需人工审查] Nonnegative Tonelli/product laws and actual determinant convention.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+instance isProbabilityMeasure_centralBartlettGammaProductLaw (d n : ℕ) :
+    IsProbabilityMeasure (centralBartlettGammaProductLaw d n) := by
+  rw [← complexWishart_det_eq_gammaProduct]
+  infer_instance
+
+theorem lintegral_centralBartlettGammaProduct_norm_power (d n p : ℕ) :
+    ∫⁻ z, ENNReal.ofReal (‖z‖ ^ p) ∂centralBartlettGammaProductLaw d n =
+      ∏ j : Fin n, ENNReal.ofReal
+        (((Nat.factorial (d + j.val + p) : ℕ) : ℝ) / ((Nat.factorial (d + j.val) : ℕ) : ℝ)) := by
+  induction n with
+  | zero => simp [centralBartlettGammaProductLaw_zero]
+  | succ n ih =>
+      rw [centralBartlettGammaProductLaw_succ, lintegral_map (by fun_prop) (by fun_prop)]
+      have hf : (fun q : ℝ × ℂ => ENNReal.ofReal (‖(q.1 : ℂ) * q.2‖ ^ p)) =
+          (fun q => ENNReal.ofReal (|q.1| ^ p) * ENNReal.ofReal (‖q.2‖ ^ p)) := by
+        funext q
+        rw [norm_mul, mul_pow, Complex.norm_real, Real.norm_eq_abs,
+          ENNReal.ofReal_mul (by positivity)]
+      change ∫⁻ q : ℝ × ℂ, ENNReal.ofReal (‖(q.1 : ℂ) * q.2‖ ^ p)
+        ∂(gammaMeasure ((d + n + 1 : ℕ) : ℝ) 1).prod (centralBartlettGammaProductLaw d n) = _
+      rw [hf, lintegral_prod_mul (f := fun r : ℝ => ENNReal.ofReal (|r| ^ p))
+        (g := fun z : ℂ => ENNReal.ofReal (‖z‖ ^ p)) (by fun_prop) (by fun_prop),
+        lintegral_gammaMeasure_nat_abs_power, ih, Fin.prod_univ_castSucc]
+      simp only [Fin.val_castSucc, Fin.val_last]
+      rw [mul_comm]
+
+/-- Exact integer absolute determinant moments of the actual Gram distribution. -/
+theorem complexWishart_determinant_norm_moment (d n p : ℕ) :
+    ∫⁻ W, ENNReal.ofReal (‖W.det‖ ^ p) ∂complexWishart (m := d + n) (n := n) =
+      ∏ j : Fin n, ENNReal.ofReal
+        (((Nat.factorial (d + j.val + p) : ℕ) : ℝ) / ((Nat.factorial (d + j.val) : ℕ) : ℝ)) := by
+  rw [← lintegral_centralBartlettGammaProduct_norm_power d n p,
+    ← complexWishart_det_eq_gammaProduct, lintegral_map (by fun_prop) (by fun_prop)]
+
+theorem factorial_ratio_product (d n : ℕ) :
+    (∏ j : Fin n, (((Nat.factorial (d + j.val + 1) : ℕ) : ℝ) /
+      ((Nat.factorial (d + j.val) : ℕ) : ℝ))) =
+      ((Nat.factorial (d + n) : ℕ) : ℝ) / ((Nat.factorial d : ℕ) : ℝ) := by
+  induction n with
+  | zero => simp [show ((Nat.factorial d : ℕ) : ℝ) ≠ 0 by positivity]
+  | succ n ih =>
+      rw [Fin.prod_univ_castSucc]
+      simp only [Fin.val_castSucc, Fin.val_last]
+      rw [ih]
+      have hd : ((Nat.factorial d : ℕ) : ℝ) ≠ 0 := by positivity
+      have hdn : ((Nat.factorial (d + n) : ℕ) : ℝ) ≠ 0 := by positivity
+      field_simp
+      simp only [Nat.add_assoc]
+
+theorem complexWishart_determinant_norm_mean (d n : ℕ) :
+    ∫⁻ W, ENNReal.ofReal ‖W.det‖ ∂complexWishart (m := d + n) (n := n) =
+      ENNReal.ofReal (((Nat.factorial (d + n) : ℕ) : ℝ) /
+        ((Nat.factorial d : ℕ) : ℝ)) := by
+  have h := complexWishart_determinant_norm_moment d n 1
+  simp only [pow_one] at h
+  rw [h, ← ENNReal.ofReal_prod_of_nonneg (fun j _ => by positivity), factorial_ratio_product]
+
+theorem complexWishart_determinant_norm_mean_of_le (t s : ℕ) (hst : s ≤ t) :
+    ∫⁻ W, ENNReal.ofReal ‖W.det‖ ∂complexWishart (m := t) (n := s) =
+      ENNReal.ofReal (((Nat.factorial t : ℕ) : ℝ) /
+        ((Nat.factorial (t - s) : ℕ) : ℝ)) := by
+  simpa only [Nat.sub_add_cancel hst] using complexWishart_determinant_norm_mean (t - s) s
+
+end
+end JinWishart
+
+#print axioms JinWishart.lintegral_centralBartlettGammaProduct_norm_power
+#print axioms JinWishart.isProbabilityMeasure_centralBartlettGammaProductLaw
+#print axioms JinWishart.complexWishart_determinant_norm_moment
+#print axioms JinWishart.factorial_ratio_product
+#print axioms JinWishart.complexWishart_determinant_norm_mean
+#print axioms JinWishart.complexWishart_determinant_norm_mean_of_le

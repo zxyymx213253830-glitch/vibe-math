@@ -1,0 +1,20 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianSubmatrixLaw.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianSubmatrixLaw.lean:27:17: error: Application type mismatch: The argument
+  hp
+has type
+  MeasurePreserving.{u_1, u_1}
+    (Prod.fst ∘ ⇑(MeasurableEquiv.piEquivPiSubtypeProd (fun x => ℝ) fun i => i ∈ Set.range e))
+    (Measure.pi fun x => gaussianReal 0 1) (Measure.pi fun x => gaussianReal 0 1)
+but is expected to have type
+  MeasurePreserving.{?u.99, u_2} ?m.146 ?m.153 (Measure.pi fun i' => gaussianReal 0 1)
+in the application
+  MeasurePreserving.comp hr hp
+'JinWishart.pi_gaussianReal_map_injective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_map_injective_coordinates' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,225 @@
+{
+  "seed": 2026101802,
+  "source_sha256": "bed4b30b46feef1429f84fadc2f5b7d0fc40c11434c0a164926cd94945b06f97",
+  "collected_utc": "2026-10-18T14:07:41.847382+00:00",
+  "records": [
+    {
+      "rows": 2,
+      "columns": 1,
+      "samples": 200000,
+      "trace_Gamma_standard_errors": 0.3621255356169011,
+      "determinant_mean_standard_errors": 0.3621255356169011,
+      "square_Exp_control_standard_errors": -0.2098509864736761,
+      "tails": [
+        {
+          "x": 0.25,
+          "formula_tail": 0.9735009788392561,
+          "empirical_tail": 0.97325,
+          "standard_errors": -0.698825899190864
+        },
+        {
+          "x": 0.75,
+          "formula_tail": 0.8266414672967757,
+          "empirical_tail": 0.827075,
+          "standard_errors": 0.5121599998788163
+        },
+        {
+          "x": 1.5,
+          "formula_tail": 0.5578254003710745,
+          "empirical_tail": 0.556875,
+          "standard_errors": -0.8558064523043556
+        },
+        {
+          "x": 3.0,
+          "formula_tail": 0.19914827347145578,
+          "empirical_tail": 0.199455,
+          "standard_errors": 0.34348043665574307
+        },
+        {
+          "x": 5.0,
+          "formula_tail": 0.0404276819945128,
+          "empirical_tail": 0.040845,
+          "standard_errors": 0.9475537289382199
+        }
+      ],
+      "determinant_polynomial_controls": [
+        {
+          "x": 0.1,
+          "max_relative_error": 3.8875279466369065e-16
+        },
+        {
+          "x": 0.8,
+          "max_relative_error": 3.849601949968788e-16
+        },
+        {
+          "x": 2.0,
+          "max_relative_error": 3.751281471841513e-16
+        }
+      ]
+    },
+    {
+      "rows": 3,
+      "columns": 2,
+      "samples": 200000,
+      "trace_Gamma_standard_errors": -1.5979381451662082,
+      "determinant_mean_standard_errors": -2.61693379326029,
+      "square_Exp_control_standard_errors": -3.177508429103588,
+      "tails": [
+        {
+          "x": 0.125,
+          "formula_tail": 0.9795853599570015,
+          "empirical_tail": 0.979615,
+          "standard_errors": 0.09373500801411895
+        },
+        {
+          "x": 0.375,
+          "formula_tail": 0.8598547405363783,
+          "empirical_tail": 0.858575,
+          "standard_errors": -1.6486754595185427
+        },
+        {
+          "x": 0.75,
+          "formula_tail": 0.6205807579128204,
+          "empirical_tail": 0.618925,
+          "standard_errors": -1.5259946401308602
+        },
+        {
+          "x": 1.5,
+          "formula_tail": 0.2551587253853027,
+          "empirical_tail": 0.252675,
+          "standard_errors": -2.5478948127175354
+        },
+        {
+          "x": 2.5,
+          "formula_tail": 0.06148376636665489,
+          "empirical_tail": 0.060385,
+          "standard_errors": -2.0455929989548687
+        }
+      ],
+      "determinant_polynomial_controls": [
+        {
+          "x": 0.1,
+          "max_relative_error": 1.3453010416753453e-15
+        },
+        {
+          "x": 0.8,
+          "max_relative_error": 8.300752103531444e-16
+        },
+        {
+          "x": 2.0,
+          "max_relative_error": 8.28604291539679e-16
+        }
+      ]
+    },
+    {
+      "rows": 4,
+      "columns": 3,
+      "samples": 200000,
+      "trace_Gamma_standard_errors": -1.1417573792453257,
+      "determinant_mean_standard_errors": 0.3349619184688893,
+      "square_Exp_control_standard_errors": -0.3248819310146525,
+      "tails": [
+        {
+          "x": 0.08333333333333333,
+          "formula_tail": 0.9816886028125184,
+          "empirical_tail": 0.981825,
+          "standard_errors": 0.45495956199813053
+        },
+        {
+          "x": 0.25,
+          "formula_tail": 0.8721559528473423,
+          "empirical_tail": 0.87298,
+          "standard_errors": 1.1036458407386773
+        },
+        {
+          "x": 0.5,
+          "formula_tail": 0.646147755429828,
+          "empirical_tail": 0.6475,
+          "standard_errors": 1.264716972041369
+        },
+        {
+          "x": 1.0,
+          "formula_tail": 0.282126720751229,
+          "empirical_tail": 0.28213,
+          "standard_errors": 0.0032586923243841095
+        },
+        {
+          "x": 1.6666666666666667,
+          "formula_tail": 0.0737014943356756,
+          "empirical_tail": 0.073775,
+          "standard_errors": 0.12581203188792012
+        }
+      ],
+      "determinant_polynomial_controls": [
+        {
+          "x": 0.1,
+          "max_relative_error": 5.2221309063820174e-15
+        },
+        {
+          "x": 0.8,
+          "max_relative_error": 1.5486679195547043e-15
+        },
+        {
+          "x": 2.0,
+          "max_relative_error": 1.2657254385374933e-15
+        }
+      ]
+    },
+    {
+      "rows": 5,
+      "columns": 4,
+      "samples": 200000,
+      "trace_Gamma_standard_errors": 1.801165930732651,
+      "determinant_mean_standard_errors": 2.4773606255650718,
+      "square_Exp_control_standard_errors": 1.7771607469133306,
+      "tails": [
+        {
+          "x": 0.0625,
+          "formula_tail": 0.98275480360403,
+          "empirical_tail": 0.983025,
+          "standard_errors": 0.9281921469615275
+        },
+        {
+          "x": 0.1875,
+          "formula_tail": 0.8785615328615158,
+          "empirical_tail": 0.880205,
+          "standard_errors": 2.250151668391266
+        },
+        {
+          "x": 0.375,
+          "formula_tail": 0.6599867099629597,
+          "empirical_tail": 0.66146,
+          "standard_errors": 1.3908737424278745
+        },
+        {
+          "x": 0.75,
+          "formula_tail": 0.2978229368040533,
+          "empirical_tail": 0.299815,
+          "standard_errors": 1.9481200638486262
+        },
+        {
+          "x": 1.25,
+          "formula_tail": 0.08147059645427412,
+          "empirical_tail": 0.082135,
+          "standard_errors": 1.0861753930069429
+        }
+      ],
+      "determinant_polynomial_controls": [
+        {
+          "x": 0.1,
+          "max_relative_error": 7.257052137677471e-15
+        },
+        {
+          "x": 0.8,
+          "max_relative_error": 2.2408689560026993e-15
+        },
+        {
+          "x": 2.0,
+          "max_relative_error": 2.3237612421874437e-15
+        }
+      ]
+    }
+  ],
+  "status": "PASS actual samples, trace Gamma/square Exp controls and determinant polynomial",
+  "interpretation": "Numerical control only; one-extra-row minimum polynomial still requires proof"
+}

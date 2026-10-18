@@ -1,0 +1,11 @@
+{
+  "library": ".tools/publication-revision-20261016/fresh-project-library",
+  "targets": [
+    {"module":"JinWishartFormalization.GammaIntegerMoments","count":4,"log":"verification/rectangular_minimum/gamma-2.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.GaussianSubmatrixLaw","count":7,"log":"verification/rectangular_minimum/submatrix-4.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.CentralWishartDeterminantMoments","count":6,"log":"verification/rectangular_minimum/moments-6.txt","kernel_exit_code_recorded":0}
+  ],
+  "controls": [{"script":"experiments/rectangular_minimum_one_extra_row_control.py","result":"verification/rectangular_minimum/control.json","seed":2026101802}],
+  "reviews": [{"request":"verification/rectangular_minimum/moments-review-request.json","prompt":"verification/rectangular_minimum/p4-moments-prompt.txt","receipt":"verification/rectangular_minimum/p4-moments.receipt.json","raw":"verification/rectangular_minimum/p4-moments.raw.json","snapshot":"verification/rectangular_minimum/moments-review-snapshot"}],
+  "scope": "Actual arbitrary-column Gaussian and principal Gram submatrix law, Gamma integer power bias/moments, actual all-size central determinant integer moments and mean. No one-extra-row minimum formula proof in this checkpoint yet. Codex proof bodies, Qoder route and cross-family P4; human measure/model review required. No new spectral density assumed; frozen publication unchanged."
+}

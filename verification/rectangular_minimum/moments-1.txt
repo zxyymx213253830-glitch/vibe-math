@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantMoments.lean:30:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (z : ?m.227 × ?m.228), ?m.234 z.1 * ?m.235 z.2 ∂Measure.prod ?m.231 ?m.232
+in the target expression
+  ∫⁻ (q : ℝ × ℂ),
+      ENNReal.ofReal (|q.1| ^ p) *
+        ENNReal.ofReal (‖q.2‖ ^ p) ∂(gammaMeasure (↑(d + n + 1)) 1).prod (centralBartlettGammaProductLaw d n) =
+    ∏ j, ENNReal.ofReal (↑(d + ↑j + p).factorial / ↑(d + ↑j).factorial)
+
+case succ
+d p n : ℕ
+ih :
+  ∫⁻ (z : ℂ), ENNReal.ofReal (‖z‖ ^ p) ∂centralBartlettGammaProductLaw d n =
+    ∏ j, ENNReal.ofReal (↑(d + ↑j + p).factorial / ↑(d + ↑j).factorial)
+hf : (fun q => ENNReal.ofReal (‖↑q.1 * q.2‖ ^ p)) = fun q => ENNReal.ofReal (|q.1| ^ p) * ENNReal.ofReal (‖q.2‖ ^ p)
+⊢ ∫⁻ (q : ℝ × ℂ),
+      ENNReal.ofReal (|q.1| ^ p) *
+        ENNReal.ofReal (‖q.2‖ ^ p) ∂(gammaMeasure (↑(d + n + 1)) 1).prod (centralBartlettGammaProductLaw d n) =
+    ∏ j, ENNReal.ofReal (↑(d + ↑j + p).factorial / ↑(d + ↑j).factorial)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantMoments.lean:30:37: error: `fun_prop` was unable to prove `AEMeasurable ?m.234 ?m.231`
+
+Issues:
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantMoments.lean:30:51: error: `fun_prop` was unable to prove `AEMeasurable ?m.235 ?m.232`
+
+Issues:
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantMoments.lean:42:2: error: No goals to be solved
+'JinWishart.lintegral_centralBartlettGammaProduct_norm_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_determinant_norm_moment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "GammaIntegerMoments.lean": {
+      "sha256": "d334dc747fcbbc5bfcc3d421d144f7810f943591ffac0710ca82f157dd038829",
+      "supplied": "Full source"
+    },
+    "GaussianSubmatrixLaw.lean": {
+      "sha256": "9b49ca5e2c54f0c9349fa2431cbfb34f067a7cbbc2ebd4a4df2e353b2dc80f14",
+      "supplied": "Full source"
+    },
+    "CentralWishartDeterminantMoments.lean": {
+      "sha256": "ac6bb797e36c8026b46173259016ed6588bd0cca7052791a4ab57f54041caa47",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ccbf34e52d4a979f26b7536edb903332fe26f71c5338e108346c25bdf0d2c1a7"
+}

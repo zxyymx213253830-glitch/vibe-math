@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartPrincipalMinorMoments.lean:34:13: warning: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexWishart_principalMinor_norm_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complex_norm_eq_re_of_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_principalMinor_re_mean' depends on axioms: [propext, Classical.choice, Quot.sound]

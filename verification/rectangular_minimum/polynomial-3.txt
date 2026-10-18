@@ -1,0 +1,2 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianShiftDeterminant.lean:29:4: error: `simp` made no progress
+'JinWishart.det_add_scalar_eq_sum_principalMinors' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

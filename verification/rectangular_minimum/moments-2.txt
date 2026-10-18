@@ -1,0 +1,16 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantMoments.lean:30:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SFinite (centralBartlettGammaProductLaw d n)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantMoments.lean:21:14: error: unsolved goals
+d p n : ℕ
+ih :
+  ∫⁻ (z : ℂ), ENNReal.ofReal (‖z‖ ^ p) ∂centralBartlettGammaProductLaw d n =
+    ∏ j, ENNReal.ofReal (↑(d + ↑j + p).factorial / ↑(d + ↑j).factorial)
+hf : (fun q => ENNReal.ofReal (‖↑q.1 * q.2‖ ^ p)) = fun q => ENNReal.ofReal (|q.1| ^ p) * ENNReal.ofReal (‖q.2‖ ^ p)
+⊢ SFinite (centralBartlettGammaProductLaw d n)
+'JinWishart.lintegral_centralBartlettGammaProduct_norm_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_determinant_norm_moment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

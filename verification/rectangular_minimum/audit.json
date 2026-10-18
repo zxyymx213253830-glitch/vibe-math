@@ -1,0 +1,235 @@
+{
+  "collected_utc": "2026-10-18T14:26:52.853994+00:00",
+  "spec_sha256": "073b4b107bf2c55d64d4bfae6c0a546310efca33d1ff764e28223f6757dbd360",
+  "auditor_sha256": "7cdbabdf0692a1e4d4599db5592b9145b9365252cff4264a07f02247c1efe847",
+  "modules": {
+    "JinWishartFormalization.GammaIntegerMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.gammaPDF_nat_power_shift",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.gammaMeasure_nat_power_bias",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.lintegral_gammaMeasure_nat_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.lintegral_gammaMeasure_nat_abs_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "d334dc747fcbbc5bfcc3d421d144f7810f943591ffac0710ca82f157dd038829",
+      "olean_sha256": "8ff809c450719fb6306037b54c758f02450a9d905b69b24ee6c68d493b3b8495",
+      "log_sha256": "d2b0a09696e2975cad3d18231e9312cdf7ede6869e9670c6c40213ab1a4da239",
+      "imports": {
+        "JinWishartFormalization.CentralWishartClosedDensity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartClosedDensity.olean",
+          "sha256": "2843933f5cd247a8856fc9fff58ee1935cdd888ab21c7c2d68f68adcd896696f"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianSubmatrixLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.pi_gaussianReal_map_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.stdGaussian_map_injective_coordinates",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_sampleColumnSelection",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.stdGaussian_sampleColumnSelection_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSampleMatrix_columnSelection",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGram_columnSelection",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_principalSubmatrix_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "9b49ca5e2c54f0c9349fa2431cbfb34f067a7cbbc2ebd4a4df2e353b2dc80f14",
+      "olean_sha256": "cbac9f94a61eb1c96426489774e05eaa75e5eeafdf46c0329ca1ad58cc30e095",
+      "log_sha256": "26a84f3f91666808db9a667002373d72ab218f77de2c4d9f18a79b613c14c537",
+      "imports": {
+        "JinWishartFormalization.GaussianMatrixBlockLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianMatrixBlockLaw.olean",
+          "sha256": "b4e248cd634d3cf90299897e6150d1127d405a5f2aa7214bcb4067f78d65cd52"
+        },
+        "Mathlib.MeasureTheory.Constructions.Pi": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Constructions/Pi.olean",
+          "sha256": "dcff35e6d035e7cd022c81483a1d1db66137b77d37d822f0265693ea679902bb"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartDeterminantMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.isProbabilityMeasure_centralBartlettGammaProductLaw",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.lintegral_centralBartlettGammaProduct_norm_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_determinant_norm_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.factorial_ratio_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_determinant_norm_mean",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_determinant_norm_mean_of_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "ac6bb797e36c8026b46173259016ed6588bd0cca7052791a4ab57f54041caa47",
+      "olean_sha256": "5e03ee3616487eb64ff1676a3af1c1782cea20b687936ff72067d2c69089b9cb",
+      "log_sha256": "62a019f788b006b862f6ff341c786bcb7f3b02d7cb05a4e3892f39c278770c6e",
+      "imports": {
+        "JinWishartFormalization.GammaIntegerMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GammaIntegerMoments.olean",
+          "sha256": "8ff809c450719fb6306037b54c758f02450a9d905b69b24ee6c68d493b3b8495"
+        },
+        "JinWishartFormalization.CentralWishartDeterminantProduct": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartDeterminantProduct.olean",
+          "sha256": "5b64de1085c063b2a62cd9f28c4cb23fbe7bbc342bdcf45095c60f47ea86a919"
+        }
+      }
+    }
+  },
+  "total_declarations": 17,
+  "controls": [
+    {
+      "script": "experiments/rectangular_minimum_one_extra_row_control.py",
+      "script_sha256": "bed4b30b46feef1429f84fadc2f5b7d0fc40c11434c0a164926cd94945b06f97",
+      "result_sha256": "196c95090bdcfd80ef0400e6fbc2f637c8b18701092f64bf8237c1d9eae4b6db",
+      "interpretation": "Reproducible control, not a proof"
+    }
+  ],
+  "reviews": [
+    {
+      "request_sha256": "c4ccad565a6b33707706d5831f15df8c365922f0319aec3a9a830fe7c58c524a",
+      "prompt_sha256": "ccbf34e52d4a979f26b7536edb903332fe26f71c5338e108346c25bdf0d2c1a7",
+      "raw_response_sha256": "fec21d82a24e3fc9f84f3e3c2593fd3d514320a793cda2959ebdde43a3691751",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    }
+  ],
+  "scope": "Actual arbitrary-column Gaussian and principal Gram submatrix law, Gamma integer power bias/moments, actual all-size central determinant integer moments and mean. No one-extra-row minimum formula proof in this checkpoint yet. Codex proof bodies, Qoder route and cross-family P4; human measure/model review required. No new spectral density assumed; frozen publication unchanged.",
+  "human_review": "REQUIRED for stated measure/model interpretation",
+  "full_build": "NOT_RUN",
+  "paper_and_submission": "UNCHANGED",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "status": "PASS specified leaf bundle and bindings"
+}

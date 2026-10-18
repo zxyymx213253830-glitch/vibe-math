@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantMoments.lean:54:9: error: unsolved goals
+case zero
+d : ℕ
+⊢ 1 = ↑d.factorial / ↑d.factorial
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantMoments.lean:55:14: error: unsolved goals
+case succ
+d n : ℕ
+ih : ∏ j, ↑(d + ↑j + 1).factorial / ↑(d + ↑j).factorial = ↑(d + n).factorial / ↑d.factorial
+hd : ↑d.factorial ≠ 0
+hdn : ↑(d + n).factorial ≠ 0
+⊢ ↑(d + n + 1).factorial = ↑(d + (n + 1)).factorial
+'JinWishart.lintegral_centralBartlettGammaProduct_norm_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.isProbabilityMeasure_centralBartlettGammaProductLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_determinant_norm_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.factorial_ratio_product' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_determinant_norm_mean' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_determinant_norm_mean_of_le' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

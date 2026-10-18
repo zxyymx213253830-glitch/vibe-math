@@ -45,6 +45,13 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartMatrixDensity.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartConeMemoryless.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartTraceLaw.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GammaIntegerMoments.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianSubmatrixLaw.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartDeterminantMoments.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/HermitianShiftDeterminant.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartPrincipalMinorMoments.lean -text
+/experiments/rectangular_minimum_one_extra_row_control.py -text
+/verification/rectangular_minimum/** -text whitespace=cr-at-eol
 /experiments/central_wishart_density_step_control.py -text
 /experiments/central_square_minimum_control.py -text
 /verification/central_closed_density/** -text whitespace=cr-at-eol

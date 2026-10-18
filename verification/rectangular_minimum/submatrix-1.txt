@@ -1,0 +1,17 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianSubmatrixLaw.lean:24:85: error: Application type mismatch: The argument
+  hs
+has type
+  MeasurePreserving (⇑(MeasurableEquiv.piEquivPiSubtypeProd (fun x => ℝ) fun i => i ∈ Set.range e))
+    (Measure.pi fun x => gaussianReal 0 1)
+    ((@Measure.pi { i // i ∈ Set.range e } (fun i => ℝ) (Subtype.fintype fun i => i ∈ Set.range e)
+          (fun i => Real.measurableSpace) fun i => gaussianReal 0 1).prod
+      (Measure.pi fun i => gaussianReal 0 1))
+but is expected to have type
+  MeasurePreserving ?m.103 ?m.99
+    ((@Measure.pi (↑(Set.range e)) (fun x => ℝ) (Set.fintypeRange e) (fun i => Real.measurableSpace) fun x =>
+          gaussianReal 0 1).prod
+      (Measure.pi fun x => gaussianReal 0 1))
+in the application
+  MeasurePreserving.comp measurePreserving_fst hs
+'JinWishart.pi_gaussianReal_map_injective' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_map_injective_coordinates' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
