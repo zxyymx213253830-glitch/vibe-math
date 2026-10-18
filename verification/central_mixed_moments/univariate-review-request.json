@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ComplexGaussianMomentFunctional.lean": {
+      "sha256": "ac1764e17c9e5a322209f4659b0489038f971435bae7760d798cf2823dfc2454",
+      "supplied": "Full source"
+    },
+    "CentralMinimumUnivariatePolynomial.lean": {
+      "sha256": "b1480c5299d3d7e5dba85267a029a8cd25d6c863a5e570dabe7385d634bed147",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "78bcea589423c0fc9d4efd66261810f7eb973f9816ecb57cf0b2d51b0ff15c60"
+}

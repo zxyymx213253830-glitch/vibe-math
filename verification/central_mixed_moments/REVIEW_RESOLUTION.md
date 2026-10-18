@@ -176,3 +176,6 @@ The d1/d2 specializations and all noncentral statements were unchanged.
 Noncentral fixedseed2026101906 actual200000 sample controls use known ncx2
 trace moments1,2,3 and shifted Gram determinant powers1,2,3; all pass, not
 proof. No noncentral minimum CDF or closed spectral density is inferred.
+
+
+Final Qoder P4 delivered on exact checked linear/univariate sources: no concrete defect reported; linearity vs multiplicativity, coefficient evaluation commutation and Gram polynomial confirmed within supplied scope. Human measure/model interpretation still required, no independent compile. Raw response and source hashes preserved.

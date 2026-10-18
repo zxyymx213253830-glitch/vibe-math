@@ -1,0 +1,119 @@
+P4 issues-only review. Tools unavailable; DO NOT emit tool calls. Codex proof bodies, final leaf exit0. Full two sources below. Imported proven actual CN polynomial integral equals finite matching-exponent factorial functional, all such polynomials integrable. Check complex linearity vs multiplicativity, coefficientwise integration and polynomial evaluation commutation, correct nested polynomial/Gram determinant and real argument evaluation. This is fixed univariate polynomial representation, NOT claimed degree bound or original paper determinant identity. Human measure/model interpretation remains required; no independent compile.
+
+FULL ComplexGaussianMomentFunctional.lean
+import JinWishartFormalization.ComplexGaussianPolynomialMoments
+import Mathlib.Algebra.Polynomial.Eval.Defs
+
+/-!
+# Gaussian factorial integration as a linear functional
+
+Codex proofs. It is not a ring homomorphism. The associated coefficient map
+on univariate polynomials commutes with scalar evaluation.
+[需人工审查] Interpretation inherited from the actual product-law integral.
+-/
+open MeasureTheory ProbabilityTheory
+open scoped BigOperators
+namespace JinWishart
+noncomputable section
+
+def complexGaussianMomentLinear {ι : Type*} [Fintype ι] :
+    MvPolynomial (ι ⊕ ι) ℂ →ₗ[ℂ] ℂ where
+  toFun := complexGaussianPolynomialMoment
+  map_add' P Q := by
+    simp_rw [← integral_complexGaussian_polynomial]
+    have he : complexGaussianPolynomialEval (P+Q) =
+        fun z => complexGaussianPolynomialEval P z+complexGaussianPolynomialEval Q z := by
+      funext z
+      exact map_add _ _ _
+    rw [he]
+    exact integral_add (integrable_complexGaussian_polynomial P)
+      (integrable_complexGaussian_polynomial Q)
+  map_smul' a P := by
+    simp_rw [← integral_complexGaussian_polynomial]
+    have he : complexGaussianPolynomialEval (a • P) =
+        fun z => a * complexGaussianPolynomialEval P z := by
+      funext z
+      exact MvPolynomial.eval₂Hom_smul _ _ _ _
+    rw [he,integral_const_mul]
+    rfl
+
+def complexGaussianIntegratedPolynomial {ι : Type*} [Fintype ι]
+    (P : Polynomial (MvPolynomial (ι ⊕ ι) ℂ)) : Polynomial ℂ :=
+  ∑ k ∈ P.support, Polynomial.monomial k (complexGaussianPolynomialMoment (P.coeff k))
+
+theorem complexGaussianIntegratedPolynomial_eval {ι : Type*} [Fintype ι]
+    (P : Polynomial (MvPolynomial (ι ⊕ ι) ℂ)) (x : ℂ) :
+    (complexGaussianIntegratedPolynomial P).eval x =
+      complexGaussianPolynomialMoment (P.eval₂ (RingHom.id _) (MvPolynomial.C x)) := by
+  classical
+  change (complexGaussianIntegratedPolynomial P).eval x = complexGaussianMomentLinear _
+  rw [Polynomial.eval₂_eq_sum,Polynomial.sum_def,map_sum]
+  unfold complexGaussianIntegratedPolynomial
+  simp only [Polynomial.eval_finsetSum,Polynomial.eval_monomial]
+  apply Finset.sum_congr rfl
+  intro k _
+  rw [← MvPolynomial.C_pow]
+  simp only [RingHom.id_apply]
+  rw [show P.coeff k * MvPolynomial.C (x^k) = (x^k) • P.coeff k by
+    rw [mul_comm,MvPolynomial.C_mul']]
+  rw [complexGaussianMomentLinear.map_smul]
+  change complexGaussianPolynomialMoment (P.coeff k) * x^k =
+    x^k * complexGaussianPolynomialMoment (P.coeff k)
+  ring
+
+end
+end JinWishart
+#print axioms JinWishart.complexGaussianIntegratedPolynomial_eval
+#print axioms JinWishart.complexGaussianMomentLinear
+
+FULL CentralMinimumUnivariatePolynomial.lean
+import JinWishartFormalization.ComplexGaussianMomentFunctional
+import JinWishartFormalization.CentralRectangularMinimumPolynomial
+
+/-! A single fixed univariate coefficient polynomial for the general minimum law.
+Codex proofs. No probability integrals in its coefficient definition.
+[需人工审查] Inherited actual-law correspondence.
+-/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+def shiftedGramPolynomialInX (n d : ℕ) : Polynomial (ComplexMatrixPolynomial n n) :=
+  ((gramEntryPolynomial n n).map Polynomial.C +
+    (Polynomial.X : Polynomial (ComplexMatrixPolynomial n n)) • 1).det^d
+
+theorem shiftedGramPolynomialInX_eval (n d : ℕ) (x : ℝ) :
+    (shiftedGramPolynomialInX n d).eval₂ (RingHom.id _) (MvPolynomial.C (x : ℂ)) =
+      shiftedGramDeterminantPolynomial n n d x := by
+  classical
+  let e := Polynomial.eval₂RingHom (RingHom.id (ComplexMatrixPolynomial n n))
+    (MvPolynomial.C (x : ℂ))
+  change e (((gramEntryPolynomial n n).map Polynomial.C+
+    (Polynomial.X : Polynomial (ComplexMatrixPolynomial n n)) • 1).det^d) = _
+  rw [map_pow,e.map_det]
+  unfold shiftedGramDeterminantPolynomial
+  congr 2
+  ext i j
+  simp [e,Matrix.map_apply,Matrix.smul_apply,Matrix.one_apply]
+  split_ifs <;> simp
+
+def centralMinimumUnivariatePolynomial (d n : ℕ) : Polynomial ℂ :=
+  complexGaussianIntegratedPolynomial (shiftedGramPolynomialInX n d)
+
+theorem centralMinimumUnivariatePolynomial_eval (d n : ℕ) (x : ℝ) :
+    (centralMinimumUnivariatePolynomial d n).eval (x : ℂ) =
+      complexGaussianPolynomialMoment (shiftedGramDeterminantPolynomial n n d x) := by
+  rw [centralMinimumUnivariatePolynomial,complexGaussianIntegratedPolynomial_eval,
+    shiftedGramPolynomialInX_eval]
+
+theorem centralRectangularMinimumPolynomial_eq_univariate (d n : ℕ) (x : ℝ) :
+    centralRectangularMinimumPolynomial d n x = (centralDeterminantPowerMoment 0 n d)⁻¹ *
+      ((centralMinimumUnivariatePolynomial d n).eval (x : ℂ)).re := by
+  rw [centralMinimumUnivariatePolynomial_eval]
+  rfl
+
+end
+end JinWishart
+#print axioms JinWishart.shiftedGramPolynomialInX_eval
+#print axioms JinWishart.centralMinimumUnivariatePolynomial_eval
+#print axioms JinWishart.centralRectangularMinimumPolynomial_eq_univariate
