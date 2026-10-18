@@ -1,0 +1,7 @@
+'JinWishart.isProbabilityMeasure_standardComplexColumnLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_matrixColumnSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_columnSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleMatrix_transpose_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_matrixRowSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_rowSplit' depends on axioms: [propext, Classical.choice, Quot.sound]

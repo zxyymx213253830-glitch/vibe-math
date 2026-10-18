@@ -1,0 +1,12 @@
+{
+  "collected_utc": "2026-10-18T05:54:18.452982+00:00",
+  "kernel_exit_code_recorded": 0,
+  "execution_evidence": "Previous live unified session 91682 completed with exit0; archived by coordinator. Log ring tactic suggestions are nonfatal diagnostics.",
+  "scope": "Main facade with cached checked project and external dependencies; NOT full Lake/mathlib build",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
+  "log": "verification/central_bartlett_step/facade-bartlett.txt",
+  "compiled": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization.olean",
+  "source_sha256": "2816b0f1f64af09a7f979e6ef1245e32a7e381a0d2b76f5692c132eaa357a6ba",
+  "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+  "compiled_sha256": "1b5b3e79392740aaf237dbc0656626e5e2803a01cd7a82ba7c9ff332d1119ef5"
+}

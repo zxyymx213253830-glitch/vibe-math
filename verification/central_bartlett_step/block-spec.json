@@ -1,0 +1,14 @@
+{
+  "library": ".tools/publication-revision-20261016/fresh-project-library",
+  "targets": [
+    {"module":"JinWishartFormalization.GaussianMatrixBlockLaw","count":7,"log":"verification/central_bartlett_step/matrix-block-3.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.GaussianBartlettFiber","count":9,"log":"verification/central_bartlett_step/bartlett-fiber-3.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.GaussianBartlettBlockLaw","count":4,"log":"verification/central_bartlett_step/bartlett-block-1.txt","kernel_exit_code_recorded":0}
+  ],
+  "controls":[{"script":"experiments/central_bartlett_step_control.py","result":"verification/central_bartlett_step/control.json","seed":20261017}],
+  "reviews":[
+    {"request":"verification/central_bartlett_step/block-review-request.json","prompt":"verification/central_bartlett_step/p4-block-prompt.txt","receipt":"verification/central_bartlett_step/p4-block.receipt.json","raw":"verification/central_bartlett_step/p4-block.raw.json","snapshot":"verification/central_bartlett_step/block-review-snapshot"},
+    {"request":"verification/central_bartlett_step/block-followup-review-request.json","prompt":"verification/central_bartlett_step/p4-block-followup-prompt.txt","receipt":"verification/central_bartlett_step/p4-block-followup.receipt.json","raw":"verification/central_bartlett_step/p4-block-followup.raw.json","snapshot":"verification/central_bartlett_step/block-review-snapshot"}
+  ],
+  "scope":"Actual CENTRAL joint Bartlett block law Gamma(m+1,rate1) x CN(n) x actual Wishart(m,n), every m,n including singular residuals; not a matrix or spectral density. Review received, not blanket approval: original conjugation suggestion refuted exactly and follow-up parameter concerns resolved from locked definitions; human review required. See BLOCK_REVIEW_RESOLUTION.md."
+}

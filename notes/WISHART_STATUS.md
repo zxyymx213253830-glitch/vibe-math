@@ -119,3 +119,5 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-17 同一实际m×(n+1)样本的首列/剩余列独立拆分、sqrt2方差精确换算、首列投影/残差Gamma乘积律十声明PASS；实际满秩前提已经消去。证据verification/gaussian_column_append/audit.json，Qoder限定P4无具体错误，索引疑问由已证rfl点态身份回答，仍需人审。一般Bartlett矩阵步三形状各200000固定seed控制PASS（非证明），按实读skew_product选固定纤维存在框架路线；Qoder covariance捷径和可测选择疑虑已在notes/CENTRAL_BARTLETT_ROUTE.md纠正。矩阵步/密度/G2仍开放，未改论文/投稿包。
 
 2026-10-17 一般Bartlett基础继续闭合：固定非零复列的存在酉框架4声明、全矩阵逐列固定酉作用/实际中央矩阵Gaussian律不变/Gram不变8声明，均默认Lean设置及标准三公理PASS。无全局可测框架选择声明；Qoder真实P4限定范围无阻断问题，仍需人审。统一验收工具与frame-spec.json绑定12声明、控制和审查快照，verification/central_bartlett_step/frame-audit.json。下一步实际行列完整块乘积律在核验；完整联合残余Gram Bartlett律/密度/G2未闭合。
+
+2026-10-18 接续归档：上次一般中央Bartlett完整块联合律已闭合，GaussianMatrixBlockLaw/Fiber/BlockLaw共20声明内核PASS标准三公理；实际(r,z,B)律为Gamma(m+1,rate1)×CN(n)×实际Wishart(m,n)，包含整个残余矩阵及联合独立性，所有自然维数有效。变化主入口退出0，非完整Lake构建。Qoder两次真实P4均保留：首份错误共轭建议被精确反例和已证Gram分块式否定，后续率/尺度及零维疑虑按锁定定义澄清，不冒称无条件审查通过；测度/方差/模型仍[需人工审查]。审计block-audit.json绑定源码/编译/日志/审查；Gram重构、一般Jacobian/实际矩阵密度/G2仍开放，论文及投稿包未更新。

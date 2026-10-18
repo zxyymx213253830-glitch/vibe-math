@@ -43,6 +43,30 @@ This general auditor checks leaf logs, all public printed names, source and
 compiled/dependency hashes, controls and exact supplied review snapshots.
 It does not run a full build or human review. Frozen paper/release unchanged.
 
-Further actual row/column block transport is being developed separately;
-compiler attempts alone are not acceptance. The complete joint residual-Gram
-law, matrix Jacobian and actual general Wishart density/G2 are not claimed.
+## Actual complete joint block-law milestone
+
+GaussianMatrixBlockLaw (7), GaussianBartlettFiber (9), and
+GaussianBartlettBlockLaw (4) now PASS their final leaf checks. The actual
+central (m+1)-by-(n+1) matrix maps to `(r,z,B)` with joint law
+Gamma(m+1,rate1) x CN(0,I_n) x actual complexWishart(rows=m,columns=n).
+Here r=||u||^2, z is the ROW of normalized inner products and
+B=V^H V-z^H z. Mutual independence and the ENTIRE residual matrix law are
+proved. Zero first column is excluded by its actual Gamma norm law. This
+holds for all natural m,n; singular residual shapes are probability laws too.
+
+The first model report incorrectly proposed swapping conjugation; the exact
+control shows its proposed residual has eigenvalues -2,+2. The follow-up's
+rate/scale warning is resolved by the actual PDF exp(-r*x), with r=1 here.
+Both unedited reports and the detailed resolution remain archived. They are
+not presented as unqualified model approval or human review.
+
+`block-spec.json` / `block-audit.json` bind the 20 final leaf declarations and
+both actual reviews. `facade-receipt.json` separately records the real exit0
+main-entry check after adding the new block law and general positive support.
+Its ring suggestions are diagnostics, not errors. This is a cached-dependency
+entry check, NOT a full Lake/mathlib rebuild.
+
+The missing generic Gram reconstruction / full-dimensional change of variables
+and actual general matrix density/G2 remain OPEN. Earlier paragraphs describing
+the joint block law as open record the pre-milestone route and are superseded
+by this explicit final status. Paper and submission archives remain unchanged.

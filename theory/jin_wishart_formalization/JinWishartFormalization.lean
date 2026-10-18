@@ -1,3 +1,5 @@
+import JinWishartFormalization.GaussianBartlettBlockLaw
+import JinWishartFormalization.GaussianGramSupport
 import JinWishartFormalization.GaussianOrthogonalSplitLaw
 import JinWishartFormalization.GaussianOrthogonalProjectionLaw
 import JinWishartFormalization.CentralWishartConeIntegral

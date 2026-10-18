@@ -1,0 +1,268 @@
+{
+  "collected_utc": "2026-10-18T05:54:18.804351+00:00",
+  "spec_sha256": "2288bb46b63a89ed85723300414761d409459c54e3a42a0102b1ea9dba4cdfa2",
+  "auditor_sha256": "7cdbabdf0692a1e4d4599db5592b9145b9365252cff4264a07f02247c1efe847",
+  "modules": {
+    "JinWishartFormalization.GaussianMatrixBlockLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.isProbabilityMeasure_standardComplexColumnLaw",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_matrixColumnSplit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGaussianMatrixLaw_columnSplit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexSampleMatrix_transpose_reindex",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGaussianMatrixLaw_transpose",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_matrixRowSplit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGaussianMatrixLaw_rowSplit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "abe38db8a32598875d51774bc2d35fa5d64f885c531a14d8160126a75a5a2c79",
+      "olean_sha256": "b4e248cd634d3cf90299897e6150d1127d405a5f2aa7214bcb4067f78d65cd52",
+      "log_sha256": "ccffb4355f5c52e50521b156ea0b15dc2d61e7f8c3b53b9f8e4407e28c01fe2c",
+      "imports": {
+        "JinWishartFormalization.GaussianColumnAppendLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianColumnAppendLaw.olean",
+          "sha256": "1b0dff0a4021812ab1a07f5ff294b88b297a18508030c41dd0cef3e8428fbf44"
+        },
+        "JinWishartFormalization.GaussianComplexMatrixFrame": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianComplexMatrixFrame.olean",
+          "sha256": "69dbdbad46b6f50a61b627b1b86c4d24fc17833e47657453a5a7597fbaf0b6b5"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianBartlettFiber": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_complexGram_map",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_normalizedColumnCoefficients",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_projectedResidualGram",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGram_firstRow_split",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.normalizedColumnCoefficients_frame",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.projectedResidualGram_frame",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGaussianMatrixLaw_map_gram",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_centralBartlettFiber",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettFiber_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "1edf14796c8233bf7d21107b3c023a70b1b8b920beef16a6408a934a2937b36f",
+      "olean_sha256": "73ef9284444b233bcea14deb8df71b8f9cc16d41eb53af23508516c73f5373ad",
+      "log_sha256": "45a0a28594fba3f3c783146a88aafeb4837e09a111b34a33966564d5b68d284e",
+      "imports": {
+        "JinWishartFormalization.GaussianMatrixBlockLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianMatrixBlockLaw.olean",
+          "sha256": "b4e248cd634d3cf90299897e6150d1127d405a5f2aa7214bcb4067f78d65cd52"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianBartlettBlockLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.standardComplexColumnLaw_norm_sq_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.standardComplexColumnLaw_nonzero_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlett_product_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualCentralBartlett_block_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "aafb2c941cbeca4de57c4d9edb7b1b97526962bd93dc0ddeb70ca69ea544cd87",
+      "olean_sha256": "98c31647ac6a03bd7098e2b243995811983cd6b2fb7ae41698f1a9a7317fb3e7",
+      "log_sha256": "bfb29c3c6405fc996f4fe37d20157ae55df2db2f211827a1d3bb9f18189a8443",
+      "imports": {
+        "JinWishartFormalization.GaussianBartlettFiber": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianBartlettFiber.olean",
+          "sha256": "73ef9284444b233bcea14deb8df71b8f9cc16d41eb53af23508516c73f5373ad"
+        }
+      }
+    }
+  },
+  "total_declarations": 20,
+  "controls": [
+    {
+      "script": "experiments/central_bartlett_step_control.py",
+      "script_sha256": "80fd1ba86f8040a7aeaed15bbb3e4d89eb085a022c9f770e175b4da55aa8b8cf",
+      "result_sha256": "d0ae13a0760c9b501f49878c3195eb68d965bd7a754a96658a58a7586074f36f",
+      "interpretation": "Reproducible control, not a proof"
+    }
+  ],
+  "reviews": [
+    {
+      "request_sha256": "b5b484bbda3954bb67fde41618dec55b965bd800460977519a83da5215f104cb",
+      "prompt_sha256": "ca805adf67cdaf17a17fdcf7aa71f094dd9b0b1e4a14a17b6353d83b3a286725",
+      "raw_response_sha256": "a6d9cec7b569ef3cea5ff16f93600f4c23d28927cef775608e506905f548da85",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "9adf713ee9287dca8b8e49e6cce290b263b820885240fdd3ae80ff93943c7f7a",
+      "prompt_sha256": "fa014a581a939f53733c2c283b43c1751efff2f6200f6dbc02b20d2a05029cd6",
+      "raw_response_sha256": "9aef9358c14fcfcaa935c2f346b2e5ab61c4d2cfacefd6c7855fe6ca00b6b7a3",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    }
+  ],
+  "scope": "Actual CENTRAL joint Bartlett block law Gamma(m+1,rate1) x CN(n) x actual Wishart(m,n), every m,n including singular residuals; not a matrix or spectral density. Review received, not blanket approval: original conjugation suggestion refuted exactly and follow-up parameter concerns resolved from locked definitions; human review required. See BLOCK_REVIEW_RESOLUTION.md.",
+  "human_review": "REQUIRED for stated measure/model interpretation",
+  "full_build": "NOT_RUN",
+  "paper_and_submission": "UNCHANGED",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "status": "PASS specified leaf bundle and bindings"
+}

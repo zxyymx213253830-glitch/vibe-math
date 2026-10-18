@@ -1,0 +1,36 @@
+{
+  "inputs": {
+    "GaussianMatrixBlockLaw.lean": {
+      "sha256": "abe38db8a32598875d51774bc2d35fa5d64f885c531a14d8160126a75a5a2c79",
+      "supplied": "Full source"
+    },
+    "GaussianBartlettFiber.lean": {
+      "sha256": "1edf14796c8233bf7d21107b3c023a70b1b8b920beef16a6408a934a2937b36f",
+      "supplied": "Full source"
+    },
+    "GaussianBartlettBlockLaw.lean": {
+      "sha256": "aafb2c941cbeca4de57c4d9edb7b1b97526962bd93dc0ddeb70ca69ea544cd87",
+      "supplied": "Full source"
+    },
+    "GaussianComplexFrameExists.lean": {
+      "sha256": "8c082bb61f3eb2867422f4b49dc00bccbcd864a54da586f8fb76ddd3a6456ee9",
+      "supplied_line_ranges": [
+        [
+          18,
+          57
+        ]
+      ]
+    },
+    "GaussianComplexMatrixFrame.lean": {
+      "sha256": "f397e4f30ca759374d8d631102a70e4157118551a304254ff7135046bcb1e7a3",
+      "supplied_line_ranges": [
+        [
+          100,
+          129
+        ]
+      ]
+    }
+  },
+  "prompt_sha256": "ca805adf67cdaf17a17fdcf7aa71f094dd9b0b1e4a14a17b6353d83b3a286725",
+  "skew_product_source_sha256": "67a2d041fe427a8130baafa52a336af4a68a0c3f5d72bb72fd8db3216a188051"
+}

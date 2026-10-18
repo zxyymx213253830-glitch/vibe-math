@@ -1,0 +1,507 @@
+P4 stringent mathematical/semantic review, another model family from proof author Codex.
+Report only concrete issues, not a rewrite, max500words. No tools or independent compilation.
+ALL 20 declarations in the three supplied final files passed local Lean standard-axiom checks.
+Main claim: actual CENTRAL CN(0,1) matrix of (m+1)x(n+1), extract u=first column,V=remaining,
+r=||u||^2,z_j=<u,V_j>/||u||,B=V^H V-z^H z. Actual joint law is Gamma(m+1,rate1)
+product standardComplexColumnLaw(n) product complexWishart(rows=m,cols=n).
+This must be a law for the ENTIRE B, not only trace/determinant. n and m may be zero; when
+m<n residual Wishart is singular but remains a well-defined probability law. No density claim.
+The frame for each fixed u is complex-unitary, chosen only inside fixed-fiber proof. The joint
+observable is explicitly measurable with division interpreted totally at u=0; u=0 is null
+since m+1>0. No jointly measurable selection is claimed. Do not mistake this proof architecture
+for a missing measurable QR hypothesis: the exact skew_product signature is supplied.
+Check real Gaussian vs CN variance, row-vs-column indexing, mean=0 restriction, u=0 exception,
+entire fiber constancy and mutual independence. No candidate density is an assumption.
+Fixed-frame existence/invariance and Gamma radial integration are kernel dependencies, only
+selected support is supplied, not a full re-review of them. Human review remains required.
+
+FILE GaussianMatrixBlockLaw.lean
+import JinWishartFormalization.GaussianColumnAppendLaw
+import JinWishartFormalization.GaussianComplexMatrixFrame
+
+/-!
+# Actual first-row and first-column block laws for complex Gaussian matrices
+
+Codex proofs. Disjoint source coordinates give independence of the full
+remaining matrix and the fresh CN(0,1) vector. Transposition transports the
+column statement to a row statement without another integration argument.
+[需人工审查] Finite coordinate transport and variance convention. No Bartlett
+matrix step or Wishart density is assumed here.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def standardComplexColumnLaw (m : ℕ) : Measure (EuclideanSpace ℂ (Fin m)) :=
+  (stdGaussian (EuclideanSpace ℂ (Fin m))).map (fun v => (Real.sqrt 2)⁻¹ • v)
+
+instance isProbabilityMeasure_standardComplexColumnLaw (m : ℕ) :
+    IsProbabilityMeasure (standardComplexColumnLaw m) := by
+  unfold standardComplexColumnLaw
+  infer_instance
+
+def matrixColumnSplit {m n : ℕ} (A : Matrix (Fin m) (Fin (n + 1)) ℂ) :
+    EuclideanSpace ℂ (Fin m) × Matrix (Fin m) (Fin n) ℂ :=
+  (complexMatrixColumn A 0, fun i j => A i j.succ)
+
+@[fun_prop]
+theorem measurable_matrixColumnSplit (m n : ℕ) :
+    Measurable (matrixColumnSplit (m := m) (n := n)) := by
+  unfold matrixColumnSplit complexMatrixColumn
+  fun_prop
+
+theorem complexGaussianMatrixLaw_columnSplit (m n : ℕ) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin (n + 1)) ℂ)).map matrixColumnSplit =
+      (standardComplexColumnLaw m).prod
+        (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)) := by
+  let F : ComplexSample (m := m) (n := n) × EuclideanSpace ℂ (Fin m) →
+      EuclideanSpace ℂ (Fin m) × Matrix (Fin m) (Fin n) ℂ :=
+    fun p => ((Real.sqrt 2)⁻¹ • p.2, complexSampleMatrix p.1 + 0)
+  have hScale : Measurable
+      (fun p : ComplexSample (m := m) (n := n) × EuclideanSpace ℂ (Fin m) =>
+        (Real.sqrt (2 : ℝ))⁻¹ • p.2) := by fun_prop
+  have hF : Measurable F := by
+    simpa only [F, Function.comp_def] using hScale.prodMk
+      ((measurable_shiftedComplexSampleMatrix (0 : Matrix (Fin m) (Fin n) ℂ)).comp
+        measurable_fst)
+  have hS : Measurable (fun v : EuclideanSpace ℂ (Fin m) => (Real.sqrt 2)⁻¹ • v) := by
+    fun_prop
+  have hProd := (measurable_shiftedComplexSampleMatrix
+    (0 : Matrix (Fin m) (Fin n) ℂ)).prodMap hS
+  have hProduct : ((stdGaussian (ComplexSample (m := m) (n := n))).prod
+      (stdGaussian (EuclideanSpace ℂ (Fin m)))).map F =
+      (standardComplexColumnLaw m).prod
+        (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)) := by
+    change ((stdGaussian (ComplexSample (m := m) (n := n))).prod
+      (stdGaussian (EuclideanSpace ℂ (Fin m)))).map
+      (Prod.swap ∘ Prod.map (fun z => complexSampleMatrix z + 0)
+        (fun v => (Real.sqrt 2)⁻¹ • v)) = _
+    rw [← Measure.map_map measurable_swap hProd,
+      ← Measure.map_prod_map _ _ (measurable_shiftedComplexSampleMatrix
+        (0 : Matrix (Fin m) (Fin n) ℂ)) hS, Measure.prod_swap]
+    rfl
+  have hpoint (z : ComplexSample (m := m) (n := n + 1)) :
+      matrixColumnSplit (complexSampleMatrix z + 0) = F (firstColumnSplit z) := by
+    apply Prod.ext
+    · change complexMatrixColumn (complexSampleMatrix z + 0) 0 =
+        (Real.sqrt 2)⁻¹ • (firstColumnSplit z).2
+      rw [add_zero, firstColumnSplit_fresh]
+      have hs : (Real.sqrt (2 : ℝ)) ≠ 0 := by positivity
+      simp only [smul_smul, inv_mul_cancel₀ hs, one_smul]
+      rfl
+    · ext i j
+      simp only [matrixColumnSplit, F, Matrix.add_apply, Matrix.zero_apply, add_zero]
+      exact (firstColumnSplit_previous_apply z i j).symm
+  change ((stdGaussian (ComplexSample (m := m) (n := n + 1))).map
+    (fun z => complexSampleMatrix z + 0)).map matrixColumnSplit = _
+  rw [Measure.map_map (measurable_matrixColumnSplit m n)
+    (measurable_shiftedComplexSampleMatrix _)]
+  have hfun : matrixColumnSplit ∘ (fun z : ComplexSample (m := m) (n := n + 1) =>
+      complexSampleMatrix z + 0) = F ∘ firstColumnSplit := funext hpoint
+  rw [hfun, ← Measure.map_map hF (measurable_firstColumnSplit m n), firstColumnSplit_law]
+  exact hProduct
+
+def complexSampleTransposeReindex (m n : ℕ) :
+    ComplexSample (m := m) (n := n) ≃ₗᵢ[ℝ] ComplexSample (m := n) (n := m) :=
+  LinearIsometryEquiv.piLpCongrLeft 2 ℝ ℝ
+    (Equiv.prodCongr (Equiv.prodComm (Fin m) (Fin n)) (Equiv.refl (Fin 2)))
+
+theorem complexSampleMatrix_transpose_reindex {m n : ℕ}
+    (z : ComplexSample (m := m) (n := n)) :
+    complexSampleMatrix (complexSampleTransposeReindex m n z) = (complexSampleMatrix z)ᵀ := by
+  rfl
+
+theorem complexGaussianMatrixLaw_transpose (m n : ℕ) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)).map Matrix.transpose =
+      complexGaussianMatrixLaw (0 : Matrix (Fin n) (Fin m) ℂ) := by
+  change ((stdGaussian (ComplexSample (m := m) (n := n))).map
+    (fun z => complexSampleMatrix z + 0)).map Matrix.transpose = _
+  rw [Measure.map_map (by fun_prop) (measurable_shiftedComplexSampleMatrix _)]
+  have hfun : Matrix.transpose ∘ (fun z : ComplexSample (m := m) (n := n) =>
+      complexSampleMatrix z + 0) =
+      (fun z => complexSampleMatrix z + (0 : Matrix (Fin n) (Fin m) ℂ)) ∘
+        complexSampleTransposeReindex m n := by
+    funext z
+    simp only [Function.comp_def, add_zero, complexSampleMatrix_transpose_reindex]
+  rw [hfun, ← Measure.map_map (measurable_shiftedComplexSampleMatrix _)
+    (complexSampleTransposeReindex m n).continuous.measurable, stdGaussian_map]
+  rfl
+
+def matrixFirstRow {m n : ℕ} (A : Matrix (Fin (m + 1)) (Fin n) ℂ) :
+    EuclideanSpace ℂ (Fin n) := WithLp.toLp 2 (fun j => A 0 j)
+
+def matrixRemainingRows {m n : ℕ} (A : Matrix (Fin (m + 1)) (Fin n) ℂ) :
+    Matrix (Fin m) (Fin n) ℂ := fun i j => A i.succ j
+
+def matrixRowSplit {m n : ℕ} (A : Matrix (Fin (m + 1)) (Fin n) ℂ) :
+    EuclideanSpace ℂ (Fin n) × Matrix (Fin m) (Fin n) ℂ :=
+  (matrixFirstRow A, matrixRemainingRows A)
+
+@[fun_prop]
+theorem measurable_matrixRowSplit (m n : ℕ) :
+    Measurable (matrixRowSplit (m := m) (n := n)) := by
+  unfold matrixRowSplit matrixFirstRow matrixRemainingRows
+  fun_prop
+
+/-- Full joint first-row / lower-matrix law in arbitrary dimensions. -/
+theorem complexGaussianMatrixLaw_rowSplit (m n : ℕ) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin n) ℂ)).map matrixRowSplit =
+      (standardComplexColumnLaw n).prod
+        (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)) := by
+  have hfun : (matrixRowSplit (m := m) (n := n)) =
+      Prod.map id Matrix.transpose ∘ matrixColumnSplit ∘ Matrix.transpose := rfl
+  rw [hfun, ← Measure.map_map (by fun_prop) (by fun_prop),
+    ← Measure.map_map (measurable_matrixColumnSplit n m) (by fun_prop),
+    complexGaussianMatrixLaw_transpose, complexGaussianMatrixLaw_columnSplit,
+    ← Measure.map_prod_map _ _ measurable_id (by fun_prop),
+    Measure.map_id, complexGaussianMatrixLaw_transpose]
+
+end
+end JinWishart
+
+#print axioms JinWishart.isProbabilityMeasure_standardComplexColumnLaw
+#print axioms JinWishart.measurable_matrixColumnSplit
+#print axioms JinWishart.complexGaussianMatrixLaw_columnSplit
+#print axioms JinWishart.complexSampleMatrix_transpose_reindex
+#print axioms JinWishart.complexGaussianMatrixLaw_transpose
+#print axioms JinWishart.measurable_matrixRowSplit
+#print axioms JinWishart.complexGaussianMatrixLaw_rowSplit
+
+FILE GaussianBartlettFiber.lean
+import JinWishartFormalization.GaussianMatrixBlockLaw
+
+/-!
+# The full fixed-column Gaussian Bartlett fiber, not just residual trace
+
+Codex proofs. For each fixed nonzero u, use one existential complex unitary
+inside the proof. The observable itself is the explicit measurable normalized
+inner-product vector and residual Gram. A measurable family of frames is
+neither assumed nor constructed. [需人工审查] Joint measurability, complex
+inner-product convention and the future skew-product application.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def normalizedColumnCoefficients {m n : ℕ} (u : EuclideanSpace ℂ (Fin (m + 1)))
+    (V : Matrix (Fin (m + 1)) (Fin n) ℂ) : EuclideanSpace ℂ (Fin n) :=
+  WithLp.toLp 2 (fun j => inner ℂ u (complexMatrixColumn V j) / (‖u‖ : ℂ))
+
+def complexVectorGramRankOne {n : ℕ} (z : EuclideanSpace ℂ (Fin n)) :
+    Matrix (Fin n) (Fin n) ℂ := fun j k => star (z j) * z k
+
+def projectedResidualGram {m n : ℕ} (u : EuclideanSpace ℂ (Fin (m + 1)))
+    (V : Matrix (Fin (m + 1)) (Fin n) ℂ) : Matrix (Fin n) (Fin n) ℂ :=
+  complexGram V - complexVectorGramRankOne (normalizedColumnCoefficients u V)
+
+theorem measurable_complexGram_map (m n : ℕ) :
+    Measurable (complexGram (m := m) (n := n)) := by
+  exact (show Continuous (fun A : Matrix (Fin m) (Fin n) ℂ => Aᴴ * A) by fun_prop).measurable
+
+theorem measurable_normalizedColumnCoefficients (m n : ℕ) :
+    Measurable (fun p : EuclideanSpace ℂ (Fin (m + 1)) ×
+      Matrix (Fin (m + 1)) (Fin n) ℂ => normalizedColumnCoefficients p.1 p.2) := by
+  unfold normalizedColumnCoefficients complexMatrixColumn
+  fun_prop
+
+theorem measurable_projectedResidualGram (m n : ℕ) :
+    Measurable (fun p : EuclideanSpace ℂ (Fin (m + 1)) ×
+      Matrix (Fin (m + 1)) (Fin n) ℂ => projectedResidualGram p.1 p.2) := by
+  have hG := (measurable_complexGram_map (m + 1) n).comp
+    (measurable_snd : Measurable
+      (Prod.snd : EuclideanSpace ℂ (Fin (m + 1)) ×
+        Matrix (Fin (m + 1)) (Fin n) ℂ → Matrix (Fin (m + 1)) (Fin n) ℂ))
+  have hz := (PiLp.continuous_ofLp 2 (fun _ : Fin n => ℂ)).measurable.comp
+    (measurable_normalizedColumnCoefficients m n)
+  apply Measurable.of_eval_matrix
+  intro j k
+  exact hG.eval_matrix.sub ((Complex.continuous_conj.measurable.comp hz.eval).mul hz.eval)
+
+theorem complexGram_firstRow_split {m n : ℕ} (V : Matrix (Fin (m + 1)) (Fin n) ℂ) :
+    complexGram V = complexVectorGramRankOne (matrixFirstRow V) +
+      complexGram (matrixRemainingRows V) := by
+  ext j k
+  simp only [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    Matrix.add_apply, complexVectorGramRankOne, matrixFirstRow, matrixRemainingRows,
+    Fin.sum_univ_succ]
+
+theorem normalizedColumnCoefficients_frame {m n : ℕ}
+    (u : EuclideanSpace ℂ (Fin (m + 1))) (hu : u ≠ 0)
+    (U : EuclideanSpace ℂ (Fin (m + 1)) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin (m + 1)))
+    (hU : U u = ‖u‖ • complexFirstBasisVector m)
+    (V : Matrix (Fin (m + 1)) (Fin n) ℂ) :
+    normalizedColumnCoefficients u V = matrixFirstRow (unitaryActColumns U V) := by
+  ext j
+  change inner ℂ u (complexMatrixColumn V j) / (‖u‖ : ℂ) =
+    U (complexMatrixColumn V j) 0
+  have h := U.inner_map_map u (complexMatrixColumn V j)
+  rw [hU] at h
+  have hc : (‖u‖ : ℂ) ≠ 0 := by exact_mod_cast norm_ne_zero_iff.mpr hu
+  have hinner : (‖u‖ : ℂ) * U (complexMatrixColumn V j) 0 =
+      inner ℂ u (complexMatrixColumn V j) := by
+    simpa [complexFirstBasisVector, inner_smul_left_eq_smul,
+      EuclideanSpace.inner_single_left, Complex.real_smul] using h
+  symm
+  exact (eq_div_iff hc).2 (by simpa only [mul_comm] using hinner)
+
+theorem projectedResidualGram_frame {m n : ℕ}
+    (u : EuclideanSpace ℂ (Fin (m + 1))) (hu : u ≠ 0)
+    (U : EuclideanSpace ℂ (Fin (m + 1)) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin (m + 1)))
+    (hU : U u = ‖u‖ • complexFirstBasisVector m)
+    (V : Matrix (Fin (m + 1)) (Fin n) ℂ) :
+    projectedResidualGram u V = complexGram (matrixRemainingRows (unitaryActColumns U V)) := by
+  rw [projectedResidualGram, normalizedColumnCoefficients_frame u hu U hU,
+    ← complexGram_unitaryActColumns U V, complexGram_firstRow_split]
+  exact add_sub_cancel_left _ _
+
+theorem complexGaussianMatrixLaw_map_gram (m n : ℕ) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)).map complexGram =
+      complexWishart (m := m) (n := n) := by
+  unfold complexGaussianMatrixLaw complexWishart
+  rw [Measure.map_map (measurable_complexGram_map m n)
+    (measurable_shiftedComplexSampleMatrix _)]
+  congr 1
+  funext z
+  simp only [Function.comp_def, add_zero, complexSampleGram]
+
+def centralBartlettFiber {m n : ℕ} (u : EuclideanSpace ℂ (Fin (m + 1)))
+    (V : Matrix (Fin (m + 1)) (Fin n) ℂ) :
+    EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ :=
+  (normalizedColumnCoefficients u V, projectedResidualGram u V)
+
+theorem measurable_centralBartlettFiber (m n : ℕ) :
+    Measurable (Function.uncurry (centralBartlettFiber (m := m) (n := n))) :=
+  (measurable_normalizedColumnCoefficients m n).prodMk
+    (measurable_projectedResidualGram m n)
+
+/-- Full actual joint law of normalized coefficients and residual Gram for fixed u. -/
+theorem centralBartlettFiber_law {m n : ℕ} (u : EuclideanSpace ℂ (Fin (m + 1)))
+    (hu : u ≠ 0) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin n) ℂ)).map
+      (centralBartlettFiber u) =
+      (standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n)) := by
+  obtain ⟨U, hU⟩ := exists_complex_nonzero_frame m u hu
+  have hfun : centralBartlettFiber (n := n) u =
+      Prod.map id complexGram ∘ matrixRowSplit ∘ unitaryActColumns U := by
+    funext V
+    exact Prod.ext (normalizedColumnCoefficients_frame u hu U hU V)
+      (projectedResidualGram_frame u hu U hU V)
+  rw [hfun, ← Measure.map_map (measurable_id.prodMap (measurable_complexGram_map m n))
+    ((measurable_matrixRowSplit m n).comp (measurable_unitaryActColumns U)),
+    ← Measure.map_map (measurable_matrixRowSplit m n) (measurable_unitaryActColumns U),
+    complexGaussianMatrixLaw_unitary_invariant, complexGaussianMatrixLaw_rowSplit,
+    ← Measure.map_prod_map _ _ measurable_id (measurable_complexGram_map m n),
+    Measure.map_id, complexGaussianMatrixLaw_map_gram]
+
+end
+end JinWishart
+
+#print axioms JinWishart.measurable_normalizedColumnCoefficients
+#print axioms JinWishart.measurable_projectedResidualGram
+#print axioms JinWishart.complexGram_firstRow_split
+#print axioms JinWishart.normalizedColumnCoefficients_frame
+#print axioms JinWishart.projectedResidualGram_frame
+#print axioms JinWishart.measurable_complexGram_map
+#print axioms JinWishart.complexGaussianMatrixLaw_map_gram
+#print axioms JinWishart.measurable_centralBartlettFiber
+#print axioms JinWishart.centralBartlettFiber_law
+
+FILE GaussianBartlettBlockLaw.lean
+import JinWishartFormalization.GaussianBartlettFiber
+
+/-!
+# The actual joint central Bartlett matrix block law, arbitrary dimensions
+
+Codex proofs. The full normalized coefficient vector AND residual Gram have
+a constant fixed-column law; joint measurability is explicit, so skew_product
+combines fibers without a measurable choice of unitary frames. No candidate
+matrix/spectral density is assumed. [需人工审查] Skew-product/null-set transport,
+variance, and the eventual block-to-Gram coordinate interpretation.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem standardComplexColumnLaw_norm_sq_law (m : ℕ) (hm : 0 < m) :
+    (standardComplexColumnLaw m).map (fun u => ‖u‖ ^ 2) = gammaMeasure (m : ℝ) 1 := by
+  have h := stdGaussian_half_norm_sq_law (E := EuclideanSpace ℂ (Fin m)) m hm
+    (by rw [finrank_real_of_complex, finrank_euclideanSpace_fin])
+  have hs : 0 < Real.sqrt (2 : ℝ) := by positivity
+  have hnorm (v : EuclideanSpace ℂ (Fin m)) :
+      ‖(Real.sqrt (2 : ℝ))⁻¹ • v‖ ^ 2 = ‖v‖ ^ 2 / 2 := by
+    rw [norm_smul, Real.norm_eq_abs, abs_of_pos (inv_pos.mpr hs), mul_pow,
+      inv_pow, Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 2)]
+    ring
+  unfold standardComplexColumnLaw
+  rw [Measure.map_map (by fun_prop) (by fun_prop)]
+  simpa only [Function.comp_def, hnorm] using h
+
+theorem standardComplexColumnLaw_nonzero_ae (m : ℕ) (hm : 0 < m) :
+    ∀ᵐ u ∂standardComplexColumnLaw m, u ≠ 0 := by
+  have hg0 : gammaMeasure (m : ℝ) 1 ({0} : Set ℝ) = 0 := by simp [gammaMeasure]
+  rw [← standardComplexColumnLaw_norm_sq_law m hm,
+    Measure.map_apply (by fun_prop) (measurableSet_singleton _)] at hg0
+  rw [ae_iff]
+  simpa [Set.preimage, sq_eq_zero_iff] using hg0
+
+/-- Entire first column and full residual-Gram fiber separate jointly. -/
+theorem centralBartlett_product_law (m n : ℕ) :
+    ((standardComplexColumnLaw (m + 1)).prod
+      (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin n) ℂ))).map
+      (fun p => (‖p.1‖ ^ 2, centralBartlettFiber p.1 p.2)) =
+      (gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n))) := by
+  have hNorm : MeasurePreserving (fun u : EuclideanSpace ℂ (Fin (m + 1)) => ‖u‖ ^ 2)
+      (standardComplexColumnLaw (m + 1)) (gammaMeasure ((m + 1 : ℕ) : ℝ) 1) :=
+    ⟨by fun_prop, standardComplexColumnLaw_norm_sq_law (m + 1) (Nat.succ_pos m)⟩
+  have hFiber : ∀ᵐ u ∂standardComplexColumnLaw (m + 1),
+      (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin n) ℂ)).map
+        (centralBartlettFiber u) =
+        (standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n)) := by
+    filter_upwards [standardComplexColumnLaw_nonzero_ae (m + 1) (Nat.succ_pos m)] with u hu
+    exact centralBartlettFiber_law u hu
+  exact (hNorm.skew_product (measurable_centralBartlettFiber m n) hFiber).map_eq
+
+def centralBartlettCoordinates {m n : ℕ} (A : Matrix (Fin (m + 1)) (Fin (n + 1)) ℂ) :
+    ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ) :=
+  let p := matrixColumnSplit A
+  (‖p.1‖ ^ 2, centralBartlettFiber p.1 p.2)
+
+/-- Actual central Gaussian [u,V] -> (||u||^2, normalized inner products,
+residual Gram) has Gamma x CN x lower-row Wishart law, not just marginals. -/
+theorem actualCentralBartlett_block_law (m n : ℕ) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin (n + 1)) ℂ)).map
+      centralBartlettCoordinates =
+      (gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n))) := by
+  have hF : Measurable (fun p : EuclideanSpace ℂ (Fin (m + 1)) ×
+      Matrix (Fin (m + 1)) (Fin n) ℂ => (‖p.1‖ ^ 2, centralBartlettFiber p.1 p.2)) :=
+    (measurable_fst.norm.pow_const 2).prodMk (measurable_centralBartlettFiber m n)
+  change (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin (n + 1)) ℂ)).map
+    ((fun p => (‖p.1‖ ^ 2, centralBartlettFiber p.1 p.2)) ∘ matrixColumnSplit) = _
+  rw [← Measure.map_map hF (measurable_matrixColumnSplit (m + 1) n),
+    complexGaussianMatrixLaw_columnSplit, centralBartlett_product_law]
+
+end
+end JinWishart
+
+#print axioms JinWishart.standardComplexColumnLaw_norm_sq_law
+#print axioms JinWishart.standardComplexColumnLaw_nonzero_ae
+#print axioms JinWishart.centralBartlett_product_law
+#print axioms JinWishart.actualCentralBartlett_block_law
+
+SUPPORT GaussianComplexFrameExists.lean lines18-57
+  EuclideanSpace.single 0 1
+
+theorem exists_complex_unit_frame (m : ℕ) (a : EuclideanSpace ℂ (Fin (m + 1)))
+    (ha : ‖a‖ = 1) :
+    ∃ U : EuclideanSpace ℂ (Fin (m + 1)) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin (m + 1)),
+      U a = complexFirstBasisVector m := by
+  classical
+  have horth : Orthonormal ℂ
+      (({0} : Set (Fin (m + 1))).domRestrict
+        (fun _ : Fin (m + 1) => a)) := by
+    rw [orthonormal_iff_ite]
+    intro i j
+    have hi : (i : Fin (m + 1)) = 0 := Set.mem_singleton_iff.mp i.property
+    have hj : (j : Fin (m + 1)) = 0 := Set.mem_singleton_iff.mp j.property
+    have hij : i = j := Subtype.ext (hi.trans hj.symm)
+    subst j
+    simp [inner_self_eq_norm_sq_to_K, ha]
+  obtain ⟨b, hb⟩ := Orthonormal.exists_orthonormalBasis_extension_of_card_eq
+    (by simp : Module.finrank ℂ (EuclideanSpace ℂ (Fin (m + 1))) =
+      Fintype.card (Fin (m + 1))) horth
+  refine ⟨b.repr, ?_⟩
+  have hb0 : b 0 = a := hb 0 (by simp)
+  rw [← hb0]
+  exact b.repr_self 0
+
+theorem exists_complex_nonzero_frame (m : ℕ) (a : EuclideanSpace ℂ (Fin (m + 1)))
+    (ha : a ≠ 0) :
+    ∃ U : EuclideanSpace ℂ (Fin (m + 1)) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin (m + 1)),
+      U a = ‖a‖ • complexFirstBasisVector m := by
+  have hpos : 0 < ‖a‖ := norm_pos_iff.mpr ha
+  have hnorm : ‖‖a‖⁻¹ • a‖ = 1 := by
+    rw [norm_smul, Real.norm_eq_abs, abs_of_pos (inv_pos.mpr hpos),
+      inv_mul_cancel₀ (ne_of_gt hpos)]
+  obtain ⟨U, hU⟩ := exists_complex_unit_frame m (‖a‖⁻¹ • a) hnorm
+  refine ⟨U, ?_⟩
+  calc
+    U a = U (‖a‖ • (‖a‖⁻¹ • a)) := by
+      rw [smul_smul, mul_inv_cancel₀ (ne_of_gt hpos), one_smul]
+    _ = ‖a‖ • U (‖a‖⁻¹ • a) := (complexFrameToReal U).map_smul _ _
+    _ = _ := by rw [hU]
+SUPPORT GaussianComplexMatrixFrame.lean lines100-129
+
+/-- The full central matrix law, rather than only one column or its energy. -/
+theorem complexGaussianMatrixLaw_unitary_invariant {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m)) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)).map (unitaryActColumns U) =
+      complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ) := by
+  let g : ComplexSample (m := m) (n := n) → Matrix (Fin m) (Fin n) ℂ :=
+    fun z => complexSampleMatrix z + 0
+  have hg : Measurable g := measurable_shiftedComplexSampleMatrix _
+  change ((stdGaussian (ComplexSample (m := m) (n := n))).map g).map
+    (unitaryActColumns U) = (stdGaussian (ComplexSample (m := m) (n := n))).map g
+  rw [Measure.map_map (measurable_unitaryActColumns U) hg]
+  have hfun : unitaryActColumns U ∘ g = g ∘ encodedComplexMatrixFrame U := by
+    funext z
+    simp only [g, Function.comp_def, add_zero, complexSampleMatrix_encoded_frame]
+  rw [hfun, ← Measure.map_map hg (encodedComplexMatrixFrame U).continuous.measurable,
+    encodedComplexMatrixFrame_gaussianLaw]
+
+theorem complexGram_unitaryActColumns {m n : ℕ}
+    (U : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m))
+    (A : Matrix (Fin m) (Fin n) ℂ) :
+    complexGram (unitaryActColumns U A) = complexGram A := by
+  ext j k
+  have h := U.inner_map_map (complexMatrixColumn A j) (complexMatrixColumn A k)
+  simpa only [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    unitaryActColumns, complexMatrixColumn, PiLp.inner_apply, RCLike.inner_apply,
+    Complex.inner, RCLike.star_def, mul_comm] using h
+
+end
+end JinWishart
+LOCKED skew_product lines869-880
+
+Some authors call a map of the form `fun (a, c) ↦ (f a, g a c)` a *skew product* over `f`,
+thus the choice of a name.
+-/
+theorem skew_product [SFinite μa] [SFinite μc] {f : α → β} (hf : MeasurePreserving f μa μb)
+    {g : α → γ → δ} (hgm : Measurable (uncurry g)) (hg : ∀ᵐ a ∂μa, map (g a) μc = μd) :
+    MeasurePreserving (fun p : α × γ => (f p.1, g p.1 p.2)) (μa.prod μc) (μb.prod μd) := by
+  have : Measurable fun p : α × γ => (f p.1, g p.1 p.2) := (hf.1.comp measurable_fst).prodMk hgm
+  use this
+  /- if `μa = 0`, then the lemma is trivial, otherwise we can use `hg`
+    to deduce `SFinite μd`. -/
+  rcases eq_zero_or_neZero μa with rfl | _
+FOLLOW-UP: your earlier report recommended z_j*conj(z_k) instead of
+conj(z_j)*z_k and called the latter critical. Here z is a ROW of normalized inner
+products, so the contribution is z^H z, not column z z^H. The supplied proved
+complexGram_firstRow_split is exactly that identity. Your assertion that the
+existing subtraction becomes addition was incorrect. An exact counterexample
+to the recommended change is below. Please explicitly withdraw or defend your
+claim using the actual row convention; then report any remaining concrete issue.
+Mean0 centrality is explicit in all types/headers, not an unclaimed noncentral
+extension. At u=0 complex division returns0, hence z=0 and B=V^H V; this extension
+is used only for measurability, and the Gamma norm law proves that u=0 is null.
+These conventions are documented in BLOCK_REVIEW_RESOLUTION.md. No source
+proof or target was changed in response to the incorrect conjugation suggestion.
+{
+  "u": "Matrix([\n[1],\n[0]])",
+  "V": "Matrix([\n[1, I],\n[0, 0]])",
+  "z_row": "Matrix([[1, I]])",
+  "actual_Gram": "Matrix([\n[ 1, I],\n[-I, 1]])",
+  "correct_z_adjoint_z": "Matrix([\n[ 1, I],\n[-I, 1]])",
+  "correct_residual": "Matrix([\n[0, 0],\n[0, 0]])",
+  "suggested_residual": "Matrix([\n[   0, 2*I],\n[-2*I,   0]])",
+  "suggested_residual_eigenvalues": [
+    -2,
+    2
+  ],
+  "source_sha256": "6e8095e795d96f2fc5b9aa13492aead9942cd107d789d16f58a41e4e7b37df80",
+  "status": "PASS exact phase-sensitive row-Gram control; proposed conjugation swap is false"
+}

@@ -1,0 +1,25 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettFiber.lean:39:2: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettFiber.lean:63:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  inner ℂ (‖u‖ • EuclideanSpace.single 0 1) (U (complexMatrixColumn V j)) = inner ℂ u (complexMatrixColumn V j)
+but is expected to have type
+  ↑‖u‖ * (U (complexMatrixColumn V j)).ofLp 0 = inner ℂ u (complexMatrixColumn V j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettFiber.lean:81:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'JinWishart.measurable_normalizedColumnCoefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_projectedResidualGram' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGram_firstRow_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.normalizedColumnCoefficients_frame' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.projectedResidualGram_frame' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.measurable_complexGram_map' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_map_gram' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.measurable_centralBartlettFiber' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettFiber_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

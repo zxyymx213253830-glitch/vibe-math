@@ -1,0 +1,15 @@
+{
+  "u": "Matrix([\n[1],\n[0]])",
+  "V": "Matrix([\n[1, I],\n[0, 0]])",
+  "z_row": "Matrix([[1, I]])",
+  "actual_Gram": "Matrix([\n[ 1, I],\n[-I, 1]])",
+  "correct_z_adjoint_z": "Matrix([\n[ 1, I],\n[-I, 1]])",
+  "correct_residual": "Matrix([\n[0, 0],\n[0, 0]])",
+  "suggested_residual": "Matrix([\n[   0, 2*I],\n[-2*I,   0]])",
+  "suggested_residual_eigenvalues": [
+    -2,
+    2
+  ],
+  "source_sha256": "6e8095e795d96f2fc5b9aa13492aead9942cd107d789d16f58a41e4e7b37df80",
+  "status": "PASS exact phase-sensitive row-Gram control; proposed conjugation swap is false"
+}

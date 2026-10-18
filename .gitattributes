@@ -17,3 +17,7 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianComplexMatrixFrame.lean -text
 /experiments/complex_unit_frame_control.py -text
 /tools/verification/audit_lean_bundle.py -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianMatrixBlockLaw.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianBartlettFiber.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianBartlettBlockLaw.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization.lean -text
