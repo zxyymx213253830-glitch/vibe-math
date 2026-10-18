@@ -30,6 +30,45 @@
       "count": 2,
       "log": "verification/central_mixed_moments/embedded-1.txt",
       "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteSharedColumnCoordinates",
+      "count": 5,
+      "log": "verification/central_mixed_moments/coordinates-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteMinorOverlapModel",
+      "count": 2,
+      "log": "verification/central_mixed_moments/venn-3.txt",
+      "kernel_exit_code_recorded": 0,
+      "witnesses": [
+        "finiteMinorOverlapModel"
+      ]
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartMixedMinorMoments",
+      "count": 3,
+      "log": "verification/central_mixed_moments/mixed-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartShiftedSecondMoment",
+      "count": 6,
+      "log": "verification/central_mixed_moments/second-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartMinimumBridge",
+      "count": 7,
+      "log": "verification/central_mixed_moments/minimum-bridge-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.RectangularWishartTwoExtraRows",
+      "count": 9,
+      "log": "verification/central_mixed_moments/two-extra-2.txt",
+      "kernel_exit_code_recorded": 0
     }
   ],
   "controls": [
@@ -37,6 +76,11 @@
       "script": "experiments/central_mixed_minor_control.py",
       "result": "verification/central_mixed_moments/control.json",
       "seed": 2026101901
+    },
+    {
+      "script": "experiments/central_two_extra_rows_control.py",
+      "result": "verification/central_mixed_moments/two-extra-control.json",
+      "seed": 2026101902
     }
   ],
   "reviews": [
@@ -60,7 +104,14 @@
       "receipt": "verification/central_mixed_moments/p4-joint.receipt.json",
       "raw": "verification/central_mixed_moments/p4-joint.raw.json",
       "snapshot": "verification/central_mixed_moments/joint-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/two-extra-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-two-extra-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-two-extra.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-two-extra.raw.json",
+      "snapshot": "verification/central_mixed_moments/two-extra-review-snapshot"
     }
   ],
-  "scope": "ACTUAL central complex Wishart determinant power bias adds p rows with explicit mass; full determinant/nested minor moments; actual joint independence of disjoint principal blocks with same row count; shared pivot and arbitrary COMMON-PREFIX mixed moment closure with disjoint remaining selectors. Not yet arbitrary Finset overlap reindexing or general d>1 minimum integral. Codex proof bodies, Qoder route and scoped critical feedback includes false alarms, Claude attempt timed out. Human review required, no blanket P4 approval; frozen publication unchanged. Arbitrarily embedded shared-prefix selector formula now also proved; this includes any supplied injective union embedding, not yet a Finset-cardinality theorem. Last two embedding declarations have not yet been supplied to an independent model reviewer."
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged."
 }

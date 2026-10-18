@@ -10,6 +10,10 @@ T3 数值诊断只识别测试案例中的恒定倍数2，不能仅凭这些案�
 
 任意 n>0、实际 (n+1)×n CN(0,1) Gram 最小值严格尾为 exp(-n*x) sum_l choose(n,l)x^l/l!，完整 CDF 与标量协方差 vI（x/v）已证。原 T1 未改候选新增 (s,t,L)=(2,3,0) 与实际 CDF 对齐，不能扩称任意 n 的原候选对齐。另已证这一整个矩形族的实际小阈值 F(x)/x²→n(n+1)/4，协方差 vI 时系数除以 v²；因此多列 T4 不再全为空白，但一般 k/余量/非中心 T4 仍开放。来源 notes/CENTRAL_WISHART_GENERAL_DENSITY.md 与 verification/rectangular_minimum/audit.json。[需人工审查] 保留，冻结稿件/投稿包未同步。
 
+## 2026-10-19 实际矩与第二矩形族
+
+任意两个主子式的真实联合整数矩（显式交集/差集基数依赖）已证，嵌套和不相交均为特例。任意(n+2)×n中央最小值已证有限多项式严格尾、完整CDF和标量协方差vI替换x/v；与上一轮(n+1)×n族区别开。当前52公开声明含1有限构造的核验绑定见verification/central_mixed_moments/audit.json，主入口通过、未完整构建；新有限矩P4超时、d=2概率P4限定交付，人审未完成。没有证明原一般T1行列式候选相等，也未扩称非中心G2或一般d>2闭合。详见CENTRAL_WISHART_GENERAL_DENSITY.md，冻结稿件/投稿包未同步。
+
 ## 当前增量：以滚动状态页为准
 
 当前入口为 [WISHART_STATUS.md](WISHART_STATUS.md)，下方旧快照按原日期保留。

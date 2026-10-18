@@ -1,0 +1,157 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:65:4: error: unsolved goals
+case refine_1.inl
+n : ℕ
+S T : Finset (Fin n)
+C : Finset (Fin n) := S ∩ T
+A : Finset (Fin n) := S \ T
+B : Finset (Fin n) := T \ S
+hAB : Disjoint A B
+hCA : Disjoint C A
+hCB : Disjoint C B
+hCD : Disjoint C (A ∪ B)
+hS : C ∪ A = S
+hT : C ∪ B = T
+eC : Fin C.card ≃ ↥C := Fintype.equivOfCardEq ⋯
+eA : Fin A.card ≃ ↥A := Fintype.equivOfCardEq ⋯
+eB : Fin B.card ≃ ↥B := Fintype.equivOfCardEq ⋯
+eAB : Fin (A.card + B.card) ≃ ↥(A ∪ B) :=
+  finSumFinEquiv.symm.trans ((eA.sumCongr eB).trans (Equiv.Finset.union A B hAB))
+eU : Fin (A.card + B.card + C.card) ≃ ↥(C ∪ (A ∪ B)) :=
+  (sharedCoordinates C.card (A.card + B.card)).trans ((eC.sumCongr eAB).trans (Equiv.Finset.union C (A ∪ B) hCD))
+eS : Fin (A.card + C.card) ≃ ↥S :=
+  (sharedCoordinates C.card A.card).trans
+    (((eC.sumCongr eA).trans (Equiv.Finset.union C A hCA)).trans (Set.equivOfEq ⋯))
+eT : Fin (B.card + C.card) ≃ ↥T :=
+  (sharedCoordinates C.card B.card).trans
+    (((eC.sumCongr eB).trans (Equiv.Finset.union C B hCB)).trans (Set.equivOfEq ⋯))
+i : Fin ((S \ T).card + (S ∩ T).card)
+j : Fin C.card
+hj : (sharedCoordinates C.card A.card) i = Sum.inl j
+⊢ ↑(eC j) = ↑((Set.equivOfEq ⋯) ⟨↑(eC j), ⋯⟩)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:66:4: error: unsolved goals
+case refine_1.inr
+n : ℕ
+S T : Finset (Fin n)
+C : Finset (Fin n) := S ∩ T
+A : Finset (Fin n) := S \ T
+B : Finset (Fin n) := T \ S
+hAB : Disjoint A B
+hCA : Disjoint C A
+hCB : Disjoint C B
+hCD : Disjoint C (A ∪ B)
+hS : C ∪ A = S
+hT : C ∪ B = T
+eC : Fin C.card ≃ ↥C := Fintype.equivOfCardEq ⋯
+eA : Fin A.card ≃ ↥A := Fintype.equivOfCardEq ⋯
+eB : Fin B.card ≃ ↥B := Fintype.equivOfCardEq ⋯
+eAB : Fin (A.card + B.card) ≃ ↥(A ∪ B) :=
+  finSumFinEquiv.symm.trans ((eA.sumCongr eB).trans (Equiv.Finset.union A B hAB))
+eU : Fin (A.card + B.card + C.card) ≃ ↥(C ∪ (A ∪ B)) :=
+  (sharedCoordinates C.card (A.card + B.card)).trans ((eC.sumCongr eAB).trans (Equiv.Finset.union C (A ∪ B) hCD))
+eS : Fin (A.card + C.card) ≃ ↥S :=
+  (sharedCoordinates C.card A.card).trans
+    (((eC.sumCongr eA).trans (Equiv.Finset.union C A hCA)).trans (Set.equivOfEq ⋯))
+eT : Fin (B.card + C.card) ≃ ↥T :=
+  (sharedCoordinates C.card B.card).trans
+    (((eC.sumCongr eB).trans (Equiv.Finset.union C B hCB)).trans (Set.equivOfEq ⋯))
+i : Fin ((S \ T).card + (S ∩ T).card)
+j : Fin A.card
+hj : (sharedCoordinates C.card A.card) i = Sum.inr j
+⊢ ↑(eA j) = ↑((Set.equivOfEq ⋯) ⟨↑(eA j), ⋯⟩)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:71:4: error: unsolved goals
+case refine_2.inl
+n : ℕ
+S T : Finset (Fin n)
+C : Finset (Fin n) := S ∩ T
+A : Finset (Fin n) := S \ T
+B : Finset (Fin n) := T \ S
+hAB : Disjoint A B
+hCA : Disjoint C A
+hCB : Disjoint C B
+hCD : Disjoint C (A ∪ B)
+hS : C ∪ A = S
+hT : C ∪ B = T
+eC : Fin C.card ≃ ↥C := Fintype.equivOfCardEq ⋯
+eA : Fin A.card ≃ ↥A := Fintype.equivOfCardEq ⋯
+eB : Fin B.card ≃ ↥B := Fintype.equivOfCardEq ⋯
+eAB : Fin (A.card + B.card) ≃ ↥(A ∪ B) :=
+  finSumFinEquiv.symm.trans ((eA.sumCongr eB).trans (Equiv.Finset.union A B hAB))
+eU : Fin (A.card + B.card + C.card) ≃ ↥(C ∪ (A ∪ B)) :=
+  (sharedCoordinates C.card (A.card + B.card)).trans ((eC.sumCongr eAB).trans (Equiv.Finset.union C (A ∪ B) hCD))
+eS : Fin (A.card + C.card) ≃ ↥S :=
+  (sharedCoordinates C.card A.card).trans
+    (((eC.sumCongr eA).trans (Equiv.Finset.union C A hCA)).trans (Set.equivOfEq ⋯))
+eT : Fin (B.card + C.card) ≃ ↥T :=
+  (sharedCoordinates C.card B.card).trans
+    (((eC.sumCongr eB).trans (Equiv.Finset.union C B hCB)).trans (Set.equivOfEq ⋯))
+i : Fin ((T \ S).card + (S ∩ T).card)
+j : Fin C.card
+hj : (sharedCoordinates C.card B.card) i = Sum.inl j
+⊢ ↑(eC j) = ↑((Set.equivOfEq ⋯) ⟨↑(eC j), ⋯⟩)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:72:4: error: unsolved goals
+case refine_2.inr
+n : ℕ
+S T : Finset (Fin n)
+C : Finset (Fin n) := S ∩ T
+A : Finset (Fin n) := S \ T
+B : Finset (Fin n) := T \ S
+hAB : Disjoint A B
+hCA : Disjoint C A
+hCB : Disjoint C B
+hCD : Disjoint C (A ∪ B)
+hS : C ∪ A = S
+hT : C ∪ B = T
+eC : Fin C.card ≃ ↥C := Fintype.equivOfCardEq ⋯
+eA : Fin A.card ≃ ↥A := Fintype.equivOfCardEq ⋯
+eB : Fin B.card ≃ ↥B := Fintype.equivOfCardEq ⋯
+eAB : Fin (A.card + B.card) ≃ ↥(A ∪ B) :=
+  finSumFinEquiv.symm.trans ((eA.sumCongr eB).trans (Equiv.Finset.union A B hAB))
+eU : Fin (A.card + B.card + C.card) ≃ ↥(C ∪ (A ∪ B)) :=
+  (sharedCoordinates C.card (A.card + B.card)).trans ((eC.sumCongr eAB).trans (Equiv.Finset.union C (A ∪ B) hCD))
+eS : Fin (A.card + C.card) ≃ ↥S :=
+  (sharedCoordinates C.card A.card).trans
+    (((eC.sumCongr eA).trans (Equiv.Finset.union C A hCA)).trans (Set.equivOfEq ⋯))
+eT : Fin (B.card + C.card) ≃ ↥T :=
+  (sharedCoordinates C.card B.card).trans
+    (((eC.sumCongr eB).trans (Equiv.Finset.union C B hCB)).trans (Set.equivOfEq ⋯))
+i : Fin ((T \ S).card + (S ∩ T).card)
+j : Fin B.card
+hj : (sharedCoordinates C.card B.card) i = Sum.inr j
+⊢ ↑(eB j) = ↑((Set.equivOfEq ⋯) ⟨↑(eB j), ⋯⟩)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:65:12: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Equiv.sumCongr_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:66:12: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eAB, Equiv.sumCongr_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:71:12: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Equiv.sumCongr_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:72:12: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eAB, Equiv.sumCongr_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:76:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'JinWishart.finiteMinorOverlapModel' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.finiteMinorOverlap_left_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finiteMinorOverlap_right_card' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

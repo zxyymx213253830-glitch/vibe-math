@@ -1,0 +1,9 @@
+'JinWishart.measurable_centralGaussianSampleMinimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralGaussianSampleMinimum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralGaussianSampleMinimum_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralGaussian_minimum_tail_eq_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralGaussian_minimum_CDF_eq_one_sub_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralGaussian_minimum_cdf_eq_event' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralGaussianSampleMinimum_scale' depends on axioms: [propext, Classical.choice, Quot.sound]

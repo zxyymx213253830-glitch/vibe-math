@@ -69,3 +69,10 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianDisjointPrincipalLaw.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartSharedPrefix.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartOverlappingSelectors.lean -text whitespace=cr-at-eol
+/experiments/central_two_extra_rows_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteSharedColumnCoordinates.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteMinorOverlapModel.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartMixedMinorMoments.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartShiftedSecondMoment.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartMinimumBridge.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/RectangularWishartTwoExtraRows.lean -text whitespace=cr-at-eol

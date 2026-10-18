@@ -1,3 +1,4 @@
+import JinWishartFormalization.RectangularWishartTwoExtraRows
 import JinWishartFormalization.CentralWishartOverlappingSelectors
 import JinWishartFormalization.CentralWishartSharedPrefix
 import JinWishartFormalization.RectangularWishartHardEdge

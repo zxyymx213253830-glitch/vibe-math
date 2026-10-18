@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "CentralWishartShiftedSecondMoment.lean": {
+      "sha256": "eb5c021d5fc4a3e66f21c178e11ba3b8fa0439213355e214968a5080b39b0c4d",
+      "supplied": "Full source"
+    },
+    "CentralWishartMinimumBridge.lean": {
+      "sha256": "b9ad43f369206d18a9a338a7bb46561b9484b56f28c0936bf5ade77676eb98ae",
+      "supplied": "Full source"
+    },
+    "RectangularWishartTwoExtraRows.lean": {
+      "sha256": "9096d26ff9a3f5eb6ff0df54c69c3cd5b047b45477b98816cb509e0cd237c9d0",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "410db1bc18159c9d912e36d92ab3dc95102ffcdfccbf9a105566a46e2a562130"
+}

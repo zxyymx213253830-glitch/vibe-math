@@ -1,0 +1,257 @@
+P4 issues-only, different family from Codex proof author. These FULL final Lean sources passed actual kernel checks, no sorry/admit/native_decide/new axioms, standard axioms only. Review precise mathematical strength, dimensions, empty sets/n=0 where allowed, powers p=q=0, overlap dependence, reference measure/actual model, strict tail vs weak CDF and covariance vI scaling. Imported central matrix density and entire Bartlett block product law were derived from actual X^H X Gaussian samples, not assumptions. Complex entry total variance1. Shared pivot r is squared norm with Gamma(m+1,1), det peeling r*detB, not r^2. Principal marginal keeps t rows; Schur residual reduces rows. Finite product order does not change product; empty product1. Only concrete problems, distinguish library signatures already checked vs semantic gaps; no speculative tactic complaints. No tools or independent compilation/human approval.
+Scope: construct exact common/exclusive Venn-region indexing and prove arbitrary Finset S,T mixed determinant powers. S,T may empty, coincide, or partially overlap. The coefficient is M(t-c,c,p+q)*M(t-c-a,a,p)*M(t-c-b,b,q) where a=|S\T|,b=|T\S|,c=|S intersection T|; t>=n. No independence of original overlapping minors is assumed.
+
+FULL FiniteSharedColumnCoordinates.lean
+import JinWishartFormalization.CentralWishartOverlappingSelectors
+import Mathlib.Logic.Equiv.Fin.Basic
+
+/-! Finite common/exclusive coordinates for arbitrary column-set pairs.
+Codex deterministic proofs; no probability or spectral-density premises.
+-/
+namespace JinWishart
+noncomputable section
+
+def sharedFront (c k : ℕ) (i : Fin c) : Fin (k+c) :=
+  Fin.cast (Nat.add_comm c k) (Fin.castAdd k i)
+
+def sharedTail (c k : ℕ) (i : Fin k) : Fin (k+c) :=
+  Fin.cast (Nat.add_comm c k) (Fin.natAdd c i)
+
+def sharedCoordinates (c k : ℕ) : Fin (k+c) ≃ Fin c ⊕ Fin k :=
+  (finCongr (Nat.add_comm k c)).trans finSumFinEquiv.symm
+
+theorem sharedCoordinates_symm_inl (c k : ℕ) (i : Fin c) :
+    (sharedCoordinates c k).symm (Sum.inl i) = sharedFront c k i := by rfl
+
+theorem sharedCoordinates_symm_inr (c k : ℕ) (i : Fin k) :
+    (sharedCoordinates c k).symm (Sum.inr i) = sharedTail c k i := by rfl
+
+theorem centralSharedPrefixSelection_front {k n : ℕ} (c : ℕ)
+    (e : Fin k → Fin n) (i : Fin c) :
+    centralSharedPrefixSelection c e (sharedFront c k i) = sharedFront c n i := by
+  induction c with
+  | zero => exact Fin.elim0 i
+  | succ c ih =>
+      refine Fin.cases ?_ (fun j => ?_) i
+      · have h0 : sharedFront (c+1) k 0 = 0 := by ext; rfl
+        rw [h0]
+        change (0 : Fin (n+(c+1))) = _
+        apply Fin.ext
+        rfl
+      · have hs : sharedFront (c+1) k j.succ = (sharedFront c k j).succ := by ext; rfl
+        rw [hs]
+        change (centralSharedPrefixSelection c e (sharedFront c k j)).succ = _
+        rw [ih]
+        apply Fin.ext
+        rfl
+
+theorem centralSharedPrefixSelection_tail {k n : ℕ} (c : ℕ)
+    (e : Fin k → Fin n) (i : Fin k) :
+    centralSharedPrefixSelection c e (sharedTail c k i) = sharedTail c n (e i) := by
+  induction c with
+  | zero => simp [centralSharedPrefixSelection, sharedTail]
+  | succ c ih =>
+      have hs : sharedTail (c+1) k i = (sharedTail c k i).succ := by
+        apply Fin.ext
+        simp [sharedTail]
+        omega
+      rw [hs]
+      change (centralSharedPrefixSelection c e (sharedTail c k i)).succ = _
+      rw [ih]
+      apply Fin.ext
+      simp [sharedTail]
+      omega
+
+theorem centralSharedPrefixSelection_coordinates {k n : ℕ} (c : ℕ)
+    (e : Fin k → Fin n) (i : Fin (k+c)) :
+    (sharedCoordinates c n) (centralSharedPrefixSelection c e i) =
+      Sum.map id e ((sharedCoordinates c k) i) := by
+  obtain ⟨j,rfl⟩ := (sharedCoordinates c k).symm.surjective i
+  rcases j with j | j
+  · rw [sharedCoordinates_symm_inl, centralSharedPrefixSelection_front]
+    rw [← sharedCoordinates_symm_inl c n j, ← sharedCoordinates_symm_inl c k j]
+    simp
+  · rw [sharedCoordinates_symm_inr, centralSharedPrefixSelection_tail]
+    rw [← sharedCoordinates_symm_inr c n (e j), ← sharedCoordinates_symm_inr c k j]
+    simp
+
+end
+end JinWishart
+#print axioms JinWishart.sharedCoordinates_symm_inl
+#print axioms JinWishart.sharedCoordinates_symm_inr
+#print axioms JinWishart.centralSharedPrefixSelection_front
+#print axioms JinWishart.centralSharedPrefixSelection_tail
+#print axioms JinWishart.centralSharedPrefixSelection_coordinates
+
+FULL FiniteMinorOverlapModel.lean
+import JinWishartFormalization.FiniteSharedColumnCoordinates
+import Mathlib.Data.Finset.Basic
+
+/-! Exact Venn-region coordinates of two finite column sets.
+Codex deterministic proofs; the construction supplies, rather than assumes,
+the common/exclusive selector representation used in actual mixed moments.
+-/
+namespace JinWishart
+noncomputable section
+
+structure FiniteMinorOverlapModel {n : ℕ} (S T : Finset (Fin n)) where
+  embedding : Fin (((S \ T).card + (T \ S).card) + (S ∩ T).card) → Fin n
+  injective : Function.Injective embedding
+  left : Fin ((S \ T).card + (S ∩ T).card) ≃ S
+  right : Fin ((T \ S).card + (S ∩ T).card) ≃ T
+  left_eq : embedding ∘ centralSharedPrefixSelection (S ∩ T).card
+      (Fin.castAdd (T \ S).card) = Subtype.val ∘ left
+  right_eq : embedding ∘ centralSharedPrefixSelection (S ∩ T).card
+      (Fin.natAdd (S \ T).card) = Subtype.val ∘ right
+
+def finiteMinorOverlapModel {n : ℕ} (S T : Finset (Fin n)) : FiniteMinorOverlapModel S T := by
+  classical
+  let C := S ∩ T
+  let A := S \ T
+  let B := T \ S
+  have hAB : Disjoint A B := by
+    apply Finset.disjoint_left.mpr
+    intro i hi hj
+    simp only [A, B, Finset.mem_sdiff] at hi hj
+    exact hi.2 hj.1
+  have hCA : Disjoint C A := by
+    apply Finset.disjoint_left.mpr
+    intro i hi hj
+    simp only [A, C, Finset.mem_inter, Finset.mem_sdiff] at hi hj
+    exact hj.2 hi.2
+  have hCB : Disjoint C B := by
+    apply Finset.disjoint_left.mpr
+    intro i hi hj
+    simp only [B, C, Finset.mem_inter, Finset.mem_sdiff] at hi hj
+    exact hj.2 hi.1
+  have hCD : Disjoint C (A ∪ B) := Finset.disjoint_union_right.mpr ⟨hCA,hCB⟩
+  have hS : C ∪ A = S := by ext i; simp [C,A]; tauto
+  have hT : C ∪ B = T := by ext i; simp [C,B]; tauto
+  let eC : Fin C.card ≃ C := Fintype.equivOfCardEq (by simp)
+  let eA : Fin A.card ≃ A := Fintype.equivOfCardEq (by simp)
+  let eB : Fin B.card ≃ B := Fintype.equivOfCardEq (by simp)
+  let eAB : Fin (A.card+B.card) ≃ (A ∪ B : Finset (Fin n)) :=
+    finSumFinEquiv.symm.trans ((Equiv.sumCongr eA eB).trans (Equiv.Finset.union A B hAB))
+  let eU : Fin ((A.card+B.card)+C.card) ≃ (C ∪ (A ∪ B) : Finset (Fin n)) :=
+    (sharedCoordinates C.card (A.card+B.card)).trans
+      ((Equiv.sumCongr eC eAB).trans (Equiv.Finset.union C (A ∪ B) hCD))
+  let eS : Fin (A.card+C.card) ≃ S :=
+    (sharedCoordinates C.card A.card).trans
+      (((Equiv.sumCongr eC eA).trans (Equiv.Finset.union C A hCA)).trans
+        (Set.equivOfEq (congrArg (fun U : Finset (Fin n) => (U : Set (Fin n))) hS)))
+  let eT : Fin (B.card+C.card) ≃ T :=
+    (sharedCoordinates C.card B.card).trans
+      (((Equiv.sumCongr eC eB).trans (Equiv.Finset.union C B hCB)).trans
+        (Set.equivOfEq (congrArg (fun U : Finset (Fin n) => (U : Set (Fin n))) hT)))
+  refine ⟨fun i => (eU i).val, Subtype.val_injective.comp eU.injective, eS, eT, ?_, ?_⟩
+  · funext i
+    change (eU (centralSharedPrefixSelection C.card (Fin.castAdd B.card) i)).val = (eS i).val
+    simp only [eU,eS,Equiv.trans_apply,centralSharedPrefixSelection_coordinates]
+    rcases hj : (sharedCoordinates C.card A.card) i with j | j
+    · simp [hj,Equiv.sumCongr_apply,Set.equivOfEq_apply] <;> rfl
+    · simp [hj,eAB,Equiv.sumCongr_apply,Set.equivOfEq_apply] <;> rfl
+  · funext i
+    change (eU (centralSharedPrefixSelection C.card (Fin.natAdd A.card) i)).val = (eT i).val
+    simp only [eU,eT,Equiv.trans_apply,centralSharedPrefixSelection_coordinates]
+    rcases hj : (sharedCoordinates C.card B.card) i with j | j
+    · simp [hj,Equiv.sumCongr_apply,Set.equivOfEq_apply] <;> rfl
+    · simp [hj,eAB,Equiv.sumCongr_apply,Set.equivOfEq_apply] <;> rfl
+
+theorem finiteMinorOverlap_left_card {n : ℕ} (S T : Finset (Fin n)) :
+    (S \ T).card + (S ∩ T).card = S.card := by
+  simpa using Fintype.card_congr (finiteMinorOverlapModel S T).left
+
+theorem finiteMinorOverlap_right_card {n : ℕ} (S T : Finset (Fin n)) :
+    (T \ S).card + (S ∩ T).card = T.card := by
+  simpa using Fintype.card_congr (finiteMinorOverlapModel S T).right
+
+end
+end JinWishart
+#print axioms JinWishart.finiteMinorOverlapModel
+#print axioms JinWishart.finiteMinorOverlap_left_card
+#print axioms JinWishart.finiteMinorOverlap_right_card
+
+FULL CentralWishartMixedMinorMoments.lean
+import JinWishartFormalization.FiniteMinorOverlapModel
+
+/-!
+# Actual mixed moments of ANY two principal minors
+
+Codex proof bodies. All common/exclusive reindexing is constructed in Lean.
+[需人工审查] Actual Bartlett law and nonnegative moment interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+def centralMixedMinorMoment (t : ℕ) {n : ℕ} (S T : Finset (Fin n)) (p q : ℕ) : ℝ :=
+  centralDeterminantPowerMoment (t-(S ∩ T).card) (S ∩ T).card (p+q) *
+    (centralDeterminantPowerMoment (t-(S ∩ T).card-(S \ T).card) (S \ T).card p *
+      centralDeterminantPowerMoment (t-(S ∩ T).card-(T \ S).card) (T \ S).card q)
+
+theorem centralMixedMinorMoment_pos (t : ℕ) {n : ℕ}
+    (S T : Finset (Fin n)) (p q : ℕ) : 0 < centralMixedMinorMoment t S T p q := by
+  unfold centralMixedMinorMoment
+  exact mul_pos (centralDeterminantPowerMoment_pos _ _ _)
+    (mul_pos (centralDeterminantPowerMoment_pos _ _ _) (centralDeterminantPowerMoment_pos _ _ _))
+
+/-- The joint moment depends on both minor sizes AND their intersection, not independence. -/
+theorem complexWishart_principalMinor_joint_norm_moment (t n : ℕ) (ht : n ≤ t)
+    (S T : Finset (Fin n)) (p q : ℕ) :
+    (∫⁻ W, ENNReal.ofReal (‖(W.submatrix (Subtype.val : S → Fin n) Subtype.val).det‖^p) *
+        ENNReal.ofReal (‖(W.submatrix (Subtype.val : T → Fin n) Subtype.val).det‖^q)
+      ∂complexWishart (m := t) (n := n)) =
+        ENNReal.ofReal (centralMixedMinorMoment t S T p q) := by
+  classical
+  let R := finiteMinorOverlapModel S T
+  let a := (S \ T).card
+  let b := (T \ S).card
+  let c := (S ∩ T).card
+  have hS : a+c = S.card := finiteMinorOverlap_left_card S T
+  have hT : b+c = T.card := finiteMinorOverlap_right_card S T
+  have hs : S.card ≤ n := by simpa using Finset.card_le_card (Finset.subset_univ S)
+  have ht' : T.card ≤ n := by simpa using Finset.card_le_card (Finset.subset_univ T)
+  have hc : c ≤ t := by omega
+  have hA : a ≤ t-c := by omega
+  have hB : b ≤ t-c := by omega
+  have h := complexWishart_embedded_overlap_moment t n (a+b) c a b p q
+    R.embedding R.injective (Fin.castAdd b) (Fin.natAdd a)
+    (show Function.Injective (Sum.elim (Fin.castAdd b) (Fin.natAdd a)) from finSumFinEquiv.injective)
+    hc hA hB
+  rw [R.left_eq,R.right_eq] at h
+  have heS (W : Matrix (Fin n) (Fin n) ℂ) :
+      (W.submatrix (Subtype.val ∘ R.left) (Subtype.val ∘ R.left)).det =
+        (W.submatrix (Subtype.val : S → Fin n) Subtype.val).det := by
+    change ((W.submatrix (Subtype.val : S → Fin n) Subtype.val).submatrix R.left R.left).det = _
+    exact Matrix.det_submatrix_equiv_self R.left _
+  have heT (W : Matrix (Fin n) (Fin n) ℂ) :
+      (W.submatrix (Subtype.val ∘ R.right) (Subtype.val ∘ R.right)).det =
+        (W.submatrix (Subtype.val : T → Fin n) Subtype.val).det := by
+    change ((W.submatrix (Subtype.val : T → Fin n) Subtype.val).submatrix R.right R.right).det = _
+    exact Matrix.det_submatrix_equiv_self R.right _
+  simp_rw [heS,heT] at h
+  rw [← ENNReal.ofReal_mul (centralDeterminantPowerMoment_pos _ _ _).le,
+    ← ENNReal.ofReal_mul (centralDeterminantPowerMoment_pos _ _ _).le] at h
+  exact h
+
+theorem complexWishart_principalMinor_joint_re_moment (t n : ℕ) (ht : n ≤ t)
+    (S T : Finset (Fin n)) (p q : ℕ) :
+    (∫⁻ W, ENNReal.ofReal ((W.submatrix (Subtype.val : S → Fin n) Subtype.val).det.re^p) *
+        ENNReal.ofReal ((W.submatrix (Subtype.val : T → Fin n) Subtype.val).det.re^q)
+      ∂complexWishart (m := t) (n := n)) =
+        ENNReal.ofReal (centralMixedMinorMoment t S T p q) := by
+  rw [← complexWishart_principalMinor_joint_norm_moment t n ht S T p q]
+  apply lintegral_congr_ae
+  have hP : ∀ᵐ W ∂complexWishart (m := t) (n := n), W.PosSemidef :=
+    (mem_ae_iff_prob_eq_one Matrix.posSemidef_is_closed.measurableSet).mpr
+      complexWishart_measure_posSemidef
+  filter_upwards [hP] with W hW
+  rw [complex_norm_eq_re_of_nonneg _ (hW.submatrix _).det_nonneg,
+    complex_norm_eq_re_of_nonneg _ (hW.submatrix _).det_nonneg]
+
+end
+end JinWishart
+#print axioms JinWishart.centralMixedMinorMoment_pos
+#print axioms JinWishart.complexWishart_principalMinor_joint_norm_moment
+#print axioms JinWishart.complexWishart_principalMinor_joint_re_moment

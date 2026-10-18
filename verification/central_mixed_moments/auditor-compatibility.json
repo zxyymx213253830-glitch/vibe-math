@@ -1,0 +1,851 @@
+{
+  "collected_utc": "2026-10-18T17:19:56.858966+00:00",
+  "spec_sha256": "204e57abc46e03eba2808f707b072784649627cf143c0d6a46b93622446b75fb",
+  "auditor_sha256": "c99e8a40083fe0bc7e350612e588acd8b7031031ea167537a7ca8ceb66321e07",
+  "modules": {
+    "JinWishartFormalization.CentralWishartDensityAlgebra": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexVectorGramRankOne_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_isHermitian",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_posDef_iff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.hermitianOfRealCoordinates_centralChart",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_succ",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.measurable_centralWishartCoordinateDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.gammaPDF_nat_succ_positive",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "f8c75593b8c5062785408465c6cffc6418da624fd2297c521a2b8b6b32528483",
+      "olean_sha256": "df83c4dbe6d5ab3ba92e7172874ebdecbf59e6b205ceabee956e9ee934277779",
+      "log_sha256": "639adf0a0e5b6ea011d3d80d14e513f3f7f216d6f044a238f8891e63154aee2e",
+      "imports": {
+        "JinWishartFormalization.CentralBartlettCoordinateJacobian": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralBartlettCoordinateJacobian.olean",
+          "sha256": "2265bbd1f77d8fdcafdf4a240fb0994c024822af0e0ced8e8ccc8db35a208153"
+        },
+        "JinWishartFormalization.GaussianBartlettGramDeterminant": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianBartlettGramDeterminant.olean",
+          "sha256": "199e7244a505c743e195be8d3c201df17d0bb8702a923971d24668c5d848ab91"
+        },
+        "JinWishartFormalization.GaussianGramSupport": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianGramSupport.olean",
+          "sha256": "baa3a69ff2551a0ea3165e19f14c0cd029ba7f84e1ed5871a249e72e2de17c7f"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralBartlettDensityTransport": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_centralBartlettCoordinateChart",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.measurable_centralBartlettCoordinateInverse",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralBartlettCoordinateChart_left_inverse",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralBartlettCoordinateChart_pivot",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralBartlettCoordinateChart_weighted_density",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralBartlettCoordinateChart_density_map",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "80be645a0fe2293dcecf950747a780d75b13fa407f1a4a0ce34e1b2db0ae6a51",
+      "olean_sha256": "6b3bb46ee81633a4631c232bf019c0e01f9f6dad2013860fdc5834159a13d71a",
+      "log_sha256": "c9465ed8f9f83da5c9b1a6e8216c4dcec431bc9b940b6ecbfb23567a2b21f372",
+      "imports": {
+        "JinWishartFormalization.CentralWishartAbsoluteContinuity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartAbsoluteContinuity.olean",
+          "sha256": "fbb3a0b8782f92911c70c2ccefe7259c9562f6ebc00dc02f2c93507c2b0bb2a6"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartClosedDensity": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralWishartCoordinateDensity_bartlett",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.gammaMeasure_nat_succ_eq_positive_density",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartCoordinateDensity_restrict_pivot",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexWishart_realCoordinates_eq_closedDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexWishart_realCoordinates_eq_closedDensity_of_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.lintegral_centralWishartCoordinateDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "4c6a00fc4503087448286fbd7008257c665aa3f02c63438524d74cea7394a08b",
+      "olean_sha256": "2843933f5cd247a8856fc9fff58ee1935cdd888ab21c7c2d68f68adcd896696f",
+      "log_sha256": "3da638889f1e5c6ca41ab96e233ab783c496b070a7074ba077aae7b379bc43d7",
+      "imports": {
+        "JinWishartFormalization.CentralWishartDensityAlgebra": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartDensityAlgebra.olean",
+          "sha256": "df83c4dbe6d5ab3ba92e7172874ebdecbf59e6b205ceabee956e9ee934277779"
+        },
+        "JinWishartFormalization.CentralBartlettDensityTransport": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralBartlettDensityTransport.olean",
+          "sha256": "6b3bb46ee81633a4631c232bf019c0e01f9f6dad2013860fdc5834159a13d71a"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartMinimum": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurableSet_centralCoordinatePositiveCone",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.measurableSet_centralCoordinateShiftedCone",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralCoordinateShiftedCone_subset_positive",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartCoordinateDensity_on_cone",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartCoordinateDensity_cone_mass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralWishart_shiftedCone_probability",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquareWishart_shiftedCone_probability",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.measurable_centralSquareSampleMinimum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralSquareSampleMinimum_threshold",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_minimum_tail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralSquareSampleMinimum_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_minimum_cdf_function",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_minimum_law_exp",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "8b6444e684aa5152851f5a305f8fdfc9eca87de8efc5a540588f2aa5a6e401a2",
+      "olean_sha256": "4adde8c9b2e021f63a4e8157a443008a7c362f654f9bf5a53a93d742bfb76956",
+      "log_sha256": "67c19ddf40eb4161a33fb36d6ecd9bcf81fdaf1f882cac4dd9edb32e6277a178",
+      "imports": {
+        "JinWishartFormalization.CentralWishartClosedDensity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartClosedDensity.olean",
+          "sha256": "2843933f5cd247a8856fc9fff58ee1935cdd888ab21c7c2d68f68adcd896696f"
+        },
+        "JinWishartFormalization.CentralWishartConeIntegral": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartConeIntegral.olean",
+          "sha256": "45e881e2c0688a8edb772b3535df4f3f00af69ed9519d7dbaf773997f69add05"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartNormalization": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralWishartDensityConstant_eq_factorial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_eq_triangular",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_eq_gamma",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_two",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "ce4363b339bf3614831f2c3667ac112f64ff4d791b9d30d0fa02cfa82c9864c5",
+      "olean_sha256": "88fec1652ea597ca6c9057dac2be8ebb5ea2293450f779e43716c152627a491a",
+      "log_sha256": "ec99b9a21ffa750817c510b6e39623f21c36b63e061b6ab8c183a224cd9288c5",
+      "imports": {
+        "JinWishartFormalization.CentralWishartClosedDensity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartClosedDensity.olean",
+          "sha256": "2843933f5cd247a8856fc9fff58ee1935cdd888ab21c7c2d68f68adcd896696f"
+        },
+        "Mathlib.Data.Nat.Choose.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Choose/Basic.olean",
+          "sha256": "17063a3a92b61bb14601e99db5d36372c22a2a19daf6a184c71bca283590031e"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartScaledMinimum": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexSampleMatrix_real_smul",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexSampleGram_real_smul",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.posDef_real_smul_iff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.smallestEigenvalue_real_smul",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralSquareSampleMinimum_scale",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_scaled_minimum_tail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_scaled_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_scaled_minimum_cdf_function",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_scaled_minimum_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_covariance_minimum_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "275f004676f2047c85be15e5803a7343063a8f2a315892ef3cd4b5f821038856",
+      "olean_sha256": "2831414cb7e7c36c262557899fb895ce45a534d781ca33c04aedaeb6fbdd7456",
+      "log_sha256": "f8cf5d848b42fa4bc78a98739905f7a391ed5d6da53d1e383b49e6bae647be47",
+      "imports": {
+        "JinWishartFormalization.CentralWishartMinimum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMinimum.olean",
+          "sha256": "4adde8c9b2e021f63a4e8157a443008a7c362f654f9bf5a53a93d742bfb76956"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartMatrixDensity": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_centralWishartMatrixDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexWishart_eq_realCoordinates_map",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexWishart_eq_map_closedDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexWishart_eq_matrixDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "6e0e09f947fbd635ca93c88a01ebce4150e743f8d153e2177e817de0534f75f8",
+      "olean_sha256": "f508073be96e6fac8f8603443f73cd1d8b9006e698c115820c6744b3f365f25a",
+      "log_sha256": "e556b8bbcade6f258a0f9bc4d912cd32ce5e1c7f1e1e16eaede489e34a56641b",
+      "imports": {
+        "JinWishartFormalization.CentralWishartNormalization": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartNormalization.olean",
+          "sha256": "88fec1652ea597ca6c9057dac2be8ebb5ea2293450f779e43716c152627a491a"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartConeMemoryless": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralWishartSquareDensity_shift",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartSquareDensity_shift_indicator",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_coordinate_restrict_eq_shift",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_coordinate_residual_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_coordinate_conditional_residual_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_matrix_residual_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "1b575c14e6df829005449ab28e150ad83695e48802deb2b61a5cd51c5c1a9c46",
+      "olean_sha256": "46145b96a92dc225eb58282e78414acae51bdabbdd3e29869b61bbac971334e4",
+      "log_sha256": "447c86e5096b36e6ab808842727cc9633b73cdb70eaba980dc90da8fe40c2136",
+      "imports": {
+        "JinWishartFormalization.CentralWishartMinimum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMinimum.olean",
+          "sha256": "4adde8c9b2e021f63a4e8157a443008a7c362f654f9bf5a53a93d742bfb76956"
+        },
+        "JinWishartFormalization.CentralWishartMatrixDensity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMatrixDensity.olean",
+          "sha256": "f508073be96e6fac8f8603443f73cd1d8b9006e698c115820c6744b3f365f25a"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartTraceLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGram_trace_re",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexSampleGram_trace_half_norm",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexWishart_trace_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "b26d5983ebb3355959bfca6b751ecee5405c3a62121586da15bf1b2ca1bbc9dc",
+      "olean_sha256": "0c65ac6a6d67b1ffaa8b2d405d81872b2444941aa2c6978ac875df674654e95e",
+      "log_sha256": "83bbed0b37960325ff53627deb570f944b076a9aaf423b720c7740d91c5bf73c",
+      "imports": {
+        "JinWishartFormalization.CentralWishartClosedDensity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartClosedDensity.olean",
+          "sha256": "2843933f5cd247a8856fc9fff58ee1935cdd888ab21c7c2d68f68adcd896696f"
+        },
+        "JinWishartFormalization.GaussianRawCoordinates": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianRawCoordinates.olean",
+          "sha256": "12cba5da12a478d078893a0f3a0ee5ad4e7ab608204c30aa2530e0e93e9d6a27"
+        }
+      }
+    }
+  },
+  "total_declarations": 62,
+  "controls": [
+    {
+      "script": "experiments/central_wishart_density_step_control.py",
+      "script_sha256": "571b9fd331b15123c4a44df8ae73a0c23b38cde1417c1c823ce243c84111cf91",
+      "result_sha256": "872d39ace1e072e7a63c6d8fb2ecedd330cdf0aa667f1f86976e1c6cb634feac",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/central_square_minimum_control.py",
+      "script_sha256": "2d209f85a54330687d27c24623da2751d198b353b34ca484b8a8ad4780d165d9",
+      "result_sha256": "3d5543a47c4b1b8c907f46b4b16fc1a67036356bc555b8d7cc19a7575deeeb10",
+      "interpretation": "Reproducible control, not a proof"
+    }
+  ],
+  "reviews": [
+    {
+      "request_sha256": "867becd5f1788afe54ac7826d8c0f9739bf29bf166abaa19fe706c3da1c311fd",
+      "prompt_sha256": "06d48979dd3841373f2cdc49fae3f8c4b0bc21615d650e94fc42dfbe3485c7e5",
+      "raw_response_sha256": "867fea5e7a84eab312aef3a8548b8249c71079b98c23ae5d1caf427ab3fc28bc",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "49fbefc2ec27b83f0463d328b755b46c7f66bd8e9e86edd811c9c5e12507206c",
+      "prompt_sha256": "fce4adb017057e81897d690debf857d41dbfda5463d15e9efb8b6369a90db029",
+      "raw_response_sha256": "3f887bfa02670095299f60967616c441929252e96fc24ecab42279221a94681f",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "cdbf80683ee65d45dff794da953574996897565bac7892e439f7f6d3488eba25",
+      "prompt_sha256": "ab2fb8495e71f32d969793c8fca68b863a13b29d81b136e012a8e9127ad52391",
+      "raw_response_sha256": "7df9491484f21938a58bebf88361f8990688ade0280c53d51ad27a83452ac088",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "725d17806a4271e35a23133bb7f6b8170fd7add44366552aa1b9b06d5fcdc492",
+      "prompt_sha256": "b362b88e0bf2e7a65462b09e0a66949da0f54b34352857716e926ca60618ca61",
+      "raw_response_sha256": "ab3f38bd7d9d9c7b0ef3c0d76f2d5731cb256b59efd2bdcf061fb2cde89191f1",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "b447fda6747a5bb9d36ef39a350f09416afc44e1aa823d491556177a8fbc5351",
+      "prompt_sha256": "5e073947dd2228113515ad014f378a5f8e001e57995b940fc7986c8ccada6aba",
+      "raw_response_sha256": "28b8c9551b75fbfb16b4362f0b01d269347d0d7a92662c855ebfacfffb632fe1",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    }
+  ],
+  "scope": "ACTUAL central t>=s CN(0,1) closed matrix density with factorial/Gamma coefficient and mass1, canonical s^2 coordinate reference; square minimum Exp(rate s/v) for all s>0 and v>0; whole-matrix square cone residual/conditional law; actual any nonempty rectangular trace Gamma(t*s,rate1). Rectangular cone integral retains det(V+xI)^(t-s). No general noncentral or joint spectral density or original general T1-4 closure. Exact real scoped Qoder P4 responses and source evidence, no independent model compilation or human review. Frozen manuscript/releases unchanged.",
+  "human_review": "REQUIRED for stated measure/model interpretation",
+  "full_build": "NOT_RUN",
+  "paper_and_submission": "UNCHANGED",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "status": "PASS specified leaf bundle and bindings"
+}

@@ -41,6 +41,10 @@
 
 源码、失败记录、模型真实回应、控制和公理绑定见 `verification/rectangular_minimum/audit.json`。证明体 Codex；Qoder 路线/P4，Claude 限定 T1 P4；模型反馈不替代人审。以下主表为历史范围，不能把新的中央多列族描述成未证。
 
+## 2026-10-19 实际矩与第二矩形族
+
+任意两个主子式的真实联合整数矩（显式交集/差集基数依赖）已证，嵌套和不相交均为特例。任意(n+2)×n中央最小值已证有限多项式严格尾、完整CDF和标量协方差vI替换x/v；与上一轮(n+1)×n族区别开。当前52公开声明含1有限构造的核验绑定见verification/central_mixed_moments/audit.json，主入口通过、未完整构建；新有限矩P4超时、d=2概率P4限定交付，人审未完成。没有证明原一般T1行列式候选相等，也未扩称非中心G2或一般d>2闭合。详见CENTRAL_WISHART_GENERAL_DENSITY.md，冻结稿件/投稿包未同步。
+
 ## 主表
 
 **2026-10-09 用户提供 AI4M 指南后的更新：** 实际 LeanSearch 检索并复用

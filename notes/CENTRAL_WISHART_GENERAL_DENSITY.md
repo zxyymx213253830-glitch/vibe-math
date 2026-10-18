@@ -250,3 +250,48 @@ Next gap: turn arbitrary Finset pair membership/intersection cardinality into
 this checked shared/exclusive representation, then expand and integrate the
 squared shifted determinant for general surplus d=2. Powers d>2 require joint
 moments of more than two minors; two-minor results alone do not close all d.
+
+
+## Same-stage closure: arbitrary Finsets and two extra rows
+
+The previous Finset reindexing gap is NOW CLOSED. `finiteMinorOverlapModel`
+constructs shared/exclusive Venn coordinates and actual embedding, including
+empty and equal sets. `complexWishart_principalMinor_joint_norm_moment` and
+its real-determinant form apply to arbitrary S,T subsets of Fin n, t>=n:
+
+    E[det(W_S)^p det(W_T)^q] =
+      M(t-c,c,p+q) M(t-c-a,a,p) M(t-c-b,b,q),
+    c=|S intersection T|, a=|S\T|, b=|T\S|.
+
+This is a probability-model theorem, not only a deterministic index interface.
+The square-law second shifted determinant moment is its exact finite double
+sum. The density-constant ratio K(2,n)/K(0,n)=1/(n!(n+1)!) then yields, for
+actual central (n+2)-by-n samples, n>0 and x>=0:
+
+    P(lambda_min>x) = exp(-n*x) Q_n(x),
+    Q_n(x) = 1/(n!(n+1)!) * sum_{S,T subset Fin n}
+      x^(n-|S|+n-|T|) M(n-c,c,2) M(n-c-a,a,1) M(n-c-b,b,1).
+
+`actualTwoExtraRows_minimum_cdf_function` proves the entire CDF (zero for x<0).
+Actual sqrt(v) source scaling replaces x by x/v. A SINGLE dimension-general
+spectral-event bridge now serves all central rectangular shapes; no new chart
+or specialized Bartlett mechanics per size were introduced. Reference measure
+and variance remain the already proven canonical Hermitian/CN(0,1) convention.
+
+Additional sources: FiniteSharedColumnCoordinates, FiniteMinorOverlapModel,
+CentralWishartMixedMinorMoments, CentralWishartShiftedSecondMoment,
+CentralWishartMinimumBridge, RectangularWishartTwoExtraRows. Current bundle:
+51 theorem/instance declarations plus1 explicit finite witness construction;
+all 52 printed standard-axiom checks and final changed facade PASS. This is
+NOT a full fresh Lake/mathlib rebuild. The Finset/mixed P4 request timed out;
+second-moment/two-extra-row P4 delivered with scope and inaccurate explanatory
+remarks documented in REVIEW_RESOLUTION. No human review completed by it.
+
+Four new actual shapes x200000 fixedseed2026101902 pass trace/det controls,
+Gamma(3,1) scalar baseline and numerical original-candidate comparisons.
+Those comparisons are NOT a general equality proof for the original determinant
+candidate. The double-subset formula uses4^n terms; reducing it to a polynomial
+in n-many cardinality groups is a useful next finite-combinatorics step.
+General d>2 requires moments of three or more overlapping minors; two-minor
+moments do not suffice. Noncentral G2, original general T1--4 and T3 publication
+source issue are unchanged. Frozen manuscript/PDF/submission archives unchanged.

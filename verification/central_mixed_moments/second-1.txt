@@ -1,0 +1,8 @@
+'JinWishart.centralDeterminantPowerMoment_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralDeterminantPowerMoment_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralDeterminantPowerMoment_zero_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_two_surplus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.ofReal_shifted_det_square_eq_minor_pairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralSquare_shiftedDeterminant_second_mean' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

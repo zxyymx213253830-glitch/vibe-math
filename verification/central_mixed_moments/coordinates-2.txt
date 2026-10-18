@@ -1,0 +1,5 @@
+'JinWishart.sharedCoordinates_symm_inl' depends on axioms: [propext, Quot.sound]
+'JinWishart.sharedCoordinates_symm_inr' depends on axioms: [propext, Quot.sound]
+'JinWishart.centralSharedPrefixSelection_front' depends on axioms: [propext]
+'JinWishart.centralSharedPrefixSelection_tail' depends on axioms: [propext, Quot.sound]
+'JinWishart.centralSharedPrefixSelection_coordinates' depends on axioms: [propext, Quot.sound]

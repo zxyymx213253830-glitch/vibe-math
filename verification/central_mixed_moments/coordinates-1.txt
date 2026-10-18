@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSharedColumnCoordinates.lean:48:12: error: Tactic `rfl` failed: The left-hand side
+  centralSharedPrefixSelection 0 e (sharedTail 0 k i)
+is not definitionally equal to the right-hand side
+  sharedTail 0 n (e i)
+
+case zero
+k n : ℕ
+e : Fin k → Fin n
+i : Fin k
+⊢ centralSharedPrefixSelection 0 e (sharedTail 0 k i) = sharedTail 0 n (e i)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSharedColumnCoordinates.lean:68:4: error: 'change' tactic failed, pattern
+  ?m.59 = Sum.inl j
+is not definitionally equal to target
+  (sharedCoordinates c n) (sharedFront c n j) = Sum.map id e ((sharedCoordinates c k) (sharedFront c k j))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSharedColumnCoordinates.lean:71:4: error: 'change' tactic failed, pattern
+  ?m.74 = Sum.inr (e j)
+is not definitionally equal to target
+  (sharedCoordinates c n) (sharedTail c n (e j)) = Sum.map id e ((sharedCoordinates c k) (sharedTail c k j))
+'JinWishart.sharedCoordinates_symm_inl' depends on axioms: [propext, Quot.sound]
+'JinWishart.sharedCoordinates_symm_inr' depends on axioms: [propext, Quot.sound]
+'JinWishart.centralSharedPrefixSelection_front' depends on axioms: [propext]
+'JinWishart.centralSharedPrefixSelection_tail' depends on axioms: [propext, sorryAx, Quot.sound]
+'JinWishart.centralSharedPrefixSelection_coordinates' depends on axioms: [propext, sorryAx, Quot.sound]

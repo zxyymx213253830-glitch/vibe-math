@@ -1,0 +1,77 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:65:12: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Equiv.sumCongr_apply, Set.equivOfEq_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:65:36: warning: This simp argument is unused:
+  Set.equivOfEq_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, Equiv.sumCongr_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:66:12: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eAB, Equiv.sumCongr_apply, Set.equivOfEq_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:66:40: warning: This simp argument is unused:
+  Set.equivOfEq_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, eAB, Equiv.sumCongr_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:71:12: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Equiv.sumCongr_apply, Set.equivOfEq_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:71:36: warning: This simp argument is unused:
+  Set.equivOfEq_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, Equiv.sumCongr_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:72:12: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eAB, Equiv.sumCongr_apply, Set.equivOfEq_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:72:40: warning: This simp argument is unused:
+  Set.equivOfEq_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, eAB, Equiv.sumCongr_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:65:57: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:66:61: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:71:57: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:72:61: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteMinorOverlapModel.lean:76:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'JinWishart.finiteMinorOverlapModel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finiteMinorOverlap_left_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finiteMinorOverlap_right_card' depends on axioms: [propext, Classical.choice, Quot.sound]

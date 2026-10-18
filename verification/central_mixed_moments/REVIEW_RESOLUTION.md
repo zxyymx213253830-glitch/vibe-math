@@ -70,3 +70,27 @@ is dimension-polymorphic; Nat addition on the right handles k+0 and successors;
 `fun_prop` constructs measurable proofs checked by the kernel. All exact calls
 are in the final exit0 logs, not suppressed missing assumptions. We do not
 claim imported measure/model interpretation was independently checked here.
+
+
+## New finite-pair and two-extra-row review calls
+
+The real 3-source finite-Venn/mixed request timed out after120s (exit124), no
+successful final response. It is not counted as a delivered review. Exact
+kernel evidence nonetheless separately checks all sources and the constructed
+finiteMinorOverlapModel, whose printed axioms are standard. No sorry remains.
+
+The real 3-source second-moment/spectral-bridge/two-extra-row review completed.
+It reports no local mathematical counterexample; its remaining scale question
+is answered by `complexSampleMatrix` dividing real source pairs by sqrt(2).
+Actual trace law Gamma(m*n,rate1) is independently formally proved and the
+numeric controls match this convention, not total variance2. Deterministic
+minimum scaling by a^2 does NOT depend on the base variance; the review's
+hypothetical a^2/2 alternative is false. Paper convention still requires humans.
+
+Its explanation about multiplying two extra-row pivots is not used: the proven
+normalizing ratio is K(2,n)/K(0,n)=1/(n!(n+1)!), obtained from factorial products;
+the averaged squared determinant belongs to the ACTUAL SQUARE n-by-n law.
+The reference integral retains exp(-tr V) through centralConeWeight 0; the
+review's shortened displayed equation dropping that factor is not the code.
+Strict-tail/weak-CDF are exact complements; no boundary-nullity premise added.
+No general original T1 or G2 equality is inferred from this new polynomial.

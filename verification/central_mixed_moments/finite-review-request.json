@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "FiniteSharedColumnCoordinates.lean": {
+      "sha256": "1d9bea5400503a0c61f6bef67789b7f880d016c0277b2f20d9321dd1717775be",
+      "supplied": "Full source"
+    },
+    "FiniteMinorOverlapModel.lean": {
+      "sha256": "5b6bd02d57f321cede7d644b66f9d79d271b6ffa3dd4f1b1f2f9c7c7155ebd4f",
+      "supplied": "Full source"
+    },
+    "CentralWishartMixedMinorMoments.lean": {
+      "sha256": "58a7820a1baae4bab5afaf77a6cdcdaeec73567686db4bb9b3fa5bf4f374e860",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "5503f92e0861633c611a5e16367a9f97aa3ca2131ec4e87f721f900ec3f43761"
+}

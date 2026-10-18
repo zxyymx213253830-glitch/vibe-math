@@ -42,6 +42,11 @@ def main():
         assert not re.search(r'\b(sorry|admit|axiom|native_decide|unsafe)\b', code), module
         names = re.findall(r'^(?:theorem|instance)\s+(\w+)', body, flags=re.M)
         assert len(names) == target['count'], (module, names)
+        witnesses = target.get('witnesses', [])
+        for witness in witnesses:
+            assert re.search(r'^def\s+'+re.escape(witness)+r'\b', body, flags=re.M), witness
+            assert witness not in names
+            names.append(witness)
         diagnostic = log.read_text(encoding='utf-8')
         assert 'error:' not in diagnostic and 'sorryAx' not in diagnostic, module
         entries = []
@@ -53,7 +58,8 @@ def main():
             assert found or no_axioms, qualified
             axioms = set(s.strip() for s in found[1].split(',') if s.strip()) if found else set()
             assert axioms <= {'propext', 'Classical.choice', 'Quot.sound'}, qualified
-            entries.append(dict(name=qualified, axioms=sorted(axioms), author='Codex'))
+            entries.append(dict(name=qualified, axioms=sorted(axioms), author='Codex',
+                                kind='constructed witness' if name in witnesses else 'theorem or instance'))
         assert compiled.exists() and compiled.stat().st_mtime >= source.stat().st_mtime, module
         assert log.stat().st_mtime >= source.stat().st_mtime, module
         assert target['kernel_exit_code_recorded'] == 0

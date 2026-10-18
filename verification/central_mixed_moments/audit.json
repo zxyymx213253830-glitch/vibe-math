@@ -1,7 +1,7 @@
 {
-  "collected_utc": "2026-10-18T16:58:33.825105+00:00",
-  "spec_sha256": "3d13245d17db86875f0171fab14ea73cd5b4e5a9cce4224926dd29a9f27f4a0c",
-  "auditor_sha256": "4678fbdc2b1a184a1916bd7aab7424e1e3ab36ca55c8eefaf2f162df74d0e70e",
+  "collected_utc": "2026-10-18T17:18:55.471477+00:00",
+  "spec_sha256": "0334a0452f0f24b4c01e26625169d7c4d2df2ac26f0be6ba62fb51c60e1140ea",
+  "auditor_sha256": "c99e8a40083fe0bc7e350612e588acd8b7031031ea167537a7ca8ceb66321e07",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
       "declarations": [
@@ -12,7 +12,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.centralWishartDensityConstant_power_bias",
@@ -21,7 +22,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.centralWishartMatrixDensity_power_bias",
@@ -30,7 +32,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_determinant_power_bias",
@@ -39,7 +42,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.lintegral_complexWishart_determinant_power_bias",
@@ -48,7 +52,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_principalSubmatrix_norm_moment",
@@ -57,7 +62,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_nested_determinant_moment",
@@ -66,7 +72,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         }
       ],
       "source_sha256": "b8ce985916c65de69dad3ccc52f9dd4d46ed341023fc2ae4c1ba577482958bac",
@@ -92,7 +99,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.centralBartlettGram_selected_pivot_det",
@@ -101,7 +109,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_shared_pivot_moment",
@@ -110,7 +119,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         }
       ],
       "source_sha256": "c611b0d0a53c79207df401e18de536f8156c05e96322945391d7479110fc81f2",
@@ -128,7 +138,8 @@
         {
           "name": "JinWishart.disjointSampleIndex_injective",
           "axioms": [],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.stdGaussian_disjoint_columnSelections",
@@ -137,7 +148,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_disjoint_principal_law",
@@ -146,7 +158,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_disjoint_determinant_moment",
@@ -155,7 +168,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         }
       ],
       "source_sha256": "ba31e8fa5fa6556a2c8ba4a58206f643e081ebf85e22446a4faac8fb918777a6",
@@ -177,7 +191,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_shared_prefix_moment",
@@ -186,7 +201,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_common_prefix_disjoint_moment",
@@ -195,7 +211,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         }
       ],
       "source_sha256": "a67cb57d3463d063916e63ad4a678043306d635717136d42ba2daa39e0b9989f",
@@ -221,7 +238,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         },
         {
           "name": "JinWishart.complexWishart_embedded_overlap_moment",
@@ -230,7 +248,8 @@
             "Quot.sound",
             "propext"
           ],
-          "author": "Codex"
+          "author": "Codex",
+          "kind": "theorem or instance"
         }
       ],
       "source_sha256": "5a9a518a8344647a2d153db811e0488ae0e6c94f76a5964267d1f41e38183a78",
@@ -242,14 +261,438 @@
           "sha256": "306895067528ef2c69aa7a5615820090ead2717cf0e7adcf90fe331e628313f9"
         }
       }
+    },
+    "JinWishartFormalization.FiniteSharedColumnCoordinates": {
+      "declarations": [
+        {
+          "name": "JinWishart.sharedCoordinates_symm_inl",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.sharedCoordinates_symm_inr",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralSharedPrefixSelection_front",
+          "axioms": [
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralSharedPrefixSelection_tail",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralSharedPrefixSelection_coordinates",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "1d9bea5400503a0c61f6bef67789b7f880d016c0277b2f20d9321dd1717775be",
+      "olean_sha256": "a534555285d90550df802edce7e2c5957c15428a99c805f7c72275e229dc4da5",
+      "log_sha256": "8367f944f7acd43344c9d66a01e5c47474a574a8e15d15f1ee7dd9e7c1d77cdc",
+      "imports": {
+        "JinWishartFormalization.CentralWishartOverlappingSelectors": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartOverlappingSelectors.olean",
+          "sha256": "8a56a25505893caff4e840c079089a90c02b61fe33b7949d7faeea1b9198ea80"
+        },
+        "Mathlib.Logic.Equiv.Fin.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Fin/Basic.olean",
+          "sha256": "1e4be8109d673101f24e7bea57149bd1770d233f8c4fa857a956a899e81b2479"
+        }
+      }
+    },
+    "JinWishartFormalization.FiniteMinorOverlapModel": {
+      "declarations": [
+        {
+          "name": "JinWishart.finiteMinorOverlap_left_card",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.finiteMinorOverlap_right_card",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.finiteMinorOverlapModel",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "constructed witness"
+        }
+      ],
+      "source_sha256": "5b6bd02d57f321cede7d644b66f9d79d271b6ffa3dd4f1b1f2f9c7c7155ebd4f",
+      "olean_sha256": "01078a5a513811c12ad56ef63d50eeaf61585aac38309ad567fbb9e85603af5d",
+      "log_sha256": "222387f495502a04abb0ce22e27a021a11811669dcd0d661787f5d4717cf2c46",
+      "imports": {
+        "JinWishartFormalization.FiniteSharedColumnCoordinates": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FiniteSharedColumnCoordinates.olean",
+          "sha256": "a534555285d90550df802edce7e2c5957c15428a99c805f7c72275e229dc4da5"
+        },
+        "Mathlib.Data.Finset.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/Basic.olean",
+          "sha256": "b29a967625572b639f236fda6debffb82ada2fb7685170128d77747efb8487d1"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartMixedMinorMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralMixedMinorMoment_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexWishart_principalMinor_joint_norm_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexWishart_principalMinor_joint_re_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "58a7820a1baae4bab5afaf77a6cdcdaeec73567686db4bb9b3fa5bf4f374e860",
+      "olean_sha256": "ed3521b49ac5e4f97b7b240641e38f5ca591a0599e0b98c7f97e60eefec0d5f8",
+      "log_sha256": "c7277197180e4a5582b9e7e09c75ee374f829acff88c5c60dbcfbabfe402a8da",
+      "imports": {
+        "JinWishartFormalization.FiniteMinorOverlapModel": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FiniteMinorOverlapModel.olean",
+          "sha256": "01078a5a513811c12ad56ef63d50eeaf61585aac38309ad567fbb9e85603af5d"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartShiftedSecondMoment": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralDeterminantPowerMoment_add",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralDeterminantPowerMoment_one",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralDeterminantPowerMoment_zero_two",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_two_surplus",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.ofReal_shifted_det_square_eq_minor_pairs",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_shiftedDeterminant_second_mean",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "eb5c021d5fc4a3e66f21c178e11ba3b8fa0439213355e214968a5080b39b0c4d",
+      "olean_sha256": "a1681d335b7222bc189e229dd2628fdc34fded4d2f5e2e79838dfb33cea2b86c",
+      "log_sha256": "d2a11e0e2fb4f989945b948ab67b3cbdea6e7ff60f0cd52748f0ebe50f6d8773",
+      "imports": {
+        "JinWishartFormalization.CentralWishartMixedMinorMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMixedMinorMoments.olean",
+          "sha256": "ed3521b49ac5e4f97b7b240641e38f5ca591a0599e0b98c7f97e60eefec0d5f8"
+        },
+        "JinWishartFormalization.CentralWishartShiftedDeterminantMean": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartShiftedDeterminantMean.olean",
+          "sha256": "1aad0f21f6063d5fa643e5df4d9b0f8106b5c59168e4de6e307aeff6e523441a"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartMinimumBridge": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_centralGaussianSampleMinimum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralGaussianSampleMinimum_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralGaussianSampleMinimum_threshold",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralGaussian_minimum_tail_eq_cone",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralGaussian_minimum_CDF_eq_one_sub_tail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralGaussian_minimum_cdf_eq_event",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralGaussianSampleMinimum_scale",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "b9ad43f369206d18a9a338a7bb46561b9484b56f28c0936bf5ade77676eb98ae",
+      "olean_sha256": "1abd185c157a8ad6c19d6d38c303ec35d63f95c73f6cb8b7cd16b9f31cce2a09",
+      "log_sha256": "f8e9becbe162e3dda9cca1286f958ed81dd442cec55a06ece7055df6b29391a6",
+      "imports": {
+        "JinWishartFormalization.CentralWishartScaledMinimum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartScaledMinimum.olean",
+          "sha256": "2831414cb7e7c36c262557899fb895ce45a534d781ca33c04aedaeb6fbdd7456"
+        }
+      }
+    },
+    "JinWishartFormalization.RectangularWishartTwoExtraRows": {
+      "declarations": [
+        {
+          "name": "JinWishart.twoExtraRowMinimumPolynomial_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.ofReal_twoExtraRowPolynomial_sum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_shiftedDeterminant_second_normalized_mean",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualTwoExtraRows_shiftedCone_probability",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualTwoExtraRows_minimum_tail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualTwoExtraRows_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualTwoExtraRows_minimum_cdf_function",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualTwoExtraRows_scaled_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualTwoExtraRows_covariance_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "9096d26ff9a3f5eb6ff0df54c69c3cd5b047b45477b98816cb509e0cd237c9d0",
+      "olean_sha256": "ca4c96f9f3f0a6b22952bb2bfe0032e4ca46ad71d4505a583fabe97977ebc119",
+      "log_sha256": "8b26c7e90a5b14ca7afae0f4881368934a3aea04b9bfa0cfd0da92030d4ad038",
+      "imports": {
+        "JinWishartFormalization.CentralWishartShiftedSecondMoment": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartShiftedSecondMoment.olean",
+          "sha256": "a1681d335b7222bc189e229dd2628fdc34fded4d2f5e2e79838dfb33cea2b86c"
+        },
+        "JinWishartFormalization.CentralWishartMinimumBridge": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMinimumBridge.olean",
+          "sha256": "1abd185c157a8ad6c19d6d38c303ec35d63f95c73f6cb8b7cd16b9f31cce2a09"
+        }
+      }
     }
   },
-  "total_declarations": 19,
+  "total_declarations": 52,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
       "script_sha256": "fcfc54004d2e255ea533fb1ab0e4959f5bd14c5c1050974d4711d96d5dfec12d",
       "result_sha256": "253225c97d7e7c2f6e4687645c49815ec7a8335b3c80ea0ab8684bc28a98fb34",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/central_two_extra_rows_control.py",
+      "script_sha256": "8be543a670f829780f3d5e752d9ad2e1f5cb47c55df618e86f013b01d3604dff",
+      "result_sha256": "3aa943ef0213455eaa15e2598bfd5d33db5d53fa90246ff04bbdfbf6ed68864a",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -286,9 +729,20 @@
       ],
       "independent_compilation": false,
       "human_review": false
+    },
+    {
+      "request_sha256": "d6a16ab120fead62f989dbddb2a709ac424716303bd03e115ccbe8a42c20163b",
+      "prompt_sha256": "410db1bc18159c9d912e36d92ab3dc95102ffcdfccbf9a105566a46e2a562130",
+      "raw_response_sha256": "29976d07b145cc56b971c26ea1985808b6f0aea9f759b0c8c39804f225f74815",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
     }
   ],
-  "scope": "ACTUAL central complex Wishart determinant power bias adds p rows with explicit mass; full determinant/nested minor moments; actual joint independence of disjoint principal blocks with same row count; shared pivot and arbitrary COMMON-PREFIX mixed moment closure with disjoint remaining selectors. Not yet arbitrary Finset overlap reindexing or general d>1 minimum integral. Codex proof bodies, Qoder route and scoped critical feedback includes false alarms, Claude attempt timed out. Human review required, no blanket P4 approval; frozen publication unchanged. Arbitrarily embedded shared-prefix selector formula now also proved; this includes any supplied injective union embedding, not yet a Finset-cardinality theorem. Last two embedding declarations have not yet been supplied to an independent model reviewer.",
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",
