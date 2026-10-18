@@ -1,7 +1,7 @@
 {
-  "collected_utc": "2026-10-18T17:58:54.156803+00:00",
-  "spec_sha256": "7db82bebc0c2e53168c4a3a208fdd554065eaddcb8fba50e7ab2710dd78ba456",
-  "auditor_sha256": "c99e8a40083fe0bc7e350612e588acd8b7031031ea167537a7ca8ceb66321e07",
+  "collected_utc": "2026-10-18T18:05:04.157484+00:00",
+  "spec_sha256": "5dc04e0ce3320feeb3ded03b70b416648a5fc988bf52336e7c5e7ebc4baae539",
+  "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
       "declarations": [
@@ -1396,9 +1396,123 @@
           "sha256": "51b51fa5e4761294b620bdcf9e5ee21674d52980a82baf68ff281f7e58829ba3"
         }
       }
+    },
+    "JinWishartFormalization.NoncentralGramPolynomialMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.eval_noncentralGramEntryPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_noncentralShiftedGramDeterminantPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualNoncentral_shiftedGramDeterminant_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualNoncentral_shiftedGramDeterminant_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_complexNoncentralWishart_shiftedDeterminant_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "1ca195330d3c35a5b031b515c23353311083e872c0371e9c589cdb01e5ebb786",
+      "olean_sha256": "9e65e58ea72d7798a8840961590b02f01ffa2960931f267e8622ae9b13f5e036",
+      "log_sha256": "cdf00bbfe05acae8ce3e70bcd314fe88382709e58f84de5cbd84cd93816af2df",
+      "imports": {
+        "JinWishartFormalization.GramDeterminantPolynomial": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramDeterminantPolynomial.olean",
+          "sha256": "311fae3f68b9ac089f64706a0e29481d8432a386989d926e9dabc76956bb33df"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralMinimumPolynomialSpecializations": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralRectangularMinimumPolynomial_zero_surplus",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralRectangularMinimumPolynomial_one_surplus",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralRectangularMinimumPolynomial_two_surplus",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "ddaf7284ca362f5dd50b204dd3486b95433e543c756e59630b463ff4c7422872",
+      "olean_sha256": "3fcf20b9d354f70caff3fba369c59b5e6c45b8d07880d84e9aa11715e7643215",
+      "log_sha256": "328e6542166d83eb82f5a16ce57663a3818c8f9ad464526468d4d402c9259389",
+      "imports": {
+        "JinWishartFormalization.CentralRectangularMinimumPolynomial": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralRectangularMinimumPolynomial.olean",
+          "sha256": "14495a051335f013637b48b223f5a9b9beb22592ec013c7169f7638c5b3c6f8d"
+        },
+        "JinWishartFormalization.RectangularWishartTwoExtraRows": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/RectangularWishartTwoExtraRows.olean",
+          "sha256": "ca4c96f9f3f0a6b22952bb2bfe0032e4ca46ad71d4505a583fabe97977ebc119"
+        },
+        "JinWishartFormalization.RectangularWishartOneExtraRow": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/RectangularWishartOneExtraRow.olean",
+          "sha256": "292607870f8fadc14e783bd99b76bedc6c0618b0b2dd050fb91a626a652ae4e6"
+        }
+      }
     }
   },
-  "total_declarations": 104,
+  "total_declarations": 112,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -1429,6 +1543,12 @@
       "script_sha256": "c4390357c046928c7c9f80ff32ac6d0da825a389aa0a5a8235858cdee603bc86",
       "result_sha256": "fe2ca3a0d6b6eec3c4a03288e338d4a2d316c25ea0ede42602e6b7578bc9d2e6",
       "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/noncentral_polynomial_moment_control.py",
+      "script_sha256": "aaa96720a5c1dda36c51c28be1f77d17037f63f3659a2a25cad2488137864c37",
+      "result_sha256": "f19b99ac470119960faa71f8b1a2bf9b1767465acda73dc503fb0dbe53857b38",
+      "interpretation": "Reproducible control, not a proof"
     }
   ],
   "reviews": [
@@ -1441,7 +1561,8 @@
         "qmodel_38max"
       ],
       "independent_compilation": false,
-      "human_review": false
+      "human_review": false,
+      "source_changes": []
     },
     {
       "request_sha256": "113bde440c19741c4b87c583c1b236bbe98bf3e5ccbbd44fa49677f789d45cbd",
@@ -1452,7 +1573,8 @@
         "qmodel_38max"
       ],
       "independent_compilation": false,
-      "human_review": false
+      "human_review": false,
+      "source_changes": []
     },
     {
       "request_sha256": "f378501723ddfb2edc1876f71233a5fbd07d622eb82927cb9b62d4109926487d",
@@ -1463,7 +1585,8 @@
         "qmodel_38max"
       ],
       "independent_compilation": false,
-      "human_review": false
+      "human_review": false,
+      "source_changes": []
     },
     {
       "request_sha256": "d6a16ab120fead62f989dbddb2a709ac424716303bd03e115ccbe8a42c20163b",
@@ -1474,7 +1597,8 @@
         "qmodel_38max"
       ],
       "independent_compilation": false,
-      "human_review": false
+      "human_review": false,
+      "source_changes": []
     },
     {
       "request_sha256": "5bc5cf8ef51a27068cd93e476590be93f1f5c268cbbe2acbfb959fed9b462693",
@@ -1485,7 +1609,8 @@
         "qmodel_38max"
       ],
       "independent_compilation": false,
-      "human_review": false
+      "human_review": false,
+      "source_changes": []
     },
     {
       "request_sha256": "8c7876a0f0e24a813400e90955f06be488061dd1ca09675d62b09fa9efb4ae14",
@@ -1496,7 +1621,8 @@
         "qmodel_38max"
       ],
       "independent_compilation": false,
-      "human_review": false
+      "human_review": false,
+      "source_changes": []
     },
     {
       "request_sha256": "f3551b5052228707f9c53b59a5cf8b4c97ee19a78ec1a2aac96182e3803ba490",
@@ -1507,7 +1633,8 @@
         "qmodel_38max"
       ],
       "independent_compilation": false,
-      "human_review": false
+      "human_review": false,
+      "source_changes": []
     },
     {
       "request_sha256": "c1c86e9b24e9a6f305a4a7d79cf28e9fa8a2601aacff530209c0c7494769f006",
@@ -1518,10 +1645,30 @@
         "qmodel_38max"
       ],
       "independent_compilation": false,
-      "human_review": false
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "fad0dbccfe6312bb658bd1b8aa8e37767108edf90b8faabf61669380dd67cba5",
+      "prompt_sha256": "8cb206341664a83f849fdd756a05aa38594f6c5522c805f99acaf0f223ba6cef",
+      "raw_response_sha256": "bb7a4b646c8e0b580c31e4afd10bc64431a057b63151dd98d36edd4227ae6ed4",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": [
+        {
+          "source": "CentralMinimumPolynomialSpecializations.lean",
+          "reviewed_sha256": "6e7e4c1845f2a79a6cee4b342f9d97da009adcd87635b1d661e3753a6dc2c6a1",
+          "current_sha256": "ddaf7284ca362f5dd50b204dd3486b95433e543c756e59630b463ff4c7422872",
+          "final_source_reviewed": false
+        }
+      ]
     }
   ],
-  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review.",
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review. Arbitrary deterministic-mean Gram determinant power moments now exact finite factorial formula, including canonical complexNoncentralWishart integral; NOT a noncentral minimum CDF. General central formula specializes exactly to prior d=0,1,2 CDF polynomials for x>=0,n>0. New8 items make111 theorem/instance plus1 witness=112. Noncentral P4 exact final source covered; specialization review covers earlier proof script with identical statement but later explicit Nat.zero_add rewrite fixed in specialize-4, so not an exact final proof-body review for those3.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",

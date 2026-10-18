@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialSpecializations.lean:20:2: error: linarith failed to find a contradiction
+case h1
+n : ℕ
+hn : 0 < n
+x : ℝ
+hx : 0 ≤ x
+h :
+  ((ProbabilityTheory.stdGaussian ComplexSample) {z | complexNoncentralSampleSmallestEigenvalue 0 hn z ≤ x}).toReal =
+    1 - Real.exp (-↑n * x) * centralRectangularMinimumPolynomial 0 n x
+hs :
+  ((ProbabilityTheory.stdGaussian ComplexSample) {z | complexNoncentralSampleSmallestEigenvalue 0 hn z ≤ x}).toReal =
+    1 - Real.exp (-↑n * x)
+he : 0 < Real.exp (-↑n * x)
+a✝ : Real.exp (-↑n * x) * centralRectangularMinimumPolynomial 0 n x < Real.exp (-↑n * x) * 1
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialSpecializations.lean:15:13: warning: This simp argument is unused:
+  Nat.zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [centralGaussianSampleMinimum] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.centralRectangularMinimumPolynomial_zero_surplus' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_one_surplus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_two_surplus' depends on axioms: [propext, Classical.choice, Quot.sound]

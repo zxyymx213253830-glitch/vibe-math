@@ -162,3 +162,17 @@ measurability, not a missing atom-free assumption: {min<=x} is exactly the
 complement of {x<min}. Full all-real CDF follows min>=0 pointwise.
 These responses clarify the actual proof, not modifications to placate
 false claims. [需人工审查] human model/measure correspondence still required.
+
+
+## Arbitrary-mean moments and specializations
+
+Qoder supplied an actual direct P4 response with no concrete blocking issue
+in full noncentral source and the supplied specialization script. Noncentral
+source hash is the checked final file. Specialization d0 proof still needed
+explicit rw[0+n=n] in the hidden Gaussian source type AFTER that review;
+final specialize-4 passes, same theorem, but final tactic change is outside
+its exact reviewed snapshot. This is reported rather than rewriting history.
+The d1/d2 specializations and all noncentral statements were unchanged.
+Noncentral fixedseed2026101906 actual200000 sample controls use known ncx2
+trace moments1,2,3 and shifted Gram determinant powers1,2,3; all pass, not
+proof. No noncentral minimum CDF or closed spectral density is inferred.

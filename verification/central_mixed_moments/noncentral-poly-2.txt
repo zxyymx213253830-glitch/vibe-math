@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramPolynomialMoments.lean:81:20: error(lean.unknownIdentifier): Unknown identifier `measurable_shifted_complexGram`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramPolynomialMoments.lean:81:71: error: `fun_prop` was unable to prove `AEStronglyMeasurable (fun A => (A + ↑x • 1).det ^ d)
+  (Measure.map (fun x => complexGram (complexSampleMatrix x + M)) (stdGaussian ComplexSample))`
+
+Issues:
+  No theorems found for `Matrix.det` in order to prove `AEStronglyMeasurable (fun A => (A + ↑x • 1).det)
+  (Measure.map (fun x => complexGram (complexSampleMatrix x + M)) (stdGaussian ComplexSample))`
+  No theorems found for `Matrix.det` in order to prove `AEStronglyMeasurable (fun i => (i + ↑x • 1).det)
+  (Measure.map (fun x => complexGram (complexSampleMatrix x + M)) (stdGaussian ComplexSample))`
+'JinWishart.eval_noncentralGramEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_noncentralShiftedGramDeterminantPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentral_shiftedGramDeterminant_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actualNoncentral_shiftedGramDeterminant_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_complexNoncentralWishart_shiftedDeterminant_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

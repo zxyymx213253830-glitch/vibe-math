@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "NoncentralGramPolynomialMoments.lean": {
+      "sha256": "1ca195330d3c35a5b031b515c23353311083e872c0371e9c589cdb01e5ebb786",
+      "supplied": "Full source"
+    },
+    "CentralMinimumPolynomialSpecializations.lean": {
+      "sha256": "6e7e4c1845f2a79a6cee4b342f9d97da009adcd87635b1d661e3753a6dc2c6a1",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "8cb206341664a83f849fdd756a05aa38594f6c5522c805f99acaf0f223ba6cef"
+}

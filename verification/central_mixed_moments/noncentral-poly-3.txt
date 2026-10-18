@@ -1,0 +1,11 @@
+'JinWishart.eval_noncentralGramEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_noncentralShiftedGramDeterminantPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentral_shiftedGramDeterminant_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actualNoncentral_shiftedGramDeterminant_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_complexNoncentralWishart_shiftedDeterminant_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

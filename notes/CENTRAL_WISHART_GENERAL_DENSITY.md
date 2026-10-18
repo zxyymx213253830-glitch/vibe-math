@@ -360,3 +360,18 @@ All24 new declarations, total104 bound items, and final facade PASS; full
 Lake build not run. General-minimum Qoder P4 high-severity objections were
 false as documented in REVIEW_RESOLUTION; model feedback is not human review.
 Frozen publication unchanged. Noncentral G2 and original general T1--4 open.
+
+
+### Noncentral moments (not noncentral CDF) and consistency
+
+NoncentralGramPolynomialMoments substitutes arbitrary deterministic M into
+formal (Z+M)^H(Z+M), with conjugated left mean coefficients, and proves every
+integer shifted determinant power integrable with exact same factorial
+functional. Canonical complexNoncentralWishart integral is included. Means
+need no rank restriction. This does not integrate the noncentral minimum
+event or supply G2. Fixedseed actual200000 controls agree with exact symbolic
+contraction and known ncx2 trace moments (df8,nc6,scale1/2) for a2x2 mean.
+General central Q agrees with old square Q=1 and d1/d2 faster polynomials
+for every n>0,x>=0 by cancellation of equal actual CDF expressions. New8
+statements make112 total bound items. Final d0 dimension-rewrite tactic was
+after P4 snapshot; documented, not called reviewed. Human review required.

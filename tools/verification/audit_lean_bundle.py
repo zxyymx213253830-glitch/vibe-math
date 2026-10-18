@@ -103,13 +103,18 @@ def main():
         assert request['prompt_sha256'] == sha(prompt) == receipt['prompt_sha256']
         assert receipt['exit_code'] == 0 and not raw['is_error']
         assert receipt['runner_sha256'] == sha(runner)
+        source_changes = []
         for name, record in request['inputs'].items():
-            assert record['sha256'] == sha(SOURCE_ROOT/name)
+            current_sha = sha(SOURCE_ROOT/name)
+            if record['sha256'] != current_sha:
+                assert name in item.get('allow_changed_sources', []), name
+                source_changes.append(dict(source=name, reviewed_sha256=record['sha256'],
+                    current_sha256=current_sha, final_source_reviewed=False))
             if record.get('supplied') == 'Full source':
                 assert record['sha256'] == sha(ROOT/item['snapshot']/name)
         reviews.append(dict(request_sha256=sha(ROOT/item['request']), prompt_sha256=sha(prompt),
             raw_response_sha256=sha(raw_path), provider=provider, reported_models=reported_models,
-            independent_compilation=False, human_review=False))
+            independent_compilation=False, human_review=False, source_changes=source_changes))
     report = dict(collected_utc=datetime.now(timezone.utc).isoformat(), spec_sha256=sha(spec_path),
         auditor_sha256=sha(Path(__file__)), modules=modules, total_declarations=total,
         controls=controls, reviews=reviews, scope=spec['scope'],
