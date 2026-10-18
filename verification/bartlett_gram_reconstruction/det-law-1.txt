@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettDeterminantLaw.lean:41:52: error: Invalid projection: Type of
+  p
+is not known; cannot resolve projection `1`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettDeterminantLaw.lean:41:56: error: Invalid projection: Type of
+  p
+is not known; cannot resolve projection `2`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettDeterminantLaw.lean:41:62: error: Invalid projection: Type of
+  p
+is not known; cannot resolve projection `2`
+'JinWishart.complexWishart_det_bartlett_recursion' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

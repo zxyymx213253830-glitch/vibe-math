@@ -1,0 +1,57 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:55:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SFinite (gammaMeasure (↑(d + n + 1)) 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:55:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SFinite (Measure.pi fun j => gammaMeasure (↑(d + ↑j + 1)) 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:52:13: error: unsolved goals
+d n : ℕ
+μ : Fin (n + 1) → Measure ℝ := fun j => gammaMeasure (↑(d + ↑j + 1)) 1
+this : ∀ (j : Fin (n + 1)), IsProbabilityMeasure (μ j) :=
+  fun j =>
+    isProbabilityMeasure_gammaMeasure
+      (Nat.cast_pos'.mpr
+        (Right.add_pos_of_nonneg_of_pos (add_nonneg zero_le zero_le)
+          (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+            (Eq.refl (Nat.ble 1 1)))))
+      (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+        (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+e : (Fin (n + 1) → ℝ) ≃ᵐ ℝ × (Fin n → ℝ) := MeasurableEquiv.piFinSuccAbove (fun x => ℝ) (Fin.last n)
+hsplit :
+  Measure.map (⇑e) (Measure.pi μ) =
+    (gammaMeasure (↑(d + n + 1)) 1).prod (Measure.pi fun j => gammaMeasure (↑(d + ↑j + 1)) 1)
+⊢ SFinite (gammaMeasure (↑(d + n + 1)) 1)
+
+d n : ℕ
+μ : Fin (n + 1) → Measure ℝ := fun j => gammaMeasure (↑(d + ↑j + 1)) 1
+this : ∀ (j : Fin (n + 1)), IsProbabilityMeasure (μ j) :=
+  fun j =>
+    isProbabilityMeasure_gammaMeasure
+      (Nat.cast_pos'.mpr
+        (Right.add_pos_of_nonneg_of_pos (add_nonneg zero_le zero_le)
+          (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+            (Eq.refl (Nat.ble 1 1)))))
+      (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+        (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+e : (Fin (n + 1) → ℝ) ≃ᵐ ℝ × (Fin n → ℝ) := MeasurableEquiv.piFinSuccAbove (fun x => ℝ) (Fin.last n)
+hsplit :
+  Measure.map (⇑e) (Measure.pi μ) =
+    (gammaMeasure (↑(d + n + 1)) 1).prod (Measure.pi fun j => gammaMeasure (↑(d + ↑j + 1)) 1)
+⊢ SFinite (Measure.pi fun j => gammaMeasure (↑(d + ↑j + 1)) 1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:66:6: error: 'change' tactic failed, pattern
+  Measure.map (fun x => 1) ?m.35 = ?m.37
+is not definitionally equal to target
+  Measure.map det complexWishart = Measure.dirac 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:72:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SFinite (gammaMeasure (↑(d + n + 1)) 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:68:14: error: unsolved goals
+d n : ℕ
+ih : Measure.map det complexWishart = centralBartlettGammaProductLaw d n
+⊢ SFinite (gammaMeasure (↑(d + n + 1)) 1)
+'JinWishart.centralBartlettGammaProductLaw_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGammaProductLaw_succ' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_det_eq_gammaProduct' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,62 @@
+{
+  "seed": 20261018,
+  "collected_utc": "2026-10-18T05:55:18.962238+00:00",
+  "source_sha256": "27100aebe659cebed2d59c4c79f216ee26dfc3f341da91de9ff6e84ebe86cba2",
+  "records": [
+    {
+      "rows": 1,
+      "columns": 1,
+      "cases": 2048,
+      "max_absolute_errors": {
+        "gram": 0.0,
+        "trace": 0.0,
+        "determinant": 8.881784197001252e-16
+      }
+    },
+    {
+      "rows": 1,
+      "columns": 3,
+      "cases": 2048,
+      "max_absolute_errors": {
+        "gram": 4.965068306494546e-16,
+        "trace": 1.790046831555675e-15,
+        "determinant": 3.4275573929641366e-30
+      }
+    },
+    {
+      "rows": 3,
+      "columns": 2,
+      "cases": 2048,
+      "max_absolute_errors": {
+        "gram": 1.7763568394002505e-15,
+        "trace": 3.5529620732442414e-15,
+        "determinant": 4.263261016827706e-14
+      }
+    },
+    {
+      "rows": 4,
+      "columns": 4,
+      "cases": 2048,
+      "max_absolute_errors": {
+        "gram": 3.552713678800501e-15,
+        "trace": 7.105427610663951e-15,
+        "determinant": 4.547733633795576e-13
+      }
+    },
+    {
+      "rows": 2,
+      "columns": 4,
+      "cases": 2048,
+      "max_absolute_errors": {
+        "gram": 1.7763568394002505e-15,
+        "trace": 3.557520460971728e-15,
+        "determinant": 2.4176730796000137e-29
+      }
+    }
+  ],
+  "exact_control": {
+    "determinant": 12,
+    "trace": 9
+  },
+  "status": "PASS fixed-seed algebra and exact controls; not a probability proof"
+}

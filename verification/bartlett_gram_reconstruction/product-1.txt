@@ -1,0 +1,93 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:32:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:38:4: error: Type mismatch: After simplification, term
+  (measurePreserving_piFinSuccAbove μ (Fin.last n)).map_eq
+ has type
+  Measure.map (⇑(Fin.snocEquiv fun x => ℝ).symm) (Measure.pi fun j => gammaMeasure (↑d + ↑↑j + 1) 1) =
+    (gammaMeasure (↑d + ↑n + 1) 1).prod (Measure.pi fun j => gammaMeasure (↑d + ↑↑j + 1) 1)
+but is expected to have type
+  Measure.map (⇑e) (Measure.pi fun j => gammaMeasure (↑d + ↑↑j + 1) 1) =
+    (gammaMeasure (↑d + ↑n + 1) 1).prod (Measure.pi fun j => gammaMeasure (↑d + ↑↑j + 1) 1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:42:79: error: unsolved goals
+case e_f
+d n : ℕ
+μ : Fin (n + 1) → Measure ℝ := fun j => gammaMeasure (↑(d + ↑j + 1)) 1
+this : ∀ (j : Fin (n + 1)), IsProbabilityMeasure (μ j) :=
+  fun j =>
+    isProbabilityMeasure_gammaMeasure
+      (Nat.cast_pos'.mpr
+        (Right.add_pos_of_nonneg_of_pos (add_nonneg zero_le zero_le)
+          (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+            (Eq.refl (Nat.ble 1 1)))))
+      (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+        (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+e : (Fin (n + 1) → ℝ) ≃ᵐ ℝ × (Fin n → ℝ) := MeasurableEquiv.piFinSuccAbove (fun x => ℝ) (Fin.last n)
+hsplit :
+  Measure.map (⇑e) (Measure.pi μ) =
+    (gammaMeasure (↑(d + n + 1)) 1).prod (Measure.pi fun j => gammaMeasure (↑(d + ↑j + 1)) 1)
+x : Fin (n + 1) → ℝ
+⊢ ∏ i, ↑(x i.castSucc) = ∏ x_1, ↑(Fin.init x x_1) ∨ x (Fin.last n) = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:54:12: error: Function expected at
+  Measure.map_id
+but this term has type
+  Measure.map id ?m.366 = ?m.366
+
+Note: Expected a function because this term is being applied to the argument
+  (gammaMeasure ((d + n + 1 : ℕ) : ℝ) 1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:52:13: error: unsolved goals
+d n : ℕ
+μ : Fin (n + 1) → Measure ℝ := fun j => gammaMeasure (↑(d + ↑j + 1)) 1
+this : ∀ (j : Fin (n + 1)), IsProbabilityMeasure (μ j) :=
+  fun j =>
+    isProbabilityMeasure_gammaMeasure
+      (Nat.cast_pos'.mpr
+        (Right.add_pos_of_nonneg_of_pos (add_nonneg zero_le zero_le)
+          (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+            (Eq.refl (Nat.ble 1 1)))))
+      (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+        (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+e : (Fin (n + 1) → ℝ) ≃ᵐ ℝ × (Fin n → ℝ) := MeasurableEquiv.piFinSuccAbove (fun x => ℝ) (Fin.last n)
+hsplit :
+  Measure.map (⇑e) (Measure.pi μ) =
+    (gammaMeasure (↑(d + n + 1)) 1).prod (Measure.pi fun j => gammaMeasure (↑(d + ↑j + 1)) 1)
+⊢ Measure.map (fun p => ↑p.1 * ∏ j, ↑(p.2 j))
+      ((gammaMeasure (↑(d + n + 1)) 1).prod (Measure.pi fun j => gammaMeasure (↑(d + ↑j + 1)) 1)) =
+    Measure.map (fun p => ↑p.1 * p.2)
+      ((gammaMeasure (↑(d + n + 1)) 1).prod
+        (Measure.map (fun x => ∏ j, ↑(x j)) (Measure.pi fun j => gammaMeasure (↑(d + ↑j + 1)) 1)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:47:12: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [e, MeasurableEquiv.piFinSuccAbove, Fin.insertNthEquiv, Fin.prod_univ_castSucc, Fin.succAbove_last,
+    mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:48:52: warning: This simp argument is unused:
+  Fin.succAbove_last
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Function.comp_def, e, MeasurableEquiv.piFinSuccAbove, Fin.insertNthEquiv, Fin.prod_univ_castSucc,
+    mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:64:9: error: unsolved goals
+case zero
+d : ℕ
+⊢ Measure.map 1 complexWishart = Measure.dirac 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantProduct.lean:70:12: error: Function expected at
+  Measure.map_id
+but this term has type
+  Measure.map id ?m.68 = ?m.68
+
+Note: Expected a function because this term is being applied to the argument
+  (gammaMeasure (((d + n) + 1 : ℕ) : ℝ) 1)
+'JinWishart.centralBartlettGammaProductLaw_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGammaProductLaw_succ' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_det_eq_gammaProduct' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

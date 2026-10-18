@@ -20,4 +20,10 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianMatrixBlockLaw.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianBartlettFiber.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianBartlettBlockLaw.lean -text
-/theory/jin_wishart_formalization/JinWishartFormalization.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianBartlettGramRecursion.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianBartlettGramDeterminant.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianBartlettDeterminantLaw.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartDeterminantProduct.lean -text
+/experiments/bartlett_gram_reconstruction_control.py -text
+/verification/bartlett_gram_reconstruction/** -text whitespace=cr-at-eol

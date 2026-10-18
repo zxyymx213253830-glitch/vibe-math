@@ -1,0 +1,142 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramDeterminant.lean:38:52: error: unsolved goals
+case inl.inl
+n : ℕ
+r : ℝ
+hr : 0 < r
+z : EuclideanSpace ℂ (Fin n)
+B : Matrix (Fin n) (Fin n) ℂ
+hs : ↑√r ≠ 0
+hsq : ↑√r ^ 2 = ↑r
+i j : Fin 1
+⊢ ↑√r ^ 2 =
+    fromBlocks (fun x x_1 => ↑√r ^ 2) ((fun x x_1 => ↑√r ^ 2) * (centralBartlettShearCoefficients r z)ᴴ)
+      (centralBartlettShearCoefficients r z * fun x x_1 => ↑√r ^ 2)
+      (B + (centralBartlettShearCoefficients r z * fun x x_1 => ↑√r ^ 2) * (centralBartlettShearCoefficients r z)ᴴ)
+      (Sum.inl i) (Sum.inl j)
+
+case inl.inr
+n : ℕ
+r : ℝ
+hr : 0 < r
+z : EuclideanSpace ℂ (Fin n)
+B : Matrix (Fin n) (Fin n) ℂ
+hs : ↑√r ≠ 0
+hsq : ↑√r ^ 2 = ↑r
+i : Fin 1
+j : Fin n
+⊢ ↑√r * z.ofLp j =
+    fromBlocks (fun x x_1 => ↑√r ^ 2) ((fun x x_1 => ↑√r ^ 2) * (centralBartlettShearCoefficients r z)ᴴ)
+      (centralBartlettShearCoefficients r z * fun x x_1 => ↑√r ^ 2)
+      (B + (centralBartlettShearCoefficients r z * fun x x_1 => ↑√r ^ 2) * (centralBartlettShearCoefficients r z)ᴴ)
+      (Sum.inl i) (Sum.inr j)
+
+case inr.inl
+n : ℕ
+r : ℝ
+hr : 0 < r
+z : EuclideanSpace ℂ (Fin n)
+B : Matrix (Fin n) (Fin n) ℂ
+hs : ↑√r ≠ 0
+hsq : ↑√r ^ 2 = ↑r
+i : Fin n
+j : Fin 1
+⊢ (starRingEnd ℂ) (z.ofLp i) * ↑√r =
+    fromBlocks (fun x x_1 => ↑√r ^ 2) ((fun x x_1 => ↑√r ^ 2) * (centralBartlettShearCoefficients r z)ᴴ)
+      (centralBartlettShearCoefficients r z * fun x x_1 => ↑√r ^ 2)
+      (B + (centralBartlettShearCoefficients r z * fun x x_1 => ↑√r ^ 2) * (centralBartlettShearCoefficients r z)ᴴ)
+      (Sum.inr i) (Sum.inl j)
+
+case inr.inr
+n : ℕ
+r : ℝ
+hr : 0 < r
+z : EuclideanSpace ℂ (Fin n)
+B : Matrix (Fin n) (Fin n) ℂ
+hs : ↑√r ≠ 0
+hsq : ↑√r ^ 2 = ↑r
+i j : Fin n
+⊢ B i j + (starRingEnd ℂ) (z.ofLp i) * z.ofLp j =
+    fromBlocks (fun x x_1 => ↑√r ^ 2) ((fun x x_1 => ↑√r ^ 2) * (centralBartlettShearCoefficients r z)ᴴ)
+      (centralBartlettShearCoefficients r z * fun x x_1 => ↑√r ^ 2)
+      (B + (centralBartlettShearCoefficients r z * fun x x_1 => ↑√r ^ 2) * (centralBartlettShearCoefficients r z)ᴴ)
+      (Sum.inr i) (Sum.inr j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramDeterminant.lean:45:6: warning: This simp argument is unused:
+  centralBartlettShearCoefficients
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [centralBartlettGram, centralBartlettIndexEquiv, centralBlockStep, Matrix.mul_apply,
+    Matrix.conjTranspose_apply, Complex.star_def, ← hsq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramDeterminant.lean:45:40: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [centralBartlettGram, centralBartlettIndexEquiv, centralBlockStep, centralBartlettShearCoefficients,
+    Matrix.conjTranspose_apply, Complex.star_def, ← hsq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramDeterminant.lean:45:58: warning: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [centralBartlettGram, centralBartlettIndexEquiv, centralBlockStep, centralBartlettShearCoefficients,
+    Matrix.mul_apply, Complex.star_def, ← hsq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramDeterminant.lean:46:6: warning: This simp argument is unused:
+  Complex.star_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [centralBartlettGram, centralBartlettIndexEquiv, centralBlockStep, centralBartlettShearCoefficients,
+    Matrix.mul_apply, Matrix.conjTranspose_apply, ← hsq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramDeterminant.lean:52:43: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (centralBlockStep ?A ?U ?B).det
+in the target expression
+  (centralBlockStep (fun x x_1 => ↑r) (centralBartlettShearCoefficients r z) B).det = ↑r * B.det
+
+n : ℕ
+r : ℝ
+hr : 0 < r
+z : EuclideanSpace ℂ (Fin n)
+B : Matrix (Fin n) (Fin n) ℂ
+⊢ (centralBlockStep (fun x x_1 => ↑r) (centralBartlettShearCoefficients r z) B).det = ↑r * B.det
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    fun x x_1 => ↑r
+  has type
+    Fin 1 → Fin 1 → ℂ
+  but is expected to have type
+    Matrix (Fin 1) (Fin 1) ℂ
+  in the application
+    centralBlockStep fun x x_1 => ↑r
+'JinWishart.centralBartlettGram_block_factor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

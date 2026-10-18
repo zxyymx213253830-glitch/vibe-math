@@ -1,0 +1,12 @@
+{
+  "collected_utc": "2026-10-18T06:10:23.642745+00:00",
+  "kernel_exit_code_recorded": 0,
+  "execution_evidence": "Live collaborative_check unified session49113 completed with exit0. Nonfatal ring suggestions preserved.",
+  "scope": "Main entry with cached checked project/external dependencies; NOT a full Lake/mathlib build",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
+  "log": "verification/bartlett_gram_reconstruction/facade.txt",
+  "compiled": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization.olean",
+  "source_sha256": "cd402bc096ee023af74ec8b470d0fa3936822a72208d477556ac91d52cc4236c",
+  "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+  "compiled_sha256": "be9031082a2ada0f589e57d98b7c10a97a3812d7dee41c743f18c18eafcdaf54"
+}

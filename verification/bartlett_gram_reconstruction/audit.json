@@ -1,0 +1,209 @@
+{
+  "collected_utc": "2026-10-18T06:10:23.778599+00:00",
+  "spec_sha256": "d0e9d0b1f603236c4b9395347d3ea84f3a7c4e3a368413d350ae0a6dc3be7ac4",
+  "auditor_sha256": "7cdbabdf0692a1e4d4599db5592b9145b9365252cff4264a07f02247c1efe847",
+  "modules": {
+    "JinWishartFormalization.GaussianBartlettGramRecursion": {
+      "declarations": [
+        {
+          "name": "JinWishart.continuous_centralBartlettGram",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexGram_apply_inner",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.normalizedColumnCoefficients_mul",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_reconstruct",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_centralBartlett_recursion",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "d5637fa4b1fbe94fba5a3dd1edd6e17dda2f3c78419091343cc9fd64718fcde7",
+      "olean_sha256": "7b3333e93cfc8d16652e5d7ea1ac055cf487aaa3fc3d1aeab954eb10cb29fa73",
+      "log_sha256": "e19fd1bde9dd3bbde6c06ec44ad80f625a9f6d81385f17c010ea6994394e34a8",
+      "imports": {
+        "JinWishartFormalization.GaussianBartlettBlockLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianBartlettBlockLaw.olean",
+          "sha256": "98c31647ac6a03bd7098e2b243995811983cd6b2fb7ae41698f1a9a7317fb3e7"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianBartlettGramDeterminant": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralBartlettGram_block_factor",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_det",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "42e796c025a05e9afd3217d74bcccbf6abd6c89da17018fffce78cde0d062a28",
+      "olean_sha256": "199e7244a505c743e195be8d3c201df17d0bb8702a923971d24668c5d848ab91",
+      "log_sha256": "af491707413451b1297c2c66d4524538201f1163c409953a3f67bd7e9bbe94da",
+      "imports": {
+        "JinWishartFormalization.GaussianBartlettGramRecursion": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianBartlettGramRecursion.olean",
+          "sha256": "7b3333e93cfc8d16652e5d7ea1ac055cf487aaa3fc3d1aeab954eb10cb29fa73"
+        },
+        "JinWishartFormalization.CentralWishartBlockStep": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartBlockStep.olean",
+          "sha256": "355394c8f56d0612e2c99a3ecb5084e6dc450aa3095b30d7506bbe726368eed1"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianBartlettDeterminantLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexWishart_det_bartlett_recursion",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "fe47d6687f1cab5229db66107bb683d5b3ece44e69320ab639d4f35f555a8971",
+      "olean_sha256": "0a7d86b807809d48a01becd0fc35241788d18a5bfa06d9021db482a0006564cc",
+      "log_sha256": "0ae2a6e464640e796c1df9c591b10f1ff73e3a5b7861ef287cb678d2f397676a",
+      "imports": {
+        "JinWishartFormalization.GaussianBartlettGramDeterminant": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianBartlettGramDeterminant.olean",
+          "sha256": "199e7244a505c743e195be8d3c201df17d0bb8702a923971d24668c5d848ab91"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartDeterminantProduct": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralBartlettGammaProductLaw_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettGammaProductLaw_succ",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_det_eq_gammaProduct",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_det_eq_gammaProduct_of_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "e74e37685732b91ad8f2f0dadb643c48a0be086c28fd667616a5683b507730af",
+      "olean_sha256": "5b64de1085c063b2a62cd9f28c4cb23fbe7bbc342bdcf45095c60f47ea86a919",
+      "log_sha256": "32f0efc07f6af4ba1f4a2211baa1d723e304b9a7244d3127306f53a4cfd3f936",
+      "imports": {
+        "JinWishartFormalization.GaussianBartlettDeterminantLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianBartlettDeterminantLaw.olean",
+          "sha256": "0a7d86b807809d48a01becd0fc35241788d18a5bfa06d9021db482a0006564cc"
+        },
+        "Mathlib.MeasureTheory.Constructions.Pi": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Constructions/Pi.olean",
+          "sha256": "dcff35e6d035e7cd022c81483a1d1db66137b77d37d822f0265693ea679902bb"
+        }
+      }
+    }
+  },
+  "total_declarations": 12,
+  "controls": [
+    {
+      "script": "experiments/bartlett_gram_reconstruction_control.py",
+      "script_sha256": "27100aebe659cebed2d59c4c79f216ee26dfc3f341da91de9ff6e84ebe86cba2",
+      "result_sha256": "5ffef5afa9c60174a53b3fc6e46c51bf4df87e45d171a4a5800c2d92bbb077a0",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/gaussian_full_rank_control.py",
+      "script_sha256": "75a1ccf3b1bd2e9df48c9b182e16a5de5bda5c24dc2ee2c7fa8ed433c03b3e4d",
+      "result_sha256": "b0e46b209596e3d59335085b499270243e6d07d143f53542b89a9c6e4ed92df7",
+      "interpretation": "Reproducible control, not a proof"
+    }
+  ],
+  "reviews": [
+    {
+      "request_sha256": "4a79364ceedbc6fd2c3a80dcfc45a77417f02d54d210de920043703aa9c49d04",
+      "prompt_sha256": "d841fe716519cf7949ae6cb69bd3587156b1c91af1fa434b805af4a919b1036a",
+      "raw_response_sha256": "97142cc06a62099f29420443e25913ce4335ca7fc4c492e351e2a61f9acd1d24",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    }
+  ],
+  "scope": "Actual central complex Wishart recursive full Gram law and arbitrary t>=s determinant law as independent Gamma product. CN complex variance1; product output embedded in complex. No general matrix/spectral density, noncentral extension or general paper T1-4 claim. P4 actual limited-source model review received, human review still required. Paper/release unchanged.",
+  "human_review": "REQUIRED for stated measure/model interpretation",
+  "full_build": "NOT_RUN",
+  "paper_and_submission": "UNCHANGED",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "status": "PASS specified leaf bundle and bindings"
+}

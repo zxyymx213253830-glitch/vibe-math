@@ -1,0 +1,490 @@
+P4 semantic/math review. Proof author Codex; you are a different model family.
+Report concrete problems only (max650 words); no rewrites, no tools or independent compile.
+All 12 printed declarations in the FOUR FULL target files below passed Lean, standard
+propext/Classical.choice/Quot.sound only. Main new claim: actual CENTRAL complex CN(0,1)
+t-by-s Gram (t>=s) determinant has the law of a product of independent
+Gamma(t-s+1,rate1),...,Gamma(t,rate1). A prior checked actual Bartlett block law is
+supplied as support, NOT assumed from a candidate density. Reconstruction is pointwise,
+including u=0; determinant factorization needs r>0, then is transported a.e. using the
+actual norm law. n=0 means empty residual matrix det=1, not det=0. Singular wide
+residuals are allowed in block/determinant recursion; product theorem uses d+n rows.
+z is a ROW of inner products (inner conjugate-linear in FIRST argument). Thus the
+rank-one contribution has entry conj(z_j)*z_k. At u=0, z=0 by total division and
+B=V^H V. Pi product input variables are real, output embeds their product in complex.
+Check indexing, null sets, product-map orientation, Gamma shape/rate, dimensions,
+stronger statement vs actual proof, and whether the finite-product law really follows
+from actual samples. Human review of measure/variance/model interpretation remains
+required. This is not a matrix/spectral density or a general-paper-Theorems1-4 claim.
+Do not report hypothetical conventions absent from this code as actual errors.
+Earlier full-fiber and frame audit is a dependency, not a full re-review here.
+
+FULL TARGET GaussianBartlettGramRecursion.lean
+import JinWishartFormalization.GaussianBartlettBlockLaw
+
+/-!
+# The actual central Wishart law as a recursive Bartlett block pushforward
+
+Codex proofs. Coefficients z are a ROW: the lower block is B + zᴴ z.
+The reconstruction is total, including a zero first column. Its actual joint
+input law is already proved, rather than assumed from a candidate density.
+[需人工审查] Measurable pushforward, complex variance, and model interpretation.
+This is not yet a real-coordinate Jacobian or a matrix/spectral density.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def centralBartlettGram {n : ℕ} (r : ℝ) (z : EuclideanSpace ℂ (Fin n))
+    (B : Matrix (Fin n) (Fin n) ℂ) : Matrix (Fin (n + 1)) (Fin (n + 1)) ℂ :=
+  fun i j => Fin.cases
+    (Fin.cases (r : ℂ) (fun k => (Real.sqrt r : ℂ) * z k) j)
+    (fun k => Fin.cases (star (z k) * (Real.sqrt r : ℂ))
+      (fun l => B k l + star (z k) * z l) j) i
+
+theorem continuous_centralBartlettGram (n : ℕ) :
+    Continuous (fun p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ) =>
+      centralBartlettGram p.1 p.2.1 p.2.2) := by
+  apply continuous_pi
+  intro i
+  apply continuous_pi
+  intro j
+  refine Fin.cases ?_ (fun i => ?_) i <;> refine Fin.cases ?_ (fun j => ?_) j <;>
+    simp only [centralBartlettGram, Fin.cases_zero, Fin.cases_succ] <;> fun_prop
+
+theorem complexGram_apply_inner {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ)
+    (j k : Fin n) :
+    complexGram A j k = inner ℂ (complexMatrixColumn A j) (complexMatrixColumn A k) := by
+  simp only [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    complexMatrixColumn, PiLp.inner_apply, RCLike.inner_apply,
+    RCLike.star_def, mul_comm]
+
+theorem normalizedColumnCoefficients_mul {m n : ℕ}
+    (u : EuclideanSpace ℂ (Fin (m + 1))) (V : Matrix (Fin (m + 1)) (Fin n) ℂ)
+    (j : Fin n) :
+    (‖u‖ : ℂ) * normalizedColumnCoefficients u V j =
+      inner ℂ u (complexMatrixColumn V j) := by
+  by_cases hu : u = 0
+  · simp [hu, normalizedColumnCoefficients]
+  · have hn : (‖u‖ : ℂ) ≠ 0 := by exact_mod_cast norm_ne_zero_iff.mpr hu
+    change (‖u‖ : ℂ) * (inner ℂ u (complexMatrixColumn V j) / (‖u‖ : ℂ)) = _
+    field_simp
+
+/-- Pointwise reconstruction, even at a zero pivot (division is totalized). -/
+theorem centralBartlettGram_reconstruct {m n : ℕ}
+    (A : Matrix (Fin (m + 1)) (Fin (n + 1)) ℂ) :
+    centralBartlettGram (centralBartlettCoordinates A).1
+      (centralBartlettCoordinates A).2.1 (centralBartlettCoordinates A).2.2 = complexGram A := by
+  let u := complexMatrixColumn A 0
+  let V : Matrix (Fin (m + 1)) (Fin n) ℂ := fun i j => A i j.succ
+  change centralBartlettGram (‖u‖ ^ 2) (normalizedColumnCoefficients u V)
+    (projectedResidualGram u V) = complexGram A
+  ext i j
+  refine Fin.cases ?_ (fun i => ?_) i <;> refine Fin.cases ?_ (fun j => ?_) j
+  · change (‖u‖ ^ 2 : ℝ) = complexGram A 0 0
+    rw [complexGram_apply_inner]
+    rw [Complex.ofReal_pow]
+    exact (inner_self_eq_norm_sq_to_K (𝕜 := ℂ) u).symm
+  · change (Real.sqrt (‖u‖ ^ 2) : ℂ) * normalizedColumnCoefficients u V j = _
+    rw [Real.sqrt_sq (norm_nonneg u), complexGram_apply_inner]
+    exact normalizedColumnCoefficients_mul u V j
+  · change star (normalizedColumnCoefficients u V i) * (Real.sqrt (‖u‖ ^ 2) : ℂ) = _
+    rw [Real.sqrt_sq (norm_nonneg u), complexGram_apply_inner]
+    change star (normalizedColumnCoefficients u V i) * (‖u‖ : ℂ) =
+      inner ℂ (complexMatrixColumn V i) u
+    have h := congrArg star (normalizedColumnCoefficients_mul u V i)
+    simpa only [star_mul, Complex.star_def, Complex.conj_ofReal, mul_comm,
+      inner_conj_symm] using h
+  · change complexGram V i j - star (normalizedColumnCoefficients u V i) *
+      normalizedColumnCoefficients u V j + star (normalizedColumnCoefficients u V i) *
+      normalizedColumnCoefficients u V j = complexGram V i j
+    exact sub_add_cancel _ _
+
+/-- Full actual central Gram distribution, with a lower-dimensional actual
+Wishart factor. No positive-definite or full-rank premise is needed. -/
+theorem complexWishart_centralBartlett_recursion (m n : ℕ) :
+    complexWishart (m := m + 1) (n := n + 1) =
+      ((gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n)))).map
+          (fun p => centralBartlettGram p.1 p.2.1 p.2.2) := by
+  have hC : Measurable (centralBartlettCoordinates (m := m) (n := n)) := by
+    exact ((measurable_fst.norm.pow_const 2).prodMk
+      (measurable_centralBartlettFiber m n)).comp (measurable_matrixColumnSplit (m + 1) n)
+  rw [← actualCentralBartlett_block_law m n,
+    Measure.map_map (continuous_centralBartlettGram n).measurable hC]
+  have hfun : (fun p => centralBartlettGram p.1 p.2.1 p.2.2) ∘
+      centralBartlettCoordinates (m := m) (n := n) = complexGram := by
+    funext A
+    exact centralBartlettGram_reconstruct A
+  rw [hfun, complexGaussianMatrixLaw_map_gram]
+
+end
+end JinWishart
+
+#print axioms JinWishart.continuous_centralBartlettGram
+#print axioms JinWishart.complexGram_apply_inner
+#print axioms JinWishart.normalizedColumnCoefficients_mul
+#print axioms JinWishart.centralBartlettGram_reconstruct
+#print axioms JinWishart.complexWishart_centralBartlett_recursion
+
+FULL TARGET GaussianBartlettGramDeterminant.lean
+import JinWishartFormalization.GaussianBartlettGramRecursion
+import JinWishartFormalization.CentralWishartBlockStep
+
+/-!
+# Determinant of the generic Bartlett reconstruction
+
+Codex proofs, using the existing dimension-independent block congruence.
+The pivot is positive; no inverse, density, or nonsingularity of B is assumed.
+[需人工审查] Subsequent probabilistic interpretation and coordinate convention.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def centralBartlettIndexEquiv (n : ℕ) : Fin 1 ⊕ Fin n ≃ Fin (n + 1) where
+  toFun := Sum.elim (fun _ => 0) Fin.succ
+  invFun := Fin.cases (Sum.inl 0) Sum.inr
+  left_inv := by
+    intro i
+    rcases i with i | i
+    · have hi : i = 0 := Subsingleton.elim _ _
+      subst i
+      rfl
+    · rfl
+  right_inv := by
+    intro i
+    refine Fin.cases ?_ (fun _ => ?_) i <;> rfl
+
+def centralBartlettShearCoefficients {n : ℕ} (r : ℝ) (z : EuclideanSpace ℂ (Fin n)) :
+    Matrix (Fin n) (Fin 1) ℂ := fun i _ => star (z i) / (Real.sqrt r : ℂ)
+
+theorem centralBartlettGram_block_factor {n : ℕ} (r : ℝ) (hr : 0 < r)
+    (z : EuclideanSpace ℂ (Fin n)) (B : Matrix (Fin n) (Fin n) ℂ) :
+    (centralBartlettGram r z B).submatrix (centralBartlettIndexEquiv n)
+      (centralBartlettIndexEquiv n) =
+      centralBlockStep (Matrix.of (fun _ _ : Fin 1 => (r : ℂ)))
+        (centralBartlettShearCoefficients r z) B := by
+  have hs : (Real.sqrt r : ℂ) ≠ 0 := by exact_mod_cast ne_of_gt (Real.sqrt_pos.2 hr)
+  have hsq : (Real.sqrt r : ℂ) ^ 2 = (r : ℂ) := by
+    exact_mod_cast Real.sq_sqrt (le_of_lt hr)
+  ext i j
+  rcases i with i | i <;> rcases j with j | j <;>
+    simp [centralBartlettGram, centralBartlettIndexEquiv, centralBlockStep, Matrix.fromBlocks,
+      centralBartlettShearCoefficients, Matrix.mul_apply, Matrix.conjTranspose_apply,
+      ← hsq] <;> field_simp [hs]
+
+theorem centralBartlettGram_det {n : ℕ} (r : ℝ) (hr : 0 < r)
+    (z : EuclideanSpace ℂ (Fin n)) (B : Matrix (Fin n) (Fin n) ℂ) :
+    (centralBartlettGram r z B).det = (r : ℂ) * B.det := by
+  rw [← Matrix.det_submatrix_equiv_self (centralBartlettIndexEquiv n),
+    centralBartlettGram_block_factor r hr]
+  rw [centralBlockStep_det, Matrix.det_fin_one]
+  rfl
+
+end
+end JinWishart
+
+#print axioms JinWishart.centralBartlettGram_block_factor
+#print axioms JinWishart.centralBartlettGram_det
+
+FULL TARGET GaussianBartlettDeterminantLaw.lean
+import JinWishartFormalization.GaussianBartlettGramDeterminant
+
+/-!
+# Actual central Wishart determinant recursion
+
+Codex proof. The first Gamma energy is independent of an actual smaller
+Wishart matrix. This uses the full Bartlett block law, with no density premise.
+Valid also for singular rectangular residuals and the empty residual matrix.
+[需人工审查] Almost-everywhere transport, product measures, CN variance/model.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+/-- Distributional determinant recursion: an independent Gamma(m+1,rate1)
+times the determinant of actual Wishart(m,n). No spectral density is used. -/
+theorem complexWishart_det_bartlett_recursion (m n : ℕ) :
+    (complexWishart (m := m + 1) (n := n + 1)).map Matrix.det =
+      ((gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        (complexWishart (m := m) (n := n))).map
+          (fun p => (p.1 : ℂ) * p.2.det) := by
+  letI : IsProbabilityMeasure (gammaMeasure ((m + 1 : ℕ) : ℝ) 1) :=
+    isProbabilityMeasure_gammaMeasure (by positivity) (by norm_num)
+  have hr : ∀ᵐ r ∂gammaMeasure ((m + 1 : ℕ) : ℝ) 1, 0 < r := by
+    rw [← standardComplexColumnLaw_norm_sq_law (m + 1) (Nat.succ_pos m),
+      ae_map_iff (by fun_prop) measurableSet_Ioi]
+    filter_upwards [standardComplexColumnLaw_nonzero_ae (m + 1) (Nat.succ_pos m)] with u hu
+    exact sq_pos_of_pos (norm_pos_iff.mpr hu)
+  have hprod : ∀ᵐ p ∂(gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+      ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n))), 0 < p.1 := by
+    apply (Measure.ae_prod_iff_ae_ae (by measurability)).2
+    filter_upwards [hr] with r hr using ae_of_all _ (fun _ => hr)
+  rw [complexWishart_centralBartlett_recursion,
+    Measure.map_map (by fun_prop) (continuous_centralBartlettGram n).measurable]
+  have heq : (fun p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ) =>
+      (centralBartlettGram p.1 p.2.1 p.2.2).det) =ᵐ[
+      (gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n)))]
+      (fun p => (p.1 : ℂ) * p.2.2.det) := by
+    filter_upwards [hprod] with p hp
+    exact centralBartlettGram_det p.1 hp p.2.1 p.2.2
+  change Measure.map (fun p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ) =>
+    (centralBartlettGram p.1 p.2.1 p.2.2).det) _ = _
+  rw [Measure.map_congr heq]
+  have hdrop : ((gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+      ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n)))).map
+      (Prod.map id Prod.snd) =
+      (gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod (complexWishart (m := m) (n := n)) := by
+    rw [← Measure.map_prod_map _ _ measurable_id measurable_snd, Measure.map_id,
+      Measure.map_snd_prod, measure_univ, one_smul]
+  rw [← hdrop, Measure.map_map (by fun_prop) (measurable_id.prodMap measurable_snd)]
+  rfl
+
+end
+end JinWishart
+
+#print axioms JinWishart.complexWishart_det_bartlett_recursion
+
+FULL TARGET CentralWishartDeterminantProduct.lean
+import JinWishartFormalization.GaussianBartlettDeterminantLaw
+import Mathlib.MeasureTheory.Constructions.Pi
+
+/-!
+# Arbitrary-size actual central complex Wishart determinant product law
+
+Codex proofs. An actual (d+n)-by-n CN(0,1) Gram determinant has the law of a
+product of independent Gamma(d+j+1,rate1), j=0,...,n-1. The ascending order is
+equivalent to the usual descending Bartlett shapes; d is the row surplus.
+The empty determinant/product is 1. No matrix or spectral density is assumed.
+Fixed-seed actual trace/logdet controls are reused from gaussian_full_rank.
+[需人工审查] Finite product-measure transport and the original model convention.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def centralBartlettGammaProductLaw (d n : ℕ) : Measure ℂ :=
+  (Measure.pi (fun j : Fin n => gammaMeasure ((d + j.val + 1 : ℕ) : ℝ) 1)).map
+    (fun x => ∏ j : Fin n, (x j : ℂ))
+
+theorem centralBartlettGammaProductLaw_zero (d : ℕ) :
+    centralBartlettGammaProductLaw d 0 = Measure.dirac 1 := by
+  simp [centralBartlettGammaProductLaw]
+
+theorem centralBartlettGammaProductLaw_succ (d n : ℕ) :
+    centralBartlettGammaProductLaw d (n + 1) =
+      ((gammaMeasure ((d + n + 1 : ℕ) : ℝ) 1).prod
+        (centralBartlettGammaProductLaw d n)).map (fun p => (p.1 : ℂ) * p.2) := by
+  let μ : Fin (n + 1) → Measure ℝ := fun j => gammaMeasure ((d + j.val + 1 : ℕ) : ℝ) 1
+  let (j : Fin (n + 1)) : IsProbabilityMeasure (μ j) :=
+    isProbabilityMeasure_gammaMeasure (by positivity) (by norm_num)
+  letI : IsProbabilityMeasure (gammaMeasure ((d + n + 1 : ℕ) : ℝ) 1) :=
+    isProbabilityMeasure_gammaMeasure (by positivity) (by norm_num)
+  let (j : Fin n) : IsProbabilityMeasure (gammaMeasure ((d + j.val + 1 : ℕ) : ℝ) 1) :=
+    isProbabilityMeasure_gammaMeasure (by positivity) (by norm_num)
+  let e := MeasurableEquiv.piFinSuccAbove (fun _ : Fin (n + 1) => ℝ) (Fin.last n)
+  have hsplit : (Measure.pi μ).map e =
+      (gammaMeasure ((d + n + 1 : ℕ) : ℝ) 1).prod
+        (Measure.pi (fun j : Fin n => gammaMeasure ((d + j.val + 1 : ℕ) : ℝ) 1)) := by
+    simpa [e, μ, Fin.succAbove_last] using (measurePreserving_piFinSuccAbove μ (Fin.last n)).map_eq
+  calc
+    centralBartlettGammaProductLaw d (n + 1) =
+        ((Measure.pi μ).map e).map
+          (fun p : ℝ × (Fin n → ℝ) => (p.1 : ℂ) * ∏ j : Fin n, (p.2 j : ℂ)) := by
+      rw [Measure.map_map (by fun_prop) e.measurable]
+      unfold centralBartlettGammaProductLaw
+      congr 1
+      funext x
+      simp [e, MeasurableEquiv.piFinSuccAbove,
+        Fin.insertNthEquiv, Fin.prod_univ_castSucc, Fin.init, mul_comm]
+    _ = ((gammaMeasure ((d + n + 1 : ℕ) : ℝ) 1).prod
+        (Measure.pi (fun j : Fin n => gammaMeasure ((d + j.val + 1 : ℕ) : ℝ) 1))).map
+          (fun p : ℝ × (Fin n → ℝ) => (p.1 : ℂ) * ∏ j : Fin n, (p.2 j : ℂ)) := by rw [hsplit]
+    _ = _ := by
+      unfold centralBartlettGammaProductLaw
+      conv_rhs => rw [← (Measure.map_id (μ := gammaMeasure ((d + n + 1 : ℕ) : ℝ) 1))]
+      rw [Measure.map_prod_map _ _ measurable_id (by fun_prop),
+        Measure.map_map (by fun_prop) (by fun_prop)]
+      rfl
+
+/-- The actual full-size central determinant law, not a candidate density. -/
+theorem complexWishart_det_eq_gammaProduct (d n : ℕ) :
+    (complexWishart (m := d + n) (n := n)).map Matrix.det =
+      centralBartlettGammaProductLaw d n := by
+  induction n with
+  | zero =>
+      rw [centralBartlettGammaProductLaw_zero]
+      have hdet : (Matrix.det : Matrix (Fin 0) (Fin 0) ℂ → ℂ) = fun _ => 1 := by
+        funext A
+        exact Matrix.det_isEmpty
+      rw [hdet, Measure.map_const, measure_univ, one_smul]
+  | succ n ih =>
+      letI : IsProbabilityMeasure (gammaMeasure ((d + n + 1 : ℕ) : ℝ) 1) :=
+        isProbabilityMeasure_gammaMeasure (by positivity) (by norm_num)
+      rw [show d + (n + 1) = (d + n) + 1 by omega,
+        complexWishart_det_bartlett_recursion, centralBartlettGammaProductLaw_succ, ← ih]
+      conv_rhs => rw [← (Measure.map_id (μ := gammaMeasure (((d + n) + 1 : ℕ) : ℝ) 1))]
+      rw [Measure.map_prod_map _ _ measurable_id (by fun_prop),
+        Measure.map_map (by fun_prop) (by fun_prop)]
+      rfl
+
+/-- Conventional rows t / columns s interface, with all shapes t-s+1,...,t. -/
+theorem complexWishart_det_eq_gammaProduct_of_le (t s : ℕ) (hst : s ≤ t) :
+    (complexWishart (m := t) (n := s)).map Matrix.det =
+      centralBartlettGammaProductLaw (t - s) s := by
+  simpa only [Nat.sub_add_cancel hst] using complexWishart_det_eq_gammaProduct (t - s) s
+
+end
+end JinWishart
+
+#print axioms JinWishart.centralBartlettGammaProductLaw_zero
+#print axioms JinWishart.centralBartlettGammaProductLaw_succ
+#print axioms JinWishart.complexWishart_det_eq_gammaProduct
+#print axioms JinWishart.complexWishart_det_eq_gammaProduct_of_le
+
+SUPPORT GaussianBartlettBlockLaw.lean lines18-88
+    (standardComplexColumnLaw m).map (fun u => ‖u‖ ^ 2) = gammaMeasure (m : ℝ) 1 := by
+  have h := stdGaussian_half_norm_sq_law (E := EuclideanSpace ℂ (Fin m)) m hm
+    (by rw [finrank_real_of_complex, finrank_euclideanSpace_fin])
+  have hs : 0 < Real.sqrt (2 : ℝ) := by positivity
+  have hnorm (v : EuclideanSpace ℂ (Fin m)) :
+      ‖(Real.sqrt (2 : ℝ))⁻¹ • v‖ ^ 2 = ‖v‖ ^ 2 / 2 := by
+    rw [norm_smul, Real.norm_eq_abs, abs_of_pos (inv_pos.mpr hs), mul_pow,
+      inv_pow, Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 2)]
+    ring
+  unfold standardComplexColumnLaw
+  rw [Measure.map_map (by fun_prop) (by fun_prop)]
+  simpa only [Function.comp_def, hnorm] using h
+
+theorem standardComplexColumnLaw_nonzero_ae (m : ℕ) (hm : 0 < m) :
+    ∀ᵐ u ∂standardComplexColumnLaw m, u ≠ 0 := by
+  have hg0 : gammaMeasure (m : ℝ) 1 ({0} : Set ℝ) = 0 := by simp [gammaMeasure]
+  rw [← standardComplexColumnLaw_norm_sq_law m hm,
+    Measure.map_apply (by fun_prop) (measurableSet_singleton _)] at hg0
+  rw [ae_iff]
+  simpa [Set.preimage, sq_eq_zero_iff] using hg0
+
+/-- Entire first column and full residual-Gram fiber separate jointly. -/
+theorem centralBartlett_product_law (m n : ℕ) :
+    ((standardComplexColumnLaw (m + 1)).prod
+      (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin n) ℂ))).map
+      (fun p => (‖p.1‖ ^ 2, centralBartlettFiber p.1 p.2)) =
+      (gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n))) := by
+  have hNorm : MeasurePreserving (fun u : EuclideanSpace ℂ (Fin (m + 1)) => ‖u‖ ^ 2)
+      (standardComplexColumnLaw (m + 1)) (gammaMeasure ((m + 1 : ℕ) : ℝ) 1) :=
+    ⟨by fun_prop, standardComplexColumnLaw_norm_sq_law (m + 1) (Nat.succ_pos m)⟩
+  have hFiber : ∀ᵐ u ∂standardComplexColumnLaw (m + 1),
+      (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin n) ℂ)).map
+        (centralBartlettFiber u) =
+        (standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n)) := by
+    filter_upwards [standardComplexColumnLaw_nonzero_ae (m + 1) (Nat.succ_pos m)] with u hu
+    exact centralBartlettFiber_law u hu
+  exact (hNorm.skew_product (measurable_centralBartlettFiber m n) hFiber).map_eq
+
+def centralBartlettCoordinates {m n : ℕ} (A : Matrix (Fin (m + 1)) (Fin (n + 1)) ℂ) :
+    ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ) :=
+  let p := matrixColumnSplit A
+  (‖p.1‖ ^ 2, centralBartlettFiber p.1 p.2)
+
+/-- Actual central Gaussian [u,V] -> (||u||^2, normalized inner products,
+residual Gram) has Gamma x CN x lower-row Wishart law, not just marginals. -/
+theorem actualCentralBartlett_block_law (m n : ℕ) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin (n + 1)) ℂ)).map
+      centralBartlettCoordinates =
+      (gammaMeasure ((m + 1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n))) := by
+  have hF : Measurable (fun p : EuclideanSpace ℂ (Fin (m + 1)) ×
+      Matrix (Fin (m + 1)) (Fin n) ℂ => (‖p.1‖ ^ 2, centralBartlettFiber p.1 p.2)) :=
+    (measurable_fst.norm.pow_const 2).prodMk (measurable_centralBartlettFiber m n)
+  change (complexGaussianMatrixLaw (0 : Matrix (Fin (m + 1)) (Fin (n + 1)) ℂ)).map
+    ((fun p => (‖p.1‖ ^ 2, centralBartlettFiber p.1 p.2)) ∘ matrixColumnSplit) = _
+  rw [← Measure.map_map hF (measurable_matrixColumnSplit (m + 1) n),
+    complexGaussianMatrixLaw_columnSplit, centralBartlett_product_law]
+
+end
+end JinWishart
+
+#print axioms JinWishart.standardComplexColumnLaw_norm_sq_law
+#print axioms JinWishart.standardComplexColumnLaw_nonzero_ae
+#print axioms JinWishart.centralBartlett_product_law
+#print axioms JinWishart.actualCentralBartlett_block_law
+SUPPORT GaussianBartlettFiber.lean lines18-29
+    (V : Matrix (Fin (m + 1)) (Fin n) ℂ) : EuclideanSpace ℂ (Fin n) :=
+  WithLp.toLp 2 (fun j => inner ℂ u (complexMatrixColumn V j) / (‖u‖ : ℂ))
+
+def complexVectorGramRankOne {n : ℕ} (z : EuclideanSpace ℂ (Fin n)) :
+    Matrix (Fin n) (Fin n) ℂ := fun j k => star (z j) * z k
+
+def projectedResidualGram {m n : ℕ} (u : EuclideanSpace ℂ (Fin (m + 1)))
+    (V : Matrix (Fin (m + 1)) (Fin n) ℂ) : Matrix (Fin n) (Fin n) ℂ :=
+  complexGram V - complexVectorGramRankOne (normalizedColumnCoefficients u V)
+
+theorem measurable_complexGram_map (m n : ℕ) :
+    Measurable (complexGram (m := m) (n := n)) := by
+SUPPORT CentralWishartBlockStep.lean lines17-65
+def centralBlockShear {m n : ℕ} (U : Matrix (Fin n) (Fin m) ℂ) :
+    Matrix (Fin m ⊕ Fin n) (Fin m ⊕ Fin n) ℂ :=
+  Matrix.fromBlocks 1 0 U 1
+
+def centralBlockStep {m n : ℕ} (A : Matrix (Fin m) (Fin m) ℂ)
+    (U : Matrix (Fin n) (Fin m) ℂ) (B : Matrix (Fin n) (Fin n) ℂ) :
+    Matrix (Fin m ⊕ Fin n) (Fin m ⊕ Fin n) ℂ :=
+  Matrix.fromBlocks A (A * Uᴴ) (U * A) (B + U * A * Uᴴ)
+
+theorem centralBlockShear_det {m n : ℕ} (U : Matrix (Fin n) (Fin m) ℂ) :
+    (centralBlockShear U).det = 1 := by
+  simp [centralBlockShear, Matrix.det_fromBlocks_zero₁₂]
+
+theorem centralBlockShear_isUnit {m n : ℕ} (U : Matrix (Fin n) (Fin m) ℂ) :
+    IsUnit (centralBlockShear U) := by
+  rw [Matrix.isUnit_iff_isUnit_det, centralBlockShear_det]
+  exact isUnit_one
+
+/-- Block congruence factors the extension in every pair of dimensions. -/
+theorem centralBlockStep_factor {m n : ℕ} (A : Matrix (Fin m) (Fin m) ℂ)
+    (U : Matrix (Fin n) (Fin m) ℂ) (B : Matrix (Fin n) (Fin n) ℂ) :
+    centralBlockStep A U B = centralBlockShear U *
+      Matrix.fromBlocks A 0 0 B * (centralBlockShear U)ᴴ := by
+  have hs : (centralBlockShear U)ᴴ = Matrix.fromBlocks 1 Uᴴ 0 1 := by
+    ext i j
+    cases i <;> cases j <;> simp [centralBlockShear, Matrix.conjTranspose_apply, Matrix.one_apply, eq_comm]
+  rw [hs]
+  simp [centralBlockStep, centralBlockShear, Matrix.fromBlocks_multiply,
+    Matrix.mul_assoc, add_comm]
+
+theorem centralBlockStep_det {m n : ℕ} (A : Matrix (Fin m) (Fin m) ℂ)
+    (U : Matrix (Fin n) (Fin m) ℂ) (B : Matrix (Fin n) (Fin n) ℂ) :
+    (centralBlockStep A U B).det = A.det * B.det := by
+  rw [centralBlockStep_factor, Matrix.det_mul, Matrix.det_mul,
+    Matrix.det_conjTranspose, centralBlockShear_det]
+  simp [Matrix.det_fromBlocks_zero₂₁]
+
+/-- Exact cone equivalence; no density or probability identity is assumed. -/
+theorem centralBlockStep_posDef_iff {m n : ℕ} (A : Matrix (Fin m) (Fin m) ℂ)
+    (U : Matrix (Fin n) (Fin m) ℂ) (B : Matrix (Fin n) (Fin n) ℂ) :
+    (centralBlockStep A U B).PosDef ↔ (Matrix.fromBlocks A 0 0 B).PosDef := by
+  rw [centralBlockStep_factor]
+  exact (centralBlockShear_isUnit U).posDef_star_right_conjugate_iff
+
+end
+end JinWishart
+
+#print axioms JinWishart.centralBlockShear_det
+#print axioms JinWishart.centralBlockShear_isUnit
+LOCKED GAMMA DEFINITION
+
+section GammaPDF
+
+/-- The pdf of the gamma distribution depending on its scale and rate -/
+noncomputable
+def gammaPDFReal (a r x : ℝ) : ℝ :=
+  if 0 ≤ x then r ^ a / (Gamma a) * x ^ (a - 1) * exp (-(r * x)) else 0
+
+/-- The pdf of the gamma distribution, as a function valued in `ℝ≥0∞` -/
+noncomputable

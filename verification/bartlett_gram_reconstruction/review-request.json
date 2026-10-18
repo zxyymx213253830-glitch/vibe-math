@@ -1,0 +1,49 @@
+{
+  "inputs": {
+    "GaussianBartlettGramRecursion.lean": {
+      "sha256": "d5637fa4b1fbe94fba5a3dd1edd6e17dda2f3c78419091343cc9fd64718fcde7",
+      "supplied": "Full source"
+    },
+    "GaussianBartlettGramDeterminant.lean": {
+      "sha256": "42e796c025a05e9afd3217d74bcccbf6abd6c89da17018fffce78cde0d062a28",
+      "supplied": "Full source"
+    },
+    "GaussianBartlettDeterminantLaw.lean": {
+      "sha256": "fe47d6687f1cab5229db66107bb683d5b3ece44e69320ab639d4f35f555a8971",
+      "supplied": "Full source"
+    },
+    "CentralWishartDeterminantProduct.lean": {
+      "sha256": "e74e37685732b91ad8f2f0dadb643c48a0be086c28fd667616a5683b507730af",
+      "supplied": "Full source"
+    },
+    "GaussianBartlettBlockLaw.lean": {
+      "sha256": "aafb2c941cbeca4de57c4d9edb7b1b97526962bd93dc0ddeb70ca69ea544cd87",
+      "supplied_line_ranges": [
+        [
+          18,
+          88
+        ]
+      ]
+    },
+    "GaussianBartlettFiber.lean": {
+      "sha256": "1edf14796c8233bf7d21107b3c023a70b1b8b920beef16a6408a934a2937b36f",
+      "supplied_line_ranges": [
+        [
+          18,
+          29
+        ]
+      ]
+    },
+    "CentralWishartBlockStep.lean": {
+      "sha256": "2b2417fab3607b219da7e8074e2058c63126d2f142ab6c646e27c8fc91ba683d",
+      "supplied_line_ranges": [
+        [
+          17,
+          65
+        ]
+      ]
+    }
+  },
+  "gamma_source_sha256": "3aabf9cfc3538c6080166fff053ee8a245e33303f07859d8da1670a977044b51",
+  "prompt_sha256": "d841fe716519cf7949ae6cb69bd3587156b1c91af1fa434b805af4a919b1036a"
+}

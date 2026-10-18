@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramRecursion.lean:39:4: warning: This simp argument is unused:
+  Complex.inner
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply, complexMatrixColumn, PiLp.inner_apply,
+    RCLike.inner_apply, RCLike.star_def, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramRecursion.lean:65:4: error: Type mismatch: After simplification, term
+  Eq.symm (inner_self_eq_norm_sq_to_K u)
+ has type
+  @Eq ℂ (↑‖complexMatrixColumn A 0‖ ^ 2) (inner ℂ (complexMatrixColumn A 0) (complexMatrixColumn A 0))
+but is expected to have type
+  @Eq ℂ (↑‖complexMatrixColumn A 0‖ ^ 2) (inner ℂ (complexMatrixColumn A 0) (complexMatrixColumn A 0))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettGramRecursion.lean:72:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℂ ((starRingEnd ℂ) ((normalizedColumnCoefficients u V).ofLp i) * ↑‖u‖) (inner ℂ (complexMatrixColumn V i) u)
+but is expected to have type
+  @Eq ℂ ((starRingEnd ℂ) ((normalizedColumnCoefficients u V).ofLp i) * ↑‖u‖)
+    (inner ℂ (complexMatrixColumn A i.succ) (complexMatrixColumn A 0))
+'JinWishart.continuous_centralBartlettGram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGram_apply_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.normalizedColumnCoefficients_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_reconstruct' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_centralBartlett_recursion' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

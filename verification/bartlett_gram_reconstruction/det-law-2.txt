@@ -1,0 +1,20 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettDeterminantLaw.lean:48:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  SFinite (gammaMeasure (↑(m + 1)) 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianBartlettDeterminantLaw.lean:47:84: error: unsolved goals
+m n : ℕ
+hr : ∀ᵐ (r : ℝ) ∂gammaMeasure (↑(m + 1)) 1, 0 < r
+hprod :
+  ∀ᵐ (p :
+    ℝ ×
+      EuclideanSpace ℂ (Fin n) ×
+        Matrix (Fin n) (Fin n) ℂ) ∂(gammaMeasure (↑(m + 1)) 1).prod ((standardComplexColumnLaw n).prod complexWishart),
+    0 < p.1
+heq :
+  (fun p =>
+      (centralBartlettGram p.1 p.2.1
+          p.2.2).det) =ᵐ[(gammaMeasure (↑(m + 1)) 1).prod ((standardComplexColumnLaw n).prod complexWishart)]
+    fun p => ↑p.1 * p.2.2.det
+⊢ SFinite (gammaMeasure (↑(m + 1)) 1)
+'JinWishart.complexWishart_det_bartlett_recursion' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

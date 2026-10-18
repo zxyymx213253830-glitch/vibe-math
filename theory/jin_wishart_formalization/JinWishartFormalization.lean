@@ -1,3 +1,4 @@
+import JinWishartFormalization.CentralWishartDeterminantProduct
 import JinWishartFormalization.GaussianBartlettBlockLaw
 import JinWishartFormalization.GaussianGramSupport
 import JinWishartFormalization.GaussianOrthogonalSplitLaw

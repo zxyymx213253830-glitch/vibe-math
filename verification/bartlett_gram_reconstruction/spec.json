@@ -1,0 +1,17 @@
+{
+  "library": ".tools/publication-revision-20261016/fresh-project-library",
+  "targets": [
+    {"module":"JinWishartFormalization.GaussianBartlettGramRecursion","count":5,"log":"verification/bartlett_gram_reconstruction/gram-2.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.GaussianBartlettGramDeterminant","count":2,"log":"verification/bartlett_gram_reconstruction/determinant-3.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.GaussianBartlettDeterminantLaw","count":1,"log":"verification/bartlett_gram_reconstruction/det-law-3.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.CentralWishartDeterminantProduct","count":4,"log":"verification/bartlett_gram_reconstruction/product-4.txt","kernel_exit_code_recorded":0}
+  ],
+  "controls": [
+    {"script":"experiments/bartlett_gram_reconstruction_control.py","result":"verification/bartlett_gram_reconstruction/control.json","seed":20261018},
+    {"script":"experiments/gaussian_full_rank_control.py","result":"verification/gaussian_full_rank/control.json","seed":20261017}
+  ],
+  "reviews": [
+    {"request":"verification/bartlett_gram_reconstruction/review-request.json","prompt":"verification/bartlett_gram_reconstruction/p4-prompt.txt","receipt":"verification/bartlett_gram_reconstruction/p4.receipt.json","raw":"verification/bartlett_gram_reconstruction/p4.raw.json","snapshot":"verification/bartlett_gram_reconstruction/review-snapshot"}
+  ],
+  "scope": "Actual central complex Wishart recursive full Gram law and arbitrary t>=s determinant law as independent Gamma product. CN complex variance1; product output embedded in complex. No general matrix/spectral density, noncentral extension or general paper T1-4 claim. P4 actual limited-source model review received, human review still required. Paper/release unchanged."
+}
