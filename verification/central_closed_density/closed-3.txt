@@ -1,0 +1,66 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:51:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:51:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:74:4: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:75:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Set.indicator (Real.lt✝ 0) ?f (q 0 0)
+in the target expression
+  {q | 0 < q 0 0}.indicator (centralWishartCoordinateDensity d (n + 1)) q = centralWishartCoordinateDensity d (n + 1) q
+
+case neg
+d n : ℕ
+q : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ
+hp : ¬0 < q 0 0
+⊢ {q | 0 < q 0 0}.indicator (centralWishartCoordinateDensity d (n + 1)) q = centralWishartCoordinateDensity d (n + 1) q
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    q 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:102:65: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.withDensity ?m.119 1
+in the target expression
+  Measure.dirac 0 = (hermitianRealCoordinateMeasure 0).withDensity fun x => 1
+
+case zero
+d : ℕ
+hconst : realCoordinatesOfHermitian = fun x => 0
+hvol : hermitianRealCoordinateMeasure 0 = Measure.dirac 0
+hd : centralWishartCoordinateDensity d 0 = fun x => 1
+⊢ Measure.dirac 0 = (hermitianRealCoordinateMeasure 0).withDensity fun x => 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:108:29: error: `fun_prop` was unable to prove `Measurable (gammaPDF (↑(d + n + 1)) 1)`
+
+Issues:
+  No theorems found for `ProbabilityTheory.gammaPDF` in order to prove `Measurable fun x => gammaPDF (↑(d + n + 1)) 1 x`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:108:43: error: `fun_prop` was unable to prove `Measurable fun z => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z.1‖ ^ 2)) * centralWishartCoordinateDensity d n z.2`
+
+Issues:
+  No theorems found for `JinWishart.centralWishartCoordinateDensity` in order to prove `Measurable fun i2 => centralWishartCoordinateDensity d n i2`
+  No theorems found for `JinWishart.centralWishartCoordinateDensity` in order to prove `Measurable fun i => centralWishartCoordinateDensity d n i.2`
+'JinWishart.centralWishartCoordinateDensity_bartlett' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMeasure_nat_succ_eq_positive_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartCoordinateDensity_restrict_pivot' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_realCoordinates_eq_closedDensity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_realCoordinates_eq_closedDensity_of_le' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

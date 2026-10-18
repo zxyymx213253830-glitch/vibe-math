@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettDensityTransport.lean:35:4: error: Application type mismatch: The argument
+  Measurable.of_eval_matrix fun i j => ?m.175
+has type
+  (∀ (i : ?m.167) (j : ?m.168), Measurable fun x => ?m.175 j) → Measurable fun i j => ?m.175
+but is expected to have type
+  Measurable fun a =>
+    ((hermitianBlockCoordinateEquiv n) a).2.2 -
+      centralBartlettResidualShift
+        ((√((hermitianBlockCoordinateEquiv n) a).1)⁻¹ • ((hermitianBlockCoordinateEquiv n) a).2.1)
+in the application
+  Measurable.prodMk hs (Measurable.of_eval_matrix fun i j => ?m.175)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettDensityTransport.lean:35:44: error: Function expected at
+  Measurable.eval_matrix hQ ?m.187
+but this term has type
+  MeasurableSet ((fun x => (Prod.snd ∘ Prod.snd ∘ ⇑e) x ?m.183 ?m.184) ⁻¹' ?m.186)
+
+Note: Expected a function because this term is being applied to the argument
+  j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettDensityTransport.lean:35:59: error: Application type mismatch: The argument
+  i
+has type
+  ?m.171
+of sort `Type ?u.71` but is expected to have type
+  MeasurableSet ?m.186
+of sort `Prop` in the application
+  Measurable.eval_matrix hQ i
+'JinWishart.measurable_centralBartlettCoordinateChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_centralBartlettCoordinateInverse' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_pivot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_weighted_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_density_map' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

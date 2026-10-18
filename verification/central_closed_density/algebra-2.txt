@@ -1,0 +1,43 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:21:2: error: Type mismatch: After simplification, term
+  inner_self_eq_norm_sq_to_K z
+ has type
+  @Eq ℂ (∑ x, z.ofLp x * (starRingEnd ℂ) (z.ofLp x)) (↑‖z‖ ^ 2)
+but is expected to have type
+  @Eq ℂ (∑ i, z.ofLp i * (starRingEnd ℂ) (z.ofLp i)) (↑‖z‖ ^ 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:78:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:80:87: error: Application type mismatch: The argument
+  PosDef.posSemidef hB
+has type
+  B.PosSemidef
+but is expected to have type
+  (B - 0ᴴ * A⁻¹ * 0).PosSemidef
+in the application
+  (PosDef.fromBlocks₁₁ 0 B hA).mpr (PosDef.posSemidef hB)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:118:58: error: `fun_prop` was unable to prove `Measurable fun x =>
+  ENNReal.ofReal
+    (centralWishartDensityConstant d n * (hermitianOfRealCoordinates x).det.re ^ d *
+      Real.exp (-(hermitianOfRealCoordinates x).trace.re))`
+
+Issues:
+  No theorems found for `JinWishart.hermitianOfRealCoordinates` in order to prove `Measurable fun x => hermitianOfRealCoordinates x`
+  No theorems found for `Matrix.det` in order to prove `Measurable fun x5 => x5.det`
+  No theorems found for `Matrix.det` in order to prove `Measurable fun x => (hermitianOfRealCoordinates x).det`
+'JinWishart.complexVectorGramRankOne_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_posDef_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.hermitianOfRealCoordinates_centralChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_centralWishartCoordinateDensity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gammaPDF_nat_succ_positive' depends on axioms: [propext, Classical.choice, Quot.sound]

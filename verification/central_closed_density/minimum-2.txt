@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMinimum.lean:45:39: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMinimum.lean:47:2: error: Tactic `rfl` failed: The left-hand side
+  ENNReal.ofReal
+    (centralWishartDensityConstant d n * (hermitianOfRealCoordinates q).det.re ^ d *
+      Real.exp (-(hermitianOfRealCoordinates q).trace.re))
+is not definitionally equal to the right-hand side
+  ENNReal.ofReal (centralWishartDensityConstant d n * centralConeWeight d (hermitianOfRealCoordinates q))
+
+d n : ℕ
+q : Matrix (Fin n) (Fin n) ℝ
+hq : (hermitianOfRealCoordinates q).PosDef
+⊢ ENNReal.ofReal
+      (centralWishartDensityConstant d n * (hermitianOfRealCoordinates q).det.re ^ d *
+        Real.exp (-(hermitianOfRealCoordinates q).trace.re)) =
+    ENNReal.ofReal (centralWishartDensityConstant d n * centralConeWeight d (hermitianOfRealCoordinates q))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMinimum.lean:63:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.measurableSet_centralCoordinatePositiveCone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurableSet_centralCoordinateShiftedCone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralCoordinateShiftedCone_subset_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartCoordinateDensity_on_cone' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralWishartCoordinateDensity_cone_mass' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralWishart_shiftedCone_probability' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralSquareWishart_shiftedCone_probability' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

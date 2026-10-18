@@ -1,0 +1,431 @@
+P4: You are a skeptical mathematical referee, from a different family than the Codex proof author. Report concrete issues only, no rewrites, <=800 words. These exact three full sources passed the locked Lean kernel with only propext/Classical.choice/Quot.sound. No independent compilation by you. Review whether the actual CENTRAL CN(0,1) t-by-s Gram density is derived, not assumed; dimensions, normalization, restrictions, zero-dimensional base, product independence, variance. Target is all t>=s with row surplus d=t-s, canonical s^2 real coordinate volume (diagonal real, upper real, transposed upper imaginary), NOT Frobenius volume. K(d,s) is the displayed finite factorial product. At s=0 the coordinate measure is mass one on empty matrix; PD is vacuous and determinant one. z is a complex ROW, contribution conj(zi)*zj. Source joint law Gamma(d+n+1,rate1) x CN(n) x actual lower Wishart(d+n,n) is already checked as an entire matrix-block product law. Actual CN density is pi^-n exp(-norm²). The general weighted chart volume theorem already checked states (raw positive-r mixed volume withDensity r^n).map chart = canonical output volume restricted q00>0; proof is nonnegative Tonelli and fixed-fiber scaling, no target density premise. The chart is hermitianBlockCoordinateEquiv.symm composed with (r,z,Q)->(r,sqrt(r)z,Q+realcoords(z^H z)); the splitting equivalence preserves canonical coordinate volume exactly. H and R are inverse on Hermitian matrices; no ambient 2s² volume restriction. PD chart iff residual PD when r>0, det=r detB. Degree d is fixed across induction, row number d+n. Source density at r>0 is algebraically r^n times output density; actual Gamma has zero nonpositive mass. Actual recursion uses a.e. Hermitian residual and explicit joint map, not a random QR independence assumption. Review only supplied sources plus these precise dependency signatures. General noncentral density, spectral Jacobian, paper T1-4, and human semantic review are NOT claimed. Measure/variance/model interpretation remains [需人工审查].
+
+
+FULL SOURCE CentralWishartDensityAlgebra.lean
+import JinWishartFormalization.CentralBartlettCoordinateJacobian
+import JinWishartFormalization.GaussianBartlettGramDeterminant
+import JinWishartFormalization.GaussianGramSupport
+
+/-!
+# Determinant, trace, cone and explicit normalization for density induction
+
+Codex proofs. Finite product normalization is pi^(-n(n-1)/2) divided by
+the factorial product (d+j)!, j=0,...,n-1. This file is deterministic algebra;
+the actual probability-law induction is a separate obligation.
+[需人工审查] Coordinate and variance correspondence with the actual density.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem complexVectorGramRankOne_trace {n : ℕ} (z : EuclideanSpace ℂ (Fin n)) :
+    (complexVectorGramRankOne z).trace = (‖z‖ : ℂ) ^ 2 := by
+  change (∑ i : Fin n, star (z i) * z i) = (‖z‖ : ℂ) ^ 2
+  rw [← Complex.ofReal_pow, EuclideanSpace.norm_sq_eq, Complex.ofReal_sum]
+  apply Finset.sum_congr rfl
+  intro i _
+  simpa [RCLike.star_def, mul_comm] using (RCLike.mul_conj (z i))
+
+theorem centralBartlettGram_trace {n : ℕ} (r : ℝ) (z : EuclideanSpace ℂ (Fin n))
+    (B : Matrix (Fin n) (Fin n) ℂ) :
+    (centralBartlettGram r z B).trace = (r : ℂ) + (‖z‖ : ℂ) ^ 2 + B.trace := by
+  have h : (centralBartlettGram r z B).trace = (r : ℂ) +
+      B.trace + (complexVectorGramRankOne z).trace := by
+    simp [Matrix.trace, centralBartlettGram, complexVectorGramRankOne,
+      Fin.sum_univ_succ, Finset.sum_add_distrib, add_assoc]
+  rw [h, complexVectorGramRankOne_trace]
+  ring
+
+theorem centralBartlettGram_isHermitian {n : ℕ} (r : ℝ) (z : EuclideanSpace ℂ (Fin n))
+    (B : Matrix (Fin n) (Fin n) ℂ) (hB : B.IsHermitian) :
+    (centralBartlettGram r z B).IsHermitian := by
+  ext i j
+  refine Fin.cases ?_ (fun i => ?_) i <;> refine Fin.cases ?_ (fun j => ?_) j
+  all_goals simp [Matrix.conjTranspose_apply, centralBartlettGram, star_mul,
+    hB.apply, mul_comm]
+
+theorem centralBartlettGram_posDef_iff {n : ℕ} (r : ℝ) (hr : 0 < r)
+    (z : EuclideanSpace ℂ (Fin n)) (B : Matrix (Fin n) (Fin n) ℂ) :
+    (centralBartlettGram r z B).PosDef ↔ B.PosDef := by
+  let A : Matrix (Fin 1) (Fin 1) ℂ := Matrix.of (fun _ _ => (r : ℂ))
+  have hA : A.PosDef := by
+    have hd : A = Matrix.diagonal (fun _ : Fin 1 => (r : ℂ)) := by
+      ext i j
+      fin_cases i <;> fin_cases j <;> rfl
+    rw [hd]
+    exact Matrix.PosDef.diagonal (fun _ => by exact_mod_cast hr)
+  have he : (centralBartlettGram r z B).PosDef ↔
+      ((centralBartlettGram r z B).submatrix (centralBartlettIndexEquiv n)
+        (centralBartlettIndexEquiv n)).PosDef := by
+    constructor
+    · intro h
+      exact h.submatrix (centralBartlettIndexEquiv n).injective
+    · intro h
+      have hb := h.submatrix (centralBartlettIndexEquiv n).symm.injective
+      have hm : ((centralBartlettGram r z B).submatrix (centralBartlettIndexEquiv n)
+          (centralBartlettIndexEquiv n)).submatrix (centralBartlettIndexEquiv n).symm
+            (centralBartlettIndexEquiv n).symm = centralBartlettGram r z B := by
+        ext i j
+        simp only [Matrix.submatrix_apply, Equiv.apply_symm_apply]
+      rw [hm] at hb
+      exact hb
+  rw [he, centralBartlettGram_block_factor r hr, centralBlockStep_posDef_iff]
+  change (Matrix.fromBlocks A 0 0 B).PosDef ↔ B.PosDef
+  constructor
+  · intro h
+    have hb := h.submatrix (e := Sum.inr) Sum.inr_injective
+    have hm : (Matrix.fromBlocks A 0 0 B).submatrix Sum.inr Sum.inr = B := by
+      ext i j
+      rfl
+    rw [hm] at hb
+    exact hb
+  · intro hB
+    letI := hA.isUnit.invertible
+    have hpsd : (Matrix.fromBlocks A 0 0 B).PosSemidef := by
+      have hh := Matrix.PosDef.fromBlocks₁₁ (0 : Matrix (Fin 1) (Fin n) ℂ) B hA
+      simp only [Matrix.conjTranspose_zero, Matrix.zero_mul, Matrix.mul_zero, sub_zero] at hh
+      exact hh.mpr hB.posSemidef
+    apply hpsd.posDef_iff_det_ne_zero.mpr
+    rw [Matrix.det_fromBlocks_zero₂₁]
+    exact mul_ne_zero hA.det_pos.ne' hB.det_pos.ne'
+
+theorem hermitianOfRealCoordinates_centralChart {n : ℕ} (r : ℝ)
+    (z : EuclideanSpace ℂ (Fin n)) (Q : Matrix (Fin n) (Fin n) ℝ) :
+    hermitianOfRealCoordinates (centralBartlettCoordinateChart (r, (z, Q))) =
+      centralBartlettGram r z (hermitianOfRealCoordinates Q) := by
+  rw [centralBartlettCoordinateChart_eq_realGram]
+  exact hermitianOfRealCoordinates_realCoordinates _
+    (centralBartlettGram_isHermitian r z _ (hermitianOfRealCoordinates_isHermitian Q))
+
+def centralWishartDensityConstant (d n : ℕ) : ℝ :=
+  ∏ j : Fin n, (Real.pi⁻¹) ^ j.val * ((Nat.factorial (d + j.val) : ℕ) : ℝ)⁻¹
+
+theorem centralWishartDensityConstant_pos (d n : ℕ) : 0 < centralWishartDensityConstant d n := by
+  apply Finset.prod_pos
+  intro j _
+  positivity
+
+theorem centralWishartDensityConstant_succ (d n : ℕ) :
+    centralWishartDensityConstant d (n + 1) = centralWishartDensityConstant d n *
+      (Real.pi⁻¹) ^ n * ((Nat.factorial (d + n) : ℕ) : ℝ)⁻¹ := by
+  simp only [centralWishartDensityConstant, Fin.prod_univ_castSucc, Fin.val_castSucc,
+    Fin.val_last, mul_assoc]
+
+def centralWishartCoordinateDensity (d n : ℕ) (q : Matrix (Fin n) (Fin n) ℝ) : ℝ≥0∞ := by
+  classical
+  exact if (hermitianOfRealCoordinates q).PosDef then ENNReal.ofReal
+    (centralWishartDensityConstant d n * (hermitianOfRealCoordinates q).det.re ^ d *
+      Real.exp (-(hermitianOfRealCoordinates q).trace.re)) else 0
+
+theorem measurable_centralWishartCoordinateDensity (d n : ℕ) :
+    Measurable (centralWishartCoordinateDensity d n) := by
+  classical
+  unfold centralWishartCoordinateDensity
+  refine Measurable.ite ((measurableSet_complex_posDef n).preimage
+    continuous_hermitianOfRealCoordinates.measurable) ?_ measurable_const
+  have hH := continuous_hermitianOfRealCoordinates (n := n)
+  apply ENNReal.measurable_ofReal.comp
+  exact (show Continuous (fun q =>
+    (centralWishartDensityConstant d n * (hermitianOfRealCoordinates q).det.re ^ d *
+      Real.exp (-(hermitianOfRealCoordinates q).trace.re))) by fun_prop).measurable
+
+theorem gammaPDF_nat_succ_positive (k : ℕ) (r : ℝ) (hr : 0 < r) :
+    gammaPDF ((k + 1 : ℕ) : ℝ) 1 r = ENNReal.ofReal
+      (((Nat.factorial k : ℕ) : ℝ)⁻¹ * r ^ k * Real.exp (-r)) := by
+  rw [gammaPDF_of_nonneg hr.le]
+  congr 1
+  simp only [Nat.cast_add, Nat.cast_one, Real.Gamma_nat_eq_factorial, Real.one_rpow,
+    add_sub_cancel_right, Real.rpow_natCast, one_mul, one_div]
+
+end
+end JinWishart
+
+#print axioms JinWishart.complexVectorGramRankOne_trace
+#print axioms JinWishart.centralBartlettGram_trace
+#print axioms JinWishart.centralBartlettGram_isHermitian
+#print axioms JinWishart.centralBartlettGram_posDef_iff
+#print axioms JinWishart.hermitianOfRealCoordinates_centralChart
+#print axioms JinWishart.centralWishartDensityConstant_pos
+#print axioms JinWishart.centralWishartDensityConstant_succ
+#print axioms JinWishart.measurable_centralWishartCoordinateDensity
+#print axioms JinWishart.gammaPDF_nat_succ_positive
+
+
+FULL SOURCE CentralBartlettDensityTransport.lean
+import JinWishartFormalization.CentralWishartAbsoluteContinuity
+
+/-!
+# Density transport through the general positive Bartlett chart
+
+Codex proofs. The function f below is arbitrary Lebesgue input data, not an
+assumption of the desired actual Wishart density. Subsequent probability
+induction must supply f from the actual Gamma/CN/lower-size law.
+[需人工审查] Inverse chart, restrictions and nonnegative integral transport.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+theorem measurable_centralBartlettCoordinateChart (n : ℕ) :
+    Measurable (centralBartlettCoordinateChart (n := n)) :=
+  (hermitianBlockCoordinateEquiv n).symm.measurable.comp
+    (continuous_centralBartlettVolumeMap n).measurable
+
+def centralBartlettCoordinateInverse {n : ℕ} (q : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ) :
+    ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) :=
+  let p := hermitianBlockCoordinateEquiv n q
+  (p.1, ((Real.sqrt p.1)⁻¹ • p.2.1,
+    p.2.2 - centralBartlettResidualShift ((Real.sqrt p.1)⁻¹ • p.2.1)))
+
+theorem measurable_centralBartlettCoordinateInverse (n : ℕ) :
+    Measurable (centralBartlettCoordinateInverse (n := n)) := by
+  let e := hermitianBlockCoordinateEquiv n
+  have hs : Measurable (fun q => (Real.sqrt (e q).1)⁻¹ • (e q).2.1) := by fun_prop
+  have hQ := measurable_snd.comp (measurable_snd.comp e.measurable)
+  have hS := (continuous_centralBartlettResidualShift n).measurable.comp hs
+  exact (measurable_fst.comp e.measurable).prodMk (hs.prodMk
+    (Measurable.of_eval_matrix _ (fun i j =>
+      (hQ.eval_matrix (i := i) (j := j)).sub (hS.eval_matrix (i := i) (j := j)))))
+
+theorem centralBartlettCoordinateChart_left_inverse {n : ℕ}
+    (p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ)) (hp : 0 < p.1) :
+    centralBartlettCoordinateInverse (centralBartlettCoordinateChart p) = p := by
+  simp [centralBartlettCoordinateInverse, centralBartlettCoordinateChart,
+    centralBartlettVolumeMap, centralBartlettVolumeFiber, smul_smul,
+    ne_of_gt (Real.sqrt_pos.mpr hp)]
+
+theorem centralBartlettCoordinateChart_pivot {n : ℕ}
+    (p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ)) :
+    centralBartlettCoordinateChart p 0 0 = p.1 := by
+  rw [centralBartlettCoordinateChart_eq_realGram]
+  simp [realCoordinatesOfHermitian, centralBartlettGram]
+
+theorem centralBartlettCoordinateChart_weighted_density (n : ℕ)
+    (g : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ → ℝ≥0∞) (hg : Measurable g) :
+    ((((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+      ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))).withDensity
+        (fun p => ENNReal.ofReal (p.1 ^ n) * g (centralBartlettCoordinateChart p))).map
+          centralBartlettCoordinateChart =
+      ((hermitianRealCoordinateMeasure (n + 1)).restrict {q | 0 < q 0 0}).withDensity g := by
+  let μ := ((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+    ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))
+  have hF := measurable_centralBartlettCoordinateChart n
+  have hw : Measurable (fun p : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) =>
+      ENNReal.ofReal (p.1 ^ n)) := by fun_prop
+  have hmp : MeasurePreserving centralBartlettCoordinateChart
+      (μ.withDensity (fun p => ENNReal.ofReal (p.1 ^ n)))
+      ((hermitianRealCoordinateMeasure (n + 1)).restrict {q | 0 < q 0 0}) :=
+    ⟨hF, centralBartlettCoordinateChart_weighted_volume n⟩
+  rw [show (fun p => ENNReal.ofReal (p.1 ^ n) * g (centralBartlettCoordinateChart p)) =
+      (fun p => ENNReal.ofReal (p.1 ^ n)) * (g ∘ centralBartlettCoordinateChart) from rfl,
+    withDensity_mul _ hw (hg.comp hF)]
+  ext s hs
+  rw [Measure.map_apply hF hs, withDensity_apply _ (hs.preimage hF), withDensity_apply _ hs]
+  exact hmp.setLIntegral_comp_preimage hs hg
+
+theorem centralBartlettCoordinateChart_density_map (n : ℕ)
+    (f : ℝ × (EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ) → ℝ≥0∞)
+    (hf : Measurable f) :
+    ((((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+      ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))).withDensity f).map
+          centralBartlettCoordinateChart =
+      ((hermitianRealCoordinateMeasure (n + 1)).restrict {q | 0 < q 0 0}).withDensity
+        (fun q => f (centralBartlettCoordinateInverse q) / ENNReal.ofReal ((q 0 0) ^ n)) := by
+  let g := fun q : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ =>
+    f (centralBartlettCoordinateInverse q) / ENNReal.ofReal ((q 0 0) ^ n)
+  have hg : Measurable g := (hf.comp (measurable_centralBartlettCoordinateInverse n)).div
+    (by fun_prop)
+  change _ = ((hermitianRealCoordinateMeasure (n + 1)).restrict {q | 0 < q 0 0}).withDensity g
+  rw [← centralBartlettCoordinateChart_weighted_density n g hg]
+  congr 1
+  apply withDensity_congr_ae
+  have hp : ∀ᵐ p ∂((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+      ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n)), 0 < p.1 := by
+    apply (Measure.ae_prod_iff_ae_ae (by measurability)).2
+    filter_upwards [ae_restrict_mem measurableSet_Ioi] with r hr
+    exact ae_of_all _ (fun _ => hr)
+  filter_upwards [hp] with p hp
+  dsimp only [g]
+  rw [centralBartlettCoordinateChart_left_inverse p hp, centralBartlettCoordinateChart_pivot]
+  exact (ENNReal.mul_div_cancel (ne_of_gt (ENNReal.ofReal_pos.mpr (pow_pos hp n)))
+    ENNReal.ofReal_ne_top).symm
+
+end
+end JinWishart
+
+#print axioms JinWishart.measurable_centralBartlettCoordinateChart
+#print axioms JinWishart.measurable_centralBartlettCoordinateInverse
+#print axioms JinWishart.centralBartlettCoordinateChart_left_inverse
+#print axioms JinWishart.centralBartlettCoordinateChart_pivot
+#print axioms JinWishart.centralBartlettCoordinateChart_weighted_density
+#print axioms JinWishart.centralBartlettCoordinateChart_density_map
+
+
+FULL SOURCE CentralWishartClosedDensity.lean
+import JinWishartFormalization.CentralWishartDensityAlgebra
+import JinWishartFormalization.CentralBartlettDensityTransport
+
+/-!
+# Actual central Wishart determinant/trace density
+
+Codex proofs. Variance-one complex entries and canonical n^2 real coordinates.
+[需人工审查] Actual-law induction, finite product measures and cone restriction.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem centralWishartCoordinateDensity_bartlett (d n : ℕ) (r : ℝ) (hr : 0 < r)
+    (z : EuclideanSpace ℂ (Fin n)) (Q : Matrix (Fin n) (Fin n) ℝ) :
+    gammaPDF ((d + n + 1 : ℕ) : ℝ) 1 r *
+      (ENNReal.ofReal ((Real.pi⁻¹) ^ n * Real.exp (-‖z‖ ^ 2)) *
+        centralWishartCoordinateDensity d n Q) =
+      ENNReal.ofReal (r ^ n) * centralWishartCoordinateDensity d (n + 1)
+        (centralBartlettCoordinateChart (r, (z, Q))) := by
+  classical
+  unfold centralWishartCoordinateDensity
+  rw [hermitianOfRealCoordinates_centralChart]
+  by_cases hQ : (hermitianOfRealCoordinates Q).PosDef
+  · rw [if_pos hQ, if_pos ((centralBartlettGram_posDef_iff r hr z _).mpr hQ),
+      gammaPDF_nat_succ_positive (d + n) r hr, centralBartlettGram_det r hr, centralBartlettGram_trace]
+    have hd : 0 ≤ (hermitianOfRealCoordinates Q).det.re :=
+      (Complex.nonneg_iff.mp hQ.det_pos.le).1
+    have hK := (centralWishartDensityConstant_pos d n).le
+    have hf : 0 ≤ (((Nat.factorial (d + n) : ℕ) : ℝ)⁻¹ * r ^ (d + n) * Real.exp (-r)) := by positivity
+    have hc : 0 ≤ (Real.pi⁻¹) ^ n * Real.exp (-‖z‖ ^ 2) := by positivity
+    rw [← ENNReal.ofReal_mul hc, ← ENNReal.ofReal_mul hf, ← ENNReal.ofReal_mul (pow_nonneg hr.le n)]
+    congr 1
+    have hn : ((‖z‖ : ℂ) ^ 2).re = ‖z‖ ^ 2 := by norm_cast
+    simp only [Complex.mul_re, Complex.ofReal_re, Complex.ofReal_im, zero_mul, sub_zero,
+      Complex.add_re, hn, centralWishartDensityConstant_succ]
+    rw [pow_add, mul_pow]
+    have he : Real.exp (-r) * Real.exp (-‖z‖ ^ 2) *
+        Real.exp (-(hermitianOfRealCoordinates Q).trace.re) =
+        Real.exp (-(r + ‖z‖ ^ 2 + (hermitianOfRealCoordinates Q).trace.re)) := by
+      rw [← Real.exp_add, ← Real.exp_add]
+      congr 1
+      ring
+    calc
+      _ = ((Real.pi⁻¹) ^ n * centralWishartDensityConstant d n *
+          ((Nat.factorial (d + n) : ℕ) : ℝ)⁻¹ * r ^ n * r ^ d *
+          (hermitianOfRealCoordinates Q).det.re ^ d) *
+          (Real.exp (-r) * Real.exp (-‖z‖ ^ 2) * Real.exp (-(hermitianOfRealCoordinates Q).trace.re)) := by ring
+      _ = _ := by rw [he]; ring
+  · rw [if_neg hQ, if_neg (by simpa only [centralBartlettGram_posDef_iff r hr z _] using hQ)]
+    simp
+
+theorem gammaMeasure_nat_succ_eq_positive_density (k : ℕ) :
+    gammaMeasure ((k + 1 : ℕ) : ℝ) 1 =
+      ((volume : Measure ℝ).restrict (Set.Ioi 0)).withDensity
+        (gammaPDF ((k + 1 : ℕ) : ℝ) 1) := by
+  have hp : ∀ᵐ r ∂gammaMeasure ((k + 1 : ℕ) : ℝ) 1, r ∈ Set.Ioi 0 :=
+    (gammaMeasure_nat_succ_absolutelyContinuous_positive k).ae_le
+      (ae_restrict_mem measurableSet_Ioi)
+  rw [← restrict_withDensity measurableSet_Ioi]
+  exact (Measure.restrict_eq_self_of_ae_mem hp).symm
+
+theorem centralWishartCoordinateDensity_restrict_pivot (d n : ℕ) :
+    ((hermitianRealCoordinateMeasure (n + 1)).restrict {q | 0 < q 0 0}).withDensity
+        (centralWishartCoordinateDensity d (n + 1)) =
+      (hermitianRealCoordinateMeasure (n + 1)).withDensity
+        (centralWishartCoordinateDensity d (n + 1)) := by
+  classical
+  rw [← withDensity_indicator (by measurability)]
+  congr 1
+  funext q
+  by_cases hp : 0 < q 0 0
+  · exact Set.indicator_of_mem (show q ∈ {q | 0 < q 0 0} from hp) _
+  · rw [Set.indicator_of_notMem (show q ∉ {q | 0 < q 0 0} from hp)]
+    symm
+    unfold centralWishartCoordinateDensity
+    apply if_neg
+    intro h
+    have hdiag := h.diag_pos (i := (0 : Fin (n + 1)))
+    apply hp
+    simpa [hermitianOfRealCoordinates] using hdiag
+
+/-- Closed density of the ACTUAL central rectangular Gram law, all row surpluses. -/
+theorem complexWishart_realCoordinates_eq_closedDensity (d n : ℕ) :
+    (complexWishart (m := d + n) (n := n)).map realCoordinatesOfHermitian =
+      (hermitianRealCoordinateMeasure n).withDensity (centralWishartCoordinateDensity d n) := by
+  induction n with
+  | zero =>
+      have hconst : (realCoordinatesOfHermitian (n := 0)) =
+          fun _ => (0 : Matrix (Fin 0) (Fin 0) ℝ) := by
+        funext A
+        exact Subsingleton.elim _ _
+      have hvol : hermitianRealCoordinateMeasure 0 =
+          Measure.dirac (0 : Matrix (Fin 0) (Fin 0) ℝ) := Measure.pi_of_empty _ _
+      have hd : centralWishartCoordinateDensity d 0 = fun _ => 1 := by
+        funext q
+        have hq : hermitianOfRealCoordinates q = (1 : Matrix (Fin 0) (Fin 0) ℂ) :=
+          Subsingleton.elim _ _
+        simp [centralWishartCoordinateDensity, hq, Matrix.PosDef.one,
+          centralWishartDensityConstant]
+      rw [hconst, Measure.map_const, measure_univ, one_smul, hd]
+      simpa only [withDensity_const, one_smul] using hvol.symm
+  | succ n ih =>
+      rw [show d + (n + 1) = (d + n) + 1 by omega,
+        complexWishart_realCoordinates_bartlett_recursion, ih,
+        standardComplexColumnLaw_eq_withDensity, gammaMeasure_nat_succ_eq_positive_density]
+      have hC : Measurable (fun z : EuclideanSpace ℂ (Fin n) =>
+          ENNReal.ofReal ((Real.pi⁻¹) ^ n * Real.exp (-‖z‖ ^ 2))) := by fun_prop
+      have hD := measurable_centralWishartCoordinateDensity d n
+      have hG : Measurable (gammaPDF ((d + n + 1 : ℕ) : ℝ) 1) :=
+        ENNReal.measurable_ofReal.comp (measurable_gammaPDFReal _ _)
+      have hCG : Measurable (fun p : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℝ =>
+          ENNReal.ofReal ((Real.pi⁻¹) ^ n * Real.exp (-‖p.1‖ ^ 2)) *
+            centralWishartCoordinateDensity d n p.2) :=
+        (hC.comp measurable_fst).mul (hD.comp measurable_snd)
+      rw [prod_withDensity hC hD, prod_withDensity hG hCG]
+      have hi :
+          ((((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+            ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))).withDensity
+              (fun p => gammaPDF ((d + n + 1 : ℕ) : ℝ) 1 p.1 *
+                (ENNReal.ofReal ((Real.pi⁻¹) ^ n * Real.exp (-‖p.2.1‖ ^ 2)) *
+                  centralWishartCoordinateDensity d n p.2.2))) =
+          ((((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+            ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n))).withDensity
+              (fun p => ENNReal.ofReal (p.1 ^ n) *
+                centralWishartCoordinateDensity d (n + 1) (centralBartlettCoordinateChart p))) := by
+        apply withDensity_congr_ae
+        have hp : ∀ᵐ p ∂((volume : Measure ℝ).restrict (Set.Ioi 0)).prod
+            ((volume : Measure (EuclideanSpace ℂ (Fin n))).prod (hermitianRealCoordinateMeasure n)), 0 < p.1 := by
+          apply (Measure.ae_prod_iff_ae_ae (by measurability)).2
+          filter_upwards [ae_restrict_mem measurableSet_Ioi] with r hr
+          exact ae_of_all _ (fun _ => hr)
+        filter_upwards [hp] with p hp
+        exact centralWishartCoordinateDensity_bartlett d n p.1 hp p.2.1 p.2.2
+      rw [hi, centralBartlettCoordinateChart_weighted_density n _
+        (measurable_centralWishartCoordinateDensity d (n + 1)),
+        centralWishartCoordinateDensity_restrict_pivot]
+
+theorem complexWishart_realCoordinates_eq_closedDensity_of_le (t s : ℕ) (hst : s ≤ t) :
+    (complexWishart (m := t) (n := s)).map realCoordinatesOfHermitian =
+      (hermitianRealCoordinateMeasure s).withDensity (centralWishartCoordinateDensity (t - s) s) := by
+  simpa only [Nat.sub_add_cancel hst] using complexWishart_realCoordinates_eq_closedDensity (t - s) s
+
+/-- Normalization is a consequence of the actual probability law, not a premise. -/
+theorem lintegral_centralWishartCoordinateDensity (d n : ℕ) :
+    ∫⁻ q, centralWishartCoordinateDensity d n q ∂hermitianRealCoordinateMeasure n = 1 := by
+  have h := congrArg (fun μ : Measure (Matrix (Fin n) (Fin n) ℝ) => μ Set.univ)
+    (complexWishart_realCoordinates_eq_closedDensity d n)
+  simpa only [Measure.map_apply_of_aemeasurable
+    (continuous_realCoordinatesOfHermitian.measurable.aemeasurable) MeasurableSet.univ,
+    Set.preimage_univ, measure_univ, withDensity_apply _ MeasurableSet.univ,
+    Measure.restrict_univ] using h.symm
+
+end
+end JinWishart
+
+#print axioms JinWishart.centralWishartCoordinateDensity_bartlett
+#print axioms JinWishart.gammaMeasure_nat_succ_eq_positive_density
+#print axioms JinWishart.centralWishartCoordinateDensity_restrict_pivot
+#print axioms JinWishart.complexWishart_realCoordinates_eq_closedDensity
+#print axioms JinWishart.complexWishart_realCoordinates_eq_closedDensity_of_le
+#print axioms JinWishart.lintegral_centralWishartCoordinateDensity

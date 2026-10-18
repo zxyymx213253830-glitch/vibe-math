@@ -1,0 +1,137 @@
+{
+  "seed": 20261018,
+  "source_sha256": "7042831ffb4c1dc56996112e0a869654794f4b77caf702b7d777723f5556ef1c",
+  "collected_utc": "2026-10-18T08:09:17.980440+00:00",
+  "records": [
+    {
+      "size": 1,
+      "samples": 200000,
+      "trace_Gamma_standard_errors": 2.1060780251538227,
+      "minimum_mean_standard_errors": 2.1060780251538227,
+      "thresholds": [
+        {
+          "x": 0.25,
+          "expected_tail": 0.7788007830714049,
+          "empirical_tail": 0.78007,
+          "standard_errors": 1.3675583686540407
+        },
+        {
+          "x": 0.75,
+          "expected_tail": 0.4723665527410147,
+          "empirical_tail": 0.47297,
+          "standard_errors": 0.540565828280616
+        },
+        {
+          "x": 1.5,
+          "expected_tail": 0.22313016014842982,
+          "empirical_tail": 0.2254,
+          "standard_errors": 2.4381304882312826
+        },
+        {
+          "x": 3.0,
+          "expected_tail": 0.049787068367863944,
+          "empirical_tail": 0.050715,
+          "standard_errors": 1.907929100134932
+        }
+      ]
+    },
+    {
+      "size": 2,
+      "samples": 200000,
+      "trace_Gamma_standard_errors": 0.3935478136011701,
+      "minimum_mean_standard_errors": 0.5264633359138471,
+      "thresholds": [
+        {
+          "x": 0.125,
+          "expected_tail": 0.7788007830714049,
+          "empirical_tail": 0.779885,
+          "standard_errors": 1.168224202444158
+        },
+        {
+          "x": 0.375,
+          "expected_tail": 0.4723665527410147,
+          "empirical_tail": 0.47329,
+          "standard_errors": 0.8272206476937576
+        },
+        {
+          "x": 0.75,
+          "expected_tail": 0.22313016014842982,
+          "empirical_tail": 0.22299,
+          "standard_errors": -0.1505519126758587
+        },
+        {
+          "x": 1.5,
+          "expected_tail": 0.049787068367863944,
+          "empirical_tail": 0.05003,
+          "standard_errors": 0.4994940513329657
+        }
+      ]
+    },
+    {
+      "size": 3,
+      "samples": 200000,
+      "trace_Gamma_standard_errors": 0.15471714894171293,
+      "minimum_mean_standard_errors": -1.4136658010246101,
+      "thresholds": [
+        {
+          "x": 0.08333333333333333,
+          "expected_tail": 0.7788007830714049,
+          "empirical_tail": 0.777525,
+          "standard_errors": -1.3746332692063945
+        },
+        {
+          "x": 0.25,
+          "expected_tail": 0.4723665527410147,
+          "empirical_tail": 0.4712,
+          "standard_errors": -1.044993641598383
+        },
+        {
+          "x": 0.5,
+          "expected_tail": 0.22313016014842982,
+          "empirical_tail": 0.22232,
+          "standard_errors": -0.8702271029695509
+        },
+        {
+          "x": 1.0,
+          "expected_tail": 0.049787068367863944,
+          "empirical_tail": 0.049565,
+          "standard_errors": -0.4565968942041288
+        }
+      ]
+    },
+    {
+      "size": 4,
+      "samples": 200000,
+      "trace_Gamma_standard_errors": 1.2263917023240047,
+      "minimum_mean_standard_errors": 0.5182331434898744,
+      "thresholds": [
+        {
+          "x": 0.0625,
+          "expected_tail": 0.7788007830714049,
+          "empirical_tail": 0.778955,
+          "standard_errors": 0.1661659614970255
+        },
+        {
+          "x": 0.1875,
+          "expected_tail": 0.4723665527410147,
+          "empirical_tail": 0.473245,
+          "standard_errors": 0.7869098137138172
+        },
+        {
+          "x": 0.375,
+          "expected_tail": 0.22313016014842982,
+          "empirical_tail": 0.22404,
+          "standard_errors": 0.9772972661426025
+        },
+        {
+          "x": 0.75,
+          "expected_tail": 0.049787068367863944,
+          "empirical_tail": 0.049615,
+          "standard_errors": -0.35379141618938453
+        }
+      ]
+    }
+  ],
+  "status": "PASS actual samples; known trace Gamma and Exp(rate n) controls",
+  "interpretation": "Numerical control, not proof; CN variance one, real components variance one half"
+}

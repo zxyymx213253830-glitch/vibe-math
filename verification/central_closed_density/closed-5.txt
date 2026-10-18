@@ -1,0 +1,55 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:51:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:51:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:78:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:112:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Measure.withDensity ?m.268 (ENNReal.ofReal ∘ gammaPDFReal ?m.283 ?m.284)).prod
+    (Measure.withDensity ?m.271
+      ((fun z => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z‖ ^ 2))) ∘ Prod.fst *
+        centralWishartCoordinateDensity d n ∘ Prod.snd))
+in the target expression
+  Measure.map centralBartlettCoordinateChart
+      (((ℙ.restrict (Set.Ioi 0)).withDensity (gammaPDF (↑(d + n + 1)) 1)).prod
+        ((ℙ.prod (hermitianRealCoordinateMeasure n)).withDensity fun z =>
+          ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z.1‖ ^ 2)) * centralWishartCoordinateDensity d n z.2)) =
+    (hermitianRealCoordinateMeasure (n + 1)).withDensity (centralWishartCoordinateDensity d (n + 1))
+
+case succ
+d n : ℕ
+ih :
+  Measure.map realCoordinatesOfHermitian complexWishart =
+    (hermitianRealCoordinateMeasure n).withDensity (centralWishartCoordinateDensity d n)
+hC : Measurable fun z => ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z‖ ^ 2))
+hD : Measurable (centralWishartCoordinateDensity d n)
+⊢ Measure.map centralBartlettCoordinateChart
+      (((ℙ.restrict (Set.Ioi 0)).withDensity (gammaPDF (↑(d + n + 1)) 1)).prod
+        ((ℙ.prod (hermitianRealCoordinateMeasure n)).withDensity fun z =>
+          ENNReal.ofReal (Real.pi⁻¹ ^ n * Real.exp (-‖z.1‖ ^ 2)) * centralWishartCoordinateDensity d n z.2)) =
+    (hermitianRealCoordinateMeasure (n + 1)).withDensity (centralWishartCoordinateDensity d (n + 1))
+'JinWishart.centralWishartCoordinateDensity_bartlett' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMeasure_nat_succ_eq_positive_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartCoordinateDensity_restrict_pivot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_realCoordinates_eq_closedDensity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_realCoordinates_eq_closedDensity_of_le' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

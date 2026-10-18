@@ -1,0 +1,17 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettDensityTransport.lean:33:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MeasurableSub₂ (Matrix (Fin n) (Fin n) ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralBartlettDensityTransport.lean:84:13: error(lean.unknownIdentifier): Unknown identifier `«_».withDensity`
+'JinWishart.measurable_centralBartlettCoordinateChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_centralBartlettCoordinateInverse' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_left_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_pivot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_weighted_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettCoordinateChart_density_map' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

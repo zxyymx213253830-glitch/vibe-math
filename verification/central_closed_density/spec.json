@@ -1,0 +1,15 @@
+{
+  "library": ".tools/publication-revision-20261016/fresh-project-library",
+  "targets": [
+    {"module":"JinWishartFormalization.CentralWishartDensityAlgebra","count":9,"log":"verification/central_closed_density/algebra-5.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.CentralBartlettDensityTransport","count":6,"log":"verification/central_closed_density/transport-3.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.CentralWishartClosedDensity","count":6,"log":"verification/central_closed_density/closed-7.txt","kernel_exit_code_recorded":0}
+  ],
+  "controls": [
+    {"script":"experiments/central_wishart_density_step_control.py","result":"verification/central_closed_density/control.json","seed":20261018}
+  ],
+  "reviews": [
+    {"request":"verification/central_closed_density/review-request.json","prompt":"verification/central_closed_density/p4-prompt.txt","receipt":"verification/central_closed_density/p4.receipt.json","raw":"verification/central_closed_density/p4.raw.json","snapshot":"verification/central_closed_density/review-snapshot"}
+  ],
+  "scope": "ACTUAL central CN(0,1) t-by-s Gram density in canonical s^2 real coordinates for every t>=s, including empty size; explicit finite-product normalization; mass one derived from actual law. No general noncentral or joint spectral density, no general paper T1-4 completion. P4 real Qoder response is scoped and its mistaken row-degree explanation corrected in REVIEW_RESOLUTION.md; human review required. Frozen manuscript and releases unchanged."
+}

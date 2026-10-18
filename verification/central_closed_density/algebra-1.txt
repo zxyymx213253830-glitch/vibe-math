@@ -1,0 +1,68 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:21:2: error: Type mismatch: After simplification, term
+  inner_self_eq_norm_sq_to_K z
+ has type
+  ∑ x, z.ofLp x * (starRingEnd ℂ) (z.ofLp x) = ↑‖z‖ ^ 2
+but is expected to have type
+  ∑ i, (complexVectorGramRankOne z).diag i = ↑‖z‖ ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:40:4: warning: This simp argument is unused:
+  star_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose_apply, centralBartlettGram, star_mul, hB.apply, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:59:6: error: Type mismatch: After simplification, term
+  PosDef.submatrix h (Equiv.injective (centralBartlettIndexEquiv n).symm)
+ has type
+  ((centralBartlettGram r z B).submatrix (⇑(centralBartlettIndexEquiv n) ∘ ⇑(centralBartlettIndexEquiv n).symm)
+      (⇑(centralBartlettIndexEquiv n) ∘ ⇑(centralBartlettIndexEquiv n).symm)).PosDef
+but is expected to have type
+  (centralBartlettGram r z B).PosDef
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:65:4: error: Type mismatch: After simplification, term
+  PosDef.submatrix h Sum.inr_injective
+ has type
+  @PosDef (Fin n) ℂ Complex.instRing Complex.partialOrder Complex.instStarRing (of fun i j => B i j)
+but is expected to have type
+  @PosDef (Fin n) ℂ Complex.instRing Complex.partialOrder Complex.instStarRing B
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:67:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:69:19: error(lean.unknownIdentifier): Unknown constant `Matrix.PosSemidef.fromBlocks₁₁`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:72:23: error(lean.unknownIdentifier): Unknown constant `Matrix.isUnit_iff_isUnit_det.mp`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:73:7: error(lean.unknownIdentifier): Unknown constant `Matrix.isUnit_iff_isUnit_det.mp`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:98:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (hermitianOfRealCoordinates q).PosDef
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:104:2: error: Tactic `apply` failed: could not unify the conclusion of `Measurable.ite
+  (MeasurableSet.preimage (measurableSet_complex_posDef n)
+    (Continuous.measurable continuous_hermitianOfRealCoordinates))`
+  Measurable fun x => if hermitianOfRealCoordinates x ∈ {A | A.PosDef} then ?m.8 x else ?m.9 x
+with the goal
+  Measurable (centralWishartCoordinateDensity d n)
+
+Note: The full type of `Measurable.ite
+  (MeasurableSet.preimage (measurableSet_complex_posDef n)
+    (Continuous.measurable continuous_hermitianOfRealCoordinates))` is
+  Measurable ?m.8 →
+    Measurable ?m.9 → Measurable fun x => if hermitianOfRealCoordinates x ∈ {A | A.PosDef} then ?m.8 x else ?m.9 x
+
+d n : ℕ
+⊢ Measurable (centralWishartCoordinateDensity d n)
+'JinWishart.complexVectorGramRankOne_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_posDef_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.hermitianOfRealCoordinates_centralChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_centralWishartCoordinateDensity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gammaPDF_nat_succ_positive' depends on axioms: [propext, Classical.choice, Quot.sound]

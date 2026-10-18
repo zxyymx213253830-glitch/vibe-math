@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "CentralWishartDensityAlgebra.lean": {
+      "sha256": "f8c75593b8c5062785408465c6cffc6418da624fd2297c521a2b8b6b32528483",
+      "supplied": "Full source"
+    },
+    "CentralBartlettDensityTransport.lean": {
+      "sha256": "80be645a0fe2293dcecf950747a780d75b13fa407f1a4a0ce34e1b2db0ae6a51",
+      "supplied": "Full source"
+    },
+    "CentralWishartClosedDensity.lean": {
+      "sha256": "4c6a00fc4503087448286fbd7008257c665aa3f02c63438524d74cea7394a08b",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "06d48979dd3841373f2cdc49fae3f8c4b0bc21615d650e94fc42dfbe3485c7e5"
+}

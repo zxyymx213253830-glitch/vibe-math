@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:20:58: error: unsolved goals
+case e'_2
+n : ℕ
+z : EuclideanSpace ℂ (Fin n)
+⊢ ∑ x, z.ofLp x * (starRingEnd ℂ) (z.ofLp x) = ↑‖z‖ ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:23:10: warning: This simp argument is unused:
+  PiLp.inner_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [RCLike.inner_apply, RCLike.star_def, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:23:28: warning: This simp argument is unused:
+  RCLike.inner_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [PiLp.inner_apply, RCLike.star_def, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:79:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:50:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:50:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.complexVectorGramRankOne_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_posDef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitianOfRealCoordinates_centralChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_centralWishartCoordinateDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaPDF_nat_succ_positive' depends on axioms: [propext, Classical.choice, Quot.sound]

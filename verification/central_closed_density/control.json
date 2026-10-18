@@ -1,0 +1,44 @@
+{
+  "seed": 20261018,
+  "source_sha256": "571b9fd331b15123c4a44df8ae73a0c23b38cde1417c1c823ce243c84111cf91",
+  "collected_utc": "2026-10-18T07:52:43.763030+00:00",
+  "records": [
+    {
+      "rows": 2,
+      "columns": 2,
+      "N": 200000,
+      "max_log_density_recursion_error": 7.105427357601002e-15,
+      "trace_Gamma_standard_errors": 1.4067962747906702
+    },
+    {
+      "rows": 3,
+      "columns": 2,
+      "N": 200000,
+      "max_log_density_recursion_error": 8.757439218243235e-13,
+      "trace_Gamma_standard_errors": -0.24236042019400997
+    },
+    {
+      "rows": 4,
+      "columns": 3,
+      "N": 200000,
+      "max_log_density_recursion_error": 7.176481631177012e-13,
+      "trace_Gamma_standard_errors": 1.2058520590322153
+    },
+    {
+      "rows": 4,
+      "columns": 4,
+      "N": 200000,
+      "max_log_density_recursion_error": 1.4210854715202004e-14,
+      "trace_Gamma_standard_errors": 2.2156778312824383
+    },
+    {
+      "rows": 5,
+      "columns": 3,
+      "N": 200000,
+      "max_log_density_recursion_error": 4.973799150320701e-14,
+      "trace_Gamma_standard_errors": 0.4675204018474983
+    }
+  ],
+  "controls": "Known s=1 Gamma normalization, s=t=2 pi^-1 actual density, actual trace Gamma(st,1); pointwise recursion checks are not an independent density experiment",
+  "status": "PASS controls only; general density still a proof obligation"
+}

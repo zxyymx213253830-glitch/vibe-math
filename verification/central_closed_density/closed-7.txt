@@ -1,0 +1,28 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:51:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:51:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:78:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.centralWishartCoordinateDensity_bartlett' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMeasure_nat_succ_eq_positive_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartCoordinateDensity_restrict_pivot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_realCoordinates_eq_closedDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_realCoordinates_eq_closedDensity_of_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.lintegral_centralWishartCoordinateDensity' depends on axioms: [propext, Classical.choice, Quot.sound]

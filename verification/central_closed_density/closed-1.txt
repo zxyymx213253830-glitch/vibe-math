@@ -1,0 +1,57 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:36:22: error(lean.unknownIdentifier): Unknown constant `Complex.pow_re`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:49:15: error: unsolved goals
+d n : ℕ
+r : ℝ
+hr : 0 < r
+z : EuclideanSpace ℂ (Fin n)
+Q : Matrix (Fin n) (Fin n) ℝ
+hQ : (hermitianOfRealCoordinates Q).PosDef
+hd : 0 ≤ (hermitianOfRealCoordinates Q).det.re
+hK : 0 ≤ centralWishartDensityConstant d n
+hf : 0 ≤ (↑(d + n).factorial)⁻¹ * r ^ (d + n) * Real.exp (-r)
+hc : 0 ≤ Real.pi⁻¹ ^ n * Real.exp (-‖z‖ ^ 2)
+he :
+  Real.exp (-r) * Real.exp (-‖z‖ ^ 2) * Real.exp (-(hermitianOfRealCoordinates Q).trace.re) =
+    Real.exp (-(r + ‖z‖ ^ 2 + (hermitianOfRealCoordinates Q).trace.re))
+⊢ Real.pi⁻¹ ^ n * centralWishartDensityConstant d n * (↑(n + d).factorial)⁻¹ * r ^ n * r ^ d *
+        (hermitianOfRealCoordinates Q).det.re ^ d *
+      Real.exp (-r - ‖z‖ ^ 2 - (hermitianOfRealCoordinates Q).trace.re) =
+    Real.pi⁻¹ ^ n * centralWishartDensityConstant d n * (↑(n + d).factorial)⁻¹ * r ^ n * r ^ d *
+        (hermitianOfRealCoordinates Q).det.re ^ d *
+      Real.exp (-r - (hermitianOfRealCoordinates Q).trace.re - (↑‖z‖ ^ 2).re)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:26:2: error: unsolved goals
+case pos.hr
+d n : ℕ
+r : ℝ
+hr : 0 < r
+z : EuclideanSpace ℂ (Fin n)
+Q : Matrix (Fin n) (Fin n) ℝ
+hQ : (hermitianOfRealCoordinates Q).PosDef
+⊢ 0 < r
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:50:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartClosedDensity.lean:50:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.centralWishartCoordinateDensity_bartlett' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gammaMeasure_nat_succ_eq_positive_density' depends on axioms: [propext, Classical.choice, Quot.sound]

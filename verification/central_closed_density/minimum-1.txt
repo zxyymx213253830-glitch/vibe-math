@@ -1,0 +1,58 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMinimum.lean:32:50: error: mod_cast has type
+  0 ≤ x
+but is expected to have type
+  0 x✝ ≤ ↑x
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMinimum.lean:34:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (hermitianOfRealCoordinates q).PosDef
+but is expected to have type
+  q ∈ centralCoordinatePositiveCone n
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMinimum.lean:41:39: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMinimum.lean:41:39: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if q ∈ centralCoordinatePositiveCone n then ?m.20 else ?m.21
+in the target expression
+  (if (hermitianOfRealCoordinates q).PosDef then
+      ENNReal.ofReal
+        (centralWishartDensityConstant d n * (hermitianOfRealCoordinates q).det.re ^ d *
+          Real.exp (-(hermitianOfRealCoordinates q).trace.re))
+    else 0) =
+    ENNReal.ofReal (centralWishartDensityConstant d n) *
+      ENNReal.ofReal (centralConeWeight d (hermitianOfRealCoordinates q))
+
+d n : ℕ
+q : Matrix (Fin n) (Fin n) ℝ
+hq : q ∈ centralCoordinatePositiveCone n
+⊢ (if (hermitianOfRealCoordinates q).PosDef then
+      ENNReal.ofReal
+        (centralWishartDensityConstant d n * (hermitianOfRealCoordinates q).det.re ^ d *
+          Real.exp (-(hermitianOfRealCoordinates q).trace.re))
+    else 0) =
+    ENNReal.ofReal (centralWishartDensityConstant d n) *
+      ENNReal.ofReal (centralConeWeight d (hermitianOfRealCoordinates q))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMinimum.lean:59:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.measurableSet_centralCoordinatePositiveCone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurableSet_centralCoordinateShiftedCone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralCoordinateShiftedCone_subset_positive' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralWishartCoordinateDensity_on_cone' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralWishartCoordinateDensity_cone_mass' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralWishart_shiftedCone_probability' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralSquareWishart_shiftedCone_probability' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

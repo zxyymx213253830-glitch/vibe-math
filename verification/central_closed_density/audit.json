@@ -1,0 +1,275 @@
+{
+  "collected_utc": "2026-10-18T08:08:52.742562+00:00",
+  "spec_sha256": "3790a6af83a315fa364eb5995adbd2fb8159dbb39f6c46a188b517297cba447e",
+  "auditor_sha256": "7cdbabdf0692a1e4d4599db5592b9145b9365252cff4264a07f02247c1efe847",
+  "modules": {
+    "JinWishartFormalization.CentralWishartDensityAlgebra": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexVectorGramRankOne_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_isHermitian",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_posDef_iff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.hermitianOfRealCoordinates_centralChart",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_succ",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_centralWishartCoordinateDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.gammaPDF_nat_succ_positive",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "f8c75593b8c5062785408465c6cffc6418da624fd2297c521a2b8b6b32528483",
+      "olean_sha256": "df83c4dbe6d5ab3ba92e7172874ebdecbf59e6b205ceabee956e9ee934277779",
+      "log_sha256": "639adf0a0e5b6ea011d3d80d14e513f3f7f216d6f044a238f8891e63154aee2e",
+      "imports": {
+        "JinWishartFormalization.CentralBartlettCoordinateJacobian": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralBartlettCoordinateJacobian.olean",
+          "sha256": "2265bbd1f77d8fdcafdf4a240fb0994c024822af0e0ced8e8ccc8db35a208153"
+        },
+        "JinWishartFormalization.GaussianBartlettGramDeterminant": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianBartlettGramDeterminant.olean",
+          "sha256": "199e7244a505c743e195be8d3c201df17d0bb8702a923971d24668c5d848ab91"
+        },
+        "JinWishartFormalization.GaussianGramSupport": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianGramSupport.olean",
+          "sha256": "baa3a69ff2551a0ea3165e19f14c0cd029ba7f84e1ed5871a249e72e2de17c7f"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralBartlettDensityTransport": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_centralBartlettCoordinateChart",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_centralBartlettCoordinateInverse",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettCoordinateChart_left_inverse",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettCoordinateChart_pivot",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettCoordinateChart_weighted_density",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettCoordinateChart_density_map",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "80be645a0fe2293dcecf950747a780d75b13fa407f1a4a0ce34e1b2db0ae6a51",
+      "olean_sha256": "6b3bb46ee81633a4631c232bf019c0e01f9f6dad2013860fdc5834159a13d71a",
+      "log_sha256": "c9465ed8f9f83da5c9b1a6e8216c4dcec431bc9b940b6ecbfb23567a2b21f372",
+      "imports": {
+        "JinWishartFormalization.CentralWishartAbsoluteContinuity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartAbsoluteContinuity.olean",
+          "sha256": "fbb3a0b8782f92911c70c2ccefe7259c9562f6ebc00dc02f2c93507c2b0bb2a6"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartClosedDensity": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralWishartCoordinateDensity_bartlett",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.gammaMeasure_nat_succ_eq_positive_density",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralWishartCoordinateDensity_restrict_pivot",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_realCoordinates_eq_closedDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_realCoordinates_eq_closedDensity_of_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.lintegral_centralWishartCoordinateDensity",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "4c6a00fc4503087448286fbd7008257c665aa3f02c63438524d74cea7394a08b",
+      "olean_sha256": "2843933f5cd247a8856fc9fff58ee1935cdd888ab21c7c2d68f68adcd896696f",
+      "log_sha256": "3da638889f1e5c6ca41ab96e233ab783c496b070a7074ba077aae7b379bc43d7",
+      "imports": {
+        "JinWishartFormalization.CentralWishartDensityAlgebra": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartDensityAlgebra.olean",
+          "sha256": "df83c4dbe6d5ab3ba92e7172874ebdecbf59e6b205ceabee956e9ee934277779"
+        },
+        "JinWishartFormalization.CentralBartlettDensityTransport": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralBartlettDensityTransport.olean",
+          "sha256": "6b3bb46ee81633a4631c232bf019c0e01f9f6dad2013860fdc5834159a13d71a"
+        }
+      }
+    }
+  },
+  "total_declarations": 21,
+  "controls": [
+    {
+      "script": "experiments/central_wishart_density_step_control.py",
+      "script_sha256": "571b9fd331b15123c4a44df8ae73a0c23b38cde1417c1c823ce243c84111cf91",
+      "result_sha256": "872d39ace1e072e7a63c6d8fb2ecedd330cdf0aa667f1f86976e1c6cb634feac",
+      "interpretation": "Reproducible control, not a proof"
+    }
+  ],
+  "reviews": [
+    {
+      "request_sha256": "867becd5f1788afe54ac7826d8c0f9739bf29bf166abaa19fe706c3da1c311fd",
+      "prompt_sha256": "06d48979dd3841373f2cdc49fae3f8c4b0bc21615d650e94fc42dfbe3485c7e5",
+      "raw_response_sha256": "867fea5e7a84eab312aef3a8548b8249c71079b98c23ae5d1caf427ab3fc28bc",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    }
+  ],
+  "scope": "ACTUAL central CN(0,1) t-by-s Gram density in canonical s^2 real coordinates for every t>=s, including empty size; explicit finite-product normalization; mass one derived from actual law. No general noncentral or joint spectral density, no general paper T1-4 completion. P4 real Qoder response is scoped and its mistaken row-degree explanation corrected in REVIEW_RESOLUTION.md; human review required. Frozen manuscript and releases unchanged.",
+  "human_review": "REQUIRED for stated measure/model interpretation",
+  "full_build": "NOT_RUN",
+  "paper_and_submission": "UNCHANGED",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "status": "PASS specified leaf bundle and bindings"
+}

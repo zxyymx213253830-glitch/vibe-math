@@ -1,0 +1,45 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:22:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑‖z‖ ^ 2
+in the target expression
+  ∑ i, star (z.ofLp i) * z.ofLp i = ↑‖z‖ ^ 2
+
+n : ℕ
+z : EuclideanSpace ℂ (Fin n)
+⊢ ∑ i, star (z.ofLp i) * z.ofLp i = ↑‖z‖ ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:79:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:50:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:50:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDensityAlgebra.lean:125:63: error: `fun_prop` was unable to prove `Continuous fun q =>
+  ENNReal.ofReal
+    (centralWishartDensityConstant d n * (hermitianOfRealCoordinates q).det.re ^ d *
+      Real.exp (-(hermitianOfRealCoordinates q).trace.re))`
+
+Issues:
+  No theorems found for `ENNReal.ofReal` in order to prove `Continuous fun q0 => ENNReal.ofReal q0`
+  No theorems found for `ENNReal.ofReal` in order to prove `Continuous fun q =>
+  ENNReal.ofReal
+    (centralWishartDensityConstant d n * (hermitianOfRealCoordinates q).det.re ^ d *
+      Real.exp (-(hermitianOfRealCoordinates q).trace.re))`
+'JinWishart.complexVectorGramRankOne_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_posDef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitianOfRealCoordinates_centralChart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_centralWishartCoordinateDensity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gammaPDF_nat_succ_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
