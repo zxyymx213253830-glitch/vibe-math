@@ -1,0 +1,47 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:28:10: warning: This simp argument is unused:
+  ← mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:32:10: warning: This simp argument is unused:
+  ← mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:34:66: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Algebra.smul_def, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:47:10: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Algebra.smul_def, mul_left_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:47:59: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Function.comp_def, Algebra.smul_def, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:70:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.isProbabilityMeasure_standardComplexScalarLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.standardComplexScalarLaw_map_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.offDiagonalGaussianPhase_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.offDiagonalGaussianPhase_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_complexGaussian_monomial_offDiagonal' depends on axioms: [propext, Classical.choice, Quot.sound]

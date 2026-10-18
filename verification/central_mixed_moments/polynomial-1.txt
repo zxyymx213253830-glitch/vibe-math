@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialMoments.lean:37:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : (i : ?m.45) → ?m.48 i), ∏ i, ?f i (x i) ∂Measure.pi ?μ
+in the target expression
+  (∫ (z : ι → ℂ), ∏ i, z i ^ p i * star (z i) ^ q i ∂Measure.pi fun x => standardComplexScalarLaw) =
+    ∏ i, if p i = q i then ↑(p i).factorial else 0
+
+ι : Type u_1
+inst✝ : Fintype ι
+p q : ι → ℕ
+⊢ (∫ (z : ι → ℂ), ∏ i, z i ^ p i * star (z i) ^ q i ∂Measure.pi fun x => standardComplexScalarLaw) =
+    ∏ i, if p i = q i then ↑(p i).factorial else 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialMoments.lean:64:11: error: `simp` made no progress
+'JinWishart.standardComplexPiLaw_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_complexGaussian_pi_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_complexGaussian_pi_monomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialEval_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_complexGaussian_polynomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_complexGaussian_polynomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

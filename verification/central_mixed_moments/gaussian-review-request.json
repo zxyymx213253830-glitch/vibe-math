@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ComplexGaussianPhaseMoments.lean": {
+      "sha256": "f5e3026dd75e28ab7e95d60553745ffa90738f3a25cc58437e6b2cbdabcfa775",
+      "supplied": "Full source"
+    },
+    "ComplexGaussianMonomialMoments.lean": {
+      "sha256": "f2ca4f4ccb3ae5dfc45ff443270832af11ea92b840d0795eb9754ae476056a3f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "fa49c098c82a41a470d0bd3ccec63b1b3af644152f00b5afe04df29a4df49639"
+}

@@ -108,3 +108,24 @@ The actual moment theorem separately requires n<=t. No guard is missing.
 The remaining embedding/simp/rewrite warnings are proof-engine API speculation
 already answered by final exit0 checks. No source change or extra assumption
 was made merely to placate those false alarms; human model review remains.
+
+
+## Actual scalar CN and finite polynomial moments
+
+New scalar P4 delivered concrete source scope; its sole API concern asks
+whether integral_map needs Integrable instead of AEMeasurable. Locked mathlib
+integral_map uses the exact measurability obligations discharged in phase-2
+exit0. Full monomial integrability is separately proved in monomial-4.
+No hypothetical missing-integrability premise was introduced. New polynomial
+P4 did NOT deliver an issues-only review: it emitted a fake tool-call fragment
+with tools disabled. It is preserved verbatim, not treated as review approval.
+
+Earlier complex-p1 suggested a ring homomorphism into L2/integrable functions
+and closure of integrable products. Those are false in general. The code
+uses only a polynomial evaluation ring map into ordinary functions; integrals
+are linear. Independent coordinate products are integrable by the exact
+mathlib Integrable.fintype_prod theorem, not by general L1 product closure.
+Fixedseed2026101905 controls evaluate finite polynomials with factorial
+contraction, a known CN(0,2) fourth moment8 and Exp1/Gamma trace controls.
+A new5x2 d3 minimum numerical comparison is empirical, NOT a Lean d3 theorem.
+All new proof bodies Codex. [需人工审查] Fubini/model/variance remain.

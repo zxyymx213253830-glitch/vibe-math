@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianMonomialMoments.lean:26:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianMonomialMoments.lean:79:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianMonomialMoments.lean:84:8: error: Type mismatch: After simplification, term
+  RCLike.mul_conj z
+ has type
+  @Eq ℂ (z * (starRingEnd ℂ) z) (↑‖z‖ ^ 2)
+but is expected to have type
+  @Eq ℂ (z * (starRingEnd ℂ) z) (↑‖z‖ ^ 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianMonomialMoments.lean:88:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.standardComplexScalarLaw_norm_sq_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.lintegral_standardComplex_norm_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_standardComplex_norm_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_standardComplex_norm_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_complexGaussian_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_standardComplex_norm_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_complexGaussian_monomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

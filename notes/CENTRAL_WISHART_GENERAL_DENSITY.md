@@ -313,3 +313,21 @@ Current audited bundle:61 theorem/instance declarations plus1 finite witness.
 Qoder's latest truncated-subtraction objection was rejected by the universal
 Nat.sub_sub identity and distinction between coefficient function and actual
 moment theorem. All scope limits and human-review flags remain.
+
+
+### Exact Gaussian polynomial functional (new foundation, not d>2 CDF)
+
+ComplexGaussianPhaseMoments and MonomialMoments prove the ACTUAL variance-one
+CN law rotationally invariant, all norm powers and mixed monomials integrable,
+and E[z^p conjugate(z)^q] = if p=q then p! else0. PolynomialMoments lifts this
+to any finite independent product, including an empty index set, and proves
+the integral of any MvPolynomial in z_i/conjugate(z_i) equals its finite
+coefficient sum weighted by matching-exponent factorials. No expectation
+ring-homomorphism or generic L1-product closure is asserted.
+
+These18 new declarations and changed facade PASS; full bound bundle80.
+Next actual-matrix transport and Gram polynomial evaluation remain to prove.
+The5x2 minimum numerical d3 formula agrees with200000 actual samples plus
+Gamma controls; that is NOT a d3 Lean theorem. Polynomial P4 failed to deliver
+an actual review, scalar P4 only API concern already resolved by kernel.
+All human review and frozen-publication caveats remain unchanged.

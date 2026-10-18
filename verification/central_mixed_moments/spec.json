@@ -81,6 +81,24 @@
       "count": 4,
       "log": "verification/central_mixed_moments/grouped-poly-1.txt",
       "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianPhaseMoments",
+      "count": 5,
+      "log": "verification/central_mixed_moments/phase-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianMonomialMoments",
+      "count": 7,
+      "log": "verification/central_mixed_moments/monomial-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianPolynomialMoments",
+      "count": 6,
+      "log": "verification/central_mixed_moments/polynomial-2.txt",
+      "kernel_exit_code_recorded": 0
     }
   ],
   "controls": [
@@ -98,6 +116,16 @@
       "script": "experiments/central_subset_pair_group_control.py",
       "result": "verification/central_mixed_moments/group-control.json",
       "seed": null
+    },
+    {
+      "script": "experiments/complex_gaussian_monomial_control.py",
+      "result": "verification/central_mixed_moments/complex-monomial-control.json",
+      "seed": 2026101904
+    },
+    {
+      "script": "experiments/complex_polynomial_moment_control.py",
+      "result": "verification/central_mixed_moments/polynomial-control.json",
+      "seed": 2026101905
     }
   ],
   "reviews": [
@@ -135,7 +163,14 @@
       "receipt": "verification/central_mixed_moments/p4-grouped.receipt.json",
       "raw": "verification/central_mixed_moments/p4-grouped.raw.json",
       "snapshot": "verification/central_mixed_moments/grouped-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/gaussian-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-gaussian-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-gaussian.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-gaussian.raw.json",
+      "snapshot": "verification/central_mixed_moments/gaussian-review-snapshot"
     }
   ],
-  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment."
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof."
 }

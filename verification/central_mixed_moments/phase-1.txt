@@ -1,0 +1,94 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:35:31: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖?a * ?b‖
+in the target expression
+  ‖{ toFun := fun z => c * z, map_add' := ⋯, map_smul' := ⋯, invFun := fun z => c⁻¹ * z, left_inv := ⋯, right_inv := ⋯ }
+        z‖ =
+    ‖z‖
+
+c : ℂ
+hc : ‖c‖ = 1
+z : ℂ
+⊢ ‖{ toFun := fun z => c * z, map_add' := ⋯, map_smul' := ⋯, invFun := fun z => c⁻¹ * z, left_inv := ⋯, right_inv := ⋯ }
+        z‖ =
+    ‖z‖
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:28:10: warning: This simp argument is unused:
+  ← mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:32:10: warning: This simp argument is unused:
+  ← mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:34:66: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Algebra.smul_def, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:47:10: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Algebra.smul_def, mul_left_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:47:59: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Function.comp_def, Algebra.smul_def, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:53:86: error: unsolved goals
+p q : ℕ
+⊢ (↑Real.pi / (↑p - ↑q)).im = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:63:13: error(lean.unknownIdentifier): Unknown constant `Complex.conj_mul`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:57:85: error: unsolved goals
+p q : ℕ
+hpq : p ≠ q
+hd : ↑p - ↑q ≠ 0
+⊢ Complex.exp
+      (↑p * ↑Real.pi * Complex.I * (↑p - ↑q)⁻¹ +
+          ↑p * ↑q * (↑p - ↑q)⁻¹ * (starRingEnd ℂ) (↑Real.pi * Complex.I * (↑p - ↑q)⁻¹) -
+        ↑q ^ 2 * (↑p - ↑q)⁻¹ * (starRingEnd ℂ) (↑Real.pi * Complex.I * (↑p - ↑q)⁻¹)) =
+    Complex.exp (↑Real.pi * Complex.I)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:63:30: warning: This simp argument is unused:
+  Complex.conj_ofReal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.conj_mul, Complex.conj_I, Complex.ofReal_div, Complex.ofReal_sub, Complex.ofReal_natCast]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPhaseMoments.lean:63:50: warning: This simp argument is unused:
+  Complex.conj_I
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.conj_mul, Complex.conj_ofReal, Complex.ofReal_div, Complex.ofReal_sub,
+    Complex.ofReal_natCast]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.isProbabilityMeasure_standardComplexScalarLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.standardComplexScalarLaw_map_unit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.offDiagonalGaussianPhase_norm' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.offDiagonalGaussianPhase_factor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_complexGaussian_monomial_offDiagonal' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

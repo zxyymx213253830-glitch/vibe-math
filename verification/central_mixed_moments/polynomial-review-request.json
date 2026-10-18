@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ComplexGaussianPolynomialMoments.lean": {
+      "sha256": "4910333ead108483d32bc5f9f2108d59df45ad3e26855588dfa4750fcdffb67a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "33c339607c1b05861d7c815050246cf1e2e26803d851699ed0ab57d7899f6b59"
+}

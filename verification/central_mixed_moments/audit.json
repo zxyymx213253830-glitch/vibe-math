@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-18T17:33:07.074017+00:00",
-  "spec_sha256": "68a4d3ebb4e97b1b90f4a88765436697442ea38166d4deb8ca30254f79d5c76b",
+  "collected_utc": "2026-10-18T17:47:55.323839+00:00",
+  "spec_sha256": "21ffbe29fb6ea727febd15f4c605b6ad08957ff0989c5c37b31a36eca4859491",
   "auditor_sha256": "c99e8a40083fe0bc7e350612e588acd8b7031031ea167537a7ca8ceb66321e07",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -849,9 +849,248 @@
           "sha256": "fa5a645bd6e8e917618a753b00a147fd46f137e89365b7d24dc1c2272efb4c58"
         }
       }
+    },
+    "JinWishartFormalization.ComplexGaussianPhaseMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.isProbabilityMeasure_standardComplexScalarLaw",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.standardComplexScalarLaw_map_unit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.offDiagonalGaussianPhase_norm",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.offDiagonalGaussianPhase_factor",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_complexGaussian_monomial_offDiagonal",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "f5e3026dd75e28ab7e95d60553745ffa90738f3a25cc58437e6b2cbdabcfa775",
+      "olean_sha256": "9a2c011762a19477a19210649f046133c28ab8cc0f232943cc7cde6070852a53",
+      "log_sha256": "f4a1650c34c894035e1b011e900bd360426f7359f5a3e602a247a20ec7cb9737",
+      "imports": {
+        "JinWishartFormalization.GammaIntegerMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GammaIntegerMoments.olean",
+          "sha256": "8ff809c450719fb6306037b54c758f02450a9d905b69b24ee6c68d493b3b8495"
+        },
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.olean",
+          "sha256": "02a9048edb6c9ea3c0ab875edd763919511e2cc83b8856809a8c4b56e2511ef5"
+        },
+        "Mathlib.Tactic.LinearCombination": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/LinearCombination.olean",
+          "sha256": "e6fad1c9d781a0cfbdc59011885f58c2aea5b0a96e79aa5959efce86c94b7795"
+        }
+      }
+    },
+    "JinWishartFormalization.ComplexGaussianMonomialMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.standardComplexScalarLaw_norm_sq_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.lintegral_standardComplex_norm_even",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_standardComplex_norm_even",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_standardComplex_norm_pow",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_complexGaussian_monomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_standardComplex_norm_even",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_complexGaussian_monomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "f2ca4f4ccb3ae5dfc45ff443270832af11ea92b840d0795eb9754ae476056a3f",
+      "olean_sha256": "7e905422cffed7ff886ee92f7eb8e7c77080eb9719e6d4f9bdf6c05583cb3c90",
+      "log_sha256": "6fe37e4cbdcef7546df3b5cde0520a5e3381b3b5ca2ec7d3166e717eb69664d7",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianPhaseMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianPhaseMoments.olean",
+          "sha256": "9a2c011762a19477a19210649f046133c28ab8cc0f232943cc7cde6070852a53"
+        }
+      }
+    },
+    "JinWishartFormalization.ComplexGaussianPolynomialMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.standardComplexPiLaw_probability",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_complexGaussian_pi_monomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_complexGaussian_pi_monomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialEval_eq_sum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_complexGaussian_polynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_complexGaussian_polynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "4910333ead108483d32bc5f9f2108d59df45ad3e26855588dfa4750fcdffb67a",
+      "olean_sha256": "493f0ff188d93396e2d5989345227db4eacd793329cd477ba50e6d578e808564",
+      "log_sha256": "c036993fe85791f4ecd4bc0c085b230e86bdc4d8da4e5b55601383878668b5a1",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianMonomialMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianMonomialMoments.olean",
+          "sha256": "7e905422cffed7ff886ee92f7eb8e7c77080eb9719e6d4f9bdf6c05583cb3c90"
+        },
+        "Mathlib.MeasureTheory.Integral.Pi": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/Pi.olean",
+          "sha256": "ab0567519b12856681617dc32b56454397f31b2faa90f966a8e0105aa285ad24"
+        },
+        "Mathlib.Algebra.MvPolynomial.Eval": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/MvPolynomial/Eval.olean",
+          "sha256": "535292d928cdb267bd0f0d4cd7770270284359f9a4cf0d1e53ea4d4aeb1bbb80"
+        },
+        "Mathlib.Data.Fintype.BigOperators": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/BigOperators.olean",
+          "sha256": "df0f12e61d1fda234897acffbeef04dbdf1500a50fabca99f21fc4bfda87aeae"
+        }
+      }
     }
   },
-  "total_declarations": 62,
+  "total_declarations": 80,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -869,6 +1108,18 @@
       "script": "experiments/central_subset_pair_group_control.py",
       "script_sha256": "c5b9c7ae966a24f856124ce0e1e5fdac8a14c4ea6685983f08e396e111f323da",
       "result_sha256": "9945e6e2d5bee020612da8f076f491b9cbbabb98809125d27d5e0fa54da7f1a2",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/complex_gaussian_monomial_control.py",
+      "script_sha256": "8a92c5f8ac2ff204250a4bb43920b2a1869e5ea0b18f4c5f08f5d493aed97d43",
+      "result_sha256": "43645b2691dd7b072d4696dc8585a8bd1b1266cd1757897f62c98e96233598d3",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/complex_polynomial_moment_control.py",
+      "script_sha256": "c4390357c046928c7c9f80ff32ac6d0da825a389aa0a5a8235858cdee603bc86",
+      "result_sha256": "fe2ca3a0d6b6eec3c4a03288e338d4a2d316c25ea0ede42602e6b7578bc9d2e6",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -927,9 +1178,20 @@
       ],
       "independent_compilation": false,
       "human_review": false
+    },
+    {
+      "request_sha256": "8c7876a0f0e24a813400e90955f06be488061dd1ca09675d62b09fa9efb4ae14",
+      "prompt_sha256": "fa49c098c82a41a470d0bd3ccec63b1b3af644152f00b5afe04df29a4df49639",
+      "raw_response_sha256": "8a4689f0cdce216867d642dd4c08c94d7e3885957fe3d0c238f78fde5dc6bb4b",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
     }
   ],
-  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment.",
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",

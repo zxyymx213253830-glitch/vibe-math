@@ -1,0 +1,93 @@
+import JinWishartFormalization.ComplexGaussianMonomialMoments
+import Mathlib.MeasureTheory.Integral.Pi
+import Mathlib.Algebra.MvPolynomial.Eval
+import Mathlib.Data.Fintype.BigOperators
+
+/-!
+# Finite independent complex Gaussian polynomial moments
+
+Codex proof bodies. Evaluation is a ring homomorphism; expectation is only linear.
+Independent coordinate products use the product-measure integral theorem.
+[需人工审查] Product-measure/Fubini interpretation and variance convention.
+-/
+open MeasureTheory ProbabilityTheory
+open scoped BigOperators
+namespace JinWishart
+noncomputable section
+
+def standardComplexPiLaw (ι : Type*) [Fintype ι] : Measure (ι → ℂ) :=
+  Measure.pi (fun _ : ι => standardComplexScalarLaw)
+
+instance standardComplexPiLaw_probability (ι : Type*) [Fintype ι] :
+    IsProbabilityMeasure (standardComplexPiLaw ι) := by
+  unfold standardComplexPiLaw
+  infer_instance
+
+theorem integrable_complexGaussian_pi_monomial {ι : Type*} [Fintype ι]
+    (p q : ι → ℕ) :
+    Integrable (fun z : ι → ℂ => ∏ i, z i ^ p i * star (z i) ^ q i)
+      (standardComplexPiLaw ι) := by
+  exact Integrable.fintype_prod (fun i => integrable_complexGaussian_monomial (p i) (q i))
+
+theorem integral_complexGaussian_pi_monomial {ι : Type*} [Fintype ι]
+    (p q : ι → ℕ) :
+    (∫ z : ι → ℂ, ∏ i, z i ^ p i * star (z i) ^ q i ∂standardComplexPiLaw ι) =
+      ∏ i, if p i = q i then (Nat.factorial (p i) : ℂ) else 0 := by
+  unfold standardComplexPiLaw
+  have h := integral_fintype_prod_eq_prod
+    (μ := fun _ : ι => standardComplexScalarLaw)
+    (fun i (z : ℂ) => z ^ p i * star z ^ q i)
+  exact h.trans (by simp_rw [integral_complexGaussian_monomial])
+
+def complexGaussianPolynomialEval {ι : Type*}
+    (P : MvPolynomial (ι ⊕ ι) ℂ) (z : ι → ℂ) : ℂ :=
+  MvPolynomial.eval (Sum.elim z (fun i => star (z i))) P
+
+def complexGaussianPolynomialMoment {ι : Type*} [Fintype ι]
+    (P : MvPolynomial (ι ⊕ ι) ℂ) : ℂ :=
+  ∑ d ∈ P.support, P.coeff d *
+    ∏ i, if d (Sum.inl i) = d (Sum.inr i)
+      then (Nat.factorial (d (Sum.inl i)) : ℂ) else 0
+
+theorem complexGaussianPolynomialEval_eq_sum {ι : Type*} [Fintype ι]
+    (P : MvPolynomial (ι ⊕ ι) ℂ) (z : ι → ℂ) :
+    complexGaussianPolynomialEval P z =
+      ∑ d ∈ P.support, P.coeff d *
+        ∏ i, z i ^ d (Sum.inl i) * star (z i) ^ d (Sum.inr i) := by
+  classical
+  unfold complexGaussianPolynomialEval
+  rw [MvPolynomial.eval_eq']
+  simp only [Fintype.prod_sum_type,Sum.elim_inl,Sum.elim_inr,Finset.prod_mul_distrib]
+
+theorem integrable_complexGaussian_polynomial {ι : Type*} [Fintype ι]
+    (P : MvPolynomial (ι ⊕ ι) ℂ) :
+    Integrable (complexGaussianPolynomialEval P) (standardComplexPiLaw ι) := by
+  classical
+  change Integrable (fun z => complexGaussianPolynomialEval P z) _
+  simp_rw [complexGaussianPolynomialEval_eq_sum]
+  apply integrable_finsetSum
+  intro d _
+  exact (integrable_complexGaussian_pi_monomial
+    (fun i => d (Sum.inl i)) (fun i => d (Sum.inr i))).const_mul _
+
+theorem integral_complexGaussian_polynomial {ι : Type*} [Fintype ι]
+    (P : MvPolynomial (ι ⊕ ι) ℂ) :
+    (∫ z, complexGaussianPolynomialEval P z ∂standardComplexPiLaw ι) =
+      complexGaussianPolynomialMoment P := by
+  classical
+  simp_rw [complexGaussianPolynomialEval_eq_sum]
+  rw [integral_finsetSum]
+  · simp_rw [integral_const_mul,integral_complexGaussian_pi_monomial]
+    rfl
+  · intro d _
+    exact (integrable_complexGaussian_pi_monomial
+      (fun i => d (Sum.inl i)) (fun i => d (Sum.inr i))).const_mul _
+
+end
+end JinWishart
+#print axioms JinWishart.standardComplexPiLaw_probability
+#print axioms JinWishart.integrable_complexGaussian_pi_monomial
+#print axioms JinWishart.integral_complexGaussian_pi_monomial
+#print axioms JinWishart.complexGaussianPolynomialEval_eq_sum
+#print axioms JinWishart.integrable_complexGaussian_polynomial
+#print axioms JinWishart.integral_complexGaussian_polynomial
