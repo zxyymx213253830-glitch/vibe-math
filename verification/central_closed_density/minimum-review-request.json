@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CentralWishartClosedDensity.lean": {
+      "sha256": "4c6a00fc4503087448286fbd7008257c665aa3f02c63438524d74cea7394a08b",
+      "supplied": "Full source"
+    },
+    "CentralWishartMinimum.lean": {
+      "sha256": "8b6444e684aa5152851f5a305f8fdfc9eca87de8efc5a540588f2aa5a6e401a2",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "fce4adb017057e81897d690debf857d41dbfda5463d15e9efb8b6369a90db029"
+}

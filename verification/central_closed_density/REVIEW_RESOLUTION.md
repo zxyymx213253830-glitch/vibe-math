@@ -28,3 +28,15 @@ joint density or desired Wishart density is a hypothesis.
 canonical coordinate/Haar volume, complex variance one (real component variance
 one half), and paper-model identification. A model report does not discharge
 these human obligations. General spectral G2 and noncentral density remain open.
+
+## Minimum-law review
+
+The second actual Qoder request supplies full final ClosedDensity and Minimum
+sources. It reports no concrete semantic errors; raw response and byte-exact
+snapshots are retained. One explanatory clause says there is no boundary issue
+"because" the minimum is absolutely continuous. The proof does not use that
+premise: the complement of x<minimum is minimum<=x pointwise, so no boundary
+nullity is needed. The Exp distribution (and hence absence of atoms) is obtained
+only afterwards. The imported spectral equivalence is deterministic and the
+actual-density proof does not import the new minimum-law module. No circularity.
+The response is not a human audit of the imported chain.

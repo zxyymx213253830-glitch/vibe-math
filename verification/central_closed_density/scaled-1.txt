@@ -1,0 +1,77 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:28:64: error(lean.unknownIdentifier): Unknown identifier `star_ofReal`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:26:55: error: unsolved goals
+m n : ℕ
+a : ℝ
+z : ComplexSample
+⊢ (↑a * ↑a) • ((complexSampleMatrix z)ᴴ * complexSampleMatrix z) =
+    (a * a) • ((complexSampleMatrix z)ᴴ * complexSampleMatrix z)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:28:53: warning: This simp argument is unused:
+  star_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, Matrix.conjTranspose_smul, star_ofReal, Matrix.smul_mul, Matrix.mul_smul, smul_smul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:30:17: warning: This simp argument is unused:
+  RCLike.real_smul_eq_coe_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pow_two, Complex.ofReal_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:30:46: warning: This simp argument is unused:
+  Complex.ofReal_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pow_two, RCLike.real_smul_eq_coe_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:55:24: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:55:39: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mul_comm, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:55:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:79:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:92:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:109:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartScaledMinimum.lean:111:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.complexSampleMatrix_real_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexSampleGram_real_smul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.posDef_real_smul_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.smallestEigenvalue_real_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralSquareSampleMinimum_scale' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralSquare_scaled_minimum_tail' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralSquare_scaled_minimum_CDF' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralSquare_scaled_minimum_cdf_function' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralSquare_scaled_minimum_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralSquare_covariance_minimum_law' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

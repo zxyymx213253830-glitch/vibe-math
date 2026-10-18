@@ -1,7 +1,7 @@
 {
   "seed": 20261018,
-  "source_sha256": "7042831ffb4c1dc56996112e0a869654794f4b77caf702b7d777723f5556ef1c",
-  "collected_utc": "2026-10-18T08:09:17.980440+00:00",
+  "source_sha256": "1b793b8288c77684ecc394e0abeba82bcaa829766bce62876dc928897aef9ca6",
+  "collected_utc": "2026-10-18T08:14:11.112133+00:00",
   "records": [
     {
       "size": 1,
@@ -32,6 +32,29 @@
           "expected_tail": 0.049787068367863944,
           "empirical_tail": 0.050715,
           "standard_errors": 1.907929100134932
+        }
+      ],
+      "scale_controls": [
+        {
+          "amplitude": 0.4,
+          "variance": 0.16000000000000003,
+          "rate": 6.249999999999999,
+          "max_pointwise_minimum_error": 4.440892098500626e-16,
+          "tail_standard_errors": 0.540565828280616
+        },
+        {
+          "amplitude": 1.7,
+          "variance": 2.8899999999999997,
+          "rate": 0.34602076124567477,
+          "max_pointwise_minimum_error": 7.105427357601002e-15,
+          "tail_standard_errors": 0.540565828280616
+        },
+        {
+          "amplitude": 3.0,
+          "variance": 9.0,
+          "rate": 0.1111111111111111,
+          "max_pointwise_minimum_error": 2.842170943040401e-14,
+          "tail_standard_errors": 0.540565828280616
         }
       ]
     },
@@ -65,6 +88,29 @@
           "empirical_tail": 0.05003,
           "standard_errors": 0.4994940513329657
         }
+      ],
+      "scale_controls": [
+        {
+          "amplitude": 0.4,
+          "variance": 0.16000000000000003,
+          "rate": 12.499999999999998,
+          "max_pointwise_minimum_error": 5.551115123125783e-16,
+          "tail_standard_errors": 0.8272206476937576
+        },
+        {
+          "amplitude": 1.7,
+          "variance": 2.8899999999999997,
+          "rate": 0.6920415224913495,
+          "max_pointwise_minimum_error": 1.0658141036401503e-14,
+          "tail_standard_errors": 0.8272206476937576
+        },
+        {
+          "amplitude": 3.0,
+          "variance": 9.0,
+          "rate": 0.2222222222222222,
+          "max_pointwise_minimum_error": 3.552713678800501e-14,
+          "tail_standard_errors": 0.8272206476937576
+        }
       ]
     },
     {
@@ -97,6 +143,29 @@
           "empirical_tail": 0.049565,
           "standard_errors": -0.4565968942041288
         }
+      ],
+      "scale_controls": [
+        {
+          "amplitude": 0.4,
+          "variance": 0.16000000000000003,
+          "rate": 18.749999999999996,
+          "max_pointwise_minimum_error": 9.853229343548264e-16,
+          "tail_standard_errors": -1.044993641598383
+        },
+        {
+          "amplitude": 1.7,
+          "variance": 2.8899999999999997,
+          "rate": 1.0380622837370244,
+          "max_pointwise_minimum_error": 1.4210854715202004e-14,
+          "tail_standard_errors": -1.044993641598383
+        },
+        {
+          "amplitude": 3.0,
+          "variance": 9.0,
+          "rate": 0.3333333333333333,
+          "max_pointwise_minimum_error": 4.4853010194856324e-14,
+          "tail_standard_errors": -1.044993641598383
+        }
       ]
     },
     {
@@ -128,6 +197,29 @@
           "expected_tail": 0.049787068367863944,
           "empirical_tail": 0.049615,
           "standard_errors": -0.35379141618938453
+        }
+      ],
+      "scale_controls": [
+        {
+          "amplitude": 0.4,
+          "variance": 0.16000000000000003,
+          "rate": 24.999999999999996,
+          "max_pointwise_minimum_error": 1.5343629145014859e-15,
+          "tail_standard_errors": 0.7869098137138172
+        },
+        {
+          "amplitude": 1.7,
+          "variance": 2.8899999999999997,
+          "rate": 1.384083044982699,
+          "max_pointwise_minimum_error": 3.03368441478824e-14,
+          "tail_standard_errors": 0.7869098137138172
+        },
+        {
+          "amplitude": 3.0,
+          "variance": 9.0,
+          "rate": 0.4444444444444444,
+          "max_pointwise_minimum_error": 8.171241461241152e-14,
+          "tail_standard_errors": 0.7869098137138172
         }
       ]
     }

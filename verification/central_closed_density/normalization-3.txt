@@ -1,0 +1,4 @@
+'JinWishart.centralWishartDensityConstant_eq_factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_eq_triangular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_eq_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_two' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartNormalization.lean:20:33: error: Ambiguous term
+  mul_inv_rev
+Possible interpretations:
+  _root_.mul_inv_rev : ∀ (a b : ?m.45), (a * b)⁻¹ = b⁻¹ * a⁻¹
+  
+  Matrix.mul_inv_rev : ∀ (A B : Matrix ?m.45 ?m.45 ?m.46), (A * B)⁻¹ = B⁻¹ * A⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartNormalization.lean:30:61: error: unsolved goals
+case e_a
+d n : ℕ
+j : Fin n
+a✝ : j ∈ Finset.univ
+⊢ ↑(d + ↑j).factorial = Real.Gamma (↑d + ↑↑j + 1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartNormalization.lean:35:41: warning: This simp argument is unused:
+  Real.Gamma_nat_eq_factorial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.cast_add, Nat.cast_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.centralWishartDensityConstant_eq_factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_eq_triangular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_eq_gamma' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_two' depends on axioms: [propext, Classical.choice, Quot.sound]

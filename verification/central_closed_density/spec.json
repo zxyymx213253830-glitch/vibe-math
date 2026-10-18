@@ -3,13 +3,16 @@
   "targets": [
     {"module":"JinWishartFormalization.CentralWishartDensityAlgebra","count":9,"log":"verification/central_closed_density/algebra-5.txt","kernel_exit_code_recorded":0},
     {"module":"JinWishartFormalization.CentralBartlettDensityTransport","count":6,"log":"verification/central_closed_density/transport-3.txt","kernel_exit_code_recorded":0},
-    {"module":"JinWishartFormalization.CentralWishartClosedDensity","count":6,"log":"verification/central_closed_density/closed-7.txt","kernel_exit_code_recorded":0}
+    {"module":"JinWishartFormalization.CentralWishartClosedDensity","count":6,"log":"verification/central_closed_density/closed-7.txt","kernel_exit_code_recorded":0},
+    {"module":"JinWishartFormalization.CentralWishartMinimum","count":14,"log":"verification/central_closed_density/minimum-5.txt","kernel_exit_code_recorded":0}
   ],
   "controls": [
-    {"script":"experiments/central_wishart_density_step_control.py","result":"verification/central_closed_density/control.json","seed":20261018}
+    {"script":"experiments/central_wishart_density_step_control.py","result":"verification/central_closed_density/control.json","seed":20261018},
+    {"script":"experiments/central_square_minimum_control.py","result":"verification/central_closed_density/minimum-control.json","seed":20261018}
   ],
   "reviews": [
-    {"request":"verification/central_closed_density/review-request.json","prompt":"verification/central_closed_density/p4-prompt.txt","receipt":"verification/central_closed_density/p4.receipt.json","raw":"verification/central_closed_density/p4.raw.json","snapshot":"verification/central_closed_density/review-snapshot"}
+    {"request":"verification/central_closed_density/review-request.json","prompt":"verification/central_closed_density/p4-prompt.txt","receipt":"verification/central_closed_density/p4.receipt.json","raw":"verification/central_closed_density/p4.raw.json","snapshot":"verification/central_closed_density/review-snapshot"},
+    {"request":"verification/central_closed_density/minimum-review-request.json","prompt":"verification/central_closed_density/p4-minimum-prompt.txt","receipt":"verification/central_closed_density/p4-minimum.receipt.json","raw":"verification/central_closed_density/p4-minimum.raw.json","snapshot":"verification/central_closed_density/minimum-review-snapshot"}
   ],
-  "scope": "ACTUAL central CN(0,1) t-by-s Gram density in canonical s^2 real coordinates for every t>=s, including empty size; explicit finite-product normalization; mass one derived from actual law. No general noncentral or joint spectral density, no general paper T1-4 completion. P4 real Qoder response is scoped and its mistaken row-degree explanation corrected in REVIEW_RESOLUTION.md; human review required. Frozen manuscript and releases unchanged."
+  "scope": "ACTUAL central CN(0,1) t-by-s Gram density in canonical s^2 real coordinates for every t>=s, including empty size; explicit normalization and mass one derived from actual law. Actual rectangular shifted-cone integral retains degree t-s. Every square s>0 has minimum Exp(rate s), strict tail, full CDF and probability-law equality. No general noncentral or joint spectral density, no general paper T1-4 completion. Real scoped Qoder P4 and exact evidence response, not independent compilation/human review. Frozen manuscript/releases unchanged."
 }

@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartNormalization.lean:35:2: error: Type mismatch
+  Eq.symm (Real.Gamma_nat_eq_factorial (d + ↑j))
+has type
+  ↑(d + ↑j).factorial = Real.Gamma (↑(d + ↑j) + 1)
+but is expected to have type
+  ↑(d + ↑j).factorial = Real.Gamma ↑(d + ↑j + 1)
+'JinWishart.centralWishartDensityConstant_eq_factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_eq_triangular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_eq_gamma' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_two' depends on axioms: [propext, Classical.choice, Quot.sound]

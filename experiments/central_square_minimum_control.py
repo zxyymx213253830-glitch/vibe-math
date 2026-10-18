@@ -36,8 +36,24 @@ for n in (1, 2, 3, 4):
         assert abs(se) < 6
         thresholds.append(dict(x=x, expected_tail=expected,
                                empirical_tail=empirical, standard_errors=se))
+    scale_controls = []
+    for a in (0.4, 1.7, 3.0):
+        # Exact sample scaling is additionally checked on a fresh fixed-seed batch.
+        W_scaled = (a*X).conj().transpose(0, 2, 1) @ (a*X)
+        actual = np.linalg.eigvalsh(W_scaled)[:, 0]
+        expected_scaled = a*a*np.linalg.eigvalsh(W)[:, 0]
+        error = float(np.max(np.abs(actual-expected_scaled)))
+        assert error < 1e-10
+        # Same actual full sample, no independence or new density assertion.
+        scaled_tail = float(((a*a*lam) > (0.75*a*a/n)).mean())
+        expected_tail = float(np.exp(-0.75))
+        se = (scaled_tail-expected_tail)/np.sqrt(expected_tail*(1-expected_tail)/N)
+        assert abs(se) < 6
+        scale_controls.append(dict(amplitude=a, variance=a*a, rate=n/(a*a),
+                                   max_pointwise_minimum_error=error, tail_standard_errors=se))
     records.append(dict(size=n, samples=N, trace_Gamma_standard_errors=trace_se,
                         minimum_mean_standard_errors=mean_se, thresholds=thresholds))
+    records[-1]['scale_controls'] = scale_controls
 report = dict(seed=SEED, source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               collected_utc=datetime.now(timezone.utc).isoformat(), records=records,
               status='PASS actual samples; known trace Gamma and Exp(rate n) controls',

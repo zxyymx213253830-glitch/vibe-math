@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-18T08:08:52.742562+00:00",
-  "spec_sha256": "3790a6af83a315fa364eb5995adbd2fb8159dbb39f6c46a188b517297cba447e",
+  "collected_utc": "2026-10-18T08:16:52.095610+00:00",
+  "spec_sha256": "861f9202c445761c4b8b9c2902c5cf2e252758d054afb3343521babc56ae366a",
   "auditor_sha256": "7cdbabdf0692a1e4d4599db5592b9145b9365252cff4264a07f02247c1efe847",
   "modules": {
     "JinWishartFormalization.CentralWishartDensityAlgebra": {
@@ -242,14 +242,163 @@
           "sha256": "6b3bb46ee81633a4631c232bf019c0e01f9f6dad2013860fdc5834159a13d71a"
         }
       }
+    },
+    "JinWishartFormalization.CentralWishartMinimum": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurableSet_centralCoordinatePositiveCone",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurableSet_centralCoordinateShiftedCone",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralCoordinateShiftedCone_subset_positive",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralWishartCoordinateDensity_on_cone",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralWishartCoordinateDensity_cone_mass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualCentralWishart_shiftedCone_probability",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualCentralSquareWishart_shiftedCone_probability",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_centralSquareSampleMinimum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralSquareSampleMinimum_threshold",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_minimum_tail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralSquareSampleMinimum_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_minimum_cdf_function",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_minimum_law_exp",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "8b6444e684aa5152851f5a305f8fdfc9eca87de8efc5a540588f2aa5a6e401a2",
+      "olean_sha256": "4adde8c9b2e021f63a4e8157a443008a7c362f654f9bf5a53a93d742bfb76956",
+      "log_sha256": "67c19ddf40eb4161a33fb36d6ecd9bcf81fdaf1f882cac4dd9edb32e6277a178",
+      "imports": {
+        "JinWishartFormalization.CentralWishartClosedDensity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartClosedDensity.olean",
+          "sha256": "2843933f5cd247a8856fc9fff58ee1935cdd888ab21c7c2d68f68adcd896696f"
+        },
+        "JinWishartFormalization.CentralWishartConeIntegral": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartConeIntegral.olean",
+          "sha256": "45e881e2c0688a8edb772b3535df4f3f00af69ed9519d7dbaf773997f69add05"
+        }
+      }
     }
   },
-  "total_declarations": 21,
+  "total_declarations": 35,
   "controls": [
     {
       "script": "experiments/central_wishart_density_step_control.py",
       "script_sha256": "571b9fd331b15123c4a44df8ae73a0c23b38cde1417c1c823ce243c84111cf91",
       "result_sha256": "872d39ace1e072e7a63c6d8fb2ecedd330cdf0aa667f1f86976e1c6cb634feac",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/central_square_minimum_control.py",
+      "script_sha256": "1b793b8288c77684ecc394e0abeba82bcaa829766bce62876dc928897aef9ca6",
+      "result_sha256": "4f4f1fa2030f5f2759160a306f4a1bfadde13725541df12e6adf4b82394c4e8e",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -263,9 +412,19 @@
       ],
       "independent_compilation": false,
       "human_review": false
+    },
+    {
+      "request_sha256": "49fbefc2ec27b83f0463d328b755b46c7f66bd8e9e86edd811c9c5e12507206c",
+      "prompt_sha256": "fce4adb017057e81897d690debf857d41dbfda5463d15e9efb8b6369a90db029",
+      "raw_response_sha256": "3f887bfa02670095299f60967616c441929252e96fc24ecab42279221a94681f",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
     }
   ],
-  "scope": "ACTUAL central CN(0,1) t-by-s Gram density in canonical s^2 real coordinates for every t>=s, including empty size; explicit finite-product normalization; mass one derived from actual law. No general noncentral or joint spectral density, no general paper T1-4 completion. P4 real Qoder response is scoped and its mistaken row-degree explanation corrected in REVIEW_RESOLUTION.md; human review required. Frozen manuscript and releases unchanged.",
+  "scope": "ACTUAL central CN(0,1) t-by-s Gram density in canonical s^2 real coordinates for every t>=s, including empty size; explicit normalization and mass one derived from actual law. Actual rectangular shifted-cone integral retains degree t-s. Every square s>0 has minimum Exp(rate s), strict tail, full CDF and probability-law equality. No general noncentral or joint spectral density, no general paper T1-4 completion. Real scoped Qoder P4 and exact evidence response, not independent compilation/human review. Frozen manuscript/releases unchanged.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",
