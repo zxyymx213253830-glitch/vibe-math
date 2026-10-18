@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "RectangularWishartHardEdge.lean": {
+      "sha256": "0175f93f22bef0a6578e87afec2d02a7c00c8640005a0aebfd83016c142fda7e",
+      "supplied": "Full source"
+    },
+    "RectangularWishartOneExtraRow.lean": {
+      "sha256": "3f4334017b0038c54d32a56788d199495175422c1cf6c2acb119d834ed784110",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "debe16a56feeb3d058306fae845cf0a3e4905249256cd28f02ae6322779cb82b"
+}

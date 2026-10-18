@@ -1,0 +1,37 @@
+# P4 Cross-Family Semantic Review
+
+## CentralWishartPrincipalMinorMoments.lean
+
+**Empty subset (S = ∅):** `complexWishart_principalMinor_norm_mean` reduces to the determinant of a 0×0 submatrix, which is 1. The RHS yields `n! / n! = 1`. The proof uses `Fintype.equivOfCardEq (by simp)`, which correctly resolves `Fin 0 ≃ ∅`. No issue.
+
+**Factorial casts and subtraction:** `Nat.factorial (n - S.card)` requires `S.card ≤ n`, proven via `Finset.card_le_card (Finset.subset_univ S)`. This is sound. The cast chain `((Nat.factorial n : ℕ) : ℝ)` is lossless since factorials are non-negative and within ℝ's exact range for all practical n. Division is well-defined as factorial denominators are strictly positive.
+
+**PSD nonnegative determinant vs real part:** `complex_norm_eq_re_of_nonneg` assumes `0 ≤ z` in the complex order. For PSD Hermitian matrices, determinants are indeed real and non-negative. However, the hypothesis `hz : 0 ≤ z` uses `ComplexOrder`, which defines `z ≥ 0 ↔ z.im = 0 ∧ z.re ≥ 0`. The conclusion `‖z‖ = z.re` is correct under this premise. The application in `complexWishart_principalMinor_re_mean` invokes `(hW.submatrix _).det_nonneg`, which must establish exactly this complex-order nonnegativity—not merely that the real part is non-negative. **Concrete verification required:** confirm `Matrix.PosSemidef.det_nonneg` returns `0 ≤ z` in `ComplexOrder` sense, not just `0 ≤ z.re`. These are distinct claims for general complex numbers, though equivalent for PSD determinants.
+
+**Measurability:** `lintegral_congr_ae` with `filter_upwards [hp]` is standard. The submatrix extraction and determinant are continuous, hence measurable. No gap.
+
+## HermitianShiftDeterminant.lean
+
+**Empty set edge case:** When `S = ∅`, `x ^ (n - 0) = x^n` and the submatrix determinant is 1 (empty matrix). The sum includes this term correctly. When `S = Finset.univ`, `x^0 = 1` times `A.det`. The expansion is the standard characteristic-polynomial-style identity.
+
+**Multilinear alternating map usage:** `D.map_add_univ` decomposes `det(A + x·I)` over all subsets. The scalar extraction `D.map_smul_univ` pulls out `∏ (if i ∈ S then 1 else x)`. The product simplification via `Finset.prod_ite` yielding `x^(n - S.card)` is algebraically correct.
+
+**ofReal conversion:** `ofReal_det_add_scalar_eq_sum_principalMinors` requires term-wise nonnegativity to commute `ENNReal.ofReal` past the sum. The hypothesis `hA : A.PosSemidef` ensures each principal minor has nonnegative real determinant. Combined with `hx : 0 ≤ x`, each term `x^(n-S.card) * (submatrix.det).re ≥ 0`. The use of `ENNReal.ofReal_sum_of_nonneg` is justified. **No issue.**
+
+**Complex power handling:** `← Complex.ofReal_pow` converts `(x : ℂ)^k = (x^k : ℂ)` for real `x ≥ 0`. This is valid; no branch-cut concerns for nonnegative reals cast to ℂ.
+
+## CentralWishartShiftedDeterminantMean.lean
+
+**Shifted determinant expectation:** `actualCentralSquare_shiftedDeterminant_mean` commutes integral and finite sum via `lintegral_finsetSum`. Each summand is measurable (`fun_prop`). The constant `ENNReal.ofReal (x^(n-S.card))` factors out via `lintegral_const_mul'`. The remaining integral is exactly `complexWishart_principalMinor_re_mean`. **The logic is circular only if that theorem depends on this one—it does not.** Sound.
+
+**Finite nonnegative sum measurability:** The sum over `Finset (Fin n)` is finite (2^n terms), each term is a product of ENNReals. `fun_prop` discharges measurability. No concern.
+
+**Cone integration formula:** `lintegral_complexWishart_eq_cone` bridges the abstract measure to canonical s²-real coordinates. The indicator function `Set.indicator_of_mem`/`Set.indicator_of_notMem` split handles support correctly. The density vanishes outside the cone by definition. **One concrete check:** `centralWishartCoordinateDensity_on_cone` must produce `det(W)^d * exp(-trW)` in real coordinates without residual Jacobian factors—this is an external dependency claim, not verified here.
+
+**K(1,n) = K(0,n)/n!:** `centralWishartDensityConstant_one_surplus` proves this by induction. Base case `n=0`: both sides equal 1 (0! = 1). Inductive step uses `centralWishartDensityConstant_succ` twice, reducing to field arithmetic on nonzero factorial casts. **Sound, assuming `centralWishartDensityConstant_succ` is established externally.**
+
+**Dimension mismatch check:** The Wishart parameter is `m := d + n`, ensuring surplus degrees of freedom. The cone lives in `hermitianOfRealCoordinates` dimension n². The density exponent `d` corresponds to surplus rows beyond n. Consistent.
+
+## Summary
+
+All three files are internally coherent. **One concrete review item:** verify `PosSemidef.det_nonneg` outputs `ComplexOrder.nonneg` (im = 0 ∧ re ≥ 0), not merely `0 ≤ det.re`. If the latter, `complex_norm_eq_re_of_nonneg` cannot be applied directly. All other edge cases (empty sets, zero dimensions, factorial boundaries) are handled correctly. Finite sums, measurability, and Fubini-type commutations are standard. Human review should focus on the `det_nonneg` type-level guarantee and the external density-coordinate bridge.

@@ -1,11 +1,110 @@
 {
   "library": ".tools/publication-revision-20261016/fresh-project-library",
   "targets": [
-    {"module":"JinWishartFormalization.GammaIntegerMoments","count":4,"log":"verification/rectangular_minimum/gamma-2.txt","kernel_exit_code_recorded":0},
-    {"module":"JinWishartFormalization.GaussianSubmatrixLaw","count":7,"log":"verification/rectangular_minimum/submatrix-4.txt","kernel_exit_code_recorded":0},
-    {"module":"JinWishartFormalization.CentralWishartDeterminantMoments","count":6,"log":"verification/rectangular_minimum/moments-6.txt","kernel_exit_code_recorded":0}
+    {
+      "module": "JinWishartFormalization.GammaIntegerMoments",
+      "count": 4,
+      "log": "verification/rectangular_minimum/gamma-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianSubmatrixLaw",
+      "count": 7,
+      "log": "verification/rectangular_minimum/submatrix-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartDeterminantMoments",
+      "count": 6,
+      "log": "verification/rectangular_minimum/moments-6.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartPrincipalMinorMoments",
+      "count": 3,
+      "log": "verification/rectangular_minimum/principal-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.HermitianShiftDeterminant",
+      "count": 2,
+      "log": "verification/rectangular_minimum/polynomial-7.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartShiftedDeterminantMean",
+      "count": 3,
+      "log": "verification/rectangular_minimum/shifted-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.RectangularWishartOneExtraRow",
+      "count": 15,
+      "log": "verification/rectangular_minimum/rectangular-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.Theorem1CentralTwoColumnThreeRows",
+      "count": 4,
+      "log": "verification/rectangular_minimum/t1-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.RectangularWishartHardEdge",
+      "count": 3,
+      "log": "verification/rectangular_minimum/hard-edge-6.txt",
+      "kernel_exit_code_recorded": 0
+    }
   ],
-  "controls": [{"script":"experiments/rectangular_minimum_one_extra_row_control.py","result":"verification/rectangular_minimum/control.json","seed":2026101802}],
-  "reviews": [{"request":"verification/rectangular_minimum/moments-review-request.json","prompt":"verification/rectangular_minimum/p4-moments-prompt.txt","receipt":"verification/rectangular_minimum/p4-moments.receipt.json","raw":"verification/rectangular_minimum/p4-moments.raw.json","snapshot":"verification/rectangular_minimum/moments-review-snapshot"}],
-  "scope": "Actual arbitrary-column Gaussian and principal Gram submatrix law, Gamma integer power bias/moments, actual all-size central determinant integer moments and mean. No one-extra-row minimum formula proof in this checkpoint yet. Codex proof bodies, Qoder route and cross-family P4; human measure/model review required. No new spectral density assumed; frozen publication unchanged."
+  "controls": [
+    {
+      "script": "experiments/rectangular_minimum_one_extra_row_control.py",
+      "result": "verification/rectangular_minimum/control.json",
+      "seed": 2026101802
+    },
+    {
+      "script": "experiments/rectangular_hard_edge_control.py",
+      "result": "verification/rectangular_minimum/hard-edge-control.json",
+      "seed": 2026101802
+    }
+  ],
+  "reviews": [
+    {
+      "request": "verification/rectangular_minimum/moments-review-request.json",
+      "prompt": "verification/rectangular_minimum/p4-moments-prompt.txt",
+      "receipt": "verification/rectangular_minimum/p4-moments.receipt.json",
+      "raw": "verification/rectangular_minimum/p4-moments.raw.json",
+      "snapshot": "verification/rectangular_minimum/moments-review-snapshot"
+    },
+    {
+      "request": "verification/rectangular_minimum/polynomial-review-request.json",
+      "prompt": "verification/rectangular_minimum/p4-polynomial-prompt.txt",
+      "receipt": "verification/rectangular_minimum/p4-polynomial.receipt.json",
+      "raw": "verification/rectangular_minimum/p4-polynomial.raw.json",
+      "snapshot": "verification/rectangular_minimum/polynomial-review-snapshot"
+    },
+    {
+      "request": "verification/rectangular_minimum/rectangular-review-request.json",
+      "prompt": "verification/rectangular_minimum/p4-rectangular-prompt.txt",
+      "receipt": "verification/rectangular_minimum/p4-rectangular.receipt.json",
+      "raw": "verification/rectangular_minimum/p4-rectangular.raw.json",
+      "snapshot": "verification/rectangular_minimum/rectangular-review-snapshot"
+    },
+    {
+      "provider": "claude",
+      "request": "verification/rectangular_minimum/t1-review-request.json",
+      "prompt": "verification/rectangular_minimum/p4-t1-prompt.txt",
+      "receipt": "verification/rectangular_minimum/p4-t1.receipt.json",
+      "raw": "verification/rectangular_minimum/p4-t1.raw.jsonl",
+      "snapshot": "verification/rectangular_minimum/t1-review-snapshot"
+    },
+    {
+      "request": "verification/rectangular_minimum/hard-edge-review-request.json",
+      "prompt": "verification/rectangular_minimum/p4-hard-edge-prompt.txt",
+      "receipt": "verification/rectangular_minimum/p4-hard-edge.receipt.json",
+      "raw": "verification/rectangular_minimum/p4-hard-edge.raw.json",
+      "snapshot": "verification/rectangular_minimum/hard-edge-review-snapshot"
+    }
+  ],
+  "scope": "ACTUAL central variance-one complex (n+1)-by-n Gram minimum for every n>0: tail exp(-n*x)*sum_l choose(n,l)x^l/l! for x>=0, all-real CDF and scalar covariance vI via x/v. Original unchanged T1 candidate aligned ONLY at (s,t,L)=(2,3,0). No assumed spectral density or desired law. Codex proof bodies; Qoder route/coefficient and three scoped real P4 reviews; Claude scoped T1 P4 feedback, not approval and not independent compilation. Original-paper convention and human semantics still require review. General surplus>1/noncentral G2 and original general T1-4 remain open. Frozen publication unchanged. Actual whole one-extra-row central family hard-edge F(x)/x^2 -> n(n+1)/4; covariance vI -> n(n+1)/(4*v^2), not general/noncentral T4. Hard-edge P4 delivered three incorrect tactic/type alarms, answered against exact locked signatures and final kernel evidence in REVIEW_RESOLUTION.md; no blanket review approval."
 }

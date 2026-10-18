@@ -6,6 +6,10 @@
 
 T3 数值诊断只识别测试案例中的恒定倍数2，不能仅凭这些案例区分具体哪个因子；刊版/记号来源仍待核对。下方历史段落的 Γ 因子解释不作为当前已裁决结论。模型反馈不替代人工语义审查；冻结论文及投稿包尚未同步本轮研究。
 
+## 2026-10-18 矩形中央多列增量
+
+任意 n>0、实际 (n+1)×n CN(0,1) Gram 最小值严格尾为 exp(-n*x) sum_l choose(n,l)x^l/l!，完整 CDF 与标量协方差 vI（x/v）已证。原 T1 未改候选新增 (s,t,L)=(2,3,0) 与实际 CDF 对齐，不能扩称任意 n 的原候选对齐。另已证这一整个矩形族的实际小阈值 F(x)/x²→n(n+1)/4，协方差 vI 时系数除以 v²；因此多列 T4 不再全为空白，但一般 k/余量/非中心 T4 仍开放。来源 notes/CENTRAL_WISHART_GENERAL_DENSITY.md 与 verification/rectangular_minimum/audit.json。[需人工审查] 保留，冻结稿件/投稿包未同步。
+
 ## 当前增量：以滚动状态页为准
 
 当前入口为 [WISHART_STATUS.md](WISHART_STATUS.md)，下方旧快照按原日期保留。

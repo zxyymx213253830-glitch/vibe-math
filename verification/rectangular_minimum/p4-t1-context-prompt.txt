@@ -1,0 +1,369 @@
+You are a strict independent P4 reviewer (issues only, do not rewrite proofs). Follow-up to the preserved first T1 review: the earlier prompt omitted some dependency definitions. Here are FULL checked rectangular-law and T1 sources plus exact dependency excerpts. Assess whether your earlier dimensions/measurability/probability concerns remain concrete gaps when considering this context. Do not issue blanket approval; original-paper variance/transcription interpretation remains [human review required]. Explicitly distinguish a source error from omitted review context. The actual model is X in C^(t by s), W=X^H X (s by s); s=2,t=3 here. Each real source coordinate has N(0,1) law and X=(Z0+i Z1)/sqrt(2); source variance controls compare trace Gamma(ts,1), but numerical controls are not proofs. The proof only aligns the original candidate at (s,t,L)=(2,3,0). General central one-extra-row probability is independently proved; no general original-candidate equality or noncentral density is asserted. Check all event complements and scalar variance convention in the full sources. No tools or compilation are available.
+
+FULL RectangularWishartOneExtraRow.lean
+import JinWishartFormalization.CentralWishartShiftedDeterminantMean
+import JinWishartFormalization.CentralWishartScaledMinimum
+import Mathlib.Algebra.BigOperators.Group.Finset.Powerset
+
+/-!
+# Actual central one-extra-row Wishart minimum, finite Laguerre polynomial
+
+Codex proof bodies; Qoder proposed and checked route/coefficient bookkeeping.
+[需人工审查] Cone probability, finite nonnegative integrals, sample spectral event.
+No joint spectral density is assumed and no original general T1 alignment claimed.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+def oneExtraRowMinimumPolynomial (n : ℕ) (x : ℝ) : ℝ :=
+  ∑ l ∈ Finset.range (n + 1), (n.choose l : ℝ) * x ^ l / ((Nat.factorial l : ℕ) : ℝ)
+
+theorem sum_finsets_card_function (n : ℕ) (f : ℕ → ℝ) :
+    (∑ S : Finset (Fin n), f S.card) =
+      ∑ l ∈ Finset.range (n + 1), (n.choose l : ℝ) * f l := by
+  classical
+  rw [← Finset.powerset_univ, Finset.sum_powerset]
+  simp_rw [Finset.sum_powersetCard]
+  simp only [Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+
+theorem sum_finsets_complement_card_function (n : ℕ) (f : ℕ → ℝ) :
+    (∑ S : Finset (Fin n), f (n - S.card)) =
+      ∑ l ∈ Finset.range (n + 1), (n.choose l : ℝ) * f l := by
+  classical
+  let e : Finset (Fin n) ≃ Finset (Fin n) :=
+    ⟨fun S => Sᶜ, fun S => Sᶜ, fun S => compl_compl S, fun S => compl_compl S⟩
+  have h := Equiv.sum_comp e (fun S : Finset (Fin n) => f S.card)
+  simpa only [e, Equiv.coe_fn_mk, Finset.card_compl, Fintype.card_fin,
+    sum_finsets_card_function] using h
+
+theorem oneExtraRowMinimumPolynomial_eq_subsets (n : ℕ) (x : ℝ) :
+    oneExtraRowMinimumPolynomial n x =
+      ∑ S : Finset (Fin n), x ^ (n - S.card) /
+        ((Nat.factorial (n - S.card) : ℕ) : ℝ) := by
+  have h := sum_finsets_complement_card_function n
+    (fun l => x ^ l / ((Nat.factorial l : ℕ) : ℝ))
+  simpa only [oneExtraRowMinimumPolynomial, mul_div_assoc] using h.symm
+
+theorem oneExtraRowMinimumPolynomial_nonneg (n : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    0 ≤ oneExtraRowMinimumPolynomial n x := by
+  unfold oneExtraRowMinimumPolynomial
+  exact Finset.sum_nonneg (fun _ _ => by positivity)
+
+theorem actualCentralSquare_shiftedDeterminant_normalized_mean (n : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    ENNReal.ofReal (((Nat.factorial n : ℕ) : ℝ)⁻¹) *
+      (∫⁻ W, ENNReal.ofReal (W + (x : ℂ) • 1).det.re ∂complexWishart (m := n) (n := n)) =
+        ENNReal.ofReal (oneExtraRowMinimumPolynomial n x) := by
+  classical
+  rw [actualCentralSquare_shiftedDeterminant_mean n x hx, Finset.mul_sum,
+    oneExtraRowMinimumPolynomial_eq_subsets, ENNReal.ofReal_sum_of_nonneg]
+  · apply Finset.sum_congr rfl
+    intro S _
+    rw [← ENNReal.ofReal_mul (by positivity), ← ENNReal.ofReal_mul (by positivity)]
+    congr 1
+    have hn : ((Nat.factorial n : ℕ) : ℝ) ≠ 0 := by positivity
+    field_simp
+  · intro S _
+    positivity
+
+/-- An actual rectangular probability, not a postulated matrix/eigenvalue law. -/
+theorem actualOneExtraRow_shiftedCone_probability (n : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    ((complexWishart (m := n + 1) (n := n)).map realCoordinatesOfHermitian)
+      (centralCoordinateShiftedCone n x) =
+        ENNReal.ofReal (Real.exp (-(n : ℝ) * x) * oneExtraRowMinimumPolynomial n x) := by
+  have hp := actualCentralWishart_shiftedCone_probability 1 n x hx
+  simp only [Nat.one_add, pow_one] at hp
+  have hm := lintegral_complexWishart_eq_cone 0 n
+    (fun W => ENNReal.ofReal (W + (x : ℂ) • 1).det.re) (by fun_prop)
+  simp only [Nat.zero_add, centralConeWeight, pow_zero, one_mul] at hm
+  simp_rw [ENNReal.ofReal_mul' (Real.exp_nonneg _)] at hp
+  rw [centralWishartDensityConstant_one_surplus, div_eq_mul_inv,
+    ENNReal.ofReal_mul (centralWishartDensityConstant_pos 0 n).le] at hp
+  rw [hp, ENNReal.ofReal_mul (Real.exp_nonneg _)]
+  calc
+    _ = ENNReal.ofReal (Real.exp (-(n : ℝ) * x)) *
+        (ENNReal.ofReal (((Nat.factorial n : ℕ) : ℝ)⁻¹) *
+          (∫⁻ W, ENNReal.ofReal (W + (x : ℂ) • 1).det.re
+            ∂complexWishart (m := n) (n := n))) := by rw [hm]; ring
+    _ = _ := by
+      rw [actualCentralSquare_shiftedDeterminant_normalized_mean n x hx]
+
+def oneExtraRowSampleMinimum (n : ℕ) (hn : 0 < n)
+    (z : ComplexSample (m := n + 1) (n := n)) : ℝ :=
+  complexNoncentralSampleSmallestEigenvalue (0 : Matrix (Fin (n + 1)) (Fin n) ℂ) hn z
+
+theorem measurable_oneExtraRowSampleMinimum (n : ℕ) (hn : 0 < n) :
+    Measurable (oneExtraRowSampleMinimum n hn) :=
+  measurable_complexNoncentralSampleSmallestEigenvalue _ _
+
+theorem oneExtraRowSampleMinimum_threshold (n : ℕ) (hn : 0 < n)
+    (z : ComplexSample (m := n + 1) (n := n)) (x : ℝ) :
+    realCoordinatesOfHermitian (complexSampleGram z) ∈ centralCoordinateShiftedCone n x ↔
+      x < oneExtraRowSampleMinimum n hn z := by
+  have hG := (complexGram_posSemidef (complexSampleMatrix z)).isHermitian
+  change (hermitianOfRealCoordinates (realCoordinatesOfHermitian
+    (complexGram (complexSampleMatrix z))) - (x : ℂ) • 1).PosDef ↔ _
+  rw [hermitianOfRealCoordinates_realCoordinates _ hG,
+    hermitian_shift_posDef_iff_smallest _ hG hn x]
+  simp only [oneExtraRowSampleMinimum, complexNoncentralSampleSmallestEigenvalue, add_zero]
+
+theorem actualOneExtraRow_minimum_tail (n : ℕ) (hn : 0 < n) (x : ℝ) (hx : 0 ≤ x) :
+    (stdGaussian (ComplexSample (m := n + 1) (n := n)))
+      {z | x < oneExtraRowSampleMinimum n hn z} =
+        ENNReal.ofReal (Real.exp (-(n : ℝ) * x) * oneExtraRowMinimumPolynomial n x) := by
+  have h := actualOneExtraRow_shiftedCone_probability n x hx
+  rw [complexWishart,
+    Measure.map_map continuous_realCoordinatesOfHermitian.measurable measurable_complexSampleGram,
+    Measure.map_apply
+      (continuous_realCoordinatesOfHermitian.measurable.comp measurable_complexSampleGram)
+      (measurableSet_centralCoordinateShiftedCone n x)] at h
+  have he : (realCoordinatesOfHermitian ∘ complexSampleGram) ⁻¹'
+      centralCoordinateShiftedCone n x = {z | x < oneExtraRowSampleMinimum n hn z} := by
+    ext z
+    exact oneExtraRowSampleMinimum_threshold n hn z x
+  rw [he] at h
+  exact h
+
+theorem actualOneExtraRow_minimum_CDF (n : ℕ) (hn : 0 < n) (x : ℝ) (hx : 0 ≤ x) :
+    ((stdGaussian (ComplexSample (m := n + 1) (n := n)))
+      {z | oneExtraRowSampleMinimum n hn z ≤ x}).toReal =
+        1 - Real.exp (-(n : ℝ) * x) * oneExtraRowMinimumPolynomial n x := by
+  have hs : MeasurableSet {z | x < oneExtraRowSampleMinimum n hn z} :=
+    measurableSet_lt measurable_const (measurable_oneExtraRowSampleMinimum n hn)
+  have hc := probReal_add_probReal_compl
+    (μ := stdGaussian (ComplexSample (m := n + 1) (n := n))) hs
+  have he : {z | x < oneExtraRowSampleMinimum n hn z}ᶜ =
+      {z | oneExtraRowSampleMinimum n hn z ≤ x} := by
+    ext z
+    simp only [Set.mem_compl_iff, Set.mem_setOf_eq, not_lt]
+  rw [he] at hc
+  simp only [Measure.real] at hc
+  rw [actualOneExtraRow_minimum_tail n hn x hx,
+    ENNReal.toReal_ofReal (mul_nonneg (Real.exp_nonneg _) (oneExtraRowMinimumPolynomial_nonneg n x hx))] at hc
+  linarith only [hc]
+
+theorem oneExtraRowSampleMinimum_nonneg (n : ℕ) (hn : 0 < n)
+    (z : ComplexSample (m := n + 1) (n := n)) : 0 ≤ oneExtraRowSampleMinimum n hn z :=
+  complexNoncentralGram_eigenvalues₀_nonneg _ _ _
+
+theorem actualOneExtraRow_minimum_cdf_function (n : ℕ) (hn : 0 < n) (x : ℝ) :
+    cdf ((stdGaussian (ComplexSample (m := n + 1) (n := n))).map
+      (oneExtraRowSampleMinimum n hn)) x =
+        if 0 ≤ x then 1 - Real.exp (-(n : ℝ) * x) * oneExtraRowMinimumPolynomial n x else 0 := by
+  rw [cdf_eq_real, Measure.real,
+    Measure.map_apply (measurable_oneExtraRowSampleMinimum n hn) measurableSet_Iic]
+  change ((stdGaussian (ComplexSample (m := n + 1) (n := n)))
+    {z | oneExtraRowSampleMinimum n hn z ≤ x}).toReal = _
+  by_cases hx : 0 ≤ x
+  · rw [if_pos hx]
+    exact actualOneExtraRow_minimum_CDF n hn x hx
+  · rw [if_neg hx]
+    have he : {z : ComplexSample (m := n + 1) (n := n) |
+        oneExtraRowSampleMinimum n hn z ≤ x} = ∅ := by
+      apply Set.eq_empty_iff_forall_notMem.mpr
+      intro z hz
+      exact not_le_of_gt (lt_of_lt_of_le (lt_of_not_ge hx)
+        (oneExtraRowSampleMinimum_nonneg n hn z)) hz
+    simp [he]
+
+theorem oneExtraRowSampleMinimum_scale (n : ℕ) (hn : 0 < n) (a : ℝ) (ha : 0 < a)
+    (z : ComplexSample (m := n + 1) (n := n)) :
+    oneExtraRowSampleMinimum n hn (a • z) = a ^ 2 * oneExtraRowSampleMinimum n hn z := by
+  have hA := (complexGram_posSemidef (complexSampleMatrix z)).isHermitian
+  have hB : ((a ^ 2) • complexGram (complexSampleMatrix z)).IsHermitian := by
+    rw [← complexSampleGram_real_smul]
+    exact (complexGram_posSemidef (complexSampleMatrix (a • z))).isHermitian
+  have h := smallestEigenvalue_real_smul hn _ hA (a ^ 2) (sq_pos_of_pos ha) hB
+  simpa only [oneExtraRowSampleMinimum, complexNoncentralSampleSmallestEigenvalue,
+    add_zero, ← complexSampleGram_real_smul] using h
+
+theorem actualOneExtraRow_scaled_minimum_CDF (n : ℕ) (hn : 0 < n)
+    (a : ℝ) (ha : 0 < a) (x : ℝ) (hx : 0 ≤ x) :
+    ((stdGaussian (ComplexSample (m := n + 1) (n := n)))
+      {z | oneExtraRowSampleMinimum n hn (a • z) ≤ x}).toReal =
+        1 - Real.exp (-(n : ℝ) * (x / a ^ 2)) * oneExtraRowMinimumPolynomial n (x / a ^ 2) := by
+  have he : {z : ComplexSample (m := n + 1) (n := n) | oneExtraRowSampleMinimum n hn (a • z) ≤ x} =
+      {z | oneExtraRowSampleMinimum n hn z ≤ x / a ^ 2} := by
+    ext z
+    simp only [Set.mem_setOf_eq, oneExtraRowSampleMinimum_scale n hn a ha]
+    exact (le_div_iff₀' (sq_pos_of_pos ha)).symm
+  rw [he]
+  exact actualOneExtraRow_minimum_CDF n hn _ (div_nonneg hx (sq_nonneg a))
+
+theorem actualOneExtraRow_covariance_minimum_CDF (n : ℕ) (hn : 0 < n)
+    (v : ℝ) (hv : 0 < v) (x : ℝ) (hx : 0 ≤ x) :
+    ((stdGaussian (ComplexSample (m := n + 1) (n := n)))
+      {z | oneExtraRowSampleMinimum n hn (Real.sqrt v • z) ≤ x}).toReal =
+        1 - Real.exp (-(n : ℝ) * (x / v)) * oneExtraRowMinimumPolynomial n (x / v) := by
+  simpa only [Real.sq_sqrt hv.le] using
+    actualOneExtraRow_scaled_minimum_CDF n hn (Real.sqrt v) (Real.sqrt_pos.mpr hv) x hx
+
+end
+end JinWishart
+
+#print axioms JinWishart.sum_finsets_card_function
+#print axioms JinWishart.sum_finsets_complement_card_function
+#print axioms JinWishart.oneExtraRowMinimumPolynomial_eq_subsets
+#print axioms JinWishart.oneExtraRowMinimumPolynomial_nonneg
+#print axioms JinWishart.actualCentralSquare_shiftedDeterminant_normalized_mean
+#print axioms JinWishart.actualOneExtraRow_shiftedCone_probability
+#print axioms JinWishart.measurable_oneExtraRowSampleMinimum
+#print axioms JinWishart.oneExtraRowSampleMinimum_threshold
+#print axioms JinWishart.actualOneExtraRow_minimum_tail
+#print axioms JinWishart.actualOneExtraRow_minimum_CDF
+#print axioms JinWishart.oneExtraRowSampleMinimum_nonneg
+#print axioms JinWishart.actualOneExtraRow_minimum_cdf_function
+#print axioms JinWishart.oneExtraRowSampleMinimum_scale
+#print axioms JinWishart.actualOneExtraRow_scaled_minimum_CDF
+#print axioms JinWishart.actualOneExtraRow_covariance_minimum_CDF
+
+
+FULL Theorem1CentralTwoColumnThreeRows.lean
+import JinWishartFormalization.RectangularWishartOneExtraRow
+import JinWishartFormalization.Theorem1Formula
+
+/-!
+# Unmodified Theorem 1 candidate: central three rows and two columns
+
+Codex proof bodies. Actual CDF is supplied by the dimension-general one-extra-row
+cone-polynomial theorem; no new specialized Bartlett/chart construction.
+[需人工审查] Original paper (s,t,L)=(2,3,0), variance and eigenvalue convention.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem theorem1CentralTwoColumnThreeRows_PsiMatrix (x : ℝ) (hx : 0 ≤ x) :
+    theorem1PsiMatrix 2 3 0 (by omega) (by omega)
+        (fun j : Fin 0 => Fin.elim0 j) x =
+      (!![(Real.exp (-x) : ℂ) * ((x : ℂ)^3 + 3*(x : ℂ)^2 + 6*(x : ℂ) + 6),
+          (Real.exp (-x) : ℂ) * ((x : ℂ)^2 + 2*(x : ℂ) + 2);
+          (Real.exp (-x) : ℂ) * ((x : ℂ)^2 + 2*(x : ℂ) + 2),
+          (Real.exp (-x) : ℂ) * ((x : ℂ) + 1)] : Matrix (Fin 2) (Fin 2) ℂ) := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [theorem1PsiMatrix, theorem1PsiEntry, theorem1GammaIndex,
+      upperGammaNat_eq_finite _ hx, upperGammaNatFinite, Finset.sum_range_succ] <;> ring
+
+theorem theorem1CentralTwoColumnThreeRows_PsiDet (x : ℝ) (hx : 0 ≤ x) :
+    (theorem1PsiMatrix 2 3 0 (by omega) (by omega)
+      (fun j : Fin 0 => Fin.elim0 j) x).det =
+      (Real.exp (-2*x) : ℂ) * ((x : ℂ)^2 + 4*(x : ℂ) + 2) := by
+  rw [theorem1CentralTwoColumnThreeRows_PsiMatrix x hx, Matrix.det_fin_two]
+  have he : (Real.exp (-x) : ℂ)^2 = (Real.exp (-2*x) : ℂ) := by
+    have her : Real.exp (-x)^2 = Real.exp (-2*x) := by
+      rw [pow_two, ← Real.exp_add]
+      congr 1
+      ring
+    exact_mod_cast her
+  calc
+    _ = (Real.exp (-x) : ℂ)^2 * ((x : ℂ)^2 + 4*(x : ℂ) + 2) := by simp; ring
+    _ = _ := by rw [he]
+
+theorem theorem1CentralTwoColumnThreeRows_candidate_eq_polynomial (x : ℝ) (hx : 0 ≤ x) :
+    theorem1CdfCandidate 2 3 0 (by omega) (by omega)
+      (fun j : Fin 0 => Fin.elim0 j) x =
+        1 - Real.exp (-2*x) * oneExtraRowMinimumPolynomial 2 x := by
+  have hp : 0 ≤ x^2 + 4*x + 2 := by positivity
+  have he : ((x : ℂ)^2 + 4*(x : ℂ) + 2) = ((x^2 + 4*x + 2 : ℝ) : ℂ) := by push_cast; rfl
+  rw [theorem1CdfCandidate, theorem1CentralTwoColumnThreeRows_PsiDet x hx,
+    theorem1CentralTwoColumnThreeRows_PsiDet 0 (by norm_num), he,
+    norm_mul, Complex.norm_of_nonneg (Real.exp_nonneg _), Complex.norm_of_nonneg hp]
+  norm_num [oneExtraRowMinimumPolynomial, Finset.sum_range_succ]
+  ring
+
+/-- Original candidate, unchanged, equals the true actual central 3-by-2 CDF. -/
+theorem theorem1CentralTwoColumnThreeRows_candidate_eq_actualCDF (x : ℝ) (hx : 0 ≤ x) :
+    theorem1CdfCandidate 2 3 0 (by omega) (by omega)
+      (fun j : Fin 0 => Fin.elim0 j) x =
+      ((stdGaussian (ComplexSample (m := 3) (n := 2)))
+        {z | oneExtraRowSampleMinimum 2 (by norm_num) z ≤ x}).toReal := by
+  rw [theorem1CentralTwoColumnThreeRows_candidate_eq_polynomial x hx,
+    actualOneExtraRow_minimum_CDF 2 (by norm_num) x hx]
+  norm_num
+
+end
+end JinWishart
+
+#print axioms JinWishart.theorem1CentralTwoColumnThreeRows_PsiMatrix
+#print axioms JinWishart.theorem1CentralTwoColumnThreeRows_PsiDet
+#print axioms JinWishart.theorem1CentralTwoColumnThreeRows_candidate_eq_polynomial
+#print axioms JinWishart.theorem1CentralTwoColumnThreeRows_candidate_eq_actualCDF
+
+
+EXCERPT Theorem1Formula.lean lines 15-68
+
+namespace JinWishart
+
+/-- The nonzero eigenvalues of the noncentrality matrix, in the order required by
+Theorem 1 and Theorem 2. This packages the paper's strict ordering and positivity hypotheses. -/
+structure OrderedPositiveNoncentralSpectrum (L : ℕ) where
+  values : Fin L → ℝ
+  positive : ∀ j, 0 < values j
+  strictAnti : StrictAnti values
+
+/-- Nuttall-Q first index in the `i`th (one-based) row of Theorem 1. -/
+def theorem1QOrder (s t : ℕ) (i : Fin s) : ℕ :=
+  s + t - 2 * (i.val + 1) + 1
+
+/-- Integer `k` such that the upper-Gamma entry in Theorem 1 has shape `k+1`. -/
+def theorem1GammaIndex (s t : ℕ) (i j : Fin s) : ℕ :=
+  t + s - (i.val + 1) - (j.val + 1)
+
+/-- The `(i,j)` entry of the determinant matrix `Ψ(x)` in equation (16).
+`lambda : Fin L → ℝ` is intended to list the positive noncentrality eigenvalues. The current
+definition does not enforce positivity or strict ordering of this list; these paper hypotheses
+remain an obligation when using the candidate. `s ≤ t` and `L ≤ s` encode the dimension/rank
+restrictions. -/
+noncomputable def theorem1PsiEntry (s t L : ℕ) (_hst : s ≤ t) (_hLs : L ≤ s)
+    (lambda : Fin L → ℝ) (i j : Fin s) (x : ℝ) : ℂ :=
+  if hj : j.val < L then
+    (Real.rpow 2
+      ((((2 * (i.val + 1) : ℕ) : ℝ) - s - t) / 2) : ℂ) *
+      nuttallQ (theorem1QOrder s t i) (t - s)
+        (Real.sqrt (2 * lambda ⟨j.val, hj⟩)) (Real.sqrt (2 * x))
+  else
+    upperGammaNat (theorem1GammaIndex s t i j) x
+
+/-- The matrix `Ψ(x)` in equation (16). -/
+noncomputable def theorem1PsiMatrix (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+    (lambda : Fin L → ℝ) (x : ℝ) : Matrix (Fin s) (Fin s) ℂ :=
+  fun i j => theorem1PsiEntry s t L hst hLs lambda i j x
+
+/-- The determinant-ratio expression on the right-hand side of equation (15).
+The nonzero-denominator and equality-to-CDF claims are intentionally not axiomatized. -/
+noncomputable def theorem1CdfCandidate (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+    (lambda : Fin L → ℝ) (x : ℝ) : ℝ :=
+  1 - ‖(theorem1PsiMatrix s t L hst hLs lambda x).det‖ /
+    ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖
+
+/-- The `(i,j)` entry of the matrix `Ξ(x)` in equation (20), using the lower
+incomplete Gamma integral from mathlib for the zero-noncentrality columns. -/
+noncomputable def theorem2XiEntry (s t L : ℕ) (_hst : s ≤ t) (_hLs : L ≤ s)
+    (lambda : Fin L → ℝ) (i j : Fin s) (x : ℝ) : ℂ :=
+  if hj : j.val < L then
+    (Real.rpow 2
+      ((((2 * (i.val + 1) : ℕ) : ℝ) - s - t) / 2) : ℂ) *
+      (nuttallQ (theorem1QOrder s t i) (t - s)
+          (Real.sqrt (2 * lambda ⟨j.val, hj⟩)) 0 -
+
+EXCERPT WishartProbability.lean lines 13-30
+open MeasureTheory Matrix ProbabilityTheory
+open scoped ComplexOrder
+
+namespace JinWishart
+
+variable {m n : ℕ}
+
+/-- A complex Gaussian sample matrix is encoded by pairs of real Gaussian coordinates. -/
+abbrev ComplexSample := EuclideanSpace ℝ ((Fin m × Fin n) × Fin 2)
+
+/-- Complex sample matrix with circular complex Gaussian entries of unit variance. -/
+noncomputable def complexSampleMatrix (x : ComplexSample (m := m) (n := n)) :
+    Matrix (Fin m) (Fin n) ℂ :=
+  fun i j ↦ ((x ((i, j), 0) : ℝ) + Complex.I * x ((i, j), 1)) / Real.sqrt 2
+
+/-- Radial energy of the two real Gaussian coordinates in a `1 × 1` complex
+sample. It is the scalar whose law must be identified with the exponential
+target in the central scalar Wishart specialization. -/

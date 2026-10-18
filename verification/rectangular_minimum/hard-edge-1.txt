@@ -1,0 +1,91 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:20:62: error: unsolved goals
+case e'_8
+n : ℕ
+x : ℝ
+⊢ (fun x => ∑ x_1 ∈ Finset.range (n + 1), ↑(n.choose x_1) * (x ^ x_1 / ↑x_1.factorial)) =
+    ∑ x ∈ Finset.range (n + 1), fun y => ↑(n.choose x) * (y ^ x / ↑x.factorial)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:26:70: error: unsolved goals
+case e'_8
+n : ℕ
+x : ℝ
+⊢ (fun x => ∑ x_1 ∈ Finset.range (n + 1), ↑(n.choose x_1) / ↑x_1.factorial * (↑x_1 * x ^ (x_1 - 1))) =
+    ∑ x ∈ Finset.range (n + 1), fun y => ↑(n.choose x) / ↑x.factorial * (↑x * y ^ (x - 1))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:32:69: error: unsolved goals
+n : ℕ
+⊢ ∑ l ∈ Finset.range (n + 1), ↑(n.choose l) * 0 ^ l / ↑l.factorial = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:33:38: warning: This simp argument is unused:
+  Finset.sum_eq_single 0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [oneExtraRowMinimumPolynomial]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:72:44: error: unsolved goals
+case e'_8
+n : ℕ
+hn : 0 < n
+f : ℝ → ℝ := fun x => 1 - Real.exp (-↑n * x) * oneExtraRowMinimumPolynomial n x
+g : ℝ → ℝ := fun x => Real.exp (-↑n * x) * (↑n * oneExtraRowMinimumPolynomial n x - p1 n x)
+x : ℝ
+⊢ (fun y => Real.exp (-(↑n * y))) = fun x => Real.exp (-(↑n * id x))
+
+case e'_9
+n : ℕ
+hn : 0 < n
+f : ℝ → ℝ := fun x => 1 - Real.exp (-↑n * x) * oneExtraRowMinimumPolynomial n x
+g : ℝ → ℝ := fun x => Real.exp (-↑n * x) * (↑n * oneExtraRowMinimumPolynomial n x - p1 n x)
+x : ℝ
+⊢ -(↑n * Real.exp (-(↑n * x))) = -(↑n * Real.exp (-(↑n * id x)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:79:6: error: Tactic `rfl` failed: The left-hand side
+  ↑n ^ 2 - ↑(n.choose 2)
+is not definitionally equal to the right-hand side
+  -↑n * Real.exp (-↑n * 0) * ((fun y => ↑n * oneExtraRowMinimumPolynomial n y) - p1 n) 0 +
+    Real.exp (-↑n * 0) * (↑n * p1 n 0 - p2 n 0)
+
+case e'_9
+n : ℕ
+hn : 0 < n
+f : ℝ → ℝ := fun x => 1 - Real.exp (-↑n * x) * oneExtraRowMinimumPolynomial n x
+g : ℝ → ℝ := fun x => Real.exp (-↑n * x) * (↑n * oneExtraRowMinimumPolynomial n x - p1 n x)
+he : ∀ (x : ℝ), HasDerivAt (fun y => Real.exp (-↑n * y)) (-↑n * Real.exp (-↑n * x)) x
+hf : ∀ (x : ℝ), HasDerivAt f (g x) x
+hg0 : g 0 = 0
+⊢ ↑n ^ 2 - ↑(n.choose 2) =
+    -↑n * Real.exp (-↑n * 0) * ((fun y => ↑n * oneExtraRowMinimumPolynomial n y) - p1 n) 0 +
+      Real.exp (-↑n * 0) * (↑n * p1 n 0 - p2 n 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:80:4: error: No goals to be solved
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:99:4: error: Type mismatch: After simplification, term
+  Tendsto.mono_left (ContinuousAt.tendsto (ContinuousAt.pow continuousAt_id 2))
+    (have this := nhdsWithin_le_nhds;
+    this)
+ has type
+  @Tendsto ℝ ℝ (id ^ 2) (𝓝[>] 0) (𝓝 0)
+but is expected to have type
+  @Tendsto ℝ ℝ (fun x => x ^ 2) (𝓝[>] 0) (𝓝 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:111:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.oneExtraRowMinimumCDF_div_square_tendsto' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualOneExtraRow_minimum_hardEdge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

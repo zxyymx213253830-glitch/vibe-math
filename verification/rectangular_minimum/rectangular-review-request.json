@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "RectangularWishartOneExtraRow.lean": {
+      "sha256": "3f4334017b0038c54d32a56788d199495175422c1cf6c2acb119d834ed784110",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "b350d59d415f7ae3944a6b9aede3d8d458355c143f62fcb79e35e6500770a87f"
+}

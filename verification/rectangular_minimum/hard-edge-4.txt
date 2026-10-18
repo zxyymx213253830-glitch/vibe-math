@@ -1,0 +1,97 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:29:93: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:84:12: warning: This simp argument is unused:
+  g
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.sub_apply, P0, P10 n hn, P20]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:78:82: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:80:54: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:80:70: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:83:76: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:84:48: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:97:39: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:116:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:126:16: error: Type mismatch
+  Tendsto.div_const tendsto_id v
+has type
+  Tendsto (fun a => id a / v) (𝓝 ?m.149) (𝓝 (?m.149 / v))
+but is expected to have type
+  Tendsto (fun x => x / v) (𝓝[>] 0) (𝓝 (0 / v))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:135:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ((stdGaussian ComplexSample) {z | oneExtraRowSampleMinimum n hn (√v • z) ≤ x}).toReal
+in the target expression
+  ((fun x => (1 - Real.exp (-↑n * x) * oneExtraRowMinimumPolynomial n x) / x ^ 2) ∘ fun x => x / v) x / v ^ 2 = ?m.254 x
+
+n : ℕ
+hn : 0 < n
+v : ℝ
+hv : 0 < v
+hz : Tendsto (fun x => x / v) (𝓝[>] 0) (𝓝 0)
+hp : ∀ᶠ (x : ℝ) in 𝓝[>] 0, x / v ∈ Ioi 0
+hs : Tendsto (fun x => x / v) (𝓝[>] 0) (𝓝[>] 0)
+h :
+  Tendsto
+    (fun a =>
+      ((fun x => (1 - Real.exp (-↑n * x) * oneExtraRowMinimumPolynomial n x) / x ^ 2) ∘ fun x => x / v) a / v ^ 2)
+    (𝓝[>] 0) (𝓝 (↑n * (↑n + 1) / 4 / v ^ 2))
+x : ℝ
+hx : x ∈ Ioi 0
+⊢ ((fun x => (1 - Real.exp (-↑n * x) * oneExtraRowMinimumPolynomial n x) / x ^ 2) ∘ fun x => x / v) x / v ^ 2 = ?m.254 x
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:124:46: error: unsolved goals
+case e'_3
+n : ℕ
+hn : 0 < n
+v : ℝ
+hv : 0 < v
+hz : Tendsto (fun x => x / v) (𝓝[>] 0) (𝓝 0)
+hp : ∀ᶠ (x : ℝ) in 𝓝[>] 0, x / v ∈ Ioi 0
+hs : Tendsto (fun x => x / v) (𝓝[>] 0) (𝓝[>] 0)
+h :
+  Tendsto
+    (fun a =>
+      ((fun x => (1 - Real.exp (-↑n * x) * oneExtraRowMinimumPolynomial n x) / x ^ 2) ∘ fun x => x / v) a / v ^ 2)
+    (𝓝[>] 0) (𝓝 (↑n * (↑n + 1) / 4 / v ^ 2))
+⊢ (fun x => ((stdGaussian ComplexSample) {z | oneExtraRowSampleMinimum n hn (√v • z) ≤ x}).toReal * x⁻¹ ^ 2) = sorry
+'JinWishart.oneExtraRowMinimumCDF_div_square_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualOneExtraRow_minimum_hardEdge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualOneExtraRow_covariance_minimum_hardEdge' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

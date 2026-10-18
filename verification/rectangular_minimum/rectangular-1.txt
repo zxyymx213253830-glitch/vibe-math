@@ -1,0 +1,83 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartOneExtraRow.lean:32:4: error(lean.unknownIdentifier): Unknown constant `Equiv.ofInvolutive`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartOneExtraRow.lean:34:17: error(lean.unknownIdentifier): Unknown constant `Equiv.ofInvolutive_apply`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartOneExtraRow.lean:41:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ S, ?f (?n - S.card)
+in the target expression
+  oneExtraRowMinimumPolynomial n x = ∑ S, x ^ (n - S.card) / ↑(n - S.card).factorial
+
+n : ℕ
+x : ℝ
+⊢ oneExtraRowMinimumPolynomial n x = ∑ S, x ^ (n - S.card) / ↑(n - S.card).factorial
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartOneExtraRow.lean:82:71: error: unsolved goals
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+hm :
+  ∫⁻ (W : Matrix (Fin n) (Fin n) ℂ), ENNReal.ofReal (W + ↑x • 1).det.re ∂complexWishart =
+    ENNReal.ofReal (centralWishartDensityConstant 0 n) *
+      ∫⁻ (q : Matrix (Fin n) (Fin n) ℝ) in centralCoordinatePositiveCone n,
+        ENNReal.ofReal (hermitianOfRealCoordinates q + ↑x • 1).det.re *
+          ENNReal.ofReal (Real.exp (-(hermitianOfRealCoordinates q).trace.re)) ∂hermitianRealCoordinateMeasure n
+hp :
+  (Measure.map realCoordinatesOfHermitian complexWishart) (centralCoordinateShiftedCone n x) =
+    ENNReal.ofReal (centralWishartDensityConstant 0 n) * ENNReal.ofReal (↑n.factorial)⁻¹ *
+        ENNReal.ofReal (Real.exp (-↑n * x)) *
+      ∫⁻ (q : Matrix (Fin n) (Fin n) ℝ) in centralCoordinatePositiveCone n,
+        ENNReal.ofReal (hermitianOfRealCoordinates q + ↑x • 1).det.re *
+          ENNReal.ofReal (Real.exp (-(hermitianOfRealCoordinates q).trace.re)) ∂hermitianRealCoordinateMeasure n
+⊢ ENNReal.ofReal (centralWishartDensityConstant 0 n) * ENNReal.ofReal (↑n.factorial)⁻¹ *
+        ENNReal.ofReal (Real.exp (-(↑n * x))) *
+      ∫⁻ (q : Matrix (Fin n) (Fin n) ℝ) in centralCoordinatePositiveCone n,
+        ENNReal.ofReal (hermitianOfRealCoordinates q + ↑x • 1).det.re *
+          ENNReal.ofReal (Real.exp (-(hermitianOfRealCoordinates q).trace.re)) ∂hermitianRealCoordinateMeasure n =
+    ENNReal.ofReal (centralWishartDensityConstant 0 n) ^ 2 * ENNReal.ofReal (↑n.factorial)⁻¹ *
+      ENNReal.ofReal (Real.exp (-(↑n * x)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartOneExtraRow.lean:84:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ENNReal.ofReal (centralWishartDensityConstant 0 n) *
+    ∫⁻ (q : Matrix (Fin n) (Fin n) ℝ) in centralCoordinatePositiveCone n,
+      ENNReal.ofReal (hermitianOfRealCoordinates q + ↑x • 1).det.re *
+        ENNReal.ofReal (Real.exp (-(hermitianOfRealCoordinates q).trace.re)) ∂hermitianRealCoordinateMeasure n
+in the target expression
+  ENNReal.ofReal (Real.exp (-↑n * x)) *
+      (ENNReal.ofReal (↑n.factorial)⁻¹ *
+        (ENNReal.ofReal (centralWishartDensityConstant 0 n) * ENNReal.ofReal (centralWishartDensityConstant 0 n))) =
+    ENNReal.ofReal (Real.exp (-↑n * x)) * ENNReal.ofReal (oneExtraRowMinimumPolynomial n x)
+
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+hm :
+  ∫⁻ (W : Matrix (Fin n) (Fin n) ℂ), ENNReal.ofReal (W + ↑x • 1).det.re ∂complexWishart =
+    ENNReal.ofReal (centralWishartDensityConstant 0 n) *
+      ∫⁻ (q : Matrix (Fin n) (Fin n) ℝ) in centralCoordinatePositiveCone n,
+        ENNReal.ofReal (hermitianOfRealCoordinates q + ↑x • 1).det.re *
+          ENNReal.ofReal (Real.exp (-(hermitianOfRealCoordinates q).trace.re)) ∂hermitianRealCoordinateMeasure n
+hp :
+  (Measure.map realCoordinatesOfHermitian complexWishart) (centralCoordinateShiftedCone n x) =
+    ENNReal.ofReal (centralWishartDensityConstant 0 n) * ENNReal.ofReal (↑n.factorial)⁻¹ *
+        ENNReal.ofReal (Real.exp (-↑n * x)) *
+      ∫⁻ (q : Matrix (Fin n) (Fin n) ℝ) in centralCoordinatePositiveCone n,
+        ENNReal.ofReal (hermitianOfRealCoordinates q + ↑x • 1).det.re *
+          ENNReal.ofReal (Real.exp (-(hermitianOfRealCoordinates q).trace.re)) ∂hermitianRealCoordinateMeasure n
+⊢ ENNReal.ofReal (Real.exp (-↑n * x)) *
+      (ENNReal.ofReal (↑n.factorial)⁻¹ *
+        (ENNReal.ofReal (centralWishartDensityConstant 0 n) * ENNReal.ofReal (centralWishartDensityConstant 0 n))) =
+    ENNReal.ofReal (Real.exp (-↑n * x)) * ENNReal.ofReal (oneExtraRowMinimumPolynomial n x)
+'JinWishart.sum_finsets_card_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_complement_card_function' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.oneExtraRowMinimumPolynomial_eq_subsets' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.oneExtraRowMinimumPolynomial_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralSquare_shiftedDeterminant_normalized_mean' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualOneExtraRow_shiftedCone_probability' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "RectangularWishartOneExtraRow.lean": {
+      "sha256": "3f4334017b0038c54d32a56788d199495175422c1cf6c2acb119d834ed784110",
+      "supplied": "Full source"
+    },
+    "Theorem1CentralTwoColumnThreeRows.lean": {
+      "sha256": "3b709f32efc209b45c6cb3540c34da7ec90929576bbfeb73167083b6da08efb2",
+      "supplied": "Full source"
+    },
+    "Theorem1Formula.lean": {
+      "sha256": "a641c9c3ac07206a1f8162f6c9a655bb0a42901dc814a6153b04031cc6ae2dbc",
+      "supplied": "Exact lines 15-68"
+    },
+    "WishartProbability.lean": {
+      "sha256": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+      "supplied": "Exact lines 13-30"
+    }
+  },
+  "prompt_sha256": "d4517681634f7dcaada3eeb3f938d48932f10dc97d8714a83228a70471c354f7"
+}

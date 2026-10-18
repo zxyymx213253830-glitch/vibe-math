@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-10-18T14:47:10.334790+00:00",
+  "ended_utc": "2026-10-18T14:49:10.521481+00:00",
+  "seconds": 120.18668869999237,
+  "exit_code": 124,
+  "requested_model": "sonnet",
+  "prompt_sha256": "d4517681634f7dcaada3eeb3f938d48932f10dc97d8714a83228a70471c354f7",
+  "runner_sha256": "d286a257867882c1b51f66be80e3e74832cf3747bfd07d8ad6fd7a73a1345e45",
+  "tools_disabled": true,
+  "reported_models": [],
+  "reported_total_cost_usd": null,
+  "is_error": true,
+  "scope": "Model feedback only; no independent compilation or human review"
+}

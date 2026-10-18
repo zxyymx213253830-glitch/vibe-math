@@ -81,16 +81,27 @@ def main():
         prompt = ROOT/item['prompt']
         receipt = json.loads((ROOT/item['receipt']).read_text(encoding='utf-8'))
         raw_path = ROOT/item['raw']
-        raw = json.loads(raw_path.read_text(encoding='utf-8'))
+        provider = item.get('provider', 'qoder')
+        if provider == 'claude':
+            events = [json.loads(line) for line in raw_path.read_text(encoding='utf-8').splitlines()
+                      if line.strip()]
+            raw = next(event for event in reversed(events) if event.get('type') == 'result')
+            runner = ROOT/'tools/partners/claude_review.py'
+            reported_models = list(raw.get('modelUsage', {})) or receipt.get('reported_models', [])
+        else:
+            assert provider == 'qoder', provider
+            raw = json.loads(raw_path.read_text(encoding='utf-8'))
+            runner = ROOT/'tools/partners/qoder_request.py'
+            reported_models = list(raw.get('modelUsage', {}))
         assert request['prompt_sha256'] == sha(prompt) == receipt['prompt_sha256']
         assert receipt['exit_code'] == 0 and not raw['is_error']
-        assert receipt['runner_sha256'] == sha(ROOT/'tools/partners/qoder_request.py')
+        assert receipt['runner_sha256'] == sha(runner)
         for name, record in request['inputs'].items():
             assert record['sha256'] == sha(SOURCE_ROOT/name)
             if record.get('supplied') == 'Full source':
                 assert record['sha256'] == sha(ROOT/item['snapshot']/name)
         reviews.append(dict(request_sha256=sha(ROOT/item['request']), prompt_sha256=sha(prompt),
-            raw_response_sha256=sha(raw_path), reported_models=list(raw.get('modelUsage', {})),
+            raw_response_sha256=sha(raw_path), provider=provider, reported_models=reported_models,
             independent_compilation=False, human_review=False))
     report = dict(collected_utc=datetime.now(timezone.utc).isoformat(), spec_sha256=sha(spec_path),
         auditor_sha256=sha(Path(__file__)), modules=modules, total_declarations=total,

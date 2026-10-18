@@ -142,3 +142,60 @@ general noncentral statements, matrix-density derivation and spectral pushforwar
 remain separate obligations. Ordered-spectrum measurability is useful, but by
 itself would not supply a spectral Jacobian or close G2. Do not extend the earlier
 2x2 coordinate mechanics independently to every new size.
+
+
+## 2026-10-18: one extra row, arbitrary dimension
+
+For actual central CN(0,1) entries, X has n+1 rows and n columns, n>0.
+W=X^H X. The newly checked family is
+
+    P(lambda_min(W)>x) = exp(-n*x) P_n(x), x>=0,
+    P_n(x) = sum_{l=0}^n choose(n,l) x^l/l!.
+
+The actual CDF is 1 minus this tail for x>=0 and zero for x<0. Scaling the
+actual source by sqrt(v), v>0, replaces x by x/v. This is not an assumed
+spectral law and does not require a spectral Jacobian.
+
+Proof route: translate the proven d=1 matrix density cone; K(1,n)=K(0,n)/n!;
+expand det(W+xI) into principal minors under the ACTUAL SQUARE n-by-n law;
+a k-column selected block has n rows, k columns and surplus n-k. Its actual
+law and independent-Gamma determinant moments give mean n!/(n-k)!.
+Group by complement size l=n-k to obtain the displayed polynomial.
+The Gaussian column-selection and integer-Gamma moments are reusable beyond
+this minimum problem. Qoder's initial surplus-zero description of every
+principal block was wrong and was corrected before entering the proof.
+
+New sources: GammaIntegerMoments, GaussianSubmatrixLaw,
+CentralWishartDeterminantMoments, CentralWishartPrincipalMinorMoments,
+HermitianShiftDeterminant, CentralWishartShiftedDeterminantMean,
+RectangularWishartOneExtraRow, Theorem1CentralTwoColumnThreeRows.
+The last module aligns the UNMODIFIED original candidate ONLY at (2,3,0):
+Psi determinant = exp(-2x)(x^2+4x+2), denominator=2,
+actual CDF=1-exp(-2x)(1+2x+x^2/2). This is not a proof of the general
+original-paper determinant candidate, even for all one-extra-row dimensions.
+
+### Multi-column central hard edge
+
+`RectangularWishartHardEdge` derives from the ACTUAL CDF, for every n>0,
+
+    F(x)/x^2 -> n(n+1)/4       as x decreases to zero.
+
+For actual source sqrt(v) scaling the coefficient is n(n+1)/(4v^2).
+Two applications of checked differentiation/LHopital and finite coefficient
+identities handle n=1 without a separate probability construction. This is
+T4's minimum exponent (t-s+1)=2 in the central t=s+1 family; it does not
+establish the general kth-eigenvalue or noncentral T4 statement.
+
+All proof bodies this window are Codex. Qoder supplied bounded route/coefficient
+advice and scoped P4 feedback; Claude Code supplied one scoped T1 review and
+one follow-up timed out. Imported older partner proof bodies keep their prior
+attribution. Exact final sources, standard-axiom logs, numeric/symbolic controls
+and real reviewer responses are bound by verification/rectangular_minimum/audit.json.
+[需人工审查] Actual sample/density transports, source-paper notation and variance.
+The original frozen paper/PDF/submission archives are unchanged. Full fresh
+Lake/mathlib build was not run; leaf checks and changed facade are separate.
+
+Next core obstacle: for surplus d>1 the integrand is a POWER of a shifted
+determinant. Single principal-minor means alone do not determine the needed
+mixed moments. General noncentral density/G2 and original general T1--T4
+remain distinct open obligations; avoid another one-size-at-a-time chart route.

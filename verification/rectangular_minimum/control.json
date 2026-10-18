@@ -1,7 +1,7 @@
 {
   "seed": 2026101802,
-  "source_sha256": "bed4b30b46feef1429f84fadc2f5b7d0fc40c11434c0a164926cd94945b06f97",
-  "collected_utc": "2026-10-18T14:07:41.847382+00:00",
+  "source_sha256": "cc60015833034f1eac298c10b657f8b219fd823fbec2d7878b2108c6a896e954",
+  "collected_utc": "2026-10-18T14:39:15.592286+00:00",
   "records": [
     {
       "rows": 2,
@@ -54,6 +54,52 @@
         {
           "x": 2.0,
           "max_relative_error": 3.751281471841513e-16
+        }
+      ],
+      "actual_scale_controls": [
+        {
+          "amplitude": 0.4,
+          "variance": 0.16000000000000003,
+          "max_minimum_scale_error": 4.440892098500626e-16,
+          "tail_standard_errors": -0.8558064523043556
+        },
+        {
+          "amplitude": 1.7,
+          "variance": 2.8899999999999997,
+          "max_minimum_scale_error": 7.105427357601002e-15,
+          "tail_standard_errors": -0.8558064523043556
+        }
+      ],
+      "original_central_T1_candidate_controls": [
+        {
+          "x": 0.25,
+          "upper_Gamma_determinant_ratio": 0.9735009788392561,
+          "formula_tail": 0.9735009788392561,
+          "absolute_error": 0.0
+        },
+        {
+          "x": 0.75,
+          "upper_Gamma_determinant_ratio": 0.8266414672967757,
+          "formula_tail": 0.8266414672967757,
+          "absolute_error": 0.0
+        },
+        {
+          "x": 1.5,
+          "upper_Gamma_determinant_ratio": 0.5578254003710748,
+          "formula_tail": 0.5578254003710745,
+          "absolute_error": 2.220446049250313e-16
+        },
+        {
+          "x": 3.0,
+          "upper_Gamma_determinant_ratio": 0.1991482734714558,
+          "formula_tail": 0.19914827347145578,
+          "absolute_error": 2.7755575615628914e-17
+        },
+        {
+          "x": 5.0,
+          "upper_Gamma_determinant_ratio": 0.040427681994512785,
+          "formula_tail": 0.0404276819945128,
+          "absolute_error": 1.3877787807814457e-17
         }
       ]
     },
@@ -109,6 +155,52 @@
           "x": 2.0,
           "max_relative_error": 8.28604291539679e-16
         }
+      ],
+      "actual_scale_controls": [
+        {
+          "amplitude": 0.4,
+          "variance": 0.16000000000000003,
+          "max_minimum_scale_error": 7.216449660063518e-16,
+          "tail_standard_errors": -1.5259946401308602
+        },
+        {
+          "amplitude": 1.7,
+          "variance": 2.8899999999999997,
+          "max_minimum_scale_error": 1.7763568394002505e-14,
+          "tail_standard_errors": -1.5259946401308602
+        }
+      ],
+      "original_central_T1_candidate_controls": [
+        {
+          "x": 0.125,
+          "upper_Gamma_determinant_ratio": 0.9795853599570016,
+          "formula_tail": 0.9795853599570015,
+          "absolute_error": 1.1102230246251565e-16
+        },
+        {
+          "x": 0.375,
+          "upper_Gamma_determinant_ratio": 0.8598547405363784,
+          "formula_tail": 0.8598547405363783,
+          "absolute_error": 1.1102230246251565e-16
+        },
+        {
+          "x": 0.75,
+          "upper_Gamma_determinant_ratio": 0.6205807579128202,
+          "formula_tail": 0.6205807579128204,
+          "absolute_error": 2.220446049250313e-16
+        },
+        {
+          "x": 1.5,
+          "upper_Gamma_determinant_ratio": 0.255158725385303,
+          "formula_tail": 0.2551587253853027,
+          "absolute_error": 2.7755575615628914e-16
+        },
+        {
+          "x": 2.5,
+          "upper_Gamma_determinant_ratio": 0.06148376636665461,
+          "formula_tail": 0.06148376636665489,
+          "absolute_error": 2.7755575615628914e-16
+        }
       ]
     },
     {
@@ -163,6 +255,52 @@
           "x": 2.0,
           "max_relative_error": 1.2657254385374933e-15
         }
+      ],
+      "actual_scale_controls": [
+        {
+          "amplitude": 0.4,
+          "variance": 0.16000000000000003,
+          "max_minimum_scale_error": 1.1379786002407855e-15,
+          "tail_standard_errors": 1.264716972041369
+        },
+        {
+          "amplitude": 1.7,
+          "variance": 2.8899999999999997,
+          "max_minimum_scale_error": 1.9539925233402755e-14,
+          "tail_standard_errors": 1.264716972041369
+        }
+      ],
+      "original_central_T1_candidate_controls": [
+        {
+          "x": 0.08333333333333333,
+          "upper_Gamma_determinant_ratio": 0.9816886028125235,
+          "formula_tail": 0.9816886028125184,
+          "absolute_error": 5.10702591327572e-15
+        },
+        {
+          "x": 0.25,
+          "upper_Gamma_determinant_ratio": 0.8721559528473429,
+          "formula_tail": 0.8721559528473423,
+          "absolute_error": 6.661338147750939e-16
+        },
+        {
+          "x": 0.5,
+          "upper_Gamma_determinant_ratio": 0.6461477554298288,
+          "formula_tail": 0.646147755429828,
+          "absolute_error": 7.771561172376096e-16
+        },
+        {
+          "x": 1.0,
+          "upper_Gamma_determinant_ratio": 0.2821267207512288,
+          "formula_tail": 0.282126720751229,
+          "absolute_error": 2.220446049250313e-16
+        },
+        {
+          "x": 1.6666666666666667,
+          "upper_Gamma_determinant_ratio": 0.07370149433567559,
+          "formula_tail": 0.0737014943356756,
+          "absolute_error": 1.3877787807814457e-17
+        }
       ]
     },
     {
@@ -216,6 +354,52 @@
         {
           "x": 2.0,
           "max_relative_error": 2.3237612421874437e-15
+        }
+      ],
+      "actual_scale_controls": [
+        {
+          "amplitude": 0.4,
+          "variance": 0.16000000000000003,
+          "max_minimum_scale_error": 1.4155343563970746e-15,
+          "tail_standard_errors": 1.3908737424278745
+        },
+        {
+          "amplitude": 1.7,
+          "variance": 2.8899999999999997,
+          "max_minimum_scale_error": 3.108624468950438e-14,
+          "tail_standard_errors": 1.3908737424278745
+        }
+      ],
+      "original_central_T1_candidate_controls": [
+        {
+          "x": 0.0625,
+          "upper_Gamma_determinant_ratio": 0.9827548036039834,
+          "formula_tail": 0.98275480360403,
+          "absolute_error": 4.6629367034256575e-14
+        },
+        {
+          "x": 0.1875,
+          "upper_Gamma_determinant_ratio": 0.8785615328614871,
+          "formula_tail": 0.8785615328615158,
+          "absolute_error": 2.8754776337791554e-14
+        },
+        {
+          "x": 0.375,
+          "upper_Gamma_determinant_ratio": 0.6599867099629552,
+          "formula_tail": 0.6599867099629597,
+          "absolute_error": 4.551914400963142e-15
+        },
+        {
+          "x": 0.75,
+          "upper_Gamma_determinant_ratio": 0.29782293680403854,
+          "formula_tail": 0.2978229368040533,
+          "absolute_error": 1.4765966227514582e-14
+        },
+        {
+          "x": 1.25,
+          "upper_Gamma_determinant_ratio": 0.08147059645426627,
+          "formula_tail": 0.08147059645427412,
+          "absolute_error": 7.854827899222983e-15
         }
       ]
     }

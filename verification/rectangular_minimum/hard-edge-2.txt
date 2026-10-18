@@ -1,0 +1,61 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:29:93: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:100:14: error: don't know how to synthesize implicit argument `y`
+  @Tendsto.mono_left ℝ ℝ f (𝓝 0) (𝓝[?m.1514] 0) (𝓝 (f 0)) (ContinuousAt.tendsto (HasDerivAt.continuousAt (hf 0)))
+    nhdsWithin_le_nhds
+context:
+n : ℕ
+hn : 0 < n
+f : ℝ → ℝ := ⋯
+g : ℝ → ℝ := ⋯
+he : ∀ (x : ℝ), HasDerivAt (fun y => Real.exp (-↑n * y)) (-↑n * Real.exp (-↑n * x)) x
+hf : ∀ (x : ℝ), HasDerivAt f (g x) x
+hg0 : g 0 = 0
+hdg : HasDerivAt g (↑n ^ 2 - ↑(n.choose 2)) 0
+hlim : Tendsto (fun x => g x / (2 * x)) (𝓝[>] 0) (𝓝 (↑n * (↑n + 1) / 4))
+⊢ Filter ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:100:52: error: don't know how to synthesize implicit argument `s`
+  @nhdsWithin_le_nhds ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace 0 ?m.1514
+context:
+n : ℕ
+hn : 0 < n
+f : ℝ → ℝ := ⋯
+g : ℝ → ℝ := ⋯
+he : ∀ (x : ℝ), HasDerivAt (fun y => Real.exp (-↑n * y)) (-↑n * Real.exp (-↑n * x)) x
+hf : ∀ (x : ℝ), HasDerivAt f (g x) x
+hg0 : g 0 = 0
+hdg : HasDerivAt g (↑n ^ 2 - ↑(n.choose 2)) 0
+hlim : Tendsto (fun x => g x / (2 * x)) (𝓝[>] 0) (𝓝 (↑n * (↑n + 1) / 4))
+⊢ Set ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:100:9: error: failed to infer `have` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:102:4: error: Type mismatch: After simplification, term
+  Tendsto.mono_left (ContinuousAt.tendsto (ContinuousAt.pow continuousAt_id 2))
+    (have this := nhdsWithin_le_nhds;
+    this)
+ has type
+  @Tendsto ℝ ℝ (id ^ 2) (𝓝[>] 0) (𝓝 0)
+but is expected to have type
+  @Tendsto ℝ ℝ (fun x => x ^ 2) (𝓝[>] 0) (𝓝 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:84:12: warning: This simp argument is unused:
+  g
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.sub_apply, P0, P10 n hn, P20]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularWishartHardEdge.lean:114:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.oneExtraRowMinimumCDF_div_square_tendsto' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualOneExtraRow_minimum_hardEdge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

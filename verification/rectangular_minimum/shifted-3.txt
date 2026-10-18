@@ -1,0 +1,8 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartShiftedDeterminantMean.lean:58:4: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartShiftedDeterminantMean.lean:61:59: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.actualCentralSquare_shiftedDeterminant_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.lintegral_complexWishart_eq_cone' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_one_surplus' depends on axioms: [propext, Classical.choice, Quot.sound]

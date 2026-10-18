@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "Theorem1CentralTwoColumnThreeRows.lean": {
+      "sha256": "3b709f32efc209b45c6cb3540c34da7ec90929576bbfeb73167083b6da08efb2",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a106af18ddb5877deab7b14bf99411ba0e8e6e9f0f2cbf0581e53f3ebf9018fb"
+}

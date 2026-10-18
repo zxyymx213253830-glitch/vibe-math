@@ -50,8 +50,14 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartDeterminantMoments.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/HermitianShiftDeterminant.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartPrincipalMinorMoments.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartShiftedDeterminantMean.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/RectangularWishartOneExtraRow.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/Theorem1CentralTwoColumnThreeRows.lean -text
 /experiments/rectangular_minimum_one_extra_row_control.py -text
-/verification/rectangular_minimum/** -text whitespace=cr-at-eol
+/verification/rectangular_minimum/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 /experiments/central_wishart_density_step_control.py -text
 /experiments/central_square_minimum_control.py -text
 /verification/central_closed_density/** -text whitespace=cr-at-eol
+/tools/partners/claude_review.py -text
+/theory/jin_wishart_formalization/JinWishartFormalization/RectangularWishartHardEdge.lean -text whitespace=cr-at-eol
+/experiments/rectangular_hard_edge_control.py -text whitespace=cr-at-eol

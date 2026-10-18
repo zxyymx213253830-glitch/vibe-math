@@ -11,6 +11,7 @@ import json
 import math
 from pathlib import Path
 import numpy as np
+from scipy.special import gammaincc
 
 SEED = 2026101802
 N = 200_000
@@ -33,6 +34,11 @@ for n in (1, 2, 3, 4):
     det_se = (det.mean()-det_mean)/np.sqrt((det_second-det_mean**2)/N)
     assert abs(trace_se)<6 and abs(det_se)<6
     tails=[]
+    candidate_controls=[]
+    shapes=np.array([[t+n-i-j-1 for j in range(n)] for i in range(n)])
+    factorials=np.vectorize(lambda k: float(math.factorial(int(k)-1)))(shapes)
+    sign0,log0=np.linalg.slogdet(factorials)
+    assert sign0>0
     for y in (0.25,0.75,1.5,3.0,5.0):
         x=y/n
         expected=math.exp(-n*x)*sum(math.comb(n,l)*x**l/math.factorial(l) for l in range(n+1))
@@ -40,6 +46,12 @@ for n in (1, 2, 3, 4):
         se=(empirical-expected)/math.sqrt(expected*(1-expected)/N)
         assert abs(se)<6
         tails.append(dict(x=x,formula_tail=expected,empirical_tail=empirical,standard_errors=se))
+        psi=factorials*gammaincc(shapes,x)
+        sign,log=np.linalg.slogdet(psi)
+        ratio=float(abs(sign)*np.exp(log-log0))
+        assert abs(ratio-expected)<1e-8
+        candidate_controls.append(dict(x=x,upper_Gamma_determinant_ratio=ratio,formula_tail=expected,
+                                       absolute_error=abs(ratio-expected)))
     # Pointwise polynomial determinant expansion on the actual final sample batch.
     errors=[]
     for x in (0.1,0.8,2.0):
@@ -56,9 +68,21 @@ for n in (1, 2, 3, 4):
     square_mean=np.linalg.eigvalsh(V)[:,0].mean()
     square_se=(square_mean-1/n)/(1/n/np.sqrt(BATCH))
     assert abs(square_se)<6
+    scales=[]
+    for a in (0.4,1.7):
+        Ws=(a*X).conj().transpose(0,2,1)@(a*X)
+        error=float(np.max(np.abs(np.linalg.eigvalsh(Ws)[:,0]-a*a*np.linalg.eigvalsh(W)[:,0])))
+        assert error<1e-10
+        y=1.5/n
+        predicted=math.exp(-n*y)*sum(math.comb(n,l)*y**l/math.factorial(l) for l in range(n+1))
+        observed=float((a*a*lam > a*a*y).mean())
+        se=(observed-predicted)/math.sqrt(predicted*(1-predicted)/N)
+        assert abs(se)<6
+        scales.append(dict(amplitude=a,variance=a*a,max_minimum_scale_error=error,tail_standard_errors=se))
     records.append(dict(rows=t,columns=n,samples=N,trace_Gamma_standard_errors=trace_se,
         determinant_mean_standard_errors=float(det_se),square_Exp_control_standard_errors=float(square_se),
-        tails=tails,determinant_polynomial_controls=errors))
+        tails=tails,determinant_polynomial_controls=errors,actual_scale_controls=scales,
+        original_central_T1_candidate_controls=candidate_controls))
 report=dict(seed=SEED,source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
     collected_utc=datetime.now(timezone.utc).isoformat(),records=records,
     status='PASS actual samples, trace Gamma/square Exp controls and determinant polynomial',

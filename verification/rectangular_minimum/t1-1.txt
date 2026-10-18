@@ -1,0 +1,23 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralTwoColumnThreeRows.lean:32:61: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+⊢ -(x * 2) = x * ↑(Int.negSucc 1)
+'JinWishart.theorem1CentralTwoColumnThreeRows_PsiMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoColumnThreeRows_PsiDet' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralTwoColumnThreeRows_candidate_eq_polynomial' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralTwoColumnThreeRows_candidate_eq_actualCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

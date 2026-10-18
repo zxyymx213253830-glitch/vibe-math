@@ -31,6 +31,16 @@
 | 原T1中央2×2候选→实际CDF | `JinWishart.theorem1CentralTwoRow_candidate_eq_actualCDF` | 五声明标准三公理；主入口 PASS |
 | 实际标量协方差 vI | `JinWishart.actualTwoRow_scaled_minimum_law` / `actualTwoRow_covariance_minimum_CDF` | 十声明标准三公理；含本模块主入口 PASS |
 
+## 2026-10-18 矩形中央新族
+
+| 新增实际范围 | 精确声明 | 范围限制 |
+|---|---|---|
+| 任意 (n+1)×n 中央最小尾/完整 CDF/协方差 vI | `actualOneExtraRow_minimum_tail` / `actualOneExtraRow_minimum_cdf_function` / `actualOneExtraRow_covariance_minimum_CDF` | n>0，CN 总方差1；v>0 时 x/v；不是一般原 T1 候选 |
+| 原 T1 中央三行两列候选→实际 CDF | `theorem1CentralTwoColumnThreeRows_candidate_eq_actualCDF` | 仅 (s,t,L)=(2,3,0)，原候选未改 |
+| 多列中央 T4 最小硬边指数2 | `actualOneExtraRow_minimum_hardEdge` / `actualOneExtraRow_covariance_minimum_hardEdge` | 整个 t=s+1 族；系数 n(n+1)/4 或 n(n+1)/(4v²)，非一般 k/非中心 |
+
+源码、失败记录、模型真实回应、控制和公理绑定见 `verification/rectangular_minimum/audit.json`。证明体 Codex；Qoder 路线/P4，Claude 限定 T1 P4；模型反馈不替代人审。以下主表为历史范围，不能把新的中央多列族描述成未证。
+
 ## 主表
 
 **2026-10-09 用户提供 AI4M 指南后的更新：** 实际 LeanSearch 检索并复用

@@ -1,0 +1,8 @@
+'JinWishart.sum_finsets_card_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_finsets_complement_card_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.oneExtraRowMinimumPolynomial_eq_subsets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.oneExtraRowMinimumPolynomial_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralSquare_shiftedDeterminant_normalized_mean' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualOneExtraRow_shiftedCone_probability' depends on axioms: [propext, Classical.choice, Quot.sound]

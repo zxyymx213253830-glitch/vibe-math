@@ -1,0 +1,44 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartShiftedDeterminantMean.lean:55:33: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  centralWishartCoordinateDensity d n q
+in the target expression
+  (centralWishartCoordinateDensity d n * fun a => f (hermitianOfRealCoordinates a)) q =
+    ENNReal.ofReal (centralWishartDensityConstant d n) *
+      (f (hermitianOfRealCoordinates q) * ENNReal.ofReal (centralConeWeight d (hermitianOfRealCoordinates q)))
+
+case pos
+d n : ℕ
+f : Matrix (Fin n) (Fin n) ℂ → ℝ≥0∞
+hf : Measurable f
+hH : Measurable hermitianOfRealCoordinates
+q : Matrix (Fin n) (Fin n) ℝ
+hq : q ∈ centralCoordinatePositiveCone n
+⊢ (centralWishartCoordinateDensity d n * fun a => f (hermitianOfRealCoordinates a)) q =
+    ENNReal.ofReal (centralWishartDensityConstant d n) *
+      (f (hermitianOfRealCoordinates q) * ENNReal.ofReal (centralConeWeight d (hermitianOfRealCoordinates q)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartShiftedDeterminantMean.lean:59:59: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartShiftedDeterminantMean.lean:60:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  centralWishartCoordinateDensity d n q
+in the target expression
+  (centralWishartCoordinateDensity d n * fun a => f (hermitianOfRealCoordinates a)) q = 0
+
+case neg
+d n : ℕ
+f : Matrix (Fin n) (Fin n) ℂ → ℝ≥0∞
+hf : Measurable f
+hH : Measurable hermitianOfRealCoordinates
+q : Matrix (Fin n) (Fin n) ℝ
+hq : q ∉ centralCoordinatePositiveCone n
+hd : centralWishartCoordinateDensity d n q = 0
+⊢ (centralWishartCoordinateDensity d n * fun a => f (hermitianOfRealCoordinates a)) q = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartShiftedDeterminantMean.lean:45:102: error: unsolved goals
+d n : ℕ
+f : Matrix (Fin n) (Fin n) ℂ → ℝ≥0∞
+hf : Measurable f
+hH : Measurable hermitianOfRealCoordinates
+⊢ Measurable fun a => f (hermitianOfRealCoordinates a)
+'JinWishart.actualCentralSquare_shiftedDeterminant_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.lintegral_complexWishart_eq_cone' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_one_surplus' depends on axioms: [propext, Classical.choice, Quot.sound]

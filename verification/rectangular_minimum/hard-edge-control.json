@@ -1,0 +1,56 @@
+{
+  "status": "PASS exact symbolic controls; not a general proof",
+  "source_sha256": "ccdc663322e76ffb86623795c09602441bda160ed7cd118c50df90c73d2c7bf9",
+  "seed": 2026101802,
+  "baseline": "n=1 Gamma(2,rate1) CDF",
+  "records": [
+    {
+      "columns": 1,
+      "coefficient": "1/2"
+    },
+    {
+      "columns": 2,
+      "coefficient": "3/2"
+    },
+    {
+      "columns": 3,
+      "coefficient": "3"
+    },
+    {
+      "columns": 4,
+      "coefficient": "5"
+    },
+    {
+      "columns": 5,
+      "coefficient": "15/2"
+    },
+    {
+      "columns": 6,
+      "coefficient": "21/2"
+    },
+    {
+      "columns": 7,
+      "coefficient": "14"
+    },
+    {
+      "columns": 8,
+      "coefficient": "18"
+    },
+    {
+      "columns": 9,
+      "coefficient": "45/2"
+    },
+    {
+      "columns": 10,
+      "coefficient": "55/2"
+    },
+    {
+      "columns": 11,
+      "coefficient": "33"
+    },
+    {
+      "columns": 12,
+      "coefficient": "39"
+    }
+  ]
+}

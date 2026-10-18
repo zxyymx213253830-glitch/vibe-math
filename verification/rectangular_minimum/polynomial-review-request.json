@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "CentralWishartPrincipalMinorMoments.lean": {
+      "sha256": "f1380357258aa389ac371b68afaeb77591bfc19c7152c1188754a092d2eef0e2",
+      "supplied": "Full source"
+    },
+    "HermitianShiftDeterminant.lean": {
+      "sha256": "af448358c92a4ef5ec5e3a183d3a15056316cdfb677496e9b09758ceb27530f3",
+      "supplied": "Full source"
+    },
+    "CentralWishartShiftedDeterminantMean.lean": {
+      "sha256": "622e5be99946ab5d7f14cea8822e99ecffec0a5da71c2c15b39f56def4cc03dd",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "71fa68258f0b8fc047418164deb640d8c98740c90878661414c52d0c96b76387"
+}

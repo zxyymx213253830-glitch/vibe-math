@@ -1,7 +1,7 @@
 {
-  "collected_utc": "2026-10-18T14:26:52.853994+00:00",
-  "spec_sha256": "073b4b107bf2c55d64d4bfae6c0a546310efca33d1ff764e28223f6757dbd360",
-  "auditor_sha256": "7cdbabdf0692a1e4d4599db5592b9145b9365252cff4264a07f02247c1efe847",
+  "collected_utc": "2026-10-18T14:57:55.368988+00:00",
+  "spec_sha256": "ec47069b1a2e692e4a85e26591c86415c15651b207425c50f01dfdfc9d9e077c",
+  "auditor_sha256": "f8bfa7b35589934b00c2127e131b97c9243e7d78b7527fc851ad8c4f421654f8",
   "modules": {
     "JinWishartFormalization.GammaIntegerMoments": {
       "declarations": [
@@ -202,14 +202,412 @@
           "sha256": "5b64de1085c063b2a62cd9f28c4cb23fbe7bbc342bdcf45095c60f47ea86a919"
         }
       }
+    },
+    "JinWishartFormalization.CentralWishartPrincipalMinorMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexWishart_principalMinor_norm_mean",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complex_norm_eq_re_of_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_principalMinor_re_mean",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "f1380357258aa389ac371b68afaeb77591bfc19c7152c1188754a092d2eef0e2",
+      "olean_sha256": "d327e9b9a3afd6bdaf91f652f27ffa49315a4e113ee6631c79632d0e29145682",
+      "log_sha256": "de38e4861a82fbae7b91e4ed56fe843012e9d1b44c9d0c91aa6c4a524d14e53a",
+      "imports": {
+        "JinWishartFormalization.CentralWishartDeterminantMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartDeterminantMoments.olean",
+          "sha256": "5e03ee3616487eb64ff1676a3af1c1782cea20b687936ff72067d2c69089b9cb"
+        },
+        "JinWishartFormalization.GaussianSubmatrixLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianSubmatrixLaw.olean",
+          "sha256": "cbac9f94a61eb1c96426489774e05eaa75e5eeafdf46c0329ca1ad58cc30e095"
+        }
+      }
+    },
+    "JinWishartFormalization.HermitianShiftDeterminant": {
+      "declarations": [
+        {
+          "name": "JinWishart.det_add_scalar_eq_sum_principalMinors",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.ofReal_det_add_scalar_eq_sum_principalMinors",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "af448358c92a4ef5ec5e3a183d3a15056316cdfb677496e9b09758ceb27530f3",
+      "olean_sha256": "81c6faf901bcd552953a2b6cf42758aa4bb6f98466c9b25c80d548307f9e268a",
+      "log_sha256": "3a9eeb8f2358b5493be5f7fa68d54cb821f2132faa4aba20249a7ddd67776bf2",
+      "imports": {
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.olean",
+          "sha256": "15cfc6024b04efb957886dbd147671d4d8401a816c58deb2defb60c5c76d4821"
+        },
+        "JinWishartFormalization.CentralWishartDensityAlgebra": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartDensityAlgebra.olean",
+          "sha256": "df83c4dbe6d5ab3ba92e7172874ebdecbf59e6b205ceabee956e9ee934277779"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartShiftedDeterminantMean": {
+      "declarations": [
+        {
+          "name": "JinWishart.actualCentralSquare_shiftedDeterminant_mean",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.lintegral_complexWishart_eq_cone",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_one_surplus",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "622e5be99946ab5d7f14cea8822e99ecffec0a5da71c2c15b39f56def4cc03dd",
+      "olean_sha256": "1aad0f21f6063d5fa643e5df4d9b0f8106b5c59168e4de6e307aeff6e523441a",
+      "log_sha256": "5655554afd72511e2777a1c11fc9f5aac097175782fd2229fda44b9f1c80184b",
+      "imports": {
+        "JinWishartFormalization.CentralWishartPrincipalMinorMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartPrincipalMinorMoments.olean",
+          "sha256": "d327e9b9a3afd6bdaf91f652f27ffa49315a4e113ee6631c79632d0e29145682"
+        },
+        "JinWishartFormalization.HermitianShiftDeterminant": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianShiftDeterminant.olean",
+          "sha256": "81c6faf901bcd552953a2b6cf42758aa4bb6f98466c9b25c80d548307f9e268a"
+        },
+        "JinWishartFormalization.CentralWishartMatrixDensity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMatrixDensity.olean",
+          "sha256": "f508073be96e6fac8f8603443f73cd1d8b9006e698c115820c6744b3f365f25a"
+        },
+        "JinWishartFormalization.CentralWishartMinimum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMinimum.olean",
+          "sha256": "4adde8c9b2e021f63a4e8157a443008a7c362f654f9bf5a53a93d742bfb76956"
+        }
+      }
+    },
+    "JinWishartFormalization.RectangularWishartOneExtraRow": {
+      "declarations": [
+        {
+          "name": "JinWishart.sum_finsets_card_function",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.sum_finsets_complement_card_function",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.oneExtraRowMinimumPolynomial_eq_subsets",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.oneExtraRowMinimumPolynomial_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualCentralSquare_shiftedDeterminant_normalized_mean",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualOneExtraRow_shiftedCone_probability",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.measurable_oneExtraRowSampleMinimum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.oneExtraRowSampleMinimum_threshold",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualOneExtraRow_minimum_tail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualOneExtraRow_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.oneExtraRowSampleMinimum_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualOneExtraRow_minimum_cdf_function",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.oneExtraRowSampleMinimum_scale",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualOneExtraRow_scaled_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualOneExtraRow_covariance_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "3f4334017b0038c54d32a56788d199495175422c1cf6c2acb119d834ed784110",
+      "olean_sha256": "292607870f8fadc14e783bd99b76bedc6c0618b0b2dd050fb91a626a652ae4e6",
+      "log_sha256": "f3e6ba9829a0402ac11ceaef19e7a815bfc57600752888cfb00108bb66e9391c",
+      "imports": {
+        "JinWishartFormalization.CentralWishartShiftedDeterminantMean": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartShiftedDeterminantMean.olean",
+          "sha256": "1aad0f21f6063d5fa643e5df4d9b0f8106b5c59168e4de6e307aeff6e523441a"
+        },
+        "JinWishartFormalization.CentralWishartScaledMinimum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartScaledMinimum.olean",
+          "sha256": "2831414cb7e7c36c262557899fb895ce45a534d781ca33c04aedaeb6fbdd7456"
+        },
+        "Mathlib.Algebra.BigOperators.Group.Finset.Powerset": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Group/Finset/Powerset.olean",
+          "sha256": "d3742fd1fd921a2de82aded65dc73046d228f020bf5ae6197bbc89cd74dcfa4e"
+        }
+      }
+    },
+    "JinWishartFormalization.Theorem1CentralTwoColumnThreeRows": {
+      "declarations": [
+        {
+          "name": "JinWishart.theorem1CentralTwoColumnThreeRows_PsiMatrix",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.theorem1CentralTwoColumnThreeRows_PsiDet",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.theorem1CentralTwoColumnThreeRows_candidate_eq_polynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.theorem1CentralTwoColumnThreeRows_candidate_eq_actualCDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "3b709f32efc209b45c6cb3540c34da7ec90929576bbfeb73167083b6da08efb2",
+      "olean_sha256": "00f8ac4841f89f46fd13a0c89f56cb54e88bed57063dbef7bec149cc599b21b5",
+      "log_sha256": "da1706921bc2920532a84a7f43d24cb95b67370b8968ba89337b82928d2716e9",
+      "imports": {
+        "JinWishartFormalization.RectangularWishartOneExtraRow": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/RectangularWishartOneExtraRow.olean",
+          "sha256": "292607870f8fadc14e783bd99b76bedc6c0618b0b2dd050fb91a626a652ae4e6"
+        },
+        "JinWishartFormalization.Theorem1Formula": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/Theorem1Formula.olean",
+          "sha256": "e7252e875a1b8ef12ba9b764ecdc8a90362d4b05275f91be4911fe6cb06d3b83"
+        }
+      }
+    },
+    "JinWishartFormalization.RectangularWishartHardEdge": {
+      "declarations": [
+        {
+          "name": "JinWishart.oneExtraRowMinimumCDF_div_square_tendsto",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualOneExtraRow_minimum_hardEdge",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.actualOneExtraRow_covariance_minimum_hardEdge",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "0175f93f22bef0a6578e87afec2d02a7c00c8640005a0aebfd83016c142fda7e",
+      "olean_sha256": "ada6780d39b114f2ec3d02de8c68f4443e7429796269aed97661c4f04492f835",
+      "log_sha256": "a5030fcdf3ec0e628174a9c6902a10889b3f075c2eb90318107c3779ba325d81",
+      "imports": {
+        "JinWishartFormalization.RectangularWishartOneExtraRow": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/RectangularWishartOneExtraRow.olean",
+          "sha256": "292607870f8fadc14e783bd99b76bedc6c0618b0b2dd050fb91a626a652ae4e6"
+        },
+        "Mathlib.Analysis.Calculus.LHopital": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/LHopital.olean",
+          "sha256": "6ceb034e31d616470c0c7d44f0ae064aa707a182b26d4a032072427e068aaa6d"
+        },
+        "Mathlib.Analysis.Calculus.Deriv.Slope": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Slope.olean",
+          "sha256": "f1fb66337e9e227197f71101b12edb174a34ff9df63898f97e0c3b246b176551"
+        },
+        "Mathlib.Data.Nat.Choose.Cast": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Choose/Cast.olean",
+          "sha256": "8ddb0c9ee7ef3d5422d5efd595448341d1e155b8da08b05156d3424e5d877328"
+        }
+      }
     }
   },
-  "total_declarations": 17,
+  "total_declarations": 47,
   "controls": [
     {
       "script": "experiments/rectangular_minimum_one_extra_row_control.py",
-      "script_sha256": "bed4b30b46feef1429f84fadc2f5b7d0fc40c11434c0a164926cd94945b06f97",
-      "result_sha256": "196c95090bdcfd80ef0400e6fbc2f637c8b18701092f64bf8237c1d9eae4b6db",
+      "script_sha256": "cc60015833034f1eac298c10b657f8b219fd823fbec2d7878b2108c6a896e954",
+      "result_sha256": "41c8ab359b15f7b12e023b0331e017249f07ffada7f7eeee3902f229f77801b9",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/rectangular_hard_edge_control.py",
+      "script_sha256": "ccdc663322e76ffb86623795c09602441bda160ed7cd118c50df90c73d2c7bf9",
+      "result_sha256": "706a7eeebc1a2e04faba9dc4b64b0bc54fd57d099435358894bb627222035c38",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -218,6 +616,51 @@
       "request_sha256": "c4ccad565a6b33707706d5831f15df8c365922f0319aec3a9a830fe7c58c524a",
       "prompt_sha256": "ccbf34e52d4a979f26b7536edb903332fe26f71c5338e108346c25bdf0d2c1a7",
       "raw_response_sha256": "fec21d82a24e3fc9f84f3e3c2593fd3d514320a793cda2959ebdde43a3691751",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "d686d5b0a6f2f723c01c1271237baa6654f83e38546826a185cc756cbed3ccfd",
+      "prompt_sha256": "71fa68258f0b8fc047418164deb640d8c98740c90878661414c52d0c96b76387",
+      "raw_response_sha256": "dced70bcf8ae10d4927f4f7097a426fd0297bd9fd38c2657f90c3a4c15bad593",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "1f6981d94f76d765af79572ce1bb6a33eaea487164afb0d33b22ca868a74a5a1",
+      "prompt_sha256": "b350d59d415f7ae3944a6b9aede3d8d458355c143f62fcb79e35e6500770a87f",
+      "raw_response_sha256": "13a2b458e496e16580ba90fd9fc1252cb1ada34ca1ecea13b376b39d5415074f",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "e46102f0b4f44d07c04550da758acfa2728115bc633a642f97bc4ad560f2cf56",
+      "prompt_sha256": "a106af18ddb5877deab7b14bf99411ba0e8e6e9f0f2cbf0581e53f3ebf9018fb",
+      "raw_response_sha256": "0017fe94d11c133100aff076eeb14457e6c2f70b42fe96105b808220693f5604",
+      "provider": "claude",
+      "reported_models": [
+        "claude-sonnet-5"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "a1e1c16dea968ac9955033a8331ccfc29cbc66c88a7897cd9583dc645fddb161",
+      "prompt_sha256": "debe16a56feeb3d058306fae845cf0a3e4905249256cd28f02ae6322779cb82b",
+      "raw_response_sha256": "4e54b55a6f38f5cbd047fbbd5a644adb337300303a12bd09541ab4e7cfcfe537",
+      "provider": "qoder",
       "reported_models": [
         "qmodel_38max"
       ],
@@ -225,7 +668,7 @@
       "human_review": false
     }
   ],
-  "scope": "Actual arbitrary-column Gaussian and principal Gram submatrix law, Gamma integer power bias/moments, actual all-size central determinant integer moments and mean. No one-extra-row minimum formula proof in this checkpoint yet. Codex proof bodies, Qoder route and cross-family P4; human measure/model review required. No new spectral density assumed; frozen publication unchanged.",
+  "scope": "ACTUAL central variance-one complex (n+1)-by-n Gram minimum for every n>0: tail exp(-n*x)*sum_l choose(n,l)x^l/l! for x>=0, all-real CDF and scalar covariance vI via x/v. Original unchanged T1 candidate aligned ONLY at (s,t,L)=(2,3,0). No assumed spectral density or desired law. Codex proof bodies; Qoder route/coefficient and three scoped real P4 reviews; Claude scoped T1 P4 feedback, not approval and not independent compilation. Original-paper convention and human semantics still require review. General surplus>1/noncentral G2 and original general T1-4 remain open. Frozen publication unchanged. Actual whole one-extra-row central family hard-edge F(x)/x^2 -> n(n+1)/4; covariance vI -> n(n+1)/(4*v^2), not general/noncentral T4. Hard-edge P4 delivered three incorrect tactic/type alarms, answered against exact locked signatures and final kernel evidence in REVIEW_RESOLUTION.md; no blanket review approval.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",

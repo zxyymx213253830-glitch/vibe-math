@@ -1,0 +1,219 @@
+P4 cross-family semantic review, proof author Codex. Only concrete problems, <=650 words, no rewrites/tools/independent compilation. Exact full three passed sources below, standard axioms only. Previously checked actual assets: central variance-one CN t-by-s Gram density in canonical s²-real coordinates K(d,s)*det(W)^d*exp(-trW) on PD. Actual central determinant norm mean t!/(t-s)! for t>=s, all integer norm moments; actual n-by-n Gram selected k-column principal block is ACTUAL n-by-k Wishart (surplus n-k), arbitrary injective selected columns. Now prove each principal minor mean n!/(n-cardS)!, convert norm to real determinant using PSD; finite determinant shift expansion via multilinear alternating map and principal minors; actual shifted determinant expectation as finite nonnegative sum; general actual-law cone integration formula derived from existing matrix density; K(1,n)=K(0,n)/n!. No target minimum density/CDF premise and no spectral Jacobian assumption. Check empty subset/dimension, factorial casts, PSD nonnegative complex determinant vs real part, finite sum measurability, canonical volume and actual rows. Important X^H X not real transpose; source entries (z0+i*z1)/sqrt2 so complex variance1. Human Fubini/model review remains [需人工审查]. Route/coefficient Qoder guidance does not author these proof bodies.
+
+
+FULL SOURCE CentralWishartPrincipalMinorMoments.lean
+import JinWishartFormalization.CentralWishartDeterminantMoments
+import JinWishartFormalization.GaussianSubmatrixLaw
+
+/-! Actual principal-minor means for the central cone-polynomial route.
+Codex proof bodies; Qoder route guidance. [需人工审查] Submatrix laws and moments.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem complexWishart_principalMinor_norm_mean (n : ℕ) (S : Finset (Fin n)) :
+    ∫⁻ W, ENNReal.ofReal ‖(W.submatrix (Subtype.val : S → Fin n)
+      (Subtype.val : S → Fin n)).det‖ ∂complexWishart (m := n) (n := n) =
+      ENNReal.ofReal (((Nat.factorial n : ℕ) : ℝ) /
+        ((Nat.factorial (n - S.card) : ℕ) : ℝ)) := by
+  classical
+  let eS : Fin S.card ≃ S := Fintype.equivOfCardEq (by simp)
+  let e : Fin S.card → Fin n := fun j => (eS j).val
+  have he : Function.Injective e := Subtype.val_injective.comp eS.injective
+  have hcard : S.card ≤ n := by
+    simpa using Finset.card_le_card (Finset.subset_univ S)
+  have h := complexWishart_determinant_norm_mean_of_le n S.card hcard
+  rw [← complexWishart_principalSubmatrix_law (m := n) e he,
+    lintegral_map (by fun_prop) (by fun_prop)] at h
+  refine (lintegral_congr (fun W => ?_)).trans h
+  have hm : (W.submatrix e e).det =
+      (W.submatrix (Subtype.val : S → Fin n) (Subtype.val : S → Fin n)).det := by
+    have hM : W.submatrix e e =
+        (W.submatrix (Subtype.val : S → Fin n) (Subtype.val : S → Fin n)).submatrix eS eS := by
+      ext i j
+      rfl
+    rw [hM, Matrix.det_submatrix_equiv_self]
+  simp only [Function.comp_apply, hm]
+
+theorem complex_norm_eq_re_of_nonneg (z : ℂ) (hz : 0 ≤ z) : ‖z‖ = z.re := by
+  have h := Complex.nonneg_iff.mp hz
+  have he : z = (z.re : ℂ) := by
+    apply Complex.ext <;> simp [h.2]
+  rw [he, Complex.norm_of_nonneg h.1, Complex.ofReal_re]
+
+theorem complexWishart_principalMinor_re_mean (n : ℕ) (S : Finset (Fin n)) :
+    ∫⁻ W, ENNReal.ofReal (W.submatrix (Subtype.val : S → Fin n)
+      (Subtype.val : S → Fin n)).det.re ∂complexWishart (m := n) (n := n) =
+      ENNReal.ofReal (((Nat.factorial n : ℕ) : ℝ) /
+        ((Nat.factorial (n - S.card) : ℕ) : ℝ)) := by
+  rw [← complexWishart_principalMinor_norm_mean n S]
+  apply lintegral_congr_ae
+  have hp : ∀ᵐ W ∂complexWishart (m := n) (n := n), W.PosSemidef :=
+    (mem_ae_iff_prob_eq_one Matrix.posSemidef_is_closed.measurableSet).mpr
+      complexWishart_measure_posSemidef
+  filter_upwards [hp] with W hW
+  congr 1
+  exact (complex_norm_eq_re_of_nonneg _ (hW.submatrix _).det_nonneg).symm
+
+end
+end JinWishart
+
+#print axioms JinWishart.complexWishart_principalMinor_norm_mean
+#print axioms JinWishart.complex_norm_eq_re_of_nonneg
+#print axioms JinWishart.complexWishart_principalMinor_re_mean
+
+
+FULL SOURCE HermitianShiftDeterminant.lean
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
+import JinWishartFormalization.CentralWishartDensityAlgebra
+
+/-! Finite principal-minor expansion of a scalar matrix shift.
+Codex proof bodies; reuses the locked multilinear determinant API.
+-/
+open Matrix
+open MeasureTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem det_add_scalar_eq_sum_principalMinors {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) (x : ℂ) :
+    (A + x • 1).det = ∑ S : Finset (Fin n), x ^ (n - S.card) *
+      (A.submatrix (Subtype.val : S → Fin n) (Subtype.val : S → Fin n)).det := by
+  classical
+  let D := (Matrix.detRowAlternating : (Fin n → ℂ) [⋀^Fin n]→ₗ[ℂ] ℂ)
+  change D ((fun i => A i) + (fun i => (x • (1 : Matrix (Fin n) (Fin n) ℂ)) i)) = _
+  rw [D.map_add_univ]
+  apply Finset.sum_congr rfl
+  intro S _
+  have he : S.piecewise (fun i => A i) (fun i => (x • (1 : Matrix (Fin n) (Fin n) ℂ)) i) =
+      fun i => (if i ∈ S then (1 : ℂ) else x) •
+        S.piecewise (fun i => A i) (fun i => (1 : Matrix (Fin n) (Fin n) ℂ) i) i := by
+    funext i j
+    simp only [Finset.piecewise, Pi.smul_apply, smul_eq_mul]
+    split_ifs <;> simp [Matrix.smul_apply, smul_eq_mul]
+  rw [he, D.map_smul_univ]
+  have hp : (∏ i : Fin n, if i ∈ S then (1 : ℂ) else x) = x ^ (n - S.card) := by
+    rw [Finset.prod_ite]
+    simp only [Finset.prod_const_one, one_mul, Finset.prod_const]
+    congr 1
+    have heq : Finset.univ.filter (fun i : Fin n => i ∉ S) = Finset.univ \ S := by
+      ext i
+      simp
+    rw [heq]
+    simp [Finset.card_sdiff]
+  rw [hp]
+  change _ * (Matrix.of (S.piecewise A (1 : Matrix (Fin n) (Fin n) ℂ))).det = _
+  exact congrArg (fun z : ℂ => x ^ (n - S.card) * z)
+    (Matrix.det_piecewise_one_eq_submatrix_det A S)
+
+theorem ofReal_det_add_scalar_eq_sum_principalMinors {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.PosSemidef) (x : ℝ) (hx : 0 ≤ x) :
+    ENNReal.ofReal (A + (x : ℂ) • 1).det.re =
+      ∑ S : Finset (Fin n), ENNReal.ofReal (x ^ (n - S.card)) *
+        ENNReal.ofReal (A.submatrix (Subtype.val : S → Fin n) (Subtype.val : S → Fin n)).det.re := by
+  classical
+  rw [det_add_scalar_eq_sum_principalMinors, Complex.re_sum]
+  have he (S : Finset (Fin n)) : ((x : ℂ) ^ (n - S.card) *
+      (A.submatrix (Subtype.val : S → Fin n) (Subtype.val : S → Fin n)).det).re =
+      x ^ (n - S.card) * (A.submatrix (Subtype.val : S → Fin n) (Subtype.val : S → Fin n)).det.re := by
+    rw [← Complex.ofReal_pow]
+    simp only [Complex.mul_re, Complex.ofReal_re, Complex.ofReal_im, zero_mul, sub_zero]
+  simp_rw [he]
+  rw [ENNReal.ofReal_sum_of_nonneg]
+  · apply Finset.sum_congr rfl
+    intro S _
+    exact ENNReal.ofReal_mul (pow_nonneg hx _)
+  · intro S _
+    exact mul_nonneg (pow_nonneg hx _) (Complex.nonneg_iff.mp (hA.submatrix _).det_nonneg).1
+
+end
+end JinWishart
+
+#print axioms JinWishart.det_add_scalar_eq_sum_principalMinors
+#print axioms JinWishart.ofReal_det_add_scalar_eq_sum_principalMinors
+
+
+FULL SOURCE CentralWishartShiftedDeterminantMean.lean
+import JinWishartFormalization.CentralWishartPrincipalMinorMoments
+import JinWishartFormalization.HermitianShiftDeterminant
+import JinWishartFormalization.CentralWishartMatrixDensity
+import JinWishartFormalization.CentralWishartMinimum
+
+/-!
+# Finite shifted determinant mean and the actual cone-integral bridge
+
+Codex proof bodies, Qoder route/coefficient guidance.
+[需人工审查] Actual Gaussian law, finite nonnegative sum and density integration.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem actualCentralSquare_shiftedDeterminant_mean (n : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    ∫⁻ W, ENNReal.ofReal (W + (x : ℂ) • 1).det.re ∂complexWishart (m := n) (n := n) =
+      ∑ S : Finset (Fin n), ENNReal.ofReal (x ^ (n - S.card)) *
+        ENNReal.ofReal (((Nat.factorial n : ℕ) : ℝ) /
+          ((Nat.factorial (n - S.card) : ℕ) : ℝ)) := by
+  classical
+  have hp : ∀ᵐ W ∂complexWishart (m := n) (n := n), W.PosSemidef :=
+    (mem_ae_iff_prob_eq_one Matrix.posSemidef_is_closed.measurableSet).mpr
+      complexWishart_measure_posSemidef
+  have he : (∫⁻ W, ENNReal.ofReal (W + (x : ℂ) • 1).det.re ∂complexWishart (m := n) (n := n)) =
+      ∫⁻ W, ∑ S : Finset (Fin n), ENNReal.ofReal (x ^ (n - S.card)) *
+        ENNReal.ofReal (W.submatrix (Subtype.val : S → Fin n) (Subtype.val : S → Fin n)).det.re
+          ∂complexWishart (m := n) (n := n) := by
+    apply lintegral_congr_ae
+    filter_upwards [hp] with W hW
+    exact ofReal_det_add_scalar_eq_sum_principalMinors W hW x hx
+  rw [he, lintegral_finsetSum _ (by intro S _; fun_prop)]
+  apply Finset.sum_congr rfl
+  intro S _
+  rw [lintegral_const_mul' _ _ ENNReal.ofReal_ne_top, complexWishart_principalMinor_re_mean]
+
+/-- Actual-law integration against the proven canonical matrix density. -/
+theorem lintegral_complexWishart_eq_cone (d n : ℕ)
+    (f : Matrix (Fin n) (Fin n) ℂ → ℝ≥0∞) (hf : Measurable f) :
+    ∫⁻ W, f W ∂complexWishart (m := d + n) (n := n) =
+      ENNReal.ofReal (centralWishartDensityConstant d n) *
+        ∫⁻ q in centralCoordinatePositiveCone n,
+          f (hermitianOfRealCoordinates q) * ENNReal.ofReal
+            (centralConeWeight d (hermitianOfRealCoordinates q)) ∂hermitianRealCoordinateMeasure n := by
+  classical
+  have hH := continuous_hermitianOfRealCoordinates (n := n) |>.measurable
+  rw [complexWishart_eq_map_closedDensity, lintegral_map hf hH,
+    lintegral_withDensity_eq_lintegral_mul _ (measurable_centralWishartCoordinateDensity d n)
+      (show Measurable (fun q => f (hermitianOfRealCoordinates q)) from hf.comp hH),
+    ← lintegral_const_mul' _ _ ENNReal.ofReal_ne_top,
+    ← lintegral_indicator (measurableSet_centralCoordinatePositiveCone n)]
+  apply lintegral_congr
+  intro q
+  simp only [Pi.mul_apply]
+  by_cases hq : q ∈ centralCoordinatePositiveCone n
+  · rw [Set.indicator_of_mem hq, centralWishartCoordinateDensity_on_cone d n q hq]
+    ring
+  · rw [Set.indicator_of_notMem hq]
+    have hd : centralWishartCoordinateDensity d n q = 0 := if_neg hq
+    rw [hd, zero_mul]
+
+theorem centralWishartDensityConstant_one_surplus (n : ℕ) :
+    centralWishartDensityConstant 1 n = centralWishartDensityConstant 0 n /
+      ((Nat.factorial n : ℕ) : ℝ) := by
+  induction n with
+  | zero => simp [centralWishartDensityConstant]
+  | succ n ih =>
+      rw [centralWishartDensityConstant_succ, centralWishartDensityConstant_succ, ih]
+      simp only [Nat.zero_add, Nat.one_add]
+      have hn : ((Nat.factorial n : ℕ) : ℝ) ≠ 0 := by positivity
+      have hs : ((Nat.factorial (n + 1) : ℕ) : ℝ) ≠ 0 := by positivity
+      field_simp
+
+end
+end JinWishart
+
+#print axioms JinWishart.actualCentralSquare_shiftedDeterminant_mean
+#print axioms JinWishart.lintegral_complexWishart_eq_cone
+#print axioms JinWishart.centralWishartDensityConstant_one_surplus

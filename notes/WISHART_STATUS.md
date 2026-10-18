@@ -127,3 +127,6 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-18 后续核心进展：通用正主元Bartlett体积换元已对齐(n+1)^2实Hermitian坐标（r^n加权体积公式，非逐点导数声明）；实际任意维CN(n)密度、实际中央及任意确定均值非中央t>=s的Hermitian实坐标律绝对连续性均由实际样本律闭合，不以待证密度为前提。七模块28声明标准三公理及最终主入口PASS，证据verification/bartlett_fiber_volume/audit.json；连同本次先前12声明共新增40。Qoder三份真实P4保留，第二份限制方向/边界/PSD/独立性误读逐项回应，非人工审查完成。闭式一般矩阵密度及归一化/一般谱G2/T1-4、T3刊版问题仍开放；论文PDF/投稿包未刷新，未完整Lake构建，未推远端。
 
 2026-10-18 本次一小时核心里程碑：任意t>=s实际中央复Wishart闭式矩阵密度、显式阶乘/Gamma常数与质量1已闭合；任意正方阵s>0的最小值Exp(rate s)、协方差vI时Exp(rate s/v)、整个矩阵在W>xI下的残余/条件律，以及任意非空矩形的实际trace Gamma(t*s,rate1)均已证。九模块62声明标准三公理与最终变化主入口PASS；两组固定seed控制及五份真实Qoder P4哈希绑定verification/central_closed_density/audit.json，模型解释误读逐项回应，人审仍须完成。一般中央矩形最小值保留det(V+xI)^(t-s)积分，不冒称原T1一般候选已对齐；一般非中心G2/T1–T4、T3刊版问题仍开放。完整新结果见notes/CENTRAL_WISHART_GENERAL_DENSITY.md；未刷新冻结论文/投稿包，未完整Lake构建、未推远端。
+
+
+2026-10-18 本次再授权一小时：实际中央任意 (n+1)×n 最小值闭式严格尾 exp(-n*x)Σ choose(n,l)x^l/l!、完整 CDF、实际标量协方差 vI（x/v）已证；复用通用链连接原 T1 未改 (2,3,0) 候选到实际 CDF。另整个该多列族的 T4 小阈值 F(x)/x²→n(n+1)/4 及 vI 系数 n(n+1)/(4v²) 已证，九模块47公开声明标准三公理和最终主入口PASS。四形状各200000实际样本与trace/Gamma、det、square-Exp闭式控制及12维精确系数控制PASS（数值/符号控制不是一般证明）。证明体Codex，Qoder路线及四份真实P4、Claude一份限定T1 P4已保存；Claude补上下文调用120秒超时不算通过，Qoder导数/截断减法误报按精确锁定API回应。绑定verification/rectangular_minimum/audit.json，滚动说明CENTRAL_WISHART_GENERAL_DENSITY.md。[需人工审查]仍保留；一般余量>1/非中心G2/一般原T1–T4和T3刊版未闭合，冻结稿件/投稿包未改，未完整Lake构建、无推送。
