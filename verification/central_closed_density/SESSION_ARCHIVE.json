@@ -1,0 +1,301 @@
+{
+  "archived_utc": "2026-10-18T12:42:14.660063+00:00",
+  "window": {
+    "started_utc": "2026-10-18T07:49:14+00:00",
+    "deadline_utc": "2026-10-18T08:49:14+00:00",
+    "stage": "CENTRAL_CLOSED_DENSITY",
+    "purpose": "User-authorized one hour. Hard stop: no new math/checks/generation after deadline; archive only. No second runner."
+  },
+  "hard_cutoff_respected_for_recorded_compiler_and_model_runs": true,
+  "last_recorded_compile_utc": "2026-10-18T08:32:56.220277+00:00",
+  "no_claim_of_uninterrupted_full_hour_wall_clock_work": true,
+  "new_modules": 9,
+  "new_public_declarations": 62,
+  "source_log_artifact_review_audit_sha256": "f3677362806690dd8346d32b542c0456beb14702eadafd37b55d2c544150b6ab",
+  "leaf_attempts": [
+    {
+      "log": "algebra-1.txt",
+      "sha256": "a40aeed4fb0ff9cf76e6559f6c230fc035152b2d5e6e0bbfc5d170e7f30c2c1c",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T07:54:39.789609+00:00"
+    },
+    {
+      "log": "algebra-2.txt",
+      "sha256": "ba31f7736c684c5d826be4da7aca528dd26f7b18b8964c88643bea926016dbe1",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T07:55:35.816898+00:00"
+    },
+    {
+      "log": "algebra-3.txt",
+      "sha256": "fa391584ce9f27fd78b992e36c79d30d5648367f601b4ed64cd8908cd61a1d73",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T07:57:26.694829+00:00"
+    },
+    {
+      "log": "algebra-4.txt",
+      "sha256": "d224f3557d78d4f176df4fe5d57dd04be97d96c3a8733ec0c4eb78a5eb3620f2",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:00:45.672886+00:00"
+    },
+    {
+      "log": "algebra-5.txt",
+      "sha256": "639adf0a0e5b6ea011d3d80d14e513f3f7f216d6f044a238f8891e63154aee2e",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:01:50.489299+00:00"
+    },
+    {
+      "log": "closed-1.txt",
+      "sha256": "f1e6e87b6b4fe58bc3c376cc092712b9345d46229bab1d0718b82a480ebd8019",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:02:46.591690+00:00"
+    },
+    {
+      "log": "closed-2.txt",
+      "sha256": "6d45bce5720067daaceb3db072073fcb053d3a9fed74ad628a84c8e06e52ad71",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:03:16.231459+00:00"
+    },
+    {
+      "log": "closed-3.txt",
+      "sha256": "dd893ccb21e86ed2d96c0d72a683546307ce1b777ca751f1ee25dfa489134b39",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:03:56.383932+00:00"
+    },
+    {
+      "log": "closed-4.txt",
+      "sha256": "5ae4f17eef7e74df19e12a21e36586a512671322e7245ec6fb95d7b5090f74b4",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:04:28.397076+00:00"
+    },
+    {
+      "log": "closed-5.txt",
+      "sha256": "06ba69c863240bc3ea8b3ab0ca5e4e18e35993725930cc5c7d570f1eabbd9fc6",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:04:52.109154+00:00"
+    },
+    {
+      "log": "closed-6.txt",
+      "sha256": "dc476691f29e7aa169d794eb6da46428dfc1348e2777b3d7213966d8ed6d0053",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:05:17.823410+00:00"
+    },
+    {
+      "log": "closed-7.txt",
+      "sha256": "3da638889f1e5c6ca41ab96e233ab783c496b070a7074ba077aae7b379bc43d7",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:06:02.902384+00:00"
+    },
+    {
+      "log": "matrix-1.txt",
+      "sha256": "e556b8bbcade6f258a0f9bc4d912cd32ce5e1c7f1e1e16eaede489e34a56641b",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:17:58.650978+00:00"
+    },
+    {
+      "log": "memoryless-1.txt",
+      "sha256": "5a434ccde430fb5926817032d15cf39a1367863e50384a4bdf3109665eb2912b",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:20:12.654094+00:00"
+    },
+    {
+      "log": "memoryless-2.txt",
+      "sha256": "0b070f7fce1f68d68531ab294e5750317027f7667ee1b8baefb1aa4cc956e7f9",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:20:43.702028+00:00"
+    },
+    {
+      "log": "memoryless-3.txt",
+      "sha256": "1a93e2deb012a31e1814346ec0ce1df7c0eb02074f7c645708b63ab8d9a906c5",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:21:43.099440+00:00"
+    },
+    {
+      "log": "memoryless-4.txt",
+      "sha256": "447c86e5096b36e6ab808842727cc9633b73cdb70eaba980dc90da8fe40c2136",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:22:11.055695+00:00"
+    },
+    {
+      "log": "minimum-1.txt",
+      "sha256": "d3a6a339b9bce704b177c348f3dfa336f217d8ef2c9b4d61c784c42a302fd0e0",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:07:56.046310+00:00"
+    },
+    {
+      "log": "minimum-2.txt",
+      "sha256": "fb3561c7a89d15fb7e64e1415af8751da790f1dd0af8e385761c07f591ef117e",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:08:24.966322+00:00"
+    },
+    {
+      "log": "minimum-3.txt",
+      "sha256": "5a2e1f5b5982e6aa571c280eb3f58116940841aae7d605495027f122bca2553b",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:09:37.337548+00:00"
+    },
+    {
+      "log": "minimum-4.txt",
+      "sha256": "91eff40ecdb6de002b915ddeac4e181e5e160c96d27834106e670829b299ffcf",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:10:26.707417+00:00"
+    },
+    {
+      "log": "minimum-5.txt",
+      "sha256": "67c19ddf40eb4161a33fb36d6ecd9bcf81fdaf1f882cac4dd9edb32e6277a178",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:11:04.784288+00:00"
+    },
+    {
+      "log": "normalization-1.txt",
+      "sha256": "117e2146c49059bc3ce2f7a248e3810696f1952bee7216e38c6814db2da75e34",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:12:38.786436+00:00"
+    },
+    {
+      "log": "normalization-2.txt",
+      "sha256": "ac16533ab00034b2fc21ccbad61f9976ffb8aea758df47c1aa6e458a01c3cab4",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:13:05.147435+00:00"
+    },
+    {
+      "log": "normalization-3.txt",
+      "sha256": "ec99b9a21ffa750817c510b6e39623f21c36b63e061b6ab8c183a224cd9288c5",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:13:31.080234+00:00"
+    },
+    {
+      "log": "scaled-1.txt",
+      "sha256": "d9618dec40fb272e54877c014495d9938a8f39b6c369ce988a9827e43394a977",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:15:11.396083+00:00"
+    },
+    {
+      "log": "scaled-2.txt",
+      "sha256": "f8cf5d848b42fa4bc78a98739905f7a391ed5d6da53d1e383b49e6bae647be47",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:15:43.610992+00:00"
+    },
+    {
+      "log": "trace-1.txt",
+      "sha256": "7241657c7a97eced468c5a7400098c1d5e7f8977f2e657cac1e6a783b9730471",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:29:23.772999+00:00"
+    },
+    {
+      "log": "trace-2.txt",
+      "sha256": "480059dee3ed574c616f7c71cf373cc01f954651d3963a85db0863fa8acec3a4",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:30:15.488264+00:00"
+    },
+    {
+      "log": "trace-3.txt",
+      "sha256": "57a486038908e10a923015aec052a1e4dd5e722e10e0a2d61d2a19c117d6a423",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:30:48.644557+00:00"
+    },
+    {
+      "log": "trace-4.txt",
+      "sha256": "83bbed0b37960325ff53627deb570f944b076a9aaf423b720c7740d91c5bf73c",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:31:16.365707+00:00"
+    },
+    {
+      "log": "transport-1.txt",
+      "sha256": "7d9cf91daf56338f5e1563b9b2762fed8446e5e9958306839041a08e877d9a9c",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T07:56:40.053259+00:00"
+    },
+    {
+      "log": "transport-2.txt",
+      "sha256": "72140d20ab481ebbe3d4dc97316ac43f5e6859bc71fe7109b6e146d5cba5ef63",
+      "diagnostic_result": "FAILED retained",
+      "ended_by_mtime_utc": "2026-10-18T08:01:02.248387+00:00"
+    },
+    {
+      "log": "transport-3.txt",
+      "sha256": "c9465ed8f9f83da5c9b1a6e8216c4dcec431bc9b940b6ecbfb23567a2b21f372",
+      "diagnostic_result": "PASS diagnostic",
+      "ended_by_mtime_utc": "2026-10-18T08:02:07.949259+00:00"
+    }
+  ],
+  "failed_leaf_attempts": 21,
+  "facade": {
+    "exit_code_recorded": 0,
+    "source_sha256": "ce6e7e68f28fd6d2777d264870e70c69ed5a729bac593da1d4c8d9464c7d830f",
+    "olean_sha256": "01d726a161c2c8720fdff98680718870eb68611bf60836f04646bc542154b757",
+    "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "full_project_build": "NOT_RUN"
+  },
+  "partner_reviews": [
+    {
+      "receipt": "p4-interface.receipt.json",
+      "sha256": "416e6cab031a82cb8a85d98f683ba58655256be530500b6ab3b4a6d8b65c65a6",
+      "exit_code": 0,
+      "ended_utc": "2026-10-18T08:23:37.461673+00:00",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "reported_credits": 1.4303785714285713
+    },
+    {
+      "receipt": "p4-minimum.receipt.json",
+      "sha256": "cbf6e816fa437f26771643781205363d88f90dfae466d054a39eb84d80aa809e",
+      "exit_code": 0,
+      "ended_utc": "2026-10-18T08:12:25.608578+00:00",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "reported_credits": 1.3636714285714284
+    },
+    {
+      "receipt": "p4-trace.receipt.json",
+      "sha256": "c8da3443a15c560258b4510e5472e65c6b8e2fd434b51aed813a4e8054ccdee0",
+      "exit_code": 0,
+      "ended_utc": "2026-10-18T08:32:33.497997+00:00",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "reported_credits": 0.3652714285714286
+    },
+    {
+      "receipt": "p4-variance.receipt.json",
+      "sha256": "a06fb9f2d0309e526e257258feb025fbca8bb082f9fd06f488965092a35babfa",
+      "exit_code": 0,
+      "ended_utc": "2026-10-18T08:27:18.750652+00:00",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "reported_credits": 0.3634071428571428
+    },
+    {
+      "receipt": "p4.receipt.json",
+      "sha256": "a13217d2d960a9e11cdd1b59e45a8d2972bb3379a3afe33fe5fe81ca839347ff",
+      "exit_code": 0,
+      "ended_utc": "2026-10-18T08:07:20.540694+00:00",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "reported_credits": 1.481742857142857
+    }
+  ],
+  "proof_author": "Codex",
+  "partners": "Qoder/Qwen P4 only; no new local DeepSeek author generation this window",
+  "human_review": "REQUIRED",
+  "publications": {
+    "status": "UNCHANGED",
+    "hashes": {
+      "theory/wishart_paper/main.tex": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+      "output/pdf/wishart_formalization.pdf": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+      "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+      "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b"
+    }
+  },
+  "commits": [
+    "2c4521d",
+    "b3082dd",
+    "d944aa4"
+  ],
+  "own_matching_processes_at_archive": "NONE observed by process query",
+  "automation": "No automation or runner created this window; existing unrelated automation not modified",
+  "remaining": "Noncentral explicit matrix/spectral G2, original general T1-4/candidate alignment, T3 journal-source interpretation"
+}
