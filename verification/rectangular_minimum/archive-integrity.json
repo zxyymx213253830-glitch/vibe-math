@@ -1,0 +1,7 @@
+{
+  "collected_utc": "2026-10-18T15:04:15.612497+00:00",
+  "summary_sha256": "59293f850f16b8eb3a20cee72839281caef917dce7dba4216154f29473130897",
+  "checks": "PASS 10 real CLI prompt/raw/receipt bindings and deadline bounds; final audit/facade/spec bindings; no compute gate owners",
+  "untracked": "Unknown user drafts left untouched",
+  "full_build": "NOT_RUN"
+}
