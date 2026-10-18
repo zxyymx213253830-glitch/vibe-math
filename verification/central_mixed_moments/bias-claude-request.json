@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CentralWishartDeterminantBias.lean": {
+      "sha256": "b8ce985916c65de69dad3ccc52f9dd4d46ed341023fc2ae4c1ba577482958bac",
+      "supplied": "Full source"
+    },
+    "GaussianSubmatrixLaw.lean": {
+      "sha256": "9b49ca5e2c54f0c9349fa2431cbfb34f067a7cbbc2ebd4a4df2e353b2dc80f14",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "5d3101b0b5cb2744b0f295cc2c9ea19b4868a7757ceb0c883463d7187bb05c4b"
+}

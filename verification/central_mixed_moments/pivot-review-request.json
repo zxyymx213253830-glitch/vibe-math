@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CentralWishartSharedPivot.lean": {
+      "sha256": "c611b0d0a53c79207df401e18de536f8156c05e96322945391d7479110fc81f2",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "6bdc60fedaa2f23e25b48a5e84198e63689ec4620ee1dc98c054c397285429ce"
+}

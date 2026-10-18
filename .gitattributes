@@ -62,3 +62,10 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/RectangularWishartHardEdge.lean -text whitespace=cr-at-eol
 /experiments/rectangular_hard_edge_control.py -text whitespace=cr-at-eol
 /experiments/central_next_route_derivative_control.py -text whitespace=cr-at-eol
+/experiments/central_mixed_minor_control.py -text whitespace=cr-at-eol
+/verification/central_mixed_moments/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartDeterminantBias.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartSharedPivot.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianDisjointPrincipalLaw.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartSharedPrefix.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartOverlappingSelectors.lean -text whitespace=cr-at-eol

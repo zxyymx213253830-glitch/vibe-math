@@ -49,8 +49,9 @@ def main():
             qualified = 'JinWishart.'+name
             found = re.search(re.escape("'"+qualified+"' depends on axioms:")+
                 r'\s*\[([^\]]*)\]', diagnostic)
-            assert found, qualified
-            axioms = set(s.strip() for s in found[1].split(','))
+            no_axioms = "'"+qualified+"' does not depend on any axioms" in diagnostic
+            assert found or no_axioms, qualified
+            axioms = set(s.strip() for s in found[1].split(',') if s.strip()) if found else set()
             assert axioms <= {'propext', 'Classical.choice', 'Quot.sound'}, qualified
             entries.append(dict(name=qualified, axioms=sorted(axioms), author='Codex'))
         assert compiled.exists() and compiled.stat().st_mtime >= source.stat().st_mtime, module

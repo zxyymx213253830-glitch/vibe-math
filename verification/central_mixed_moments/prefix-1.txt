@@ -1,0 +1,3 @@
+'JinWishart.centralDeterminantPowerMoment_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_shared_prefix_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_common_prefix_disjoint_moment' depends on axioms: [propext, Classical.choice, Quot.sound]

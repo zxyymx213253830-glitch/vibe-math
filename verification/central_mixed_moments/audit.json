@@ -1,0 +1,298 @@
+{
+  "collected_utc": "2026-10-18T16:58:33.825105+00:00",
+  "spec_sha256": "3d13245d17db86875f0171fab14ea73cd5b4e5a9cce4224926dd29a9f27f4a0c",
+  "auditor_sha256": "4678fbdc2b1a184a1916bd7aab7424e1e3ab36ca55c8eefaf2f162df74d0e70e",
+  "modules": {
+    "JinWishartFormalization.CentralWishartDeterminantBias": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralDeterminantPowerMoment_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_power_bias",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralWishartMatrixDensity_power_bias",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_determinant_power_bias",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.lintegral_complexWishart_determinant_power_bias",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_principalSubmatrix_norm_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_nested_determinant_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "b8ce985916c65de69dad3ccc52f9dd4d46ed341023fc2ae4c1ba577482958bac",
+      "olean_sha256": "51b51fa5e4761294b620bdcf9e5ee21674d52980a82baf68ff281f7e58829ba3",
+      "log_sha256": "a4d7b9d14a5ca78739665779f53e610d20b95891ef7c0f4000c793715a6e7b3a",
+      "imports": {
+        "JinWishartFormalization.CentralWishartPrincipalMinorMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartPrincipalMinorMoments.olean",
+          "sha256": "d327e9b9a3afd6bdaf91f652f27ffa49315a4e113ee6631c79632d0e29145682"
+        },
+        "JinWishartFormalization.CentralWishartMatrixDensity": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMatrixDensity.olean",
+          "sha256": "f508073be96e6fac8f8603443f73cd1d8b9006e698c115820c6744b3f365f25a"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartSharedPivot": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralBartlettGram_submatrix_pivot",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.centralBartlettGram_selected_pivot_det",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_shared_pivot_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "c611b0d0a53c79207df401e18de536f8156c05e96322945391d7479110fc81f2",
+      "olean_sha256": "5dfeadf923a8b9c6a6987fc39478ff0d9b3406bfd19d7dabec1c9761759e2272",
+      "log_sha256": "075f5138039e9b65a4a7140048c23fed1aacd6fbf9c3bf9be09ab7418981f4b0",
+      "imports": {
+        "JinWishartFormalization.CentralWishartDeterminantBias": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartDeterminantBias.olean",
+          "sha256": "51b51fa5e4761294b620bdcf9e5ee21674d52980a82baf68ff281f7e58829ba3"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianDisjointPrincipalLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.disjointSampleIndex_injective",
+          "axioms": [],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.stdGaussian_disjoint_columnSelections",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_disjoint_principal_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_disjoint_determinant_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "ba31e8fa5fa6556a2c8ba4a58206f643e081ebf85e22446a4faac8fb918777a6",
+      "olean_sha256": "1081338c4aee906f2b3d9339fbf24ece190f758c663438e86d75b24b73fda810",
+      "log_sha256": "a960e9de4efb5809300cacea1f2d55f74b8193c2bf49848c9e52fe1bc6465e2e",
+      "imports": {
+        "JinWishartFormalization.CentralWishartDeterminantBias": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartDeterminantBias.olean",
+          "sha256": "51b51fa5e4761294b620bdcf9e5ee21674d52980a82baf68ff281f7e58829ba3"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartSharedPrefix": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralDeterminantPowerMoment_succ",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_shared_prefix_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_common_prefix_disjoint_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "a67cb57d3463d063916e63ad4a678043306d635717136d42ba2daa39e0b9989f",
+      "olean_sha256": "306895067528ef2c69aa7a5615820090ead2717cf0e7adcf90fe331e628313f9",
+      "log_sha256": "798efb853a6d9f58b2d2ea7f184df6782c39847eb4ca2f3829c155d3980f1965",
+      "imports": {
+        "JinWishartFormalization.CentralWishartSharedPivot": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartSharedPivot.olean",
+          "sha256": "5dfeadf923a8b9c6a6987fc39478ff0d9b3406bfd19d7dabec1c9761759e2272"
+        },
+        "JinWishartFormalization.GaussianDisjointPrincipalLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianDisjointPrincipalLaw.olean",
+          "sha256": "1081338c4aee906f2b3d9339fbf24ece190f758c663438e86d75b24b73fda810"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartOverlappingSelectors": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexWishart_pair_minor_selection_integral",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        },
+        {
+          "name": "JinWishart.complexWishart_embedded_overlap_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex"
+        }
+      ],
+      "source_sha256": "5a9a518a8344647a2d153db811e0488ae0e6c94f76a5964267d1f41e38183a78",
+      "olean_sha256": "8a56a25505893caff4e840c079089a90c02b61fe33b7949d7faeea1b9198ea80",
+      "log_sha256": "dd1b01adefa559b77258940675d15ee9e8c2fa0ba5b0ae596dfa6f25a8d948e3",
+      "imports": {
+        "JinWishartFormalization.CentralWishartSharedPrefix": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartSharedPrefix.olean",
+          "sha256": "306895067528ef2c69aa7a5615820090ead2717cf0e7adcf90fe331e628313f9"
+        }
+      }
+    }
+  },
+  "total_declarations": 19,
+  "controls": [
+    {
+      "script": "experiments/central_mixed_minor_control.py",
+      "script_sha256": "fcfc54004d2e255ea533fb1ab0e4959f5bd14c5c1050974d4711d96d5dfec12d",
+      "result_sha256": "253225c97d7e7c2f6e4687645c49815ec7a8335b3c80ea0ab8684bc28a98fb34",
+      "interpretation": "Reproducible control, not a proof"
+    }
+  ],
+  "reviews": [
+    {
+      "request_sha256": "f4b0c3c7aaceb9bbcb136cb8317d1b6deb34b630450b8832b25287d7de37b9de",
+      "prompt_sha256": "87177fbb135c76bb7118826ab500bfdde0b5b35e076e3fefb2680f587905564f",
+      "raw_response_sha256": "0db07b8ce4a66b9dde0c1dbce60ed83111491088170b82e82d3f7069db117dbe",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "113bde440c19741c4b87c583c1b236bbe98bf3e5ccbbd44fa49677f789d45cbd",
+      "prompt_sha256": "6bdc60fedaa2f23e25b48a5e84198e63689ec4620ee1dc98c054c397285429ce",
+      "raw_response_sha256": "4521226507e160d29669861f98ce819cfc711d7bad55a99e289f3d999eec7d82",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "f378501723ddfb2edc1876f71233a5fbd07d622eb82927cb9b62d4109926487d",
+      "prompt_sha256": "abeb9796e11ef1f4e06d98a445417c181cf27a256634e8ed37cacc70f0b179f7",
+      "raw_response_sha256": "65c637af932d12d63078b9dabf3a0546498f24d67ddfd4736593ba3d43cb9f02",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    }
+  ],
+  "scope": "ACTUAL central complex Wishart determinant power bias adds p rows with explicit mass; full determinant/nested minor moments; actual joint independence of disjoint principal blocks with same row count; shared pivot and arbitrary COMMON-PREFIX mixed moment closure with disjoint remaining selectors. Not yet arbitrary Finset overlap reindexing or general d>1 minimum integral. Codex proof bodies, Qoder route and scoped critical feedback includes false alarms, Claude attempt timed out. Human review required, no blanket P4 approval; frozen publication unchanged. Arbitrarily embedded shared-prefix selector formula now also proved; this includes any supplied injective union embedding, not yet a Finset-cardinality theorem. Last two embedding declarations have not yet been supplied to an independent model reviewer.",
+  "human_review": "REQUIRED for stated measure/model interpretation",
+  "full_build": "NOT_RUN",
+  "paper_and_submission": "UNCHANGED",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lake_manifest_sha256": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+  "status": "PASS specified leaf bundle and bindings"
+}

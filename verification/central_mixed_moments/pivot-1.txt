@@ -1,0 +1,79 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartSharedPivot.lean:68:84: error: unsolved goals
+m n k l p q : ℕ
+e : Fin k → Fin n
+f : Fin l → Fin n
+hR : ∀ᵐ (r : ℝ) ∂gammaMeasure (↑(m + 1)) 1, 0 < r
+hP :
+  ∀ᵐ (a :
+    ℝ ×
+      EuclideanSpace ℂ (Fin n) ×
+        Matrix (Fin n) (Fin n) ℂ) ∂(gammaMeasure (↑(m + 1)) 1).prod ((standardComplexColumnLaw n).prod complexWishart),
+    0 < a.1
+a : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ
+ha : 0 < a.1
+⊢ ENNReal.ofReal (|a.1| ^ p * ‖(a.2.2.submatrix e e).det‖ ^ p) *
+      ENNReal.ofReal (|a.1| ^ q * ‖(a.2.2.submatrix f f).det‖ ^ q) =
+    ENNReal.ofReal (|a.1| ^ p * |a.1| ^ q) * ENNReal.ofReal (‖(a.2.2.submatrix e e).det‖ ^ p) *
+      ENNReal.ofReal (‖(a.2.2.submatrix f f).det‖ ^ q)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartSharedPivot.lean:76:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (z : ?m.772 × ?m.773), ?m.779 z.1 * ?m.780 z.2 ∂Measure.prod ?m.776 ?m.777
+in the target expression
+  ∫⁻ (a : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal (|a.1| ^ (p + q)) *
+        (ENNReal.ofReal (‖(a.2.2.submatrix e e).det‖ ^ p) *
+          ENNReal.ofReal
+            (‖(a.2.2.submatrix f f).det‖ ^
+              q)) ∂(gammaMeasure (↑(m + 1)) 1).prod ((standardComplexColumnLaw n).prod complexWishart) =
+    ENNReal.ofReal (↑(m + p + q).factorial / ↑m.factorial) *
+      ∫⁻ (B : Matrix (Fin n) (Fin n) ℂ),
+        ENNReal.ofReal (‖(B.submatrix e e).det‖ ^ p) * ENNReal.ofReal (‖(B.submatrix f f).det‖ ^ q) ∂complexWishart
+
+m n k l p q : ℕ
+e : Fin k → Fin n
+f : Fin l → Fin n
+hR : ∀ᵐ (r : ℝ) ∂gammaMeasure (↑(m + 1)) 1, 0 < r
+hP :
+  ∀ᵐ (a :
+    ℝ ×
+      EuclideanSpace ℂ (Fin n) ×
+        Matrix (Fin n) (Fin n) ℂ) ∂(gammaMeasure (↑(m + 1)) 1).prod ((standardComplexColumnLaw n).prod complexWishart),
+    0 < a.1
+he :
+  ∫⁻ (a : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal
+          (‖((centralBartlettGram a.1 a.2.1 a.2.2).submatrix (centralPivotSelection e) (centralPivotSelection e)).det‖ ^
+            p) *
+        ENNReal.ofReal
+          (‖((centralBartlettGram a.1 a.2.1 a.2.2).submatrix (centralPivotSelection f) (centralPivotSelection f)).det‖ ^
+            q) ∂(gammaMeasure (↑(m + 1)) 1).prod ((standardComplexColumnLaw n).prod complexWishart) =
+    ∫⁻ (a : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal (|a.1| ^ (p + q)) *
+        (ENNReal.ofReal (‖(a.2.2.submatrix e e).det‖ ^ p) *
+          ENNReal.ofReal
+            (‖(a.2.2.submatrix f f).det‖ ^
+              q)) ∂(gammaMeasure (↑(m + 1)) 1).prod ((standardComplexColumnLaw n).prod complexWishart)
+⊢ ∫⁻ (a : ℝ × EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal (|a.1| ^ (p + q)) *
+        (ENNReal.ofReal (‖(a.2.2.submatrix e e).det‖ ^ p) *
+          ENNReal.ofReal
+            (‖(a.2.2.submatrix f f).det‖ ^
+              q)) ∂(gammaMeasure (↑(m + 1)) 1).prod ((standardComplexColumnLaw n).prod complexWishart) =
+    ENNReal.ofReal (↑(m + p + q).factorial / ↑m.factorial) *
+      ∫⁻ (B : Matrix (Fin n) (Fin n) ℂ),
+        ENNReal.ofReal (‖(B.submatrix e e).det‖ ^ p) * ENNReal.ofReal (‖(B.submatrix f f).det‖ ^ q) ∂complexWishart
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartSharedPivot.lean:74:6: warning: This simp argument is unused:
+  ENNReal.ofReal_mul (by positivity)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [norm_mul, Complex.norm_real, Real.norm_eq_abs, mul_pow, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.centralBartlettGram_submatrix_pivot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralBartlettGram_selected_pivot_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_shared_pivot_moment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

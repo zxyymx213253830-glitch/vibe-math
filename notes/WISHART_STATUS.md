@@ -130,3 +130,8 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 
 
 2026-10-18 本次再授权一小时：实际中央任意 (n+1)×n 最小值闭式严格尾 exp(-n*x)Σ choose(n,l)x^l/l!、完整 CDF、实际标量协方差 vI（x/v）已证；复用通用链连接原 T1 未改 (2,3,0) 候选到实际 CDF。另整个该多列族的 T4 小阈值 F(x)/x²→n(n+1)/4 及 vI 系数 n(n+1)/(4v²) 已证，九模块47公开声明标准三公理和最终主入口PASS。四形状各200000实际样本与trace/Gamma、det、square-Exp闭式控制及12维精确系数控制PASS（数值/符号控制不是一般证明）。证明体Codex，Qoder路线及四份真实P4、Claude一份限定T1 P4已保存；Claude补上下文调用120秒超时不算通过，Qoder导数/截断减法误报按精确锁定API回应。绑定verification/rectangular_minimum/audit.json，滚动说明CENTRAL_WISHART_GENERAL_DENSITY.md。[需人工审查]仍保留；一般余量>1/非中心G2/一般原T1–T4和T3刊版未闭合，冻结稿件/投稿包未改，未完整Lake构建、无推送。
+
+
+2026-10-19 用户授权持续至Codex当前额度耗尽，复用deepseek-wishart每15分钟接续，旧定时窗口均保持关闭；不使用重置券/购额。新central_mixed_moments：实际中央det(W)^p加权律=显式质量×增加p行Wishart、嵌套主子式混合矩、实际不相交主块联合乘积律、任意共同前缀列的混合矩递推与闭式共17声明叶子PASS（索引单射声明零公理，其余标准三项）。三形状各200000实际CN与Gamma/trace/det/加权trace控制PASS，非证明。Qoder真实P1/三P4保留，前两份行数/平方/空积误报按明确API与代数回应，第三份全源码范围无具体数学反例；Claude真实P4超时未交付。证明体Codex，[需人工审查]保留；任意Finset重叠重编号、一般d>1最小积分/G2仍未闭合。证据verification/central_mixed_moments/audit.json；冻结论文/投稿包未改，未完整构建/推送。
+
+2026-10-19 同阶段增量：任意注入并集列编号的共同/独占列配置混合矩也已证，合计19公开声明；不只物理首列，但任意Finset的交集基数重编号桥尚未完成。最后两声明未在独立模型快照内，不能扩称全19审查完成。继续一般d=2积分路线，不假设高阶混合矩独立。

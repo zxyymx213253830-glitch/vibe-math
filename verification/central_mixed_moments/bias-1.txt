@@ -1,0 +1,36 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantBias.lean:45:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantBias.lean:45:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantBias.lean:48:31: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantBias.lean:53:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantBias.lean:53:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartDeterminantBias.lean:100:74: error: unsolved goals
+case ht
+d n k p q : ℕ
+e : Fin k → Fin n
+he : Function.Injective e
+⊢ k ≤ d + p + n
+'JinWishart.centralDeterminantPowerMoment_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_power_bias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartMatrixDensity_power_bias' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_determinant_power_bias' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.lintegral_complexWishart_determinant_power_bias' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexWishart_principalSubmatrix_norm_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_nested_determinant_moment' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

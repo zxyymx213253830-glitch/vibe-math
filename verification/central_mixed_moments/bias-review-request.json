@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CentralWishartDeterminantBias.lean": {
+      "sha256": "b8ce985916c65de69dad3ccc52f9dd4d46ed341023fc2ae4c1ba577482958bac",
+      "supplied": "Full source"
+    },
+    "CentralWishartMatrixDensity.lean": {
+      "sha256": "6e0e09f947fbd635ca93c88a01ebce4150e743f8d153e2177e817de0534f75f8",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "87177fbb135c76bb7118826ab500bfdde0b5b35e076e3fefb2680f587905564f"
+}

@@ -1,0 +1,72 @@
+# Real collaboration, corrections, and remaining review
+
+Proof bodies: Codex. Qoder provided bounded P1/P4 feedback, not proof bodies.
+All original requests, raw responses, stderr, receipts and failed Lean logs kept.
+[需人工审查] Weighted measures, product integration, actual variance/source-paper
+correspondence. Model delivery is not independent compilation or human approval.
+
+## P1 structural discussion
+
+The overlapping-minor formula passed 3 shapes x200000 actual CN samples with
+Gamma trace/full determinant controls, plus higher powers and weighted trace
+controls. Numbers are NOT proof. Qoder endorsed the shared-column route but
+incorrectly said the two selected determinants are not conditionally independent
+given the common columns; once those are fixed their common determinant is
+constant and the exclusive Gaussian blocks are conditionally independent.
+The projected residual actual Wishart law also does not follow from ordinary
+column selection alone; that is an additional rotational/skew-product result.
+Our formal route instead uses the ALREADY PROVED whole Bartlett block joint law.
+
+## Qoder size-bias review: preserve and reject false alarms
+
+* n=0: the empty product is1 and 0<1 is true. Degenerate zero-dimensional law
+  causes no contradiction and is handled in the existing actual density theorem.
+* d=0 square Gaussian Gram is positive definite almost surely, not singular.
+  Existing actual Gaussian full-rank theorem and density proof settle this.
+* Increasing and decreasing orders of the SAME finite factorial factors have
+  the same product; the review's termwise comparison ignored permutation.
+* A principal k-column selection of an actual t-row Gram has t rows. It is NOT
+  a Schur complement, whose residual row count can decrease. Both source law
+  and `complexWishart_principalSubmatrix_law` state the unchanged t explicitly.
+  The suggested t-n+k rule was false for this principal marginal.
+
+The exact actual density and its normalization are imported checked assets,
+not postulated by this new module. The weighted measure is UNNORMALIZED with
+mass centralDeterminantPowerMoment; no accidental probability instance added.
+
+## Qoder shared-pivot review: squared-norm versus norm confusion
+
+The pivot r is the squared complex-column norm and has Gamma(m+1,rate1), not a
+raw norm. The exact chart is [[r,sqrt(r)z],[sqrt(r)z^H,B+z^H z]]. Therefore its
+determinant is r det(B), as the checked imported Schur factor proves. Scalar
+control r=4,z=1,B=3 gives [[4,2],[2,4]], det12=rB, not r²B. The suggested
+missing conjugation/square and half-integer Gamma exponent are false alarms.
+The final proof explicitly guards r>0 almost surely and uses real Gamma power
+p+q. Pushforward integration requires measurability, not a measurable equivalence;
+`complexWishart_centralBartlett_recursion` supplies the actual pushforward.
+
+## Claude attempt
+
+A real bounded Claude Code P4 supplied the complete bias and principal-selection
+sources. It timed out at120s with no successful final response (exit124).
+It does not count as delivered review; no retries or manufactured conclusion.
+
+## Precise current boundary
+
+The common-prefix theorem is dimension-general, but arbitrary Finset overlap
+still needs canonical reindexing. A d>1 minimum integral is NOT proved merely
+by these two-minor moments. No general spectral G2/T1-4 or T3 source decision.
+
+
+## Full joint-source P4 with exact chart context
+
+The last real Qoder review supplies all three final disjoint/pivot/prefix sources
+and the exact imported chart definition. It correctly recognizes squared-norm
+pivot, unchanged principal row count, product order equivalence, empty products
+and overlap dependence. Remaining queries concern API generality, not a stated
+mathematical counterexample: `stdGaussian_map_injective_coordinates` quantifies
+arbitrary finite index TYPES (including Sum); `centralBartlettGram_det {n : Nat}`
+is dimension-polymorphic; Nat addition on the right handles k+0 and successors;
+`fun_prop` constructs measurable proofs checked by the kernel. All exact calls
+are in the final exit0 logs, not suppressed missing assumptions. We do not
+claim imported measure/model interpretation was independently checked here.

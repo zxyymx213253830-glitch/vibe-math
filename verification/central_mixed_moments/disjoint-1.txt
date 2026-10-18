@@ -1,0 +1,48 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianDisjointPrincipalLaw.lean:26:85: error: Application type mismatch: The argument
+  hab
+has type
+  disjointSampleIndex m e f (Sum.inl a) = disjointSampleIndex m e f (Sum.inl b)
+but is expected to have type
+  a = b
+in the application
+  congrArg Prod.snd hab
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianDisjointPrincipalLaw.lean:36:85: error: Application type mismatch: The argument
+  hab
+has type
+  disjointSampleIndex m e f (Sum.inr a) = disjointSampleIndex m e f (Sum.inr b)
+but is expected to have type
+  a = b
+in the application
+  congrArg Prod.snd hab
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianDisjointPrincipalLaw.lean:92:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (z : ?m.461 × ?m.462), ?m.468 z.1 * ?m.469 z.2 ∂Measure.prod ?m.465 ?m.466
+in the target expression
+  ∫⁻ (a : Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal (‖(a.submatrix e e, a.submatrix f f).1.det‖ ^ p) *
+        ENNReal.ofReal (‖(a.submatrix e e, a.submatrix f f).2.det‖ ^ q) ∂complexWishart =
+    ∫⁻ (a : Matrix (Fin k) (Fin k) ℂ × Matrix (Fin l) (Fin l) ℂ),
+      ENNReal.ofReal (‖a.1.det‖ ^ p) * ENNReal.ofReal (‖a.2.det‖ ^ q) ∂complexWishart.prod complexWishart
+
+t n k l p q : ℕ
+e : Fin k → Fin n
+f : Fin l → Fin n
+h : Function.Injective (e ⊕ᵥ f)
+hk : k ≤ t
+hl : l ≤ t
+he :
+  ∫⁻ (a : Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal (‖(a.submatrix e e, a.submatrix f f).1.det‖ ^ p) *
+        ENNReal.ofReal (‖(a.submatrix e e, a.submatrix f f).2.det‖ ^ q) ∂complexWishart =
+    ∫⁻ (a : Matrix (Fin k) (Fin k) ℂ × Matrix (Fin l) (Fin l) ℂ),
+      ENNReal.ofReal (‖a.1.det‖ ^ p) * ENNReal.ofReal (‖a.2.det‖ ^ q) ∂complexWishart.prod complexWishart
+⊢ ∫⁻ (A : Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal (‖(A.submatrix e e).det‖ ^ p) * ENNReal.ofReal (‖(A.submatrix f f).det‖ ^ q) ∂complexWishart =
+    ENNReal.ofReal (centralDeterminantPowerMoment (t - k) k p) *
+      ENNReal.ofReal (centralDeterminantPowerMoment (t - l) l q)
+'JinWishart.disjointSampleIndex_injective' depends on axioms: [sorryAx]
+'JinWishart.stdGaussian_disjoint_columnSelections' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_disjoint_principal_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_disjoint_determinant_moment' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

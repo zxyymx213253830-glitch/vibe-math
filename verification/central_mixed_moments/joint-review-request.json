@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "GaussianDisjointPrincipalLaw.lean": {
+      "sha256": "ba31e8fa5fa6556a2c8ba4a58206f643e081ebf85e22446a4faac8fb918777a6",
+      "supplied": "Full source"
+    },
+    "CentralWishartSharedPivot.lean": {
+      "sha256": "c611b0d0a53c79207df401e18de536f8156c05e96322945391d7479110fc81f2",
+      "supplied": "Full source"
+    },
+    "CentralWishartSharedPrefix.lean": {
+      "sha256": "a67cb57d3463d063916e63ad4a678043306d635717136d42ba2daa39e0b9989f",
+      "supplied": "Full source"
+    },
+    "GaussianBartlettGramRecursion.lean": {
+      "sha256": "d5637fa4b1fbe94fba5a3dd1edd6e17dda2f3c78419091343cc9fd64718fcde7",
+      "supplied": "Exact definition excerpt lines 16-22"
+    }
+  },
+  "prompt_sha256": "abeb9796e11ef1f4e06d98a445417c181cf27a256634e8ed37cacc70f0b179f7"
+}

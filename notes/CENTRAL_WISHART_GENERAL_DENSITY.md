@@ -207,3 +207,46 @@ shifted-kernel boundary terms. Scalar exact counterexample and seeded closed
 control are saved in verification/rectangular_minimum/next-route-control.json.
 The next candidate route is finite Gaussian polynomial/Wick moments to obtain
 mixed principal-minor expectations; no all-d closed recurrence has been proved.
+
+
+## 2026-10-19: determinant bias and shared-column mixed moments
+
+The actual normalized matrix-density asset now proves an unnormalized tilt:
+
+    det(W)^p dWishart(t,n) = M(t-n,n,p) dWishart(t+p,n), t>=n,
+    M(d,n,p) = product_{j=0}^{n-1} (d+j+p)!/(d+j)!.
+
+There is no asserted independence of nested minors. The tilt computes a full
+matrix determinant power jointly with any nested selected minor. Disjoint
+column-selected Gram blocks have an ACTUAL joint product law with the SAME
+original row count, proved by injective Gaussian coordinate splitting.
+
+For a common prefix of c columns and disjoint exclusive selectors of sizes a,b,
+actual source rows=t, the new mixed moment is
+
+    M(t-c,c,p+q) M(t-c-a,a,p) M(t-c-b,b,q),
+
+assuming c<=t,a<=t-c,b<=t-c. The common column contribution has exponent p+q,
+not separate independent powers. This follows by c iterations of the actual
+whole Bartlett block law and the disjoint residual joint law. An arbitrary
+injective union-column embedding can move the shared configuration anywhere
+in the original source; the theorem is not limited to the first physical columns.
+
+Sources: CentralWishartDeterminantBias (7 declarations),
+CentralWishartSharedPivot (3), GaussianDisjointPrincipalLaw (4),
+CentralWishartSharedPrefix (3), CentralWishartOverlappingSelectors (2).
+Nineteen leaf statements use only standard axioms; coordinate injection uses
+none. Whole-project fresh build has NOT run. Numerical evidence is 3 shapes
+x200000 fixedseed2026101901 actual complex samples, with trace/Gamma,
+full-det/Gamma and weighted-trace controls, not a proof.
+
+Proof bodies are Codex. Real Qoder feedback and Claude timeout are kept in
+verification/central_mixed_moments; P4 scopes and false alarms are explicitly
+resolved. The final two embedding statements were not in the delivered model
+review snapshots. [需人工审查] Measure/variance/reference/model interpretation.
+Frozen paper and submission archives have not been updated.
+
+Next gap: turn arbitrary Finset pair membership/intersection cardinality into
+this checked shared/exclusive representation, then expand and integrate the
+squared shifted determinant for general surplus d=2. Powers d>2 require joint
+moments of more than two minors; two-minor results alone do not close all d.

@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianDisjointPrincipalLaw.lean:98:2: error: Type mismatch: After simplification, term
+  he
+ has type
+  ∫⁻ (a : Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal (‖(a.submatrix e e).det‖ ^ p) * ENNReal.ofReal (‖(a.submatrix f f).det‖ ^ q) ∂complexWishart =
+    (∫⁻ (x : Matrix (Fin k) (Fin k) ℂ), ENNReal.ofReal (‖x.det‖ ^ p) ∂complexWishart) *
+      ∫⁻ (y : Matrix (Fin l) (Fin l) ℂ), ENNReal.ofReal (‖y.det‖ ^ q) ∂complexWishart
+but is expected to have type
+  ∫⁻ (A : Matrix (Fin n) (Fin n) ℂ),
+      ENNReal.ofReal (‖(A.submatrix e e).det‖ ^ p) * ENNReal.ofReal (‖(A.submatrix f f).det‖ ^ q) ∂complexWishart =
+    ENNReal.ofReal (centralDeterminantPowerMoment (t - k) k p) *
+      ENNReal.ofReal (centralDeterminantPowerMoment (t - l) l q)
+'JinWishart.disjointSampleIndex_injective' does not depend on any axioms
+'JinWishart.stdGaussian_disjoint_columnSelections' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_disjoint_principal_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_disjoint_determinant_moment' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

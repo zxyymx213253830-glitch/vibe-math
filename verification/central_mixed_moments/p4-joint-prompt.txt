@@ -1,0 +1,292 @@
+P4 independent issues only. Codex wrote the proofs. Full new sources show actual independent disjoint principal laws plus arbitrary common-prefix joint determinant moment via actual Bartlett recursion. All final kernel checks passed, standard axioms only (index injection needs NONE). Need mathematical semantics review, not speculative tactic objections. The selected pivot r is SQUARED NORM, not a raw norm, with Gamma(m+1,1) law. Exact definition of Bartlett block below makes Schur det r*detB; at r=4,z=1,B=3 matrix [[4,2],[2,4]] has det12=r*B, not r^2*B. Principal selection KEEPS row count; Schur complement reduces it. Increasing/descending factorial factors are same finite product via reverse order. Empty product=1. Do not invent contradiction with those exact facts. Assess genuinely missing assumptions, coordinate splitting, overlap dependence, zero powers/dimensions and finite Gamma moment constants. No tools or independent compilation; human interpretation review required. Only concrete issues, do not rewrite.
+
+FULL GaussianDisjointPrincipalLaw.lean
+import JinWishartFormalization.CentralWishartDeterminantBias
+
+/-!
+# Actual joint law of disjoint principal Gram blocks
+
+Codex proof bodies. Source coordinates, not an assumed Wishart independence rule.
+[需人工审查] Finite Gaussian product transport and actual marginal interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def disjointSampleIndex {k l n : ℕ} (m : ℕ) (e : Fin k → Fin n) (f : Fin l → Fin n) :
+    (((Fin m × Fin k) × Fin 2) ⊕ ((Fin m × Fin l) × Fin 2)) → ((Fin m × Fin n) × Fin 2) :=
+  Sum.elim (fun a => ((a.1.1,e a.1.2),a.2)) (fun a => ((a.1.1,f a.1.2),a.2))
+
+theorem disjointSampleIndex_injective {k l n : ℕ} (m : ℕ)
+    (e : Fin k → Fin n) (f : Fin l → Fin n)
+    (h : Function.Injective (Sum.elim e f)) : Function.Injective (disjointSampleIndex m e f) := by
+  intro a b hab
+  rcases a with a | a <;> rcases b with b | b
+  · have hc : (Sum.inl a.1.2 : Fin k ⊕ Fin l) = Sum.inl b.1.2 :=
+      h (congrArg (fun x => x.1.2) hab)
+    exact congrArg Sum.inl (Prod.ext
+      (Prod.ext (congrArg (fun x => x.1.1) hab) (Sum.inl.inj hc)) (congrArg (fun x : (Fin m × Fin n) × Fin 2 => x.2) hab))
+  · have hc : (Sum.inl a.1.2 : Fin k ⊕ Fin l) = Sum.inr b.1.2 :=
+      h (congrArg (fun x => x.1.2) hab)
+    cases hc
+  · have hc : (Sum.inr a.1.2 : Fin k ⊕ Fin l) = Sum.inl b.1.2 :=
+      h (congrArg (fun x => x.1.2) hab)
+    cases hc
+  · have hc : (Sum.inr a.1.2 : Fin k ⊕ Fin l) = Sum.inr b.1.2 :=
+      h (congrArg (fun x => x.1.2) hab)
+    exact congrArg Sum.inr (Prod.ext
+      (Prod.ext (congrArg (fun x => x.1.1) hab) (Sum.inr.inj hc)) (congrArg (fun x : (Fin m × Fin n) × Fin 2 => x.2) hab))
+
+theorem stdGaussian_disjoint_columnSelections {m n k l : ℕ}
+    (e : Fin k → Fin n) (f : Fin l → Fin n)
+    (h : Function.Injective (Sum.elim e f)) :
+    (stdGaussian (ComplexSample (m := m) (n := n))).map
+      (fun z => (sampleColumnSelection e z, sampleColumnSelection f z)) =
+      (stdGaussian (ComplexSample (m := m) (n := k))).prod
+        (stdGaussian (ComplexSample (m := m) (n := l))) := by
+  have hi := stdGaussian_map_injective_coordinates (disjointSampleIndex m e f)
+    (disjointSampleIndex_injective m e f h)
+  have hs := congrArg (fun μ => μ.map
+    (euclideanGaussianSplit (ι := (Fin m × Fin k) × Fin 2)
+      (κ := (Fin m × Fin l) × Fin 2))) hi
+  rw [stdGaussian_sum_split, Measure.map_map measurable_euclideanGaussianSplit (by fun_prop)] at hs
+  exact hs
+
+/-- The two principal blocks are independent ACTUAL Wishart laws, with the SAME row count. -/
+theorem complexWishart_disjoint_principal_law {m n k l : ℕ}
+    (e : Fin k → Fin n) (f : Fin l → Fin n)
+    (h : Function.Injective (Sum.elim e f)) :
+    (complexWishart (m := m) (n := n)).map
+      (fun A => (A.submatrix e e, A.submatrix f f)) =
+      (complexWishart (m := m) (n := k)).prod (complexWishart (m := m) (n := l)) := by
+  have hs := congrArg (fun μ => μ.map (Prod.map
+    (complexSampleGram (m := m) (n := k)) (complexSampleGram (m := m) (n := l))))
+      (stdGaussian_disjoint_columnSelections (m := m) e f h)
+  rw [Measure.map_map (by fun_prop) (by fun_prop),
+    ← Measure.map_prod_map _ _ measurable_complexSampleGram measurable_complexSampleGram] at hs
+  have heq : (Prod.map (complexSampleGram (m := m) (n := k))
+      (complexSampleGram (m := m) (n := l))) ∘
+      (fun z : ComplexSample (m := m) (n := n) =>
+        (sampleColumnSelection e z, sampleColumnSelection f z)) =
+      (fun A => (A.submatrix e e, A.submatrix f f)) ∘ complexSampleGram := by
+    funext z
+    simp only [Function.comp_apply, Prod.map_apply]
+    change (complexGram (complexSampleMatrix (sampleColumnSelection e z)),
+      complexGram (complexSampleMatrix (sampleColumnSelection f z))) = _
+    rw [complexSampleMatrix_columnSelection, complexSampleMatrix_columnSelection,
+      complexGram_columnSelection, complexGram_columnSelection]
+    rfl
+  rw [heq, ← Measure.map_map (by fun_prop) measurable_complexSampleGram] at hs
+  exact hs
+
+theorem complexWishart_disjoint_determinant_moment (t n k l p q : ℕ)
+    (e : Fin k → Fin n) (f : Fin l → Fin n)
+    (h : Function.Injective (Sum.elim e f)) (hk : k ≤ t) (hl : l ≤ t) :
+    (∫⁻ A, ENNReal.ofReal (‖(A.submatrix e e).det‖^p) *
+        ENNReal.ofReal (‖(A.submatrix f f).det‖^q)
+      ∂complexWishart (m := t) (n := n)) =
+      ENNReal.ofReal (centralDeterminantPowerMoment (t-k) k p) *
+        ENNReal.ofReal (centralDeterminantPowerMoment (t-l) l q) := by
+  have he := congrArg (fun μ => ∫⁻ a : Matrix (Fin k) (Fin k) ℂ × Matrix (Fin l) (Fin l) ℂ,
+    ENNReal.ofReal (‖a.1.det‖^p) * ENNReal.ofReal (‖a.2.det‖^q) ∂μ)
+      (complexWishart_disjoint_principal_law (m := t) e f h)
+  rw [lintegral_map (by fun_prop) (by fun_prop),
+    lintegral_prod_mul
+      (f := fun A : Matrix (Fin k) (Fin k) ℂ => ENNReal.ofReal (‖A.det‖^p))
+      (g := fun B : Matrix (Fin l) (Fin l) ℂ => ENNReal.ofReal (‖B.det‖^q))
+      (by fun_prop) (by fun_prop)] at he
+  have h0 := complexWishart_principalSubmatrix_norm_moment t k k p id Function.injective_id hk
+  have h1 := complexWishart_principalSubmatrix_norm_moment t l l q id Function.injective_id hl
+  simp only [Matrix.submatrix_id_id] at h0 h1
+  simpa only [Function.comp_apply, h0, h1] using he
+
+end
+end JinWishart
+#print axioms JinWishart.disjointSampleIndex_injective
+#print axioms JinWishart.stdGaussian_disjoint_columnSelections
+#print axioms JinWishart.complexWishart_disjoint_principal_law
+#print axioms JinWishart.complexWishart_disjoint_determinant_moment
+
+FULL CentralWishartSharedPivot.lean
+import JinWishartFormalization.CentralWishartDeterminantBias
+
+/-!
+# Joint principal-minor moment recursion at a shared Bartlett pivot
+
+Codex proof bodies. No conditional independence of overlapping minors is assumed.
+[需人工审查] Actual block-law pushforward and nonnegative product integration.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def centralPivotSelection {k n : ℕ} (e : Fin k → Fin n) : Fin (k+1) → Fin (n+1) :=
+  Fin.cases 0 (fun j => (e j).succ)
+
+theorem centralBartlettGram_submatrix_pivot {k n : ℕ}
+    (r : ℝ) (z : EuclideanSpace ℂ (Fin n)) (B : Matrix (Fin n) (Fin n) ℂ)
+    (e : Fin k → Fin n) :
+    (centralBartlettGram r z B).submatrix (centralPivotSelection e) (centralPivotSelection e) =
+      centralBartlettGram r (WithLp.toLp 2 (fun i => z (e i))) (B.submatrix e e) := by
+  ext i j
+  refine Fin.cases ?_ (fun i => ?_) i <;> refine Fin.cases ?_ (fun j => ?_) j <;>
+    simp [centralPivotSelection, centralBartlettGram]
+
+theorem centralBartlettGram_selected_pivot_det {k n : ℕ}
+    (r : ℝ) (hr : 0 < r) (z : EuclideanSpace ℂ (Fin n))
+    (B : Matrix (Fin n) (Fin n) ℂ) (e : Fin k → Fin n) :
+    ((centralBartlettGram r z B).submatrix
+      (centralPivotSelection e) (centralPivotSelection e)).det =
+        (r : ℂ) * (B.submatrix e e).det := by
+  rw [centralBartlettGram_submatrix_pivot, centralBartlettGram_det r hr]
+
+/-- Peeling one common column leaves the actual residual pair of minors.
+All natural dimensions and powers; no full-rank or injectivity premise. -/
+theorem complexWishart_shared_pivot_moment (m n k l p q : ℕ)
+    (e : Fin k → Fin n) (f : Fin l → Fin n) :
+    (∫⁻ A, ENNReal.ofReal (‖(A.submatrix (centralPivotSelection e)
+          (centralPivotSelection e)).det‖^p) *
+        ENNReal.ofReal (‖(A.submatrix (centralPivotSelection f)
+          (centralPivotSelection f)).det‖^q)
+      ∂complexWishart (m := m+1) (n := n+1)) =
+      ENNReal.ofReal (((Nat.factorial (m+p+q) : ℕ) : ℝ) / ((Nat.factorial m : ℕ) : ℝ)) *
+        ∫⁻ B, ENNReal.ofReal (‖(B.submatrix e e).det‖^p) *
+          ENNReal.ofReal (‖(B.submatrix f f).det‖^q)
+          ∂complexWishart (m := m) (n := n) := by
+  rw [complexWishart_centralBartlett_recursion, lintegral_map (by fun_prop)
+    (continuous_centralBartlettGram n).measurable]
+  have hR : ∀ᵐ r ∂gammaMeasure ((m+1 : ℕ) : ℝ) 1, 0 < r :=
+    (gammaMeasure_nat_succ_absolutelyContinuous_positive m).ae_le
+      (ae_restrict_mem measurableSet_Ioi)
+  have hP : ∀ᵐ a ∂(gammaMeasure ((m+1 : ℕ) : ℝ) 1).prod
+      ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n))), 0 < a.1 := by
+    apply (Measure.ae_prod_iff_ae_ae (by measurability)).mpr
+    filter_upwards [hR] with r hr
+    exact ae_of_all _ (fun _ => hr)
+  have he : (∫⁻ a, ENNReal.ofReal
+        (‖((centralBartlettGram a.1 a.2.1 a.2.2).submatrix
+          (centralPivotSelection e) (centralPivotSelection e)).det‖^p) *
+        ENNReal.ofReal (‖((centralBartlettGram a.1 a.2.1 a.2.2).submatrix
+          (centralPivotSelection f) (centralPivotSelection f)).det‖^q)
+      ∂(gammaMeasure ((m+1 : ℕ) : ℝ) 1).prod
+        ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n)))) =
+      ∫⁻ a, ENNReal.ofReal (|a.1|^(p+q)) *
+        (ENNReal.ofReal (‖(a.2.2.submatrix e e).det‖^p) *
+          ENNReal.ofReal (‖(a.2.2.submatrix f f).det‖^q))
+        ∂(gammaMeasure ((m+1 : ℕ) : ℝ) 1).prod
+          ((standardComplexColumnLaw n).prod (complexWishart (m := m) (n := n))) := by
+    apply lintegral_congr_ae
+    filter_upwards [hP] with a ha
+    rw [centralBartlettGram_selected_pivot_det a.1 ha,
+      centralBartlettGram_selected_pivot_det a.1 ha]
+    simp only [norm_mul, Complex.norm_real, Real.norm_eq_abs, mul_pow, pow_add]
+    rw [ENNReal.ofReal_mul (pow_nonneg (abs_nonneg _) p),
+      ENNReal.ofReal_mul (pow_nonneg (abs_nonneg _) q),
+      ENNReal.ofReal_mul (pow_nonneg (abs_nonneg _) p)]
+    ring
+  rw [he, lintegral_prod_mul
+    (f := fun r : ℝ => ENNReal.ofReal (|r|^(p+q)))
+    (g := fun a : EuclideanSpace ℂ (Fin n) × Matrix (Fin n) (Fin n) ℂ =>
+      ENNReal.ofReal (‖(a.2.submatrix e e).det‖^p) *
+        ENNReal.ofReal (‖(a.2.submatrix f f).det‖^q))
+    (by fun_prop) (by fun_prop), lintegral_gammaMeasure_nat_abs_power]
+  simp only [Nat.add_assoc]
+  congr 1
+  have hZ := lintegral_prod_mul (μ := standardComplexColumnLaw n)
+    (ν := complexWishart (m := m) (n := n)) (f := fun _ => (1 : ℝ≥0∞))
+    (g := fun B => ENNReal.ofReal (‖(B.submatrix e e).det‖^p) *
+      ENNReal.ofReal (‖(B.submatrix f f).det‖^q)) (by fun_prop) (by fun_prop)
+  simpa using hZ
+
+end
+end JinWishart
+#print axioms JinWishart.centralBartlettGram_submatrix_pivot
+#print axioms JinWishart.centralBartlettGram_selected_pivot_det
+#print axioms JinWishart.complexWishart_shared_pivot_moment
+
+FULL CentralWishartSharedPrefix.lean
+import JinWishartFormalization.CentralWishartSharedPivot
+import JinWishartFormalization.GaussianDisjointPrincipalLaw
+
+/-!
+# Iterating shared-column peeling and closing disjoint residual moments
+
+Codex proof bodies. Arbitrary common-prefix length and disjoint residual selectors.
+[需人工审查] Actual joint law and source-column interpretation; no density premise.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def centralSharedPrefixSelection {k n : ℕ} (c : ℕ) (e : Fin k → Fin n) :
+    Fin (k+c) → Fin (n+c) :=
+  match c with
+  | 0 => e
+  | c+1 => centralPivotSelection (centralSharedPrefixSelection c e)
+
+theorem centralDeterminantPowerMoment_succ (d n p : ℕ) :
+    centralDeterminantPowerMoment d (n+1) p = centralDeterminantPowerMoment d n p *
+      (((Nat.factorial (d+n+p) : ℕ) : ℝ) / ((Nat.factorial (d+n) : ℕ) : ℝ)) := by
+  simp only [centralDeterminantPowerMoment, Fin.prod_univ_castSucc,
+    Fin.val_castSucc, Fin.val_last]
+
+theorem complexWishart_shared_prefix_moment (m n c k l p q : ℕ)
+    (e : Fin k → Fin n) (f : Fin l → Fin n) :
+    (∫⁻ A, ENNReal.ofReal (‖(A.submatrix (centralSharedPrefixSelection c e)
+          (centralSharedPrefixSelection c e)).det‖^p) *
+        ENNReal.ofReal (‖(A.submatrix (centralSharedPrefixSelection c f)
+          (centralSharedPrefixSelection c f)).det‖^q)
+      ∂complexWishart (m := m+c) (n := n+c)) =
+      ENNReal.ofReal (centralDeterminantPowerMoment m c (p+q)) *
+        ∫⁻ B, ENNReal.ofReal (‖(B.submatrix e e).det‖^p) *
+          ENNReal.ofReal (‖(B.submatrix f f).det‖^q)
+          ∂complexWishart (m := m) (n := n) := by
+  induction c with
+  | zero => simp [centralSharedPrefixSelection, centralDeterminantPowerMoment]
+  | succ c ih =>
+      change (∫⁻ A, ENNReal.ofReal (‖(A.submatrix
+          (centralPivotSelection (centralSharedPrefixSelection c e))
+          (centralPivotSelection (centralSharedPrefixSelection c e))).det‖^p) *
+        ENNReal.ofReal (‖(A.submatrix
+          (centralPivotSelection (centralSharedPrefixSelection c f))
+          (centralPivotSelection (centralSharedPrefixSelection c f))).det‖^q)
+        ∂complexWishart (m := (m+c)+1) (n := (n+c)+1)) = _
+      rw [complexWishart_shared_pivot_moment, ih,
+        centralDeterminantPowerMoment_succ,
+        ENNReal.ofReal_mul (centralDeterminantPowerMoment_pos m c (p+q)).le]
+      simp only [Nat.add_assoc]
+      ring
+
+/-- Closed mixed moments with c common initial columns and disjoint exclusive selectors.
+The minors are generally dependent; all shared Gamma powers are retained. -/
+theorem complexWishart_common_prefix_disjoint_moment (m n c k l p q : ℕ)
+    (e : Fin k → Fin n) (f : Fin l → Fin n)
+    (h : Function.Injective (Sum.elim e f)) (hk : k ≤ m) (hl : l ≤ m) :
+    (∫⁻ A, ENNReal.ofReal (‖(A.submatrix (centralSharedPrefixSelection c e)
+          (centralSharedPrefixSelection c e)).det‖^p) *
+        ENNReal.ofReal (‖(A.submatrix (centralSharedPrefixSelection c f)
+          (centralSharedPrefixSelection c f)).det‖^q)
+      ∂complexWishart (m := m+c) (n := n+c)) =
+      ENNReal.ofReal (centralDeterminantPowerMoment m c (p+q)) *
+        (ENNReal.ofReal (centralDeterminantPowerMoment (m-k) k p) *
+          ENNReal.ofReal (centralDeterminantPowerMoment (m-l) l q)) := by
+  rw [complexWishart_shared_prefix_moment,
+    complexWishart_disjoint_determinant_moment m n k l p q e f h hk hl]
+
+end
+end JinWishart
+#print axioms JinWishart.centralDeterminantPowerMoment_succ
+#print axioms JinWishart.complexWishart_shared_prefix_moment
+#print axioms JinWishart.complexWishart_common_prefix_disjoint_moment
+
+EXACT BARTLETT DEFINITION
+
+def centralBartlettGram {n : ℕ} (r : ℝ) (z : EuclideanSpace ℂ (Fin n))
+    (B : Matrix (Fin n) (Fin n) ℂ) : Matrix (Fin (n + 1)) (Fin (n + 1)) ℂ :=
+  fun i j => Fin.cases
+    (Fin.cases (r : ℂ) (fun k => (Real.sqrt r : ℂ) * z k) j)
+    (fun k => Fin.cases (star (z k) * (Real.sqrt r : ℂ))
+      (fun l => B k l + star (z k) * z l) j) i
