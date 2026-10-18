@@ -1,0 +1,48 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartPolynomialIntegral.lean:27:4: error: Type mismatch: After simplification, term
+  Eq.symm hi
+ has type
+  (complexGram (complexSampleMatrix z) + x • 1).det.im = 0
+but is expected to have type
+  0 = (complexSampleGram z + x • 1).det.im
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartPolynomialIntegral.lean:36:65: error: unsolved goals
+m n d : ℕ
+x : ℝ
+hx : 0 ≤ x
+h : Integrable (fun x_1 => RCLike.re ((complexSampleGram x_1 + ↑x • 1).det ^ d)) (stdGaussian ComplexSample)
+z : ComplexSample
+⊢ (complexSampleGram z + x • 1).det.re ^ d = (↑(complexSampleGram z + x • 1).det.re ^ d).re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartPolynomialIntegral.lean:50:65: error: unsolved goals
+d n : ℕ
+x : ℝ
+hx : 0 ≤ x
+z : ComplexSample
+⊢ (complexSampleGram z + x • 1).det.re ^ d = (↑(complexSampleGram z + x • 1).det.re ^ d).re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartPolynomialIntegral.lean:54:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x_1 : ComplexSample), RCLike.re ((complexSampleGram x_1 + ↑x • 1).det ^ d) ∂stdGaussian ComplexSample
+in the target expression
+  ∫ (z : ComplexSample), ((complexSampleGram z + ↑x • 1).det ^ d).re ∂stdGaussian ComplexSample =
+    centralGaussianShiftedDeterminantMoment d n x
+
+d n : ℕ
+x : ℝ
+hx : 0 ≤ x
+he : (fun z => (complexSampleGram z + ↑x • 1).det.re ^ d) = fun z => ((complexSampleGram z + ↑x • 1).det ^ d).re
+⊢ ∫ (z : ComplexSample), ((complexSampleGram z + ↑x • 1).det ^ d).re ∂stdGaussian ComplexSample =
+    centralGaussianShiftedDeterminantMoment d n x
+'JinWishart.shiftedGramDeterminant_power_real' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrable_actual_shiftedGramDeterminant_re_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actual_shiftedGramDeterminant_re_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralGaussianShiftedDeterminantMoment_nonneg' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.lintegral_actualCentralSquare_shiftedDeterminant_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

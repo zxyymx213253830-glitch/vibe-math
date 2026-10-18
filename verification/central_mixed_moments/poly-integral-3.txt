@@ -1,0 +1,9 @@
+'JinWishart.shiftedGramDeterminant_power_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actual_shiftedGramDeterminant_re_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actual_shiftedGramDeterminant_re_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralGaussianShiftedDeterminantMoment_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.lintegral_actualCentralSquare_shiftedDeterminant_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GaussianMatrixPolynomialLaw.lean": {
+      "sha256": "f9224ad64d4062aed24368fd8c804ad2bebc7fb4535330663400c6f27c6168ca",
+      "supplied": "Full source"
+    },
+    "ComplexGaussianPolynomialMoments.lean": {
+      "sha256": "4910333ead108483d32bc5f9f2108d59df45ad3e26855588dfa4750fcdffb67a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "6523f90a3690054bbc47d4955b1b6ef76c48726b5a531d46b629c08b374b032c"
+}

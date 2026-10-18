@@ -129,3 +129,36 @@ Fixedseed2026101905 controls evaluate finite polynomials with factorial
 contraction, a known CN(0,2) fourth moment8 and Exp1/Gamma trace controls.
 A new5x2 d3 minimum numerical comparison is empirical, NOT a Lean d3 theorem.
 All new proof bodies Codex. [需人工审查] Fubini/model/variance remain.
+
+
+## General central rectangle: actual factorial formula and P4 objections
+
+The next real Qoder review covers full polynomial source transport files and
+reports no concrete mathematical issue. Its finite-sum comment should be
+read WITH the integrability premises actually discharged in the source;
+Bochner integration is not unconditionally additive on arbitrary functions.
+
+The general-minimum P4 then raises two incorrect high-severity objections:
+1. M positivity is NOT deduced from K or a density. M is DEFINED as the finite
+product of positive factorial ratios and positivity proved directly with
+Finset.prod_pos / positivity. K0=M*Kd is a separate factorial identity.
+There is no circularity or missing invertibility; M>0 implies M!=0.
+2. No rectangular determinant EXPECTATION is equated to a square one with
+a constant RN derivative. The review invents such an equation. The actual
+proved statement is a TAIL probability after cone translation:
+ Pr_rect(W>xI)=Kd exp(-nx) int_{V>0} det(V+xI)^d exp(-tr V) dV.
+The SQUARE Wishart DENSITY is K0 exp(-tr V), on the SAME n-by-n Hermitian
+cone; hence its expectation equals K0 times exactly that last integral.
+Dividing by K0 gives Pr_rect=exp(-nx)*(Kd/K0)*E_square[det(W+xI)^d].
+Both rectangular and square Gram matrices have n-by-n dimensions; their
+sample matrices have different row counts, not the target Hermitian space.
+No square submatrix projection of a rectangular sample is used or needed.
+The ratio Kd/K0=1/M and the square expectation's explicit factorial
+functional are independently proved, completing the formula.
+
+The review correctly resolves its own conjugate-order, real-power and
+Bochner objections. Tail complement requires only total mass1 and Borel
+measurability, not a missing atom-free assumption: {min<=x} is exactly the
+complement of {x<min}. Full all-real CDF follows min>=0 pointwise.
+These responses clarify the actual proof, not modifications to placate
+false claims. [需人工审查] human model/measure correspondence still required.

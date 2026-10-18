@@ -1,0 +1,27 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixPolynomialLaw.lean:39:26: error: `fun_prop` was unable to prove `Measurable fun x i => realPairToStandardComplex (x i)`
+
+Issues:
+  No theorems found for `JinWishart.realPairToStandardComplex` in order to prove `Measurable fun a => realPairToStandardComplex (a i)`
+  No theorems found for `JinWishart.realPairToStandardComplex` in order to prove `Measurable fun c0 => realPairToStandardComplex c0`
+  No theorems found for `JinWishart.realPairToStandardComplex` in order to prove `Measurable fun c => realPairToStandardComplex (c a)`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixPolynomialLaw.lean:39:81: error: `fun_prop` was unable to prove `AEMeasurable realPairToStandardComplex (Measure.pi fun j => gaussianReal 0 1)`
+
+Issues:
+  No theorems found for `JinWishart.realPairToStandardComplex` in order to prove `AEMeasurable (fun x => realPairToStandardComplex x) (Measure.pi fun j => gaussianReal 0 1)`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianMatrixPolynomialLaw.lean:60:32: warning: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexMatrixEntries, complexSampleMatrix, Function.comp_apply, realPairToStandardComplex]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.realPairToStandardComplex_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.realGaussian_complex_coordinates_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.measurable_complexMatrixEntries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexMatrixEntries_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.continuous_complexGaussianPolynomialEval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualComplexMatrix_polynomial' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actualComplexMatrix_polynomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

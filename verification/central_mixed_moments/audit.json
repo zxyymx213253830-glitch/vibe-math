@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-18T17:47:55.323839+00:00",
-  "spec_sha256": "21ffbe29fb6ea727febd15f4c605b6ad08957ff0989c5c37b31a36eca4859491",
+  "collected_utc": "2026-10-18T17:58:54.156803+00:00",
+  "spec_sha256": "7db82bebc0c2e53168c4a3a208fdd554065eaddcb8fba50e7ab2710dd78ba456",
   "auditor_sha256": "c99e8a40083fe0bc7e350612e588acd8b7031031ea167537a7ca8ceb66321e07",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -1088,9 +1088,317 @@
           "sha256": "df0f12e61d1fda234897acffbeef04dbdf1500a50fabca99f21fc4bfda87aeae"
         }
       }
+    },
+    "JinWishartFormalization.GaussianMatrixPolynomialLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.realPairToStandardComplex_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.realGaussian_complex_coordinates_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.measurable_complexMatrixEntries",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexMatrixEntries_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.continuous_complexGaussianPolynomialEval",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualComplexMatrix_polynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualComplexMatrix_polynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "f9224ad64d4062aed24368fd8c804ad2bebc7fb4535330663400c6f27c6168ca",
+      "olean_sha256": "da8e8416eb5a72a1b47cc84e1acdd07803dd43acd24c1059bc1e9a651fcc1d6b",
+      "log_sha256": "1d15ee6056181dfa1379b6f75e8f0635c0cbe72ad66783e058b35b011f15ef1f",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianPolynomialMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianPolynomialMoments.olean",
+          "sha256": "493f0ff188d93396e2d5989345227db4eacd793329cd477ba50e6d578e808564"
+        },
+        "Mathlib.Probability.ProductMeasure": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/ProductMeasure.olean",
+          "sha256": "b2ecadf521d021aea79bed4fcb3ce31f310fbf907adc35bf78a2c87bd3c1186b"
+        }
+      }
+    },
+    "JinWishartFormalization.GramDeterminantPolynomial": {
+      "declarations": [
+        {
+          "name": "JinWishart.eval_gramEntryPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_shiftedGramDeterminantPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actual_shiftedGramDeterminant_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actual_shiftedGramDeterminant_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "d0728a05cb28035851476e93e65598458045366ebb9248cae0b7d09367de002a",
+      "olean_sha256": "311fae3f68b9ac089f64706a0e29481d8432a386989d926e9dabc76956bb33df",
+      "log_sha256": "a3aa13e6e59ae14977ab113af18239c74ed5926725503fd4f903f85ba8aa4f81",
+      "imports": {
+        "JinWishartFormalization.GaussianMatrixPolynomialLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianMatrixPolynomialLaw.olean",
+          "sha256": "da8e8416eb5a72a1b47cc84e1acdd07803dd43acd24c1059bc1e9a651fcc1d6b"
+        },
+        "JinWishartFormalization.CentralWishartMinimumBridge": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMinimumBridge.olean",
+          "sha256": "1abd185c157a8ad6c19d6d38c303ec35d63f95c73f6cb8b7cd16b9f31cce2a09"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralWishartPolynomialIntegral": {
+      "declarations": [
+        {
+          "name": "JinWishart.shiftedGramDeterminant_power_real",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actual_shiftedGramDeterminant_re_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actual_shiftedGramDeterminant_re_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralGaussianShiftedDeterminantMoment_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.lintegral_actualCentralSquare_shiftedDeterminant_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "3089a31a6b35d7611df20108c44d8c543812132e017d99303e74a4c72e486f0c",
+      "olean_sha256": "f9f13c0a9d617f3a1b54c4064f01f7874859de4a19c60297def9ce752ab87d54",
+      "log_sha256": "a3f5a46c8c4592dfb07ddf65a2b48fb5d90cf085799637e195238512cdb2621e",
+      "imports": {
+        "JinWishartFormalization.GramDeterminantPolynomial": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramDeterminantPolynomial.olean",
+          "sha256": "311fae3f68b9ac089f64706a0e29481d8432a386989d926e9dabc76956bb33df"
+        },
+        "JinWishartFormalization.CentralWishartShiftedDeterminantMean": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartShiftedDeterminantMean.olean",
+          "sha256": "1aad0f21f6063d5fa643e5df4d9b0f8106b5c59168e4de6e307aeff6e523441a"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralRectangularMinimumPolynomial": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralRectangularMinimumPolynomial_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralWishartDensityConstant_eq_square_ratio",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralRectangular_shiftedCone_probability",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralRectangular_minimum_tail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralRectangular_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralRectangular_minimum_cdf_function",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralRectangular_scaled_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralRectangular_covariance_minimum_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "8f78cc94fbfc78ee9d1893dc78253a965e9940f2c5b6be8146f5f79f94a1a250",
+      "olean_sha256": "14495a051335f013637b48b223f5a9b9beb22592ec013c7169f7638c5b3c6f8d",
+      "log_sha256": "a40c8b36cd105cee415d5956568cfa5320d9e5fc9bc83faf1ba46ab9802c93f0",
+      "imports": {
+        "JinWishartFormalization.CentralWishartPolynomialIntegral": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartPolynomialIntegral.olean",
+          "sha256": "f9f13c0a9d617f3a1b54c4064f01f7874859de4a19c60297def9ce752ab87d54"
+        },
+        "JinWishartFormalization.CentralWishartDeterminantBias": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartDeterminantBias.olean",
+          "sha256": "51b51fa5e4761294b620bdcf9e5ee21674d52980a82baf68ff281f7e58829ba3"
+        }
+      }
     }
   },
-  "total_declarations": 80,
+  "total_declarations": 104,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -1189,9 +1497,31 @@
       ],
       "independent_compilation": false,
       "human_review": false
+    },
+    {
+      "request_sha256": "f3551b5052228707f9c53b59a5cf8b4c97ee19a78ec1a2aac96182e3803ba490",
+      "prompt_sha256": "6523f90a3690054bbc47d4955b1b6ef76c48726b5a531d46b629c08b374b032c",
+      "raw_response_sha256": "3e533e314dfb2e476c611c957686edbaee7a12122b9bb87b2707c13d4913add4",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "request_sha256": "c1c86e9b24e9a6f305a4a7d79cf28e9fa8a2601aacff530209c0c7494769f006",
+      "prompt_sha256": "57c00f9a811f710c9da07e7575241b6bc0a09ce5cec226ec45ce90a1400c5755",
+      "raw_response_sha256": "692db2ec7c1992a263522ea90c602a74a0924daa894710f41530c42a8858cf79",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false
     }
   ],
-  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof.",
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",

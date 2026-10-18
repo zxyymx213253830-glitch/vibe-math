@@ -1,0 +1,38 @@
+{
+  "seed": 2026101906,
+  "samples": 200000,
+  "source_sha256": "aaa96720a5c1dda36c51c28be1f77d17037f63f3659a2a25cad2488137864c37",
+  "status": "PASS actual noncentral polynomial moments with ncx2 trace controls; not proof",
+  "records": {
+    "shifted_det_power_1": {
+      "target": 9.75,
+      "empirical": 9.732209084943523,
+      "standard_errors": -0.8948354955954417
+    },
+    "shifted_det_power_2": {
+      "target": 173.5625,
+      "empirical": 173.77246778761628,
+      "standard_errors": 0.20356639182095365
+    },
+    "shifted_det_power_3": {
+      "target": 5225.234375,
+      "empirical": 5268.376147473462,
+      "standard_errors": 0.5491165376785387
+    },
+    "trace_ncx2_power_1": {
+      "target": 7.0,
+      "empirical": 6.9891117109195005,
+      "standard_errors": -1.53663656501295
+    },
+    "trace_ncx2_power_2": {
+      "target": 59.0,
+      "empirical": 58.88932564394275,
+      "standard_errors": -0.9026744158349608
+    },
+    "trace_ncx2_power_3": {
+      "target": 579.0,
+      "empirical": 578.4895794129386,
+      "standard_errors": -0.2567183525180123
+    }
+  }
+}

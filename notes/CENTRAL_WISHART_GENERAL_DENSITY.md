@@ -331,3 +331,32 @@ The5x2 minimum numerical d3 formula agrees with200000 actual samples plus
 Gamma controls; that is NOT a d3 Lean theorem. Polynomial P4 failed to deliver
 an actual review, scalar P4 only API concern already resolved by kernel.
 All human review and frozen-publication caveats remain unchanged.
+
+
+### General central rectangle: finite factorial formula, all d>=0
+
+Let Z be an n-by-n variance-one independent CN matrix, and let P_{n,d,x}
+be the explicitly constructed MvPolynomial det(Z^H Z+xI)^d in its n^2
+variables and conjugates. For its finite coefficient expansion, define
+ L(P)=sum_{p,q} c_{p,q} * product_i (if p_i=q_i then p_i! else0).
+GaussianMatrixPolynomialLaw proves the actual source has this product law;
+GramDeterminantPolynomial proves exact evaluation of P; PolynomialIntegral
+proves the real, nonnegative square-Wishart expectation equals Re L(P).
+All required Bochner integrability is proved, for arbitrary natural m,n,d.
+
+For arbitrary d>=0,n>0,x>=0, actual (d+n)-by-n central Gram minimum obeys
+ Pr(min>x)=exp(-n*x)*Q_{d,n}(x),
+ Q_{d,n}(x)=Re L(P_{n,d,x}) / product_{j=0}^{n-1} ((j+d)!/j!).
+CDF is1 minus this on x>=0 and0 below0; covariance vI replaces x by x/v.
+This is an explicit FINITE support/coefficient rule, not an unevaluated
+probability integral. No efficient determinant evaluation complexity or
+identity with the original paper's general T1 determinant is claimed.
+
+Derivation uses the actual translated-cone density Kd exp(-nx) times
+int det(V+xI)^d exp(-trV), and the SQUARE density K0 exp(-trV) on the
+SAME n-by-n Hermitian cone. There is no rectangular-sample projection or
+assumed moment independence. Kd/K0 is the directly proved factorial ratio.
+All24 new declarations, total104 bound items, and final facade PASS; full
+Lake build not run. General-minimum Qoder P4 high-severity objections were
+false as documented in REVIEW_RESOLUTION; model feedback is not human review.
+Frozen publication unchanged. Noncentral G2 and original general T1--4 open.

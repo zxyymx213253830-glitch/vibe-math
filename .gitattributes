@@ -84,3 +84,7 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianPolynomialMoments.lean -text whitespace=cr-at-eol
 /experiments/complex_gaussian_monomial_control.py -text whitespace=cr-at-eol
 /experiments/complex_polynomial_moment_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianMatrixPolynomialLaw.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GramDeterminantPolynomial.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartPolynomialIntegral.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralRectangularMinimumPolynomial.lean -text whitespace=cr-at-eol

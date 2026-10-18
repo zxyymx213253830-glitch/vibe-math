@@ -1,0 +1,20 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralRectangularMinimumPolynomial.lean:81:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralRectangularMinimumPolynomial.lean:83:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralRectangularMinimumPolynomial.lean:101:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+'JinWishart.centralRectangularMinimumPolynomial_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralWishartDensityConstant_eq_square_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralRectangular_shiftedCone_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_CDF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_cdf_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralRectangular_scaled_minimum_CDF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralRectangular_covariance_minimum_CDF' depends on axioms: [propext, Classical.choice, Quot.sound]

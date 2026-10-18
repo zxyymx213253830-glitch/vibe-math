@@ -1,0 +1,26 @@
+{
+  "started_utc": "2026-10-18T17:56:21.762409+00:00",
+  "ended_utc": "2026-10-18T17:57:24.896671+00:00",
+  "seconds": 63.134264899999835,
+  "exit_code": 0,
+  "requested_model": "Qwen3.8-Max",
+  "tools_disabled": true,
+  "thinking": "disabled",
+  "prompt_sha256": "57c00f9a811f710c9da07e7575241b6bc0a09ce5cec226ec45ce90a1400c5755",
+  "runner_sha256": "8df3738ff915c3b3bf7959c75f92874fac35dc468ddcaac65e08ccd7356ce8ea",
+  "policy": "One call; no retries; tools/MCP disabled; no independent compilation",
+  "reported_model_usage": {
+    "qmodel_38max": {
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0,
+      "contextWindow": 0,
+      "maxOutputTokens": 0,
+      "credits": 0.5215954285714285
+    }
+  },
+  "reported_credits": 0.5215954285714285
+}

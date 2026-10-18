@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartPolynomialIntegral.lean:27:4: error: Type mismatch: After simplification, term
+  hi
+ has type
+  @Eq ℝ 0 (complexGram (complexSampleMatrix z) + ↑x • 1).det.im
+but is expected to have type
+  @Eq ℝ (↑(complexGram (complexSampleMatrix z) + ↑x • 1).det.re).im
+    (complexGram (complexSampleMatrix z) + ↑x • 1).det.im
+'JinWishart.shiftedGramDeterminant_power_real' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrable_actual_shiftedGramDeterminant_re_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actual_shiftedGramDeterminant_re_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralGaussianShiftedDeterminantMoment_nonneg' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.lintegral_actualCentralSquare_shiftedDeterminant_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,297 @@
+P4 direct mathematical issues only, DO NOT call tools or emit tool calls. Full checked Codex sources follow. Prior proved imports: actual variance-one CN matrix entries independent, all polynomials integrable, E[P(z,conj(z))] exact finite support sum: coefficient times product of p_i! if each z_i and conj(z_i) exponents match, else0. Actual central d+n by n Hermitian density K(d,n)det(W)^d exp(-trace W), K0=M(0,n,d)*Kd, M=product(j=0..n-1)(j+d)!/j!. Actual shifted positive cone event iff minimum>x and known cone-translation integral. These are proved imports, not assumptions of target probability law. Scope below transports a shifted Gram determinant polynomial through factorial functional, then evaluates remaining square-Wishart expectation, gives actual full rectangular central CDF for all natural d and n>0. Check normalizing ratio, Gram conjugate order, real vs complex determinant powers, nonnegative-to-Bochner conversion, strict tail complement. No original paper general determinant equality/noncentral claim. No independent compilation/human approval.
+
+FULL GramDeterminantPolynomial.lean
+import JinWishartFormalization.GaussianMatrixPolynomialLaw
+import JinWishartFormalization.CentralWishartMinimumBridge
+
+/-!
+# Explicit polynomial representing a shifted Gram determinant power
+
+Codex proofs. The factorial functional integrates the actual Gaussian source.
+[需人工审查] Actual-source/model correspondence; no spectral law assumed.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped BigOperators
+namespace JinWishart
+noncomputable section
+
+abbrev ComplexMatrixPolynomial (m n : ℕ) :=
+  MvPolynomial ((Fin m × Fin n) ⊕ (Fin m × Fin n)) ℂ
+
+def gramEntryPolynomial (m n : ℕ) : Matrix (Fin n) (Fin n) (ComplexMatrixPolynomial m n) :=
+  fun i j => ∑ k, MvPolynomial.X (Sum.inr (k,i)) * MvPolynomial.X (Sum.inl (k,j))
+
+def shiftedGramDeterminantPolynomial (m n d : ℕ) (x : ℝ) : ComplexMatrixPolynomial m n :=
+  (gramEntryPolynomial m n + (MvPolynomial.C (x : ℂ) : ComplexMatrixPolynomial m n) • 1).det ^ d
+
+theorem eval_gramEntryPolynomial (m n : ℕ)
+    (z : ComplexSample (m := m) (n := n)) (i j : Fin n) :
+    complexGaussianPolynomialEval (gramEntryPolynomial m n i j) (complexMatrixEntries z) =
+      complexSampleGram z i j := by
+  classical
+  simp [complexGaussianPolynomialEval,gramEntryPolynomial,complexMatrixEntries,
+    complexSampleGram,complexGram,Matrix.mul_apply,Matrix.conjTranspose_apply]
+
+theorem eval_shiftedGramDeterminantPolynomial (m n d : ℕ) (x : ℝ)
+    (z : ComplexSample (m := m) (n := n)) :
+    complexGaussianPolynomialEval (shiftedGramDeterminantPolynomial m n d x)
+      (complexMatrixEntries z) = (complexSampleGram z+(x : ℂ) • 1).det ^ d := by
+  classical
+  let e := MvPolynomial.eval (Sum.elim (complexMatrixEntries z)
+    (fun i => star (complexMatrixEntries z i)))
+  change e ((gramEntryPolynomial m n+(MvPolynomial.C (x : ℂ) : ComplexMatrixPolynomial m n) • 1).det ^ d) = _
+  rw [map_pow,e.map_det]
+  congr 2
+  ext i j
+  change e (gramEntryPolynomial m n i j+(((MvPolynomial.C (x : ℂ) : ComplexMatrixPolynomial m n)) •
+    (1 : Matrix (Fin n) (Fin n) (ComplexMatrixPolynomial m n))) i j) = _
+  rw [map_add]
+  have h := eval_gramEntryPolynomial m n z i j
+  change e (gramEntryPolynomial m n i j) = _ at h
+  rw [h]
+  simp [e,Matrix.smul_apply,Matrix.one_apply]
+  split_ifs <;> simp
+
+theorem integrable_actual_shiftedGramDeterminant_power (m n d : ℕ) (x : ℝ) :
+    Integrable (fun z => (complexSampleGram z+(x : ℂ) • 1).det ^ d)
+      (stdGaussian (ComplexSample (m := m) (n := n))) := by
+  have h := integrable_actualComplexMatrix_polynomial m n
+    (shiftedGramDeterminantPolynomial m n d x)
+  simp_rw [eval_shiftedGramDeterminantPolynomial] at h
+  exact h
+
+theorem integral_actual_shiftedGramDeterminant_power (m n d : ℕ) (x : ℝ) :
+    (∫ z, (complexSampleGram z+(x : ℂ) • 1).det ^ d
+      ∂stdGaussian (ComplexSample (m := m) (n := n))) =
+        complexGaussianPolynomialMoment (shiftedGramDeterminantPolynomial m n d x) := by
+  have h := integral_actualComplexMatrix_polynomial m n
+    (shiftedGramDeterminantPolynomial m n d x)
+  simp_rw [eval_shiftedGramDeterminantPolynomial] at h
+  exact h
+
+end
+end JinWishart
+#print axioms JinWishart.eval_gramEntryPolynomial
+#print axioms JinWishart.eval_shiftedGramDeterminantPolynomial
+#print axioms JinWishart.integrable_actual_shiftedGramDeterminant_power
+#print axioms JinWishart.integral_actual_shiftedGramDeterminant_power
+
+FULL CentralWishartPolynomialIntegral.lean
+import JinWishartFormalization.GramDeterminantPolynomial
+import JinWishartFormalization.CentralWishartShiftedDeterminantMean
+
+/-! Exact finite factorial-functional evaluation of every shifted determinant moment.
+Codex proofs. [需人工审查] Bochner/lintegral correspondence and actual-law transport.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+def centralGaussianShiftedDeterminantMoment (d n : ℕ) (x : ℝ) : ℝ :=
+  (complexGaussianPolynomialMoment (shiftedGramDeterminantPolynomial n n d x)).re
+
+theorem shiftedGramDeterminant_power_real (m n d : ℕ) (x : ℝ) (hx : 0 ≤ x)
+    (z : ComplexSample (m := m) (n := n)) :
+    (((complexSampleGram z+(x : ℂ) • 1).det.re^d : ℝ) : ℂ) =
+      (complexSampleGram z+(x : ℂ) • 1).det^d := by
+  have hI : ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef :=
+    Matrix.PosSemidef.one.smul (by exact_mod_cast hx)
+  have hA := (complexGram_posSemidef (complexSampleMatrix z)).add hI
+  have hi := (Complex.nonneg_iff.mp hA.det_nonneg).2
+  rw [Complex.ofReal_pow]
+  congr 1
+  apply Complex.ext
+  · simp
+  · simpa only [complexSampleGram,Complex.ofReal_im] using hi
+
+theorem integrable_actual_shiftedGramDeterminant_re_power (m n d : ℕ)
+    (x : ℝ) (hx : 0 ≤ x) :
+    Integrable (fun z => (complexSampleGram z+(x : ℂ) • 1).det.re^d)
+      (stdGaussian (ComplexSample (m := m) (n := n))) := by
+  have h := (integrable_actual_shiftedGramDeterminant_power m n d x).re
+  have he : (fun z : ComplexSample (m := m) (n := n) =>
+      (complexSampleGram z+(x : ℂ) • 1).det.re^d) =
+        fun z => ((complexSampleGram z+(x : ℂ) • 1).det^d).re := by
+    funext z
+    rw [← shiftedGramDeterminant_power_real m n d x hx z]
+    norm_cast
+  rw [he]
+  exact h
+
+theorem integral_actual_shiftedGramDeterminant_re_power (d n : ℕ)
+    (x : ℝ) (hx : 0 ≤ x) :
+    (∫ z, (complexSampleGram z+(x : ℂ) • 1).det.re^d
+      ∂stdGaussian (ComplexSample (m := n) (n := n))) =
+        centralGaussianShiftedDeterminantMoment d n x := by
+  have he : (fun z : ComplexSample (m := n) (n := n) =>
+      (complexSampleGram z+(x : ℂ) • 1).det.re^d) =
+        fun z => ((complexSampleGram z+(x : ℂ) • 1).det^d).re := by
+    funext z
+    rw [← shiftedGramDeterminant_power_real n n d x hx z]
+    norm_cast
+  rw [he]
+  calc
+    _ = (∫ z, (complexSampleGram z+(x : ℂ) • 1).det^d
+        ∂stdGaussian (ComplexSample (m := n) (n := n))).re := by
+      exact integral_re (integrable_actual_shiftedGramDeterminant_power n n d x)
+    _ = _ := congrArg Complex.re (integral_actual_shiftedGramDeterminant_power n n d x)
+
+theorem centralGaussianShiftedDeterminantMoment_nonneg (d n : ℕ)
+    (x : ℝ) (hx : 0 ≤ x) : 0 ≤ centralGaussianShiftedDeterminantMoment d n x := by
+  rw [← integral_actual_shiftedGramDeterminant_re_power d n x hx]
+  apply integral_nonneg
+  intro z
+  have hI : ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef :=
+    Matrix.PosSemidef.one.smul (by exact_mod_cast hx)
+  exact pow_nonneg (Complex.nonneg_iff.mp
+    ((complexGram_posSemidef (complexSampleMatrix z)).add hI).det_nonneg).1 d
+
+theorem lintegral_actualCentralSquare_shiftedDeterminant_power (d n : ℕ)
+    (x : ℝ) (hx : 0 ≤ x) :
+    (∫⁻ A, ENNReal.ofReal ((A+(x : ℂ) • 1).det.re^d)
+      ∂complexWishart (m := n) (n := n)) =
+        ENNReal.ofReal (centralGaussianShiftedDeterminantMoment d n x) := by
+  unfold complexWishart
+  rw [lintegral_map (by fun_prop) (by fun_prop)]
+  rw [← integral_actual_shiftedGramDeterminant_re_power d n x hx,
+    ofReal_integral_eq_lintegral_ofReal
+      (integrable_actual_shiftedGramDeterminant_re_power n n d x hx)]
+  exact ae_of_all _ (fun z => by
+    have hI : ((x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ)).PosSemidef :=
+      Matrix.PosSemidef.one.smul (by exact_mod_cast hx)
+    exact pow_nonneg (Complex.nonneg_iff.mp
+      ((complexGram_posSemidef (complexSampleMatrix z)).add hI).det_nonneg).1 d)
+
+end
+end JinWishart
+#print axioms JinWishart.shiftedGramDeterminant_power_real
+#print axioms JinWishart.integrable_actual_shiftedGramDeterminant_re_power
+#print axioms JinWishart.integral_actual_shiftedGramDeterminant_re_power
+#print axioms JinWishart.centralGaussianShiftedDeterminantMoment_nonneg
+#print axioms JinWishart.lintegral_actualCentralSquare_shiftedDeterminant_power
+
+FULL CentralRectangularMinimumPolynomial.lean
+import JinWishartFormalization.CentralWishartPolynomialIntegral
+import JinWishartFormalization.CentralWishartDeterminantBias
+
+/-!
+# All central rectangular minimum laws by a finite factorial polynomial functional
+
+Codex proofs. The coefficient rule is explicit MvPolynomial support summation,
+with no unevaluated probability integral or unproved high-order moment premise.
+This does not identify the original paper's general determinant candidate.
+[需人工审查] Cone integration, actual minimum event and variance interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def centralRectangularMinimumPolynomial (d n : ℕ) (x : ℝ) : ℝ :=
+  (centralDeterminantPowerMoment 0 n d)⁻¹ * centralGaussianShiftedDeterminantMoment d n x
+
+theorem centralRectangularMinimumPolynomial_nonneg (d n : ℕ)
+    (x : ℝ) (hx : 0 ≤ x) : 0 ≤ centralRectangularMinimumPolynomial d n x :=
+  mul_nonneg (inv_nonneg.mpr (centralDeterminantPowerMoment_pos 0 n d).le)
+    (centralGaussianShiftedDeterminantMoment_nonneg d n x hx)
+
+theorem centralWishartDensityConstant_eq_square_ratio (d n : ℕ) :
+    centralWishartDensityConstant d n =
+      centralWishartDensityConstant 0 n * (centralDeterminantPowerMoment 0 n d)⁻¹ := by
+  have h := centralWishartDensityConstant_power_bias 0 n d
+  simp only [Nat.zero_add] at h
+  have hM := (centralDeterminantPowerMoment_pos 0 n d).ne'
+  apply (eq_mul_inv_iff_mul_eq₀ hM).mpr
+  nlinarith
+
+theorem actualCentralRectangular_shiftedCone_probability (d n : ℕ)
+    (x : ℝ) (hx : 0 ≤ x) :
+    ((complexWishart (m := d+n) (n := n)).map realCoordinatesOfHermitian)
+      (centralCoordinateShiftedCone n x) =
+        ENNReal.ofReal (Real.exp (-(n : ℝ)*x) * centralRectangularMinimumPolynomial d n x) := by
+  have hp := actualCentralWishart_shiftedCone_probability d n x hx
+  have hm := lintegral_complexWishart_eq_cone 0 n
+    (fun A => ENNReal.ofReal ((A+(x : ℂ) • 1).det.re^d)) (by fun_prop)
+  simp only [Nat.zero_add,centralConeWeight,pow_zero,one_mul] at hm
+  simp_rw [ENNReal.ofReal_mul' (Real.exp_nonneg _)] at hp
+  rw [centralWishartDensityConstant_eq_square_ratio,
+    ENNReal.ofReal_mul (centralWishartDensityConstant_pos 0 n).le] at hp
+  rw [hp,ENNReal.ofReal_mul (Real.exp_nonneg _)]
+  calc
+    _ = ENNReal.ofReal (Real.exp (-(n : ℝ)*x)) *
+        (ENNReal.ofReal ((centralDeterminantPowerMoment 0 n d)⁻¹) *
+          (∫⁻ A, ENNReal.ofReal ((A+(x : ℂ) • 1).det.re^d)
+            ∂complexWishart (m := n) (n := n))) := by rw [hm]; ring
+    _ = _ := by
+      rw [lintegral_actualCentralSquare_shiftedDeterminant_power d n x hx,
+        centralRectangularMinimumPolynomial,
+        ENNReal.ofReal_mul (inv_nonneg.mpr (centralDeterminantPowerMoment_pos 0 n d).le)]
+
+theorem actualCentralRectangular_minimum_tail (d n : ℕ) (hn : 0 < n)
+    (x : ℝ) (hx : 0 ≤ x) :
+    (stdGaussian (ComplexSample (m := d+n) (n := n)))
+      {z | x < centralGaussianSampleMinimum (d+n) n hn z} =
+        ENNReal.ofReal (Real.exp (-(n : ℝ)*x) * centralRectangularMinimumPolynomial d n x) := by
+  rw [actualCentralGaussian_minimum_tail_eq_cone,
+    actualCentralRectangular_shiftedCone_probability d n x hx]
+
+theorem actualCentralRectangular_minimum_CDF (d n : ℕ) (hn : 0 < n)
+    (x : ℝ) (hx : 0 ≤ x) :
+    ((stdGaussian (ComplexSample (m := d+n) (n := n)))
+      {z | centralGaussianSampleMinimum (d+n) n hn z ≤ x}).toReal =
+        1-Real.exp (-(n : ℝ)*x) * centralRectangularMinimumPolynomial d n x := by
+  rw [actualCentralGaussian_minimum_CDF_eq_one_sub_tail,
+    actualCentralRectangular_minimum_tail d n hn x hx,
+    ENNReal.toReal_ofReal (mul_nonneg (Real.exp_nonneg _)
+      (centralRectangularMinimumPolynomial_nonneg d n x hx))]
+
+theorem actualCentralRectangular_minimum_cdf_function (d n : ℕ) (hn : 0 < n) (x : ℝ) :
+    cdf ((stdGaussian (ComplexSample (m := d+n) (n := n))).map
+      (centralGaussianSampleMinimum (d+n) n hn)) x =
+      if 0 ≤ x then 1-Real.exp (-(n : ℝ)*x) * centralRectangularMinimumPolynomial d n x else 0 := by
+  rw [actualCentralGaussian_minimum_cdf_eq_event]
+  by_cases hx : 0 ≤ x
+  · rw [if_pos hx]
+    exact actualCentralRectangular_minimum_CDF d n hn x hx
+  · rw [if_neg hx]
+    have he : {z : ComplexSample (m := d+n) (n := n) |
+        centralGaussianSampleMinimum (d+n) n hn z ≤ x} = ∅ := by
+      apply Set.eq_empty_iff_forall_notMem.mpr
+      intro z hz
+      exact not_le_of_gt (lt_of_lt_of_le (lt_of_not_ge hx)
+        (centralGaussianSampleMinimum_nonneg (d+n) n hn z)) hz
+    simp [he]
+
+theorem actualCentralRectangular_scaled_minimum_CDF (d n : ℕ) (hn : 0 < n)
+    (a : ℝ) (ha : 0 < a) (x : ℝ) (hx : 0 ≤ x) :
+    ((stdGaussian (ComplexSample (m := d+n) (n := n)))
+      {z | centralGaussianSampleMinimum (d+n) n hn (a • z) ≤ x}).toReal =
+      1-Real.exp (-(n : ℝ)*(x/a^2)) * centralRectangularMinimumPolynomial d n (x/a^2) := by
+  have he : {z : ComplexSample (m := d+n) (n := n) |
+      centralGaussianSampleMinimum (d+n) n hn (a • z) ≤ x} =
+      {z | centralGaussianSampleMinimum (d+n) n hn z ≤ x/a^2} := by
+    ext z
+    simp only [Set.mem_setOf_eq,centralGaussianSampleMinimum_scale (d+n) n hn a ha]
+    exact (le_div_iff₀' (sq_pos_of_pos ha)).symm
+  rw [he]
+  exact actualCentralRectangular_minimum_CDF d n hn _ (div_nonneg hx (sq_nonneg a))
+
+theorem actualCentralRectangular_covariance_minimum_CDF (d n : ℕ) (hn : 0 < n)
+    (v : ℝ) (hv : 0 < v) (x : ℝ) (hx : 0 ≤ x) :
+    ((stdGaussian (ComplexSample (m := d+n) (n := n)))
+      {z | centralGaussianSampleMinimum (d+n) n hn (Real.sqrt v • z) ≤ x}).toReal =
+      1-Real.exp (-(n : ℝ)*(x/v)) * centralRectangularMinimumPolynomial d n (x/v) := by
+  simpa only [Real.sq_sqrt hv.le] using
+    actualCentralRectangular_scaled_minimum_CDF d n hn (Real.sqrt v) (Real.sqrt_pos.mpr hv) x hx
+
+end
+end JinWishart
+#print axioms JinWishart.centralRectangularMinimumPolynomial_nonneg
+#print axioms JinWishart.centralWishartDensityConstant_eq_square_ratio
+#print axioms JinWishart.actualCentralRectangular_shiftedCone_probability
+#print axioms JinWishart.actualCentralRectangular_minimum_tail
+#print axioms JinWishart.actualCentralRectangular_minimum_CDF
+#print axioms JinWishart.actualCentralRectangular_minimum_cdf_function
+#print axioms JinWishart.actualCentralRectangular_scaled_minimum_CDF
+#print axioms JinWishart.actualCentralRectangular_covariance_minimum_CDF

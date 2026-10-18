@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "GramDeterminantPolynomial.lean": {
+      "sha256": "d0728a05cb28035851476e93e65598458045366ebb9248cae0b7d09367de002a",
+      "supplied": "Full source"
+    },
+    "CentralWishartPolynomialIntegral.lean": {
+      "sha256": "3089a31a6b35d7611df20108c44d8c543812132e017d99303e74a4c72e486f0c",
+      "supplied": "Full source"
+    },
+    "CentralRectangularMinimumPolynomial.lean": {
+      "sha256": "8f78cc94fbfc78ee9d1893dc78253a965e9940f2c5b6be8146f5f79f94a1a250",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "57c00f9a811f710c9da07e7575241b6bc0a09ce5cec226ec45ce90a1400c5755"
+}

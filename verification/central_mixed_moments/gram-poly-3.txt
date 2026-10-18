@@ -1,0 +1,4 @@
+'JinWishart.eval_gramEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_shiftedGramDeterminantPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actual_shiftedGramDeterminant_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actual_shiftedGramDeterminant_power' depends on axioms: [propext, Classical.choice, Quot.sound]

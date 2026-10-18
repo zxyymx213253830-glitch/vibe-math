@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramDeterminantPolynomial.lean:35:78: error: unsolved goals
+case e_a
+m n d : ℕ
+x : ℝ
+z : ComplexSample
+e : MvPolynomial (Fin m × Fin n ⊕ Fin m × Fin n) ℂ →+* ℂ :=
+  MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i))
+i j : Fin n
+h : e (gramEntryPolynomial m n i j) = complexSampleGram z i j
+⊢ (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => (starRingEnd ℂ) (complexMatrixEntries z i)))
+      (if i = j then MvPolynomial.C ↑x else 0) =
+    if i = j then ↑x else 0
+'JinWishart.eval_gramEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_shiftedGramDeterminantPolynomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrable_actual_shiftedGramDeterminant_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actual_shiftedGramDeterminant_power' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
