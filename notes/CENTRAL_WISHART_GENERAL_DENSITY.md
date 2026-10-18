@@ -375,3 +375,16 @@ General central Q agrees with old square Q=1 and d1/d2 faster polynomials
 for every n>0,x>=0 by cancellation of equal actual CDF expressions. New8
 statements make112 total bound items. Final d0 dimension-rewrite tactic was
 after P4 snapshot; documented, not called reviewed. Human review required.
+
+
+### Fixed univariate coefficient polynomial
+
+ComplexGaussianMomentFunctional constructs L as a complex LINEAR map and
+proves applying it coefficientwise to a univariate polynomial commutes with
+evaluation at complex scalars. CentralMinimumUnivariatePolynomial constructs
+ONE polynomial before x is chosen: det(C(GramEntries)+X*I)^d, whose polynomial
+coefficients are then integrated by L. Its evaluation equals L(P_{n,d,x})
+for all real x. Thus Q really is the real part of a fixed polynomial divided
+by the explicit factorial mass, not merely a family of pointwise support
+expressions. No degree bound or efficient original T1 determinant formula
+has been proved here. Five new bound items, total117; new5 P4 pending.

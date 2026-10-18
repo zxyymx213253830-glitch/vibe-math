@@ -91,3 +91,5 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/NoncentralGramPolynomialMoments.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumPolynomialSpecializations.lean -text whitespace=cr-at-eol
 /experiments/noncentral_polynomial_moment_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianMomentFunctional.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumUnivariatePolynomial.lean -text whitespace=cr-at-eol

@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianMomentFunctional.lean:49:13: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+
+Hint: Replace the deprecated name:
+  Polynomial.eval_finset_̵s̵S̲um
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianMomentFunctional.lean:52:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  MvPolynomial.C ?m.88 * ?m.90
+in the target expression
+  x ^ k * complexGaussianPolynomialMoment (P.coeff k) =
+    complexGaussianMomentLinear ((RingHom.id (MvPolynomial (ι ⊕ ι) ℂ)) (P.coeff k) * MvPolynomial.C (x ^ k))
+
+ι : Type u_1
+inst✝ : Fintype ι
+P : Polynomial (MvPolynomial (ι ⊕ ι) ℂ)
+x : ℂ
+k : ℕ
+a✝ : k ∈ P.support
+⊢ x ^ k * complexGaussianPolynomialMoment (P.coeff k) =
+    complexGaussianMomentLinear ((RingHom.id (MvPolynomial (ι ⊕ ι) ℂ)) (P.coeff k) * MvPolynomial.C (x ^ k))
+'JinWishart.complexGaussianIntegratedPolynomial_eval' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,5 @@
+'JinWishart.shiftedGramPolynomialInX_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_eq_univariate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

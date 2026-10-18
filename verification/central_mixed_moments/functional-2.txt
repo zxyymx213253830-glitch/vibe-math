@@ -1,0 +1,11 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianMomentFunctional.lean:56:2: error: Type mismatch
+  Eq.symm (LinearMap.map_smul complexGaussianMomentLinear (x ^ k) (P.coeff k))
+has type
+  x ^ k • complexGaussianMomentLinear (P.coeff k) = complexGaussianMomentLinear (x ^ k • P.coeff k)
+but is expected to have type
+  complexGaussianPolynomialMoment (P.coeff k) * x ^ k = complexGaussianMomentLinear (x ^ k • P.coeff k)
+'JinWishart.complexGaussianIntegratedPolynomial_eval' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMomentLinear' depends on axioms: [propext, Classical.choice, Quot.sound]
