@@ -1,7 +1,7 @@
 {
   "seed": 20261018,
-  "source_sha256": "1b793b8288c77684ecc394e0abeba82bcaa829766bce62876dc928897aef9ca6",
-  "collected_utc": "2026-10-18T08:14:11.112133+00:00",
+  "source_sha256": "2d209f85a54330687d27c24623da2751d198b353b34ca484b8a8ad4780d165d9",
+  "collected_utc": "2026-10-18T08:19:02.448274+00:00",
   "records": [
     {
       "size": 1,
@@ -56,7 +56,14 @@
           "max_pointwise_minimum_error": 2.842170943040401e-14,
           "tail_standard_errors": 0.540565828280616
         }
-      ]
+      ],
+      "matrix_memoryless_control": {
+        "threshold": 0.75,
+        "conditional_count": 94594,
+        "shifted_trace_Gamma_mean_standard_errors": 2.151337999384915,
+        "shifted_minimum_Exp_mean_standard_errors": 2.151337999384915,
+        "interpretation": "Conditional whole-matrix claim checked only via two known marginal controls; not proof"
+      }
     },
     {
       "size": 2,
@@ -111,7 +118,14 @@
           "max_pointwise_minimum_error": 3.552713678800501e-14,
           "tail_standard_errors": 0.8272206476937576
         }
-      ]
+      ],
+      "matrix_memoryless_control": {
+        "threshold": 0.375,
+        "conditional_count": 94658,
+        "shifted_trace_Gamma_mean_standard_errors": 0.1763755134412074,
+        "shifted_minimum_Exp_mean_standard_errors": -0.24863437774240443,
+        "interpretation": "Conditional whole-matrix claim checked only via two known marginal controls; not proof"
+      }
     },
     {
       "size": 3,
@@ -166,7 +180,14 @@
           "max_pointwise_minimum_error": 4.4853010194856324e-14,
           "tail_standard_errors": -1.044993641598383
         }
-      ]
+      ],
+      "matrix_memoryless_control": {
+        "threshold": 0.25,
+        "conditional_count": 94240,
+        "shifted_trace_Gamma_mean_standard_errors": 0.08494751160592495,
+        "shifted_minimum_Exp_mean_standard_errors": -0.7312180567212289,
+        "interpretation": "Conditional whole-matrix claim checked only via two known marginal controls; not proof"
+      }
     },
     {
       "size": 4,
@@ -221,7 +242,14 @@
           "max_pointwise_minimum_error": 8.171241461241152e-14,
           "tail_standard_errors": 0.7869098137138172
         }
-      ]
+      ],
+      "matrix_memoryless_control": {
+        "threshold": 0.1875,
+        "conditional_count": 94649,
+        "shifted_trace_Gamma_mean_standard_errors": 0.16645941144673435,
+        "shifted_minimum_Exp_mean_standard_errors": 0.059385626852244855,
+        "interpretation": "Conditional whole-matrix claim checked only via two known marginal controls; not proof"
+      }
     }
   ],
   "status": "PASS actual samples; known trace Gamma and Exp(rate n) controls",

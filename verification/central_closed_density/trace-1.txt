@@ -1,0 +1,52 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartTraceLaw.lean:20:8: error: typeclass instance problem is stuck
+  AddCommMonoid ?m.48
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `AddCommMonoid` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartTraceLaw.lean:19:4: warning: This simp argument is unused:
+  ← Complex.ofReal_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, Matrix.trace, Matrix.diag, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    RCLike.star_def, RCLike.conj_mul, ← Complex.ofReal_sum, Complex.ofReal_re]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartTraceLaw.lean:19:26: warning: This simp argument is unused:
+  ← Complex.ofReal_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, Matrix.trace, Matrix.diag, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    RCLike.star_def, RCLike.conj_mul, ← Complex.ofReal_pow, Complex.ofReal_re]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartTraceLaw.lean:19:48: warning: This simp argument is unused:
+  Complex.ofReal_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, Matrix.trace, Matrix.diag, Matrix.mul_apply, Matrix.conjTranspose_apply,
+    RCLike.star_def, RCLike.conj_mul, ← Complex.ofReal_pow, ← Complex.ofReal_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartTraceLaw.lean:32:2: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartTraceLaw.lean:52:25: warning: This simp argument is unused:
+  Module.finrank_fintype_fun_eq_card
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ComplexSample, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartTraceLaw.lean:52:90: warning: This simp argument is unused:
+  Nat.mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ComplexSample, Module.finrank_fintype_fun_eq_card, Nat.mul_assoc, Nat.mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGram_trace_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexSampleGram_trace_half_norm' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexWishart_trace_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

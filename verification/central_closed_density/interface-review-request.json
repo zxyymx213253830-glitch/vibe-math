@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "CentralWishartNormalization.lean": {
+      "sha256": "ce4363b339bf3614831f2c3667ac112f64ff4d791b9d30d0fa02cfa82c9864c5",
+      "supplied": "Full source"
+    },
+    "CentralWishartScaledMinimum.lean": {
+      "sha256": "275f004676f2047c85be15e5803a7343063a8f2a315892ef3cd4b5f821038856",
+      "supplied": "Full source"
+    },
+    "CentralWishartMatrixDensity.lean": {
+      "sha256": "6e0e09f947fbd635ca93c88a01ebce4150e743f8d153e2177e817de0534f75f8",
+      "supplied": "Full source"
+    },
+    "CentralWishartConeMemoryless.lean": {
+      "sha256": "1b575c14e6df829005449ab28e150ad83695e48802deb2b61a5cd51c5c1a9c46",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ab2fb8495e71f32d969793c8fca68b863a13b29d81b136e012a8e9127ad52391"
+}

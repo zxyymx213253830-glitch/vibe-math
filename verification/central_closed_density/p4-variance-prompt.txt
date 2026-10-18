@@ -1,0 +1,122 @@
+P4 follow-up: report remaining concrete issues only, <=400 words, no rewritten proofs or tools. Previous scoped interface review raised potential factor-two complex variance because actual sample definition was omitted. Here is exact previously checked dependency context. complexSampleMatrix maps real stdGaussian coordinates to (real+i*imag)/sqrt(2). Thus each real/imaginary ENTRY component has variance1/2, complex squared-norm mean1. Scaling source by sqrt(v) yields complex variance v, not 2v. Full actual CN density source below proves pi^-n exp(-norm²) from half-variance real Gaussian density, no convention assumed merely from a name. Bartlett leading energy shape equals full row count, rate1; already checked actual minimum Exp(n) for variance-one samples. Explicit finite product K, mass1, and factorial/Gamma conversion are checked, not a normalization assumption. Prior review's Frobenius factor '2^(n(n-1)/4) or similar' is inaccurate for VOLUME: every complex offdiagonal pair has two axes scaled sqrt2, giving volume2 per pair =>2^(n(n-1)/2). Current density deliberately uses canonical coordinate volume, not Frobenius. Does this exact additional context leave any actual source error on the claimed rate n/v? No need to endorse the whole dependency graph. Human review remains required. Do not treat this as independent compilation.
+
+
+EXACT WishartProbability.lean lines 19-28
+
+/-- A complex Gaussian sample matrix is encoded by pairs of real Gaussian coordinates. -/
+abbrev ComplexSample := EuclideanSpace ℝ ((Fin m × Fin n) × Fin 2)
+
+/-- Complex sample matrix with circular complex Gaussian entries of unit variance. -/
+noncomputable def complexSampleMatrix (x : ComplexSample (m := m) (n := n)) :
+    Matrix (Fin m) (Fin n) ℂ :=
+  fun i j ↦ ((x ((i, j), 0) : ℝ) + Complex.I * x ((i, j), 1)) / Real.sqrt 2
+
+/-- Radial energy of the two real Gaussian coordinates in a `1 × 1` complex
+
+EXACT GaussianMatrixBlockLaw.lean lines 18-24
+def standardComplexColumnLaw (m : ℕ) : Measure (EuclideanSpace ℂ (Fin m)) :=
+  (stdGaussian (EuclideanSpace ℂ (Fin m))).map (fun v => (Real.sqrt 2)⁻¹ • v)
+
+instance isProbabilityMeasure_standardComplexColumnLaw (m : ℕ) :
+    IsProbabilityMeasure (standardComplexColumnLaw m) := by
+  unfold standardComplexColumnLaw
+  infer_instance
+
+FULL SOURCE GaussianComplexColumnDensity.lean
+import JinWishartFormalization.GaussianMatrixBlockLaw
+import JinWishartFormalization.GaussianRawCoordinates
+import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+
+/-!
+# Actual variance-one complex Gaussian column density, every dimension
+
+Codex proof. Transport the existing 2n-real-coordinate Gaussian density through
+the already defined real orthonormal column encoding. No new radial integral
+or candidate-law assumption. n=0 is allowed.
+[需人工审查] Orthonormal/Haar normalization, real vs complex variance convention.
+-/
+
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+theorem standardComplexColumnLaw_eq_withDensity (n : ℕ) :
+    standardComplexColumnLaw n =
+      (volume : Measure (EuclideanSpace ℂ (Fin n))).withDensity
+        (fun z => ENNReal.ofReal ((Real.pi⁻¹) ^ n * Real.exp (-‖z‖ ^ 2))) := by
+  let e := complexColumnCoordinates n
+  have hraw := stdGaussian_halfVariance_shift_eq_withDensity n
+    (show Fintype.card (Fin n × Fin 2) = 2 * n by simp [Nat.mul_comm])
+    (0 : TwoColumnBlock n)
+  simp only [add_zero, sub_zero] at hraw
+  have hfun : (fun z : EuclideanSpace ℂ (Fin n) => (Real.sqrt 2)⁻¹ • z) ∘ e =
+      e ∘ (fun x : TwoColumnBlock n => (Real.sqrt 2)⁻¹ • x) := by
+    funext x
+    exact (e.map_smul (Real.sqrt 2)⁻¹ x).symm
+  unfold standardComplexColumnLaw
+  rw [← stdGaussian_map e, Measure.map_map (by fun_prop) e.continuous.measurable,
+    hfun, ← Measure.map_map e.continuous.measurable (by fun_prop), hraw]
+  have h := map_withDensity_measurePreserving e.toMeasurableEquiv volume volume
+    e.measurePreserving
+    (fun x : TwoColumnBlock n => ENNReal.ofReal ((Real.pi⁻¹) ^ n * Real.exp (-‖x‖ ^ 2)))
+    (by fun_prop)
+  refine h.trans ?_
+  congr 1
+  funext z
+  change ENNReal.ofReal ((Real.pi⁻¹) ^ n * Real.exp (-‖e.symm z‖ ^ 2)) = _
+  rw [e.symm.norm_map]
+
+end
+end JinWishart
+
+#print axioms JinWishart.standardComplexColumnLaw_eq_withDensity
+
+
+FULL SOURCE CentralWishartNormalization.lean
+import JinWishartFormalization.CentralWishartClosedDensity
+import Mathlib.Data.Nat.Choose.Basic
+
+/-! Explicit conversion of the finite product coefficient to the conventional
+factorial normalization. Codex deterministic proofs, no density assumptions.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+theorem centralWishartDensityConstant_eq_factorial (d n : ℕ) :
+    centralWishartDensityConstant d n = (Real.pi⁻¹) ^ (n.choose 2) /
+      (∏ j : Fin n, ((Nat.factorial (d + j.val) : ℕ) : ℝ)) := by
+  induction n with
+  | zero => simp [centralWishartDensityConstant]
+  | succ n ih =>
+      rw [centralWishartDensityConstant_succ, ih, Fin.prod_univ_castSucc]
+      simp only [Fin.val_castSucc, Fin.val_last, Nat.choose_succ_succ, Nat.choose_one_right,
+        pow_add, div_eq_mul_inv, _root_.mul_inv_rev]
+      ring
+
+theorem centralWishartDensityConstant_eq_triangular (d n : ℕ) :
+    centralWishartDensityConstant d n = (Real.pi⁻¹) ^ (n * (n - 1) / 2) /
+      (∏ j : Fin n, ((Nat.factorial (d + j.val) : ℕ) : ℝ)) := by
+  rw [centralWishartDensityConstant_eq_factorial, Nat.choose_two_right]
+
+theorem centralWishartDensityConstant_eq_gamma (d n : ℕ) :
+    centralWishartDensityConstant d n = (Real.pi⁻¹) ^ (n.choose 2) /
+      (∏ j : Fin n, Real.Gamma ((d + j.val + 1 : ℕ) : ℝ)) := by
+  rw [centralWishartDensityConstant_eq_factorial]
+  congr 1
+  apply Finset.prod_congr rfl
+  intro j _
+  simpa only [Nat.cast_add, Nat.cast_one] using (Real.Gamma_nat_eq_factorial (d + j.val)).symm
+
+theorem centralWishartDensityConstant_two : centralWishartDensityConstant 0 2 = Real.pi⁻¹ := by
+  norm_num [centralWishartDensityConstant, Fin.prod_univ_two]
+
+end
+end JinWishart
+
+#print axioms JinWishart.centralWishartDensityConstant_eq_factorial
+#print axioms JinWishart.centralWishartDensityConstant_eq_triangular
+#print axioms JinWishart.centralWishartDensityConstant_eq_gamma
+#print axioms JinWishart.centralWishartDensityConstant_two

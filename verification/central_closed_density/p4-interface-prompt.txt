@@ -1,0 +1,428 @@
+P4: skeptical semantic review, only concrete problems, <=750 words, no rewrites or tools. Proof author Codex, you are different family Qwen. Four exact full passed Lean sources below, all standard propext/Classical.choice/Quot.sound. Prior checked dependencies: ACTUAL CN variance-one t=d+n rows/n columns Wishart has canonical n²-real coordinate density rho=K(d,n)*det(Hq)^d*exp(-traceHq) on PD and zero outside. K is product pi^-j/(d+j)!; mass1 derived from actual law. H/R inverse on Hermitian matrices, both continuous; coordinate measure Hn is nested Pi Lebesgue, not Frobenius volume. New normalization converts K to pi^-choose(n,2)/factorial-product and Gamma-product. New minimum dependency already checked: for EVERY n>0 actual central n-by-n Gram least eigenvalue Exp(rate n), tail exp(-nx) for x>=0 and full CDF, no assumed spectral joint density. New scaling must concern ACTUAL scaled sample a*z, complex variance a² and covariance vI => rate n/v. n>0, a>0,v>0 explicit. Generic spectral threshold equivalence (A-xI).PD iff x<lambda_min(A) is available for Hermitian A, n>0; multiplication by positive c is handled via this criterion, no ordered-eigenvalue permutation assumption. Matrix-density interface defines ambient reference as Hn.map H supported on Hermitian matrices, NOT restriction of ambient complex Lebesgue; actual W is recovered by H(RW)=W a.e. New stronger square matrix memorylessness: restricting actual coordinate law to W>xI and mapping W->W-xI gives exp(-nx) times the full same law, x>=0. Dividing by that positive finite event mass gives conditional law; unnormalized and normalized statements distinct. Whole COMPLEX-matrix residual identity is also proved. At n=0 only trivial matrix/cone identities, not minimum law. Positive-cone density shift uses canonical translation preserving Haar measure; restrictions correctly retained before subtraction. No target density/probability premise. Imported centralConeWeight_square_shift is trace exponential factorization; actual support/normalization from density already reviewed. Fubini/volume/variance/model mapping [需人工审查] remains. Review rates, matrix-vs-coordinate measures, inverse mass, restrictions, dimension-zero and theorem strength. General noncentral G2 and paper T1-4 not closed. Not independent compilation/human review.
+
+
+FULL SOURCE CentralWishartNormalization.lean
+import JinWishartFormalization.CentralWishartClosedDensity
+import Mathlib.Data.Nat.Choose.Basic
+
+/-! Explicit conversion of the finite product coefficient to the conventional
+factorial normalization. Codex deterministic proofs, no density assumptions.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+theorem centralWishartDensityConstant_eq_factorial (d n : ℕ) :
+    centralWishartDensityConstant d n = (Real.pi⁻¹) ^ (n.choose 2) /
+      (∏ j : Fin n, ((Nat.factorial (d + j.val) : ℕ) : ℝ)) := by
+  induction n with
+  | zero => simp [centralWishartDensityConstant]
+  | succ n ih =>
+      rw [centralWishartDensityConstant_succ, ih, Fin.prod_univ_castSucc]
+      simp only [Fin.val_castSucc, Fin.val_last, Nat.choose_succ_succ, Nat.choose_one_right,
+        pow_add, div_eq_mul_inv, _root_.mul_inv_rev]
+      ring
+
+theorem centralWishartDensityConstant_eq_triangular (d n : ℕ) :
+    centralWishartDensityConstant d n = (Real.pi⁻¹) ^ (n * (n - 1) / 2) /
+      (∏ j : Fin n, ((Nat.factorial (d + j.val) : ℕ) : ℝ)) := by
+  rw [centralWishartDensityConstant_eq_factorial, Nat.choose_two_right]
+
+theorem centralWishartDensityConstant_eq_gamma (d n : ℕ) :
+    centralWishartDensityConstant d n = (Real.pi⁻¹) ^ (n.choose 2) /
+      (∏ j : Fin n, Real.Gamma ((d + j.val + 1 : ℕ) : ℝ)) := by
+  rw [centralWishartDensityConstant_eq_factorial]
+  congr 1
+  apply Finset.prod_congr rfl
+  intro j _
+  simpa only [Nat.cast_add, Nat.cast_one] using (Real.Gamma_nat_eq_factorial (d + j.val)).symm
+
+theorem centralWishartDensityConstant_two : centralWishartDensityConstant 0 2 = Real.pi⁻¹ := by
+  norm_num [centralWishartDensityConstant, Fin.prod_univ_two]
+
+end
+end JinWishart
+
+#print axioms JinWishart.centralWishartDensityConstant_eq_factorial
+#print axioms JinWishart.centralWishartDensityConstant_eq_triangular
+#print axioms JinWishart.centralWishartDensityConstant_eq_gamma
+#print axioms JinWishart.centralWishartDensityConstant_two
+
+
+FULL SOURCE CentralWishartScaledMinimum.lean
+import JinWishartFormalization.CentralWishartMinimum
+
+/-!
+# Actual square minimum at arbitrary positive scalar covariance
+
+Codex generalizes the earlier dimension-two scaling argument. This proof body
+does not copy the local DeepSeek two-dimensional sample-matrix tactic script.
+Variance v uses amplitude sqrt(v); Exp rate n/v, every n>0.
+[需人工审查] Gaussian amplitude versus complex covariance and spectral model.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem complexSampleMatrix_real_smul {m n : ℕ} (a : ℝ)
+    (z : ComplexSample (m := m) (n := n)) :
+    complexSampleMatrix (a • z) = (a : ℂ) • complexSampleMatrix z := by
+  ext i j
+  simp [complexSampleMatrix, PiLp.smul_apply, smul_eq_mul, Complex.ofReal_mul]
+  ring
+
+theorem complexSampleGram_real_smul {m n : ℕ} (a : ℝ)
+    (z : ComplexSample (m := m) (n := n)) :
+    complexGram (complexSampleMatrix (a • z)) =
+      (a ^ 2) • complexGram (complexSampleMatrix z) := by
+  rw [complexSampleMatrix_real_smul]
+  simp only [complexGram, Matrix.conjTranspose_smul, RCLike.star_def, Complex.conj_ofReal,
+    Matrix.smul_mul, Matrix.mul_smul, smul_smul]
+  ext i j
+  simp [Matrix.smul_apply, pow_two, RCLike.real_smul_eq_coe_mul, Complex.ofReal_mul]
+
+theorem posDef_real_smul_iff {n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ)
+    (c : ℝ) (hc : 0 < c) : (c • A).PosDef ↔ A.PosDef := by
+  constructor
+  · intro h
+    have hi := h.smul (inv_pos.mpr hc)
+    simpa [smul_smul, hc.ne'] using hi
+  · intro h
+    exact h.smul hc
+
+theorem smallestEigenvalue_real_smul {n : ℕ} (hn : 0 < n)
+    (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian) (c : ℝ) (hc : 0 < c)
+    (hB : (c • A).IsHermitian) :
+    hB.eigenvalues₀ (smallestEigenvalue₀Index hn) =
+      c * hA.eigenvalues₀ (smallestEigenvalue₀Index hn) := by
+  apply eq_of_forall_lt_iff
+  intro x
+  rw [← hermitian_shift_posDef_iff_smallest (c • A) hB hn x]
+  have he : c • A - (x : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) =
+      c • (A - ((x / c : ℝ) : ℂ) • 1) := by
+    ext i j
+    simp only [Matrix.sub_apply, Matrix.smul_apply, smul_eq_mul,
+      Complex.ofReal_div, RCLike.real_smul_eq_coe_mul]
+    field_simp [hc.ne']
+    <;> simp [mul_comm, mul_left_comm, mul_assoc]
+  rw [he, posDef_real_smul_iff _ c hc,
+    hermitian_shift_posDef_iff_smallest A hA hn (x / c)]
+  exact div_lt_iff₀' hc
+
+theorem centralSquareSampleMinimum_scale (n : ℕ) (hn : 0 < n) (a : ℝ) (ha : 0 < a)
+    (z : ComplexSample (m := n) (n := n)) :
+    centralSquareSampleMinimum n hn (a • z) = a ^ 2 * centralSquareSampleMinimum n hn z := by
+  have hA := (complexGram_posSemidef (complexSampleMatrix z)).isHermitian
+  have hB : ((a ^ 2) • complexGram (complexSampleMatrix z)).IsHermitian := by
+    rw [← complexSampleGram_real_smul]
+    exact (complexGram_posSemidef (complexSampleMatrix (a • z))).isHermitian
+  have h := smallestEigenvalue_real_smul hn _ hA (a ^ 2) (sq_pos_of_pos ha) hB
+  simpa only [centralSquareSampleMinimum, complexNoncentralSampleSmallestEigenvalue,
+    add_zero, ← complexSampleGram_real_smul] using h
+
+theorem actualCentralSquare_scaled_minimum_tail (n : ℕ) (hn : 0 < n)
+    (a : ℝ) (ha : 0 < a) (x : ℝ) (hx : 0 ≤ x) :
+    (stdGaussian (ComplexSample (m := n) (n := n)))
+      {z | x < centralSquareSampleMinimum n hn (a • z)} =
+        ENNReal.ofReal (Real.exp (-(n : ℝ) * (x / a ^ 2))) := by
+  have he : {z : ComplexSample (m := n) (n := n) | x < centralSquareSampleMinimum n hn (a • z)} =
+      {z | x / a ^ 2 < centralSquareSampleMinimum n hn z} := by
+    ext z
+    simp only [Set.mem_setOf_eq, centralSquareSampleMinimum_scale n hn a ha]
+    exact (div_lt_iff₀' (sq_pos_of_pos ha)).symm
+  rw [he]
+  exact actualCentralSquare_minimum_tail n hn _ (div_nonneg hx (sq_nonneg a))
+
+theorem actualCentralSquare_scaled_minimum_CDF (n : ℕ) (hn : 0 < n)
+    (a : ℝ) (ha : 0 < a) (x : ℝ) (hx : 0 ≤ x) :
+    ((stdGaussian (ComplexSample (m := n) (n := n)))
+      {z | centralSquareSampleMinimum n hn (a • z) ≤ x}).toReal =
+        1 - Real.exp (-(n : ℝ) * (x / a ^ 2)) := by
+  have he : {z : ComplexSample (m := n) (n := n) | centralSquareSampleMinimum n hn (a • z) ≤ x} =
+      {z | centralSquareSampleMinimum n hn z ≤ x / a ^ 2} := by
+    ext z
+    simp only [Set.mem_setOf_eq, centralSquareSampleMinimum_scale n hn a ha]
+    exact (le_div_iff₀' (sq_pos_of_pos ha)).symm
+  rw [he]
+  exact actualCentralSquare_minimum_CDF n hn _ (div_nonneg hx (sq_nonneg a))
+
+theorem actualCentralSquare_scaled_minimum_cdf_function (n : ℕ) (hn : 0 < n)
+    (a : ℝ) (ha : 0 < a) (x : ℝ) :
+    cdf ((stdGaussian (ComplexSample (m := n) (n := n))).map
+      (fun z => centralSquareSampleMinimum n hn (a • z))) x =
+        if 0 ≤ x then 1 - Real.exp (-(n : ℝ) * (x / a ^ 2)) else 0 := by
+  have hm : Measurable (fun z : ComplexSample (m := n) (n := n) =>
+      centralSquareSampleMinimum n hn (a • z)) :=
+    (measurable_centralSquareSampleMinimum n hn).comp (measurable_id.const_smul a)
+  rw [cdf_eq_real, Measure.real, Measure.map_apply hm measurableSet_Iic]
+  change ((stdGaussian (ComplexSample (m := n) (n := n)))
+    {z | centralSquareSampleMinimum n hn (a • z) ≤ x}).toReal = _
+  by_cases hx : 0 ≤ x
+  · rw [if_pos hx]
+    exact actualCentralSquare_scaled_minimum_CDF n hn a ha x hx
+  · rw [if_neg hx]
+    have he : {z : ComplexSample (m := n) (n := n) |
+        centralSquareSampleMinimum n hn (a • z) ≤ x} = ∅ := by
+      apply Set.eq_empty_iff_forall_notMem.mpr
+      intro z hz
+      exact not_le_of_gt (lt_of_lt_of_le (lt_of_not_ge hx)
+        (centralSquareSampleMinimum_nonneg n hn (a • z))) hz
+    simp [he]
+
+theorem actualCentralSquare_scaled_minimum_law (n : ℕ) (hn : 0 < n) (a : ℝ) (ha : 0 < a) :
+    (stdGaussian (ComplexSample (m := n) (n := n))).map
+      (fun z => centralSquareSampleMinimum n hn (a • z)) = expMeasure ((n : ℝ) / a ^ 2) := by
+  have hr : (0 : ℝ) < (n : ℝ) / a ^ 2 := div_pos (by exact_mod_cast hn) (sq_pos_of_pos ha)
+  have : IsProbabilityMeasure (expMeasure ((n : ℝ) / a ^ 2)) := isProbabilityMeasure_expMeasure hr
+  apply Measure.eq_of_cdf
+  apply StieltjesFunction.ext
+  intro x
+  rw [actualCentralSquare_scaled_minimum_cdf_function n hn a ha, cdf_expMeasure_eq hr]
+  congr 1
+  congr 1
+  congr 1
+  ring
+
+theorem actualCentralSquare_covariance_minimum_law (n : ℕ) (hn : 0 < n) (v : ℝ) (hv : 0 < v) :
+    (stdGaussian (ComplexSample (m := n) (n := n))).map
+      (fun z => centralSquareSampleMinimum n hn (Real.sqrt v • z)) = expMeasure ((n : ℝ) / v) := by
+  simpa only [Real.sq_sqrt hv.le] using
+    actualCentralSquare_scaled_minimum_law n hn (Real.sqrt v) (Real.sqrt_pos.mpr hv)
+
+end
+end JinWishart
+
+#print axioms JinWishart.complexSampleMatrix_real_smul
+#print axioms JinWishart.complexSampleGram_real_smul
+#print axioms JinWishart.posDef_real_smul_iff
+#print axioms JinWishart.smallestEigenvalue_real_smul
+#print axioms JinWishart.centralSquareSampleMinimum_scale
+#print axioms JinWishart.actualCentralSquare_scaled_minimum_tail
+#print axioms JinWishart.actualCentralSquare_scaled_minimum_CDF
+#print axioms JinWishart.actualCentralSquare_scaled_minimum_cdf_function
+#print axioms JinWishart.actualCentralSquare_scaled_minimum_law
+#print axioms JinWishart.actualCentralSquare_covariance_minimum_law
+
+
+FULL SOURCE CentralWishartMatrixDensity.lean
+import JinWishartFormalization.CentralWishartNormalization
+
+/-!
+# Matrix-valued form of the actual central Wishart density
+
+Codex. The reference is the pushforward of canonical n^2 real coordinate
+Lebesgue measure to Hermitian matrices inside all complex matrices. It is NOT
+ambient complex Lebesgue measure restricted to the Hermitian locus.
+[需人工审查] Reference measure and actual-model interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+def hermitianAmbientCoordinateMeasure (n : ℕ) : Measure (Matrix (Fin n) (Fin n) ℂ) :=
+  (hermitianRealCoordinateMeasure n).map hermitianOfRealCoordinates
+
+def centralWishartMatrixDensity (d n : ℕ) (A : Matrix (Fin n) (Fin n) ℂ) : ℝ≥0∞ := by
+  classical
+  exact if A.PosDef then ENNReal.ofReal
+    (centralWishartDensityConstant d n * A.det.re ^ d * Real.exp (-A.trace.re)) else 0
+
+theorem measurable_centralWishartMatrixDensity (d n : ℕ) :
+    Measurable (centralWishartMatrixDensity d n) := by
+  classical
+  unfold centralWishartMatrixDensity
+  refine Measurable.ite (measurableSet_complex_posDef n) ?_ measurable_const
+  apply ENNReal.measurable_ofReal.comp
+  exact (show Continuous (fun A : Matrix (Fin n) (Fin n) ℂ =>
+    centralWishartDensityConstant d n * A.det.re ^ d * Real.exp (-A.trace.re)) by fun_prop).measurable
+
+theorem complexWishart_eq_realCoordinates_map (m n : ℕ) :
+    complexWishart (m := m) (n := n) =
+      ((complexWishart (m := m) (n := n)).map realCoordinatesOfHermitian).map
+        hermitianOfRealCoordinates := by
+  rw [Measure.map_map continuous_hermitianOfRealCoordinates.measurable
+    continuous_realCoordinatesOfHermitian.measurable]
+  have hp : ∀ᵐ A ∂complexWishart (m := m) (n := n), A.PosSemidef :=
+    (mem_ae_iff_prob_eq_one Matrix.posSemidef_is_closed.measurableSet).mpr
+      complexWishart_measure_posSemidef
+  have he : (complexWishart (m := m) (n := n)).map
+      (hermitianOfRealCoordinates ∘ realCoordinatesOfHermitian) =
+      (complexWishart (m := m) (n := n)).map id := by
+    apply Measure.map_congr
+    filter_upwards [hp] with A hA
+    exact hermitianOfRealCoordinates_realCoordinates A hA.isHermitian
+  rw [he, Measure.map_id]
+
+/-- The ACTUAL matrix law, rather than only its coordinate pushforward. -/
+theorem complexWishart_eq_map_closedDensity (d n : ℕ) :
+    complexWishart (m := d + n) (n := n) =
+      ((hermitianRealCoordinateMeasure n).withDensity
+        (centralWishartCoordinateDensity d n)).map hermitianOfRealCoordinates := by
+  rw [← complexWishart_realCoordinates_eq_closedDensity]
+  exact complexWishart_eq_realCoordinates_map (d + n) n
+
+/-- A density on complex matrices relative to the explicit Hermitian coordinate
+measure. No false ambient 2n^2-dimensional volume statement is made. -/
+theorem complexWishart_eq_matrixDensity (d n : ℕ) :
+    complexWishart (m := d + n) (n := n) =
+      (hermitianAmbientCoordinateMeasure n).withDensity (centralWishartMatrixDensity d n) := by
+  rw [complexWishart_eq_map_closedDensity]
+  ext s hs
+  have hH := continuous_hermitianOfRealCoordinates (n := n) |>.measurable
+  rw [Measure.map_apply hH hs, withDensity_apply _ (hs.preimage hH), withDensity_apply _ hs]
+  exact (setLIntegral_map hs (measurable_centralWishartMatrixDensity d n) hH).symm
+
+end
+end JinWishart
+
+#print axioms JinWishart.measurable_centralWishartMatrixDensity
+#print axioms JinWishart.complexWishart_eq_realCoordinates_map
+#print axioms JinWishart.complexWishart_eq_map_closedDensity
+#print axioms JinWishart.complexWishart_eq_matrixDensity
+
+
+FULL SOURCE CentralWishartConeMemoryless.lean
+import JinWishartFormalization.CentralWishartMinimum
+import JinWishartFormalization.CentralWishartMatrixDensity
+
+/-!
+# Matrix-level memorylessness of the actual central square Wishart law
+
+Codex. This is a whole-matrix restricted pushforward identity, stronger than
+the scalar minimum tail. It is unnormalized: mass exp(-n*x) is retained.
+[需人工审查] Canonical Haar translation, restrictions and conditional interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem centralWishartSquareDensity_shift (n : ℕ) (x : ℝ) (hx : 0 ≤ x)
+    (q : Matrix (Fin n) (Fin n) ℝ) (hq : q ∈ centralCoordinatePositiveCone n) :
+    centralWishartCoordinateDensity 0 n (q + x • 1) =
+      ENNReal.ofReal (Real.exp (-(n : ℝ) * x)) * centralWishartCoordinateDensity 0 n q := by
+  have hs : q + x • 1 ∈ centralCoordinateShiftedCone n x := by
+    change (hermitianOfRealCoordinates (q + x • 1) - (x : ℂ) • 1).PosDef
+    rw [hermitianOfRealCoordinates_shift, add_sub_cancel_right]
+    exact hq
+  rw [centralWishartCoordinateDensity_on_cone 0 n _
+      (centralCoordinateShiftedCone_subset_positive n x hx hs),
+    centralWishartCoordinateDensity_on_cone 0 n q hq,
+    hermitianOfRealCoordinates_shift, centralConeWeight_square_shift,
+    ENNReal.ofReal_mul (Real.exp_nonneg _)]
+  ring
+
+theorem centralWishartSquareDensity_shift_indicator (n : ℕ) (x : ℝ) (hx : 0 ≤ x)
+    (q : Matrix (Fin n) (Fin n) ℝ) :
+    (centralCoordinateShiftedCone n x).indicator (centralWishartCoordinateDensity 0 n)
+      (q + x • 1) = ENNReal.ofReal (Real.exp (-(n : ℝ) * x)) *
+        centralWishartCoordinateDensity 0 n q := by
+  classical
+  have he : q + x • 1 ∈ centralCoordinateShiftedCone n x ↔ q ∈ centralCoordinatePositiveCone n := by
+    change (hermitianOfRealCoordinates (q + x • 1) - (x : ℂ) • 1).PosDef ↔ _
+    rw [hermitianOfRealCoordinates_shift, add_sub_cancel_right]
+    rfl
+  by_cases hq : q ∈ centralCoordinatePositiveCone n
+  · rw [Set.indicator_of_mem (he.mpr hq), centralWishartSquareDensity_shift n x hx q hq]
+  · rw [Set.indicator_of_notMem (not_iff_not.mpr he |>.mpr hq)]
+    change 0 = _ * centralWishartCoordinateDensity 0 n q
+    have hd : centralWishartCoordinateDensity 0 n q = 0 := if_neg hq
+    rw [hd, mul_zero]
+
+/-- Whole actual matrix law restricted to W>xI is a translated copy times its mass. -/
+theorem actualCentralSquare_coordinate_restrict_eq_shift (n : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    (((complexWishart (m := n) (n := n)).map realCoordinatesOfHermitian).restrict
+      (centralCoordinateShiftedCone n x)) =
+      ENNReal.ofReal (Real.exp (-(n : ℝ) * x)) •
+        (((complexWishart (m := n) (n := n)).map realCoordinatesOfHermitian).map
+          (fun q : Matrix (Fin n) (Fin n) ℝ => q + x • 1)) := by
+  let e := MeasurableEquiv.addRight (x • (1 : Matrix (Fin n) (Fin n) ℝ))
+  have hm := measurable_centralWishartCoordinateDensity 0 n
+  have hmp : MeasurePreserving e (hermitianRealCoordinateMeasure n)
+      (hermitianRealCoordinateMeasure n) := measurePreserving_add_right _ _
+  have hd := complexWishart_realCoordinates_eq_closedDensity 0 n
+  simp only [Nat.zero_add] at hd
+  rw [hd]
+  rw [restrict_withDensity (measurableSet_centralCoordinateShiftedCone n x),
+    ← withDensity_indicator (measurableSet_centralCoordinateShiftedCone n x)]
+  change _ = ENNReal.ofReal (Real.exp (-(n : ℝ) * x)) •
+    ((hermitianRealCoordinateMeasure n).withDensity (centralWishartCoordinateDensity 0 n)).map e
+  rw [map_withDensity_measurePreserving e _ _ hmp _ hm,
+    ← withDensity_smul _ (hm.comp e.symm.measurable)]
+  congr 1
+  funext q
+  have h := centralWishartSquareDensity_shift_indicator n x hx (e.symm q)
+  have he : e.symm q + x • 1 = q := e.apply_symm_apply q
+  rw [he] at h
+  exact h
+
+/-- Subtracting xI under the strict-cone event recovers the full actual law,
+times event mass. Dividing by that positive mass gives the conditional law. -/
+theorem actualCentralSquare_coordinate_residual_law (n : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    ((((complexWishart (m := n) (n := n)).map realCoordinatesOfHermitian).restrict
+      (centralCoordinateShiftedCone n x)).map
+        (fun q : Matrix (Fin n) (Fin n) ℝ => q - x • 1)) =
+      ENNReal.ofReal (Real.exp (-(n : ℝ) * x)) •
+        ((complexWishart (m := n) (n := n)).map realCoordinatesOfHermitian) := by
+  rw [actualCentralSquare_coordinate_restrict_eq_shift n x hx, Measure.map_smul,
+    Measure.map_map (by fun_prop) (by fun_prop)]
+  have he : (fun q : Matrix (Fin n) (Fin n) ℝ => q - x • 1) ∘
+      (fun q => q + x • 1) = id := by
+    funext q
+    exact add_sub_cancel_right q (x • 1)
+  rw [he, Measure.map_id]
+  fun_prop
+
+theorem actualCentralSquare_coordinate_conditional_residual_law (n : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    (ENNReal.ofReal (Real.exp (-(n : ℝ) * x)))⁻¹ •
+      ((((complexWishart (m := n) (n := n)).map realCoordinatesOfHermitian).restrict
+        (centralCoordinateShiftedCone n x)).map
+          (fun q : Matrix (Fin n) (Fin n) ℝ => q - x • 1)) =
+      ((complexWishart (m := n) (n := n)).map realCoordinatesOfHermitian) := by
+  rw [actualCentralSquare_coordinate_residual_law n x hx, smul_smul,
+    ENNReal.inv_mul_cancel (ne_of_gt (ENNReal.ofReal_pos.mpr (Real.exp_pos _)))
+      ENNReal.ofReal_ne_top, one_smul]
+
+/-- Whole actual complex-matrix residual law under W>xI. -/
+theorem actualCentralSquare_matrix_residual_law (n : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    ((complexWishart (m := n) (n := n)).restrict
+      {A | (A - (x : ℂ) • 1).PosDef}).map
+        (fun A : Matrix (Fin n) (Fin n) ℂ => A - (x : ℂ) • 1) =
+      ENNReal.ofReal (Real.exp (-(n : ℝ) * x)) • complexWishart (m := n) (n := n) := by
+  have hH := continuous_hermitianOfRealCoordinates (n := n) |>.measurable
+  have hs : MeasurableSet {A : Matrix (Fin n) (Fin n) ℂ | (A - (x : ℂ) • 1).PosDef} :=
+    (measurableSet_complex_posDef n).preimage (by fun_prop)
+  have hcomp : (fun A : Matrix (Fin n) (Fin n) ℂ => A - (x : ℂ) • 1) ∘
+      hermitianOfRealCoordinates = hermitianOfRealCoordinates ∘
+        (fun q : Matrix (Fin n) (Fin n) ℝ => q - x • 1) := by
+    funext q
+    change _ = hermitianOfRealCoordinates (q - x • 1)
+    rw [sub_eq_add_neg, ← neg_smul, hermitianOfRealCoordinates_shift]
+    simp [sub_eq_add_neg]
+  calc
+    _ = ((((complexWishart (m := n) (n := n)).map realCoordinatesOfHermitian).restrict
+        (centralCoordinateShiftedCone n x)).map
+          (fun q : Matrix (Fin n) (Fin n) ℝ => q - x • 1)).map hermitianOfRealCoordinates := by
+      conv_lhs => rw [complexWishart_eq_realCoordinates_map n n]
+      rw [Measure.restrict_map hH hs, Measure.map_map (by fun_prop) hH,
+        Measure.map_map hH (by fun_prop), hcomp]
+      rfl
+    _ = (ENNReal.ofReal (Real.exp (-(n : ℝ) * x)) •
+        ((complexWishart (m := n) (n := n)).map realCoordinatesOfHermitian)).map
+          hermitianOfRealCoordinates := by rw [actualCentralSquare_coordinate_residual_law n x hx]
+    _ = _ := by
+      rw [Measure.map_smul, ← complexWishart_eq_realCoordinates_map n n]
+      exact hH.aemeasurable
+
+end
+end JinWishart
+
+#print axioms JinWishart.centralWishartSquareDensity_shift
+#print axioms JinWishart.centralWishartSquareDensity_shift_indicator
+#print axioms JinWishart.actualCentralSquare_coordinate_restrict_eq_shift
+#print axioms JinWishart.actualCentralSquare_coordinate_residual_law
+#print axioms JinWishart.actualCentralSquare_coordinate_conditional_residual_law
+#print axioms JinWishart.actualCentralSquare_matrix_residual_law

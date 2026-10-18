@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CentralWishartTraceLaw.lean": {
+      "sha256": "b26d5983ebb3355959bfca6b751ecee5405c3a62121586da15bf1b2ca1bbc9dc",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "5e073947dd2228113515ad014f378a5f8e001e57995b940fc7986c8ccada6aba"
+}

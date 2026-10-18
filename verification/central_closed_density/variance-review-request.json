@@ -1,0 +1,31 @@
+{
+  "inputs": {
+    "WishartProbability.lean": {
+      "sha256": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+      "supplied_line_ranges": [
+        [
+          19,
+          28
+        ]
+      ]
+    },
+    "GaussianMatrixBlockLaw.lean": {
+      "sha256": "abe38db8a32598875d51774bc2d35fa5d64f885c531a14d8160126a75a5a2c79",
+      "supplied_line_ranges": [
+        [
+          18,
+          24
+        ]
+      ]
+    },
+    "GaussianComplexColumnDensity.lean": {
+      "sha256": "a5f3e93c997ce67a7681a2a96c64faf6576b13185309768e1596396ba1d7d812",
+      "supplied": "Full source"
+    },
+    "CentralWishartNormalization.lean": {
+      "sha256": "ce4363b339bf3614831f2c3667ac112f64ff4d791b9d30d0fa02cfa82c9864c5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "b362b88e0bf2e7a65462b09e0a66949da0f54b34352857716e926ca60618ca61"
+}

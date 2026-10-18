@@ -40,6 +40,11 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralBartlettDensityTransport.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartClosedDensity.lean -text
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartMinimum.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartNormalization.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartScaledMinimum.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartMatrixDensity.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartConeMemoryless.lean -text
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralWishartTraceLaw.lean -text
 /experiments/central_wishart_density_step_control.py -text
 /experiments/central_square_minimum_control.py -text
 /verification/central_closed_density/** -text whitespace=cr-at-eol

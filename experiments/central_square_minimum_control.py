@@ -38,7 +38,7 @@ for n in (1, 2, 3, 4):
                                empirical_tail=empirical, standard_errors=se))
     scale_controls = []
     for a in (0.4, 1.7, 3.0):
-        # Exact sample scaling is additionally checked on a fresh fixed-seed batch.
+        # Exact sample scaling is additionally checked on the final fixed-seed batch.
         W_scaled = (a*X).conj().transpose(0, 2, 1) @ (a*X)
         actual = np.linalg.eigvalsh(W_scaled)[:, 0]
         expected_scaled = a*a*np.linalg.eigvalsh(W)[:, 0]
@@ -54,6 +54,17 @@ for n in (1, 2, 3, 4):
     records.append(dict(size=n, samples=N, trace_Gamma_standard_errors=trace_se,
                         minimum_mean_standard_errors=mean_se, thresholds=thresholds))
     records[-1]['scale_controls'] = scale_controls
+    x = 0.75/n
+    selected = lam > x
+    count = int(selected.sum())
+    residual_trace = tr[selected]-n*x
+    trace_residual_se = (residual_trace.mean()-n*n)/(n/np.sqrt(count))
+    min_residual_se = ((lam[selected]-x).mean()-1/n)/(1/n/np.sqrt(count))
+    assert abs(trace_residual_se) < 6 and abs(min_residual_se) < 6
+    records[-1]['matrix_memoryless_control'] = dict(threshold=x, conditional_count=count,
+        shifted_trace_Gamma_mean_standard_errors=trace_residual_se,
+        shifted_minimum_Exp_mean_standard_errors=min_residual_se,
+        interpretation='Conditional whole-matrix claim checked only via two known marginal controls; not proof')
 report = dict(seed=SEED, source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               collected_utc=datetime.now(timezone.utc).isoformat(), records=records,
               status='PASS actual samples; known trace Gamma and Exp(rate n) controls',
