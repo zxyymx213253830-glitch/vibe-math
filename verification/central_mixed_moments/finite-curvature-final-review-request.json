@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "HermitianSquaredTrace.lean": {
+      "sha256": "7c66fb8e86ac29335e79f8feef207b0aa6e9929f7dda093068df6e4ae1fc6cc2",
+      "supplied": "Full source"
+    },
+    "NoncentralLogDetCurvatureCoefficient.lean": {
+      "sha256": "b89a07d8b42a602c8bc8dea3b856d61859f229384c8989b690e28c7a8d20a530",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "d184e60c125b0096dc4c0075ed958f5166be308ea944d73d7b63b785a47501ee"
+}

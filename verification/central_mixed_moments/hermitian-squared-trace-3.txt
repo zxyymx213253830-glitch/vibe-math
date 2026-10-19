@@ -1,0 +1,5 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSquaredTrace.lean:22:2: error: `simp` made no progress
+'JinWishart.hermitian_trace_square_eq_orderedEigenvalues' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

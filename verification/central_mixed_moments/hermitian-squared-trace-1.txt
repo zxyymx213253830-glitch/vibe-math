@@ -1,0 +1,33 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSquaredTrace.lean:21:2: error: Type mismatch
+  Equiv.sum_comp (Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))).symm fun i => hA.eigenvalues₀ i ^ 2
+has type
+  ∑ i, hA.eigenvalues₀ ((Fintype.equivOfCardEq ⋯).symm i) ^ 2 = ∑ i, hA.eigenvalues₀ i ^ 2
+but is expected to have type
+  ∑ i, ((RCLike.ofReal ∘ hA.eigenvalues ^ 2) i).re = ∑ i, hA.eigenvalues₀ i ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSquaredTrace.lean:20:13: warning: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Complex.ofReal_pow, Complex.re_sum, Complex.ofReal_re]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSquaredTrace.lean:20:33: warning: This simp argument is unused:
+  ← Complex.ofReal_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Function.comp_apply, Complex.re_sum, Complex.ofReal_re]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSquaredTrace.lean:20:69: warning: This simp argument is unused:
+  Complex.ofReal_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Function.comp_apply, ← Complex.ofReal_pow, Complex.re_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.hermitian_trace_square_eq_orderedEigenvalues' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

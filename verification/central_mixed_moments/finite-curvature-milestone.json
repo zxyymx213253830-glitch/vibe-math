@@ -1,0 +1,18 @@
+{
+  "collected_utc": "2026-10-19T17:33:10.347733+00:00",
+  "new_declarations": 5,
+  "total_bound_items": 404,
+  "leaf_checks": {
+    "hermitian-squared-trace-5.txt": 0,
+    "finite-curvature-coefficient-2.txt": 0
+  },
+  "main_entry": {
+    "log": "facade-37.txt",
+    "actual_exit_code": 0
+  },
+  "scope": "Exact finite factorial-functional actual logdet curvature coefficient, no probability integral remains; simplified classical mean/shape expression NOT yet proved",
+  "p4": "First timeout not approval; shorter final real response delivered and exact API/emptyshape/factorial2 warnings resolved in note",
+  "human_review": "REQUIRED",
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED"
+}

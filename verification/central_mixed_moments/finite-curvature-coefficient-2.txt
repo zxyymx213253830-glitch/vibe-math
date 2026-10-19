@@ -1,0 +1,8 @@
+'JinWishart.eval_noncentralGramSquaredTracePolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualNoncentralGram_squaredTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_integral_actualNoncentralEigenvalue_sq_eq_finite' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_low_scale_finite_curvature' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

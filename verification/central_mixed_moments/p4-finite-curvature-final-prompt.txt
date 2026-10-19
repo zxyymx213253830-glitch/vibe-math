@@ -1,0 +1,112 @@
+P4 different-model review. Only concrete mathematical problems, maximum800words; no tools, proof rewrite or speculative compile errors. First request timedout90seconds with no substantive response; this is a shorter scoped request. Five theorems final kernelexit0 standard3axioms. Two exact transformations: Hermitian trace(A^2).re=SUMorderedlambda^2 via unitary; actual fixed-mean complexGaussian logdet lowrho curvature coefficient becomes ReL(trace(G_M^2))/2. L(P)=finite SUMcoeff(d)*PROD(if d(inl i)=d(inr i) then factorial(d(inl i)) else0). Existing GaussianMatrixPolynomialLaw proves integrability/integral=L for ANYpolynomial, so NOT assuming targetdensity; NoncentralGramPolynomialMoments proves evalG_M=actualGramX. Prior independentlychecked lowrho theorem has finite ACTUALsecondmoments fromGaussianL4, no rank premise, allshapesincluding0, arbitraryfixedM; T=mn+SUM||Mij||^2. L is linear not ringhom, eval is ringhom. Not claiming simplified classicalconstant or jointdensity. Check actual coefficient transformation/integral exchange/conjugation/emptyshape. Exact rational smallshape factorial+scalar/negativecontrolsPASS, numbersnotproof. Humanmeasure/model review stillREQUIRED. If no problem, state no concrete issue found; do not invent axioms or undocumented signatures. Full final sources:
+
+HermitianSquaredTrace.lean
+import JinWishartFormalization.HermitianSpectralLogDet
+
+/-! Ordered spectral second moment equals the real trace of the square.
+Codex deterministic algebra; no positivity, rank or probability assumption. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem hermitian_trace_square_eq_orderedEigenvalues {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian) :
+    (A^2).trace.re = ∑ i, (hA.eigenvalues₀ i)^2 := by
+  classical
+  let U := hA.eigenvectorUnitary
+  let D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hA.eigenvalues)
+  have he : A^2 = Unitary.conjStarAlgAut ℂ _ U (D^2) := by
+    rw [map_pow,← hA.spectral_theorem]
+  rw [he,Unitary.conjStarAlgAut_apply,trace_mul_cycle,Unitary.coe_star_mul_self,one_mul]
+  dsimp only [D]
+  rw [Matrix.diagonal_pow,Matrix.trace_diagonal]
+  simp only [Pi.pow_apply,Function.comp_apply,Complex.re_sum]
+  change (∑ i, RCLike.re ((hA.eigenvalues i : ℂ)^2)) = _
+  have hreal (t : ℝ) : RCLike.re ((t : ℂ)^2) = t^2 := by
+    change ((t : ℂ)^2).re = t^2
+    norm_cast
+  simp_rw [hreal]
+  simpa only [Matrix.IsHermitian.eigenvalues] using
+    Equiv.sum_comp (Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))).symm
+      (fun i => (hA.eigenvalues₀ i)^2)
+
+end
+end JinWishart
+#print axioms JinWishart.hermitian_trace_square_eq_orderedEigenvalues
+
+NoncentralLogDetCurvatureCoefficient.lean
+import JinWishartFormalization.ActualLogDetLowScaleCurvature
+import JinWishartFormalization.NoncentralGramPolynomialMoments
+import JinWishartFormalization.HermitianSquaredTrace
+
+/-! An exact finite factorial-functional coefficient for actual logdet curvature.
+Codex. Eliminates spectral probability integrals from the coefficient. This is
+not yet its classical simplified shape/mean formula, nor a joint spectral law.
+[需人工审查] Actual Gaussian polynomial transport, finite sums and model mapping.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def noncentralGramSquaredTracePolynomial {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ) :
+    ComplexMatrixPolynomial m n := ((noncentralGramEntryPolynomial M)^2).trace
+
+theorem eval_noncentralGramSquaredTracePolynomial {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (z : ComplexSample (m := m) (n := n)) :
+    complexGaussianPolynomialEval (noncentralGramSquaredTracePolynomial M) (complexMatrixEntries z) =
+      ((complexGram (complexSampleMatrix z+M))^2).trace := by
+  classical
+  let e := MvPolynomial.eval (Sum.elim (complexMatrixEntries z) (fun i => star (complexMatrixEntries z i)))
+  change e (((noncentralGramEntryPolynomial M)^2).trace) = _
+  rw [AddMonoidHom.map_trace,Matrix.map_pow]
+  have hm : (noncentralGramEntryPolynomial M).map e = complexGram (complexSampleMatrix z+M) := by
+    ext i j
+    exact eval_noncentralGramEntryPolynomial M z i j
+  rw [hm]
+
+theorem integral_actualNoncentralGram_squaredTrace {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    (∫ z : ComplexSample (m := m) (n := n), ((complexGram (complexSampleMatrix z+M))^2).trace.re
+      ∂stdGaussian _) = (complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M)).re := by
+  have hi := integrable_actualComplexMatrix_polynomial m n (noncentralGramSquaredTracePolynomial M)
+  have h := congrArg Complex.re
+    (integral_actualComplexMatrix_polynomial m n (noncentralGramSquaredTracePolynomial M))
+  have hr : (∫ z : ComplexSample (m := m) (n := n),
+      (complexGaussianPolynomialEval (noncentralGramSquaredTracePolynomial M) (complexMatrixEntries z)).re
+      ∂stdGaussian _) =
+      (∫ z : ComplexSample (m := m) (n := n),
+        complexGaussianPolynomialEval (noncentralGramSquaredTracePolynomial M) (complexMatrixEntries z)
+        ∂stdGaussian _).re := by simpa using! integral_re hi
+  rw [← hr] at h
+  simp_rw [eval_noncentralGramSquaredTracePolynomial] at h
+  exact h
+
+theorem sum_integral_actualNoncentralEigenvalue_sq_eq_finite {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    (∑ i, ∫ z, (complexNoncentralSampleEigenvalue M i z)^2 ∂stdGaussian _) =
+      (complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M)).re := by
+  rw [← integral_finsetSum _ (fun i _ => integrable_actualNoncentralEigenvalue_sq M i)]
+  have he (z : ComplexSample (m := m) (n := n)) :
+      (∑ i, (complexNoncentralSampleEigenvalue M i z)^2) =
+        ((complexGram (complexSampleMatrix z+M))^2).trace.re :=
+    (hermitian_trace_square_eq_orderedEigenvalues _ (complexGram_posSemidef _).1).symm
+  simp_rw [he]
+  exact integral_actualNoncentralGram_squaredTrace M
+
+theorem actualNoncentralMatrixLogDet_low_scale_finite_curvature {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ =>
+      (r*((m*n : ℕ)+∑ i, ∑ j, ‖M i j‖^2)-
+        (∫ z, actualNoncentralMatrixLogDet M r z ∂stdGaussian _))/r^2)
+      (𝓝[>] 0)
+      (𝓝 ((complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M)).re/2)) := by
+  simpa only [sum_integral_actualNoncentralEigenvalue_sq_eq_finite] using
+    actualNoncentralMatrixLogDet_low_scale_curvature M
+
+end
+end JinWishart
+#print axioms JinWishart.eval_noncentralGramSquaredTracePolynomial
+#print axioms JinWishart.integral_actualNoncentralGram_squaredTrace
+#print axioms JinWishart.sum_integral_actualNoncentralEigenvalue_sq_eq_finite
+#print axioms JinWishart.actualNoncentralMatrixLogDet_low_scale_finite_curvature

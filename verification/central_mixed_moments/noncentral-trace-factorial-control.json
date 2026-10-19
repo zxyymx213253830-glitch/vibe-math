@@ -1,0 +1,73 @@
+{
+  "seed": null,
+  "arithmetic": "exact SymPy rational-complex, no random draws",
+  "status": "PASS exact low-degree polynomial factorial integration/scalar control/negative factorial omission; NOT general proof",
+  "source_sha256": "5db6ae8bbd81783e9389f487f5a326a7d32a59ce91239e2cbc7e774e1bf3f40c",
+  "records": [
+    {
+      "m": 0,
+      "n": 3,
+      "expanded_terms": 1,
+      "moment_real": "0",
+      "moment_imag": "0",
+      "candidate_real": "0",
+      "wrong_factorial_omission": "0"
+    },
+    {
+      "m": 3,
+      "n": 0,
+      "expanded_terms": 1,
+      "moment_real": "0",
+      "moment_imag": "0",
+      "candidate_real": "0",
+      "wrong_factorial_omission": "0"
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "expanded_terms": 9,
+      "moment_real": "4999/2401",
+      "moment_imag": "0",
+      "candidate_real": "4999/2401",
+      "wrong_factorial_omission": "1"
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "expanded_terms": 52,
+      "moment_real": "10562589/717409",
+      "moment_imag": "0",
+      "candidate_real": "10562589/717409",
+      "wrong_factorial_omission": "3"
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "expanded_terms": 83,
+      "moment_real": "96503752/5021863",
+      "moment_imag": "0",
+      "candidate_real": "96503752/5021863",
+      "wrong_factorial_omission": "4"
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "expanded_terms": 172,
+      "moment_real": "1413824886/35153041",
+      "moment_imag": "0",
+      "candidate_real": "1413824886/35153041",
+      "wrong_factorial_omission": "6"
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "expanded_terms": 172,
+      "moment_real": "1413824886/35153041",
+      "moment_imag": "0",
+      "candidate_real": "1413824886/35153041",
+      "wrong_factorial_omission": "6"
+    }
+  ],
+  "wick_fourth_exact_cases": 354,
+  "wick_note": "Finite tests only; no general Wick lemma claimed"
+}

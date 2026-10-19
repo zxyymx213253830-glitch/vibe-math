@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T17:24:08.413710+00:00",
-  "spec_sha256": "3ca2e8436817c561418fce3f27fedefa7b6f77fb7ae4b4176819c81f7d2ba53d",
+  "collected_utc": "2026-10-19T17:32:51.300609+00:00",
+  "spec_sha256": "6199418a7b1c023c068c22b50d0e8888cc01a680606613e74782023710adb3b3",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -5708,9 +5708,93 @@
           "sha256": "99be943d713e19aa0204365be4e841c10cbba9225326a1b4c207f9f510853258"
         }
       }
+    },
+    "JinWishartFormalization.HermitianSquaredTrace": {
+      "declarations": [
+        {
+          "name": "JinWishart.hermitian_trace_square_eq_orderedEigenvalues",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "7c66fb8e86ac29335e79f8feef207b0aa6e9929f7dda093068df6e4ae1fc6cc2",
+      "olean_sha256": "3b7548ec8bc8d383f5d2691fad31723713448e2f10ad9f034cab4f74cb5c4f91",
+      "log_sha256": "17563ea53331172eb87ab9f4ed50544f53205939cb0de1c2536e0460933bbe87",
+      "imports": {
+        "JinWishartFormalization.HermitianSpectralLogDet": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianSpectralLogDet.olean",
+          "sha256": "b4bc47d6e595ae9f1316a8658b168052294997c74e59303f7d081145c1bd5c3c"
+        }
+      }
+    },
+    "JinWishartFormalization.NoncentralLogDetCurvatureCoefficient": {
+      "declarations": [
+        {
+          "name": "JinWishart.eval_noncentralGramSquaredTracePolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualNoncentralGram_squaredTrace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.sum_integral_actualNoncentralEigenvalue_sq_eq_finite",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualNoncentralMatrixLogDet_low_scale_finite_curvature",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "b89a07d8b42a602c8bc8dea3b856d61859f229384c8989b690e28c7a8d20a530",
+      "olean_sha256": "90edd0dafbe274ee90ffe8ba12e920b9cad87b41f835dbe245cbec5825d80b09",
+      "log_sha256": "8c2beafd16b62a52204efc2c610f1a2c387a84f2b3ff8ebe1fd35dc58fd90ed8",
+      "imports": {
+        "JinWishartFormalization.ActualLogDetLowScaleCurvature": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ActualLogDetLowScaleCurvature.olean",
+          "sha256": "dec6a13ab007557b5ad92865dbbaafc76d40d9a2c2e4bd92aec5a2c7701cc8bb"
+        },
+        "JinWishartFormalization.NoncentralGramPolynomialMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/NoncentralGramPolynomialMoments.olean",
+          "sha256": "9e65e58ea72d7798a8840961590b02f01ffa2960931f267e8622ae9b13f5e036"
+        },
+        "JinWishartFormalization.HermitianSquaredTrace": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianSquaredTrace.olean",
+          "sha256": "3b7548ec8bc8d383f5d2691fad31723713448e2f10ad9f034cab4f74cb5c4f91"
+        }
+      }
     }
   },
-  "total_declarations": 399,
+  "total_declarations": 404,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -5878,6 +5962,12 @@
       "script": "experiments/logdet_second_order_control.py",
       "script_sha256": "b7c7c084604f23f6bac744ad373352aadb2a9e39dde8393c1138222ff7e52013",
       "result_sha256": "56a04a86bd1129ca87b1e53d5b6bc52096017f6de5cfa053bbe0b34c1d4b4a96",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/noncentral_trace_factorial_control.py",
+      "script_sha256": "5db6ae8bbd81783e9389f487f5a326a7d32a59ce91239e2cbc7e774e1bf3f40c",
+      "result_sha256": "78b99b0fbe6ff1284b95de0650115e19eb7a8a88d29c650e507a643299ec8a99",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -6421,6 +6511,18 @@
       "request_sha256": "606b878429b3b8881b6142c721d916a0914926a299c5ed6874c85040e252a08a",
       "prompt_sha256": "2b4197c5901def4367990d94b4e768fe98fb05552fd4ef6fa53ed38c52aa3a7f",
       "raw_response_sha256": "95000706af7cbc29905a1b32b4dcbe5ccd7db9abfebd88090d1e914fda2ff5f4",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "de6136c584274b8844000c2c97c91a3f5cd6f3073227b5ccfbaa1f8f9bc6e455",
+      "prompt_sha256": "d184e60c125b0096dc4c0075ed958f5166be308ea944d73d7b63b785a47501ee",
+      "raw_response_sha256": "18e15f85d9d80af198fa35cc8d27322df22b9196107e21270e18fd53a49d014f",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"

@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSquaredTrace.lean:22:2: error: Type mismatch: After simplification, term
+  Equiv.sum_comp (Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))).symm fun i => hA.eigenvalues₀ i ^ 2
+ has type
+  ∑ i, hA.eigenvalues₀ ((Fintype.equivOfCardEq ⋯).symm i) ^ 2 = ∑ i, hA.eigenvalues₀ i ^ 2
+but is expected to have type
+  ∑ i, RCLike.re (↑(hA.eigenvalues₀ ((Fintype.equivOfCardEq ⋯).symm i)) ^ 2) = ∑ i, hA.eigenvalues₀ i ^ 2
+'JinWishart.hermitian_trace_square_eq_orderedEigenvalues' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,36 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralLogDetCurvatureCoefficient.lean:38:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  RCLike.re
+    (∫ (x : ComplexSample),
+      complexGaussianPolynomialEval (noncentralGramSquaredTracePolynomial M)
+        (complexMatrixEntries x) ∂stdGaussian ComplexSample)
+in the target expression
+  (∫ (z : ComplexSample),
+        complexGaussianPolynomialEval (noncentralGramSquaredTracePolynomial M)
+          (complexMatrixEntries z) ∂stdGaussian ComplexSample).re =
+    (complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M)).re
+
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+hi :
+  Integrable (fun z => complexGaussianPolynomialEval (noncentralGramSquaredTracePolynomial M) (complexMatrixEntries z))
+    (stdGaussian ComplexSample)
+h :
+  (∫ (z : ComplexSample),
+        complexGaussianPolynomialEval (noncentralGramSquaredTracePolynomial M)
+          (complexMatrixEntries z) ∂stdGaussian ComplexSample).re =
+    (complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M)).re
+⊢ ∫ (z : ComplexSample), (complexGram (complexSampleMatrix z + M) ^ 2).trace.re ∂stdGaussian ComplexSample =
+    (complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M)).re
+'JinWishart.eval_noncentralGramSquaredTracePolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualNoncentralGram_squaredTrace' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.sum_integral_actualNoncentralEigenvalue_sq_eq_finite' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_low_scale_finite_curvature' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
