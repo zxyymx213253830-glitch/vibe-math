@@ -1,0 +1,84 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianResidualEnergy.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianResidualEnergy.lean:64:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianResidualEnergy.lean:80:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map ?m.370
+    (Measure.map
+      (fun a =>
+        (sampleRemainingComplexColumns a,
+          ((fun p => complexColumnSplitEnergy (totalGramColumnSpaceReal p.1) p.2) ∘ fun a =>
+              (sampleRemainingComplexColumns a, sampleFirstComplexColumn a))
+            a))
+      ?m.369)
+in the target expression
+  Measure.map (fun p => p.2.2)
+      (Measure.map
+        (fun z =>
+          (sampleRemainingComplexColumns z,
+            complexColumnSplitEnergy (totalGramColumnSpaceReal (sampleRemainingComplexColumns z))
+              (sampleFirstComplexColumn z)))
+        (stdGaussian ComplexSample)) =
+    Measure.map (fun p => p.2.2)
+      ((complexGaussianMatrixLaw 0).prod ((gammaMeasure (↑n) 1).prod (gammaMeasure (↑(m - n)) 1)))
+
+m n : ℕ
+hn : 0 < n
+hnm : n < m
+μ : Measure (Matrix (Fin m) (Fin n) ℂ) := complexGaussianMatrixLaw 0
+γ₁ : Measure ℝ := gammaMeasure (↑n) 1
+γ₂ : Measure ℝ := gammaMeasure (↑(m - n)) 1
+this✝ : IsProbabilityMeasure γ₁ :=
+  isProbabilityMeasure_gammaMeasure
+    (cast (Eq.symm (Eq.trans (congrFun' (congrArg LT.lt (Eq.symm Nat.cast_zero)) ↑n) Nat.cast_lt._simp_1)) hn)
+    (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+this : IsProbabilityMeasure γ₂ :=
+  isProbabilityMeasure_gammaMeasure
+    (cast (Eq.symm (Eq.trans (congrFun' (congrArg LT.lt (Eq.symm Nat.cast_zero)) ↑(m - n)) Nat.cast_lt._simp_1))
+      (Nat.sub_pos_of_lt hnm))
+    (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+h :
+  Measure.map (fun p => p.2.2)
+      (Measure.map
+        (fun z =>
+          (sampleRemainingComplexColumns z,
+            complexColumnSplitEnergy (totalGramColumnSpaceReal (sampleRemainingComplexColumns z))
+              (sampleFirstComplexColumn z)))
+        (stdGaussian ComplexSample)) =
+    Measure.map (fun p => p.2.2)
+      ((complexGaussianMatrixLaw 0).prod ((gammaMeasure (↑n) 1).prod (gammaMeasure (↑(m - n)) 1)))
+hB : Measurable sampleRemainingComplexColumns
+hv : Measurable sampleFirstComplexColumn
+hE :
+  Measurable
+    ((fun p => complexColumnSplitEnergy (totalGramColumnSpaceReal p.1) p.2) ∘ fun a =>
+      (sampleRemainingComplexColumns a, sampleFirstComplexColumn a))
+hF :
+  Measurable fun a =>
+    (sampleRemainingComplexColumns a,
+      ((fun p => complexColumnSplitEnergy (totalGramColumnSpaceReal p.1) p.2) ∘ fun a =>
+          (sampleRemainingComplexColumns a, sampleFirstComplexColumn a))
+        a)
+hproj : MeasurePreserving (fun p => p.2.2) (μ.prod (γ₁.prod γ₂)) γ₂
+⊢ Measure.map (fun z => totalColumnResidualEnergy (sampleRemainingComplexColumns z) (sampleFirstComplexColumn z))
+      (stdGaussian ComplexSample) =
+    gammaMeasure (↑(m - n)) 1
+'JinWishart.measurable_totalColumnResidualEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.totalColumnResidualEnergy_eq_complex_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexColumnSplitEnergy_eq_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_complexColumnSplitEnergy_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualFirstColumn_residual_energy_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

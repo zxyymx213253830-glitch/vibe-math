@@ -1,0 +1,103 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:41:15: error: don't know how to synthesize implicit argument `a`
+  @mul_le_mul_of_nonneg_right ℝ Real.instMul
+    Field.toSemifield.toDivisionSemiring.toGroupWithZero.toMulZeroOneClass.toMulZeroClass.toZero Real.instPreorder
+    (x ^ ?m.140 / ↑?m.145) (Real.exp (-1)) (Real.exp (-x)) Real.instIsOrderedRing.toMulPosMono
+    (Real.exp_le_exp.mpr (neg_le_neg hx1)) (div_nonneg (pow_nonneg (LT.lt.le hx) ?m.140) (Nat.cast_nonneg ?m.145))
+context:
+d n : ℕ
+hn : 0 < n
+x : ℝ
+hx : 0 < x
+hx1 : x ≤ 1
+h :
+  Real.exp (-x) * x ^ (d + 1) / ↑(d + 1).factorial ≤ actualCentralMinimumCDF d n x ∧
+    actualCentralMinimumCDF d n x ≤ ↑(n + 1) ^ (d + 2) * x ^ (d + 1) / ↑(d + 1).factorial
+⊢ ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:42:7: error: don't know how to synthesize implicit argument `b`
+  @div_nonneg ℝ Field.toSemifield.toDivisionSemiring.toGroupWithZero Real.partialOrder PosMulReflectLE.toPosMulReflectLT
+    (x ^ ?m.140) (↑?m.145) (pow_nonneg (LT.lt.le hx) ?m.140) (Nat.cast_nonneg ?m.145)
+context:
+d n : ℕ
+hn : 0 < n
+x : ℝ
+hx : 0 < x
+hx1 : x ≤ 1
+h :
+  Real.exp (-x) * x ^ (d + 1) / ↑(d + 1).factorial ≤ actualCentralMinimumCDF d n x ∧
+    actualCentralMinimumCDF d n x ≤ ↑(n + 1) ^ (d + 2) * x ^ (d + 1) / ↑(d + 1).factorial
+⊢ ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:42:7: error: don't know how to synthesize implicit argument `a`
+  @div_nonneg ℝ Field.toSemifield.toDivisionSemiring.toGroupWithZero Real.partialOrder PosMulReflectLE.toPosMulReflectLT
+    (x ^ ?m.140) (↑?m.145) (pow_nonneg (LT.lt.le hx) ?m.140) (Nat.cast_nonneg ?m.145)
+context:
+d n : ℕ
+hn : 0 < n
+x : ℝ
+hx : 0 < x
+hx1 : x ≤ 1
+h :
+  Real.exp (-x) * x ^ (d + 1) / ↑(d + 1).factorial ≤ actualCentralMinimumCDF d n x ∧
+    actualCentralMinimumCDF d n x ≤ ↑(n + 1) ^ (d + 2) * x ^ (d + 1) / ↑(d + 1).factorial
+⊢ ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:42:56: error: don't know how to synthesize placeholder for argument `n`
+context:
+d n : ℕ
+hn : 0 < n
+x : ℝ
+hx : 0 < x
+hx1 : x ≤ 1
+h :
+  Real.exp (-x) * x ^ (d + 1) / ↑(d + 1).factorial ≤ actualCentralMinimumCDF d n x ∧
+    actualCentralMinimumCDF d n x ≤ ↑(n + 1) ^ (d + 2) * x ^ (d + 1) / ↑(d + 1).factorial
+⊢ ℕ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:42:36: error: don't know how to synthesize placeholder for argument `n`
+context:
+d n : ℕ
+hn : 0 < n
+x : ℝ
+hx : 0 < x
+hx1 : x ≤ 1
+h :
+  Real.exp (-x) * x ^ (d + 1) / ↑(d + 1).factorial ≤ actualCentralMinimumCDF d n x ∧
+    actualCentralMinimumCDF d n x ≤ ↑(n + 1) ^ (d + 2) * x ^ (d + 1) / ↑(d + 1).factorial
+⊢ ℕ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:41:9: error: failed to infer `have` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:60:4: error: Type mismatch: After simplification, term
+  hx.right.right
+ has type
+  actualCentralMinimumCDF d n x ≤ C * x ^ (d + 1)
+but is expected to have type
+  |actualCentralMinimumCDF d n x| ≤ C * x ^ (d + 1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:66:6: error: Tactic `apply` failed: could not unify the conclusion of `(le_div_iff₀ hc).mpr`
+  ?m.304 ≤ ?m.305 / c
+with the goal
+  x ^ (d + 1) ≤ c⁻¹ * actualCentralMinimumCDF d n x
+
+Note: The full type of `(le_div_iff₀ hc).mpr` is
+  ?m.304 * c ≤ ?m.305 → ?m.304 ≤ ?m.305 / c
+
+d n : ℕ
+hn : 0 < n
+c : ℝ := Real.exp (-1) / ↑(d + 1).factorial
+C : ℝ := ↑(n + 1) ^ (d + 2) / ↑(d + 1).factorial
+hc : 0 < c
+hC : 0 < C
+hb :
+  ∀ᶠ (x : ℝ) in 𝓝[>] 0,
+    0 < x ∧ c * x ^ (d + 1) ≤ actualCentralMinimumCDF d n x ∧ actualCentralMinimumCDF d n x ≤ C * x ^ (d + 1)
+x : ℝ
+hx : 0 < x ∧ c * x ^ (d + 1) ≤ actualCentralMinimumCDF d n x ∧ actualCentralMinimumCDF d n x ≤ C * x ^ (d + 1)
+this : c * (c * x ^ (d + 1)) ≤ c * actualCentralMinimumCDF d n x
+⊢ x ^ (d + 1) ≤ c⁻¹ * actualCentralMinimumCDF d n x
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumHardEdgeBounds.lean:68:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  x ^ (d + 1) ≤ actualCentralMinimumCDF d n x * c⁻¹
+but is expected to have type
+  x ^ (d + 1) ≤ |actualCentralMinimumCDF d n x| * c⁻¹
+'JinWishart.actualCentralMinimumCDF_power_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimumCDF_local_power_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralMinimumCDF_isTheta_power' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianResidualEnergy.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianResidualEnergy.lean:64:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'JinWishart.measurable_totalColumnResidualEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.totalColumnResidualEnergy_eq_complex_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexColumnSplitEnergy_eq_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_complexColumnSplitEnergy_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualFirstColumn_residual_energy_law' depends on axioms: [propext, Classical.choice, Quot.sound]

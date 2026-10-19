@@ -104,3 +104,11 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/GramMinimumRayleigh.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/GramMinimumResidualLower.lean -text whitespace=cr-at-eol
 /experiments/central_minimum_residual_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GramComplexProjection.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianResidualEnergy.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianLeaveOneOutLaw.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianLeaveOneOutEvents.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumGammaSandwich.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GammaHardEdgeBounds.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumHardEdgeBounds.lean -text whitespace=cr-at-eol
+/experiments/gamma_hard_edge_bounds_control.py -text whitespace=cr-at-eol

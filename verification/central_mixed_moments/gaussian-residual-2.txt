@@ -1,0 +1,37 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianResidualEnergy.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianResidualEnergy.lean:64:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianResidualEnergy.lean:85:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (Measure ℝ)
+    (Measure.map
+      ((fun p => p.2.2) ∘ fun z =>
+        (sampleRemainingComplexColumns z,
+          ‖(toEuclideanLin (gramInverseProjector (sampleRemainingComplexColumns z))) (sampleFirstComplexColumn z)‖ ^ 2,
+          totalColumnResidualEnergy (sampleRemainingComplexColumns z) (sampleFirstComplexColumn z)))
+      (stdGaussian ComplexSample))
+    γ₂
+but is expected to have type
+  @Eq (Measure ℝ)
+    (Measure.map (fun z => totalColumnResidualEnergy (sampleRemainingComplexColumns z) (sampleFirstComplexColumn z))
+      (stdGaussian ComplexSample))
+    (gammaMeasure (↑(m - n)) 1)
+'JinWishart.measurable_totalColumnResidualEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.totalColumnResidualEnergy_eq_complex_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexColumnSplitEnergy_eq_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_complexColumnSplitEnergy_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualFirstColumn_residual_energy_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

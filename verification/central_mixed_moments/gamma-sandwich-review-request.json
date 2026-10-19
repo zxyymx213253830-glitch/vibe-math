@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "GaussianLeaveOneOutLaw.lean": {
+      "sha256": "b098f109e568ef34289c3e13a1d6b82b5fd6dfe63320d1fa3b8a101c0395f311",
+      "supplied": "Full source"
+    },
+    "GaussianLeaveOneOutEvents.lean": {
+      "sha256": "545889956dcff7ca266fdce5d498681f3cc8528b8f7fd28d1311e044b05e4426",
+      "supplied": "Full source"
+    },
+    "CentralMinimumGammaSandwich.lean": {
+      "sha256": "cca1a38ebc1d4fb1cee13e58e84d19ed651dbf39ca3850de6fea27a38ac0223e",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7e7024c7c395ed4d06c7bdaec8f71e8134cb44a6d041556e94099f9c0dc5c2da"
+}

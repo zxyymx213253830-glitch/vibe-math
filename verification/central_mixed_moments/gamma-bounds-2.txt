@@ -1,0 +1,8 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaHardEdgeBounds.lean:17:6: error(lean.unknownIdentifier): Unknown constant `intervalIntegral.integral_pow`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaHardEdgeBounds.lean:16:43: error: unsolved goals
+d : ℕ
+x : ℝ
+⊢ (↑d.factorial)⁻¹ * ∫ (u : ℝ) in 0..x, u ^ d = x ^ (d + 1) / ↑(d + 1).factorial
+'JinWishart.gammaNat_integral_power_normalization' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.cdf_gammaMeasure_nat_power_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.cdf_gammaMeasure_nat_power_lower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

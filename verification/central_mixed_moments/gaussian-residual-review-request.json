@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GramComplexProjection.lean": {
+      "sha256": "6dbe8062562c9f29437b09cbaccd163f1a6d1dd4b738c3a1708ae74771fc3592",
+      "supplied": "Full source"
+    },
+    "GaussianResidualEnergy.lean": {
+      "sha256": "814d74902158878febf9b31079d382338bbd2ea99cb7bd494d3f4f61f612d5ef",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "c9dfeef040962a32bbb4ecb3427343623ded94378da261ad0bb1174984c179a2"
+}

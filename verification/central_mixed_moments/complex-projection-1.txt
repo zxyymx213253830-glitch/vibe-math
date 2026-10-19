@@ -1,0 +1,3 @@
+'JinWishart.gramInverseProjector_eq_complex_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramColumnProjection_complex_eq_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramColumnResidualProjection_complex_eq_real' depends on axioms: [propext, Classical.choice, Quot.sound]

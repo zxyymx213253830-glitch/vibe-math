@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianLeaveOneOutLaw.lean:32:2: error: unrecognized function property `sorry`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianLeaveOneOutLaw.lean:32:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianLeaveOneOutLaw.lean:50:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'JinWishart.selectedColumnFirstEquiv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.selectedColumnFirstEquiv_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_totalLeaveOneOutEnergy' does not depend on any axioms
+'JinWishart.actualLeaveOneOut_energy_law' does not depend on any axioms

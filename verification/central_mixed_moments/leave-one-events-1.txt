@@ -1,0 +1,7 @@
+'JinWishart.gramSmallestValue_sample_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.leaveOneOut_preceding_isUnit_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.totalLeaveOneOutEnergy_eq_residual_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualLeaveOneOut_minimum_le_energy_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualLeaveOneOut_exists_energy_le_dimension_minimum_ae' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

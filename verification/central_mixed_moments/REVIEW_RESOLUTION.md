@@ -216,3 +216,39 @@ far. Leave-one-out marginal transport and final event sandwich remain to do.
 Finally a single determinant mass M does NOT determine Q low derivatives;
 the full Gaussian polynomial functional is needed for analytic cancellations.
 No exact general T4 coefficient follows merely from the loose Gamma bounds.
+
+Residual P4 supplied hypothetical conjugate-linearity/refactor warnings, not a current defect: Submodule.starProjection has type ContinuousLinearMap over complex scalars. complexGram is explicitly A.conjTranspose*A. smallestEigenvalueIndex selects Fin.last of the DESCENDING eigenvalue list, not an ascending first index; the review condition asking for ascending indexing is mistaken. The checked Rayleigh/smallest-tail equivalence fixes the exact minimum. Nonnegativity is the previously proved PSD Gram eigenvalue lemma with no rank premise. Review shorthand saying D_j<=n*lambda for everyj is not the theorem; only EXISTS a suitablej.
+
+
+Gaussian residual P4 delivered on exact complex/real projection8 statements.
+The total inverse is the ordinary nonsingular inverse with zero on the ENTIRE
+singular branch, not a Moore-Penrose pseudoinverse. The global real subspace
+was intentionally defined bottom on that branch, so equality with the total
+zero projector is global; actual column-space agreement is gated by explicit
+fullrank. Imported actualColumnAppend_split_energy_law is unconditional and
+uses proved actual Gaussian fullrank, not a conditional law. Orthogonal
+complex/real complement equality here is of PROJECTIONS, derived from the
+two direct-sum decompositions and equality of projected vectors; no unsupported
+subspace equality or hidden rank choice is invoked. Actual per-column Gamma
+law now proved by fixed permutation, and event inclusion uses AE fullrank
+for deleted submatrices. Different residuals are never called independent.
+
+
+Final Gamma sandwich P4 delivered13 exact-source statements. Its alleged
+ae_map_iff bimeasurability gap is false: locked MeasureTheory.ae_map_iff
+requires AEMeasurable f and MeasurableSet predicate, both explicit in code.
+No inverse-measurability premise exists. Deterministic lower/upper residual
+inequalities were proved for ALL matrices, so no missing full-matrix rank
+assumption is needed. Full rank of the deleted Gaussian block is proved AE
+using the actual injected-column Gaussian marginal; IsUnit det over C is
+equivalent to nonzero and is the exact inverse-projector prerequisite.
+Rate1 is inherited from actual CN divide-sqrt2 source, not an unverified
+new convention. The CDF identity uses cdf_eq_real for a probability measure
+on ALL reals, so negative thresholds require no additional branch argument.
+Boundary r1 is explicitly excluded in this r>=2 theorem; existing scalar
+Gamma law covers it separately. All mathematical warnings are documented,
+not silently converted into a blanket review approval.
+
+
+## Hard-edge bounds P4 (exact final six-declaration source)
+Real Qoder response preserved. Its high type claim is false: locked Mathlib MeasureSpaceDef.lean defines `Measure.real mu s := (mu s).toReal`, not a measure on R. `stdGaussian` has `isProbabilityMeasure_stdGaussian`; event measurability follows `measurable_centralGaussianSampleMinimum` and Iic, with actual pushforward handled in prior checked marginal sources. The N prefactor is exactly `measureReal_iUnion_fintype_le`, independent of residual independence. The N inside threshold is from deterministic exists j D_j<=N*lambda, not variance. Both are necessary and a checked stated sandwich supplies them. No claim that local constant exp(-1)/factorial works globally: local theorem requires0<x<=1 and Theta uses nhdsGT0. d=0 is included, N=1 excluded here, sharp coefficient not claimed. Imported dependency questions were previously reviewed; this response is not an independent compile or human approval.

@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaHardEdgeBounds.lean:16:6: error(lean.unknownIdentifier): Unknown constant `intervalIntegral.integral_pow`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaHardEdgeBounds.lean:15:43: error: unsolved goals
+d : ℕ
+x : ℝ
+⊢ (↑d.factorial)⁻¹ * ∫ (u : ℝ) in 0..x, u ^ d = x ^ (d + 1) / ↑(d + 1).factorial
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaHardEdgeBounds.lean:28:4: error: Application type mismatch: The argument
+  Continuous.intervalIntegrable ?m.75
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun u => u ^ d * Real.exp (-u)) ?m.78 a b
+but is expected to have type
+  IntervalIntegrable ?m.56 ?m.60 0 x
+in the application
+  intervalIntegral.integral_mono_on hx (Continuous.intervalIntegrable ?m.75)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaHardEdgeBounds.lean:41:6: error: Application type mismatch: The argument
+  Continuous.intervalIntegrable ?m.111
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun u => Real.exp (-x) * u ^ d) ?m.114 a b
+but is expected to have type
+  IntervalIntegrable ?m.92 ?m.96 0 x
+in the application
+  intervalIntegral.integral_mono_on hx (Continuous.intervalIntegrable ?m.111)
+'JinWishart.gammaNat_integral_power_normalization' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.cdf_gammaMeasure_nat_power_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.cdf_gammaMeasure_nat_power_lower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

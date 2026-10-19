@@ -1,0 +1,31 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumGammaSandwich.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumGammaSandwich.lean:22:20: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Measure.map (fun z => totalLeaveOneOutEnergy j z) ?m.73) (Set.Iic ?m.83)
+in the target expression
+  ((stdGaussian ComplexSample) {z | totalLeaveOneOutEnergy j z ≤ x}).toReal =
+    (Measure.map (totalLeaveOneOutEnergy j) (stdGaussian ComplexSample)).real (Set.Iic x)
+
+m n : ℕ
+hn : 0 < n
+hnm : n < m
+j : Fin (n + 1)
+x : ℝ
+this : IsProbabilityMeasure (gammaMeasure (↑(m - n)) 1) :=
+  isProbabilityMeasure_gammaMeasure
+    (cast (Eq.symm (Eq.trans (congrFun' (congrArg LT.lt (Eq.symm Nat.cast_zero)) ↑(m - n)) Nat.cast_lt._simp_1))
+      (Nat.sub_pos_of_lt hnm))
+    (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+⊢ ((stdGaussian ComplexSample) {z | totalLeaveOneOutEnergy j z ≤ x}).toReal =
+    (Measure.map (totalLeaveOneOutEnergy j) (stdGaussian ComplexSample)).real (Set.Iic x)
+'JinWishart.actualLeaveOneOut_energy_CDF' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualGaussian_minimum_gamma_lower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualGaussian_minimum_gamma_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentral_minimum_gamma_sandwich' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

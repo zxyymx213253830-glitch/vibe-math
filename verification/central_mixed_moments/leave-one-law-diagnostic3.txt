@@ -1,0 +1,45 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianLeaveOneOutLaw.lean:78:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  complexSampleMatrix (sampleColumnSelection ?e ?z)
+in the target expression
+  ((fun z =>
+          totalColumnResidualEnergy (fun i j => complexSampleMatrix z i j.succ)
+            (WithLp.toLp 2 fun i => complexSampleMatrix z i 0)) ∘
+        sampleColumnSelection ⇑(selectedColumnFirstEquiv j))
+      z =
+    totalColumnResidualEnergy ((complexSampleMatrix z).submatrix id j.succAbove)
+      (complexMatrixColumn (complexSampleMatrix z) j)
+
+m n : ℕ
+hn : 0 < n
+hnm : n < m
+j : Fin (n + 1)
+F : ComplexSample → ℝ :=
+  fun z => totalColumnResidualEnergy (sampleRemainingComplexColumns z) (sampleFirstComplexColumn z)
+hB : Measurable sampleRemainingComplexColumns
+hv : Measurable sampleFirstComplexColumn
+hFraw :
+  Measurable
+    ((fun p => totalColumnResidualEnergy p.1 p.2) ∘ fun a =>
+      (sampleRemainingComplexColumns a, sampleFirstComplexColumn a))
+hF : Measurable F
+h :
+  Measure.map (F ∘ sampleColumnSelection ⇑(selectedColumnFirstEquiv j)) (stdGaussian ComplexSample) =
+    gammaMeasure (↑(m - n)) 1
+hbase : Measure.map F (stdGaussian ComplexSample) = gammaMeasure (↑(m - n)) 1
+z : ComplexSample
+⊢ ((fun z =>
+          totalColumnResidualEnergy (fun i j => complexSampleMatrix z i j.succ)
+            (WithLp.toLp 2 fun i => complexSampleMatrix z i 0)) ∘
+        sampleColumnSelection ⇑(selectedColumnFirstEquiv j))
+      z =
+    totalColumnResidualEnergy ((complexSampleMatrix z).submatrix id j.succAbove)
+      (complexMatrixColumn (complexSampleMatrix z) j)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    complexSampleMatrix z i
+'JinWishart.selectedColumnFirstEquiv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.selectedColumnFirstEquiv_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_totalLeaveOneOutEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualLeaveOneOut_energy_law' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

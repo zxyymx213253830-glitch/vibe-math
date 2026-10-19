@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GammaHardEdgeBounds.lean": {
+      "sha256": "fcb3e0ca270eae3ec84ed7969a1964e5fda7cb4f56b86d0402ddd2608c26ff1b",
+      "supplied": "Full source"
+    },
+    "CentralMinimumHardEdgeBounds.lean": {
+      "sha256": "e1018030205d92e8170054f38125763761955a655bd373395462f1fe13501388",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "efe4306b48424e3d7d528a241c1d977787d766f1748bb5087698866fbaec82f1"
+}

@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T02:26:56.228671+00:00",
-  "spec_sha256": "f28f6a4e3404d06d797464776021c2df5dee4ff20d76ca66131364ad8aeffc5b",
+  "collected_utc": "2026-10-19T02:50:49.977820+00:00",
+  "spec_sha256": "e9de3a29bf747cbd354f3de435182a4c8d43d46bdbf805c18397ce34f9c9c73d",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -2070,9 +2070,398 @@
           "sha256": "04f3b9c834fcd4f822e5c5a8b82b56bddbae9bc7eea257b75044ffaabf1b1704"
         }
       }
+    },
+    "JinWishartFormalization.GramComplexProjection": {
+      "declarations": [
+        {
+          "name": "JinWishart.gramInverseProjector_eq_complex_projection",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.gramColumnProjection_complex_eq_real",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.gramColumnResidualProjection_complex_eq_real",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "6dbe8062562c9f29437b09cbaccd163f1a6d1dd4b738c3a1708ae74771fc3592",
+      "olean_sha256": "de5ac9a91a28faac2117fac50ba57d35fb079e7ff78ba535fe7832533b56a465",
+      "log_sha256": "afa176fe61b47aff2822bfea44f68b7e8342bab0d5999caf78e288320ef4c533",
+      "imports": {
+        "JinWishartFormalization.GaussianGramProjector": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianGramProjector.olean",
+          "sha256": "876bd38a0bc86d546d4b3b45288feead44a8445fd5b51215a64a69c9f76d36fb"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianResidualEnergy": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_totalColumnResidualEnergy",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.totalColumnResidualEnergy_eq_complex_residual",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexColumnSplitEnergy_eq_total",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.measurable_complexColumnSplitEnergy_total",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualFirstColumn_residual_energy_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "814d74902158878febf9b31079d382338bbd2ea99cb7bd494d3f4f61f612d5ef",
+      "olean_sha256": "dff1a7597a48a551e821b00cff257d5521e17272d3f74d9d62c635971a58fc7d",
+      "log_sha256": "c0f5f80a3962f66ed40412ffbeeaadb29554a274c90e7fbd8b4f941598b2f7d5",
+      "imports": {
+        "JinWishartFormalization.GramComplexProjection": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramComplexProjection.olean",
+          "sha256": "de5ac9a91a28faac2117fac50ba57d35fb079e7ff78ba535fe7832533b56a465"
+        },
+        "JinWishartFormalization.GaussianColumnAppendLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianColumnAppendLaw.olean",
+          "sha256": "1b0dff0a4021812ab1a07f5ff294b88b297a18508030c41dd0cef3e8428fbf44"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianLeaveOneOutLaw": {
+      "declarations": [
+        {
+          "name": "JinWishart.selectedColumnFirstEquiv_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.selectedColumnFirstEquiv_succ",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.measurable_totalLeaveOneOutEnergy",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualLeaveOneOut_energy_law",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "b098f109e568ef34289c3e13a1d6b82b5fd6dfe63320d1fa3b8a101c0395f311",
+      "olean_sha256": "b78ee3b0170d4b79769a6cd7ef0ae295a7edaa4e36fed2cc9e5e5d7757f41fc1",
+      "log_sha256": "9fd0241a6d218f4f898ec89c2e655d64a4e4a3776d80941678c3a584ef09158b",
+      "imports": {
+        "JinWishartFormalization.GaussianResidualEnergy": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianResidualEnergy.olean",
+          "sha256": "dff1a7597a48a551e821b00cff257d5521e17272d3f74d9d62c635971a58fc7d"
+        },
+        "JinWishartFormalization.GramMinimumResidualLower": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramMinimumResidualLower.olean",
+          "sha256": "e3998ee8ec564d9aaa4ea2758cc950ac38cfaadbee5aa7f10474f11cfe0c0fbe"
+        },
+        "Mathlib.Logic.Equiv.Fin.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Logic/Equiv/Fin/Basic.olean",
+          "sha256": "1e4be8109d673101f24e7bea57149bd1770d233f8c4fa857a956a899e81b2479"
+        }
+      }
+    },
+    "JinWishartFormalization.GaussianLeaveOneOutEvents": {
+      "declarations": [
+        {
+          "name": "JinWishart.gramSmallestValue_sample_eq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.leaveOneOut_preceding_isUnit_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.totalLeaveOneOutEnergy_eq_residual_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualLeaveOneOut_minimum_le_energy_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualLeaveOneOut_exists_energy_le_dimension_minimum_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "545889956dcff7ca266fdce5d498681f3cc8528b8f7fd28d1311e044b05e4426",
+      "olean_sha256": "b0547d49cef4b3f1cc067193ac5c6fd4406fd1beed3d71049043fc9ae4f931ff",
+      "log_sha256": "5def847c8392aaf2f064baaf3dc178efbf6aa5162964634cbeb24e49affe085f",
+      "imports": {
+        "JinWishartFormalization.GaussianLeaveOneOutLaw": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianLeaveOneOutLaw.olean",
+          "sha256": "b78ee3b0170d4b79769a6cd7ef0ae295a7edaa4e36fed2cc9e5e5d7757f41fc1"
+        },
+        "JinWishartFormalization.CentralWishartMinimumBridge": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMinimumBridge.olean",
+          "sha256": "1abd185c157a8ad6c19d6d38c303ec35d63f95c73f6cb8b7cd16b9f31cce2a09"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralMinimumGammaSandwich": {
+      "declarations": [
+        {
+          "name": "JinWishart.actualLeaveOneOut_energy_CDF",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualGaussian_minimum_gamma_lower",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualGaussian_minimum_gamma_upper",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentral_minimum_gamma_sandwich",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "cca1a38ebc1d4fb1cee13e58e84d19ed651dbf39ca3850de6fea27a38ac0223e",
+      "olean_sha256": "ecc95dcce0c49594c3d4cf9e3f111fe01f102231cf5d5d4816b153ec9c51a578",
+      "log_sha256": "a4ce4979fa40754526ad3527fc3e3d5e61443d7d2832295cddea90b1e0dd5b8b",
+      "imports": {
+        "JinWishartFormalization.GaussianLeaveOneOutEvents": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianLeaveOneOutEvents.olean",
+          "sha256": "b0547d49cef4b3f1cc067193ac5c6fd4406fd1beed3d71049043fc9ae4f931ff"
+        }
+      }
+    },
+    "JinWishartFormalization.GammaHardEdgeBounds": {
+      "declarations": [
+        {
+          "name": "JinWishart.gammaNat_integral_power_normalization",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.cdf_gammaMeasure_nat_power_upper",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.cdf_gammaMeasure_nat_power_lower",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "fcb3e0ca270eae3ec84ed7969a1964e5fda7cb4f56b86d0402ddd2608c26ff1b",
+      "olean_sha256": "2a055ed3772017de32b740eeeeca31e452371e7c342bf473679cd63d8b5517df",
+      "log_sha256": "fce2589b25f296f41ec05721544b41ad3d7b579c6476c40ffd336cf67aea325a",
+      "imports": {
+        "JinWishartFormalization.GaussianRadialCDF": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianRadialCDF.olean",
+          "sha256": "2ebfd2fbbf1f96998df49c282dc452963297c34810d2320dea2c49d3263ff5a4"
+        },
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Integrals/Basic.olean",
+          "sha256": "60c60bc66b1a12ff2f2c48a263a55a7ec85fe578862d366b36ba61ed0b0512bc"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralMinimumHardEdgeBounds": {
+      "declarations": [
+        {
+          "name": "JinWishart.actualCentralMinimumCDF_power_bounds",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralMinimumCDF_local_power_bounds",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralMinimumCDF_isTheta_power",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "e1018030205d92e8170054f38125763761955a655bd373395462f1fe13501388",
+      "olean_sha256": "df209848da9a102362d6748391cad184e36a4dfdf3a1cfa12bf5324c354f36c9",
+      "log_sha256": "585f80d24ebed14af123d715627a74ec2a89fee3bed1fdf63aa750cf684d9a90",
+      "imports": {
+        "JinWishartFormalization.CentralMinimumGammaSandwich": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralMinimumGammaSandwich.olean",
+          "sha256": "ecc95dcce0c49594c3d4cf9e3f111fe01f102231cf5d5d4816b153ec9c51a578"
+        },
+        "JinWishartFormalization.GammaHardEdgeBounds": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GammaHardEdgeBounds.olean",
+          "sha256": "2a055ed3772017de32b740eeeeca31e452371e7c342bf473679cd63d8b5517df"
+        },
+        "Mathlib.Analysis.Asymptotics.AsymptoticEquivalent": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Asymptotics/AsymptoticEquivalent.olean",
+          "sha256": "5bae9662ff426e7fd7ce285d1743b1b02765c65fb0ad775681ac9f774bf32d23"
+        }
+      }
     }
   },
-  "total_declarations": 153,
+  "total_declarations": 180,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -2126,6 +2515,12 @@
       "script": "experiments/central_minimum_residual_control.py",
       "script_sha256": "ecd9aa16faaf90dbe12f24d94260556fff3b523e8e07b3b9f9babb593dbb7b3c",
       "result_sha256": "456062926d15444fc2237948ad906bb87bcfc9cf3f45b59fe5a6ee33997515ff",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/gamma_hard_edge_bounds_control.py",
+      "script_sha256": "9a689537e731ee6c1c145ba0b56c3c20451f3b4a6f8632ef8e3a83ad2a5d5f6a",
+      "result_sha256": "d67086c2fea45edc832c3cfaf4f862c577ae34fa39011f3b733ffdfab75efa7b",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -2304,9 +2699,45 @@
       "independent_compilation": false,
       "human_review": false,
       "source_changes": []
+    },
+    {
+      "request_sha256": "3aab346e8ce4dfd4754590bd154473c51f5c0aec3918bdb136cb164a56cbd113",
+      "prompt_sha256": "c9dfeef040962a32bbb4ecb3427343623ded94378da261ad0bb1174984c179a2",
+      "raw_response_sha256": "c208edf6fd928f548357d537a5f8974d187fb78ec50c0f5777bb81dbb2d7ce14",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "e57c595e90e3dce52cb85cb0aed35b84d9af8d64c785937399816aea680fea46",
+      "prompt_sha256": "7e7024c7c395ed4d06c7bdaec8f71e8134cb44a6d041556e94099f9c0dc5c2da",
+      "raw_response_sha256": "b816d45081d899c482fbe58ab80c70eadfc128428a1fde29f426816e5da47032",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "e2aedb326ebb00eebfef745596d7d475dcf59c30a2d09bab39a648873eabe86f",
+      "prompt_sha256": "efe4306b48424e3d7d528a241c1d977787d766f1748bb5087698866fbaec82f1",
+      "raw_response_sha256": "95cbcc7b182a81a19dbece5e45b0fcd68cd8bb3d3192a19f03584501f7c88076",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
     }
   ],
-  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review. Arbitrary deterministic-mean Gram determinant power moments now exact finite factorial formula, including canonical complexNoncentralWishart integral; NOT a noncentral minimum CDF. General central formula specializes exactly to prior d=0,1,2 CDF polynomials for x>=0,n>0. New8 items make111 theorem/instance plus1 witness=112. Noncentral P4 exact final source covered; specialization review covers earlier proof script with identical statement but later explicit Nat.zero_add rewrite fixed in specialize-4, so not an exact final proof-body review for those3. Last5 items: actual factorial moment functional is a linear map (explicit constructed witness), maps univariate polynomial coefficients compatibly with evaluation; fixed univariate polynomial in x gives entire general central CDF coefficient function. Total115 theorem/instance+2 constructions=117. New linear/univariate5 items NOT in independent P4 snapshot; review pending. Degree bound/general original determinant identity NOT proved. Final linear/univariate5 items now have exact-source Qoder P4 delivered with no concrete defect; standing human interpretation still required, no independent compile. Earlier pending review text superseded by this final receipt. Resumed under renewed user authorization2026-10-19: generic coefficientwise integration degree bound, exact degree n*d and monicity of fixed raw minimum polynomial, zero-value normalizing factorial mass and normalized Q(0)=1 now proved. Twelve new statements, total127 theorem/instance+2 witnesses=129. Degree P4 delivered, no blocking issues; normalization P4 pending real response. No general hard-edge or original candidate identity inferred. Normalization P4 has delivered. Its finiteness warning is resolved directly: hi has both sides ENNReal.ofReal of real numbers (always finite), rewritten via toReal_ofReal under explicit nonnegativity. No arbitrary ENNReal injection claim is used. Eleven more declarations give real coefficient polynomial (real-part applied linearly, not as ring map), exact monicity/degree, and actual general central minimum RIGHT-tail ratio limit1/M, covariance vI limit1/(M*v^(d*n)). Total138 theorem/instance+2 witnesses=140. General LEFT-tail hard-edge/T4 not proved. New right-tail P4 pending receipt. Final real/right-tail11 exact-source Qoder P4 delivered no concrete mathematical issue; no independent compilation/human approval. Normalization pending text superseded by real receipt. Left-tail diversity route under evaluation, not proved. General leave-one-out deterministic residual bounds closed for arbitrary complex rectangular matrices, including singular and one-column cases: minGram<=D_j everyj, existsj D_j<=ncols*minGram. Unit-eigenvector and residual test-vector constructions; no rank premise. Thirteen new items make151 theorem/instance+2 witnesses=153. Gaussian residual marginal/union bound/diversity exponent are NEXT obligations, NOT proved by these deterministic lemmas. Residual P4 pending real response. Residual final P4 has delivered on all four checked deterministic sources; human semantics not implied. Gaussian marginal/event/probability bridge still pending.",
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review. Arbitrary deterministic-mean Gram determinant power moments now exact finite factorial formula, including canonical complexNoncentralWishart integral; NOT a noncentral minimum CDF. General central formula specializes exactly to prior d=0,1,2 CDF polynomials for x>=0,n>0. New8 items make111 theorem/instance plus1 witness=112. Noncentral P4 exact final source covered; specialization review covers earlier proof script with identical statement but later explicit Nat.zero_add rewrite fixed in specialize-4, so not an exact final proof-body review for those3. Last5 items: actual factorial moment functional is a linear map (explicit constructed witness), maps univariate polynomial coefficients compatibly with evaluation; fixed univariate polynomial in x gives entire general central CDF coefficient function. Total115 theorem/instance+2 constructions=117. New linear/univariate5 items NOT in independent P4 snapshot; review pending. Degree bound/general original determinant identity NOT proved. Final linear/univariate5 items now have exact-source Qoder P4 delivered with no concrete defect; standing human interpretation still required, no independent compile. Earlier pending review text superseded by this final receipt. Resumed under renewed user authorization2026-10-19: generic coefficientwise integration degree bound, exact degree n*d and monicity of fixed raw minimum polynomial, zero-value normalizing factorial mass and normalized Q(0)=1 now proved. Twelve new statements, total127 theorem/instance+2 witnesses=129. Degree P4 delivered, no blocking issues; normalization P4 pending real response. No general hard-edge or original candidate identity inferred. Normalization P4 has delivered. Its finiteness warning is resolved directly: hi has both sides ENNReal.ofReal of real numbers (always finite), rewritten via toReal_ofReal under explicit nonnegativity. No arbitrary ENNReal injection claim is used. Eleven more declarations give real coefficient polynomial (real-part applied linearly, not as ring map), exact monicity/degree, and actual general central minimum RIGHT-tail ratio limit1/M, covariance vI limit1/(M*v^(d*n)). Total138 theorem/instance+2 witnesses=140. General LEFT-tail hard-edge/T4 not proved. New right-tail P4 pending receipt. Final real/right-tail11 exact-source Qoder P4 delivered no concrete mathematical issue; no independent compilation/human approval. Normalization pending text superseded by real receipt. Left-tail diversity route under evaluation, not proved. General leave-one-out deterministic residual bounds closed for arbitrary complex rectangular matrices, including singular and one-column cases: minGram<=D_j everyj, existsj D_j<=ncols*minGram. Unit-eigenvector and residual test-vector constructions; no rank premise. Thirteen new items make151 theorem/instance+2 witnesses=153. Gaussian residual marginal/union bound/diversity exponent are NEXT obligations, NOT proved by these deterministic lemmas. Residual P4 pending real response. Residual final P4 has delivered on all four checked deterministic sources; human semantics not implied. Gaussian marginal/event/probability bridge still pending. Actual Gaussian leave-one-out Gamma marginals and AE rank/model correspondence now proved; full CDF Gamma lower/union upper sandwich for N>=2, dof>=N, any real threshold. No residual independence premise. Twenty-one new items make172 theorem/instance+2 witnesses=174. First-column P48 delivered, new marginal/event/sandwich13 P4 pending; general exact left-tail coefficient/log exponent not yet proved. Final marginal/event/sandwich13 P4 delivered with speculative API/rank warnings; resolved against exact ae_map_iff requiring AEMeasurable plus measurable predicate (NOT bimeasurability), rank-free deterministic lemmas, and imported unconditional variance-one Gamma source law. No pending response or unreported assumed rank. Six checked declarations now give explicit Gamma CDF power bounds, actual central minimum power sandwich and Theta(x^(d+1)) at zero from the right for N>=2, m=d+N. Total180 items. Sharp left-tail coefficient NOT derived. Hard-edge P4 pending real receipt. Hard-edge6 exact-source Qoder P4 delivered. Its measure.real type objection is false (Measure.real is Set->Real defined as toReal); stdGaussian probability and minimum measurability are proved upstream. N prefactor is finite union bound while N*x comes from deterministic residual inclusion, not duplicate variance scaling. No independent residual premise. Local constants explicitly restricted0<x<=1; Gamma integral inequalities separately globalx>=0. Human model audit remains required.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",
