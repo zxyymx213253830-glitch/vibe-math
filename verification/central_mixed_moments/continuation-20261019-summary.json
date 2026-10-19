@@ -1,5 +1,5 @@
 {
-  "collected_utc": "2026-10-19T18:04:10.317067+00:00",
+  "collected_utc": "2026-10-19T18:06:16.033065+00:00",
   "authorized_resume": "2026-10-19T14:13UTC explicit user continue",
   "initial_bound_items": 305,
   "final_bound_items": 431,
@@ -410,7 +410,7 @@
     }
   ],
   "file_hashes": {
-    "verification/central_mixed_moments/audit.json": "c8999023db829aae2632681fc2909bbd046ee0ce827e5a331df5d61ae1b86123",
+    "verification/central_mixed_moments/audit.json": "ce5f53f872aaa6c8156a7b67ce4b0471dff940be1bcb1d665b5ceb74c7fc47cd",
     "theory/jin_wishart_formalization/JinWishartFormalization.lean": "2f4c3062c7e4cbd23eb64709054f7216c40724f7902d450f8a6c206428ac1897",
     ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization.olean": "af91b04a78756b50b8e3a4f2ff126f1b38fc3014f8faf18d32b90b13ec149163",
     "verification/central_mixed_moments/facade-32.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
@@ -419,22 +419,24 @@
     "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
     "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b",
     "verification/central_mixed_moments/facade-33.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
-    "verification/central_mixed_moments/spec.json": "d397675b1b8baf81038a52a51fa629d199d3256094206954d6330d13949fa8a5",
+    "verification/central_mixed_moments/spec.json": "40a45f412ac06e6539c9cdc8c7d52dc9dbd0ea715cc91835ecde535d4afcad51",
     "verification/central_mixed_moments/facade-39.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
     "notes/WISHART_NONCENTRAL_SECOND_MOMENT_CLOSED.md": "64a6ba929a44fc340c403e5536c8f0a7c519c17f1488504690f47c6792c63dba",
     "notes/WISHART_ACTUAL_TRACE_VARIANCE.md": "2b578635c1d2b4f47dbfffd3c951c61ae55df45935dd4c07172f4bf57d84f23a",
     "verification/central_mixed_moments/facade-40.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
     "notes/WISHART_CORRELATED_GRAM_MEAN.md": "76f94913cdbfcd4e89ec8f2fcf64e208cae4e8721fb212739ff251c3009c1ac5",
-    "notes/WISHART_LOGDET_RESEARCH_CLAIMS.md": "1efdd04160891c9fbefeb8cd79b5cc041f46a81f82dc70470485bd00a83b8d88"
+    "notes/WISHART_LOGDET_RESEARCH_CLAIMS.md": "1efdd04160891c9fbefeb8cd79b5cc041f46a81f82dc70470485bd00a83b8d88",
+    "notes/WISHART_NEXT_WEIGHTED_WICK_CARD.md": "3201fda7c13a662a10a44f7bc9cc1c7909b26716a6036554e18e5257253a67c3",
+    "verification/central_mixed_moments/linear-wick-control.json": "bedbad95bac2d05d47033bc8babd685d0ea5e4fae183501263c78dbc9a0ed244"
   },
   "full_build": "NOT_RUN",
   "frozen_publication": "UNCHANGED; hashes identify old frozen version, NOT an updated submission",
   "human_review": "REQUIRED: measure/Fubini/variance/model/paper correspondence",
-  "quota_policy": "Latest18:05UTC ordinaryUsageAllowed=true primary71% weekly99%, not exhausted; no purchases/coupons/accounts. Do not stop solely percentage.",
+  "quota_policy": "Latest18:08UTC ordinaryUsageAllowed=true primary74% weeklyrounded100; percentage alone is NOT unavailability, no coupons/purchases/accounts.",
   "failed_facade_checks": {
     "facade-34.txt": "Misplaced import after declarations; fixed by moving to beginning; facade35 realexit0."
   },
-  "pending": "No pending source/check/model process; next weighted correlated fourth moment precise card, numericalcontrol only. Generalcorrelatedvariance/secondmoment/lowrho curvaturenotproved.",
+  "pending": "No livechecks/modelcalls. Next weighted fourthWick exact card/preflight controls only, no nextsource yet.",
   "request_observations": {
     "total_requests": 25,
     "actual_exit0": 22,

@@ -1,0 +1,43 @@
+{
+  "seed": null,
+  "arithmetic": "exact rational complex SymPy expansion",
+  "status": "PASS weighted fourth moment, empty-source, double-conjugation and missing-pair controls; NOT general Lean proof",
+  "source_sha256": "bddd59bc43ee84a34dfa929d48ee3acd9ef2ae2820c6b0d137aef7ce347699dd",
+  "records": [
+    {
+      "q": 0,
+      "monomials": 1,
+      "real": "32/2205",
+      "imag": "-76/2205",
+      "wrong_double_conjugation_detected": false
+    },
+    {
+      "q": 1,
+      "monomials": 9,
+      "real": "2336/13475",
+      "imag": "-55897/363825",
+      "wrong_double_conjugation_detected": true
+    },
+    {
+      "q": 2,
+      "monomials": 36,
+      "real": "167278/72765",
+      "imag": "-370313/363825",
+      "wrong_double_conjugation_detected": true
+    },
+    {
+      "q": 3,
+      "monomials": 100,
+      "real": "5033132/363825",
+      "imag": "-158014/33075",
+      "wrong_double_conjugation_detected": true
+    },
+    {
+      "q": 4,
+      "monomials": 225,
+      "real": "19860986/363825",
+      "imag": "-405536/24255",
+      "wrong_double_conjugation_detected": true
+    }
+  ]
+}

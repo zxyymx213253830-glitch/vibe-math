@@ -800,6 +800,11 @@
       "script": "experiments/correlated_gaussian_trace_control.py",
       "result": "verification/central_mixed_moments/correlated-trace-control.json",
       "seed": 2026101926
+    },
+    {
+      "script": "experiments/complex_linear_wick_control.py",
+      "result": "verification/central_mixed_moments/linear-wick-control.json",
+      "seed": null
     }
   ],
   "reviews": [

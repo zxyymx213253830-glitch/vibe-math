@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T18:01:57.348217+00:00",
-  "spec_sha256": "d397675b1b8baf81038a52a51fa629d199d3256094206954d6330d13949fa8a5",
+  "collected_utc": "2026-10-19T18:05:31.100847+00:00",
+  "spec_sha256": "40a45f412ac06e6539c9cdc8c7d52dc9dbd0ea715cc91835ecde535d4afcad51",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -6347,6 +6347,12 @@
       "script": "experiments/correlated_gaussian_trace_control.py",
       "script_sha256": "180ab43ba5a5587d6ba5a1434eae7b48b47aa420ae243fb9c1fad519f8f1afff",
       "result_sha256": "0c51431f24f07a7f23858fa95bcaf2c6d0ae96b5243a3c764f7e8affe74fb1a4",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/complex_linear_wick_control.py",
+      "script_sha256": "bddd59bc43ee84a34dfa929d48ee3acd9ef2ae2820c6b0d137aef7ce347699dd",
+      "result_sha256": "bedbad95bac2d05d47033bc8babd685d0ea5e4fae183501263c78dbc9a0ed244",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
