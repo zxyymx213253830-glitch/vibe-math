@@ -1,0 +1,108 @@
+import JinWishartFormalization.CentralMinimumUnivariatePolynomial
+import Mathlib.LinearAlgebra.Matrix.Polynomial
+
+/-!
+# Degree bounds for the general central minimum polynomial
+
+Codex deterministic proofs, preceded by exact polynomial/factorial controls.
+Coefficientwise linear integration may cancel terms but cannot increase degree.
+The actual-law interpretation inherited from the CDF remains [需人工审查].
+-/
+open Matrix
+open scoped BigOperators
+namespace JinWishart
+noncomputable section
+
+theorem complexGaussianIntegratedPolynomial_natDegree_le {ι : Type*} [Fintype ι]
+    (P : Polynomial (MvPolynomial (ι ⊕ ι) ℂ)) :
+    (complexGaussianIntegratedPolynomial P).natDegree ≤ P.natDegree := by
+  classical
+  unfold complexGaussianIntegratedPolynomial
+  apply Polynomial.natDegree_sum_le_of_forall_le
+  intro k hk
+  exact (Polynomial.natDegree_monomial_le _).trans (Polynomial.le_natDegree_of_mem_supp k hk)
+
+theorem shiftedGramPolynomialInX_natDegree_le (n d : ℕ) :
+    (shiftedGramPolynomialInX n d).natDegree ≤ d*n := by
+  classical
+  have h := Polynomial.natDegree_det_X_add_C_le
+    (1 : Matrix (Fin n) (Fin n) (ComplexMatrixPolynomial n n)) (gramEntryPolynomial n n)
+  have hM : (1 : Matrix (Fin n) (Fin n) (ComplexMatrixPolynomial n n)).map Polynomial.C =
+      (1 : Matrix (Fin n) (Fin n) (Polynomial (ComplexMatrixPolynomial n n))) := by
+    ext i j
+    by_cases hij : i=j <;> simp [Matrix.map_apply,Matrix.one_apply,hij]
+  rw [hM,Fintype.card_fin] at h
+  have hp := Polynomial.natDegree_pow_le_of_le d h
+  simpa only [shiftedGramPolynomialInX,add_comm] using hp
+
+theorem centralMinimumUnivariatePolynomial_natDegree_le (d n : ℕ) :
+    (centralMinimumUnivariatePolynomial d n).natDegree ≤ d*n := by
+  exact (complexGaussianIntegratedPolynomial_natDegree_le _).trans
+    (shiftedGramPolynomialInX_natDegree_le n d)
+
+theorem complexGaussianIntegratedPolynomial_coeff {ι : Type*} [Fintype ι]
+    (P : Polynomial (MvPolynomial (ι ⊕ ι) ℂ)) (k : ℕ) :
+    (complexGaussianIntegratedPolynomial P).coeff k =
+      complexGaussianPolynomialMoment (P.coeff k) := by
+  classical
+  unfold complexGaussianIntegratedPolynomial
+  rw [Polynomial.finsetSum_coeff,Finset.sum_eq_single k]
+  · simp
+  · intro b _ hbk
+    simp [Polynomial.coeff_monomial,hbk]
+  · intro hk
+    have hz : P.coeff k = 0 := by simpa only [Polynomial.mem_support_iff,not_not] using hk
+    rw [hz]
+    simp [complexGaussianPolynomialMoment]
+
+theorem complexGaussianPolynomialMoment_one {ι : Type*} [Fintype ι] :
+    complexGaussianPolynomialMoment (1 : MvPolynomial (ι ⊕ ι) ℂ) = 1 := by
+  classical
+  simp [complexGaussianPolynomialMoment]
+
+theorem shiftedGramPolynomialInX_coeff_top (n d : ℕ) :
+    (shiftedGramPolynomialInX n d).coeff (d*n) = 1 := by
+  classical
+  have hM : (1 : Matrix (Fin n) (Fin n) (ComplexMatrixPolynomial n n)).map Polynomial.C =
+      (1 : Matrix (Fin n) (Fin n) (Polynomial (ComplexMatrixPolynomial n n))) := by
+    ext i j
+    by_cases hij : i=j <;> simp [Matrix.map_apply,Matrix.one_apply,hij]
+  have hb := Polynomial.natDegree_det_X_add_C_le
+    (1 : Matrix (Fin n) (Fin n) (ComplexMatrixPolynomial n n)) (gramEntryPolynomial n n)
+  have hc := Polynomial.coeff_det_X_add_C_card
+    (1 : Matrix (Fin n) (Fin n) (ComplexMatrixPolynomial n n)) (gramEntryPolynomial n n)
+  rw [hM,Fintype.card_fin] at hb hc
+  rw [Matrix.det_one] at hc
+  have hp := Polynomial.coeff_pow_of_natDegree_le (m := d) hb
+  rw [hc,one_pow] at hp
+  simpa only [shiftedGramPolynomialInX,add_comm] using hp
+
+theorem centralMinimumUnivariatePolynomial_coeff_top (d n : ℕ) :
+    (centralMinimumUnivariatePolynomial d n).coeff (d*n) = 1 := by
+  rw [centralMinimumUnivariatePolynomial,complexGaussianIntegratedPolynomial_coeff,
+    shiftedGramPolynomialInX_coeff_top,complexGaussianPolynomialMoment_one]
+
+theorem centralMinimumUnivariatePolynomial_natDegree (d n : ℕ) :
+    (centralMinimumUnivariatePolynomial d n).natDegree = d*n := by
+  apply Polynomial.natDegree_eq_of_le_of_coeff_ne_zero
+    (centralMinimumUnivariatePolynomial_natDegree_le d n)
+  rw [centralMinimumUnivariatePolynomial_coeff_top]
+  exact one_ne_zero
+
+theorem centralMinimumUnivariatePolynomial_monic (d n : ℕ) :
+    (centralMinimumUnivariatePolynomial d n).Monic := by
+  change (centralMinimumUnivariatePolynomial d n).leadingCoeff = 1
+  rw [← Polynomial.coeff_natDegree,centralMinimumUnivariatePolynomial_natDegree,
+    centralMinimumUnivariatePolynomial_coeff_top]
+
+end
+end JinWishart
+#print axioms JinWishart.complexGaussianIntegratedPolynomial_natDegree_le
+#print axioms JinWishart.shiftedGramPolynomialInX_natDegree_le
+#print axioms JinWishart.centralMinimumUnivariatePolynomial_natDegree_le
+#print axioms JinWishart.complexGaussianIntegratedPolynomial_coeff
+#print axioms JinWishart.complexGaussianPolynomialMoment_one
+#print axioms JinWishart.shiftedGramPolynomialInX_coeff_top
+#print axioms JinWishart.centralMinimumUnivariatePolynomial_coeff_top
+#print axioms JinWishart.centralMinimumUnivariatePolynomial_natDegree
+#print axioms JinWishart.centralMinimumUnivariatePolynomial_monic

@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialDegree.lean:25:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialDegree.lean:30:13: warning: This simp argument is unused:
+  Matrix.map_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.card_fin] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialDegree.lean:35:8: error: (kernel) unknown constant 'JinWishart.shiftedGramPolynomialInX_natDegree_le'
+'JinWishart.complexGaussianIntegratedPolynomial_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.shiftedGramPolynomialInX_natDegree_le' does not depend on any axioms
+'JinWishart.centralMinimumUnivariatePolynomial_natDegree_le' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.centralMinimumUnivariatePolynomial_natDegree_le,
+ Quot.sound]

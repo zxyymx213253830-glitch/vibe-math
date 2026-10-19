@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CentralMinimumPolynomialNormalization.lean": {
+      "sha256": "59d72e1a6936062ecca250c7cee41002369ae201e9ef68d42d9dfca93748cf8c",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a631d657de21ee762789d155c2e6b2b14b51b6ccfa7b86cc115595db1ed376fc"
+}

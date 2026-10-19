@@ -388,3 +388,18 @@ for all real x. Thus Q really is the real part of a fixed polynomial divided
 by the explicit factorial mass, not merely a family of pointwise support
 expressions. No degree bound or efficient original T1 determinant formula
 has been proved here. Five new bound items, total117; new5 P4 pending.
+
+
+### Exact degree, monicity and zero normalization
+
+CentralMinimumPolynomialDegree proves coefficientwise integration cannot
+increase degree, raw determinant-polynomial top coefficient1, hence the
+fixed complex polynomial is monic of EXACT degree d*n (including n0/d0).
+CentralMinimumPolynomialNormalization independently reuses actual Gamma
+determinant moments to prove Re constant term=product_j(j+d)!/j! and Q(0)=1.
+No minimum-CDF normalization is assumed to prove that mass identity.
+Twelve new declarations plus changed facade PASS;129 bound items.
+Fixedseed exact symbolic matrix and square2x2 factorial controls precede
+proofs; not general proof. Next real-coefficient polynomial and tail
+asymptotic can use this algebra, without another spectral change of variables.
+Frozen publication remains unchanged, human interpretation review required.

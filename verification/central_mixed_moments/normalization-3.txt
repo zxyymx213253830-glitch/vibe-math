@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialNormalization.lean:46:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  (Polynomial.eval 0 (centralMinimumUnivariatePolynomial d n)).re = centralDeterminantPowerMoment 0 n d
+but is expected to have type
+  ((centralMinimumUnivariatePolynomial d n).coeff 0).re = centralDeterminantPowerMoment 0 n d
+'JinWishart.centralGaussianShiftedDeterminantMoment_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_constant_re' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

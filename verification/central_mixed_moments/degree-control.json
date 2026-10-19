@@ -1,0 +1,219 @@
+{
+  "seed": 2026101907,
+  "source_sha256": "4e9ef13a2adbd74e3c740da0a144a8daad609a0859de1e7f790678450377466a",
+  "status": "PASS exact determinant/functional degree and Gamma-factorial controls; not proof",
+  "matrix_records": [
+    {
+      "n": 0,
+      "d": 0,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 0,
+      "d": 1,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 0,
+      "d": 2,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 0,
+      "d": 3,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 0,
+      "d": 4,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 1,
+      "d": 0,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 1,
+      "d": 1,
+      "degree": 1,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 1,
+      "d": 2,
+      "degree": 2,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 1,
+      "d": 3,
+      "degree": 3,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 1,
+      "d": 4,
+      "degree": 4,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 2,
+      "d": 0,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 2,
+      "d": 1,
+      "degree": 2,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 2,
+      "d": 2,
+      "degree": 4,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 2,
+      "d": 3,
+      "degree": 6,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 2,
+      "d": 4,
+      "degree": 8,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 3,
+      "d": 0,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 3,
+      "d": 1,
+      "degree": 3,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 3,
+      "d": 2,
+      "degree": 6,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 3,
+      "d": 3,
+      "degree": 9,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 3,
+      "d": 4,
+      "degree": 12,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 4,
+      "d": 0,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 4,
+      "d": 1,
+      "degree": 4,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 4,
+      "d": 2,
+      "degree": 8,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 4,
+      "d": 3,
+      "degree": 12,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 4,
+      "d": 4,
+      "degree": 16,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 5,
+      "d": 0,
+      "degree": 0,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 5,
+      "d": 1,
+      "degree": 5,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 5,
+      "d": 2,
+      "degree": 10,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 5,
+      "d": 3,
+      "degree": 15,
+      "leading_coefficient": "1"
+    },
+    {
+      "n": 5,
+      "d": 4,
+      "degree": 20,
+      "leading_coefficient": "1"
+    }
+  ],
+  "factorial_functional_records": [
+    {
+      "n": 2,
+      "d": 0,
+      "polynomial": "1",
+      "mass": 1
+    },
+    {
+      "n": 2,
+      "d": 1,
+      "polynomial": "x**2 + 4*x + 2",
+      "mass": 2
+    },
+    {
+      "n": 2,
+      "d": 2,
+      "polynomial": "x**4 + 8*x**3 + 24*x**2 + 24*x + 12",
+      "mass": 12
+    },
+    {
+      "n": 2,
+      "d": 3,
+      "polynomial": "x**6 + 12*x**5 + 66*x**4 + 192*x**3 + 288*x**2 + 288*x + 144",
+      "mass": 144
+    },
+    {
+      "n": 2,
+      "d": 4,
+      "polynomial": "x**8 + 16*x**7 + 128*x**6 + 624*x**5 + 1920*x**4 + 3840*x**3 + 5760*x**2 + 5760*x + 2880",
+      "mass": 2880
+    }
+  ]
+}

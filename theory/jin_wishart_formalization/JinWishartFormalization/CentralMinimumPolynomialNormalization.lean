@@ -1,0 +1,58 @@
+import JinWishartFormalization.CentralMinimumPolynomialDegree
+
+/-!
+# Constant term of the general central minimum polynomial
+
+Codex proofs. Normalization uses the independently proved actual Gamma
+determinant product moments, not the desired minimum-law normalization.
+[需人工审查] Actual-law interpretation inherited from the two moment bridges.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ENNReal ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem centralGaussianShiftedDeterminantMoment_zero (d n : ℕ) :
+    centralGaussianShiftedDeterminantMoment d n 0 = centralDeterminantPowerMoment 0 n d := by
+  have hp : ∀ᵐ A ∂complexWishart (m := n) (n := n), A.PosSemidef :=
+    (mem_ae_iff_prob_eq_one Matrix.posSemidef_is_closed.measurableSet).mpr
+      complexWishart_measure_posSemidef
+  have hi := lintegral_actualCentralSquare_shiftedDeterminant_power d n 0 (by norm_num)
+  simp only [Complex.ofReal_zero,zero_smul,add_zero] at hi
+  have he : (∫⁻ A, ENNReal.ofReal (A.det.re^d) ∂complexWishart (m := n) (n := n)) =
+      ∫⁻ A, ENNReal.ofReal (‖A.det‖^d) ∂complexWishart (m := n) (n := n) := by
+    apply lintegral_congr_ae
+    filter_upwards [hp] with A hA
+    rw [complex_norm_eq_re_of_nonneg _ hA.det_nonneg]
+  have hm := complexWishart_determinant_norm_moment 0 n d
+  rw [show 0+n=n by omega] at hm
+  rw [he,hm] at hi
+  have hprod : (∏ j : Fin n, ENNReal.ofReal
+      (((Nat.factorial (0+j.val+d) : ℕ) : ℝ) / ((Nat.factorial (0+j.val) : ℕ) : ℝ))) =
+        ENNReal.ofReal (centralDeterminantPowerMoment 0 n d) := by
+    exact (ENNReal.ofReal_prod_of_nonneg (fun _ _ => by positivity)).symm
+  rw [hprod] at hi
+  have hh := congrArg ENNReal.toReal hi
+  rw [ENNReal.toReal_ofReal (centralDeterminantPowerMoment_pos 0 n d).le,
+    ENNReal.toReal_ofReal (centralGaussianShiftedDeterminantMoment_nonneg d n 0 (by norm_num))] at hh
+  exact hh.symm
+
+theorem centralMinimumUnivariatePolynomial_constant_re (d n : ℕ) :
+    ((centralMinimumUnivariatePolynomial d n).coeff 0).re =
+      centralDeterminantPowerMoment 0 n d := by
+  have h := centralMinimumUnivariatePolynomial_eval d n 0
+  simp only [Complex.ofReal_zero] at h
+  have hh := (congrArg Complex.re h).trans (centralGaussianShiftedDeterminantMoment_zero d n)
+  rw [Polynomial.coeff_zero_eq_eval_zero]
+  exact hh
+
+theorem centralRectangularMinimumPolynomial_zero (d n : ℕ) :
+    centralRectangularMinimumPolynomial d n 0 = 1 := by
+  rw [centralRectangularMinimumPolynomial,centralGaussianShiftedDeterminantMoment_zero]
+  exact inv_mul_cancel₀ (centralDeterminantPowerMoment_pos 0 n d).ne'
+
+end
+end JinWishart
+#print axioms JinWishart.centralGaussianShiftedDeterminantMoment_zero
+#print axioms JinWishart.centralMinimumUnivariatePolynomial_constant_re
+#print axioms JinWishart.centralRectangularMinimumPolynomial_zero

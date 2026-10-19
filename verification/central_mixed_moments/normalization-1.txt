@@ -1,0 +1,40 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialNormalization.lean:17:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialNormalization.lean:27:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (W : Matrix (Fin n) (Fin n) ℂ), ENNReal.ofReal (‖W.det‖ ^ d) ∂complexWishart
+in the target expression
+  ∫⁻ (A : Matrix (Fin n) (Fin n) ℂ), ENNReal.ofReal (‖A.det‖ ^ d) ∂complexWishart =
+    ENNReal.ofReal (centralGaussianShiftedDeterminantMoment d n 0)
+
+d n : ℕ
+hp : ∀ᵐ (A : Matrix (Fin n) (Fin n) ℂ) ∂complexWishart, sorry
+hi :
+  ∫⁻ (A : Matrix (Fin n) (Fin n) ℂ), ENNReal.ofReal (‖A.det‖ ^ d) ∂complexWishart =
+    ENNReal.ofReal (centralGaussianShiftedDeterminantMoment d n 0)
+he :
+  ∫⁻ (A : Matrix (Fin n) (Fin n) ℂ), ENNReal.ofReal (A.det.re ^ d) ∂complexWishart =
+    ∫⁻ (A : Matrix (Fin n) (Fin n) ℂ), ENNReal.ofReal (‖A.det‖ ^ d) ∂complexWishart
+⊢ centralGaussianShiftedDeterminantMoment d n 0 = centralDeterminantPowerMoment 0 n d
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialNormalization.lean:39:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Polynomial.eval (↑?x) (centralMinimumUnivariatePolynomial ?d ?n)
+in the target expression
+  ((centralMinimumUnivariatePolynomial d n).coeff (Polynomial.eval ?m.12 0)).re =
+    centralDeterminantPowerMoment (Polynomial.eval ?m.12 0) n d
+
+d n : ℕ
+⊢ ((centralMinimumUnivariatePolynomial d n).coeff (Polynomial.eval ?m.12 0)).re =
+    centralDeterminantPowerMoment (Polynomial.eval ?m.12 0) n d
+'JinWishart.centralGaussianShiftedDeterminantMoment_zero' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_constant_re' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_zero' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

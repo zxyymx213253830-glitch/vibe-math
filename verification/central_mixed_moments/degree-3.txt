@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialDegree.lean:54:8: error(lean.unknownIdentifier): Unknown constant `Polynomial.not_mem_support_iff.mp`
+'JinWishart.complexGaussianIntegratedPolynomial_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.shiftedGramPolynomialInX_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianIntegratedPolynomial_coeff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.shiftedGramPolynomialInX_coeff_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_coeff_top' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_natDegree' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_monic' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

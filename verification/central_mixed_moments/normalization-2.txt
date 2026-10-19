@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialNormalization.lean:35:9: error(lean.unknownIdentifier): Unknown constant `ENNReal.ofReal_inj`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialNormalization.lean:43:2: error: Type mismatch
+  Eq.trans (congrArg Complex.re h) (centralGaussianShiftedDeterminantMoment_zero d n)
+has type
+  (Polynomial.eval 0 (centralMinimumUnivariatePolynomial d n)).re = centralDeterminantPowerMoment 0 n d
+but is expected to have type
+  ((centralMinimumUnivariatePolynomial d n).coeff 0).re = centralDeterminantPowerMoment 0 n d
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPolynomialNormalization.lean:42:33: warning: This simp argument is unused:
+  Polynomial.eval_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.ofReal_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.centralGaussianShiftedDeterminantMoment_zero' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_constant_re' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_zero' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

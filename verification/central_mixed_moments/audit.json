@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-18T18:09:59.154216+00:00",
-  "spec_sha256": "5edaed491eb27215c93da4f2e7d702babc9af45d5ae39fafbeda2a718d68329b",
+  "collected_utc": "2026-10-19T02:08:34.846699+00:00",
+  "spec_sha256": "f1c17d2ba904b8cbbaa598bfc39bb669e9d326e839768f8c2a92900f059512a7",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -1594,9 +1594,159 @@
           "sha256": "14495a051335f013637b48b223f5a9b9beb22592ec013c7169f7638c5b3c6f8d"
         }
       }
+    },
+    "JinWishartFormalization.CentralMinimumPolynomialDegree": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianIntegratedPolynomial_natDegree_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.shiftedGramPolynomialInX_natDegree_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMinimumUnivariatePolynomial_natDegree_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianIntegratedPolynomial_coeff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_one",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.shiftedGramPolynomialInX_coeff_top",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMinimumUnivariatePolynomial_coeff_top",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMinimumUnivariatePolynomial_natDegree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMinimumUnivariatePolynomial_monic",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "7e907e080c22343b3a60e216471791b33f99eb0199caaf63b8c0a708ef1c624b",
+      "olean_sha256": "939fbdffbfb8d9572c7b95d71c06a2f2e198128753529b762aa07692d571c7d0",
+      "log_sha256": "4df6e8f895a5e7bf478ec68d2567160fb62f806b7065220c1bbd3fb943fd9e16",
+      "imports": {
+        "JinWishartFormalization.CentralMinimumUnivariatePolynomial": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralMinimumUnivariatePolynomial.olean",
+          "sha256": "b75b0dc4c29945e5009b79aeb8efa02b386d552083751a5aa8824238ae060bb2"
+        },
+        "Mathlib.LinearAlgebra.Matrix.Polynomial": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Polynomial.olean",
+          "sha256": "3b313d89fc6e78e2064e71af3c2b6f37564ef6d392c4c99806f447bb82acb6a7"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralMinimumPolynomialNormalization": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralGaussianShiftedDeterminantMoment_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMinimumUnivariatePolynomial_constant_re",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralRectangularMinimumPolynomial_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "59d72e1a6936062ecca250c7cee41002369ae201e9ef68d42d9dfca93748cf8c",
+      "olean_sha256": "501803b66ae14f841bad1852233531ca3b34a1d5b6af7204513ce49072ef79a2",
+      "log_sha256": "7ec2c4babaef61f31cbcf6dfa8b76811e26d51ca39183c2395e31f14e9a13536",
+      "imports": {
+        "JinWishartFormalization.CentralMinimumPolynomialDegree": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralMinimumPolynomialDegree.olean",
+          "sha256": "939fbdffbfb8d9572c7b95d71c06a2f2e198128753529b762aa07692d571c7d0"
+        }
+      }
     }
   },
-  "total_declarations": 117,
+  "total_declarations": 129,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -1632,6 +1782,12 @@
       "script": "experiments/noncentral_polynomial_moment_control.py",
       "script_sha256": "aaa96720a5c1dda36c51c28be1f77d17037f63f3659a2a25cad2488137864c37",
       "result_sha256": "f19b99ac470119960faa71f8b1a2bf9b1767465acda73dc503fb0dbe53857b38",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/central_minimum_degree_control.py",
+      "script_sha256": "4e9ef13a2adbd74e3c740da0a144a8daad609a0859de1e7f790678450377466a",
+      "result_sha256": "f6475d667394bcfed3744f6e108f7645c2790c816339db41cdb27025a5659e72",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -1762,9 +1918,21 @@
       "independent_compilation": false,
       "human_review": false,
       "source_changes": []
+    },
+    {
+      "request_sha256": "90b9ac748eedd46d2f8be71f3e19dfa4db34229a442114d0a772da36631378c7",
+      "prompt_sha256": "ca553602774af36d02ee53d7350cb3d01d265852fd4db349f58072560481a94b",
+      "raw_response_sha256": "02d2263ae1105dbafdf0000fb47a13d472dbb02e8f5d10edb904f38ef2c122ff",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
     }
   ],
-  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review. Arbitrary deterministic-mean Gram determinant power moments now exact finite factorial formula, including canonical complexNoncentralWishart integral; NOT a noncentral minimum CDF. General central formula specializes exactly to prior d=0,1,2 CDF polynomials for x>=0,n>0. New8 items make111 theorem/instance plus1 witness=112. Noncentral P4 exact final source covered; specialization review covers earlier proof script with identical statement but later explicit Nat.zero_add rewrite fixed in specialize-4, so not an exact final proof-body review for those3. Last5 items: actual factorial moment functional is a linear map (explicit constructed witness), maps univariate polynomial coefficients compatibly with evaluation; fixed univariate polynomial in x gives entire general central CDF coefficient function. Total115 theorem/instance+2 constructions=117. New linear/univariate5 items NOT in independent P4 snapshot; review pending. Degree bound/general original determinant identity NOT proved. Final linear/univariate5 items now have exact-source Qoder P4 delivered with no concrete defect; standing human interpretation still required, no independent compile. Earlier pending review text superseded by this final receipt.",
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review. Arbitrary deterministic-mean Gram determinant power moments now exact finite factorial formula, including canonical complexNoncentralWishart integral; NOT a noncentral minimum CDF. General central formula specializes exactly to prior d=0,1,2 CDF polynomials for x>=0,n>0. New8 items make111 theorem/instance plus1 witness=112. Noncentral P4 exact final source covered; specialization review covers earlier proof script with identical statement but later explicit Nat.zero_add rewrite fixed in specialize-4, so not an exact final proof-body review for those3. Last5 items: actual factorial moment functional is a linear map (explicit constructed witness), maps univariate polynomial coefficients compatibly with evaluation; fixed univariate polynomial in x gives entire general central CDF coefficient function. Total115 theorem/instance+2 constructions=117. New linear/univariate5 items NOT in independent P4 snapshot; review pending. Degree bound/general original determinant identity NOT proved. Final linear/univariate5 items now have exact-source Qoder P4 delivered with no concrete defect; standing human interpretation still required, no independent compile. Earlier pending review text superseded by this final receipt. Resumed under renewed user authorization2026-10-19: generic coefficientwise integration degree bound, exact degree n*d and monicity of fixed raw minimum polynomial, zero-value normalizing factorial mass and normalized Q(0)=1 now proved. Twelve new statements, total127 theorem/instance+2 witnesses=129. Degree P4 delivered, no blocking issues; normalization P4 pending real response. No general hard-edge or original candidate identity inferred.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",

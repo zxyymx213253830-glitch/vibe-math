@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CentralMinimumPolynomialDegree.lean": {
+      "sha256": "7e907e080c22343b3a60e216471791b33f99eb0199caaf63b8c0a708ef1c624b",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ca553602774af36d02ee53d7350cb3d01d265852fd4db349f58072560481a94b"
+}

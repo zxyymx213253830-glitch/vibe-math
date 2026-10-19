@@ -1,0 +1,3 @@
+'JinWishart.complexGaussianIntegratedPolynomial_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.shiftedGramPolynomialInX_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumUnivariatePolynomial_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]

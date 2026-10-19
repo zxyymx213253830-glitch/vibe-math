@@ -179,3 +179,21 @@ proof. No noncentral minimum CDF or closed spectral density is inferred.
 
 
 Final Qoder P4 delivered on exact checked linear/univariate sources: no concrete defect reported; linearity vs multiplicativity, coefficient evaluation commutation and Gram polynomial confirmed within supplied scope. Human measure/model interpretation still required, no independent compile. Raw response and source hashes preserved.
+
+
+## Resumed degree and normalization checkpoint
+
+Prior quota-closeout is preserved as a historical snapshot; the user renewed
+authorization after it, with a new ordinary-allowed quota window. No reset or
+purchase was requested/used. New exact polynomial/factorial controls precede
+proofs. Degree-1 hit deterministic Lean heartbeats in matrix-one type
+unification, not a failed mathematical conjecture; degree-4 uses explicit
+entrywise identity and passes under the same default heartbeat limit.
+
+Qoder degree P4 reports no blocking issue on exact final9-statement source.
+Its n0 explanation saying P=(X+1)^d is incorrect: the matrix is empty, its
+determinant is1, so P=1. Code and degree0 conclusion are correct. L(1)=1
+is proved directly by simp on the explicit factorial coefficient functional,
+not an assumed normalization axiom. The independent constant-term bridge
+uses the actual Gamma determinant moment law, not the desired minimum CDF.
+Normalization3 statements already kernel PASS; P4 response pending.
