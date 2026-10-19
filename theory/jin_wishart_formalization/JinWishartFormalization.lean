@@ -1,3 +1,4 @@
+import JinWishartFormalization.ActualLogDetLowScaleCurvature
 import JinWishartFormalization.ActualGaussianTraceMean
 import JinWishartFormalization.NoncentralInverseMinimumRealMoments
 import JinWishartFormalization.CorrelatedColumnInverseMoments

@@ -1,0 +1,39 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:32:4: error: Type mismatch: After simplification, term
+  HasDerivAt.sub (HasDerivAt.mul_const (hasDerivAt_id r) x)
+    (HasDerivAt.log (HasDerivAt.const_add 1 (HasDerivAt.mul_const (hasDerivAt_id r) x)) (LT.lt.ne' hp))
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.normedAddCommGroup.toAddCommGroup
+    RCLike.toInnerProductSpaceReal.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯
+    ((fun y => y * x) - fun y => Real.log (1 + y * x)) (x - x / (1 + r * x)) r
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun t => t * x - Real.log (1 + t * x)) (x - x / (1 + r * x))
+    r
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:36:6: error: Type mismatch: After simplification, term
+  HasDerivAt.pow (hasDerivAt_id r) 2
+ has type
+  HasDerivAt (id ^ 2) (2 * r ^ (2 - 1)) r
+but is expected to have type
+  HasDerivAt (fun t => t ^ 2) (2 * r) r
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:45:4: error: Type mismatch: After simplification, term
+  Tendsto.mono_left (ContinuousAt.tendsto (ContinuousAt.pow continuousAt_id 2)) nhdsWithin_le_nhds
+ has type
+  @Tendsto ℝ ℝ (id ^ 2) (𝓝[>] 0) (𝓝 0)
+but is expected to have type
+  @Tendsto ℝ ℝ (fun r => r ^ 2) (𝓝[>] 0) (𝓝 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:103:13: warning: This simp argument is unused:
+  ← Finset.sum_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.sum_sub_distrib, ← Finset.mul_sum]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.log_one_add_linear_gap_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.log_one_add_second_order_limit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_log_one_add_second_order' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_second_order' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

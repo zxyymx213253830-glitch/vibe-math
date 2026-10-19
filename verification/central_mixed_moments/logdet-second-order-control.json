@@ -1,0 +1,303 @@
+{
+  "seed": 2026101925,
+  "samples_per_shape": 200000,
+  "source_sha256": "b7c7c084604f23f6bac744ad373352aadb2a9e39dde8393c1138222ff7e52013",
+  "status": "PASS actual CN curvature, trace, scalar Gamma and wrong-first-moment controls; NOT proof",
+  "candidate": "EtrW2=mn(m+n)+2(m+n)||M||F2+tr((M^H M)^2); not yet formalized",
+  "zero_shapes": "Exact empty sums give zero, no random draws needed",
+  "records": [
+    {
+      "m": 1,
+      "n": 1,
+      "mean_real": [
+        [
+          0.0
+        ]
+      ],
+      "mean_imag": [
+        [
+          0.0
+        ]
+      ],
+      "trace_observed": 0.9992178964666615,
+      "trace_control": 1.0,
+      "trace_SE": 0.00223606797749979,
+      "second_observed": 1.9944849534619995,
+      "second_control": 2.0,
+      "second_SE": 0.01003586866909697,
+      "values": [
+        {
+          "rho": 1.0,
+          "mean_gap_quotient": 0.4028211754376794,
+          "sample_half_second": 0.9972424767309997
+        },
+        {
+          "rho": 0.1,
+          "mean_gap_quotient": 0.8413045062894141,
+          "sample_half_second": 0.9972424767309997
+        },
+        {
+          "rho": 0.01,
+          "mean_gap_quotient": 0.9778510358756792,
+          "sample_half_second": 0.9972424767309997
+        },
+        {
+          "rho": 0.001,
+          "mean_gap_quotient": 0.9952513553913671,
+          "sample_half_second": 0.9972424767309997
+        },
+        {
+          "rho": 0.0001,
+          "mean_gap_quotient": 0.997042824260935,
+          "sample_half_second": 0.9972424767309997
+        }
+      ]
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "mean_real": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "mean_imag": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "trace_observed": 3.0021969405509803,
+      "trace_control": 3.0,
+      "trace_SE": 0.003872983346207417,
+      "second_observed": 11.999501939495218,
+      "second_control": 12.0,
+      "second_SE": 0.032749166351681985,
+      "values": [
+        {
+          "rho": 1.0,
+          "mean_gap_quotient": 1.7030318204227195,
+          "sample_half_second": 5.999750969747609
+        },
+        {
+          "rho": 0.1,
+          "mean_gap_quotient": 4.5916761638041494,
+          "sample_half_second": 5.999750969747609
+        },
+        {
+          "rho": 0.01,
+          "mean_gap_quotient": 5.808590011544906,
+          "sample_half_second": 5.999750969747609
+        },
+        {
+          "rho": 0.001,
+          "mean_gap_quotient": 5.97987468356902,
+          "sample_half_second": 5.999750969747609
+        },
+        {
+          "rho": 0.0001,
+          "mean_gap_quotient": 5.997755324288132,
+          "sample_half_second": 5.999750969747609
+        }
+      ]
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "mean_real": [
+        [
+          0.075,
+          0.15
+        ],
+        [
+          0.22499999999999998,
+          0.3
+        ]
+      ],
+      "mean_imag": [
+        [
+          0.07499999999999998,
+          0.09999999999999999
+        ],
+        [
+          0.024999999999999998,
+          0.049999999999999996
+        ]
+      ],
+      "trace_observed": 4.192985643940978,
+      "trace_control": 4.1875,
+      "trace_SE": 0.004677071733467427,
+      "second_observed": 17.58395763552055,
+      "second_control": 17.53484375,
+      "second_SE": 0.0423733126570718,
+      "values": [
+        {
+          "rho": 1.0,
+          "mean_gap_quotient": 2.3556322297115218,
+          "sample_half_second": 8.791978817760276
+        },
+        {
+          "rho": 0.1,
+          "mean_gap_quotient": 6.580419300138435,
+          "sample_half_second": 8.791978817760276
+        },
+        {
+          "rho": 0.01,
+          "mean_gap_quotient": 8.484266438725331,
+          "sample_half_second": 8.791978817760276
+        },
+        {
+          "rho": 0.001,
+          "mean_gap_quotient": 8.759859650646016,
+          "sample_half_second": 8.791978817760276
+        },
+        {
+          "rho": 0.0001,
+          "mean_gap_quotient": 8.78875261473011,
+          "sample_half_second": 8.791978817760276
+        }
+      ]
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "mean_real": [
+        [
+          0.025,
+          0.05
+        ],
+        [
+          0.07500000000000001,
+          0.1
+        ],
+        [
+          0.125,
+          0.15000000000000002
+        ],
+        [
+          0.17500000000000002,
+          0.2
+        ]
+      ],
+      "mean_imag": [
+        [
+          0.058333333333333334,
+          0.06666666666666667
+        ],
+        [
+          0.041666666666666664,
+          0.05
+        ],
+        [
+          0.025,
+          0.03333333333333333
+        ],
+        [
+          0.008333333333333333,
+          0.016666666666666666
+        ]
+      ],
+      "trace_observed": 8.142404662517919,
+      "trace_control": 8.141666666666667,
+      "trace_SE": 0.006435578192102607,
+      "second_observed": 49.71071009813957,
+      "second_control": 49.71999228395062,
+      "second_SE": 0.08311591837273805,
+      "values": [
+        {
+          "rho": 1.0,
+          "mean_gap_quotient": 5.222261131250373,
+          "sample_half_second": 24.855355049069786
+        },
+        {
+          "rho": 0.1,
+          "mean_gap_quotient": 17.017316916289317,
+          "sample_half_second": 24.855355049069786
+        },
+        {
+          "rho": 0.01,
+          "mean_gap_quotient": 23.668985483373692,
+          "sample_half_second": 24.855355049069786
+        },
+        {
+          "rho": 0.001,
+          "mean_gap_quotient": 24.729803174113304,
+          "sample_half_second": 24.855355049069786
+        },
+        {
+          "rho": 0.0001,
+          "mean_gap_quotient": 24.84272539317537,
+          "sample_half_second": 24.855355049069786
+        }
+      ]
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "mean_real": [
+        [
+          0.05,
+          0.1,
+          0.15000000000000002,
+          0.2
+        ],
+        [
+          0.25,
+          0.30000000000000004,
+          0.35000000000000003,
+          0.4
+        ]
+      ],
+      "mean_imag": [
+        [
+          0.08333333333333333,
+          0.1,
+          0.11666666666666667,
+          0.13333333333333333
+        ],
+        [
+          0.016666666666666666,
+          0.03333333333333333,
+          0.05,
+          0.06666666666666667
+        ]
+      ],
+      "trace_observed": 8.566089643333667,
+      "trace_control": 8.566666666666666,
+      "trace_SE": 0.006757711644237764,
+      "second_observed": 55.14914003002591,
+      "second_control": 55.11617283950617,
+      "second_SE": 0.09277011061290509,
+      "values": [
+        {
+          "rho": 1.0,
+          "mean_gap_quotient": 5.573752559349032,
+          "sample_half_second": 27.574570015012956
+        },
+        {
+          "rho": 0.1,
+          "mean_gap_quotient": 18.57643919464863,
+          "sample_half_second": 27.574570015012956
+        },
+        {
+          "rho": 0.01,
+          "mean_gap_quotient": 26.189376769757537,
+          "sample_half_second": 27.574570015012956
+        },
+        {
+          "rho": 0.001,
+          "mean_gap_quotient": 27.427519221365593,
+          "sample_half_second": 27.574570015012956
+        },
+        {
+          "rho": 0.0001,
+          "mean_gap_quotient": 27.559772666323184,
+          "sample_half_second": 27.574570015012956
+        }
+      ]
+    }
+  ]
+}

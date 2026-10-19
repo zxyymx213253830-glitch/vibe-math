@@ -1,0 +1,180 @@
+P4 concrete issues only, no tools/proof rewrite or speculative Lean compile failure (final7 prints actualexit0 standard3axioms). Target ALL finite m,n including0, arbitraryfixedcomplexmeanM: (r*T-E C(r))/r^2->(1/2)SUM E(lambda_i^2), r->0right. T=m*n+SUM||Mij||^2 independently proved in ActualGaussianTraceMean, actual CN realpaired/sqrt2 source, C full matrix logdet natural logs. NO fullrank needed, zeroeigenvaluesallowed. RHS actual finite second spectral moment, NOT claiming its classical closed formula proved. All finite Lp from IsGaussian.memLp_id including4; Etrace2 finite from exacttrace=norm(realshift)^2/2; lambda<=trace, lambdanonneg, so eachlambda2 L1. Scalar global u-log(1+u) between0 andu^2 gives DCT majorant; pointlimit x2/2 via single LHopital derivativequotient cancellation forr>0. Note real division total at0, scalar x=0 fine. integral_div pinned mathlib signature has noL1premise, but integral_sub uses explicitfirstmoment/logintegrability. Numericseed2026101925 200000samples/shape centralGamma/trace/curvature controlsPASS; numericnotproof. P1 Qoder timedout; no approvalclaim. AllproofsCodex; Humanmeasure/Fubini/variance/model reviewREQUIRED; model review not human/independentcompile. Existing spectralrepresentation C=sumlog(1+rlambda) validr>=0 (notassuming density). Do not demand inverse moments, rank or concavity in X. Check exact statementstrength, factor1/2, limit/interchange, emptydims.
+
+FULL SOURCE LogDetLowScaleSecondOrder.lean
+import JinWishartFormalization.LogDetLowScale
+import Mathlib.Analysis.Calculus.LHopital
+
+/-! Actual second-order expectation limit from a finite nonnegative spectrum.
+Codex. No rank, inverse moment or target density assumption.
+[需人工审查] Dominated convergence and interpretation of the finite moments.
+-/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem log_one_add_linear_gap_bounds (u : ℝ) (hu : 0 ≤ u) :
+    0 ≤ u-Real.log (1+u) ∧ u-Real.log (1+u) ≤ u^2 := by
+  have hp : 0 < 1+u := by positivity
+  have hl := Real.log_le_sub_one_of_pos hp
+  have hh := Real.one_sub_inv_le_log_of_pos hp
+  have he : 1-(1+u)⁻¹ = u/(1+u) := by field_simp; ring
+  rw [he] at hh
+  refine ⟨by linarith,?_⟩
+  calc
+    u-Real.log (1+u) ≤ u-u/(1+u) := sub_le_sub_left hh u
+    _ = u^2/(1+u) := by field_simp; ring
+    _ ≤ u^2 := div_le_self (sq_nonneg u) (by linarith)
+
+theorem log_one_add_second_order_limit (x : ℝ) (hx : 0 ≤ x) :
+    Tendsto (fun r : ℝ => (r*x-Real.log (1+r*x))/r^2) (𝓝[>] 0) (𝓝 (x^2/2)) := by
+  have hd : ∀ᶠ r in 𝓝[>] (0 : ℝ),
+      HasDerivAt (fun t : ℝ => t*x-Real.log (1+t*x)) (x-x/(1+r*x)) r := by
+    filter_upwards [self_mem_nhdsWithin] with r hr
+    have hp : 0 < 1+r*x := by have : 0 < r := hr; positivity
+    simpa only [one_mul,id_eq,Pi.sub_apply] using! ((hasDerivAt_id r).mul_const x).sub
+      ((((hasDerivAt_id r).mul_const x).const_add 1).log hp.ne')
+  have hg : ∀ᶠ r in 𝓝[>] (0 : ℝ), HasDerivAt (fun t : ℝ => t^2) (2*r) r :=
+    Eventually.of_forall (fun r => by
+      simpa using! (hasDerivAt_id r).fun_pow 2)
+  have hgn : ∀ᶠ r in 𝓝[>] (0 : ℝ), 2*r ≠ 0 := by
+    filter_upwards [self_mem_nhdsWithin] with r hr
+    have : 0 < r := hr
+    positivity
+  have hc : ContinuousAt (fun r : ℝ => r*x-Real.log (1+r*x)) 0 := by fun_prop (disch := norm_num)
+  have hfa : Tendsto (fun r : ℝ => r*x-Real.log (1+r*x)) (𝓝[>] 0) (𝓝 0) := by
+    simpa using hc.tendsto.mono_left nhdsWithin_le_nhds
+  have hga : Tendsto (fun r : ℝ => r^2) (𝓝[>] 0) (𝓝 0) := by
+    have hc2 : ContinuousAt (fun r : ℝ => r^2) 0 := by fun_prop
+    simpa using hc2.tendsto.mono_left nhdsWithin_le_nhds
+  have hq : Tendsto (fun r : ℝ => (x-x/(1+r*x))/(2*r)) (𝓝[>] 0) (𝓝 (x^2/2)) := by
+    have hcq : ContinuousAt (fun r : ℝ => x^2/(2*(1+r*x))) 0 := by fun_prop (disch := norm_num)
+    apply (show Tendsto (fun r : ℝ => x^2/(2*(1+r*x))) (𝓝[>] 0) (𝓝 (x^2/2)) by
+      simpa using hcq.tendsto.mono_left nhdsWithin_le_nhds).congr'
+    filter_upwards [self_mem_nhdsWithin] with r hr
+    have hrp : 0 < r := hr
+    have hp : 0 < 1+r*x := by positivity
+    field_simp
+    <;> ring
+  exact HasDerivAt.lhopital_zero_nhdsGT hd hg hgn hfa hga hq
+
+theorem integral_log_one_add_second_order {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α → ℝ) (hf : Integrable f μ)
+    (hf2 : Integrable (fun a => (f a)^2) μ) (hn : ∀ᵐ a ∂μ, 0 ≤ f a) :
+    Tendsto (fun r : ℝ => (r*(∫ a, f a ∂μ)-(∫ a, Real.log (1+r*f a) ∂μ))/r^2)
+      (𝓝[>] 0) (𝓝 ((∫ a, (f a)^2 ∂μ)/2)) := by
+  have ht : Tendsto (fun r : ℝ => ∫ a, (r*f a-Real.log (1+r*f a))/r^2 ∂μ)
+      (𝓝[>] 0) (𝓝 (∫ a, (f a)^2/2 ∂μ)) := by
+    apply tendsto_integral_filter_of_dominated_convergence (fun a => (f a)^2)
+    · exact Eventually.of_forall (fun r =>
+        ((hf.aemeasurable.const_mul r).sub (Real.measurable_log.comp_aemeasurable
+          (aemeasurable_const.add (aemeasurable_const.mul hf.aemeasurable)))).div_const (r^2)
+          |>.aestronglyMeasurable)
+    · filter_upwards [self_mem_nhdsWithin] with r hr
+      have hrp : 0 < r := hr
+      filter_upwards [hn] with a ha
+      obtain ⟨h0,h1⟩ := log_one_add_linear_gap_bounds (r*f a) (mul_nonneg hrp.le ha)
+      rw [Real.norm_eq_abs,abs_of_nonneg (div_nonneg h0 (sq_nonneg r))]
+      apply (div_le_iff₀ (sq_pos_of_pos hrp)).mpr
+      nlinarith [h1]
+    · exact hf2
+    · exact hn.mono (fun a ha => log_one_add_second_order_limit (f a) ha)
+  rw [integral_div] at ht
+  apply ht.congr'
+  filter_upwards [self_mem_nhdsWithin] with r hr
+  have hrp : 0 < r := hr
+  rw [integral_div,integral_sub (hf.const_mul r)
+    (integrable_log_one_add_mul μ f hf hn r hrp.le),integral_const_mul]
+
+theorem integral_finiteSpectrumLogDet_second_order {α ι : Type*}
+    [MeasurableSpace α] [Fintype ι] (μ : Measure α) (f : ι → α → ℝ)
+    (hf : ∀ i, Integrable (f i) μ) (hf2 : ∀ i, Integrable (fun a => (f i a)^2) μ)
+    (hn : ∀ i, ∀ᵐ a ∂μ, 0 ≤ f i a) :
+    Tendsto (fun r : ℝ => (r*(∑ i, ∫ a, f i a ∂μ)-
+      (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ))/r^2)
+      (𝓝[>] 0) (𝓝 ((∑ i, ∫ a, (f i a)^2 ∂μ)/2)) := by
+  classical
+  have ht := tendsto_finsetSum Finset.univ (fun i _ =>
+    integral_log_one_add_second_order μ (f i) (hf i) (hf2 i) (hn i))
+  simp only [← Finset.sum_div] at ht
+  apply ht.congr'
+  filter_upwards [self_mem_nhdsWithin] with r hr
+  have hrp : 0 < r := hr
+  rw [show (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ) =
+      ∑ i, ∫ a, Real.log (1+r*f i a) ∂μ from
+    integral_finsetSum _ (fun i _ => integrable_log_one_add_mul μ (f i) (hf i) (hn i) r hrp.le)]
+  simp only [← Finset.sum_div,Finset.sum_sub_distrib,← Finset.mul_sum]
+
+end
+end JinWishart
+#print axioms JinWishart.log_one_add_linear_gap_bounds
+#print axioms JinWishart.log_one_add_second_order_limit
+#print axioms JinWishart.integral_log_one_add_second_order
+#print axioms JinWishart.integral_finiteSpectrumLogDet_second_order
+
+FULL SOURCE ActualLogDetLowScaleCurvature.lean
+import JinWishartFormalization.ActualGaussianTraceMean
+import JinWishartFormalization.LogDetLowScaleSecondOrder
+
+/-! Second-order low-scale full logdet for every actual fixed-mean Gaussian shape.
+Codex. The second spectral moment is its finite actual integral, not an assumed
+closed formula. No rank or inverse moment condition. Natural logarithms.
+[需人工审查] Gaussian L4, spectral domination and interchange of limit/integral.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem integrable_actualNoncentralGram_trace_sq {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Integrable (fun z : ComplexSample (m := m) (n := n) =>
+      ((complexGram (complexSampleMatrix z+M)).trace.re)^2) (stdGaussian _) := by
+  have hid : MemLp (id : ComplexSample (m := m) (n := n) → ComplexSample)
+      4 (stdGaussian _) := IsGaussian.memLp_id _ _ (by norm_num)
+  have hc : MemLp (fun _ : ComplexSample (m := m) (n := n) => complexSampleMean M)
+      4 (stdGaussian _) := memLp_const _
+  have hi := (hid.add hc).integrable_norm_pow' (p := 4)
+  have he (z : ComplexSample (m := m) (n := n)) :
+      ((complexGram (complexSampleMatrix z+M)).trace.re)^2 = ‖z+complexSampleMean M‖^4/4 := by
+    have h := complexSampleGram_trace_half_norm (z+complexSampleMean M)
+    simp only [complexSampleGram,complexSampleMatrix_add_mean] at h
+    rw [h]
+    ring
+  simp_rw [he]
+  exact hi.div_const 4
+
+theorem integrable_actualNoncentralEigenvalue_sq {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (i : Fin (Fintype.card (Fin n))) :
+    Integrable (fun z => (complexNoncentralSampleEigenvalue M i z)^2) (stdGaussian _) := by
+  apply (integrable_actualNoncentralGram_trace_sq M).mono' (by
+    exact ((measurable_actualNoncentralEigenvalue M i).pow_const 2).aestronglyMeasurable)
+  exact ae_of_all _ (fun z => by
+    rw [Real.norm_eq_abs,abs_of_nonneg (sq_nonneg _)]
+    exact pow_le_pow_left₀ (complexNoncentralSampleEigenvalue_nonneg M i z)
+      (actualNoncentralEigenvalue_le_trace M i z) 2)
+
+theorem actualNoncentralMatrixLogDet_low_scale_curvature {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ =>
+      (r*((m*n : ℕ)+∑ i, ∑ j, ‖M i j‖^2)-
+        (∫ z, actualNoncentralMatrixLogDet M r z ∂stdGaussian _))/r^2)
+      (𝓝[>] 0)
+      (𝓝 ((∑ i, ∫ z, (complexNoncentralSampleEigenvalue M i z)^2 ∂stdGaussian _)/2)) := by
+  have ht := integral_finiteSpectrumLogDet_second_order (stdGaussian _)
+    (complexNoncentralSampleEigenvalue M) (integrable_actualNoncentralEigenvalue M)
+    (integrable_actualNoncentralEigenvalue_sq M)
+    (fun i => ae_of_all _ (complexNoncentralSampleEigenvalue_nonneg M i))
+  rw [sum_integral_actualNoncentralEigenvalues_eq_power M,actualExpectedGramPower_eq_closed] at ht
+  apply ht.congr'
+  filter_upwards [self_mem_nhdsWithin] with r hr
+  have hrp : 0 < r := hr
+  have he : (fun z => finiteSpectrumLogDet (fun i => complexNoncentralSampleEigenvalue M i z) r) =
+      actualNoncentralMatrixLogDet M r := funext (actualNoncentralGramLogDet_eq_matrix M r hrp.le)
+  rw [he]
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_actualNoncentralGram_trace_sq
+#print axioms JinWishart.integrable_actualNoncentralEigenvalue_sq
+#print axioms JinWishart.actualNoncentralMatrixLogDet_low_scale_curvature

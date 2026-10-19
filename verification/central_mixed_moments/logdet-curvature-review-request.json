@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "LogDetLowScaleSecondOrder.lean": {
+      "sha256": "90378cc952c4492e75b9fe9e58aabfc51237c8b42a98bdef0cb5b7d88b61039e",
+      "supplied": "Full source"
+    },
+    "ActualLogDetLowScaleCurvature.lean": {
+      "sha256": "178b8a907c240817591d2b231e592cc5204b1c1edfba8c746d4cbd9c3d922dae",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "2b4197c5901def4367990d94b4e768fe98fb05552fd4ef6fa53ed38c52aa3a7f"
+}

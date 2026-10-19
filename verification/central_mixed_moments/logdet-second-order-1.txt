@@ -1,0 +1,74 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:32:4: error: Type mismatch
+  HasDerivAt.sub (HasDerivAt.mul_const (hasDerivAt_id r) x)
+    (HasDerivAt.log (HasDerivAt.const_add 1 (HasDerivAt.mul_const (hasDerivAt_id r) x)) (LT.lt.ne' hp))
+has type
+  HasDerivAt ((fun y => id y * x) - fun y => Real.log (1 + id y * x)) (1 * x - 1 * x / (1 + id r * x)) r
+but is expected to have type
+  HasDerivAt (fun t => t * x - Real.log (1 + t * x)) (x - x / (1 + r * x)) r
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:35:35: error: unsolved goals
+case e'_8
+x : ℝ
+hx : 0 ≤ x
+hd : ∀ᶠ (r : ℝ) in 𝓝[>] 0, HasDerivAt (fun t => t * x - Real.log (1 + t * x)) (x - x / (1 + r * x)) r
+r : ℝ
+⊢ (fun t => t ^ 2) = id ^ 2
+
+case e'_9
+x : ℝ
+hx : 0 ≤ x
+hd : ∀ᶠ (r : ℝ) in 𝓝[>] 0, HasDerivAt (fun t => t * x - Real.log (1 + t * x)) (x - x / (1 + r * x)) r
+r : ℝ
+⊢ r * 2 = id r * 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:40:69: error: `fun_prop` was unable to prove `ContinuousAt (fun r => r * x - Real.log (1 + r * x)) 0`
+
+Issues:
+  Failed to prove necessary assumption `1 + 0 * x ≠ 0` when applying theorem `ContinuousAt.log`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:44:4: error: Type mismatch: After simplification, term
+  Tendsto.mono_left (ContinuousAt.tendsto (ContinuousAt.pow continuousAt_id 2)) nhdsWithin_le_nhds
+ has type
+  @Tendsto ℝ ℝ (id ^ 2) (𝓝[>] 0) (𝓝 0)
+but is expected to have type
+  @Tendsto ℝ ℝ (fun r => r ^ 2) (𝓝[>] 0) (𝓝 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:47:67: error: `fun_prop` was unable to prove `ContinuousAt (fun r => x ^ 2 / (2 * (1 + r * x))) 0`
+
+Issues:
+  Failed to prove necessary assumption `2 * (1 + 0 * x) ≠ 0` when applying theorem `ContinuousAt.div₀`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScaleSecondOrder.lean:95:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∑ i ∈ ?s, ?f i) / ?a
+in the target expression
+  Tendsto (fun b => ∑ c, (b * ∫ (a : α), f c a ∂μ - ∫ (a : α), Real.log (1 + b * f c a) ∂μ) / b ^ 2) (𝓝[>] 0)
+    (𝓝 (∑ c, (∫ (a : α), f c a ^ 2 ∂μ) / 2))
+
+α : Type u_1
+ι : Type u_2
+inst✝¹ : MeasurableSpace α
+inst✝ : Fintype ι
+μ : Measure α
+f : ι → α → ℝ
+hf : ∀ (i : ι), Integrable (f i) μ
+hf2 : ∀ (i : ι), Integrable (fun a => f i a ^ 2) μ
+hn : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 ≤ f i a
+ht :
+  Tendsto (fun b => ∑ c, (b * ∫ (a : α), f c a ∂μ - ∫ (a : α), Real.log (1 + b * f c a) ∂μ) / b ^ 2) (𝓝[>] 0)
+    (𝓝 (∑ c, (∫ (a : α), f c a ^ 2 ∂μ) / 2))
+⊢ Tendsto (fun r => (r * ∑ i, ∫ (a : α), f i a ∂μ - ∫ (a : α), finiteSpectrumLogDet (fun i => f i a) r ∂μ) / r ^ 2)
+    (𝓝[>] 0) (𝓝 ((∑ i, ∫ (a : α), f i a ^ 2 ∂μ) / 2))
+'JinWishart.log_one_add_linear_gap_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.log_one_add_second_order_limit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_log_one_add_second_order' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_second_order' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

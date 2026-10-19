@@ -1,0 +1,18 @@
+{
+  "collected_utc": "2026-10-19T17:24:30.161516+00:00",
+  "new_declarations": 7,
+  "total_bound_items": 399,
+  "leaf_checks": {
+    "logdet-second-order-3.txt": 0,
+    "actual-logdet-curvature-1.txt": 0
+  },
+  "main_entry": {
+    "log": "facade-36.txt",
+    "actual_exit_code": 0
+  },
+  "scope": "Actual all-shape arbitrary fixed-mean low-scale second-order coefficient is half the finite second spectral moment; no closed second-moment formula claim",
+  "p4": "Delivered realfinalsource response; false division timing, empirical wording and axiom list resolved in note",
+  "human_review": "REQUIRED",
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED"
+}

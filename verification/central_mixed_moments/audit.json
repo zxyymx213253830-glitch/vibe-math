@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T17:16:10.444137+00:00",
-  "spec_sha256": "2ccf338efbcc1bf36d7b54ae9be06d9cdfee612b521d8acf7deed63024b4e2d7",
+  "collected_utc": "2026-10-19T17:24:08.413710+00:00",
+  "spec_sha256": "3ca2e8436817c561418fce3f27fedefa7b6f77fb7ae4b4176819c81f7d2ba53d",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -5604,9 +5604,113 @@
           "sha256": "49ce2c8bcc3eb97d858629173d06e5bec5c422bf4aa606ccd227184ae9e6ddba"
         }
       }
+    },
+    "JinWishartFormalization.LogDetLowScaleSecondOrder": {
+      "declarations": [
+        {
+          "name": "JinWishart.log_one_add_linear_gap_bounds",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.log_one_add_second_order_limit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_log_one_add_second_order",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_finiteSpectrumLogDet_second_order",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "90378cc952c4492e75b9fe9e58aabfc51237c8b42a98bdef0cb5b7d88b61039e",
+      "olean_sha256": "99be943d713e19aa0204365be4e841c10cbba9225326a1b4c207f9f510853258",
+      "log_sha256": "15ff6024d42898de6adafd98c429720cf30140a01154b5156e68aa3239436eb2",
+      "imports": {
+        "JinWishartFormalization.LogDetLowScale": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LogDetLowScale.olean",
+          "sha256": "49ce2c8bcc3eb97d858629173d06e5bec5c422bf4aa606ccd227184ae9e6ddba"
+        },
+        "Mathlib.Analysis.Calculus.LHopital": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/LHopital.olean",
+          "sha256": "6ceb034e31d616470c0c7d44f0ae064aa707a182b26d4a032072427e068aaa6d"
+        }
+      }
+    },
+    "JinWishartFormalization.ActualLogDetLowScaleCurvature": {
+      "declarations": [
+        {
+          "name": "JinWishart.integrable_actualNoncentralGram_trace_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualNoncentralEigenvalue_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualNoncentralMatrixLogDet_low_scale_curvature",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "178b8a907c240817591d2b231e592cc5204b1c1edfba8c746d4cbd9c3d922dae",
+      "olean_sha256": "dec6a13ab007557b5ad92865dbbaafc76d40d9a2c2e4bd92aec5a2c7701cc8bb",
+      "log_sha256": "d138bdf0e10f0ae179b927d29a125145f688701a7a22cdf765e47236d8c2317d",
+      "imports": {
+        "JinWishartFormalization.ActualGaussianTraceMean": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ActualGaussianTraceMean.olean",
+          "sha256": "9b7b86b9433310c2286cb278577cb57b6842eff2a002ed2c3c2501672459a2f1"
+        },
+        "JinWishartFormalization.LogDetLowScaleSecondOrder": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LogDetLowScaleSecondOrder.olean",
+          "sha256": "99be943d713e19aa0204365be4e841c10cbba9225326a1b4c207f9f510853258"
+        }
+      }
     }
   },
-  "total_declarations": 392,
+  "total_declarations": 399,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -5768,6 +5872,12 @@
       "script": "experiments/logdet_low_scale_control.py",
       "script_sha256": "2e7a7c352a5f0b64e218c27cfd61323e8a6c87b9f25f180214bd8abf5320242b",
       "result_sha256": "4302dedfd41904b0e1e703a883db58f9aac113178cbcbd39a5d6011b7f74ba57",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/logdet_second_order_control.py",
+      "script_sha256": "b7c7c084604f23f6bac744ad373352aadb2a9e39dde8393c1138222ff7e52013",
+      "result_sha256": "56a04a86bd1129ca87b1e53d5b6bc52096017f6de5cfa053bbe0b34c1d4b4a96",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -6299,6 +6409,18 @@
       "request_sha256": "e59ed43c0b36bc13e2e7ba605d89abe8d3889ffb10d9d576aac1a64a4a827ef0",
       "prompt_sha256": "2c41e6a1ba8e464d485c02fe49b435611594091500584fbcbdb93f82f301c64b",
       "raw_response_sha256": "bfeafcde31f076af44731005a4fa2b36a38c8d2ef1d1223251c4ba224a8ea7f0",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "606b878429b3b8881b6142c721d916a0914926a299c5ed6874c85040e252a08a",
+      "prompt_sha256": "2b4197c5901def4367990d94b4e768fe98fb05552fd4ef6fa53ed38c52aa3a7f",
+      "raw_response_sha256": "95000706af7cbc29905a1b32b4dcbe5ccd7db9abfebd88090d1e914fda2ff5f4",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"
