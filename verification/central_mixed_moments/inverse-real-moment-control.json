@@ -1,0 +1,134 @@
+{
+  "seed": null,
+  "status": "PASS real Gamma inverse moment closed forms versus weighted layercake, including near0 singular weights; not proof",
+  "source_sha256": "1a79c919c561c02fc6deb2b2d623b9a8bdd26c3db5dcb44df0554c4a11dabe73",
+  "records": [
+    {
+      "k": 1,
+      "p": 0.25,
+      "near_zero_integral": 1.1135589810234128,
+      "tail_integral": 0.11185772144192385,
+      "closed": 1.2254167024651774,
+      "weighted_tail_exponent": -1.75,
+      "finite_condition": true
+    },
+    {
+      "k": 1,
+      "p": 0.5,
+      "near_zero_integral": 1.292290271937121,
+      "tail_integral": 0.48016357896839407,
+      "closed": 1.7724538509055159,
+      "weighted_tail_exponent": -1.5,
+      "finite_condition": true
+    },
+    {
+      "k": 2,
+      "p": 0.25,
+      "near_zero_integral": 0.9133749689092445,
+      "tail_integral": 0.00568755793961827,
+      "closed": 0.919062526848883,
+      "weighted_tail_exponent": -2.75,
+      "finite_condition": true
+    },
+    {
+      "k": 2,
+      "p": 0.5,
+      "near_zero_integral": 0.8673443528971571,
+      "tail_integral": 0.018882572555602006,
+      "closed": 0.8862269254527579,
+      "weighted_tail_exponent": -2.5,
+      "finite_condition": true
+    },
+    {
+      "k": 2,
+      "p": 1.5,
+      "near_zero_integral": 1.0618840073658822,
+      "tail_integral": 0.7105698435396516,
+      "closed": 1.7724538509055159,
+      "weighted_tail_exponent": -1.5,
+      "finite_condition": true
+    },
+    {
+      "k": 3,
+      "p": 0.25,
+      "near_zero_integral": 0.8038875071849844,
+      "tail_integral": 0.0002922038077907665,
+      "closed": 0.8041797109927727,
+      "weighted_tail_exponent": -3.75,
+      "finite_condition": true
+    },
+    {
+      "k": 3,
+      "p": 0.5,
+      "near_zero_integral": 0.6637577752532382,
+      "tail_integral": 0.0009124188363297806,
+      "closed": 0.6646701940895685,
+      "weighted_tail_exponent": -3.5,
+      "finite_condition": true
+    },
+    {
+      "k": 3,
+      "p": 2.5,
+      "near_zero_integral": 0.4941138131116589,
+      "tail_integral": 0.39211311234039375,
+      "closed": 0.8862269254527579,
+      "weighted_tail_exponent": -1.5,
+      "finite_condition": true
+    },
+    {
+      "k": 4,
+      "p": 0.25,
+      "near_zero_integral": 0.7371516164140309,
+      "tail_integral": 1.3118662670554263e-05,
+      "closed": 0.7371647350767083,
+      "weighted_tail_exponent": -4.75,
+      "finite_condition": true
+    },
+    {
+      "k": 4,
+      "p": 0.5,
+      "near_zero_integral": 0.5538519782742869,
+      "tail_integral": 3.985013368568372e-05,
+      "closed": 0.5538918284079738,
+      "weighted_tail_exponent": -4.5,
+      "finite_condition": true
+    },
+    {
+      "k": 4,
+      "p": 3.5,
+      "near_zero_integral": 0.15871995494548236,
+      "tail_integral": 0.1366890202051274,
+      "closed": 0.2954089751509193,
+      "weighted_tail_exponent": -1.5,
+      "finite_condition": true
+    },
+    {
+      "k": 5,
+      "p": 0.25,
+      "near_zero_integral": 0.6910914287111882,
+      "tail_integral": 5.104232364677039e-07,
+      "closed": 0.691091939134414,
+      "weighted_tail_exponent": -5.75,
+      "finite_condition": true
+    },
+    {
+      "k": 5,
+      "p": 0.5,
+      "near_zero_integral": 0.484653823402629,
+      "tail_integral": 1.526454349448838e-06,
+      "closed": 0.48465534985697706,
+      "weighted_tail_exponent": -5.5,
+      "finite_condition": true
+    },
+    {
+      "k": 5,
+      "p": 4.5,
+      "near_zero_integral": 0.03879735572725109,
+      "tail_integral": 0.0350548880604812,
+      "closed": 0.07385224378772982,
+      "weighted_tail_exponent": -1.5,
+      "finite_condition": true
+    }
+  ],
+  "critical_statement": "p=k yields weighted-tail exponent-1 and logarithmic divergence; numerical finiteness is not used to infer this"
+}

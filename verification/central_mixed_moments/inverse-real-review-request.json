@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ProbabilityTailRealMoments.lean": {
+      "sha256": "8694a15680580711c800fdf0318abc044301a5d28b810b97450ed7a7bce3468e",
+      "supplied": "Full source"
+    },
+    "NoncentralInverseMinimumRealMoments.lean": {
+      "sha256": "4846deea52c76af799ede592188879b147ba38de57648a7997c6248fddb950cd",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a51939c1a676ee37a6af0da9822a6c569c65302b3281500ed49e095e45670564"
+}

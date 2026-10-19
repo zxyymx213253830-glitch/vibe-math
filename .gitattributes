@@ -132,3 +132,6 @@
 /experiments/inverse_minimum_moment_control.py -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailNaturalMoments.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/NoncentralInverseMinimumMoments.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailRealMoments.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/NoncentralInverseMinimumRealMoments.lean -text whitespace=cr-at-eol
+/experiments/inverse_minimum_real_moment_control.py -text whitespace=cr-at-eol

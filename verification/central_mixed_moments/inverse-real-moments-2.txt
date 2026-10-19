@@ -1,0 +1,49 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumRealMoments.lean:59:72: error: unsolved goals
+case h
+d n : ℕ
+M : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ
+p : ℝ
+hp : 0 < p
+v : ℝ
+hv : 0 < v
+M' : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ := ↑(√v)⁻¹ • M
+z : ComplexSample
+⊢ ?m.150
+
+d n : ℕ
+M : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ
+p : ℝ
+hp : 0 < p
+v : ℝ
+hv : 0 < v
+M' : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ := ↑(√v)⁻¹ • M
+z : ComplexSample
+h : ?m.150
+⊢ (complexNoncentralSampleSmallestEigenvalue M ⋯ (√v • z))⁻¹ ^ p = v⁻¹ ^ p * actualNoncentralInverseMinimum d n M' z ^ p
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumRealMoments.lean:55:45: error: unsolved goals
+d n : ℕ
+M : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ
+p : ℝ
+hp : 0 < p
+v : ℝ
+hv : 0 < v
+M' : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ := ↑(√v)⁻¹ • M
+he :
+  (fun z => (complexNoncentralSampleSmallestEigenvalue M ⋯ (√v • z))⁻¹ ^ p) = fun z =>
+    v⁻¹ ^ p * actualNoncentralInverseMinimum d n M' z ^ p
+⊢ Integrable (fun z => (complexNoncentralSampleSmallestEigenvalue M ⋯ (√v • z))⁻¹ ^ p) (stdGaussian ComplexSample) ↔
+    p < ↑(d + 1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumRealMoments.lean:61:10: error: unexpected token 'λ'; expected command
+'JinWishart.actualNoncentralInverseMinimum_realMoment_integrable_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralRectangular_inverseMinimum_realMoment_integrable_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralInverseMinimum_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralCovariance_inverseMinimum_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

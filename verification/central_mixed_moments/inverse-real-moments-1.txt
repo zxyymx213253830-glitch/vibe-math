@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumRealMoments.lean:63:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ((⋯.eigenvalues₀ ?m.183)⁻¹ * v⁻¹) ^ ?m.173
+in the target expression
+  ((complexNoncentralSampleSmallestEigenvalue (↑(√v)⁻¹ • M) ⋯ z)⁻¹ * v⁻¹) ^ p =
+    v⁻¹ ^ p * actualNoncentralInverseMinimum d n M' z ^ p
+
+d n : ℕ
+M : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ
+p : ℝ
+hp : 0 < p
+v : ℝ
+hv : 0 < v
+M' : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ := ↑(√v)⁻¹ • M
+z : ComplexSample
+⊢ ((complexNoncentralSampleSmallestEigenvalue (↑(√v)⁻¹ • M) ⋯ z)⁻¹ * v⁻¹) ^ p =
+    v⁻¹ ^ p * actualNoncentralInverseMinimum d n M' z ^ p
+'JinWishart.actualNoncentralInverseMinimum_realMoment_integrable_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralRectangular_inverseMinimum_realMoment_integrable_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralInverseMinimum_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralCovariance_inverseMinimum_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

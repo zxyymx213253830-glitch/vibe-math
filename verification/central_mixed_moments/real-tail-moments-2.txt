@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailRealMoments.lean:100:79: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailRealMoments.lean:101:79: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.measurable_realWeightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.lintegral_rpow_eq_realWeightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_rpow_iff_realWeightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.realWeightedProbabilityTail_integrableOn_near_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_positiveRealPower_iff_two_sided_power_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
