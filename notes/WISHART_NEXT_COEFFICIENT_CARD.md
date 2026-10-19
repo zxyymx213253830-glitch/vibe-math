@@ -37,6 +37,16 @@ a=N^3/6-Q3=N*(N+1)*(N+2)/36. These identities match the exact finite parameter
 control, but this paragraph is a proposed proof decomposition, not a proved
 allN Lean result. SmallN absent configurations must be handled explicitly.
 
+Exact pinned asset found: CentralWishartDeterminantMoments.factorial_ratio_product
+already proves centralDeterminantPowerMoment(d,n,1)=(d+n)!/d! after unfolding.
+Reuse it, rather than reproving the p=1 product. A genuinely missing small
+algebraic obligation is the p=2 split
+mass(d,n,2)=mass(d,n,1)*mass(d+1,n,1), then the two factorial-ratio closed form.
+Each pointwise split requires nonzero factorial casts; no Nat subtraction is
+needed in that lemma. Substitute the admissible missing-size parameters only
+after proving r+s-h<=N and h<=r,s. The source/shape of the p=1 asset was read
+directly this turn; this is an asset locator, not a claim p=2 is now formalized.
+
 For arbitraryd, the number of factors in det(W+xI)^d changes; finite pair-minor
 grouping by itself does not solve the d-fold overlap combinatorics. Possible
 routes to evaluate separately: a general factorial-functional coefficient
