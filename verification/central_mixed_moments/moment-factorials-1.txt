@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMomentFactorials.lean:12:8: error: `JinWishart.centralDeterminantPowerMoment_add` has already been declared
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMomentFactorials.lean:43:75: error: unsolved goals
+N a b c : ℕ
+ha : a ≤ N
+hb : b ≤ N
+hca : c ≤ a
+hcb : c ≤ b
+hcN : c ≤ N
+hA : N - a + (a - c) = N - c
+hB : N - b + (b - c) = N - c
+h0 : ↑N.factorial ≠ 0
+h1 : ↑(N + 1).factorial ≠ 0
+hc : ↑(N - c).factorial ≠ 0
+ha0 : ↑(N - a).factorial ≠ 0
+hb0 : ↑(N - b).factorial ≠ 0
+hc1 : ↑(N - c + 1) ≠ 0
+⊢ ↑(N - c).factorial + ↑(N - c).factorial * ↑(N - c) = ↑(1 + (N - c)).factorial
+'JinWishart.centralDeterminantPowerMoment_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralDeterminantPowerMoment_one_factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralDeterminantPowerMoment_two_factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMixedMinorMomentByCards_normalized' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

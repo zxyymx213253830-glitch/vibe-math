@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralWishartMomentFactorials.lean:45:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  1 + (N - c)
+in the target expression
+  ↑(N - c).factorial * (↑(N - c) + 1) = ↑(N - c + 1).factorial
+
+N a b c : ℕ
+ha : a ≤ N
+hb : b ≤ N
+hca : c ≤ a
+hcb : c ≤ b
+hcN : c ≤ N
+hA : N - a + (a - c) = N - c
+hB : N - b + (b - c) = N - c
+h0 : ↑N.factorial ≠ 0
+h1 : ↑(N + 1).factorial ≠ 0
+hc : ↑(N - c).factorial ≠ 0
+ha0 : ↑(N - a).factorial ≠ 0
+hb0 : ↑(N - b).factorial ≠ 0
+hc1 : ↑(N - c + 1) ≠ 0
+⊢ ↑(N - c).factorial * (↑(N - c) + 1) = ↑(N - c + 1).factorial
+'JinWishart.centralDeterminantPowerMoment_one_factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralDeterminantPowerMoment_two_factorial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMixedMinorMomentByCards_normalized' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

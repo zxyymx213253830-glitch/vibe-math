@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoSurplusSharpCoefficient.lean:65:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoSurplusSharpCoefficient.lean:65:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.centralMinimumRealPolynomial_two_surplus_normalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralMinimumRealPolynomial_two_surplus_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumFiniteHardEdgeCoefficient_two_surplus' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralMinimumCDF_two_surplus_sharp_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumPDFCore_two_surplus_sharp_limit' depends on axioms: [propext, Classical.choice, Quot.sound]

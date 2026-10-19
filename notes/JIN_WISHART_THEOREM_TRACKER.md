@@ -1,5 +1,7 @@
 # 金石等 (2008) Wishart 论文形式化：定理追踪表（B0）
 
+Latest324 bound items/facade-26: for every CENTRAL (N+2)-by-N complex CN sample, N>0, actual CDF/x^3 ->N(N+1)(N+2)/36 and chosen density-core/x^2 ->N(N+1)(N+2)/12. Exact complement reindexing and low coefficients proved for all N, not interpolation. General-d simplified constant, noncentral sharp coefficient/G2 and full paper T1-4 correspondence remain open. See WISHART_TWO_SURPLUS_SHARP_CONSTANT.md. Prior numerical-only d2 statements below are historical, superseded by this result. Human review remains required; frozen manuscript and upload packages unchanged.
+
 最新305项补充：中央任意形状实际最小值ONE维密度及其锐首项已闭合，源自已证CDF，
 质量1/HasPDF/RN-pdf AE接口均证。非中心精确密度/联合G2与原一般T1-4对应不能由此
 推定闭合；简化常数恒等仍开放。冻结稿件和投稿包没有自动更新。

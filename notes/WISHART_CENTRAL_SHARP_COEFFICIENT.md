@@ -1,5 +1,7 @@
 # Central minimum: a finite sharp hard-edge coefficient
 
+Update2026-10-19: the d=2 all-N card is now kernel-checked (19 new printed declarations), including actual sharp CDF constant N(N+1)(N+2)/36 and density-core constant /12. Details and asset/review record: WISHART_TWO_SURPLUS_SHARP_CONSTANT.md. Numerical-only/proposed d2 statements below are retained as dated history, not current status. The GENERAL-d simplified identity remains open.
+
 Research supplement2026-10-19, proof bodies Codex. Not a revision of the frozen
 manuscript. [需人工审查] Measure/Fubini/variance/spectral notation correspondence.
 

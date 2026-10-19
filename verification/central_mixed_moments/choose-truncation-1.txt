@@ -1,0 +1,6 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteChooseTruncation.lean:3:0: warning: 
+'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteChooseTruncation.lean:12:18: error: unexpected token '→'; expected term
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteChooseTruncation.lean:28:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.sum_range_choose_truncate`

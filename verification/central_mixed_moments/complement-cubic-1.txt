@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralComplementCubic.lean:14:11: error: unsolved goals
+case succ.zero
+⊢ Nat.choose 1 3 = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralComplementCubic.lean:54:11: error: unsolved goals
+case succ.zero
+⊢ Nat.choose 1 3 = 0
+'JinWishart.nat_cast_choose_three_real' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralComplementMinorPolynomial_coeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralComplementMinorPolynomial_coeff_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralComplementMinorPolynomial_coeff_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralComplementMinorPolynomial_coeff_three' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

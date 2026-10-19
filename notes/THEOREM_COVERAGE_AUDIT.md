@@ -1,5 +1,7 @@
 # 论文形式化覆盖审计（更新至 2026-10-19）
 
+Latest324 bound items/facade-26: for every CENTRAL (N+2)-by-N complex CN sample, N>0, actual CDF/x^3 ->N(N+1)(N+2)/36 and chosen density-core/x^2 ->N(N+1)(N+2)/12. Exact complement reindexing and low coefficients proved for all N, not interpolation. General-d simplified constant, noncentral sharp coefficient/G2 and full paper T1-4 correspondence remain open. See WISHART_TWO_SURPLUS_SHARP_CONSTANT.md. Prior numerical-only d2 statements below are historical, superseded by this result. Human review remains required; frozen manuscript and upload packages unchanged.
+
 最新305绑定项/facade-25：中央任意m=N+d、N>0的实际最小值一维密度已由独立CDF
 推出，质量1、HasPDF、RN-pdf AE等式通过；解析密度代表h/x^d->(d+1)*a，a为已证
 严格正的有限系数和。不是一般联合G2、非中心精确PDF或简化阶乘常数恒等。

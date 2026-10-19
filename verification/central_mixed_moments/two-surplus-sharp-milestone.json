@@ -1,0 +1,24 @@
+{
+  "collected_utc": "2026-10-19T14:32:25.453561+00:00",
+  "leaf_final_exits": {
+    "moment-factorials-3": 0,
+    "complement-polynomial-2": 0,
+    "choose-truncation-3": 0,
+    "complement-low-1": 0,
+    "complement-cubic-2": 0,
+    "two-surplus-sharp-2": 0
+  },
+  "main_entry": {
+    "log": "facade-26.txt",
+    "actual_exit_code": 0,
+    "output_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+  },
+  "new_declarations": 19,
+  "total_bound_items": 324,
+  "author": "Codex proof bodies; Qoder bounded route/review only",
+  "full_build": "NOT_RUN",
+  "human_review": "REQUIRED",
+  "frozen_publication": "UNCHANGED",
+  "review": "Final6-source P4 real exit0; no concrete issue within algebraic scope. P1 degree/union/low-power and N1 errors rejected; see note.",
+  "failures": "Original duplicate cocycle, unavailable Equiv API, nat interval lexing, small-N choose normalization, final cast normalization retained in numbered logs; no final-source prohibited tokens."
+}

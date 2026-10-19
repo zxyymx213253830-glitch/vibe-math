@@ -1,0 +1,29 @@
+{
+  "inputs": {
+    "CentralWishartMomentFactorials.lean": {
+      "sha256": "b447277bdb7f5ca2a855f587ccff6f2134e58f4d4b845f2becfe6f09a1b5c3f7",
+      "supplied": "Full source"
+    },
+    "CentralComplementMinorPolynomial.lean": {
+      "sha256": "7214673ae1f68e98ab4e949644b652f257633e64d2fc54b4504992707b637bb3",
+      "supplied": "Full source"
+    },
+    "FiniteChooseTruncation.lean": {
+      "sha256": "8d0e61ef5beddb5ca9bab4990d42083339fc3dab6d0af484ca91b48eb33f4a98",
+      "supplied": "Full source"
+    },
+    "CentralComplementLowCoefficients.lean": {
+      "sha256": "5b23313106ae37a996c262dea0e94a7489a3a4c26fc141b949953b538919da00",
+      "supplied": "Full source"
+    },
+    "CentralComplementCubic.lean": {
+      "sha256": "7f809cb5b58e53c3e290b016c22fc13e794f36c26dc0f988e4df13dabb799fad",
+      "supplied": "Full source"
+    },
+    "CentralTwoSurplusSharpCoefficient.lean": {
+      "sha256": "0d14337d501c8c40ac40b5c3553c1293cfa6e14bc790b9a15c362e8c1bef368f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "5682073092902b7f91fe442d3bac33508a28766d0ff8aaaa55d90c167162d8a6"
+}

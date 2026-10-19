@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteChooseTruncation.lean:23:27: error: Type mismatch: After simplification, term
+  hnot
+ has type
+  N + 1 ≤ i
+but is expected to have type
+  N < i
+'JinWishart.sum_range_choose_truncate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

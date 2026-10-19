@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T08:30:55.200088+00:00",
-  "spec_sha256": "b6edafc4cd952f1229ab65c4332f4afec8bddc66f0f7eed73e78a0e2b50af96c",
+  "collected_utc": "2026-10-19T14:32:06.186547+00:00",
+  "spec_sha256": "44c661e6524f418555bc28125aee83b48a0e8f4594b30b98f6c315e0539fae3d",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -4277,9 +4277,317 @@
           "sha256": "c7c36d3fa5f26bc153f99575cd1dda45d6dac13538c6b451a2701470fcec19ac"
         }
       }
+    },
+    "JinWishartFormalization.CentralWishartMomentFactorials": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralDeterminantPowerMoment_one_factorial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralDeterminantPowerMoment_two_factorial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMixedMinorMomentByCards_normalized",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "b447277bdb7f5ca2a855f587ccff6f2134e58f4d4b845f2becfe6f09a1b5c3f7",
+      "olean_sha256": "503507dad03fcbd5cc367350f092def5eeba768de76527622f18967303d50115",
+      "log_sha256": "57a20f2922c5872f74f8c9987a2169d5ca803936ac2e0265556db9e3c9d6fd09",
+      "imports": {
+        "JinWishartFormalization.TwoExtraRowsGroupedPolynomial": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/TwoExtraRowsGroupedPolynomial.olean",
+          "sha256": "66eb3adfd9fd77fef0b46c6ccd3d39bb55ab5cb6d87ccc1bfece36e6c51ea9fe"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralComplementMinorPolynomial": {
+      "declarations": [
+        {
+          "name": "JinWishart.normalized_complement_minor_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralComplementMinorPolynomial_eval",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.twoExtraRowMinimumPolynomial_eq_complement",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "7214673ae1f68e98ab4e949644b652f257633e64d2fc54b4504992707b637bb3",
+      "olean_sha256": "aff5e8dda1d65038267d098198e48ce664a8348fbed152d722e90b40271b1e1c",
+      "log_sha256": "392807da093025c4af96faf89fb4ca3613194ebb28ac8ec96ed8408bd37142a6",
+      "imports": {
+        "JinWishartFormalization.CentralWishartMomentFactorials": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartMomentFactorials.olean",
+          "sha256": "503507dad03fcbd5cc367350f092def5eeba768de76527622f18967303d50115"
+        },
+        "Mathlib.Data.Finset.BooleanAlgebra": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finset/BooleanAlgebra.olean",
+          "sha256": "dcbe0e6cb3c242a54b4238ce0e9d87e3403b109f674a737e70ee9cf6f871c96d"
+        }
+      }
+    },
+    "JinWishartFormalization.FiniteChooseTruncation": {
+      "declarations": [
+        {
+          "name": "JinWishart.sum_range_choose_truncate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "8d0e61ef5beddb5ca9bab4990d42083339fc3dab6d0af484ca91b48eb33f4a98",
+      "olean_sha256": "9a4a818a8b0adf8ce3de207e0186056df9b51b9c33372a85ddafecea7b9aa017",
+      "log_sha256": "48ef51f62df3ea6304808899b9a1ef233112aac018c9122a086e72f08d2d821c",
+      "imports": {
+        "Mathlib.Algebra.BigOperators.Ring.Finset": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/BigOperators/Ring/Finset.olean",
+          "sha256": "2df337a4687e65663fdffae922485781110699f5c0902153d9d70fdb9086ff17"
+        },
+        "Mathlib.Data.Nat.Choose.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Choose/Basic.olean",
+          "sha256": "17063a3a92b61bb14601e99db5d36372c22a2a19daf6a184c71bca283590031e"
+        },
+        "Mathlib.Basic.Real.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Basic/Real/Basic.olean",
+          "sha256": "c483510345cc8bf45fc01b828d6f613edf3f4d3fd928d96c6943bde70003554f"
+        },
+        "Mathlib.Tactic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic.olean",
+          "sha256": "8be3ab72f75f0b3e1e6118695c30e156a834371b4dc0df7ae4857ed4e003c13a"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralComplementLowCoefficients": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralComplementMinorPolynomial_coeff_grouped",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralComplementMinorPolynomial_coeff_bounded",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "5b23313106ae37a996c262dea0e94a7489a3a4c26fc141b949953b538919da00",
+      "olean_sha256": "ddb724dd6254dbbdb55bbb86e8f47bfd491f6e6fa1686915ae45ace328c9ed4f",
+      "log_sha256": "8d6a9eef07e57bb3139d46251f60391d6bd131b01303ab5ced7d2fc462dbaa6c",
+      "imports": {
+        "JinWishartFormalization.CentralComplementMinorPolynomial": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralComplementMinorPolynomial.olean",
+          "sha256": "aff5e8dda1d65038267d098198e48ce664a8348fbed152d722e90b40271b1e1c"
+        },
+        "JinWishartFormalization.FiniteChooseTruncation": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FiniteChooseTruncation.olean",
+          "sha256": "9a4a818a8b0adf8ce3de207e0186056df9b51b9c33372a85ddafecea7b9aa017"
+        },
+        "Mathlib.Data.Nat.Choose.Cast": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Choose/Cast.olean",
+          "sha256": "8ddb0c9ee7ef3d5422d5efd595448341d1e155b8da08b05156d3424e5d877328"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralComplementCubic": {
+      "declarations": [
+        {
+          "name": "JinWishart.nat_cast_choose_three_real",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralComplementMinorPolynomial_coeff_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralComplementMinorPolynomial_coeff_one",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralComplementMinorPolynomial_coeff_two",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralComplementMinorPolynomial_coeff_three",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "7f809cb5b58e53c3e290b016c22fc13e794f36c26dc0f988e4df13dabb799fad",
+      "olean_sha256": "fb29522ffb1afb04cf6965d46f2bd428f659a01f3f788dc35a0a1e05c8851bed",
+      "log_sha256": "acac64336593fa5a33f65bb3d1d0a161124c84cfa3c2688a8888d5d498eff39d",
+      "imports": {
+        "JinWishartFormalization.CentralComplementLowCoefficients": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralComplementLowCoefficients.olean",
+          "sha256": "ddb724dd6254dbbdb55bbb86e8f47bfd491f6e6fa1686915ae45ace328c9ed4f"
+        }
+      }
+    },
+    "JinWishartFormalization.CentralTwoSurplusSharpCoefficient": {
+      "declarations": [
+        {
+          "name": "JinWishart.centralMinimumRealPolynomial_two_surplus_normalized",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMinimumRealPolynomial_two_surplus_coeff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMinimumFiniteHardEdgeCoefficient_two_surplus",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCentralMinimumCDF_two_surplus_sharp_limit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.centralMinimumPDFCore_two_surplus_sharp_limit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "0d14337d501c8c40ac40b5c3553c1293cfa6e14bc790b9a15c362e8c1bef368f",
+      "olean_sha256": "f11d41b80e2da7321bb543db4e1223a9f57bfe17139183ff3c056990f8d279f4",
+      "log_sha256": "d582b0aa90109417be3b11d3c239bed72e397c8e9fceccd6406a7f797c920ee7",
+      "imports": {
+        "JinWishartFormalization.CentralComplementCubic": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralComplementCubic.olean",
+          "sha256": "fb29522ffb1afb04cf6965d46f2bd428f659a01f3f788dc35a0a1e05c8851bed"
+        },
+        "JinWishartFormalization.CentralMinimumPolynomialSpecializations": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralMinimumPolynomialSpecializations.olean",
+          "sha256": "3fcf20b9d354f70caff3fba369c59b5e6c45b8d07880d84e9aa11715e7643215"
+        },
+        "JinWishartFormalization.CentralMinimumDensityHardEdge": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralMinimumDensityHardEdge.olean",
+          "sha256": "04184d257d496dfcc73ad54eaa16df25740a9dce580d293bb053f6502f998656"
+        },
+        "Mathlib.Algebra.Polynomial.Roots": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Polynomial/Roots.olean",
+          "sha256": "abcc71c3488d18c3ead27615e60ee38420f7df8210af29c4f2dc4a833a70ac3a"
+        },
+        "Mathlib.Order.Interval.Set.Infinite": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Interval/Set/Infinite.olean",
+          "sha256": "d5e3957b014848a8bd44c78529649f8a6f1fae6634471f5bcf3d69b50d1768c9"
+        }
+      }
     }
   },
-  "total_declarations": 305,
+  "total_declarations": 324,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -4393,6 +4701,18 @@
       "script": "experiments/central_minimum_density_edge_control.py",
       "script_sha256": "b54871a7bef0fd1458ee824b08f509a85670d995affefe260464812926579878",
       "result_sha256": "df71687aa56d653458161deac4789bdfe6fd30de3a88bc95a30bc50199c1d617",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/wishart_factorial_split_control.py",
+      "script_sha256": "0315f3c5ee7322f3035d2d1d517193880e60eb9fb2c3f1097323cf727bee2d14",
+      "result_sha256": "f841acdb968ebecac44aa4ae3225dd9b812b6780744a6f9b95d77a05ba492bc4",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/finite_choose_truncation_control.py",
+      "script_sha256": "3e56e88bb73be27fdae4373c53a473e92a5fbf38ba1d32f06cd5778f75dbd455",
+      "result_sha256": "3429dfaceba6fd5f9163aa0f085ee76d422c4dea38769848bf20a9738099c7f5",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -4811,9 +5131,21 @@
       "independent_compilation": false,
       "human_review": false,
       "source_changes": []
+    },
+    {
+      "request_sha256": "b5bdbf2d5824e7b955e736700e793aaea8a6e0e3a0a6e8f94a190d4461ea373c",
+      "prompt_sha256": "5682073092902b7f91fe442d3bac33508a28766d0ff8aaaa55d90c167162d8a6",
+      "raw_response_sha256": "5c7fb8067600324ee857523d297d16cd8095e7b35d60ce9910df34f99d2d4681",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
     }
   ],
-  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review. Arbitrary deterministic-mean Gram determinant power moments now exact finite factorial formula, including canonical complexNoncentralWishart integral; NOT a noncentral minimum CDF. General central formula specializes exactly to prior d=0,1,2 CDF polynomials for x>=0,n>0. New8 items make111 theorem/instance plus1 witness=112. Noncentral P4 exact final source covered; specialization review covers earlier proof script with identical statement but later explicit Nat.zero_add rewrite fixed in specialize-4, so not an exact final proof-body review for those3. Last5 items: actual factorial moment functional is a linear map (explicit constructed witness), maps univariate polynomial coefficients compatibly with evaluation; fixed univariate polynomial in x gives entire general central CDF coefficient function. Total115 theorem/instance+2 constructions=117. New linear/univariate5 items NOT in independent P4 snapshot; review pending. Degree bound/general original determinant identity NOT proved. Final linear/univariate5 items now have exact-source Qoder P4 delivered with no concrete defect; standing human interpretation still required, no independent compile. Earlier pending review text superseded by this final receipt. Resumed under renewed user authorization2026-10-19: generic coefficientwise integration degree bound, exact degree n*d and monicity of fixed raw minimum polynomial, zero-value normalizing factorial mass and normalized Q(0)=1 now proved. Twelve new statements, total127 theorem/instance+2 witnesses=129. Degree P4 delivered, no blocking issues; normalization P4 pending real response. No general hard-edge or original candidate identity inferred. Normalization P4 has delivered. Its finiteness warning is resolved directly: hi has both sides ENNReal.ofReal of real numbers (always finite), rewritten via toReal_ofReal under explicit nonnegativity. No arbitrary ENNReal injection claim is used. Eleven more declarations give real coefficient polynomial (real-part applied linearly, not as ring map), exact monicity/degree, and actual general central minimum RIGHT-tail ratio limit1/M, covariance vI limit1/(M*v^(d*n)). Total138 theorem/instance+2 witnesses=140. General LEFT-tail hard-edge/T4 not proved. New right-tail P4 pending receipt. Final real/right-tail11 exact-source Qoder P4 delivered no concrete mathematical issue; no independent compilation/human approval. Normalization pending text superseded by real receipt. Left-tail diversity route under evaluation, not proved. General leave-one-out deterministic residual bounds closed for arbitrary complex rectangular matrices, including singular and one-column cases: minGram<=D_j everyj, existsj D_j<=ncols*minGram. Unit-eigenvector and residual test-vector constructions; no rank premise. Thirteen new items make151 theorem/instance+2 witnesses=153. Gaussian residual marginal/union bound/diversity exponent are NEXT obligations, NOT proved by these deterministic lemmas. Residual P4 pending real response. Residual final P4 has delivered on all four checked deterministic sources; human semantics not implied. Gaussian marginal/event/probability bridge still pending. Actual Gaussian leave-one-out Gamma marginals and AE rank/model correspondence now proved; full CDF Gamma lower/union upper sandwich for N>=2, dof>=N, any real threshold. No residual independence premise. Twenty-one new items make172 theorem/instance+2 witnesses=174. First-column P48 delivered, new marginal/event/sandwich13 P4 pending; general exact left-tail coefficient/log exponent not yet proved. Final marginal/event/sandwich13 P4 delivered with speculative API/rank warnings; resolved against exact ae_map_iff requiring AEMeasurable plus measurable predicate (NOT bimeasurability), rank-free deterministic lemmas, and imported unconditional variance-one Gamma source law. No pending response or unreported assumed rank. Six checked declarations now give explicit Gamma CDF power bounds, actual central minimum power sandwich and Theta(x^(d+1)) at zero from the right for N>=2, m=d+N. Total180 items. Sharp left-tail coefficient NOT derived. Hard-edge P4 pending real receipt. Hard-edge6 exact-source Qoder P4 delivered. Its measure.real type objection is false (Measure.real is Set->Real defined as toReal); stdGaussian probability and minimum measurability are proved upstream. N prefactor is finite union bound while N*x comes from deterministic residual inclusion, not duplicate variance scaling. No independent residual premise. Local constants explicitly restricted0<x<=1; Gamma integral inequalities separately globalx>=0. Human model audit remains required. Eleven checked declarations now prove log F(x)/log x ->m-N+1 for ALL m>=N>0 actual CENTRAL complex Gaussian Gram minima, scalar branch uses actual Gamma law. Covariance vI v>0 and high-SNR threshold b/r, b>0 give log outage/log r ->-(d+1). Total191 items. No sharp prefactor or noncentral minimum theorem. Log P4 delivered false swapped-squeeze alarm: after division by negative log x, C is the LOWER correction and c UPPER, as code already does. Exact all-shapes/scaled9 source P4 pending. Final all-shapes/scaled9 Qoder P4 delivered; false final log-r sign objection resolved: first log quotient factor already proved on r>1; final multiplication identity only cancels log(b/r), which is nonzero on r>b and is valid even log r=0. Both CDF definitions explicitly use total N=n+1 at definition time, not only after cases. Physical theorems all require v>0. Scalar Gamma(rate1) actual variance1/2 real coordinate encoding established upstream; no finiteness side-condition hidden in definitional Measure.real. Fourteen new declarations close arbitrary FIXED deterministic-mean NONCENTRAL actual minimum diversity for ALL m>=N>0 (scalar included): local two positive power bounds, log CDF/log x ->m-N+1, highSNR threshold b/r ->negative exponent. Total203 theorem/instance+2 explicit witnesses=205. Core actual global Gaussian measure comparison to law(Z/2),law(2Z), no target density assumption or residual independence. Constants explicitly depend on norm encoded mean and real dimension. NOT exact leading coefficient, noncentral explicit CDF/spectral density G2, original general T4 prefactor, nor growing-mean/SNR uniformity. Two exact-source final P4 responses delivered, false upper norm-exponent claim resolved: h2 actually bounds normx^2 by2norm(x-y)^2+2normy^2, unlike reviewer misreading. Human review remains required. Six more declarations (total211) extend arbitrary fixed-mean noncentral minimum log/highSNR exponent to positive scalar covariance vI, noise sqrt(v)Z with mean M FIXED. Exact law identity uses standard mean M/sqrt(v), argument x/v. Generic positive threshold-rescaling log lemma provided. Final covariance6 P4 pending. New fixedseed200000 per shape3,2 covariance values with independent ncx2 trace controls PASS, numerical not proof. Final covariance6 Qoder exact-source P4 delivered no concrete issue. Its informal description of ComplexSample as complex entries is inaccurate: actual source is Euclidean real2mN, encoding maps it to CN. Proof handles real/complex scalar explicitly. Three new minor monotone-transform corollaries (total214) connect natural-log WORST-MODE log(1+r*lambda_min) outage to CDF and highSNR exponent. NOT full MIMO logdet capacity, not a headline probability advance. Outage3 P4 pending. Final worst-mode outage3 exact-source Qoder P4 delivered no concrete bug. Physical positiveR and natural units documented; total definitions allowing other rates do not claim positive-rate diversity there. hl is used through positivity to establish1+r*l>0, despite reviewer saying unused. Total214 audit-bound items, final facade17 exit0. New self-contained research note/coverage tracker updated; frozen manuscript/PDF/packages unchanged. Four checked declarations now prove actual noncentral minimum positive AE (all m>=N>0), reciprocal nonstrict tail equals CDF(1/r), log-tail exponent and explicit c/r^k,C/r^k bounds r>=4. Total218 items. Zero inverse convention explicitly discharged by AE fullrank, not silently assumed. Inverse-moment criterion is NOT proved. Final reciprocal4 P4 pending. Final reciprocal4 exact-source Qoder P4 delivered no concrete defect. Its final wording that human concerns handled is NOT adopted: human measure/model audit remains REQUIRED. It also says positivity implies measurability; actual measurability comes from globally measurable minimum composed with measurable inverse, not positivity alone. Tail zero-set equality checked AE. Full218 bundle PASS; facade18 exit0. Inverse-moment threshold remains next. Renewed user continuation2026-10-19 after natural quota reset. Sixteen new checked declarations close actual arbitrary fixedmean NONCENTRAL FIRST inverse-minimum moment integrable iffm>N, all m>=N>0. Square nonnegative ENNReal integral isTOP, not real Bochner infinity. Generic real probability-tail layercake integrability equivalence and exact two-sided power integral comparison support it. Total232 theorem/instance+2 constructions=234. All-natural inverse moments pending. Two final firstmoment P4 requests pending real responses; human Fubini/model review REQUIRED. Final firstmoment11+actual5 exact-source Qoder P4 delivered. Claimed nonexistent measureReal_le_one is false: locked Measure/Typeclasses/Probability.lean44 defines it. Probability instance explicitly scoped, measure_ne_top is actual checked proof, not circular. Standard axioms propext/Classical.choice/Quot.sound (not reviewer funext list). No human-review waiver adopted. First moment q=1 uses weight1, not2t; P1 off-by-one rejected. Full234 bundle/facade19 PASS. Weighted all-natural extension not yet accepted. Ten new checked declarations close ALL nonnegative INTEGER inverse minimum moments for arbitrary fixedmean noncentral m>=N>0: integrable iff q<m-N+1, includingq0. Critical andhigher nonnegative ENNReal integralTOP. Fixed positive scalar covariancevI preserves criterion whileMfixed. Generic weighted layercake with weight(q+1)t^q explicitly integratesmomentq+1; no offbyone. Total242 theorem/instance+2 constructions=244. No realfractional exponent criterion or exactmomentvalue yet. Final natural10 P4 pending; humanreview REQUIRED. Final natural10 P4 delivered. Its alleged required mean nondegeneracy/norm lower bound is invented: all constants strictlypositive for EVERY M, including0. No Mprime!=0 premise added. Reviewer scales inverse eigenvalue bysqrtv incorrectly in prose; checked source uses v^-q. Exact-source10 reviewed; no human approval. Full244 bundle andfacade20 PASS. Nine new checked declarations extend inverse minimum moment threshold to EVERY POSITIVE REALp (fractional included), iff p<m-N+1, arbitraryfixedmean noncentral m>=N>0 andfixedpositive scalarcovariance. Critical/above nonnegative ENNReal integralTOP. Generic realweightedlayercake handles singularweightnear0 via rpowintegrabilityp>0, not boundedconstant. Total251 theorem/instance+2 constructions=253. Final real9 P4 pending realresponse. No exactmomentvalue, general nonscalarcorrelation orfullG2 asserted. Final real9 P4 delivered. Covariance prefactor warning is false: Gram eigenvalue scalesa^2, notamplitudea (reviewer confuses singular value), so inverse momentv^-p correct. Zero-mean positivity and strict rpow critical boundary resolved against exact checked statements. No uniform bound overallM asserted, no human-review waiver. Full253 bundle/facade21 PASS. Next nonscalar correlated covariance control passed, NOT proved. Eighteen new checked declarations give fixed invertible COLUMN covariance factor B for physical ZB+M, normalized meanMBinv, pointwise rank-free min comparisons and actual CDF sandwich, same diversity m-N+1 and ALL positiveREAL inverse minimum moments iff p<m-N+1. Critical/higher nonnegativeENNReal integralTOP. No singularB, growingconditionnumber uniformity, exactnoncentralCDF/G2 or originalgeneralT1 claimed. Total269 theorem/instance+2constructions=271. Two final exact-source Qoder P4 delivered, not humanreview. Frozenpublication unchanged/fullLakeNOT_RUN. Twenty new checked statements close general CENTRAL sharp hard-edge ratio limit with strictlypositive FINITE factorial-functional coefficient. Analyticcontinuation separatefrompiecewiseCDF, exactorderk=d+1 andderivativevanishing, Taylorcoefficientderivative/k!, Leibnizfiniteconvolution removeseveryderivative/probabilityintegral. Earlier sharpcoefficient-open language superseded ONLY for thisfiniteexpression. Simplerclassicfactorialidentity/originalgeneralT4prefactor stillOPEN, no noncentralsharpprefactor/G2 asserted. Total289 theorem/instance+2constructions=291, facade23exit0; finalgeneric8+actual12 exactsourceQoderP4 delivered, scopegapexplicitnotmisreported. HumanreviewREQUIRED; frozenpublicationUNCHANGED/fullLakeNOT_RUN. Twelve checked declarations derive ACTUAL generalCENTRAL minimum ONEdimensional marginaldensity exp(-Nx)/M*(N*P-Pderivative) supportedx>0 fromindependentlyprovedCDF, viafiniteintervalFTC/measureext. Nonnegativity fromactualCDFmonotonicity, mass1, HasPDF andcanonicalRNpdfAEequality proved. NOT jointG2/noncentraldensity/classicalprefactoridentity. Total301 theorem/instance+2constructions=303; facade24exit0. Final12sourceQoderP4delivered, nothumanreview. Frozenpublicationunchanged/fullLakeNOT_RUN. Two checked statements now give actualcentral1DanalyticPDFcore h(x)/x^d ->(d+1)*a, a exactfinitefactorialfunctionalCDFcoefficient. GenericvanishingTaylorlemma includesd0. This pointwisecore limit doesNOTapplytoarbitraryAEversionsofcanonicalRNpdf withoutchoosingrepresentative. Total303 theorem/instance+2constructions=305, facade25realexit0, final2P4delivered. HumanreviewREQUIRED/frozenpublicationunchanged.",
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review. Arbitrary deterministic-mean Gram determinant power moments now exact finite factorial formula, including canonical complexNoncentralWishart integral; NOT a noncentral minimum CDF. General central formula specializes exactly to prior d=0,1,2 CDF polynomials for x>=0,n>0. New8 items make111 theorem/instance plus1 witness=112. Noncentral P4 exact final source covered; specialization review covers earlier proof script with identical statement but later explicit Nat.zero_add rewrite fixed in specialize-4, so not an exact final proof-body review for those3. Last5 items: actual factorial moment functional is a linear map (explicit constructed witness), maps univariate polynomial coefficients compatibly with evaluation; fixed univariate polynomial in x gives entire general central CDF coefficient function. Total115 theorem/instance+2 constructions=117. New linear/univariate5 items NOT in independent P4 snapshot; review pending. Degree bound/general original determinant identity NOT proved. Final linear/univariate5 items now have exact-source Qoder P4 delivered with no concrete defect; standing human interpretation still required, no independent compile. Earlier pending review text superseded by this final receipt. Resumed under renewed user authorization2026-10-19: generic coefficientwise integration degree bound, exact degree n*d and monicity of fixed raw minimum polynomial, zero-value normalizing factorial mass and normalized Q(0)=1 now proved. Twelve new statements, total127 theorem/instance+2 witnesses=129. Degree P4 delivered, no blocking issues; normalization P4 pending real response. No general hard-edge or original candidate identity inferred. Normalization P4 has delivered. Its finiteness warning is resolved directly: hi has both sides ENNReal.ofReal of real numbers (always finite), rewritten via toReal_ofReal under explicit nonnegativity. No arbitrary ENNReal injection claim is used. Eleven more declarations give real coefficient polynomial (real-part applied linearly, not as ring map), exact monicity/degree, and actual general central minimum RIGHT-tail ratio limit1/M, covariance vI limit1/(M*v^(d*n)). Total138 theorem/instance+2 witnesses=140. General LEFT-tail hard-edge/T4 not proved. New right-tail P4 pending receipt. Final real/right-tail11 exact-source Qoder P4 delivered no concrete mathematical issue; no independent compilation/human approval. Normalization pending text superseded by real receipt. Left-tail diversity route under evaluation, not proved. General leave-one-out deterministic residual bounds closed for arbitrary complex rectangular matrices, including singular and one-column cases: minGram<=D_j everyj, existsj D_j<=ncols*minGram. Unit-eigenvector and residual test-vector constructions; no rank premise. Thirteen new items make151 theorem/instance+2 witnesses=153. Gaussian residual marginal/union bound/diversity exponent are NEXT obligations, NOT proved by these deterministic lemmas. Residual P4 pending real response. Residual final P4 has delivered on all four checked deterministic sources; human semantics not implied. Gaussian marginal/event/probability bridge still pending. Actual Gaussian leave-one-out Gamma marginals and AE rank/model correspondence now proved; full CDF Gamma lower/union upper sandwich for N>=2, dof>=N, any real threshold. No residual independence premise. Twenty-one new items make172 theorem/instance+2 witnesses=174. First-column P48 delivered, new marginal/event/sandwich13 P4 pending; general exact left-tail coefficient/log exponent not yet proved. Final marginal/event/sandwich13 P4 delivered with speculative API/rank warnings; resolved against exact ae_map_iff requiring AEMeasurable plus measurable predicate (NOT bimeasurability), rank-free deterministic lemmas, and imported unconditional variance-one Gamma source law. No pending response or unreported assumed rank. Six checked declarations now give explicit Gamma CDF power bounds, actual central minimum power sandwich and Theta(x^(d+1)) at zero from the right for N>=2, m=d+N. Total180 items. Sharp left-tail coefficient NOT derived. Hard-edge P4 pending real receipt. Hard-edge6 exact-source Qoder P4 delivered. Its measure.real type objection is false (Measure.real is Set->Real defined as toReal); stdGaussian probability and minimum measurability are proved upstream. N prefactor is finite union bound while N*x comes from deterministic residual inclusion, not duplicate variance scaling. No independent residual premise. Local constants explicitly restricted0<x<=1; Gamma integral inequalities separately globalx>=0. Human model audit remains required. Eleven checked declarations now prove log F(x)/log x ->m-N+1 for ALL m>=N>0 actual CENTRAL complex Gaussian Gram minima, scalar branch uses actual Gamma law. Covariance vI v>0 and high-SNR threshold b/r, b>0 give log outage/log r ->-(d+1). Total191 items. No sharp prefactor or noncentral minimum theorem. Log P4 delivered false swapped-squeeze alarm: after division by negative log x, C is the LOWER correction and c UPPER, as code already does. Exact all-shapes/scaled9 source P4 pending. Final all-shapes/scaled9 Qoder P4 delivered; false final log-r sign objection resolved: first log quotient factor already proved on r>1; final multiplication identity only cancels log(b/r), which is nonzero on r>b and is valid even log r=0. Both CDF definitions explicitly use total N=n+1 at definition time, not only after cases. Physical theorems all require v>0. Scalar Gamma(rate1) actual variance1/2 real coordinate encoding established upstream; no finiteness side-condition hidden in definitional Measure.real. Fourteen new declarations close arbitrary FIXED deterministic-mean NONCENTRAL actual minimum diversity for ALL m>=N>0 (scalar included): local two positive power bounds, log CDF/log x ->m-N+1, highSNR threshold b/r ->negative exponent. Total203 theorem/instance+2 explicit witnesses=205. Core actual global Gaussian measure comparison to law(Z/2),law(2Z), no target density assumption or residual independence. Constants explicitly depend on norm encoded mean and real dimension. NOT exact leading coefficient, noncentral explicit CDF/spectral density G2, original general T4 prefactor, nor growing-mean/SNR uniformity. Two exact-source final P4 responses delivered, false upper norm-exponent claim resolved: h2 actually bounds normx^2 by2norm(x-y)^2+2normy^2, unlike reviewer misreading. Human review remains required. Six more declarations (total211) extend arbitrary fixed-mean noncentral minimum log/highSNR exponent to positive scalar covariance vI, noise sqrt(v)Z with mean M FIXED. Exact law identity uses standard mean M/sqrt(v), argument x/v. Generic positive threshold-rescaling log lemma provided. Final covariance6 P4 pending. New fixedseed200000 per shape3,2 covariance values with independent ncx2 trace controls PASS, numerical not proof. Final covariance6 Qoder exact-source P4 delivered no concrete issue. Its informal description of ComplexSample as complex entries is inaccurate: actual source is Euclidean real2mN, encoding maps it to CN. Proof handles real/complex scalar explicitly. Three new minor monotone-transform corollaries (total214) connect natural-log WORST-MODE log(1+r*lambda_min) outage to CDF and highSNR exponent. NOT full MIMO logdet capacity, not a headline probability advance. Outage3 P4 pending. Final worst-mode outage3 exact-source Qoder P4 delivered no concrete bug. Physical positiveR and natural units documented; total definitions allowing other rates do not claim positive-rate diversity there. hl is used through positivity to establish1+r*l>0, despite reviewer saying unused. Total214 audit-bound items, final facade17 exit0. New self-contained research note/coverage tracker updated; frozen manuscript/PDF/packages unchanged. Four checked declarations now prove actual noncentral minimum positive AE (all m>=N>0), reciprocal nonstrict tail equals CDF(1/r), log-tail exponent and explicit c/r^k,C/r^k bounds r>=4. Total218 items. Zero inverse convention explicitly discharged by AE fullrank, not silently assumed. Inverse-moment criterion is NOT proved. Final reciprocal4 P4 pending. Final reciprocal4 exact-source Qoder P4 delivered no concrete defect. Its final wording that human concerns handled is NOT adopted: human measure/model audit remains REQUIRED. It also says positivity implies measurability; actual measurability comes from globally measurable minimum composed with measurable inverse, not positivity alone. Tail zero-set equality checked AE. Full218 bundle PASS; facade18 exit0. Inverse-moment threshold remains next. Renewed user continuation2026-10-19 after natural quota reset. Sixteen new checked declarations close actual arbitrary fixedmean NONCENTRAL FIRST inverse-minimum moment integrable iffm>N, all m>=N>0. Square nonnegative ENNReal integral isTOP, not real Bochner infinity. Generic real probability-tail layercake integrability equivalence and exact two-sided power integral comparison support it. Total232 theorem/instance+2 constructions=234. All-natural inverse moments pending. Two final firstmoment P4 requests pending real responses; human Fubini/model review REQUIRED. Final firstmoment11+actual5 exact-source Qoder P4 delivered. Claimed nonexistent measureReal_le_one is false: locked Measure/Typeclasses/Probability.lean44 defines it. Probability instance explicitly scoped, measure_ne_top is actual checked proof, not circular. Standard axioms propext/Classical.choice/Quot.sound (not reviewer funext list). No human-review waiver adopted. First moment q=1 uses weight1, not2t; P1 off-by-one rejected. Full234 bundle/facade19 PASS. Weighted all-natural extension not yet accepted. Ten new checked declarations close ALL nonnegative INTEGER inverse minimum moments for arbitrary fixedmean noncentral m>=N>0: integrable iff q<m-N+1, includingq0. Critical andhigher nonnegative ENNReal integralTOP. Fixed positive scalar covariancevI preserves criterion whileMfixed. Generic weighted layercake with weight(q+1)t^q explicitly integratesmomentq+1; no offbyone. Total242 theorem/instance+2 constructions=244. No realfractional exponent criterion or exactmomentvalue yet. Final natural10 P4 pending; humanreview REQUIRED. Final natural10 P4 delivered. Its alleged required mean nondegeneracy/norm lower bound is invented: all constants strictlypositive for EVERY M, including0. No Mprime!=0 premise added. Reviewer scales inverse eigenvalue bysqrtv incorrectly in prose; checked source uses v^-q. Exact-source10 reviewed; no human approval. Full244 bundle andfacade20 PASS. Nine new checked declarations extend inverse minimum moment threshold to EVERY POSITIVE REALp (fractional included), iff p<m-N+1, arbitraryfixedmean noncentral m>=N>0 andfixedpositive scalarcovariance. Critical/above nonnegative ENNReal integralTOP. Generic realweightedlayercake handles singularweightnear0 via rpowintegrabilityp>0, not boundedconstant. Total251 theorem/instance+2 constructions=253. Final real9 P4 pending realresponse. No exactmomentvalue, general nonscalarcorrelation orfullG2 asserted. Final real9 P4 delivered. Covariance prefactor warning is false: Gram eigenvalue scalesa^2, notamplitudea (reviewer confuses singular value), so inverse momentv^-p correct. Zero-mean positivity and strict rpow critical boundary resolved against exact checked statements. No uniform bound overallM asserted, no human-review waiver. Full253 bundle/facade21 PASS. Next nonscalar correlated covariance control passed, NOT proved. Eighteen new checked declarations give fixed invertible COLUMN covariance factor B for physical ZB+M, normalized meanMBinv, pointwise rank-free min comparisons and actual CDF sandwich, same diversity m-N+1 and ALL positiveREAL inverse minimum moments iff p<m-N+1. Critical/higher nonnegativeENNReal integralTOP. No singularB, growingconditionnumber uniformity, exactnoncentralCDF/G2 or originalgeneralT1 claimed. Total269 theorem/instance+2constructions=271. Two final exact-source Qoder P4 delivered, not humanreview. Frozenpublication unchanged/fullLakeNOT_RUN. Twenty new checked statements close general CENTRAL sharp hard-edge ratio limit with strictlypositive FINITE factorial-functional coefficient. Analyticcontinuation separatefrompiecewiseCDF, exactorderk=d+1 andderivativevanishing, Taylorcoefficientderivative/k!, Leibnizfiniteconvolution removeseveryderivative/probabilityintegral. Earlier sharpcoefficient-open language superseded ONLY for thisfiniteexpression. Simplerclassicfactorialidentity/originalgeneralT4prefactor stillOPEN, no noncentralsharpprefactor/G2 asserted. Total289 theorem/instance+2constructions=291, facade23exit0; finalgeneric8+actual12 exactsourceQoderP4 delivered, scopegapexplicitnotmisreported. HumanreviewREQUIRED; frozenpublicationUNCHANGED/fullLakeNOT_RUN. Twelve checked declarations derive ACTUAL generalCENTRAL minimum ONEdimensional marginaldensity exp(-Nx)/M*(N*P-Pderivative) supportedx>0 fromindependentlyprovedCDF, viafiniteintervalFTC/measureext. Nonnegativity fromactualCDFmonotonicity, mass1, HasPDF andcanonicalRNpdfAEequality proved. NOT jointG2/noncentraldensity/classicalprefactoridentity. Total301 theorem/instance+2constructions=303; facade24exit0. Final12sourceQoderP4delivered, nothumanreview. Frozenpublicationunchanged/fullLakeNOT_RUN. Two checked statements now give actualcentral1DanalyticPDFcore h(x)/x^d ->(d+1)*a, a exactfinitefactorialfunctionalCDFcoefficient. GenericvanishingTaylorlemma includesd0. This pointwisecore limit doesNOTapplytoarbitraryAEversionsofcanonicalRNpdf withoutchoosingrepresentative. Total303 theorem/instance+2constructions=305, facade25realexit0, final2P4delivered. HumanreviewREQUIRED/frozenpublicationunchanged. Renewed explicit continuation2026-10-19: 19 new declarations identify the already actual two-surplus polynomial with the finite complement polynomial and compute all-N low coefficients. Actual CENTRAL (N+2)-by-N CDF/x^3 ->N(N+1)(N+2)/36, chosen analytic density-core/x^2 ->N(N+1)(N+2)/12 for every N>0. Generic factorial/binomial/reindexing helpers are not independent probability breakthroughs. Total322 theorem/instance+2 constructions=324. Final exact6-source Qoder P4 delivered no concrete issue within algebraic scope; inherited human review REQUIRED. Facade26 real exit0. General-d simplified coefficient identity, noncentral sharp coefficient/G2 and original general paper identities remain OPEN; frozen publication unchanged.",
   "human_review": "REQUIRED for stated measure/model interpretation",
   "full_build": "NOT_RUN",
   "paper_and_submission": "UNCHANGED",

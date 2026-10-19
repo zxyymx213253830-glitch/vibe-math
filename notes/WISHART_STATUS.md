@@ -190,3 +190,5 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-19 下一常数卡前检：独立现有分组多项式的精确有理数计算N1..12,d0..2均匹配简化候选；不是通用证明，未改原候选。Qoder真实P1仅输出未执行工具标签，无有效路线审查；原回应保留。下一张小卡为d=2低0..3次系数的有限缺失大小分解，见WISHART_NEXT_COEFFICIENT_CARD.md；尚无新Lean声明。
 
 2026-10-19 12:06UTC补收尾：上一活跃轮在f15a9ee后已实际观察ordinaryUsageAllowed=false、primary100%、rate_limit_reached，研究随即停在305项/facade-25，未用券/购额。积压心跳未带来新研究；当前额度已自然刷新为可用，仍只归档原轮。未发现本会话检查/审查子进程或活锁，automation已PAUSED。独立收尾quota-closeout-resumed-20261019-305.json保留旧记录，冻结稿件未改，人审/一般G2及简化常数缺口不变。
+
+2026-10-19 renewed user continuation: CENTRAL all-N two-surplus sharp constant closed, actual CDF/x^3 ->N(N+1)(N+2)/36 and analytic density-core/x^2 ->N(N+1)(N+2)/12. Explicit complement bijection, factorial moment reduction, bounded binomial coefficients; no new target density premise. 19 new printed declarations, 322 theorem/instance+2 constructions=324 audit-bound items, final facade-26 exit0. Final six-source Qoder P4 delivered; P1 degree/union errors rejected, human review still REQUIRED. Detail WISHART_TWO_SURPLUS_SHARP_CONSTANT.md. General-d simplified identity/noncentral sharp/G2/full paper mapping open; frozen publication unchanged/full build NOT_RUN.

@@ -1,0 +1,400 @@
+P4 critical review. You are a different-model-family reviewer, not the proof author. Only report concrete problems: (a) missing assumptions or incorrect dimensions/variance/normalization; (b) unsupported steps; (c) mismatch of statement and proof. Do not rewrite proofs, do not emit tool tags, and do not claim independent compilation. All supplied files have actual serial Lean exit0 and standard three axioms. You may flag semantic/model errors despite that. Existing imported actual laws are kernel-checked, not fresh premises.
+Target: variance-one CENTRAL complex CN sample with N columns and N+2 rows, N>0, min eigenvalue of X^H X. Earlier actual general CDF is 1-exp(-N*x)*P(x)/M for x>=0; M=centralDeterminantPowerMoment(0,N,2). Here we identify normalized P/M with an explicit complement polynomial Q. Missing-set degree is |R|+|T|, NOT union-cardinality. Grouping parameters r=|R|, h=|R intersect T|, t=|T minus R| have degree r+h+t, union r+t. Finite truncation uses exact binomial-zero support. Low Q coefficients are 1,N,N^2/2,N*(N-1)*(5N+2)/36. Convolution should yield actual CDF/x^3 ->N*(N+1)*(N+2)/36; density analytic core/x^2 ->N*(N+1)*(N+2)/12. N=n+1 in the final actual-law interface, so shape is (n+3) by (n+1). N=1 is scalar Gamma(shape3), Q=1+x+x^2/2. No claim for general surplus d, noncentral explicit CDF or joint spectral density. Inherited measure/Fubini/model review remains human-required.
+Full exact final sources follow. Identify any genuine gap rather than speculating missing APIs. If none found, say so within this scope.
+
+
+FILE CentralWishartMomentFactorials.lean
+import JinWishartFormalization.TwoExtraRowsGroupedPolynomial
+
+/-!
+# Factorial products needed by the two-surplus sharp coefficient
+
+Codex deterministic algebra. Uses the existing proved first-moment product.
+No new density or probability assumption. [需人工审查] Inherited model interpretation.
+-/
+namespace JinWishart
+noncomputable section
+
+theorem centralDeterminantPowerMoment_one_factorial (d n : ℕ) :
+    centralDeterminantPowerMoment d n 1 =
+      ((d+n).factorial : ℝ)/(d.factorial : ℝ) := factorial_ratio_product d n
+
+theorem centralDeterminantPowerMoment_two_factorial (d n : ℕ) :
+    centralDeterminantPowerMoment d n 2 =
+      (((d+n).factorial : ℝ)*((d+n+1).factorial : ℝ))/
+        ((d.factorial : ℝ)*((d+1).factorial : ℝ)) := by
+  rw [show (2 : ℕ)=1+1 by omega,centralDeterminantPowerMoment_add,
+    centralDeterminantPowerMoment_one_factorial,centralDeterminantPowerMoment_one_factorial]
+  rw [show d+1+n=d+n+1 by omega]
+  ring
+
+theorem centralMixedMinorMomentByCards_normalized (N a b c : ℕ)
+    (ha : a≤N) (hb : b≤N) (hca : c≤a) (hcb : c≤b) :
+    centralMixedMinorMomentByCards N a b c 1 1/
+      ((N.factorial : ℝ)*((N+1).factorial : ℝ)) =
+      1/(((N-c+1 : ℕ) : ℝ)*((N-a).factorial : ℝ)*((N-b).factorial : ℝ)) := by
+  have hcN : c≤N := hca.trans ha
+  have hA : N-a+(a-c)=N-c := by omega
+  have hB : N-b+(b-c)=N-c := by omega
+  unfold centralMixedMinorMomentByCards
+  rw [show (1+1 : ℕ)=2 by omega,centralDeterminantPowerMoment_two_factorial,
+    centralDeterminantPowerMoment_one_factorial,centralDeterminantPowerMoment_one_factorial,
+    Nat.sub_add_cancel hcN,hA,hB,Nat.factorial_succ]
+  have h0 : (N.factorial : ℝ)≠0 := by positivity
+  have h1 : ((N+1).factorial : ℝ)≠0 := by positivity
+  have hc : ((N-c).factorial : ℝ)≠0 := by positivity
+  have ha0 : ((N-a).factorial : ℝ)≠0 := by positivity
+  have hb0 : ((N-b).factorial : ℝ)≠0 := by positivity
+  have hc1 : ((N-c+1 : ℕ) : ℝ)≠0 := by positivity
+  push_cast
+  field_simp
+  rw [Nat.factorial_succ]
+  push_cast
+  ring
+
+end
+end JinWishart
+#print axioms JinWishart.centralDeterminantPowerMoment_one_factorial
+#print axioms JinWishart.centralDeterminantPowerMoment_two_factorial
+#print axioms JinWishart.centralMixedMinorMomentByCards_normalized
+
+
+FILE CentralComplementMinorPolynomial.lean
+import JinWishartFormalization.CentralWishartMomentFactorials
+import Mathlib.Data.Finset.BooleanAlgebra
+
+/-!
+# Two-surplus polynomial reindexed by missing principal subsets
+
+Codex. Finite deterministic algebra, no new actual-density assumption.
+[需人工审查] Inherited actual minimum-law interpretation.
+-/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem normalized_complement_minor_moment (N : ℕ) (R T : Finset (Fin N)) :
+    centralMixedMinorMomentByCards N Rᶜ.card Tᶜ.card (Rᶜ ∩ Tᶜ).card 1 1/
+      ((N.factorial : ℝ)*((N+1).factorial : ℝ)) =
+      1/((((R∪T).card+1 : ℕ) : ℝ)*(R.card.factorial : ℝ)*(T.card.factorial : ℝ)) := by
+  have hR : R.card≤N := by simpa using R.card_le_univ
+  have hT : T.card≤N := by simpa using T.card_le_univ
+  have hU : (R∪T).card≤N := by simpa using (R∪T).card_le_univ
+  have h := centralMixedMinorMomentByCards_normalized N Rᶜ.card Tᶜ.card (Rᶜ∩Tᶜ).card
+    (by simpa using Rᶜ.card_le_univ) (by simpa using Tᶜ.card_le_univ)
+    (Finset.card_le_card Finset.inter_subset_left) (Finset.card_le_card Finset.inter_subset_right)
+  simpa only [← Finset.compl_union,Finset.card_compl,Fintype.card_fin,
+    Nat.sub_sub_self hR,Nat.sub_sub_self hT,Nat.sub_sub_self hU] using h
+
+def centralComplementMinorPolynomial (N : ℕ) : Polynomial ℝ :=
+  ∑ R : Finset (Fin N), ∑ T : Finset (Fin N),
+    Polynomial.monomial (R.card+T.card)
+      (1/((((R∪T).card+1 : ℕ) : ℝ)*(R.card.factorial : ℝ)*(T.card.factorial : ℝ)))
+
+theorem centralComplementMinorPolynomial_eval (N : ℕ) (x : ℝ) :
+    (centralComplementMinorPolynomial N).eval x =
+      ∑ R : Finset (Fin N), ∑ T : Finset (Fin N),
+        x^(R.card+T.card)/
+          ((((R∪T).card+1 : ℕ) : ℝ)*(R.card.factorial : ℝ)*(T.card.factorial : ℝ)) := by
+  classical
+  simp only [centralComplementMinorPolynomial,Polynomial.eval_finsetSum,Polynomial.eval_monomial]
+  apply Finset.sum_congr rfl
+  intro R _
+  apply Finset.sum_congr rfl
+  intro T _
+  ring
+
+theorem twoExtraRowMinimumPolynomial_eq_complement (N : ℕ) (x : ℝ) :
+    twoExtraRowMinimumPolynomial N x=(centralComplementMinorPolynomial N).eval x := by
+  classical
+  let f : Finset (Fin N) → Finset (Fin N) → ℝ := fun S T =>
+    x^(N-S.card+(N-T.card))*
+      (centralMixedMinorMomentByCards N S.card T.card (S∩T).card 1 1/
+        ((N.factorial : ℝ)*((N+1).factorial : ℝ)))
+  have hn : twoExtraRowMinimumPolynomial N x=∑ S : Finset (Fin N), ∑ T : Finset (Fin N), f S T := by
+    unfold twoExtraRowMinimumPolynomial
+    simp_rw [centralMixedMinorMoment_eq_byCards]
+    rw [Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro S _
+    rw [Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro T _
+    dsimp only [f]
+    ring
+  let e : Finset (Fin N) ≃ Finset (Fin N) :=
+    { toFun := fun S => Sᶜ
+      invFun := fun S => Sᶜ
+      left_inv := fun S => compl_compl S
+      right_inv := fun S => compl_compl S }
+  have hre : (∑ R : Finset (Fin N), ∑ T : Finset (Fin N), f Rᶜ Tᶜ)=
+      ∑ R : Finset (Fin N), ∑ T : Finset (Fin N), f R T := by
+    calc
+      _ = ∑ R : Finset (Fin N), ∑ T : Finset (Fin N), f Rᶜ T := by
+        apply Finset.sum_congr rfl
+        intro R _
+        exact Equiv.sum_comp e (fun T => f Rᶜ T)
+      _ = _ := Equiv.sum_comp e (fun R => ∑ T : Finset (Fin N), f R T)
+  rw [hn,← hre,centralComplementMinorPolynomial_eval]
+  apply Finset.sum_congr rfl
+  intro R _
+  apply Finset.sum_congr rfl
+  intro T _
+  dsimp only [f]
+  rw [normalized_complement_minor_moment]
+  have hR : R.card≤N := by simpa using R.card_le_univ
+  have hT : T.card≤N := by simpa using T.card_le_univ
+  simp only [Finset.card_compl,Fintype.card_fin,Nat.sub_sub_self hR,Nat.sub_sub_self hT]
+  ring
+
+end
+end JinWishart
+#print axioms JinWishart.normalized_complement_minor_moment
+#print axioms JinWishart.centralComplementMinorPolynomial_eval
+#print axioms JinWishart.twoExtraRowMinimumPolynomial_eq_complement
+
+
+FILE FiniteChooseTruncation.lean
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Data.Nat.Choose.Basic
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic
+
+/-! Binomial sums with a bounded coefficient support.
+Codex deterministic proofs after exact sparse/binomial controls. -/
+namespace JinWishart
+noncomputable section
+
+theorem sum_range_choose_truncate (N K : ℕ) (f : ℕ → ℝ)
+    (hz : ∀ i, K ≤ i → f i=0) :
+    (∑ i ∈ Finset.range (N+1), (N.choose i : ℝ)*f i) =
+      ∑ i ∈ Finset.range K, (N.choose i : ℝ)*f i := by
+  by_cases hK : K≤N+1
+  · symm
+    apply Finset.sum_subset (Finset.range_mono hK)
+    intro i hi hnot
+    have hKi : K ≤ i := by simpa only [Finset.mem_range,not_lt] using hnot
+    rw [hz i hKi,mul_zero]
+  · apply Finset.sum_subset (Finset.range_mono (le_of_not_ge hK))
+    intro i hi hnot
+    have hNi : N < i := by simp only [Finset.mem_range] at hnot; omega
+    rw [Nat.choose_eq_zero_of_lt hNi,Nat.cast_zero,zero_mul]
+
+end
+end JinWishart
+#print axioms JinWishart.sum_range_choose_truncate
+
+
+FILE CentralComplementLowCoefficients.lean
+import JinWishartFormalization.CentralComplementMinorPolynomial
+import JinWishartFormalization.FiniteChooseTruncation
+import Mathlib.Data.Nat.Choose.Cast
+
+/-! Bounded computation of low coefficients after the actual complement reindex.
+Codex deterministic algebra. Not an assumed density or finite-sample proof. -/
+namespace JinWishart
+noncomputable section
+
+def complementCoefficientTerm (r h t k : ℕ) : ℝ :=
+  if r+(h+t)=k then
+    1/(((r+t+1 : ℕ) : ℝ)*(r.factorial : ℝ)*((h+t).factorial : ℝ))
+  else 0
+
+theorem centralComplementMinorPolynomial_coeff_grouped (N k : ℕ) :
+    (centralComplementMinorPolynomial N).coeff k =
+      ∑ r ∈ Finset.range (N+1), (N.choose r : ℝ)*
+        ∑ h ∈ Finset.range (r+1), (r.choose h : ℝ)*
+          ∑ t ∈ Finset.range (N-r+1), ((N-r).choose t : ℝ)*complementCoefficientTerm r h t k := by
+  classical
+  have hU (R T : Finset (Fin N)) : (R∪T).card=R.card+T.card-(R∩T).card := by
+    have h := Finset.card_union_add_card_inter R T
+    omega
+  simp only [centralComplementMinorPolynomial,Polynomial.finsetSum_coeff,Polynomial.coeff_monomial]
+  simp_rw [hU]
+  rw [sum_finsets_pair_cardinalities N (fun r s h =>
+    if r+s=k then 1/(((r+s-h+1 : ℕ) : ℝ)*(r.factorial : ℝ)*(s.factorial : ℝ)) else 0)]
+  simp_rw [Finset.mul_sum]
+  apply Finset.sum_congr rfl
+  intro r _
+  apply Finset.sum_congr rfl
+  intro h _
+  apply Finset.sum_congr rfl
+  intro t _
+  unfold complementCoefficientTerm
+  rw [show r+(h+t)-h=r+t by omega]
+  ring
+
+theorem centralComplementMinorPolynomial_coeff_bounded (N k : ℕ) :
+    (centralComplementMinorPolynomial N).coeff k =
+      ∑ r ∈ Finset.range (k+1), (N.choose r : ℝ)*
+        ∑ h ∈ Finset.range (r+1), (r.choose h : ℝ)*
+          ∑ t ∈ Finset.range (k+1), ((N-r).choose t : ℝ)*complementCoefficientTerm r h t k := by
+  rw [centralComplementMinorPolynomial_coeff_grouped]
+  rw [sum_range_choose_truncate N (k+1) _ (by
+    intro r hr
+    apply Finset.sum_eq_zero
+    intro h _
+    have hzero : (∑ t ∈ Finset.range (N-r+1),
+        ((N-r).choose t : ℝ)*complementCoefficientTerm r h t k)=0 := by
+      apply Finset.sum_eq_zero
+      intro t _
+      simp only [complementCoefficientTerm,ite_eq_right (show r+(h+t)≠k by omega),mul_zero]
+    rw [hzero,mul_zero])]
+  apply Finset.sum_congr rfl
+  intro r _
+  congr 1
+  apply Finset.sum_congr rfl
+  intro h _
+  congr 1
+  exact sum_range_choose_truncate (N-r) (k+1) _ (by
+    intro t ht
+    simp only [complementCoefficientTerm,ite_eq_right (show r+(h+t)≠k by omega)])
+
+end
+end JinWishart
+#print axioms JinWishart.centralComplementMinorPolynomial_coeff_grouped
+#print axioms JinWishart.centralComplementMinorPolynomial_coeff_bounded
+
+
+FILE CentralComplementCubic.lean
+import JinWishartFormalization.CentralComplementLowCoefficients
+
+/-! Exact low four coefficients, for all dimensions including small ones.
+Codex deterministic algebra. No interpolation from numerical examples. -/
+namespace JinWishart
+noncomputable section
+
+theorem nat_cast_choose_three_real (N : ℕ) :
+    (N.choose 3 : ℝ)=(N : ℝ)*((N : ℝ)-1)*((N : ℝ)-2)/6 := by
+  cases N with
+  | zero => norm_num
+  | succ N =>
+    cases N with
+    | zero => norm_num [Nat.choose]
+    | succ N =>
+      cases N with
+      | zero => norm_num
+      | succ N =>
+        rw [Nat.cast_choose ℝ (show 3≤N+1+1+1 by omega)]
+        rw [show N+1+1+1-3=N by omega]
+        simp only [Nat.factorial_succ,Nat.factorial_zero,Nat.cast_mul,Nat.cast_add,Nat.cast_one]
+        have h : (N.factorial : ℝ)≠0 := by positivity
+        field_simp
+        <;> ring
+
+theorem centralComplementMinorPolynomial_coeff_zero (N : ℕ) :
+    (centralComplementMinorPolynomial N).coeff 0=1 := by
+  rw [centralComplementMinorPolynomial_coeff_bounded]
+  norm_num [complementCoefficientTerm,Finset.sum_range_succ]
+
+theorem centralComplementMinorPolynomial_coeff_one (N : ℕ) :
+    (centralComplementMinorPolynomial N).coeff 1=(N : ℝ) := by
+  rw [centralComplementMinorPolynomial_coeff_bounded]
+  norm_num [complementCoefficientTerm,Finset.sum_range_succ]
+  ring
+
+theorem centralComplementMinorPolynomial_coeff_two (N : ℕ) :
+    (centralComplementMinorPolynomial N).coeff 2=(N : ℝ)^2/2 := by
+  rw [centralComplementMinorPolynomial_coeff_bounded]
+  cases N with
+  | zero => norm_num [complementCoefficientTerm,Finset.sum_range_succ]
+  | succ N =>
+    norm_num [complementCoefficientTerm,Finset.sum_range_succ,Nat.cast_choose_two]
+    ring
+
+theorem centralComplementMinorPolynomial_coeff_three (N : ℕ) :
+    (centralComplementMinorPolynomial N).coeff 3=
+      (N : ℝ)*((N : ℝ)-1)*(5*(N : ℝ)+2)/36 := by
+  rw [centralComplementMinorPolynomial_coeff_bounded]
+  cases N with
+  | zero => norm_num [complementCoefficientTerm,Finset.sum_range_succ]
+  | succ N =>
+    cases N with
+    | zero => norm_num [complementCoefficientTerm,Finset.sum_range_succ,Nat.choose]
+    | succ N =>
+      norm_num [complementCoefficientTerm,Finset.sum_range_succ,Nat.cast_choose_two,nat_cast_choose_three_real]
+      ring
+
+end
+end JinWishart
+#print axioms JinWishart.nat_cast_choose_three_real
+#print axioms JinWishart.centralComplementMinorPolynomial_coeff_zero
+#print axioms JinWishart.centralComplementMinorPolynomial_coeff_one
+#print axioms JinWishart.centralComplementMinorPolynomial_coeff_two
+#print axioms JinWishart.centralComplementMinorPolynomial_coeff_three
+
+
+FILE CentralTwoSurplusSharpCoefficient.lean
+import JinWishartFormalization.CentralComplementCubic
+import JinWishartFormalization.CentralMinimumPolynomialSpecializations
+import JinWishartFormalization.CentralMinimumDensityHardEdge
+import Mathlib.Algebra.Polynomial.Roots
+import Mathlib.Order.Interval.Set.Infinite
+
+/-! Explicit sharp constant for every central (N+2) by N complex sample, N>0.
+Codex. The complement polynomial is identified with the already proved actual
+CDF polynomial; no density or target asymptotic is assumed.
+[需人工审查] Inherited actual-law, variance and measure interpretation.
+-/
+open Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem centralMinimumRealPolynomial_two_surplus_normalized (N : ℕ) (hN : 0 < N) :
+    Polynomial.C (centralDeterminantPowerMoment 0 N 2)⁻¹ *
+      centralMinimumRealPolynomial 2 N = centralComplementMinorPolynomial N := by
+  apply Polynomial.eq_of_infinite_eval_eq
+  apply (Set.Ici_infinite (0 : ℝ)).mono
+  intro x hx
+  simp only [Set.mem_ofPred_eq,Polynomial.eval_mul,Polynomial.eval_C]
+  rw [← centralRectangularMinimumPolynomial_eq_realPolynomial,
+    centralRectangularMinimumPolynomial_two_surplus N hN x hx,
+    twoExtraRowMinimumPolynomial_eq_complement]
+
+theorem centralMinimumRealPolynomial_two_surplus_coeff (N : ℕ) (hN : 0 < N) (k : ℕ) :
+    (centralDeterminantPowerMoment 0 N 2)⁻¹ *
+      (centralMinimumRealPolynomial 2 N).coeff k =
+      (centralComplementMinorPolynomial N).coeff k := by
+  have h := congrArg (fun p : Polynomial ℝ => p.coeff k)
+    (centralMinimumRealPolynomial_two_surplus_normalized N hN)
+  simpa only [Polynomial.coeff_C_mul] using h
+
+theorem centralMinimumFiniteHardEdgeCoefficient_two_surplus (n : ℕ) :
+    centralMinimumFiniteHardEdgeCoefficient 2 n =
+      ((n+1 : ℕ) : ℝ)*(((n+1 : ℕ) : ℝ)+1)*(((n+1 : ℕ) : ℝ)+2)/36 := by
+  have hc := centralMinimumRealPolynomial_two_surplus_coeff (n+1) (by omega)
+  have h0 := hc 0
+  have h1 := hc 1
+  have h2 := hc 2
+  have h3 := hc 3
+  rw [centralComplementMinorPolynomial_coeff_zero] at h0
+  rw [centralComplementMinorPolynomial_coeff_one] at h1
+  rw [centralComplementMinorPolynomial_coeff_two] at h2
+  rw [centralComplementMinorPolynomial_coeff_three] at h3
+  unfold centralMinimumFiniteHardEdgeCoefficient
+  norm_num [Finset.sum_range_succ]
+  push_cast at h0 h1 h2 h3 ⊢
+  linear_combination -h3 + ((n : ℝ)+1)*h2 -
+    ((n : ℝ)+1)^2/2*h1 + ((n : ℝ)+1)^3/6*h0
+
+theorem actualCentralMinimumCDF_two_surplus_sharp_limit (n : ℕ) :
+    Tendsto (fun x => actualCentralMinimumCDF 2 n x/x^3) (𝓝[>] 0)
+      (𝓝 (((n+1 : ℕ) : ℝ)*(((n+1 : ℕ) : ℝ)+1)*(((n+1 : ℕ) : ℝ)+2)/36)) := by
+  simpa only [centralMinimumFiniteHardEdgeCoefficient_two_surplus] using
+    actualCentralMinimumCDF_finite_sharp_coefficient_limit 2 n
+
+theorem centralMinimumPDFCore_two_surplus_sharp_limit (n : ℕ) :
+    Tendsto (fun x => centralMinimumPDFCore 2 n x/x^2) (𝓝[>] 0)
+      (𝓝 (((n+1 : ℕ) : ℝ)*(((n+1 : ℕ) : ℝ)+1)*(((n+1 : ℕ) : ℝ)+2)/12)) := by
+  have h := centralMinimumPDFCore_sharp_coefficient_limit 2 n
+  rw [centralMinimumFiniteHardEdgeCoefficient_two_surplus] at h
+  convert h using 1 <;> norm_num <;> ring
+
+end
+end JinWishart
+#print axioms JinWishart.centralMinimumRealPolynomial_two_surplus_normalized
+#print axioms JinWishart.centralMinimumRealPolynomial_two_surplus_coeff
+#print axioms JinWishart.centralMinimumFiniteHardEdgeCoefficient_two_surplus
+#print axioms JinWishart.actualCentralMinimumCDF_two_surplus_sharp_limit
+#print axioms JinWishart.centralMinimumPDFCore_two_surplus_sharp_limit

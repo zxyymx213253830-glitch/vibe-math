@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralComplementMinorPolynomial.lean:64:4: error(lean.unknownIdentifier): Unknown constant `Equiv.ofInvolutive`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralComplementMinorPolynomial.lean:72:15: error: Type mismatch
+  Equiv.sum_comp e fun R => ∑ T, f R T
+has type
+  ∑ i, ∑ T, f (e i) T = ∑ i, ∑ T, f i T
+but is expected to have type
+  ∑ R, ∑ T, f Rᶜ T = ?m.175
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralComplementMinorPolynomial.lean:71:8: error: Type mismatch
+  Equiv.sum_comp e fun T => f Rᶜ T
+has type
+  ∑ i, f Rᶜ (e i) = ∑ i, f Rᶜ i
+but is expected to have type
+  ∑ T, f Rᶜ Tᶜ = ∑ T, f Rᶜ T
+'JinWishart.normalized_complement_minor_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralComplementMinorPolynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoExtraRowMinimumPolynomial_eq_complement' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
