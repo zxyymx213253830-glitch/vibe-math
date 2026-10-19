@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumSharpOrder.lean:26:4: error: Type mismatch: After simplification, term
+  AnalyticAt.aeval_polynomial analyticAt_id (centralMinimumRealPolynomial d (n + 1))
+ has type
+  @AnalyticAt ℝ ℝ ℝ DenselyNormedField.toNontriviallyNormedField Real.normedAddCommGroup
+    RCLike.toInnerProductSpaceReal.toNormedSpace NonUnitalNormedRing.toNormedAddCommGroup
+    (NormedAlgebra.toNormedSpace ℝ)
+    (fun x => Polynomial.eval₂ (algebraMap ℝ ℝ) (id x) (centralMinimumRealPolynomial d (n + 1))) x
+but is expected to have type
+  @AnalyticAt ℝ ℝ ℝ DenselyNormedField.toNontriviallyNormedField Real.normedAddCommGroup
+    RCLike.toInnerProductSpaceReal.toNormedSpace Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace
+    (fun x => Polynomial.eval x (centralMinimumRealPolynomial d (n + 1))) x
+'JinWishart.analytic_centralMinimumCDFContinuation' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimumCDF_eq_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumCDFContinuation_pos_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumCDFContinuation_log_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumCDFContinuation_positive_factor' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralMinimumCDF_sharp_positive_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

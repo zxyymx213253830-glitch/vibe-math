@@ -1,0 +1,5 @@
+'JinWishart.centralMinimumHardEdgeCoefficient_eq_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumFiniteHardEdgeCoefficient_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimumCDF_finite_sharp_coefficient_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

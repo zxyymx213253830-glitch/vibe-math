@@ -1,0 +1,1 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumFiniteHardEdgeCoefficient.lean:1:0: error: object file 'D:\vibe math\.tools\publication-revision-20261016\fresh-project-library\JinWishartFormalization\ExponentialPolynomialTaylor.olean' of module JinWishartFormalization.ExponentialPolynomialTaylor does not exist

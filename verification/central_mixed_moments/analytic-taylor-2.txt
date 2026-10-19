@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPowerTaylorCoefficient.lean:48:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPowerTaylorCoefficient.lean:48:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'JinWishart.analytic_order_of_positive_log_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.analytic_power_ratio_taylor_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.analytic_power_taylor_coefficient_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,182 @@
+P4 concrete issues only, no tools or rewrite. Exact final Codex proof bodies kernelPASS standard3 axioms. Maincentralm=N+d,N=n+1>0 minimumCDF=1-exp(-Nx)*P(x)/mass forx>=0 alreadychecked, P realfixedfinitefactorial-functionalpolynomial. ActualCDF NOT analyticat0: separate continuation G onALLreals. AlreadypositiveTWO localpowerbounds andlogF/logx->d+1. Generic analyticgermfactorization fromlockedmathlibexists_eventuallyEq_pow_smul_nonzero_iff plusrightpositivity andfiniteintegerlogexponentk impliesG=x^k H locally,Hanalytic,H0>0. Loglimituniquenessidentifiesorder, not assuminglimitfromlogratio alone fornonanalyticfunctions. Taylorfactor analyticremainder givesleadingcoefficient iteratedDeriv k G0/k!, positive. Finiteformula: -massinv/k! times SUM i=0..k choose(k,i)*(-N)^i*(k-i)!*Pcoeff(k-i). No unevaluatedprobabilityintegral/derivative in final coefficient, BUT classicalsimplified factorialcoefficient identity andoriginalgeneralT4prefactorNOTproved. P1 absurd route3 bootstrapallintegerdfromfinitelymanycontrols REJECTED; nofiniteexamplesasproof. No smoothnonanalyticfactorization assumed. Numericalsymbols notproof. Humanmeasure/model review REQUIRED, notwaived. Checkone-sidedfilters/zero/logexponentorder/Taylorfactorials andfiniteconvolution signs/offbyone. Full final sources:
+
+FULL AnalyticPositivePowerLimit.lean
+import JinWishartFormalization.CentralMinimumDiversity
+import Mathlib.Analysis.Analytic.IsolatedZeros
+
+/-!
+# Positive analytic germs: a logarithmic power exponent gives a sharp ratio limit
+
+Only an analytic continuation is required; a piecewise CDF itself need not be
+analytic across zero. Codex. [需人工审查] Asymptotic interpretation in applications.
+-/
+open Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem analytic_positive_factor_of_log_exponent (f : ℝ → ℝ) (k : ℕ)
+    (hf : AnalyticAt ℝ f 0) (hp : ∀ᶠ x in 𝓝[>] (0 : ℝ), 0<f x)
+    (hl : Tendsto (fun x => Real.log (f x)/Real.log x) (𝓝[>] 0) (𝓝 (k : ℝ))) :
+    ∃ g : ℝ → ℝ, AnalyticAt ℝ g 0 ∧ 0<g 0 ∧
+      ∀ᶠ x in 𝓝 (0 : ℝ), f x=x^k*g x := by
+  have hnot : ¬∀ᶠ x in 𝓝 (0 : ℝ), f x=0 := by
+    intro hz
+    have hfalse : ∀ᶠ x in 𝓝[>] (0 : ℝ), False := by
+      filter_upwards [hp,hz.filter_mono nhdsWithin_le_nhds] with x hx hzero
+      exact (ne_of_gt hx) hzero
+    obtain ⟨x,hx⟩ := Filter.Eventually.exists hfalse
+    exact hx
+  obtain ⟨j,g,hg,hg0,hfg⟩ := hf.exists_eventuallyEq_pow_smul_nonzero_iff.mpr hnot
+  have hgf : ∀ᶠ x in 𝓝[>] (0 : ℝ), f x=x^j*g x := by
+    filter_upwards [hfg.filter_mono nhdsWithin_le_nhds] with x hx
+    simpa only [sub_zero,smul_eq_mul] using hx
+  have hgp : ∀ᶠ x in 𝓝[>] (0 : ℝ), 0<g x := by
+    filter_upwards [self_mem_nhdsWithin,hp,hgf] with x hx hpx he
+    rw [he] at hpx
+    exact (mul_pos_iff_of_pos_left (pow_pos hx j)).mp hpx
+  have hg0p : 0<g 0 := lt_of_le_of_ne
+    (ge_of_tendsto (hg.continuousAt.tendsto.mono_left nhdsWithin_le_nhds) (hgp.mono fun _ h => h.le))
+    (Ne.symm hg0)
+  have hbounds : ∀ᶠ x in 𝓝[>] (0 : ℝ),
+      0<x ∧ (g 0/2)*x^j≤f x ∧ f x≤(2*g 0)*x^j := by
+    have hlo := hg.continuousAt.eventually (eventually_gt_nhds (show g 0/2<g 0 by linarith))
+    have hup := hg.continuousAt.eventually (eventually_lt_nhds (show g 0<2*g 0 by linarith))
+    filter_upwards [self_mem_nhdsWithin,hgf,hlo.filter_mono nhdsWithin_le_nhds,
+      hup.filter_mono nhdsWithin_le_nhds] with x hx he hxl hxu
+    refine ⟨hx,?_,?_⟩ <;> rw [he]
+    · nlinarith [mul_le_mul_of_nonneg_right hxl.le (pow_nonneg hx.le j)]
+    · nlinarith [mul_le_mul_of_nonneg_right hxu.le (pow_nonneg hx.le j)]
+  have hj := tendsto_log_ratio_of_power_bounds f j (g 0/2) (2*g 0)
+    (by positivity) (by positivity) hbounds
+  have heq : j=k := Nat.cast_injective (tendsto_nhds_unique hj hl)
+  subst j
+  refine ⟨g,hg,hg0p,?_⟩
+  filter_upwards [hfg] with x hx
+  simpa only [sub_zero,smul_eq_mul] using hx
+
+theorem analytic_positive_power_ratio_limit (f : ℝ → ℝ) (k : ℕ)
+    (hf : AnalyticAt ℝ f 0) (hp : ∀ᶠ x in 𝓝[>] (0 : ℝ), 0<f x)
+    (hl : Tendsto (fun x => Real.log (f x)/Real.log x) (𝓝[>] 0) (𝓝 (k : ℝ))) :
+    ∃ a : ℝ, 0<a ∧ Tendsto (fun x => f x/x^k) (𝓝[>] 0) (𝓝 a) := by
+  obtain ⟨g,hg,hg0,he⟩ := analytic_positive_factor_of_log_exponent f k hf hp hl
+  refine ⟨g 0,hg0,?_⟩
+  apply (hg.continuousAt.tendsto.mono_left nhdsWithin_le_nhds).congr'
+  filter_upwards [self_mem_nhdsWithin,he.filter_mono nhdsWithin_le_nhds] with x hx hxe
+  have hx0 : 0<x := hx
+  rw [hxe]
+  exact (mul_div_cancel_left₀ _ (pow_ne_zero _ hx0.ne')).symm
+
+end
+end JinWishart
+#print axioms JinWishart.analytic_positive_factor_of_log_exponent
+#print axioms JinWishart.analytic_positive_power_ratio_limit
+
+FULL AnalyticPowerTaylorCoefficient.lean
+import JinWishartFormalization.AnalyticPositivePowerLimit
+import Mathlib.Analysis.Analytic.Order
+
+/-! Sharp positive power coefficient as an ordinary Taylor coefficient.
+Codex. No application probability or target coefficient is assumed.
+[需人工审查] Interpretation of the derivative formula in actual models. -/
+open Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem analytic_order_of_positive_log_exponent (f : ℝ → ℝ) (k : ℕ)
+    (hf : AnalyticAt ℝ f 0) (hp : ∀ᶠ x in 𝓝[>] (0 : ℝ), 0<f x)
+    (hl : Tendsto (fun x => Real.log (f x)/Real.log x) (𝓝[>] 0) (𝓝 (k : ℝ))) :
+    analyticOrderAt f 0=(k : ℕ∞) := by
+  obtain ⟨g,hg,hg0,he⟩ := analytic_positive_factor_of_log_exponent f k hf hp hl
+  apply hf.analyticOrderAt_eq_natCast.mpr
+  refine ⟨g,hg,hg0.ne',?_⟩
+  simpa only [sub_zero,smul_eq_mul] using he
+
+theorem analytic_power_ratio_taylor_limit (f : ℝ → ℝ) (k : ℕ)
+    (hf : AnalyticAt ℝ f 0) (hp : ∀ᶠ x in 𝓝[>] (0 : ℝ), 0<f x)
+    (hl : Tendsto (fun x => Real.log (f x)/Real.log x) (𝓝[>] 0) (𝓝 (k : ℝ))) :
+    Tendsto (fun x => f x/x^k) (𝓝[>] 0)
+      (𝓝 (iteratedDeriv k f 0/(k.factorial : ℝ))) := by
+  have hz := ((analyticOrderAt_eq_nat_iff_iteratedDeriv_eq_zero hf).mp
+    (analytic_order_of_positive_log_exponent f k hf hp hl)).1
+  obtain ⟨F,hF,he⟩ := hf.exists_eventuallyEq_sum_add_pow_mul (k+1)
+  have hsum (x : ℝ) :
+      (∑ i ∈ Finset.range (k+1), (x^i/(i.factorial : ℝ)) • iteratedDeriv i f 0) =
+        (x^k/(k.factorial : ℝ))*iteratedDeriv k f 0 := by
+    rw [Finset.sum_range_succ]
+    have hs : (∑ i ∈ Finset.range k, (x^i/(i.factorial : ℝ)) • iteratedDeriv i f 0)=0 := by
+      apply Finset.sum_eq_zero
+      intro i hi
+      rw [hz i (Finset.mem_range.mp hi),smul_zero]
+    rw [hs,zero_add,smul_eq_mul]
+  have hlim : Tendsto (fun x : ℝ => iteratedDeriv k f 0/(k.factorial : ℝ)+x*F x)
+      (𝓝[>] 0) (𝓝 (iteratedDeriv k f 0/(k.factorial : ℝ))) := by
+    simpa only [zero_mul,add_zero,id_eq] using tendsto_const_nhds.add
+      (((show Tendsto (fun x : ℝ => x) (𝓝 (0 : ℝ)) (𝓝 (0 : ℝ)) from tendsto_id).mono_left nhdsWithin_le_nhds).mul
+        (hF.continuousAt.tendsto.mono_left nhdsWithin_le_nhds))
+  apply hlim.congr'
+  filter_upwards [self_mem_nhdsWithin,he.filter_mono nhdsWithin_le_nhds] with x hx heq
+  have hx0 : 0<x := hx
+  rw [heq,hsum,smul_eq_mul,pow_succ]
+  field_simp
+
+theorem analytic_power_taylor_coefficient_pos (f : ℝ → ℝ) (k : ℕ)
+    (hf : AnalyticAt ℝ f 0) (hp : ∀ᶠ x in 𝓝[>] (0 : ℝ), 0<f x)
+    (hl : Tendsto (fun x => Real.log (f x)/Real.log x) (𝓝[>] 0) (𝓝 (k : ℝ))) :
+    0 < iteratedDeriv k f 0/(k.factorial : ℝ) := by
+  obtain ⟨a,ha,ht⟩ := analytic_positive_power_ratio_limit f k hf hp hl
+  have he := tendsto_nhds_unique ht (analytic_power_ratio_taylor_limit f k hf hp hl)
+  rwa [← he]
+
+end
+end JinWishart
+#print axioms JinWishart.analytic_order_of_positive_log_exponent
+#print axioms JinWishart.analytic_power_ratio_taylor_limit
+#print axioms JinWishart.analytic_power_taylor_coefficient_pos
+
+FULL ExponentialPolynomialTaylor.lean
+import Mathlib.Analysis.Analytic.Polynomial
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.Analysis.Calculus.Deriv.Polynomial
+import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
+
+/-! Finite coefficient arithmetic for exponential-polynomial Taylor values.
+Codex deterministic calculus; no probability/density assumption. -/
+open Polynomial
+namespace JinWishart
+noncomputable section
+
+theorem iteratedDeriv_polynomial_eval (P : Polynomial ℝ) (k : ℕ) (x : ℝ) :
+    iteratedDeriv k (fun t => P.eval t) x = ((Polynomial.derivative^[k]) P).eval x := by
+  induction k generalizing P with
+  | zero => simp
+  | succ k ih =>
+    rw [iteratedDeriv_succ']
+    have he : deriv (fun t => P.eval t) = (fun t => P.derivative.eval t) :=
+      funext (fun t => P.deriv)
+    rw [he,ih,Function.iterate_succ_apply]
+
+theorem iteratedDeriv_polynomial_eval_zero (P : Polynomial ℝ) (k : ℕ) :
+    iteratedDeriv k (fun t => P.eval t) 0 = (k.factorial : ℝ)*P.coeff k := by
+  rw [iteratedDeriv_polynomial_eval,← Polynomial.coeff_zero_eq_eval_zero,Polynomial.coeff_iterate_derivative]
+  simp only [zero_add,Nat.descFactorial_self,nsmul_eq_mul]
+
+theorem iteratedDeriv_exp_mul_polynomial_zero (P : Polynomial ℝ) (c : ℝ) (k : ℕ) :
+    iteratedDeriv k (fun x => Real.exp (c*x)*P.eval x) 0 =
+      ∑ i ∈ Finset.range (k+1), (k.choose i : ℝ)*c^i*((k-i).factorial : ℝ)*P.coeff (k-i) := by
+  have he : ContDiffAt ℝ k (fun x : ℝ => Real.exp (c*x)) 0 := by fun_prop
+  have hp : ContDiffAt ℝ k (fun x : ℝ => P.eval x) 0 :=
+    (AnalyticOnNhd.eval_polynomial (𝕜 := ℝ) P 0 (Set.mem_univ 0)).contDiffAt
+  rw [iteratedDeriv_fun_mul he hp]
+  apply Finset.sum_congr rfl
+  intro i hi
+  rw [iteratedDeriv_exp_const_mul,iteratedDeriv_polynomial_eval_zero]
+  simp only [mul_zero,Real.exp_zero,mul_one]
+  ring
+
+end
+end JinWishart
+#print axioms JinWishart.iteratedDeriv_polynomial_eval
+#print axioms JinWishart.iteratedDeriv_polynomial_eval_zero
+#print axioms JinWishart.iteratedDeriv_exp_mul_polynomial_zero

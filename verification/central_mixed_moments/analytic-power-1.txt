@@ -1,0 +1,25 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPositivePowerLimit.lean:25:4: error: Type mismatch
+  Exists.elim (Eventually.exists hfalse)
+has type
+  (∀ (a : ℝ), False → ?m.144) → ?m.144
+but is expected to have type
+  False
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPositivePowerLimit.lean:35:95: error: Type mismatch
+  LT.lt.le h
+has type
+  0 ≤ g x✝
+but is expected to have type
+  ?m.333 x✝ ≤ g 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPositivePowerLimit.lean:63:46: error: Application type mismatch: The argument
+  hx
+has type
+  x ∈ Set.Ioi 0
+but is expected to have type
+  0 < ?m.184
+in the application
+  LT.lt.ne' hx
+'JinWishart.analytic_positive_factor_of_log_exponent' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.analytic_positive_power_ratio_limit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

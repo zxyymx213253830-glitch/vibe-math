@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExponentialPolynomialTaylor.lean:16:14: error: unsolved goals
+case succ
+x : ℝ
+k : ℕ
+ih : ∀ (P : ℝ[X]), iteratedDeriv k (fun t => eval t P) x = eval x ((⇑derivative)^[k] P)
+P : ℝ[X]
+he : (deriv fun t => eval t P) = fun t => eval t (derivative P)
+⊢ eval x ((⇑derivative)^[k] (derivative P)) = eval x (derivative ((⇑derivative)^[k] P))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExponentialPolynomialTaylor.lean:24:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  eval ?m.28 0
+in the target expression
+  eval 0 ((⇑derivative)^[k] P) = ↑k.factorial * P.coeff k
+
+P : ℝ[X]
+k : ℕ
+⊢ eval 0 ((⇑derivative)^[k] P) = ↑k.factorial * P.coeff k
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExponentialPolynomialTaylor.lean:37:6: error(lean.unknownIdentifier): Unknown constant `Real.iteratedDeriv_exp_const_mul`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExponentialPolynomialTaylor.lean:30:92: error: unsolved goals
+P : ℝ[X]
+c : ℝ
+k : ℕ
+he : ContDiffAt ℝ (↑k) (fun x => Real.exp (c * x)) 0
+hp : ContDiffAt ℝ (↑k) (fun x => eval x P) 0
+i : ℕ
+hi : i ∈ Finset.range (k + 1)
+⊢ ↑(k.choose i) * iteratedDeriv i (fun x => Real.exp (c * x)) 0 * iteratedDeriv (k - i) (fun x => eval x P) 0 =
+    ↑(k.choose i) * c ^ i * ↑(k - i).factorial * P.coeff (k - i)
+'JinWishart.iteratedDeriv_polynomial_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.iteratedDeriv_polynomial_eval_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.iteratedDeriv_exp_mul_polynomial_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

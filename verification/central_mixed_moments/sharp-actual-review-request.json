@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "CentralMinimumSharpOrder.lean": {
+      "sha256": "e116cbeabcaaf0aeffa62f93cf9d41d863c5a0b3fae04e8734cfacb32690b4cd",
+      "supplied": "Full source"
+    },
+    "CentralMinimumHardEdgeCoefficient.lean": {
+      "sha256": "3df243ddb99102e6dc362dc66bc02c668c6658ce542188e14c738c9e195d5367",
+      "supplied": "Full source"
+    },
+    "CentralMinimumFiniteHardEdgeCoefficient.lean": {
+      "sha256": "37009e99124a81616324d11008ce6e399ccab6db9ec81cb3e6ba2944eff54c5b",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "51449a9381c52d8f26ddcabaf3be443966cd06a74adf54d3db187cb4978822a4"
+}

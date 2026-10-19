@@ -1,0 +1,2 @@
+'JinWishart.analytic_positive_factor_of_log_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.analytic_positive_power_ratio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,97 @@
+{
+  "seed": null,
+  "status": "PASS exact finite factorial polynomial hard-edge coefficients and independent Gamma controls; not proof",
+  "source_sha256": "811649427a3bf182f5f91ffc2a257ec380d8e24bc7a97cf070ef5f71ff2d9470",
+  "dependency_sha256": "f6475d667394bcfed3744f6e108f7645c2790c816339db41cdb27025a5659e72",
+  "records": [
+    {
+      "N": 2,
+      "d": 0,
+      "coefficient": "2",
+      "finite_convolution": "2",
+      "control": "2",
+      "vanishing_orders": 1
+    },
+    {
+      "N": 2,
+      "d": 1,
+      "coefficient": "3/2",
+      "finite_convolution": "3/2",
+      "control": "3/2",
+      "vanishing_orders": 2
+    },
+    {
+      "N": 2,
+      "d": 2,
+      "coefficient": "2/3",
+      "finite_convolution": "2/3",
+      "control": "2/3",
+      "vanishing_orders": 3
+    },
+    {
+      "N": 2,
+      "d": 3,
+      "coefficient": "5/24",
+      "finite_convolution": "5/24",
+      "control": "5/24",
+      "vanishing_orders": 4
+    },
+    {
+      "N": 2,
+      "d": 4,
+      "coefficient": "1/20",
+      "finite_convolution": "1/20",
+      "control": "1/20",
+      "vanishing_orders": 5
+    },
+    {
+      "N": 1,
+      "d": 0,
+      "coefficient": "1",
+      "control": "Gamma(d+1,rate1)"
+    },
+    {
+      "N": 1,
+      "d": 1,
+      "coefficient": "1/2",
+      "control": "Gamma(d+1,rate1)"
+    },
+    {
+      "N": 1,
+      "d": 2,
+      "coefficient": "1/6",
+      "control": "Gamma(d+1,rate1)"
+    },
+    {
+      "N": 1,
+      "d": 3,
+      "coefficient": "1/24",
+      "control": "Gamma(d+1,rate1)"
+    },
+    {
+      "N": 1,
+      "d": 4,
+      "coefficient": "1/120",
+      "control": "Gamma(d+1,rate1)"
+    },
+    {
+      "N": 1,
+      "d": 5,
+      "coefficient": "1/720",
+      "control": "Gamma(d+1,rate1)"
+    },
+    {
+      "N": 1,
+      "d": 6,
+      "coefficient": "1/5040",
+      "control": "Gamma(d+1,rate1)"
+    },
+    {
+      "N": 1,
+      "d": 7,
+      "coefficient": "1/40320",
+      "control": "Gamma(d+1,rate1)"
+    }
+  ],
+  "scope": "Preflight only. General factorial closed coefficient is NOT formalized."
+}

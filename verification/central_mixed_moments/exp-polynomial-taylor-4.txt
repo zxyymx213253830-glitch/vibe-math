@@ -1,0 +1,3 @@
+'JinWishart.iteratedDeriv_polynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.iteratedDeriv_polynomial_eval_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.iteratedDeriv_exp_mul_polynomial_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

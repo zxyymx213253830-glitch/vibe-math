@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "AnalyticPositivePowerLimit.lean": {
+      "sha256": "a43e7fad24eb66119e61f0d09d46c6d5f93d4f8d056e2669f2fa2b642df9f184",
+      "supplied": "Full source"
+    },
+    "AnalyticPowerTaylorCoefficient.lean": {
+      "sha256": "3dea3e5944d5b880e083c396f467d15e1dc7cfa2010733d202d725055d42e9e1",
+      "supplied": "Full source"
+    },
+    "ExponentialPolynomialTaylor.lean": {
+      "sha256": "8c7df9270bd017980b99a2579e7588f170325db4c348ca04913f01326462a0a4",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "845f75ea268a3f8b136d896c893a975772c8f832459b2aae98d3054d80de614f"
+}

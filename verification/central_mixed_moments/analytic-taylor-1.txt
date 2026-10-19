@@ -1,0 +1,32 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPowerTaylorCoefficient.lean:40:4: error: Type mismatch: After simplification, term
+  Tendsto.add tendsto_const_nhds
+    (Tendsto.mul (Tendsto.mono_left tendsto_id nhdsWithin_le_nhds)
+      (Tendsto.mono_left (ContinuousAt.tendsto (AnalyticAt.continuousAt hF)) nhdsWithin_le_nhds))
+ has type
+  @Tendsto ℝ ℝ (fun x => iteratedDeriv k f 0 / ↑k.factorial + id x * F x) (𝓝[Set.Ioi 0] 0)
+    (𝓝 (iteratedDeriv k f 0 / ↑k.factorial))
+but is expected to have type
+  @Tendsto ℝ ℝ (fun x => iteratedDeriv k f 0 / ↑k.factorial + x * F x) (𝓝[>] 0) (𝓝 (iteratedDeriv k f 0 / ↑k.factorial))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPowerTaylorCoefficient.lean:53:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Type ?u.37) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type ?u.37
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPowerTaylorCoefficient.lean:53:7: error(lean.unknownIdentifier): Unknown identifier `teratedDeriv`
+
+Note: It is not possible to treat `teratedDeriv` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPowerTaylorCoefficient.lean:54:9: error(nested.lean.propRecLargeElim): Tactic `cases` failed with a nested error:
+Tactic `induction` failed: recursor `Exists.casesOn` can only eliminate into `Prop`
+
+f : ℝ → ℝ
+k : ℕ
+hf : AnalyticAt ℝ f 0
+hp : ∀ᶠ (x : ℝ) in 𝓝[>] 0, 0 < f x
+hl : Tendsto (fun x => Real.log (f x) / Real.log x) (𝓝[>] 0) (𝓝 ↑k)
+x✝ : ∃ a, 0 < a ∧ Tendsto (fun x => f x / x ^ k) (𝓝[>] 0) (𝓝 a)
+⊢ PrincipalSeg (fun x1 x2 => sorry) fun x1 x2 => sorry
+'JinWishart.analytic_order_of_positive_log_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.analytic_power_ratio_taylor_limit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AnalyticPowerTaylorCoefficient.lean:62:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.analytic_power_taylor_coefficient_pos`

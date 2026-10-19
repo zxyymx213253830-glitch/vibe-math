@@ -1,0 +1,17 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumSharpOrder.lean:27:30: error: Invalid argument name `x` for function `analyticAt_id`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `E`: x̵E̲
+  • `z`: x̵z̲
+'JinWishart.analytic_centralMinimumCDFContinuation' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimumCDF_eq_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumCDFContinuation_pos_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumCDFContinuation_log_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumCDFContinuation_positive_factor' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralMinimumCDF_sharp_positive_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

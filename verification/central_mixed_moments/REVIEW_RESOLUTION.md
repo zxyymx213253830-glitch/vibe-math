@@ -313,3 +313,25 @@ is too strong: actual proof removes an AE nullset, not a topological support sta
 All means including0 allowed. Critical inversepower divergence is ENNRealTOP, no real
 Bochner infinity. Pointwise rank-free bounds hold EVERYWHERE; strict positivity onlyAE.
 Humanmeasure/model review REQUIRED. Both real responses and exact snapshots retained.
+
+## Analytic sharp-coefficient P1/P4
+
+P1 route3 claiming finiteparameterexamples bootstrap alld by density/monotonicity is false
+and rejected. Its proposed typedAPI is schematic, not copied as library fact. Its claim
+arbitrarysmooth germs factor nonvanishing analytically is false. Selected analyticgerm
+route uses exact locked IsolatedZeros/Order APIs, analyticcontinuation separately fromCDF.
+Generic8 finalsource P4 delivered: scopedmissingclassicalprefactor is an explicit OPEN
+obligation, not a regression. It notes actualCDF bridge absent fromgenericfiles because
+those aregeneric; actual12 files supply it. No fake 'Real axiom' accepted: logs list only
+propext,Classical.choice,Quot.sound, not reviewer conceptual axiom assumptions.
+Actual12 P4 two-sided-positivity critical alarm is false: generic exactsource explicitly
+requires RIGHT hp, factors two-sided using AnalyticAt, provesg>0 right andg0>=0 by ge_of_tendsto,
+then strictg0>0 fromnonzero. G itself need not be positive left (odd-orderzeros). No circularity:
+generic factor exists first, local bounds prove exponentj, existing independentprobability
+bounds provek, limit uniqueness then j=k. Continuation analyticity is proved by exp and
+polynomial APIs, and agreement with actualCDF forx>=0 is proved fromactualCDF law.
+Finite derivative sum range(k+1) is independent ofdegreeP; degreeP=d*N is alreadyproved
+upstream, NOT generallyd or d+1. Coefficients above degree arezero, no spurious leadingterm.
+Leibniz exact statement uses exponentialderivative orderi, polynomialorderk-i; sign(-N)^i
+andouternegative for1-exp arechecked, withk=d+1>=1 explicit. Castelaboration andring kernel
+proofs areactualexit0, not numericargument. Requiredhumanmodel/measure review remains.
