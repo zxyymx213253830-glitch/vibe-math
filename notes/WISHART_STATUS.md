@@ -170,3 +170,5 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-19 固定M的任意正vI非中心模型完成：噪声sqrt(v)Z、均值M固定，精确CDF变换M/sqrt(v)、x/v及一般对数/高SNR分集指数通过。另最弱模式log(1+r*lambda_min)自然单位outage小推论通过，明确不是MIMO logdet容量。新增9声明，总212定理/实例+2构造=214项及facade-17 PASS；两次最终源码P4真实交付无具体缺陷，不替代人工。独立ncx2迹与实际协方差控制PASS。研究证明说明/覆盖审计/追踪表已同步，冻结稿件/投稿包未改，全库构建NOT_RUN。
 
 2026-10-19 逆最小值尾接口：任意固定均值实际最小特征值严格正AE、倒数非严格尾=F(1/r)、负对数尾指数及r>=4时显式c/r^k和C/r^k上下界均通过。新4声明，总216定理/实例+2构造=218项绑定审计和facade-18 PASS，最终P4真实交付无具体问题但不豁免人审。逆矩可积性临界值尚未证明。已定位锁定Layercake.lintegral_eq_lintegral_meas_le / lintegral_comp_eq_lintegral_meas_le_mul，以及ImproperIntegrals.integrableOn_Ioi_rpow_iff；下一步不能用对数斜率直接冒称临界逆矩，必须使用双侧幂界和layercake。
+
+2026-10-19 额度收尾：此前已实际观察ordinaryUsageAllowed=false、primary100%、rate_limit_reached，研究在1cd89fc/218项与facade-18处停止，未用券/购额/切换账户。07:05UTC仅恢复归档和暂停自动任务；积压心跳未产生新研究。未发现本会话活锁或自有检查/审查子进程。自动任务PAUSED，冻结稿件未改，逆矩可积性判据仍开放。
