@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianSquaredNormShift.lean:26:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : EuclideanSpace ℝ ι),
+    ((fun x => ‖id x‖ ^ 2) + fun x => 2 * inner ℝ v x) a + ?m.341 ∂stdGaussian (EuclideanSpace ℝ ι)
+in the target expression
+  ∫ (z : EuclideanSpace ℝ ι), ‖z‖ ^ 2 + 2 * inner ℝ v z + ‖v‖ ^ 2 ∂stdGaussian (EuclideanSpace ℝ ι) =
+    ∫ (z : EuclideanSpace ℝ ι), ‖z‖ ^ 2 ∂stdGaussian (EuclideanSpace ℝ ι) + ‖v‖ ^ 2
+
+ι : Type u_1
+inst✝ : Fintype ι
+v : EuclideanSpace ℝ ι
+hLp : MemLp id 2 (stdGaussian (EuclideanSpace ℝ ι))
+hsq : Integrable (fun x => ‖id x‖ ^ 2) (stdGaussian (EuclideanSpace ℝ ι))
+hinner : Integrable (fun z => inner ℝ v z) (stdGaussian (EuclideanSpace ℝ ι))
+hz : ∫ (z : EuclideanSpace ℝ ι), inner ℝ v z ∂stdGaussian (EuclideanSpace ℝ ι) = 0
+he : (fun z => ‖z + v‖ ^ 2) = fun z => ‖z‖ ^ 2 + 2 * inner ℝ v z + ‖v‖ ^ 2
+⊢ ∫ (z : EuclideanSpace ℝ ι), ‖z‖ ^ 2 + 2 * inner ℝ v z + ‖v‖ ^ 2 ∂stdGaussian (EuclideanSpace ℝ ι) =
+    ∫ (z : EuclideanSpace ℝ ι), ‖z‖ ^ 2 ∂stdGaussian (EuclideanSpace ℝ ι) + ‖v‖ ^ 2
+'JinWishart.integral_stdGaussian_norm_sq_add' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

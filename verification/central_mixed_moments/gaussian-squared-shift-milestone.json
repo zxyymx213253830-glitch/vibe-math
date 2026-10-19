@@ -1,0 +1,17 @@
+{
+  "collected_utc": "2026-10-19T15:36:40.615085+00:00",
+  "leaf_final_exit": 0,
+  "leaf_log": "gaussian-squared-shift-2.txt",
+  "main_entry": {
+    "log": "facade-33.txt",
+    "actual_exit_code": 0,
+    "output_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+  },
+  "new_declarations": 1,
+  "total_bound_items": 387,
+  "scope": "Generic mean-shift helper only, closed complexGram expected trace remains next.",
+  "p4": "Real response no proof issue; reported axiom list incorrect, actual kernelprint retained.",
+  "human_review": "REQUIRED",
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED"
+}

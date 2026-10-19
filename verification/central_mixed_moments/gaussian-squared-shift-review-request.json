@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "GaussianSquaredNormShift.lean": {
+      "sha256": "c8805922ba3b448e875003edeaa1b0c77af585dbae980436d5597ecf4a974f23",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "eb47268284aaba104d1bce98f7fc47d95730f6f0ba53578dde33c015ef67554a"
+}

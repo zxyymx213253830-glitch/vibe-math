@@ -1,0 +1,267 @@
+{
+  "collected_utc": "2026-10-19T17:10:17.999149+00:00",
+  "authorized_resume": "2026-10-19T14:13UTC explicit user continue",
+  "initial_bound_items": 305,
+  "final_bound_items": 387,
+  "new_printed_declarations": 82,
+  "new_source_modules": 24,
+  "proof_author": "Codex; Qoder route/review responses only, not proof bodies",
+  "milestone_commits": [
+    "840be08",
+    "aa323e1",
+    "4323449",
+    "311f327",
+    "54ac9cd",
+    "857c575"
+  ],
+  "facade_checks": [
+    "facade-26.txt realexit0",
+    "facade-27.txt realexit0",
+    "facade-28.txt realexit0",
+    "facade-29.txt realexit0",
+    "facade-30.txt realexit0",
+    "facade-31.txt realexit0",
+    "facade-32.txt realexit0",
+    "facade-33.txt realexit0"
+  ],
+  "external_requests": [
+    {
+      "receipt": "verification/central_mixed_moments/p1-two-surplus-resumed.receipt.json",
+      "started_utc": "2026-10-19T14:15:03.468307+00:00",
+      "ended_utc": "2026-10-19T14:16:24.645495+00:00",
+      "seconds": 81.17720810003811,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.3111514285714286,
+      "substantive_response": true,
+      "response_sha256": "5a718881fd9e24e54e1370afe0399bc0b7f678f12e4d1dc6702e50dcb9701606",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-two-surplus-sharp.receipt.json",
+      "started_utc": "2026-10-19T14:30:05.262510+00:00",
+      "ended_utc": "2026-10-19T14:30:21.391110+00:00",
+      "seconds": 16.128604499972425,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.42713142857142855,
+      "substantive_response": true,
+      "response_sha256": "7514f2ea89da0aed92f3789f08cf3f1a868a5ef325f17fc820608ad0d5cd996a",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p1-logdet-prelog.receipt.json",
+      "started_utc": "2026-10-19T14:34:53.088350+00:00",
+      "ended_utc": "2026-10-19T14:36:23.302571+00:00",
+      "seconds": 90.2142210000311,
+      "exit_code": 124,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [],
+      "reported_provider_credits": null,
+      "substantive_response": false,
+      "response_sha256": null,
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-logdet-generic.receipt.json",
+      "started_utc": "2026-10-19T14:47:23.626435+00:00",
+      "ended_utc": "2026-10-19T14:48:46.047125+00:00",
+      "seconds": 82.42070700001204,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.4951885714285714,
+      "substantive_response": true,
+      "response_sha256": "03e07422141f3dd0193fe03f9f43511eefff18632575a6feb80a7ebb6518f0d1",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-logdet-actual.receipt.json",
+      "started_utc": "2026-10-19T14:48:45.304541+00:00",
+      "ended_utc": "2026-10-19T14:50:11.896439+00:00",
+      "seconds": 86.59190190001391,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.4470017142857143,
+      "substantive_response": true,
+      "response_sha256": "82e1cd5e7427154f2f35af16d7d1d2be9c09eabf021468476929bce5f0a3b9de",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p1-logdet-error.receipt.json",
+      "started_utc": "2026-10-19T14:52:52.190809+00:00",
+      "ended_utc": "2026-10-19T14:53:59.282646+00:00",
+      "seconds": 67.09183769999072,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.3850971428571428,
+      "substantive_response": true,
+      "response_sha256": "d2d6b060abc1a5ffa9bac155ed45bc322c22bd2419a5429a79fcbc483afd47e1",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-logdet-error.receipt.json",
+      "started_utc": "2026-10-19T14:58:41.110028+00:00",
+      "ended_utc": "2026-10-19T14:59:51.423594+00:00",
+      "seconds": 70.31358009995893,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.5651485714285714,
+      "substantive_response": true,
+      "response_sha256": "68b4375e7964fb4823033983dbdb178b0e7baa7d0cbf21d75138f7f281666b81",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-square-logdet-error.receipt.json",
+      "started_utc": "2026-10-19T15:07:36.646113+00:00",
+      "ended_utc": "2026-10-19T15:08:03.174251+00:00",
+      "seconds": 26.52813980000792,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.37422000000000005,
+      "substantive_response": true,
+      "response_sha256": "c13e302282d2cecf4a866bcfdb4b135cf575d67c28088d1bcace943120fef7e1",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p1-wide-logdet.receipt.json",
+      "started_utc": "2026-10-19T15:11:15.771245+00:00",
+      "ended_utc": "2026-10-19T15:12:37.453318+00:00",
+      "seconds": 81.68209419999039,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.47343428571428564,
+      "substantive_response": true,
+      "response_sha256": "7d1cffa493183e0eb261851585ec4b8bdec0ad6e3b37d7e33cec2b38d029eb98",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-wide-logdet.receipt.json",
+      "started_utc": "2026-10-19T15:16:04.399522+00:00",
+      "ended_utc": "2026-10-19T15:16:57.586687+00:00",
+      "seconds": 53.18717950000428,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.156204,
+      "substantive_response": false,
+      "response_sha256": "d5aedc5604224a068cf77c1791c69973ab0c82c1d2e21ee5c5df0beafb005146",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-wide-logdet-final.receipt.json",
+      "started_utc": "2026-10-19T15:18:16.724960+00:00",
+      "ended_utc": "2026-10-19T15:18:56.453274+00:00",
+      "seconds": 39.728317499975674,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.24402685714285713,
+      "substantive_response": true,
+      "response_sha256": "b2c5ddb470a05986b64210ccb3fb8aa85103ca7f5181dd04fc3f7a229776712a",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p1-logdet-mean-bound.receipt.json",
+      "started_utc": "2026-10-19T15:21:30.844786+00:00",
+      "ended_utc": "2026-10-19T15:22:29.229661+00:00",
+      "seconds": 58.384888600034174,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.2631685714285714,
+      "substantive_response": true,
+      "response_sha256": "1c014764caacce72a24c18c8b1d125696a3a2c36c52b6443981e73d059b05358",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-logdet-mean-bound.receipt.json",
+      "started_utc": "2026-10-19T15:25:33.797080+00:00",
+      "ended_utc": "2026-10-19T15:26:39.759133+00:00",
+      "seconds": 65.96205480000935,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.3448474285714286,
+      "substantive_response": true,
+      "response_sha256": "bf0ca9466dac0dab5ca0d85e7591d03ce649c2d413670df64da74c8292e48dc2",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-logdet-low-scale.receipt.json",
+      "started_utc": "2026-10-19T15:28:17.345290+00:00",
+      "ended_utc": "2026-10-19T15:29:29.804031+00:00",
+      "seconds": 72.45876519999001,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.2324674285714286,
+      "substantive_response": true,
+      "response_sha256": "c025e3ddf74e27f6d42173c8bd44d1aa3093cc712ed913883926cc9c9d84f2dc",
+      "interpretation": "Reported provider/model metadata, not independently verified weights or human/independent compiler review"
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-gaussian-squared-shift.receipt.json",
+      "started_utc": "2026-10-19T15:35:03.206591+00:00",
+      "ended_utc": "2026-10-19T15:35:56.685506+00:00",
+      "seconds": 53.47893340000883,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.2166771428571429,
+      "substantive_response": true,
+      "response_sha256": "749844c2b3997f47c0b18cbf03070bd2dcfc7a28913a9c40195be4e9d0ad8fa6",
+      "interpretation": "No concrete proof issue; false axiom metadata corrected against actual print. Not human or independent compile."
+    }
+  ],
+  "file_hashes": {
+    "verification/central_mixed_moments/audit.json": "e4443d11dcb9ad324e5a0a54832bf8ad9de6ae9f3dd27c88af39f0a56bec023a",
+    "theory/jin_wishart_formalization/JinWishartFormalization.lean": "69cc66f2fe590fec94d5a872ec8016139c86c584a6ff79def339ec78faab3416",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization.olean": "aab485742910f407f326f523d27cbd87616d6e539437e174f4c52bbf375f8125",
+    "verification/central_mixed_moments/facade-32.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "theory/wishart_paper/main.tex": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+    "output/pdf/wishart_formalization.pdf": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+    "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+    "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b",
+    "verification/central_mixed_moments/facade-33.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+  },
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED; hashes identify old frozen version, NOT an updated submission",
+  "human_review": "REQUIRED: measure/Fubini/variance/model/paper correspondence",
+  "quota_policy": "Continue useful work until actual ordinary unavailable;17:09UTC ordinaryAllowedtrue primary4% weekly89%, natural refresh no coupons/purchases/accountswitches"
+}
