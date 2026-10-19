@@ -1,0 +1,106 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:15:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:15:44: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HDiv ℝ ℝ ℕ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:18:4: error: unsolved goals
+case pos.inl
+n : ℕ
+hmn : 0 * n = 0
+hz : ∀ (z : ComplexSample), z = 0
+⊢ ∫ (z : ComplexSample), 0 / 2 ∂stdGaussian ComplexSample = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:22:4: error: unsolved goals
+case pos.inr
+m : ℕ
+hmn : m * 0 = 0
+hz : ∀ (z : ComplexSample), z = 0
+⊢ ∫ (z : ComplexSample), 0 / 2 ∂stdGaussian ComplexSample = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:40:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : ?m.283), ?m.282 a ∂?m.288
+in the target expression
+  ∫ (z : ComplexSample), ‖z‖ ^ 2 / 2 ∂stdGaussian ComplexSample = m * n
+
+case neg
+m n : ℕ
+hmn : ¬m * n = 0
+hp : 0 < m * n
+k : ℕ
+hk : m * n = k.succ
+hLaw : Measure.map (fun z => ‖z‖ ^ 2 / 2) (stdGaussian ComplexSample) = gammaMeasure (↑(m * n)) 1
+h :
+  ∫⁻ (a : ComplexSample), ENNReal.ofReal (‖a‖ ^ 2 / 2) ∂stdGaussian ComplexSample =
+    ∫⁻ (r : ℝ), ENNReal.ofReal r ∂gammaMeasure (↑k.succ) 1
+hG : ∫⁻ (r : ℝ), ENNReal.ofReal r ∂gammaMeasure (↑(k + 1)) 1 = ENNReal.ofReal ↑(k + 1)
+hc : ↑(k + 1).factorial / ↑k.factorial = ↑(k + 1)
+⊢ ∫ (z : ComplexSample), ‖z‖ ^ 2 / 2 ∂stdGaussian ComplexSample = m * n
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:40:69: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:40:86: error: `fun_prop` was unable to prove `AEStronglyMeasurable (fun z => ↑(k + 1)) ?m.288`
+
+Issues:
+  No theorems found for `NatCast.natCast` in order to prove `AEStronglyMeasurable (fun z => ↑(k + 1)) ?m.288`
+  Failed to infer `(?m.283 : Type ?u.129)` when applying theorem `MeasureTheory.aestronglyMeasurable_const`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:20:59: warning: This simp argument is unused:
+  zero_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hz, norm_zero, zero_pow (by decide : 2 ≠ 0), integral_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:20:68: warning: This simp argument is unused:
+  integral_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hz, norm_zero, zero_pow (by decide : 2 ≠ 0), zero_div]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:24:59: warning: This simp argument is unused:
+  zero_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hz, norm_zero, zero_pow (by decide : 2 ≠ 0), integral_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:24:68: warning: This simp argument is unused:
+  integral_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hz, norm_zero, zero_pow (by decide : 2 ≠ 0), zero_div]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:30:28: warning: This simp argument is unused:
+  Module.finrank_fintype_fun_eq_card
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ComplexSample, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:30:90: warning: This simp argument is unused:
+  Nat.mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ComplexSample, Module.finrank_fintype_fun_eq_card, Nat.mul_assoc, Nat.mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:60:19: error(lean.unknownIdentifier): Unknown identifier `integral_complexSample_half_norm_sq`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:52:65: error: unsolved goals
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+he : ∀ (z : ComplexSample), (complexGram (complexSampleMatrix z + M)).trace.re = ‖z + complexSampleMean M‖ ^ 2 / 2
+⊢ ∫ (a : EuclideanSpace ℝ ((Fin m × Fin n) × Fin 2)),
+        ‖a‖ ^ 2 / 2 ∂stdGaussian (EuclideanSpace ℝ ((Fin m × Fin n) × Fin 2)) +
+      ‖complexSampleMean M‖ ^ 2 / 2 =
+    ↑(m * n) + ∑ i, ∑ j, ‖M i j‖ ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceMean.lean:77:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.integral_complexSample_half_norm_sq`
+'JinWishart.complexSampleMean_half_norm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualExpectedGramPower_eq_closed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_closed_mean_bound' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_closed_low_scale' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,3 +1,4 @@
+import JinWishartFormalization.ActualGaussianTraceMean
 import JinWishartFormalization.NoncentralInverseMinimumRealMoments
 import JinWishartFormalization.CorrelatedColumnInverseMoments
 import JinWishartFormalization.CentralMinimumFiniteHardEdgeCoefficient
@@ -349,3 +350,4 @@ theorem weakest_mode_has_smallest_snr
     (mul_le_mul_of_nonneg_left hφ hscale) hpower
 
 end JinWishart
+

@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T15:36:41.234785+00:00",
-  "spec_sha256": "3cda93e7433bb6390c01d76a5d2f49adfe0e26ed3b3ac412f7b068399fcafa68",
+  "collected_utc": "2026-10-19T17:16:10.444137+00:00",
+  "spec_sha256": "2ccf338efbcc1bf36d7b54ae9be06d9cdfee612b521d8acf7deed63024b4e2d7",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -5533,9 +5533,80 @@
           "sha256": "6a03cf7cf01d4b8c5ea5342eca84064074ccbf9f5f8a7cdc6c4d492847587c9b"
         }
       }
+    },
+    "JinWishartFormalization.ActualGaussianTraceMean": {
+      "declarations": [
+        {
+          "name": "JinWishart.integral_complexSample_half_norm_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexSampleMean_half_norm_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualExpectedGramPower_eq_closed",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualNoncentralMatrixLogDet_closed_mean_bound",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualNoncentralMatrixLogDet_closed_low_scale",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "cfbb6ae88a7db21b88e0376f49116accb928a42ab17ae4202a75a74e26e54676",
+      "olean_sha256": "9b7b86b9433310c2286cb278577cb57b6842eff2a002ed2c3c2501672459a2f1",
+      "log_sha256": "e395dcdae8a1473618b4699f1dfbc0d10bcde85e83b08712bc1e47a8f988a1ca",
+      "imports": {
+        "JinWishartFormalization.GaussianSquaredNormShift": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianSquaredNormShift.olean",
+          "sha256": "f55a86d43dfb760716f62817987c503df875acc8141adaee72142550a11f77a2"
+        },
+        "JinWishartFormalization.GammaIntegerMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GammaIntegerMoments.olean",
+          "sha256": "8ff809c450719fb6306037b54c758f02450a9d905b69b24ee6c68d493b3b8495"
+        },
+        "JinWishartFormalization.LogDetLowScale": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LogDetLowScale.olean",
+          "sha256": "49ce2c8bcc3eb97d858629173d06e5bec5c422bf4aa606ccd227184ae9e6ddba"
+        }
+      }
     }
   },
-  "total_declarations": 387,
+  "total_declarations": 392,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -6216,6 +6287,18 @@
       "request_sha256": "b4b41c6d3b3fa78fa68e74b8374a38da894c0576da3c13ccf612689a01827b02",
       "prompt_sha256": "eb47268284aaba104d1bce98f7fc47d95730f6f0ba53578dde33c015ef67554a",
       "raw_response_sha256": "8d6fc15621acc23595be5e0424652ceaf716be7894aedc8c46cd24646f444090",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "e59ed43c0b36bc13e2e7ba605d89abe8d3889ffb10d9d576aac1a64a4a827ef0",
+      "prompt_sha256": "2c41e6a1ba8e464d485c02fe49b435611594091500584fbcbdb93f82f301c64b",
+      "raw_response_sha256": "bfeafcde31f076af44731005a4fa2b36a38c8d2ef1d1223251c4ba224a8ea7f0",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualGaussianTraceMean.lean": {
+      "sha256": "cfbb6ae88a7db21b88e0376f49116accb928a42ab17ae4202a75a74e26e54676",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "2c41e6a1ba8e464d485c02fe49b435611594091500584fbcbdb93f82f301c64b"
+}

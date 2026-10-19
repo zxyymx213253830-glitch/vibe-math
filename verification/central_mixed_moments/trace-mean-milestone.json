@@ -1,0 +1,16 @@
+{
+  "collected_utc": "2026-10-19T17:16:56.423583+00:00",
+  "leaf_final_exit": 0,
+  "leaf_log": "trace-mean-2.txt",
+  "main_entry": {
+    "log": "facade-35.txt",
+    "actual_exit_code": 0
+  },
+  "new_declarations": 5,
+  "total_bound_items": 392,
+  "scope": "Closed actual Gaussian expected trace for ALL shapes and resulting existing bound/low-scale substitutions; not new channel theorem",
+  "p4": "Real final-source response delivered; conditional and false API/variance alarms resolved in notes/WISHART_GAUSSIAN_TRACE_MEAN.md",
+  "human_review": "REQUIRED",
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED"
+}
