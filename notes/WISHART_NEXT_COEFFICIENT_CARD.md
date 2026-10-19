@@ -22,6 +22,21 @@ configurations are absent. Evaluate factorial products only on admissible
 indices, then substitute the low coefficients into the exp(-Nx) convolution.
 This is an algebraic identity on already identified actual laws, not G2.
 
+Codex scratch derivation to formalize (NOT yet Lean-checked): for missing set
+sizesr,s and their missing-set intersectionh, shared retained cardinality is
+c=N-r-s+h. Assumeh<=min(r,s),r+s-h<=N. The proved mixed-minor moment divided
+byN!(N+1)! simplifies to1/((r+s-h+1)*r!*s!). The number of pairs is
+choose(N,r)*choose(r,h)*choose(N-r,s-h). Thus the coefficient ofx^j, j<=3,
+should reduce to the bounded sum overr+s=j andadmissibleh of that multiplicity
+times the rational moment. This change to missing-set indices needs its own
+finite-set bijection/cardinality proof; do not identify sums by intuition.
+
+Enumerating j0..3 predicts Q0=1,Q1=N,Q2=N^2/2 and
+Q3=N*(N-1)*(5*N+2)/36. Then the exp(-Nx) convolution gives
+a=N^3/6-Q3=N*(N+1)*(N+2)/36. These identities match the exact finite parameter
+control, but this paragraph is a proposed proof decomposition, not a proved
+allN Lean result. SmallN absent configurations must be handled explicitly.
+
 For arbitraryd, the number of factors in det(W+xI)^d changes; finite pair-minor
 grouping by itself does not solve the d-fold overlap combinatorics. Possible
 routes to evaluate separately: a general factorial-functional coefficient
