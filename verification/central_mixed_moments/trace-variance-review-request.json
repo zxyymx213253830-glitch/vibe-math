@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ComplexGaussianTotalEnergyMoment.lean": {
+      "sha256": "1b88eb885fa45eb76a987f533ffc575d946e274d5cb9d3e3c00ccd989f41b58a",
+      "supplied": "Full source"
+    },
+    "ActualGaussianTraceVariance.lean": {
+      "sha256": "bef60094703123b24c74073a6428da5f11db7853e714add97e9f971c4c0cb5ac",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "6db234667630db6bf0af7e56e2705f6307b4be7d92ab6d6729fcae5d7fd7c757"
+}

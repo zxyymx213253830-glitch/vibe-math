@@ -1,0 +1,18 @@
+{
+  "collected_utc": "2026-10-19T17:55:55.893975+00:00",
+  "new_declarations": 6,
+  "total_bound_items": 426,
+  "leaf_checks": {
+    "total-energy-moment-5.txt": 0,
+    "trace-variance-5.txt": 0
+  },
+  "main_entry": {
+    "log": "facade-39.txt",
+    "actual_exit_code": 0
+  },
+  "scope": "Actual E[(traceGram)^2] and centered trace variance=mn+2F ALL shapes, distinct from Etrace(Gram^2)",
+  "p4": "Real final-source response delivered; wrongthreepairing/axiommetadata/Lebesguewording resolved in note",
+  "human_review": "REQUIRED",
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED"
+}

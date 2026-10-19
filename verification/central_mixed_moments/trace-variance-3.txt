@@ -1,0 +1,50 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceVariance.lean:81:2: warning: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceVariance.lean:99:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : ComplexSample),
+    ((fun z => (complexGram (complexSampleMatrix z + M)).trace.re ^ 2) - fun x =>
+          2 * T * (complexGram (complexSampleMatrix x + M)).trace.re)
+        a +
+      T ^ 2 ∂stdGaussian ComplexSample
+in the target expression
+  ∫ (z : ComplexSample),
+      (complexGram (complexSampleMatrix z + M)).trace.re ^ 2 -
+          2 * T * (complexGram (complexSampleMatrix z + M)).trace.re +
+        T ^ 2 ∂stdGaussian ComplexSample =
+    ↑(m * n) + 2 * ∑ i, ∑ j, ‖M i j‖ ^ 2
+
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+T : ℝ := ↑(m * n) + ∑ i, ∑ j, ‖M i j‖ ^ 2
+hi : Integrable (fun z => (complexGram (complexSampleMatrix z + M)).trace.re) (stdGaussian ComplexSample)
+hi2 : Integrable (fun z => (complexGram (complexSampleMatrix z + M)).trace.re ^ 2) (stdGaussian ComplexSample)
+he :
+  ∀ (z : ComplexSample),
+    ((complexGram (complexSampleMatrix z + M)).trace.re - T) ^ 2 =
+      (complexGram (complexSampleMatrix z + M)).trace.re ^ 2 -
+          2 * T * (complexGram (complexSampleMatrix z + M)).trace.re +
+        T ^ 2
+⊢ ∫ (z : ComplexSample),
+      (complexGram (complexSampleMatrix z + M)).trace.re ^ 2 -
+          2 * T * (complexGram (complexSampleMatrix z + M)).trace.re +
+        T ^ 2 ∂stdGaussian ComplexSample =
+    ↑(m * n) + 2 * ∑ i, ∑ j, ‖M i j‖ ^ 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    M i
+'JinWishart.complexTotalEnergyPolynomial_eq_Gram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_complexTotalEnergyPolynomial_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualNoncentralGram_trace_sq_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualNoncentralGram_trace_centered_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

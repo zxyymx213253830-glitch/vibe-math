@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T17:46:51.810293+00:00",
-  "spec_sha256": "75e48e1d49655fbba0d490ab0794b72122e2035c04ca5854cc3b74b5d2a2b112",
+  "collected_utc": "2026-10-19T17:55:05.201142+00:00",
+  "spec_sha256": "6428921f5c32685047816628ba97ad67c5fef3663573d5b075562594160b3d4c",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -6008,9 +6008,99 @@
           "sha256": "0e4ade58f2d66796dc2ab4c380c80b288d1d94650c836c4f44b51f1c70c4c3b7"
         }
       }
+    },
+    "JinWishartFormalization.ComplexGaussianTotalEnergyMoment": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_shifted_energy_pair",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_total_energy_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "1b88eb885fa45eb76a987f533ffc575d946e274d5cb9d3e3c00ccd989f41b58a",
+      "olean_sha256": "1fe0441d2545987843a5fa6dc3cec6d9daa6cb7420e86d9390ecd402b8c19a35",
+      "log_sha256": "443213b98a36098554721d092fa027c2b0f69246b1e07399ca2561a3dae216d8",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianShiftedFourthMoment": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianShiftedFourthMoment.olean",
+          "sha256": "00722a1bf66229c14282b2064b7c99f5c1dadfda1cb25cc528da16ee21ca85c1"
+        }
+      }
+    },
+    "JinWishartFormalization.ActualGaussianTraceVariance": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexTotalEnergyPolynomial_eq_Gram_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_complexTotalEnergyPolynomial_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualNoncentralGram_trace_sq_closed",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualNoncentralGram_trace_centered_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "bef60094703123b24c74073a6428da5f11db7853e714add97e9f971c4c0cb5ac",
+      "olean_sha256": "c86a5d8c3049a055ab0c5978096636bc53535a322a71b3b7271cb41fe23833b2",
+      "log_sha256": "8c56386f2206089a7efb37e4e64a6559cfa7eb9732b8ecf272fcedfe8824e1b6",
+      "imports": {
+        "JinWishartFormalization.NoncentralGramSecondMomentClosed": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/NoncentralGramSecondMomentClosed.olean",
+          "sha256": "4134c3afa0df27c269301c1d3adbaa3eb2a1a450d595cc22561324b1784ff46e"
+        },
+        "JinWishartFormalization.ComplexGaussianTotalEnergyMoment": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianTotalEnergyMoment.olean",
+          "sha256": "1fe0441d2545987843a5fa6dc3cec6d9daa6cb7420e86d9390ecd402b8c19a35"
+        }
+      }
     }
   },
-  "total_declarations": 420,
+  "total_declarations": 426,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -6763,6 +6853,18 @@
       "request_sha256": "c1cdedb9e00af0175b8fa98ef2f5f2978c299dcaec9ab0382b2bd0283b3b068e",
       "prompt_sha256": "7d9d2359217315b8085621347bcc402427c0b533a77d25e9c9185c146f6a9746",
       "raw_response_sha256": "e42e0fbe8d9443cd9e0b42ed78ae61bdba2d769164753e571d1d8be0bc99c8a5",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "a466be70a00d390362f8a5828c651ff7493b4c1f316896e7b54daceebb9dc6c7",
+      "prompt_sha256": "6db234667630db6bf0af7e56e2705f6307b4be7d92ab6d6729fcae5d7fd7c757",
+      "raw_response_sha256": "72d57cd248c5b44856399edc1196b7950df0a6eb4b743884729bb13c77556881",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"

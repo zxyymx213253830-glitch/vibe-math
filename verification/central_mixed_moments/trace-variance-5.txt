@@ -1,0 +1,20 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceVariance.lean:81:2: warning: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualGaussianTraceVariance.lean:101:26: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.sub_apply] at ha hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexTotalEnergyPolynomial_eq_Gram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_complexTotalEnergyPolynomial_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualNoncentralGram_trace_sq_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualNoncentralGram_trace_centered_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
