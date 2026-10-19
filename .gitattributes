@@ -112,3 +112,7 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/GammaHardEdgeBounds.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumHardEdgeBounds.lean -text whitespace=cr-at-eol
 /experiments/gamma_hard_edge_bounds_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumAllShapesDiversity.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumScaledDiversity.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumDiversity.lean -text whitespace=cr-at-eol
+/experiments/central_minimum_diversity_control.py -text whitespace=cr-at-eol

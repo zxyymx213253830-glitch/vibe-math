@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CentralMinimumAllShapesDiversity.lean": {
+      "sha256": "4a4d4a7930ab115ab864273ce9e85dc3e7f04c2018e69b153fdcb12b0d34ea58",
+      "supplied": "Full source"
+    },
+    "CentralMinimumScaledDiversity.lean": {
+      "sha256": "60849a0aa82287fe020bf1fa7703f167c7a86611870f6215c028e0dde54661a6",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a1f787073f90e05cea47d7603a7a9a4f2ee4362951bf71ae183d3accc291c3a1"
+}

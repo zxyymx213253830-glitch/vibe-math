@@ -1,0 +1,174 @@
+P4 concrete issues only, no tools/rewrite. Codex exact final Lean checked9 declarations follow. Actual central complex m>=N>0 minima, with n=previous-column count and total N=n+1. Scalar branch uses Gamma(m,rate1) actual pushforward. General log exponent d+1, covariance vI by sqrt(v) source scaling, allreal CDF equality F_v(x)=F(x/v). High-SNR outage at b/r has log probability/log r ->-(d+1), b>0. No exact leading constant, noncentral result or original general T4 equality. Imported generic log-bound lemma already checked: C gives LOWER log correction and c UPPER because log x<0. Do not swap those (earlier reviewer false alarm). Focus dimensional transport, scalar case, v versus sqrt(v), filter/threshold positivity and hidden probability assumptions. Measure.real is mu(event).toReal, NOT measure on R.
+
+FULL CentralMinimumAllShapesDiversity.lean
+import JinWishartFormalization.CentralMinimumDiversity
+import JinWishartFormalization.WishartGamma
+
+/-!
+# Central minimum diversity: every nonempty rectangular shape
+
+The scalar branch uses its actual Gamma pushforward law, not a dummy residual.
+Codex. [需人工审查] Actual event/shape/logarithmic interpretation.
+-/
+open Filter MeasureTheory ProbabilityTheory Matrix
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem actualCentralMinimumCDF_oneColumn (d : ℕ) (x : ℝ) :
+    actualCentralMinimumCDF d 0 x = cdf (gammaMeasure ((d+1 : ℕ) : ℝ) 1) x := by
+  letI : IsProbabilityMeasure (gammaMeasure ((d+1 : ℕ) : ℝ) 1) :=
+    isProbabilityMeasure_gammaMeasure (by positivity) (by norm_num)
+  rw [cdf_eq_real,← centralColumnSmallestEigenvalue_map_eq_gammaMeasure (Nat.succ_pos d)]
+  change ((stdGaussian (ComplexSample (m := d+1) (n := 1)))
+    {z | centralGaussianSampleMinimum (d+1) 1 (by omega) z ≤ x}).toReal =
+    (((stdGaussian (ComplexSample (m := d+1) (n := 1))).map
+      (complexNoncentralSampleSmallestEigenvalue (0 : Matrix (Fin (d+1)) (Fin 1) ℂ)
+        (by omega))) (Set.Iic x)).toReal
+  rw [Measure.map_apply (measurable_complexNoncentralSampleSmallestEigenvalue _ _) measurableSet_Iic]
+  rfl
+
+theorem actualCentralMinimumCDF_all_local_power_bounds (d n : ℕ)
+    (x : ℝ) (hx : 0 < x) (hx1 : x ≤ 1) :
+    (Real.exp (-1)/(Nat.factorial (d+1) : ℝ))*x^(d+1) ≤ actualCentralMinimumCDF d n x ∧
+    actualCentralMinimumCDF d n x ≤
+      (((n+1 : ℕ) : ℝ)^(d+2)/(Nat.factorial (d+1) : ℝ))*x^(d+1) := by
+  cases n with
+  | succ n => exact actualCentralMinimumCDF_local_power_bounds d (n+1) (Nat.succ_pos n) x hx hx1
+  | zero =>
+    rw [actualCentralMinimumCDF_oneColumn]
+    constructor
+    · apply le_trans _ (cdf_gammaMeasure_nat_power_lower d x hx.le)
+      have he := mul_le_mul_of_nonneg_right (Real.exp_le_exp.mpr (neg_le_neg hx1))
+        (show 0 ≤ x^(d+1)/(Nat.factorial (d+1) : ℝ) from by positivity)
+      simpa only [div_mul_eq_mul_div,mul_div_assoc] using he
+    · simpa only [zero_add,Nat.cast_one,one_pow,one_div,inv_mul_eq_div] using
+        cdf_gammaMeasure_nat_power_upper d x hx.le
+
+theorem actualCentralMinimumCDF_all_diversity (d n : ℕ) :
+    Tendsto (fun x : ℝ => Real.log (actualCentralMinimumCDF d n x) / Real.log x)
+      (𝓝[>] 0) (𝓝 ((d+1 : ℕ) : ℝ)) := by
+  apply tendsto_log_ratio_of_power_bounds _ (d+1)
+    (Real.exp (-1)/(Nat.factorial (d+1) : ℝ))
+    (((n+1 : ℕ) : ℝ)^(d+2)/(Nat.factorial (d+1) : ℝ))
+  · positivity
+  · positivity
+  · filter_upwards [self_mem_nhdsWithin,
+      (eventually_lt_nhds (by norm_num : (0 : ℝ)<1)).filter_mono nhdsWithin_le_nhds] with x hx hx1
+    exact ⟨hx,actualCentralMinimumCDF_all_local_power_bounds d n x hx hx1.le⟩
+
+theorem actualCentralRectangular_minimum_diversity (m n : ℕ) (hn : 0 < n) (hnm : n ≤ m) :
+    Tendsto (fun x : ℝ => Real.log
+      ((stdGaussian (ComplexSample (m := m) (n := n))).real
+        {z | centralGaussianSampleMinimum m n hn z ≤ x}) / Real.log x)
+      (𝓝[>] 0) (𝓝 ((m-n+1 : ℕ) : ℝ)) := by
+  obtain ⟨k,rfl⟩ := Nat.exists_eq_succ_of_ne_zero hn.ne'
+  have hm : m-(k+1)+(k+1)=m := Nat.sub_add_cancel hnm
+  generalize hd : m-(k+1)=d at *
+  subst m
+  exact actualCentralMinimumCDF_all_diversity d k
+
+end
+end JinWishart
+#print axioms JinWishart.actualCentralMinimumCDF_oneColumn
+#print axioms JinWishart.actualCentralMinimumCDF_all_local_power_bounds
+#print axioms JinWishart.actualCentralMinimumCDF_all_diversity
+#print axioms JinWishart.actualCentralRectangular_minimum_diversity
+
+FULL CentralMinimumScaledDiversity.lean
+import JinWishartFormalization.CentralMinimumAllShapesDiversity
+
+/-!
+# Scalar covariance and high-SNR minimum diversity
+
+Codex. v is CN covariance; samples are multiplied by sqrt(v).
+[需人工审查] Variance, outage threshold and asymptotic interpretation.
+-/
+open Filter MeasureTheory ProbabilityTheory
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def actualCentralCovarianceMinimumCDF (d n : ℕ) (v x : ℝ) : ℝ :=
+  (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))).real
+    {z | centralGaussianSampleMinimum (d+(n+1)) (n+1) (Nat.succ_pos n) (Real.sqrt v • z) ≤ x}
+
+theorem actualCentralCovarianceMinimumCDF_eq (d n : ℕ) (v : ℝ) (hv : 0 < v) (x : ℝ) :
+    actualCentralCovarianceMinimumCDF d n v x = actualCentralMinimumCDF d n (x/v) := by
+  unfold actualCentralCovarianceMinimumCDF actualCentralMinimumCDF
+  congr 1
+  ext z
+  simp only [Set.mem_setOf_eq,
+    centralGaussianSampleMinimum_scale _ _ _ (Real.sqrt v) (Real.sqrt_pos.mpr hv),
+    Real.sq_sqrt hv.le]
+  rw [le_div_iff₀ hv,mul_comm]
+
+theorem actualCentralCovarianceMinimumCDF_local_bounds (d n : ℕ) (v : ℝ) (hv : 0 < v)
+    (x : ℝ) (hx : 0 < x) (hxv : x ≤ v) :
+    (Real.exp (-1)/(Nat.factorial (d+1) : ℝ)/v^(d+1))*x^(d+1) ≤
+        actualCentralCovarianceMinimumCDF d n v x ∧
+    actualCentralCovarianceMinimumCDF d n v x ≤
+      (((n+1 : ℕ) : ℝ)^(d+2)/(Nat.factorial (d+1) : ℝ)/v^(d+1))*x^(d+1) := by
+  rw [actualCentralCovarianceMinimumCDF_eq d n v hv]
+  have h := actualCentralMinimumCDF_all_local_power_bounds d n (x/v)
+    (div_pos hx hv) ((div_le_one hv).mpr hxv)
+  rw [div_pow] at h
+  constructor
+  · convert h.1 using 1 <;> ring
+  · convert h.2 using 1 <;> ring
+
+theorem actualCentralCovarianceMinimumCDF_diversity (d n : ℕ) (v : ℝ) (hv : 0 < v) :
+    Tendsto (fun x : ℝ => Real.log (actualCentralCovarianceMinimumCDF d n v x)/Real.log x)
+      (𝓝[>] 0) (𝓝 ((d+1 : ℕ) : ℝ)) := by
+  apply tendsto_log_ratio_of_power_bounds _ (d+1)
+    (Real.exp (-1)/(Nat.factorial (d+1) : ℝ)/v^(d+1))
+    (((n+1 : ℕ) : ℝ)^(d+2)/(Nat.factorial (d+1) : ℝ)/v^(d+1))
+  · positivity
+  · positivity
+  · filter_upwards [self_mem_nhdsWithin,
+      (eventually_lt_nhds hv).filter_mono nhdsWithin_le_nhds] with x hx hxv
+    exact ⟨hx,actualCentralCovarianceMinimumCDF_local_bounds d n v hv x hx hxv.le⟩
+
+theorem tendsto_log_ratio_inverse_threshold (f : ℝ → ℝ) (a : ℝ)
+    (hf : Tendsto (fun x => Real.log (f x)/Real.log x) (𝓝[>] 0) (𝓝 a))
+    (b : ℝ) (hb : 0 < b) :
+    Tendsto (fun r : ℝ => Real.log (f (b/r))/Real.log r) atTop (𝓝 (-a)) := by
+  have ht : Tendsto (fun r : ℝ => b/r) atTop (𝓝[>] 0) := by
+    apply tendsto_nhdsWithin_iff.mpr
+    refine ⟨tendsto_id.const_div_atTop b,?_⟩
+    filter_upwards [eventually_gt_atTop (0 : ℝ)] with r hr
+    exact div_pos hb hr
+  have hz := Real.tendsto_log_atTop.const_div_atTop (Real.log b)
+  have h0 : Tendsto (fun r : ℝ => Real.log b / Real.log r - 1) atTop (𝓝 (-1)) := by
+    simpa only [zero_sub] using hz.sub_const (1 : ℝ)
+  have hl : Tendsto (fun r : ℝ => Real.log (b/r)/Real.log r) atTop (𝓝 (-1)) := by
+    apply h0.congr'
+    filter_upwards [eventually_gt_atTop (1 : ℝ)] with r hr
+    rw [Real.log_div hb.ne' (by linarith : r ≠ 0)]
+    have hlog : Real.log r ≠ 0 := (Real.log_pos hr).ne'
+    field_simp
+  have h := (hf.comp ht).mul hl
+  simp only [mul_neg_one] at h
+  apply h.congr'
+  filter_upwards [eventually_gt_atTop b] with r hr
+  have hp : 0 < b/r := div_pos hb (hb.trans hr)
+  have hlt : b/r < 1 := (div_lt_one (hb.trans hr)).mpr hr
+  have hlog : Real.log (b/r) ≠ 0 := (Real.log_neg hp hlt).ne
+  dsimp only [Function.comp_apply]
+  field_simp
+
+theorem actualCentralCovarianceMinimumCDF_highSNR_diversity (d n : ℕ)
+    (v : ℝ) (hv : 0 < v) (b : ℝ) (hb : 0 < b) :
+    Tendsto (fun r : ℝ =>
+      Real.log (actualCentralCovarianceMinimumCDF d n v (b/r))/Real.log r)
+      atTop (𝓝 (-((d+1 : ℕ) : ℝ))) :=
+  tendsto_log_ratio_inverse_threshold _ _
+    (actualCentralCovarianceMinimumCDF_diversity d n v hv) b hb
+
+end
+end JinWishart
+#print axioms JinWishart.actualCentralCovarianceMinimumCDF_eq
+#print axioms JinWishart.actualCentralCovarianceMinimumCDF_local_bounds
+#print axioms JinWishart.actualCentralCovarianceMinimumCDF_diversity
+#print axioms JinWishart.tendsto_log_ratio_inverse_threshold
+#print axioms JinWishart.actualCentralCovarianceMinimumCDF_highSNR_diversity

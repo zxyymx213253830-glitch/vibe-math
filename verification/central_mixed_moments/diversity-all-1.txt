@@ -1,0 +1,52 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumAllShapesDiversity.lean:17:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumAllShapesDiversity.lean:20:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Measure.map (complexNoncentralSampleSmallestEigenvalue ?m.44 ?m.45) ?m.40) (Set.Iic ?m.52)
+in the target expression
+  actualCentralMinimumCDF d 0 x =
+    (Measure.map (complexNoncentralSampleSmallestEigenvalue 0 ⋯) (stdGaussian ComplexSample)).real (Set.Iic x)
+
+d : ℕ
+x : ℝ
+this : IsProbabilityMeasure (gammaMeasure (↑(d + 1)) 1) :=
+  isProbabilityMeasure_gammaMeasure
+    (Nat.cast_pos'.mpr
+      (Right.add_pos_of_nonneg_of_pos zero_le
+        (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+          (Eq.refl (Nat.ble 1 1)))))
+    (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+⊢ actualCentralMinimumCDF d 0 x =
+    (Measure.map (complexNoncentralSampleSmallestEigenvalue 0 ⋯) (stdGaussian ComplexSample)).real (Set.Iic x)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumAllShapesDiversity.lean:59:2: error: Type mismatch: After simplification, term
+  actualCentralMinimumCDF_all_diversity (m - (k + 1)) k
+ has type
+  Tendsto
+    (fun x =>
+      Real.log
+          ((stdGaussian (@ComplexSample (m - (k + 1) + (k + 1)) (k + 1))).real
+            {z | centralGaussianSampleMinimum (m - (k + 1) + (k + 1)) (k + 1) ⋯ z ≤ x}) /
+        Real.log x)
+    (𝓝[>] 0) (𝓝 ↑(m - (k + 1) + 1))
+but is expected to have type
+  Tendsto
+    (fun x =>
+      Real.log ((stdGaussian (@ComplexSample m k.succ)).real {z | centralGaussianSampleMinimum m k.succ hn z ≤ x}) /
+        Real.log x)
+    (𝓝[>] 0) (𝓝 ↑(m - k.succ + 1))
+'JinWishart.actualCentralMinimumCDF_oneColumn' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimumCDF_all_local_power_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralMinimumCDF_all_diversity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_diversity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

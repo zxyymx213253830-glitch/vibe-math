@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CentralMinimumDiversity.lean": {
+      "sha256": "0a9032452e388b3d9c8dbf357ca58f14c30f6cd50b05cbd1e736abc37f90c7a5",
+      "supplied": "Full source"
+    },
+    "CentralMinimumHardEdgeBounds.lean": {
+      "sha256": "e1018030205d92e8170054f38125763761955a655bd373395462f1fe13501388",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "cfd4a9cdab605f0d296bcc418f635061e46683f6c680b8e932d62c0e5d6d8dbb"
+}

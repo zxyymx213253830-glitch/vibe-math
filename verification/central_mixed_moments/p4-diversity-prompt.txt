@@ -1,0 +1,146 @@
+P4 issues only, no tools/rewrite. Codex exact final checked proof of log-diversity from positive power bounds; actual central CN variance1 CDF for m=d+N,N=n+1>=2. Limit log F(x)/log x=d+1 as x->0+. No sharp coefficient/noncentral theorem. Generic log lemma allows k=0 too. Imported checked bounds explicitly c*x^k<=F<=C*x^k locally. CDF is Measure.real event (=toReal of measure, NOT a measure on R). stdGaussian IsProbabilityMeasure and minimum measurability already in library. N*x threshold and N prefactor arise separately from deterministic residual inclusion and finite union bound; residuals need not be independent. Review filter/log sign/positive function assumptions.
+
+FULL CentralMinimumDiversity.lean
+import JinWishartFormalization.CentralMinimumHardEdgeBounds
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+
+/-!
+# General central complex Wishart diversity exponent
+
+Codex proofs. The exponent is exact; no sharp leading coefficient is asserted.
+[需人工审查] Actual minimum model, right-neighborhood and logarithmic interpretation.
+-/
+open Filter MeasureTheory ProbabilityTheory
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem tendsto_log_ratio_of_power_bounds (f : ℝ → ℝ) (k : ℕ) (c C : ℝ)
+    (hc : 0 < c) (hC : 0 < C)
+    (hb : ∀ᶠ x in 𝓝[>] (0 : ℝ), 0 < x ∧ c*x^k ≤ f x ∧ f x ≤ C*x^k) :
+    Tendsto (fun x => Real.log (f x) / Real.log x) (𝓝[>] 0) (𝓝 (k : ℝ)) := by
+  have hz : Tendsto (fun x : ℝ => (Real.log x)⁻¹) (𝓝[>] 0) (𝓝 0) :=
+    tendsto_inv_atBot_zero.comp Real.tendsto_log_nhdsGT_zero
+  have hl : Tendsto (fun x : ℝ => (k : ℝ)+Real.log C / Real.log x) (𝓝[>] 0) (𝓝 (k : ℝ)) := by
+    simpa only [div_eq_mul_inv,mul_zero,add_zero] using
+      tendsto_const_nhds.add (hz.const_mul (Real.log C))
+  have hu : Tendsto (fun x : ℝ => (k : ℝ)+Real.log c / Real.log x) (𝓝[>] 0) (𝓝 (k : ℝ)) := by
+    simpa only [div_eq_mul_inv,mul_zero,add_zero] using
+      tendsto_const_nhds.add (hz.const_mul (Real.log c))
+  apply tendsto_of_tendsto_of_tendsto_of_le_of_le' hl hu
+  · filter_upwards [hb,(eventually_lt_nhds (by norm_num : (0 : ℝ)<1)).filter_mono nhdsWithin_le_nhds]
+      with x hx hx1
+    have hp : 0 < x^k := pow_pos hx.1 _
+    have hf : 0 < f x := (mul_pos hc hp).trans_le hx.2.1
+    have hd : Real.log x < 0 := Real.log_neg hx.1 hx1
+    have hlog := Real.log_le_log hf hx.2.2
+    rw [Real.log_mul hC.ne' hp.ne',Real.log_pow] at hlog
+    have h := (div_le_div_of_nonpos_of_le hd.le hlog)
+    have hx0 : Real.log x ≠ 0 := hd.ne
+    convert h using 1 <;> field_simp <;> ring
+  · filter_upwards [hb,(eventually_lt_nhds (by norm_num : (0 : ℝ)<1)).filter_mono nhdsWithin_le_nhds]
+      with x hx hx1
+    have hp : 0 < x^k := pow_pos hx.1 _
+    have hd : Real.log x < 0 := Real.log_neg hx.1 hx1
+    have hlog := Real.log_le_log (mul_pos hc hp) hx.2.1
+    rw [Real.log_mul hc.ne' hp.ne',Real.log_pow] at hlog
+    have h := (div_le_div_of_nonpos_of_le hd.le hlog)
+    have hx0 : Real.log x ≠ 0 := hd.ne
+    convert h using 1 <;> field_simp <;> ring
+
+theorem actualCentralMinimumCDF_diversity (d n : ℕ) (hn : 0 < n) :
+    Tendsto (fun x : ℝ => Real.log (actualCentralMinimumCDF d n x) / Real.log x)
+      (𝓝[>] 0) (𝓝 ((d+1 : ℕ) : ℝ)) := by
+  apply tendsto_log_ratio_of_power_bounds _ (d+1)
+    (Real.exp (-1)/(Nat.factorial (d+1) : ℝ))
+    (((n+1 : ℕ) : ℝ)^(d+2)/(Nat.factorial (d+1) : ℝ))
+  · positivity
+  · positivity
+  · filter_upwards [self_mem_nhdsWithin,
+      (eventually_lt_nhds (by norm_num : (0 : ℝ)<1)).filter_mono nhdsWithin_le_nhds] with x hx hx1
+    exact ⟨hx,actualCentralMinimumCDF_local_power_bounds d n hn x hx hx1.le⟩
+
+end
+end JinWishart
+#print axioms JinWishart.tendsto_log_ratio_of_power_bounds
+#print axioms JinWishart.actualCentralMinimumCDF_diversity
+
+FULL CentralMinimumHardEdgeBounds.lean
+import JinWishartFormalization.CentralMinimumGammaSandwich
+import JinWishartFormalization.GammaHardEdgeBounds
+import Mathlib.Analysis.Asymptotics.AsymptoticEquivalent
+
+/-!
+# General central minimum: explicit hard-edge power bounds
+
+Codex proofs. These prove the diversity ORDER, not the sharp T4 coefficient.
+[需人工审查] Actual CDF event interpretation and asymptotic filter.
+-/
+open Filter MeasureTheory ProbabilityTheory Asymptotics
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def actualCentralMinimumCDF (d n : ℕ) (x : ℝ) : ℝ :=
+  (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))).real
+    {z | centralGaussianSampleMinimum (d+(n+1)) (n+1) (Nat.succ_pos n) z ≤ x}
+
+theorem actualCentralMinimumCDF_power_bounds (d n : ℕ) (hn : 0 < n) (x : ℝ) (hx : 0 ≤ x) :
+    Real.exp (-x)*x^(d+1)/(Nat.factorial (d+1) : ℝ) ≤ actualCentralMinimumCDF d n x ∧
+    actualCentralMinimumCDF d n x ≤ ((n+1 : ℕ) : ℝ)^(d+2)*x^(d+1)/(Nat.factorial (d+1) : ℝ) := by
+  have hs := actualCentral_minimum_gamma_sandwich d n hn x
+  refine ⟨(cdf_gammaMeasure_nat_power_lower d x hx).trans hs.1,?_⟩
+  have hupper := mul_le_mul_of_nonneg_left
+    (cdf_gammaMeasure_nat_power_upper d (((n+1 : ℕ) : ℝ)*x) (mul_nonneg (Nat.cast_nonneg _) hx))
+    (Nat.cast_nonneg (n+1) : (0 : ℝ) ≤ (n+1 : ℕ))
+  apply hs.2.trans
+  apply hupper.trans_eq
+  simp only [mul_pow,show d+2=(d+1)+1 by omega,pow_succ]
+  ring
+
+theorem actualCentralMinimumCDF_local_power_bounds (d n : ℕ) (hn : 0 < n)
+    (x : ℝ) (hx : 0 < x) (hx1 : x ≤ 1) :
+    (Real.exp (-1)/(Nat.factorial (d+1) : ℝ))*x^(d+1) ≤ actualCentralMinimumCDF d n x ∧
+    actualCentralMinimumCDF d n x ≤
+      (((n+1 : ℕ) : ℝ)^(d+2)/(Nat.factorial (d+1) : ℝ))*x^(d+1) := by
+  have h := actualCentralMinimumCDF_power_bounds d n hn x hx.le
+  constructor
+  · apply le_trans _ h.1
+    have he := mul_le_mul_of_nonneg_right (Real.exp_le_exp.mpr (neg_le_neg hx1))
+      (show 0 ≤ x^(d+1)/(Nat.factorial (d+1) : ℝ) from
+        div_nonneg (pow_nonneg hx.le _) (Nat.cast_nonneg _))
+    simpa only [div_mul_eq_mul_div,mul_div_assoc] using he
+  · simpa only [div_mul_eq_mul_div] using h.2
+
+theorem actualCentralMinimumCDF_isTheta_power (d n : ℕ) (hn : 0 < n) :
+    (fun x : ℝ => actualCentralMinimumCDF d n x) =Θ[𝓝[>] 0] (fun x => x^(d+1)) := by
+  let c : ℝ := Real.exp (-1)/(Nat.factorial (d+1) : ℝ)
+  let C : ℝ := ((n+1 : ℕ) : ℝ)^(d+2)/(Nat.factorial (d+1) : ℝ)
+  have hc : 0 < c := by dsimp [c]; positivity
+  have hC : 0 < C := by dsimp [C]; positivity
+  have hb : ∀ᶠ x : ℝ in 𝓝[>] 0,
+      0 < x ∧ c*x^(d+1) ≤ actualCentralMinimumCDF d n x ∧ actualCentralMinimumCDF d n x ≤ C*x^(d+1) := by
+    filter_upwards [self_mem_nhdsWithin,
+      (eventually_lt_nhds (by norm_num : (0 : ℝ)<1)).filter_mono nhdsWithin_le_nhds] with x hx hx1
+    exact ⟨hx,actualCentralMinimumCDF_local_power_bounds d n hn x hx hx1.le⟩
+  constructor
+  · apply Asymptotics.IsBigO.of_bound C
+    filter_upwards [hb] with x hx
+    have hF : 0 ≤ actualCentralMinimumCDF d n x := ENNReal.toReal_nonneg
+    simpa only [Real.norm_eq_abs,abs_of_nonneg hF,
+      abs_of_nonneg (pow_nonneg hx.1.le _)] using hx.2.2
+  · apply Asymptotics.IsBigO.of_bound c⁻¹
+    filter_upwards [hb] with x hx
+    have hF : 0 ≤ actualCentralMinimumCDF d n x := ENNReal.toReal_nonneg
+    have h : x^(d+1) ≤ c⁻¹*actualCentralMinimumCDF d n x := by
+      rw [← div_eq_inv_mul]
+      apply (le_div_iff₀ hc).mpr
+      simpa only [mul_comm] using hx.2.1
+    simpa only [Real.norm_eq_abs,abs_of_nonneg hF,
+      abs_of_nonneg (pow_nonneg hx.1.le _),div_eq_mul_inv,mul_comm] using h
+
+end
+end JinWishart
+#print axioms JinWishart.actualCentralMinimumCDF_power_bounds
+#print axioms JinWishart.actualCentralMinimumCDF_local_power_bounds
+#print axioms JinWishart.actualCentralMinimumCDF_isTheta_power

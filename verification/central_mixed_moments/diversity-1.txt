@@ -1,0 +1,4 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumDiversity.lean:35:15: error(lean.unknownIdentifier): Unknown identifier `div_le_div_of_nonpos_right`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumDiversity.lean:44:15: error(lean.unknownIdentifier): Unknown identifier `div_le_div_of_nonpos_right`
+'JinWishart.tendsto_log_ratio_of_power_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimumCDF_diversity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

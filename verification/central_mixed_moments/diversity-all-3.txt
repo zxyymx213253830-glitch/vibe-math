@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumAllShapesDiversity.lean:17:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'JinWishart.actualCentralMinimumCDF_oneColumn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimumCDF_all_local_power_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimumCDF_all_diversity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_diversity' depends on axioms: [propext, Classical.choice, Quot.sound]

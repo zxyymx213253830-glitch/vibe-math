@@ -1,0 +1,54 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumScaledDiversity.lean:23:13: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumScaledDiversity.lean:26:44: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ?b
+in the target expression
+  ?m.37 ≤ ?m.38 / v ↔ ?m.44
+
+d n : ℕ
+v : ℝ
+hv : 0 < v
+x : ℝ
+z : ComplexSample
+⊢ ?m.37 ≤ ?m.38 / v ↔ ?m.44
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumScaledDiversity.lean:37:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  Real.exp (-1) * (x ^ (d + 1) / v ^ (d + 1) / ↑(d + 1).factorial) ≤ actualCentralMinimumCDF d n (x / v) ∧
+    actualCentralMinimumCDF d n (x / v) ≤ ↑(n + 1) ^ (d + 2) * (x ^ (d + 1) / v ^ (d + 1) / ↑(d + 1).factorial)
+but is expected to have type
+  Real.exp (-1) * (x ^ (d + 1) / ↑(d + 1).factorial / v ^ (d + 1)) ≤ actualCentralMinimumCDF d n (x / v) ∧
+    actualCentralMinimumCDF d n (x / v) ≤ ↑(n + 1) ^ (d + 2) * (x ^ (d + 1) / ↑(d + 1).factorial / v ^ (d + 1))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumScaledDiversity.lean:62:4: error: Tactic `apply` failed: could not unify the conclusion of `fun hl =>
+  Tendsto.congr' hl (Tendsto.sub hz tendsto_const_nhds)`
+  Tendsto ?m.160 atTop (𝓝 (0 - ?m.155))
+with the goal
+  Tendsto (fun r => Real.log (b / r) / Real.log r) atTop (𝓝 (-1))
+
+Note: The full type of `fun hl => Tendsto.congr' hl (Tendsto.sub hz tendsto_const_nhds)` is
+  (fun x => Real.log b / Real.log x - ?m.155) =ᶠ[atTop] ?m.160 → Tendsto ?m.160 atTop (𝓝 (0 - ?m.155))
+
+f : ℝ → ℝ
+a : ℝ
+hf : Tendsto (fun x => Real.log (f x) / Real.log x) (𝓝[>] 0) (𝓝 a)
+b : ℝ
+hb : 0 < b
+ht : Tendsto (fun r => b / r) atTop (𝓝[>] 0)
+hz : Tendsto (fun n => Real.log b / Real.log n) atTop (𝓝 0)
+⊢ Tendsto (fun r => Real.log (b / r) / Real.log r) atTop (𝓝 (-1))
+'JinWishart.actualCentralCovarianceMinimumCDF_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralCovarianceMinimumCDF_local_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralCovarianceMinimumCDF_diversity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.tendsto_log_ratio_inverse_threshold' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralCovarianceMinimumCDF_highSNR_diversity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

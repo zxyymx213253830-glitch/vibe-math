@@ -1,0 +1,17 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumScaledDiversity.lean:23:13: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumScaledDiversity.lean:39:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumScaledDiversity.lean:40:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.actualCentralCovarianceMinimumCDF_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralCovarianceMinimumCDF_local_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralCovarianceMinimumCDF_diversity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.tendsto_log_ratio_inverse_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralCovarianceMinimumCDF_highSNR_diversity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
