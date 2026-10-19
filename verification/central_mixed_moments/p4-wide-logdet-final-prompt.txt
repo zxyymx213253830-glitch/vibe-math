@@ -1,0 +1,155 @@
+Review this self-contained text as a mathematical reviewer from a different model family. Do not request file access or emit calls: the full proof text and exact necessary imported statements are HERE. The prior response emitted only nonexecuted file-read tags and was NOT a review. Give concrete mathematical issues only, or explicitly state no concrete issue found within this scope. No human approval or independent compilation claim.
+Goal actual X=CN0,1 + fixed M, positive m,N, expected full logdet(I+rho X^H X)/logrho->min(m,N), wide offset is Elogdet(XX^H), absolutely integrable, NOT logdet singular X^H X. Positive dimensions only, fixedmean, no communication coding claim.
+Exact imported assets: ComplexSample(m,n)=EuclideanSpace REAL ((Fin m times Fin n) times Fin2). complexSampleMatrix(z)ij=(z_ij0+i*z_ij1)/sqrt2. complexSampleTransposeReindex m n is LinearIsometryEquiv.piLpCongrLeft 2 REAL REAL (Equiv.prodCongr (Equiv.prodComm (Fin m)(Fin n)) (Equiv.refl(Fin2))). It satisfies complexSampleMatrix(Tz)=complexSampleMatrix(z)^T. stdGaussian_map: for ANY REAL linearIsometryEquiv e:E->F, map(stdGaussian E,e)=stdGaussian F. Thus mean transforms to M^T, no imaginary sign flip. integral_map_equiv is exact integral transport along measurable equivalence. Tall actual theorem: for arbitrary fixedmean nrow>=ncol>0, expected full logdet offset after ncol log rho ->ElogdetGram; absolute logdetGram integrable; prelog ncol. Full actual logdet integrable all shapes,rho>=0. These exact assets are kernel-checked and final artifacts bound; do not speculate a strict or central-only hypothesis absent from these statements.
+Algebra: (Gram(X^T))^T=XX^H, NOT Gram(X^T)=XX^H. Determinant transpose invariant; Sylvester det(I+AB)=det(I+BA) relates the full NxN determinant to mxm, works withrho directly, no sqrt assumption. Old P1 confused the stronger matrixequality but current source explicit correct one. Check actual proof below. SerialLeanexit0 and standard3 axioms printed, yet assess semantic mismatch independently. Numeric controls fixedseed2026101924 actual200000/3wideshapes PASS including Sylvester and scalarGamma knownvalues; notproof. Human measure/model review remains separate.
+
+
+FULL SOURCE GramLogDetTranspose.lean
+import JinWishartFormalization.WishartProbability
+import Mathlib.LinearAlgebra.Matrix.SchurComplement
+
+/-! Wide/tall full log-det identity by transpose and Sylvester, not spectral padding.
+Codex deterministic matrix algebra. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem transpose_complexGram_transpose {m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) :
+    (complexGram Xᵀ)ᵀ = X*Xᴴ := by
+  simp only [complexGram,Matrix.transpose_mul,Matrix.transpose_transpose]
+  rfl
+
+theorem det_one_add_gram_transpose {m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) :
+    (1+(r : ℂ) • complexGram X).det = (1+(r : ℂ) • complexGram Xᵀ).det := by
+  have hsmall : (1+(r : ℂ) • complexGram Xᵀ).det = (1+(r : ℂ) • (X*Xᴴ)).det := by
+    rw [← Matrix.det_transpose (1+(r : ℂ) • complexGram Xᵀ)]
+    simp only [Matrix.transpose_add,Matrix.transpose_one,Matrix.transpose_smul,
+      transpose_complexGram_transpose]
+  rw [hsmall]
+  simpa only [Matrix.mul_smul,Matrix.smul_mul,complexGram] using
+    Matrix.det_one_add_mul_comm Xᴴ ((r : ℂ) • X)
+
+theorem det_rowGram_eq_transposeGram {m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) :
+    (X*Xᴴ).det=(complexGram Xᵀ).det := by
+  rw [← transpose_complexGram_transpose,Matrix.det_transpose]
+
+end
+end JinWishart
+#print axioms JinWishart.transpose_complexGram_transpose
+#print axioms JinWishart.det_one_add_gram_transpose
+#print axioms JinWishart.det_rowGram_eq_transposeGram
+
+
+FULL SOURCE WideGaussianLogDet.lean
+import JinWishartFormalization.ActualGramLogDet
+import JinWishartFormalization.GramLogDetTranspose
+import JinWishartFormalization.GaussianMatrixBlockLaw
+
+/-! Full log-det expectation in both matrix orientations, and prelog min(m,N).
+Codex. Transpose of the real source preserves Gaussian and sends mean to M^T.
+[需人工审查] Gaussian transport, variance and small-side logdet interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem actualNoncentralMatrixLogDet_transpose {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) (z : ComplexSample (m := m) (n := n)) :
+    actualNoncentralMatrixLogDet M r z =
+      actualNoncentralMatrixLogDet Mᵀ r (complexSampleTransposeReindex m n z) := by
+  unfold actualNoncentralMatrixLogDet
+  rw [complexSampleMatrix_transpose_reindex,← Matrix.transpose_add,
+    ← det_one_add_gram_transpose]
+
+theorem expected_actualNoncentralMatrixLogDet_transpose {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) :
+    (∫ z, actualNoncentralMatrixLogDet M r z ∂stdGaussian _) =
+      ∫ z, actualNoncentralMatrixLogDet Mᵀ r z ∂stdGaussian _ := by
+  let e : ComplexSample (m := m) (n := n) ≃ᵐ ComplexSample (m := n) (n := m) :=
+    (complexSampleTransposeReindex m n).toHomeomorph.toMeasurableEquiv
+  have hmap : (stdGaussian (ComplexSample (m := m) (n := n))).map e =
+      stdGaussian (ComplexSample (m := n) (n := m)) := stdGaussian_map _
+  calc
+    _ = ∫ z, actualNoncentralMatrixLogDet Mᵀ r (e z) ∂stdGaussian _ :=
+      integral_congr_ae (ae_of_all _ (actualNoncentralMatrixLogDet_transpose M r))
+    _ = _ := by
+      have h := integral_map_equiv (μ := stdGaussian (ComplexSample (m := m) (n := n)))
+        e (actualNoncentralMatrixLogDet Mᵀ r)
+      rw [hmap] at h
+      exact h.symm
+
+theorem actualNoncentralMatrixLogDet_allShapes_prelog {m n : ℕ} (hm : 0 < m) (hn : 0 < n)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => (∫ z, actualNoncentralMatrixLogDet M r z ∂stdGaussian _)/Real.log r)
+      atTop (𝓝 (min m n : ℕ)) := by
+  by_cases hnm : n ≤ m
+  · simpa only [Nat.min_eq_right hnm] using actualNoncentralMatrixLogDet_expected_prelog hn hnm M
+  · have hmn : m ≤ n := (le_of_not_ge hnm)
+    rw [Nat.min_eq_left hmn]
+    apply (actualNoncentralMatrixLogDet_expected_prelog hm hmn Mᵀ).congr'
+    exact Filter.Eventually.of_forall (fun r => by
+      dsimp only
+      rw [expected_actualNoncentralMatrixLogDet_transpose M r])
+
+theorem integral_actualRowGram_logdet_eq_transpose {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    (∫ z : ComplexSample (m := m) (n := n),
+      Real.log (((complexSampleMatrix z+M)*(complexSampleMatrix z+M)ᴴ).det.re) ∂stdGaussian _) =
+      ∫ z, Real.log ((complexGram (complexSampleMatrix z+Mᵀ)).det.re) ∂stdGaussian _ := by
+  let e : ComplexSample (m := m) (n := n) ≃ᵐ ComplexSample (m := n) (n := m) :=
+    (complexSampleTransposeReindex m n).toHomeomorph.toMeasurableEquiv
+  have hmap : (stdGaussian (ComplexSample (m := m) (n := n))).map e =
+      stdGaussian (ComplexSample (m := n) (n := m)) := stdGaussian_map _
+  have he (z : ComplexSample (m := m) (n := n)) :
+      Real.log (((complexSampleMatrix z+M)*(complexSampleMatrix z+M)ᴴ).det.re) =
+        Real.log ((complexGram (complexSampleMatrix (e z)+Mᵀ)).det.re) := by
+    change _ = Real.log ((complexGram (complexSampleMatrix
+      (complexSampleTransposeReindex m n z)+Mᵀ)).det.re)
+    rw [complexSampleMatrix_transpose_reindex,← Matrix.transpose_add,← det_rowGram_eq_transposeGram]
+  calc
+    _ = ∫ z, Real.log ((complexGram (complexSampleMatrix (e z)+Mᵀ)).det.re) ∂stdGaussian _ :=
+      integral_congr_ae (ae_of_all _ he)
+    _ = _ := by
+      have h := integral_map_equiv (μ := stdGaussian (ComplexSample (m := m) (n := n)))
+        e (fun z => Real.log ((complexGram (complexSampleMatrix z+Mᵀ)).det.re))
+      rw [hmap] at h
+      exact h.symm
+
+theorem actualNoncentralWideMatrixLogDet_expected_offset {m n : ℕ}
+    (hm : 0 < m) (hmn : m ≤ n) (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => (∫ z, actualNoncentralMatrixLogDet M r z ∂stdGaussian _)-
+      (m : ℝ)*Real.log r) atTop
+      (𝓝 (∫ z : ComplexSample (m := m) (n := n),
+        Real.log (((complexSampleMatrix z+M)*(complexSampleMatrix z+M)ᴴ).det.re) ∂stdGaussian _)) := by
+  rw [integral_actualRowGram_logdet_eq_transpose M]
+  apply (actualNoncentralMatrixLogDet_expected_offset hm hmn Mᵀ).congr'
+  exact Filter.Eventually.of_forall (fun r => by
+    dsimp only
+    rw [expected_actualNoncentralMatrixLogDet_transpose M r])
+
+theorem integrable_actualNoncentral_rowGram_logdet {m n : ℕ}
+    (hm : 0 < m) (hmn : m ≤ n) (M : Matrix (Fin m) (Fin n) ℂ) :
+    Integrable (fun z : ComplexSample (m := m) (n := n) =>
+      Real.log (((complexSampleMatrix z+M)*(complexSampleMatrix z+M)ᴴ).det.re)) (stdGaussian _) := by
+  let e : ComplexSample (m := m) (n := n) ≃ᵐ ComplexSample (m := n) (n := m) :=
+    (complexSampleTransposeReindex m n).toHomeomorph.toMeasurableEquiv
+  have hmap : (stdGaussian (ComplexSample (m := m) (n := n))).map e =
+      stdGaussian (ComplexSample (m := n) (n := m)) := stdGaussian_map _
+  have hi := integrable_actualNoncentral_logGramDet hm hmn Mᵀ
+  rw [← hmap] at hi
+  have ht := (integrable_map_measure hi.aestronglyMeasurable e.measurable.aemeasurable).mp hi
+  apply ht.congr
+  exact ae_of_all _ (fun z => by
+    change Real.log ((complexGram (complexSampleMatrix
+      (complexSampleTransposeReindex m n z)+Mᵀ)).det.re) = _
+    rw [complexSampleMatrix_transpose_reindex,← Matrix.transpose_add,← det_rowGram_eq_transposeGram])
+
+end
+end JinWishart
+#print axioms JinWishart.actualNoncentralMatrixLogDet_transpose
+#print axioms JinWishart.expected_actualNoncentralMatrixLogDet_transpose
+#print axioms JinWishart.actualNoncentralMatrixLogDet_allShapes_prelog
+#print axioms JinWishart.integral_actualRowGram_logdet_eq_transpose
+#print axioms JinWishart.actualNoncentralWideMatrixLogDet_expected_offset
+#print axioms JinWishart.integrable_actualNoncentral_rowGram_logdet

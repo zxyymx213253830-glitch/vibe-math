@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramLogDetTranspose.lean:11:32: error: unsolved goals
+m n : ℕ
+X : Matrix (Fin m) (Fin n) ℂ
+⊢ X * Xᵀᴴᵀ = X * Xᴴ
+'JinWishart.transpose_complexGram_transpose' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.det_one_add_gram_transpose' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.det_rowGram_eq_transposeGram' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,6 @@
+'JinWishart.actualNoncentralMatrixLogDet_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.expected_actualNoncentralMatrixLogDet_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_allShapes_prelog' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualRowGram_logdet_eq_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralWideMatrixLogDet_expected_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentral_rowGram_logdet' depends on axioms: [propext, Classical.choice, Quot.sound]

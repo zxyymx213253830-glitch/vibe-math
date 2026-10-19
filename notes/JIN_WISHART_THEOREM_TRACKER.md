@@ -1,5 +1,7 @@
 # 金石等 (2008) Wishart 论文形式化：定理追踪表（B0）
 
+Latest374/facade30: complete actual fixed-mean matrix logdet expectedprelog=min(m,N) for BOTH positive dimensions. Wide offset is Elogdet(XX^H), separately absolutely integrable; never use singular X^H X offset. Actual transpose Gaussian transport, no invented adjointlaw or spectraldensity. See WISHART_WIDE_LOGDET.md. Final2-source realP4 falsealarms/resolutions retained; first tooltag output not review. Humanreview/frozenpublication/fullbuild boundaries unchanged.
+
 Latest365/facade29: actual SQUARE fixed-mean full-logdet offset Delta->0 butrho*Delta->realatTop(+infinity). Generic Fatou divergence and minimum-term lower bound proved; no divergent Bochner integral or exact log(rho)/rho coefficient asserted. Earlier statements saying square scaled divergence unproved are historical. See WISHART_SQUARE_LOGDET_ERROR.md. Final3-source P4 realresponse and resolutions retained, humanreview/frozenpublication/fullbuild boundaries unchanged.
 
 Latest360 items/facade28: actual full-logdet offset error Delta>=0 bounded by rho^-p/p*SUM E(lambda_i^-p) for0<p<=1 andp<m-N+1. For STRICT m>N, rhoDelta->SUM E(1/lambda_i). Square allows fractional boundp<1 only; no finite square correction asserted. Individual inverse-p sufficiency from minimum criterion, not an individual IFF threshold. See WISHART_LOGDET_ERROR.md. Final3-source real P4 objections/resolutions retained, humanmodelreview REQUIRED. Fullbuild/frozenpublication unchanged.

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GramLogDetTranspose.lean": {
+      "sha256": "787107f8663fa190d4a3efbb00e65e2ec598eb60716e799470802097b67095a8",
+      "supplied": "Full source"
+    },
+    "WideGaussianLogDet.lean": {
+      "sha256": "caafc3717bf9dfbcf9c1e320f29935943db427776bafdfc00c5b800fcda4b140",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "bbae91b7d797f3b6b58a0861bfd42a67465dc162bd125f0423153bcb64381354"
+}

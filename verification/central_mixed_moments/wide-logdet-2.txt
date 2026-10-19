@@ -1,0 +1,40 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WideGaussianLogDet.lean:49:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample
+in the target expression
+  (fun r => (∫ (z : ComplexSample), actualNoncentralMatrixLogDet Mᵀ r z ∂stdGaussian ComplexSample) / Real.log r) r =
+    (fun r => (∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample) / Real.log r) r
+
+m n : ℕ
+hm : 0 < m
+hn : 0 < n
+M : Matrix (Fin m) (Fin n) ℂ
+hnm : ¬n ≤ m
+hmn : m ≤ n
+r : ℝ
+⊢ (fun r => (∫ (z : ComplexSample), actualNoncentralMatrixLogDet Mᵀ r z ∂stdGaussian ComplexSample) / Real.log r) r =
+    (fun r => (∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample) / Real.log r) r
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WideGaussianLogDet.lean:84:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample
+in the target expression
+  (fun r => ∫ (z : ComplexSample), actualNoncentralMatrixLogDet Mᵀ r z ∂stdGaussian ComplexSample - ↑m * Real.log r) r =
+    (fun r => ∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample - ↑m * Real.log r) r
+
+m n : ℕ
+hm : 0 < m
+hmn : m ≤ n
+M : Matrix (Fin m) (Fin n) ℂ
+r : ℝ
+⊢ (fun r => ∫ (z : ComplexSample), actualNoncentralMatrixLogDet Mᵀ r z ∂stdGaussian ComplexSample - ↑m * Real.log r) r =
+    (fun r => ∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample - ↑m * Real.log r) r
+'JinWishart.actualNoncentralMatrixLogDet_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.expected_actualNoncentralMatrixLogDet_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_allShapes_prelog' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actualRowGram_logdet_eq_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralWideMatrixLogDet_expected_offset' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_actualNoncentral_rowGram_logdet' depends on axioms: [propext, Classical.choice, Quot.sound]

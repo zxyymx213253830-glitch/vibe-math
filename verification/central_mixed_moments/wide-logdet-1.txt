@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WideGaussianLogDet.lean:46:4: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WideGaussianLogDet.lean:79:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+'JinWishart.actualNoncentralMatrixLogDet_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.expected_actualNoncentralMatrixLogDet_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_allShapes_prelog' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actualRowGram_logdet_eq_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralWideMatrixLogDet_expected_offset' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

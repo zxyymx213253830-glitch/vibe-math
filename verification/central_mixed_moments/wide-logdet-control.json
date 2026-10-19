@@ -1,0 +1,98 @@
+{
+  "seed": 2026101924,
+  "samples_per_shape": 200000,
+  "source_sha256": "958614d4ad4e2326b67a25a68132b5f355682a41ef0bd02d931c9bdb33c9a229",
+  "status": "PASS Sylvester/transpose determinants, noncentral trace and scalarGamma digamma controls, wrong-N prelog negativecontrol; not proof",
+  "records": [
+    {
+      "m": 1,
+      "n": 3,
+      "mean_entry": 0.0,
+      "trace_observed": 2.9938620752970326,
+      "trace_control": 3.0,
+      "mean_logdet_small": 0.9209706385696097,
+      "statistics": [
+        {
+          "rho": 1.0,
+          "mean": 1.296839656799728,
+          "offset": 1.296839656799728
+        },
+        {
+          "rho": 10.0,
+          "mean": 3.2715050300439783,
+          "offset": 0.9689199370499324
+        },
+        {
+          "rho": 1000.0,
+          "mean": 7.829226466514261,
+          "offset": 0.9214711875321244
+        },
+        {
+          "rho": 100000.0,
+          "mean": 12.433901111537843,
+          "offset": 0.920975646567614
+        }
+      ]
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "mean_entry": 0.2,
+      "trace_observed": 8.313168306327777,
+      "trace_control": 8.32,
+      "mean_logdet_small": 2.256611536617044,
+      "statistics": [
+        {
+          "rho": 1.0,
+          "mean": 2.9506269422946283,
+          "offset": 2.9506269422946283
+        },
+        {
+          "rho": 10.0,
+          "mean": 6.9529039918910645,
+          "offset": 2.3477338059029726
+        },
+        {
+          "rho": 1000.0,
+          "mean": 16.073082611590483,
+          "offset": 2.257572053626209
+        },
+        {
+          "rho": 100000.0,
+          "mean": 25.282472077780692,
+          "offset": 2.256621147840235
+        }
+      ]
+    },
+    {
+      "m": 3,
+      "n": 5,
+      "mean_entry": 0.1,
+      "trace_observed": 15.157930576797906,
+      "trace_control": 15.15,
+      "mean_logdet_small": 3.717330142019802,
+      "statistics": [
+        {
+          "rho": 1.0,
+          "mean": 4.738871101559779,
+          "offset": 4.738871101559779
+        },
+        {
+          "rho": 10.0,
+          "mean": 10.764043980744653,
+          "offset": 3.856288701762515
+        },
+        {
+          "rho": 1000.0,
+          "mean": 24.442078948987863,
+          "offset": 3.7188131120414525
+        },
+        {
+          "rho": 100000.0,
+          "mean": 38.25612137873524,
+          "offset": 3.717344983824553
+        }
+      ]
+    }
+  ]
+}
