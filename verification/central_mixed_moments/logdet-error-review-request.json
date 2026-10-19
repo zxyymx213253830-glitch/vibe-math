@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "LogDetErrorBounds.lean": {
+      "sha256": "df92db6ba2e557a72301b097743c7bf69e94e91cf5a164e4c0237cd32da3b89e",
+      "supplied": "Full source"
+    },
+    "LogDetOffsetIdentity.lean": {
+      "sha256": "62b491b383a66045c62fe27f7d693279615a9b6bb8b31f7a5613a2671ae2fb0b",
+      "supplied": "Full source"
+    },
+    "ActualLogDetError.lean": {
+      "sha256": "646b81f8aebef8b4a9be34169a50abdda34285cf3b265fdb42498a0dc28eab4a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "303cc577a2612a5e96d80489da70e2e175092940b4b6e1d67a805c1d7f25ff86"
+}

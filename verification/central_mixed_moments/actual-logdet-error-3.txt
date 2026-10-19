@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualLogDetError.lean:51:6: warning: Unused tactic linter: `change
+  actualNoncentralMatrixLogDet M r z - (n : ℝ) * Real.log r -
+      Real.log (complexGram (complexSampleMatrix z + M)).det.re =
+    _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'JinWishart.integrable_actualNoncentral_inverseEigenvalue_rpow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_first_order' depends on axioms: [propext, Classical.choice, Quot.sound]

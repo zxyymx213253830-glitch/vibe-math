@@ -1,0 +1,11 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+'JinWishart.log_one_add_le_rpow_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.log_inverse_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_log_inverse_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_log_inverse_error_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_log_inverse_error_first_order' depends on axioms: [propext, Classical.choice, Quot.sound]

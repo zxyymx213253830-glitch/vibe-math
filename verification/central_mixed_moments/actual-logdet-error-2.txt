@@ -1,0 +1,28 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualLogDetError.lean:43:22: error: Function expected at
+  (actualNoncentralMatrixLogDet M r - fun x => ↑n * Real.log r) - fun z =>
+    Real.log (complexGram (complexSampleMatrix z + M)).det.re
+but this term has type
+  ?m.169
+
+Note: Expected a function because this term is being applied to the argument
+  z
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualLogDetError.lean:43:6: error: 'change' tactic failed, pattern
+  ?m.122 = ∫ (z : ?m.128), ?m.134 ∂stdGaussian ?m.128
+is not definitionally equal to target
+  ∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample - ↑n * Real.log r -
+      ∫ (z : ComplexSample), Real.log (complexGram (complexSampleMatrix z + M)).det.re ∂stdGaussian ComplexSample =
+    ∫ (z : ComplexSample),
+      actualNoncentralMatrixLogDet M r z - ↑n * Real.log r -
+        Real.log (complexGram (complexSampleMatrix z + M)).det.re ∂stdGaussian ComplexSample
+'JinWishart.integrable_actualNoncentral_inverseEigenvalue_rpow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_first_order' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

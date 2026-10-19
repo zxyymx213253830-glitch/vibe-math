@@ -1,0 +1,20 @@
+{
+  "collected_utc": "2026-10-19T15:01:21.914136+00:00",
+  "leaf_final_exits": {
+    "logdet-error-2": 0,
+    "logdet-offset-identity-1": 0,
+    "actual-logdet-error-3": 0
+  },
+  "main_entry": {
+    "log": "facade-28.txt",
+    "actual_exit_code": 0,
+    "output_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+  },
+  "new_declarations": 11,
+  "total_bound_items": 360,
+  "author": "Codex proof bodies; Qoder route/P4 only",
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED",
+  "human_review": "REQUIRED",
+  "scope": "Fractional bound and rectangular finite inverse-eigenvalue first correction, not square firstorder/G2."
+}

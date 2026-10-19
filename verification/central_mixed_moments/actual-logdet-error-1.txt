@@ -1,0 +1,36 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualLogDetError.lean:43:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : ComplexSample),
+    (actualNoncentralMatrixLogDet M r - fun x => ?m.142) a -
+      Real.log (complexGram (complexSampleMatrix a + M)).det.re ∂stdGaussian ComplexSample
+in the target expression
+  ∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample - ↑n * Real.log r -
+      ∫ (z : ComplexSample), Real.log (complexGram (complexSampleMatrix z + M)).det.re ∂stdGaussian ComplexSample =
+    ∫ (z : ComplexSample),
+      actualNoncentralMatrixLogDet M r z - ↑n * Real.log r -
+        Real.log (complexGram (complexSampleMatrix z + M)).det.re ∂stdGaussian ComplexSample
+
+m n : ℕ
+hn : 0 < n
+hnm : n ≤ m
+M : Matrix (Fin m) (Fin n) ℂ
+r : ℝ
+hr : 0 < r
+hi : Integrable (actualNoncentralMatrixLogDet M r) (stdGaussian ComplexSample)
+hlog : Integrable (fun z => Real.log (complexGram (complexSampleMatrix z + M)).det.re) (stdGaussian ComplexSample)
+⊢ ∫ (z : ComplexSample), actualNoncentralMatrixLogDet M r z ∂stdGaussian ComplexSample - ↑n * Real.log r -
+      ∫ (z : ComplexSample), Real.log (complexGram (complexSampleMatrix z + M)).det.re ∂stdGaussian ComplexSample =
+    ∫ (z : ComplexSample),
+      actualNoncentralMatrixLogDet M r z - ↑n * Real.log r -
+        Real.log (complexGram (complexSampleMatrix z + M)).det.re ∂stdGaussian ComplexSample
+'JinWishart.integrable_actualNoncentral_inverseEigenvalue_rpow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralLogDetOffsetError_first_order' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

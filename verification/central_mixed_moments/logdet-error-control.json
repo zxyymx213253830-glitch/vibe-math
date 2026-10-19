@@ -1,0 +1,122 @@
+{
+  "seed": 2026101922,
+  "samples_per_shape": 200000,
+  "source_sha256": "b3a08be175af701d8321f6a72b866f7d4bb2b081ee2661101485f7c52b9b3835",
+  "status": "PASS pointwise fractional log error, independent full-offset identity, Gamma3 quadrature/inverse moment and invalid p2 negative controls; not proof",
+  "records": [
+    {
+      "m": 1,
+      "n": 1,
+      "mean_entry": 0.2,
+      "rho": 1.0,
+      "mean_error": 1.1525483493006454,
+      "scaled_error": 1.1525483493006454
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "mean_entry": 0.2,
+      "rho": 10.0,
+      "mean_error": 0.28281257331446596,
+      "scaled_error": 2.8281257331446596
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "mean_entry": 0.2,
+      "rho": 1000.0,
+      "mean_error": 0.007270063912532193,
+      "scaled_error": 7.270063912532193
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "mean_entry": 0.2,
+      "rho": 1000000.0,
+      "mean_error": 1.336439486424602e-05,
+      "scaled_error": 13.36439486424602
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "mean_entry": 0.0,
+      "rho": 1.0,
+      "mean_error": 0.37526648781934824,
+      "scaled_error": 0.37526648781934824
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "mean_entry": 0.0,
+      "rho": 10.0,
+      "mean_error": 0.04782449835003845,
+      "scaled_error": 0.47824498350038447
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "mean_entry": 0.0,
+      "rho": 1000.0,
+      "mean_error": 0.0004988669789271698,
+      "scaled_error": 0.49886697892716986
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "mean_entry": 0.0,
+      "rho": 1000000.0,
+      "mean_error": 4.991105970972627e-07,
+      "scaled_error": 0.4991105970972627
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "mean_entry": 0.1,
+      "rho": 1.0,
+      "mean_error": 1.0230805040749078,
+      "scaled_error": 1.0230805040749078
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "mean_entry": 0.1,
+      "rho": 10.0,
+      "mean_error": 0.13917429315443677,
+      "scaled_error": 1.3917429315443677
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "mean_entry": 0.1,
+      "rho": 1000.0,
+      "mean_error": 0.0014846649796600392,
+      "scaled_error": 1.4846649796600393
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "mean_entry": 0.1,
+      "rho": 1000000.0,
+      "mean_error": 1.4858578577520625e-06,
+      "scaled_error": 1.4858578577520625
+    }
+  ],
+  "scalar_gamma3": [
+    {
+      "rho": 1.0,
+      "scaled_error": 0.37538934606303276
+    },
+    {
+      "rho": 10.0,
+      "scaled_error": 0.4788207486862392
+    },
+    {
+      "rho": 1000.0,
+      "scaled_error": 0.4997511115767756
+    },
+    {
+      "rho": 1000000.0,
+      "scaled_error": 0.499999750001191
+    }
+  ]
+}

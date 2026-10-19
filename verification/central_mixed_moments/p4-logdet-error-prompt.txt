@@ -1,0 +1,251 @@
+P4 different-family critical review. Only concrete issues, no proof rewrite/tool tags/independent compilation claims. Full exact final sources below have real serial Lean exit0, only standard three axioms. Target actual X=Z+M iid variance-one CN, arbitrary FIXED meanM, m>=N>0. Already proved complete matrix logdet expected offset tends ElogdetGram, all terms integrable, exactdet=eigensum; these imports have bound source/olean/log hashes. New Delta(rho)=Elogdet(I+rhoGram)-Nlogrho-ElogdetGram. Prove exact Delta=E sum_i log(1+1/(rho lambda_i)); 0<=Delta<=rho^-p/p *sum E lambda_i^-p for0<p<=1 AND p<m-N+1. Prove rho Delta->sum E lambda_i^-1 for STRICT m>N, not square. Coefficient is explicitly the finite sum of inverse eigenvalue moments; no newly proved matrix-inverse trace identity claimed. No noncentral explicit density assumed.
+Crucial: known IFF threshold p<m-N+1 is for the MINIMUM inverse moment. We only infer SUFFICIENCY for each eigenvalue using lambda_min<=lambda_i. Do NOT assert each individual ordered eigenvalue has the same IFF threshold. Square m=N allows p<1 but not p1; no square finite firstorder coefficient. Real inverse/log conventions on rank-deficient nullset handled AE from actual fullrank law. Numeric seed2026101922 200000 per3shapes plus independent Gamma(shape3,rate1) quadrature inverse1/2 and firstorder coefficient1/2 PASS; p2 negativecontrol rejects scalar inequality even when inversep2 may exist. Numericnotproof.
+Route review received: suggested DCT valid, but claimed individualIFF unsupported and subunit moment times rho^(1-p) not UI. Those claims rejected. Actual proof DCT dominator inverse1 only under m>N. Imported actual inverse criterion EXACT source stdGaussian(ComplexSample(m,n)), arbitrary M, not abstract law. Existing positiveAE and eigen order/hmoment source bound.
+Review only new algebra/domination/model mismatch. Human measure/model review remains required regardless response.
+
+
+FILE LogDetErrorBounds.lean
+import JinWishartFormalization.LogMomentIntegrability
+import Mathlib.Analysis.MeanInequalitiesPow
+import Mathlib.Analysis.SpecialFunctions.Complex.LogBounds
+
+/-! Quantitative log-error bounds and inverse-first-moment correction.
+Codex. [需人工审查] AE domination and expectation/limit interchange.
+-/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem log_one_add_le_rpow_div (u p : ℝ) (hu : 0 ≤ u) (hp : 0 < p) (hp1 : p ≤ 1) :
+    Real.log (1+u) ≤ u^p/p := by
+  have hpos : 0 < 1+u := by positivity
+  have hl := Real.log_le_sub_one_of_pos (Real.rpow_pos_of_pos hpos p)
+  rw [Real.log_rpow hpos] at hl
+  have hpow := Real.rpow_add_le_add_rpow (show (0 : ℝ) ≤ 1 by norm_num) hu hp.le hp1
+  rw [Real.one_rpow] at hpow
+  apply (le_div_iff₀ hp).mpr
+  nlinarith
+
+theorem log_inverse_error_bound (r x p : ℝ) (hr : 0 < r) (hx : 0 < x)
+    (hp : 0 < p) (hp1 : p ≤ 1) :
+    0 ≤ Real.log (1+(r*x)⁻¹) ∧
+      Real.log (1+(r*x)⁻¹) ≤ (r^p)⁻¹/p*(x⁻¹)^p := by
+  constructor
+  · exact Real.log_nonneg (by have := inv_nonneg.mpr (mul_nonneg hr.le hx.le); linarith)
+  · have h := log_one_add_le_rpow_div ((r*x)⁻¹) p (by positivity) hp hp1
+    rw [_root_.mul_inv_rev,Real.mul_rpow (inv_nonneg.mpr hx.le) (inv_nonneg.mpr hr.le),
+      Real.inv_rpow hr.le] at h
+    convert h using 1 <;> ring
+
+theorem integrable_log_inverse_error {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α → ℝ) (hf : AEMeasurable f μ)
+    (hpos : ∀ᵐ a ∂μ, 0 < f a) (r p : ℝ) (hr : 0 < r) (hp : 0 < p) (hp1 : p ≤ 1)
+    (hinv : Integrable (fun a => ((f a)⁻¹)^p) μ) :
+    Integrable (fun a => Real.log (1+(r*f a)⁻¹)) μ := by
+  apply (hinv.const_mul ((r^p)⁻¹/p)).mono'
+    (Real.measurable_log.comp_aemeasurable
+      (aemeasurable_const.add (aemeasurable_const.mul hf).inv)).aestronglyMeasurable
+  filter_upwards [hpos] with a ha
+  change ‖Real.log (1+(r*f a)⁻¹)‖ ≤ (r^p)⁻¹/p*((f a)⁻¹)^p
+  rw [Real.norm_eq_abs,abs_of_nonneg (log_inverse_error_bound r (f a) p hr ha hp hp1).1]
+  exact (log_inverse_error_bound r (f a) p hr ha hp hp1).2
+
+theorem integral_log_inverse_error_bounds {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α → ℝ) (hf : AEMeasurable f μ)
+    (hpos : ∀ᵐ a ∂μ, 0 < f a) (r p : ℝ) (hr : 0 < r) (hp : 0 < p) (hp1 : p ≤ 1)
+    (hinv : Integrable (fun a => ((f a)⁻¹)^p) μ) :
+    0 ≤ (∫ a, Real.log (1+(r*f a)⁻¹) ∂μ) ∧
+      (∫ a, Real.log (1+(r*f a)⁻¹) ∂μ) ≤ (r^p)⁻¹/p*(∫ a, ((f a)⁻¹)^p ∂μ) := by
+  have hi := integrable_log_inverse_error μ f hf hpos r p hr hp hp1 hinv
+  constructor
+  · exact integral_nonneg_of_ae (hpos.mono (fun a ha =>
+      (log_inverse_error_bound r (f a) p hr ha hp hp1).1))
+  · calc
+      _ ≤ ∫ a, (r^p)⁻¹/p*((f a)⁻¹)^p ∂μ :=
+        integral_mono_ae hi (hinv.const_mul _) (hpos.mono (fun a ha =>
+          (log_inverse_error_bound r (f a) p hr ha hp hp1).2))
+      _ = _ := integral_const_mul _ _
+
+theorem integral_log_inverse_error_first_order {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α → ℝ) (hf : AEMeasurable f μ)
+    (hpos : ∀ᵐ a ∂μ, 0 < f a) (hinv : Integrable (fun a => (f a)⁻¹) μ) :
+    Tendsto (fun r : ℝ => r*(∫ a, Real.log (1+(r*f a)⁻¹) ∂μ)) atTop
+      (𝓝 (∫ a, (f a)⁻¹ ∂μ)) := by
+  have ht : Tendsto (fun r : ℝ => ∫ a, r*Real.log (1+(r*f a)⁻¹) ∂μ) atTop
+      (𝓝 (∫ a, (f a)⁻¹ ∂μ)) := by
+    apply tendsto_integral_filter_of_dominated_convergence (fun a => (f a)⁻¹)
+    · exact Filter.Eventually.of_forall (fun r =>
+        (aemeasurable_const.mul (Real.measurable_log.comp_aemeasurable
+          (aemeasurable_const.add (aemeasurable_const.mul hf).inv))).aestronglyMeasurable)
+    · filter_upwards [eventually_gt_atTop (0 : ℝ)] with r hr
+      filter_upwards [hpos] with a ha
+      have h := log_inverse_error_bound r (f a) 1 hr ha (by norm_num) (by norm_num)
+      simp only [Real.rpow_one,div_one] at h
+      rw [Real.norm_eq_abs,abs_of_nonneg (mul_nonneg hr.le h.1)]
+      have hm := mul_le_mul_of_nonneg_left h.2 hr.le
+      simpa only [← mul_assoc,mul_inv_cancel₀ hr.ne',one_mul] using hm
+    · exact hinv
+    · filter_upwards [hpos] with a ha
+      have h := Real.tendsto_mul_log_one_add_div_atTop ((f a)⁻¹)
+      apply h.congr'
+      exact Filter.Eventually.of_forall (fun r => by
+        change r*Real.log (1+(f a)⁻¹/r)=r*Real.log (1+(r*f a)⁻¹)
+        rw [_root_.mul_inv_rev,div_eq_mul_inv])
+  simpa only [integral_const_mul] using ht
+
+end
+end JinWishart
+#print axioms JinWishart.log_one_add_le_rpow_div
+#print axioms JinWishart.log_inverse_error_bound
+#print axioms JinWishart.integrable_log_inverse_error
+#print axioms JinWishart.integral_log_inverse_error_bounds
+#print axioms JinWishart.integral_log_inverse_error_first_order
+
+
+FILE LogDetOffsetIdentity.lean
+import JinWishartFormalization.FiniteSpectrumLogDetGrowth
+
+/-! Exact pointwise finite-spectrum offset remainder. Codex deterministic algebra. -/
+namespace JinWishart
+noncomputable section
+
+theorem log_multiplicative_inverse_error (r x : ℝ) (hr : 0 < r) (hx : 0 < x) :
+    Real.log (1+r*x)-Real.log r-Real.log x = Real.log (1+(r*x)⁻¹) := by
+  have hrx := mul_pos hr hx
+  have hp : 0 < 1+(r*x)⁻¹ := by positivity
+  rw [show 1+r*x=(r*x)*(1+(r*x)⁻¹) by field_simp [hrx.ne']; ring,
+    Real.log_mul hrx.ne' hp.ne',Real.log_mul hr.ne' hx.ne']
+  ring
+
+theorem finiteSpectrumLogDet_offset_error {ι : Type*} [Fintype ι]
+    (l : ι → ℝ) (hl : ∀ i, 0 < l i) (r : ℝ) (hr : 0 < r) :
+    finiteSpectrumLogDet l r-(Fintype.card ι : ℝ)*Real.log r-∑ i, Real.log (l i) =
+      ∑ i, Real.log (1+(r*l i)⁻¹) := by
+  classical
+  calc
+    _ = ∑ i, (Real.log (1+r*l i)-Real.log r-Real.log (l i)) := by
+      simp [finiteSpectrumLogDet,Finset.sum_sub_distrib]
+    _ = _ := Finset.sum_congr rfl (fun i _ => log_multiplicative_inverse_error r (l i) hr (hl i))
+
+end
+end JinWishart
+#print axioms JinWishart.log_multiplicative_inverse_error
+#print axioms JinWishart.finiteSpectrumLogDet_offset_error
+
+
+FILE ActualLogDetError.lean
+import JinWishartFormalization.ActualGramLogDet
+import JinWishartFormalization.LogDetErrorBounds
+import JinWishartFormalization.LogDetOffsetIdentity
+
+/-! Quantitative actual fixed-mean full log-det offset error.
+Codex. No joint density. [需人工审查] Expectation and variance/model interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def actualNoncentralLogDetOffsetError {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) : ℝ :=
+  (∫ z, actualNoncentralMatrixLogDet M r z ∂stdGaussian _)-(n : ℝ)*Real.log r-
+    (∫ z, Real.log (complexGram (complexSampleMatrix z+M)).det.re ∂stdGaussian _)
+
+theorem integrable_actualNoncentral_inverseEigenvalue_rpow {m n : ℕ}
+    (hn : 0 < n) (hnm : n ≤ m) (M : Matrix (Fin m) (Fin n) ℂ)
+    (i : Fin (Fintype.card (Fin n))) (p : ℝ) (hp : 0 < p)
+    (hpk : p < ((m-n+1 : ℕ) : ℝ)) :
+    Integrable (fun z => (complexNoncentralSampleEigenvalue M i z)⁻¹ ^ p) (stdGaussian _) := by
+  have hmin := (actualNoncentralRectangular_inverseMinimum_realMoment_integrable_iff
+    m n hn hnm M p hp).mpr hpk
+  apply hmin.mono'
+    (((measurable_actualNoncentralEigenvalue M i).inv).pow_const p).aestronglyMeasurable
+  filter_upwards [actualNoncentral_minimum_pos_ae hn hnm M] with z hz
+  have hnonneg := inv_nonneg.mpr (complexNoncentralSampleEigenvalue_nonneg M i z)
+  change ‖(complexNoncentralSampleEigenvalue M i z)⁻¹ ^ p‖ ≤
+    (complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹ ^ p
+  rw [Real.norm_eq_abs,abs_of_nonneg (Real.rpow_nonneg hnonneg _)]
+  exact Real.rpow_le_rpow hnonneg (inv_anti₀ hz (actualNoncentralMinimum_le_eigenvalue hn M i z)) hp.le
+
+theorem actualNoncentralLogDetOffsetError_eq {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) (hr : 0 < r) :
+    actualNoncentralLogDetOffsetError M r =
+      ∫ z, ∑ i, Real.log (1+(r*complexNoncentralSampleEigenvalue M i z)⁻¹) ∂stdGaussian _ := by
+  unfold actualNoncentralLogDetOffsetError
+  have hi := integrable_actualNoncentralMatrixLogDet M r hr.le
+  have hlog := integrable_actualNoncentral_logGramDet hn hnm M
+  calc
+    _ = ∫ z, (actualNoncentralMatrixLogDet M r z-(n : ℝ)*Real.log r-
+        Real.log (complexGram (complexSampleMatrix z+M)).det.re) ∂stdGaussian _ := by
+      have he := integral_sub (hi.sub (integrable_const ((n : ℝ)*Real.log r))) hlog
+      have hc := integral_sub hi (integrable_const ((n : ℝ)*Real.log r))
+      simp only [Pi.sub_apply] at he hc
+      rw [he,hc]
+      simp
+    _ = _ := integral_congr_ae (by
+      filter_upwards [actualNoncentral_minimum_pos_ae hn hnm M,
+        actualNoncentral_logGramDet_eq_sum_log_ae hn hnm M] with z hz he
+      change actualNoncentralMatrixLogDet M r z-(n : ℝ)*Real.log r-
+        Real.log (complexGram (complexSampleMatrix z+M)).det.re = _
+      rw [← actualNoncentralGramLogDet_eq_matrix M r hr.le z,he]
+      simpa only [actualNoncentralGramLogDet,Fintype.card_fin] using
+        finiteSpectrumLogDet_offset_error (fun i => complexNoncentralSampleEigenvalue M i z)
+          (fun i => hz.trans_le (actualNoncentralMinimum_le_eigenvalue hn M i z)) r hr)
+
+theorem actualNoncentralLogDetOffsetError_bounds {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) (r p : ℝ) (hr : 0 < r) (hp : 0 < p)
+    (hp1 : p ≤ 1) (hpk : p < ((m-n+1 : ℕ) : ℝ)) :
+    0 ≤ actualNoncentralLogDetOffsetError M r ∧
+      actualNoncentralLogDetOffsetError M r ≤ (r^p)⁻¹/p*
+        ∑ i, ∫ z, (complexNoncentralSampleEigenvalue M i z)⁻¹ ^ p ∂stdGaussian _ := by
+  classical
+  have hpos (i : Fin (Fintype.card (Fin n))) :=
+    (actualNoncentral_minimum_pos_ae hn hnm M).mono (fun z hz =>
+      hz.trans_le (actualNoncentralMinimum_le_eigenvalue hn M i z))
+  have hinv (i : Fin (Fintype.card (Fin n))) :=
+    integrable_actualNoncentral_inverseEigenvalue_rpow hn hnm M i p hp hpk
+  have hi (i : Fin (Fintype.card (Fin n))) := integrable_log_inverse_error (stdGaussian _)
+    (complexNoncentralSampleEigenvalue M i) (measurable_actualNoncentralEigenvalue M i).aemeasurable
+    (hpos i) r p hr hp hp1 (hinv i)
+  have hb (i : Fin (Fintype.card (Fin n))) := integral_log_inverse_error_bounds (stdGaussian _)
+    (complexNoncentralSampleEigenvalue M i) (measurable_actualNoncentralEigenvalue M i).aemeasurable
+    (hpos i) r p hr hp hp1 (hinv i)
+  rw [actualNoncentralLogDetOffsetError_eq hn hnm M r hr,
+    integral_finsetSum _ (fun i _ => hi i)]
+  constructor
+  · exact Finset.sum_nonneg (fun i _ => (hb i).1)
+  · rw [Finset.mul_sum]
+    exact Finset.sum_le_sum (fun i _ => (hb i).2)
+
+theorem actualNoncentralLogDetOffsetError_first_order {m n : ℕ} (hn : 0 < n) (hnm : n < m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => r*actualNoncentralLogDetOffsetError M r) atTop
+      (𝓝 (∑ i, ∫ z, (complexNoncentralSampleEigenvalue M i z)⁻¹ ∂stdGaussian _)) := by
+  classical
+  have hpos (i : Fin (Fintype.card (Fin n))) :=
+    (actualNoncentral_minimum_pos_ae hn hnm.le M).mono (fun z hz =>
+      hz.trans_le (actualNoncentralMinimum_le_eigenvalue hn M i z))
+  have hinv (i : Fin (Fintype.card (Fin n))) :
+      Integrable (fun z => (complexNoncentralSampleEigenvalue M i z)⁻¹) (stdGaussian _) := by
+    have hpk : (1 : ℝ) < ((m-n+1 : ℕ) : ℝ) := by exact_mod_cast (show 1 < m-n+1 by omega)
+    simpa only [Real.rpow_one] using
+      integrable_actualNoncentral_inverseEigenvalue_rpow hn hnm.le M i 1 (by norm_num) hpk
+  have ht := tendsto_finsetSum Finset.univ (fun i _ => integral_log_inverse_error_first_order
+    (stdGaussian _) (complexNoncentralSampleEigenvalue M i)
+      (measurable_actualNoncentralEigenvalue M i).aemeasurable (hpos i) (hinv i))
+  apply ht.congr'
+  filter_upwards [eventually_gt_atTop (0 : ℝ)] with r hr
+  have hi (i : Fin (Fintype.card (Fin n))) : Integrable
+      (fun z => Real.log (1+(r*complexNoncentralSampleEigenvalue M i z)⁻¹)) (stdGaussian _) := by
+    apply integrable_log_inverse_error (stdGaussian _) _
+      (measurable_actualNoncentralEigenvalue M i).aemeasurable (hpos i) r 1 hr (by norm_num) (by norm_num)
+    simpa only [Real.rpow_one] using hinv i
+  rw [actualNoncentralLogDetOffsetError_eq hn hnm.le M r hr,
+    integral_finsetSum _ (fun i _ => hi i),Finset.mul_sum]
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_actualNoncentral_inverseEigenvalue_rpow
+#print axioms JinWishart.actualNoncentralLogDetOffsetError_eq
+#print axioms JinWishart.actualNoncentralLogDetOffsetError_bounds
+#print axioms JinWishart.actualNoncentralLogDetOffsetError_first_order

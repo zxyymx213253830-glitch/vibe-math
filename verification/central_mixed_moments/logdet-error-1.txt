@@ -1,0 +1,28 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetErrorBounds.lean:86:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a * ?b)⁻¹
+in the target expression
+  (fun x => x * Real.log (1 + (f a)⁻¹ / x)) r = (fun n => n * Real.log (1 + (n * f a)⁻¹)) r
+
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hf : AEMeasurable f μ
+hpos : ∀ᵐ (a : α) ∂μ, 0 < f a
+hinv : Integrable (fun a => (f a)⁻¹) μ
+a : α
+ha : 0 < f a
+h : Tendsto (fun x => x * Real.log (1 + (f a)⁻¹ / x)) atTop (𝓝 (f a)⁻¹)
+r : ℝ
+⊢ (fun x => x * Real.log (1 + (f a)⁻¹ / x)) r = (fun n => n * Real.log (1 + (n * f a)⁻¹)) r
+'JinWishart.log_one_add_le_rpow_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.log_inverse_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_log_inverse_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_log_inverse_error_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_log_inverse_error_first_order' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
