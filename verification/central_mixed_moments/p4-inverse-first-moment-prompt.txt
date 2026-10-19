@@ -1,0 +1,76 @@
+P4 report concrete issues only; no tools or rewriting. Exact final Codex5 actual declarations: actual noncentral inverse minimum meas/nonnegative, integrable iff row surplusd>0 (ALL m>=N>0, fixedmeanM). Square case ENNReal lintegral equals TOP; do NOT interpret real Bochner integral as infinity. Imported actual tail BOTH positive powerbounds andAE fullrank checked; genericFIRST moment layercake iff tail exponentk>1 newly checked. No Gamma law forminimum assumed, no exactinverse expectation value.
+Critique assumptions/Fubini/finite-real conversion/boundary/exponent, not hypothetical compiler failures. Actual leaf checks printed only standard3axioms; no human approval inferred. Earlier P1 confused moment q+1 withq and claimed FIRST inverse thresholdk>2: false; FIRST inverse uses weight1 and thresholdk>1. This source fixes that distinction.
+
+FULL NoncentralInverseMinimumFirstMoment.lean
+import JinWishartFormalization.NoncentralInverseMinimumTail
+import JinWishartFormalization.ProbabilityTailFirstMoment
+
+/-!
+# Exact first inverse-minimum moment threshold for the actual noncentral model
+
+Codex. Fixed arbitrary deterministic complex mean; all m>=N>0.
+Infinite expectation is stated by a nonnegative ENNReal integral, not the
+real Bochner integral (which has a default value for nonintegrable functions).
+[需人工审查] Layercake/Fubini, Gaussian support and expectation interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def actualNoncentralInverseMinimum (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ)
+    (z : ComplexSample (m := d+(n+1)) (n := n+1)) : ℝ :=
+  (complexNoncentralSampleSmallestEigenvalue M (Nat.succ_pos n) z)⁻¹
+
+theorem measurable_actualNoncentralInverseMinimum (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) :
+    Measurable (actualNoncentralInverseMinimum d n M) :=
+  (measurable_complexNoncentralSampleSmallestEigenvalue M (Nat.succ_pos n)).inv
+
+theorem actualNoncentralInverseMinimum_nonneg (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ)
+    (z : ComplexSample (m := d+(n+1)) (n := n+1)) :
+    0 ≤ actualNoncentralInverseMinimum d n M z :=
+  inv_nonneg.mpr (complexNoncentralGram_eigenvalues₀_nonneg M z _)
+
+theorem actualNoncentralInverseMinimum_integrable_iff (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) :
+    Integrable (actualNoncentralInverseMinimum d n M)
+      (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))) ↔ 0<d := by
+  have h := integrable_nonneg_iff_two_sided_power_tail
+    (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1)))
+    (actualNoncentralInverseMinimum d n M) (measurable_actualNoncentralInverseMinimum d n M)
+    (ae_of_all _ (actualNoncentralInverseMinimum_nonneg d n M)) (d+1)
+    (noncentralMinimumPowerLower d n M) (noncentralMinimumPowerUpper d n M)
+    (noncentralMinimumPower_constants_pos d n M).1 (noncentralMinimumPower_constants_pos d n M).2 (by
+      intro t ht
+      exact actualNoncentralInverseMinimumTail_power_bounds d n M t ht)
+  exact h.trans (by omega)
+
+theorem actualNoncentralRectangular_inverseMinimum_integrable_iff (m n : ℕ)
+    (hn : 0<n) (hnm : n≤m) (M : Matrix (Fin m) (Fin n) ℂ) :
+    Integrable (fun z : ComplexSample (m := m) (n := n) =>
+      (complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹) (stdGaussian _) ↔ n<m := by
+  obtain ⟨k,rfl⟩ := Nat.exists_eq_succ_of_ne_zero hn.ne'
+  have hm : m-(k+1)+(k+1)=m := Nat.sub_add_cancel hnm
+  generalize hd : m-(k+1)=d at *
+  subst m
+  exact (actualNoncentralInverseMinimum_integrable_iff d k M).trans (by omega)
+
+theorem actualNoncentralSquare_inverseMinimum_lintegral_eq_top (n : ℕ)
+    (M : Matrix (Fin (0+(n+1))) (Fin (n+1)) ℂ) :
+    (∫⁻ z, ENNReal.ofReal (actualNoncentralInverseMinimum 0 n M z)
+      ∂stdGaussian (ComplexSample (m := 0+(n+1)) (n := n+1))) = ⊤ := by
+  by_contra h
+  have hi := (lintegral_ofReal_ne_top_iff_integrable
+    (measurable_actualNoncentralInverseMinimum 0 n M).aestronglyMeasurable
+    (ae_of_all _ (actualNoncentralInverseMinimum_nonneg 0 n M))).mp h
+  exact (Nat.lt_irrefl 0) ((actualNoncentralInverseMinimum_integrable_iff 0 n M).mp hi)
+
+end
+end JinWishart
+#print axioms JinWishart.measurable_actualNoncentralInverseMinimum
+#print axioms JinWishart.actualNoncentralInverseMinimum_nonneg
+#print axioms JinWishart.actualNoncentralInverseMinimum_integrable_iff
+#print axioms JinWishart.actualNoncentralRectangular_inverseMinimum_integrable_iff
+#print axioms JinWishart.actualNoncentralSquare_inverseMinimum_lintegral_eq_top

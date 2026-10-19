@@ -1,0 +1,52 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerTailIntegrability.lean:16:28: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerTailIntegrability.lean:37:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  t ^ (?y - ?z)
+in the target expression
+  (fun t => t ^ q / t ^ k) t = (fun t => t ^ (↑q - ↑k)) t
+
+q k : ℕ
+t : ℝ
+ht : t ∈ Ioi 4
+⊢ (fun t => t ^ q / t ^ k) t = (fun t => t ^ (↑q - ↑k)) t
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerTailIntegrability.lean:37:26: error: linarith failed to find a contradiction
+q k : ℕ
+t : ℝ
+ht : t ∈ Ioi 4
+a✝ : t ≤ 0
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerTailIntegrability.lean:52:62: error: linarith failed to find a contradiction
+F : ℝ → ℝ
+hF : Measurable F
+hFn : ∀ t ∈ Ioi 4, 0 ≤ F t
+q k : ℕ
+c C : ℝ
+hc : 0 < c
+hC : 0 < C
+hb : ∀ t ∈ Ioi 4, c * (t ^ q / t ^ k) ≤ F t ∧ F t ≤ C * (t ^ q / t ^ k)
+t : ℝ
+ht : t ∈ Ioi 4
+a✝ : t ≤ 0
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerTailIntegrability.lean:52:26: error: unsolved goals
+F : ℝ → ℝ
+hF : Measurable F
+hFn : ∀ t ∈ Ioi 4, 0 ≤ F t
+q k : ℕ
+c C : ℝ
+hc : 0 < c
+hC : 0 < C
+hb : ∀ t ∈ Ioi 4, c * (t ^ q / t ^ k) ≤ F t ∧ F t ≤ C * (t ^ q / t ^ k)
+t : ℝ
+ht : t ∈ Ioi 4
+ht0 : 0 < t
+⊢ 0 ≤ t ^ q / t ^ k
+'JinWishart.integrableOn_positive_sandwich_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrableOn_natPowerRatio_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrableOn_powerTail_iff' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

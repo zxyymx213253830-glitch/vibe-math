@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerTailIntegrability.lean:16:28: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'JinWishart.integrableOn_positive_sandwich_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrableOn_natPowerRatio_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrableOn_powerTail_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

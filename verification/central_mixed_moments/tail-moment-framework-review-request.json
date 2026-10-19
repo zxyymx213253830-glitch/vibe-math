@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "ProbabilityTailIntegrability.lean": {
+      "sha256": "fd2949f1884f84f5a0ff6cb2e312e2ec452b3908164ac84dd35b1d938b240229",
+      "supplied": "Full source"
+    },
+    "PowerTailIntegrability.lean": {
+      "sha256": "d5a209cba5975ca77c81436350c2e8ca623cc239241436fcaf66586103bda267",
+      "supplied": "Full source"
+    },
+    "ProbabilityTailFirstMoment.lean": {
+      "sha256": "a2f616991357478ec7409536280cd4c5c21c9795bc41528fca748a3fe6cccfc9",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "de7be9460dcd3669d99c897d7fe4c89bf5a4e9edfd42c9bdbf37e58feebd4d45"
+}

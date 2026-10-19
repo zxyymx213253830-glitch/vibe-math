@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailFirstMoment.lean:39:6: error: Type mismatch: After simplification, term
+  hb t (LT.lt.le ht4)
+ has type
+  c / t ^ k ≤ probabilityTail μ f t ∧ probabilityTail μ f t ≤ C / t ^ k
+but is expected to have type
+  c * (1 / t ^ k) ≤ probabilityTail μ f t ∧ probabilityTail μ f t ≤ C * (1 / t ^ k)
+'JinWishart.probabilityTail_integrableOn_near_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_nonneg_iff_probabilityTail_Ioi_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_nonneg_iff_two_sided_power_tail' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

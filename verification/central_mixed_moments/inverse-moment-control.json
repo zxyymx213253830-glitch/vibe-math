@@ -1,0 +1,215 @@
+{
+  "seed": 2026101913,
+  "status": "PASS Gamma inverse moments, exact critical-power controls and layercake integration; not proof",
+  "source_sha256": "6f8be7e5860757c1c219cb33b933dabf900887d75f9963df4ed46097871be084",
+  "power_records": [
+    {
+      "k": 1,
+      "q": 1,
+      "tail_weight_exponent": -1,
+      "finite_predicted": false
+    },
+    {
+      "k": 1,
+      "q": 2,
+      "tail_weight_exponent": 0,
+      "finite_predicted": false
+    },
+    {
+      "k": 1,
+      "q": 3,
+      "tail_weight_exponent": 1,
+      "finite_predicted": false
+    },
+    {
+      "k": 1,
+      "q": 4,
+      "tail_weight_exponent": 2,
+      "finite_predicted": false
+    },
+    {
+      "k": 1,
+      "q": 5,
+      "tail_weight_exponent": 3,
+      "finite_predicted": false
+    },
+    {
+      "k": 2,
+      "q": 1,
+      "tail_weight_exponent": -2,
+      "finite_predicted": true
+    },
+    {
+      "k": 2,
+      "q": 2,
+      "tail_weight_exponent": -1,
+      "finite_predicted": false
+    },
+    {
+      "k": 2,
+      "q": 3,
+      "tail_weight_exponent": 0,
+      "finite_predicted": false
+    },
+    {
+      "k": 2,
+      "q": 4,
+      "tail_weight_exponent": 1,
+      "finite_predicted": false
+    },
+    {
+      "k": 2,
+      "q": 5,
+      "tail_weight_exponent": 2,
+      "finite_predicted": false
+    },
+    {
+      "k": 3,
+      "q": 1,
+      "tail_weight_exponent": -3,
+      "finite_predicted": true
+    },
+    {
+      "k": 3,
+      "q": 2,
+      "tail_weight_exponent": -2,
+      "finite_predicted": true
+    },
+    {
+      "k": 3,
+      "q": 3,
+      "tail_weight_exponent": -1,
+      "finite_predicted": false
+    },
+    {
+      "k": 3,
+      "q": 4,
+      "tail_weight_exponent": 0,
+      "finite_predicted": false
+    },
+    {
+      "k": 3,
+      "q": 5,
+      "tail_weight_exponent": 1,
+      "finite_predicted": false
+    },
+    {
+      "k": 4,
+      "q": 1,
+      "tail_weight_exponent": -4,
+      "finite_predicted": true
+    },
+    {
+      "k": 4,
+      "q": 2,
+      "tail_weight_exponent": -3,
+      "finite_predicted": true
+    },
+    {
+      "k": 4,
+      "q": 3,
+      "tail_weight_exponent": -2,
+      "finite_predicted": true
+    },
+    {
+      "k": 4,
+      "q": 4,
+      "tail_weight_exponent": -1,
+      "finite_predicted": false
+    },
+    {
+      "k": 4,
+      "q": 5,
+      "tail_weight_exponent": 0,
+      "finite_predicted": false
+    },
+    {
+      "k": 5,
+      "q": 1,
+      "tail_weight_exponent": -5,
+      "finite_predicted": true
+    },
+    {
+      "k": 5,
+      "q": 2,
+      "tail_weight_exponent": -4,
+      "finite_predicted": true
+    },
+    {
+      "k": 5,
+      "q": 3,
+      "tail_weight_exponent": -3,
+      "finite_predicted": true
+    },
+    {
+      "k": 5,
+      "q": 4,
+      "tail_weight_exponent": -2,
+      "finite_predicted": true
+    },
+    {
+      "k": 5,
+      "q": 5,
+      "tail_weight_exponent": -1,
+      "finite_predicted": false
+    },
+    {
+      "k": 6,
+      "q": 1,
+      "tail_weight_exponent": -6,
+      "finite_predicted": true
+    },
+    {
+      "k": 6,
+      "q": 2,
+      "tail_weight_exponent": -5,
+      "finite_predicted": true
+    },
+    {
+      "k": 6,
+      "q": 3,
+      "tail_weight_exponent": -4,
+      "finite_predicted": true
+    },
+    {
+      "k": 6,
+      "q": 4,
+      "tail_weight_exponent": -3,
+      "finite_predicted": true
+    },
+    {
+      "k": 6,
+      "q": 5,
+      "tail_weight_exponent": -2,
+      "finite_predicted": true
+    }
+  ],
+  "finite_controls": [
+    {
+      "k": 3,
+      "count": 200000,
+      "mean_error_SE": -0.9969022225165648,
+      "layercake_integral": 0.5,
+      "closed": 0.5
+    },
+    {
+      "k": 5,
+      "count": 200000,
+      "mean_error_SE": 1.2780053391736597,
+      "layercake_integral": 0.2499999999999992,
+      "closed": 0.25
+    },
+    {
+      "k": 7,
+      "count": 200000,
+      "mean_error_SE": -0.6326474609975596,
+      "layercake_integral": 0.16666666666666669,
+      "closed": 0.16666666666666666
+    }
+  ],
+  "critical_tail_ratios": [
+    0.9950166250831947,
+    0.999950001666625,
+    0.9999995000001665
+  ]
+}

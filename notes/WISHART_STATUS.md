@@ -172,3 +172,5 @@ P4 不再交给本地 DS。它先前的重复无关回应、错事件和占位�
 2026-10-19 逆最小值尾接口：任意固定均值实际最小特征值严格正AE、倒数非严格尾=F(1/r)、负对数尾指数及r>=4时显式c/r^k和C/r^k上下界均通过。新4声明，总216定理/实例+2构造=218项绑定审计和facade-18 PASS，最终P4真实交付无具体问题但不豁免人审。逆矩可积性临界值尚未证明。已定位锁定Layercake.lintegral_eq_lintegral_meas_le / lintegral_comp_eq_lintegral_meas_le_mul，以及ImproperIntegrals.integrableOn_Ioi_rpow_iff；下一步不能用对数斜率直接冒称临界逆矩，必须使用双侧幂界和layercake。
 
 2026-10-19 额度收尾：此前已实际观察ordinaryUsageAllowed=false、primary100%、rate_limit_reached，研究在1cd89fc/218项与facade-18处停止，未用券/购额/切换账户。07:05UTC仅恢复归档和暂停自动任务；积压心跳未产生新研究。未发现本会话活锁或自有检查/审查子进程。自动任务PAUSED，冻结稿件未改，逆矩可积性判据仍开放。
+
+2026-10-19 用户继续后自然新额度恢复研究：先以固定seed2026101913、Gamma逆矩闭式/尾积分独立控制前检，再完成一般非中心固定均值的FIRST逆最小值矩可积iffm>N；正方形的非负ENNReal积分=TOP，避免非可积Bochner积分默认0陷阱。通用概率尾积分桥、有限区间/无穷尾拆分及双侧幂可积临界值一起闭合。新16声明，总234绑定项和facade-19 PASS；P1阶次偏移和P4虚构缺API警报已逐项澄清，最终源码两组真实P4均交付，人审不豁免。一般整数阶逆矩推广正在做，尚未宣称完成。冻结稿件/全库构建状态不变。

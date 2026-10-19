@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "NoncentralInverseMinimumFirstMoment.lean": {
+      "sha256": "d280921f0d28509fc597fae085410c8f9e3614d565326cc6a6877dba066c5dfc",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "91550f596b7bcbd0376afad9c1f79331029c026ba43e8a0b4b240c01fd31b73a"
+}

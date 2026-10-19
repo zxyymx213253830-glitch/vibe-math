@@ -125,3 +125,8 @@
 /experiments/noncentral_covariance_control.py -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/NoncentralMinimumModeOutage.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/NoncentralInverseMinimumTail.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailIntegrability.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/PowerTailIntegrability.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailFirstMoment.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/NoncentralInverseMinimumFirstMoment.lean -text whitespace=cr-at-eol
+/experiments/inverse_minimum_moment_control.py -text whitespace=cr-at-eol
