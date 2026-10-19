@@ -43,11 +43,11 @@ three-axiom declarations. Main facade36 realexit0. Full build NOT_RUN.
 
 Final-source real Qoder P4 is retained with these resolutions:
 
-* Its claimed division-timing issue is false. `rw [integral_div] at ht` rewrites
-  only the TARGET limiting integral of f^2/2 (there is no explicit r inside the
-  abstract left-side lambda until the later eventually-equality step). Even a
-  pointwise constant-divisor rewrite is an exact equality, not an illicit limit
-  substitution. The combined fraction is preserved and cancellation uses r>0.
+* Its claimed division-timing issue is false. `integral_div` moves a divisor
+  constant in the integration variable across an integral, including inside a
+  parameterized family or in the limiting integral of f^2/2. This is an exact
+  equality, not substitution of r=0 into the quotient or an interchange of limit
+  and integral. The numerator remains combined and cancellation uses r>0.
 * Empty-spectrum concern: finiteSpectrumLogDet is literally a finite sum, so
   the generic theorem needs no Nonempty premise. Actual empty-column cases
   give0; positive-column/zero-row cases give zero eigenvalues and zero moments.
