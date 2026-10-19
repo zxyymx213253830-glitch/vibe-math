@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "NoncentralGramEntryContraction.lean": {
+      "sha256": "1e92850c471d862b9098496d8ab2356713519afb75d6391b6d2ffe444f75510c",
+      "supplied": "Full source"
+    },
+    "NoncentralGramSecondMomentClosed.lean": {
+      "sha256": "04bb9a1d2f4ee3f5bf8e8791aaa6aa6f6160626c6ddfc6d5dcfd8a236594bd02",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7d9d2359217315b8085621347bcc402427c0b533a77d25e9c9185c146f6a9746"
+}

@@ -31,6 +31,10 @@ for m, n, amplitude in [(1, 1, 0.), (1, 3, 0.), (2, 2, .3), (4, 2, .2), (2, 4, .
     second_se = second.std(ddof=1)/np.sqrt(SAMPLES)
     assert abs(trace.mean()-trace_control) < 6*trace_se
     assert abs(second.mean()-second_control) < 6*second_se
+    centered_trace_sq = (trace-trace_control)**2
+    variance_control = m*n + 2*fro2
+    variance_se = centered_trace_sq.std(ddof=1)/np.sqrt(SAMPLES)
+    assert abs(centered_trace_sq.mean()-variance_control) < 6*variance_se
     # Scalar/one-row central laws give independent Gamma first/second-moment controls.
     if amplitude == 0 and m == 1:
         assert second_control == n*(n+1)
@@ -47,7 +51,9 @@ for m, n, amplitude in [(1, 1, 0.), (1, 3, 0.), (2, 2, .3), (4, 2, .2), (2, 4, .
     records.append(dict(m=m, n=n, mean_real=mean.real.tolist(), mean_imag=mean.imag.tolist(),
                         trace_observed=float(trace.mean()), trace_control=trace_control,
                         trace_SE=float(trace_se), second_observed=float(second.mean()),
-                        second_control=second_control, second_SE=float(second_se), values=values))
+                        second_control=second_control, second_SE=float(second_se),
+                        centered_trace_second=float(centered_trace_sq.mean()),
+                        trace_variance_control=variance_control, trace_variance_SE=float(variance_se), values=values))
 report = dict(seed=SEED, samples_per_shape=SAMPLES,
               source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               status='PASS actual CN curvature, trace, scalar Gamma and wrong-first-moment controls; NOT proof',

@@ -1,5 +1,7 @@
 # Finite-scale trace bound and low-scale expected full log-det slope
 
+Current420/facade38: ALL finite shapes/fixedcomplexM actual Etrace=mn+F and Etrace(Gram^2)=mn(m+n)+2(m+n)F+trace((M^HM)^2).re, F=SUM||Mij||^2. Full-logdet lowrho first/second coefficients now CLOSED, no rank/inverse-moment/density premise. Earlier unproved-mean/second-moment statements below are historical and superseded. Finalsource realQoderP4 delivered/resolved; humanreview/frozenpublication/fullbuild boundaries unchanged. See WISHART_GAUSSIAN_TRACE_MEAN.md and WISHART_NONCENTRAL_SECOND_MOMENT_CLOSED.md.
+
 2026-10-19. Proofs Codex; real Qoder route/P4 responses archived separately.
 [需人工审查] Expectation, dominated convergence, variance/model interpretation.
 

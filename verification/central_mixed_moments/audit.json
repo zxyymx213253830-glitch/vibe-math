@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T17:32:51.300609+00:00",
-  "spec_sha256": "6199418a7b1c023c068c22b50d0e8888cc01a680606613e74782023710adb3b3",
+  "collected_utc": "2026-10-19T17:46:51.810293+00:00",
+  "spec_sha256": "75e48e1d49655fbba0d490ab0794b72122e2035c04ca5854cc3b74b5d2a2b112",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -5792,9 +5792,225 @@
           "sha256": "3b7548ec8bc8d383f5d2691fad31723713448e2f10ad9f034cab4f74cb5c4f91"
         }
       }
+    },
+    "JinWishartFormalization.ComplexGaussianWickMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_monomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_X_conj_X",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_monomial_unbalanced",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_C",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_X",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_direct_pair",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_conjugate_pair",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_direct_direct_conjugate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_direct_conjugate_conjugate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_fourth",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "71af02ca0a98f5a777801a00eceec3129197e8505c98b91fff39fee1605a81ee",
+      "olean_sha256": "c3571339229c3705e79cf4801d9aa6e055cb08b6c0c49193bf46f19d71d46cf9",
+      "log_sha256": "7bfc31c466835ca097f9c7b8397b44d3bc89ae4d607cbf56937625d9121a05a7",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianMomentFunctional": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianMomentFunctional.olean",
+          "sha256": "65517f444cafa150c78eb8515f230b053b0049d61e0833d335fe45680545642e"
+        }
+      }
+    },
+    "JinWishartFormalization.ComplexGaussianShiftedFourthMoment": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_shifted_fourth",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "b544d06cbb9419121b1a94edb4d845a40983b16f4a81ad6c0717fbfd3406665f",
+      "olean_sha256": "00722a1bf66229c14282b2064b7c99f5c1dadfda1cb25cc528da16ee21ca85c1",
+      "log_sha256": "b2a60d1716b822b3789b121104574bd8d0ab27d50a4ad78e021a1d9ee214d5f0",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianWickMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianWickMoments.olean",
+          "sha256": "c3571339229c3705e79cf4801d9aa6e055cb08b6c0c49193bf46f19d71d46cf9"
+        }
+      }
+    },
+    "JinWishartFormalization.NoncentralGramEntryContraction": {
+      "declarations": [
+        {
+          "name": "JinWishart.noncentralGram_entry_fourth_contraction",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "1e92850c471d862b9098496d8ab2356713519afb75d6391b6d2ffe444f75510c",
+      "olean_sha256": "0e4ade58f2d66796dc2ab4c380c80b288d1d94650c836c4f44b51f1c70c4c3b7",
+      "log_sha256": "c9cdf44a2b6eabb4919f6ad0117f4fc7e5ed731dad920eeeb389a510f3510b04",
+      "imports": {
+        "JinWishartFormalization.NoncentralLogDetCurvatureCoefficient": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/NoncentralLogDetCurvatureCoefficient.olean",
+          "sha256": "90edd0dafbe274ee90ffe8ba12e920b9cad87b41f835dbe245cbec5825d80b09"
+        },
+        "JinWishartFormalization.ComplexGaussianShiftedFourthMoment": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianShiftedFourthMoment.olean",
+          "sha256": "00722a1bf66229c14282b2064b7c99f5c1dadfda1cb25cc528da16ee21ca85c1"
+        }
+      }
+    },
+    "JinWishartFormalization.NoncentralGramSecondMomentClosed": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianMoment_noncentralGramSquaredTrace_closed",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianMoment_noncentralGramSquaredTrace_re_closed",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualNoncentralGram_squaredTrace_closed",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualNoncentralMatrixLogDet_low_scale_closed_curvature",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "04bb9a1d2f4ee3f5bf8e8791aaa6aa6f6160626c6ddfc6d5dcfd8a236594bd02",
+      "olean_sha256": "4134c3afa0df27c269301c1d3adbaa3eb2a1a450d595cc22561324b1784ff46e",
+      "log_sha256": "1fbca1c7dbcefc50dbe9d6e7011f411b6501ce621a17d8b898e871233c846c5e",
+      "imports": {
+        "JinWishartFormalization.NoncentralGramEntryContraction": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/NoncentralGramEntryContraction.olean",
+          "sha256": "0e4ade58f2d66796dc2ab4c380c80b288d1d94650c836c4f44b51f1c70c4c3b7"
+        }
+      }
     }
   },
-  "total_declarations": 404,
+  "total_declarations": 420,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -5960,8 +6176,8 @@
     },
     {
       "script": "experiments/logdet_second_order_control.py",
-      "script_sha256": "b7c7c084604f23f6bac744ad373352aadb2a9e39dde8393c1138222ff7e52013",
-      "result_sha256": "56a04a86bd1129ca87b1e53d5b6bc52096017f6de5cfa053bbe0b34c1d4b4a96",
+      "script_sha256": "2ed6e424018734822eebd68890dbfe253f97f0b2f7be8bf81fad9f82f556830f",
+      "result_sha256": "8cf9ffa3e5069e8fc83f346985eb4d0e4142675b5cdd4dab265375d20256a9c0",
       "interpretation": "Reproducible control, not a proof"
     },
     {
@@ -6523,6 +6739,30 @@
       "request_sha256": "de6136c584274b8844000c2c97c91a3f5cd6f3073227b5ccfbaa1f8f9bc6e455",
       "prompt_sha256": "d184e60c125b0096dc4c0075ed958f5166be308ea944d73d7b63b785a47501ee",
       "raw_response_sha256": "18e15f85d9d80af198fa35cc8d27322df22b9196107e21270e18fd53a49d014f",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "5adf7e603dea1924d2a313c22d1e74c41382679bf36153b22ff69a69e255e257",
+      "prompt_sha256": "3c5609ea9f93a8f1cdf9258b4a46bbdd0339637b7819ca1af58a2f103db1df6d",
+      "raw_response_sha256": "8e7c6c8e232f0f6d51e67ec6270d156dcee9d4bdc0d5dc828a314e687c24c084",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "c1cdedb9e00af0175b8fa98ef2f5f2978c299dcaec9ab0382b2bd0283b3b068e",
+      "prompt_sha256": "7d9d2359217315b8085621347bcc402427c0b533a77d25e9c9185c146f6a9746",
+      "raw_response_sha256": "e42e0fbe8d9443cd9e0b42ed78ae61bdba2d769164753e571d1d8be0bc99c8a5",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"

@@ -1,0 +1,20 @@
+{
+  "collected_utc": "2026-10-19T17:47:15.458167+00:00",
+  "new_declarations": 16,
+  "total_bound_items": 420,
+  "leaf_checks": {
+    "wick-moments-6.txt": 0,
+    "shifted-wick-2.txt": 0,
+    "gram-entry-contraction-1.txt": 0,
+    "gram-second-moment-7.txt": 0
+  },
+  "main_entry": {
+    "log": "facade-38.txt",
+    "actual_exit_code": 0
+  },
+  "scope": "Closed actual noncentral EtraceGramSquared and all-shape lowrho full-logdet quadratic coefficient, not E(traceGram)^2 or coding theorem",
+  "p4": "Two real final-source responses delivered; descriptive errors/retractions resolved in review note",
+  "human_review": "REQUIRED",
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED"
+}

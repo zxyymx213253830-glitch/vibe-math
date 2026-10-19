@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:24:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (a = b)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:36:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.complexGaussianPolynomialMoment_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_X_conj_X' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,7 +1,7 @@
 {
   "seed": 2026101925,
   "samples_per_shape": 200000,
-  "source_sha256": "b7c7c084604f23f6bac744ad373352aadb2a9e39dde8393c1138222ff7e52013",
+  "source_sha256": "2ed6e424018734822eebd68890dbfe253f97f0b2f7be8bf81fad9f82f556830f",
   "status": "PASS actual CN curvature, trace, scalar Gamma and wrong-first-moment controls; NOT proof",
   "candidate": "EtrW2=mn(m+n)+2(m+n)||M||F2+tr((M^H M)^2); not yet formalized",
   "zero_shapes": "Exact empty sums give zero, no random draws needed",
@@ -25,6 +25,9 @@
       "second_observed": 1.9944849534619995,
       "second_control": 2.0,
       "second_SE": 0.01003586866909697,
+      "centered_trace_second": 0.9960491605286765,
+      "trace_variance_control": 1.0,
+      "trace_variance_SE": 0.006377317778109918,
       "values": [
         {
           "rho": 1.0,
@@ -76,6 +79,9 @@
       "second_observed": 11.999501939495218,
       "second_control": 12.0,
       "second_SE": 0.032749166351681985,
+      "centered_trace_second": 2.986320296189333,
+      "trace_variance_control": 3.0,
+      "trace_variance_SE": 0.013332597707455936,
       "values": [
         {
           "rho": 1.0,
@@ -133,6 +139,9 @@
       "second_observed": 17.58395763552055,
       "second_control": 17.53484375,
       "second_SE": 0.0423733126570718,
+      "centered_trace_second": 4.401886646583457,
+      "trace_variance_control": 4.375,
+      "trace_variance_SE": 0.01857933161553743,
       "values": [
         {
           "rho": 1.0,
@@ -206,6 +215,9 @@
       "second_observed": 49.71071009813957,
       "second_control": 49.71999228395062,
       "second_SE": 0.08311591837273805,
+      "centered_trace_second": 8.248753113432487,
+      "trace_variance_control": 8.283333333333333,
+      "trace_variance_SE": 0.030614102869602772,
       "values": [
         {
           "rho": 1.0,
@@ -271,6 +283,9 @@
       "second_observed": 55.14914003002591,
       "second_control": 55.11617283950617,
       "second_SE": 0.09277011061290509,
+      "centered_trace_second": 9.171760474260147,
+      "trace_variance_control": 9.133333333333333,
+      "trace_variance_SE": 0.03409460359624274,
       "values": [
         {
           "rho": 1.0,

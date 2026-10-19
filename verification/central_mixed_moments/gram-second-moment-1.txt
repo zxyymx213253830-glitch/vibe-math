@@ -1,0 +1,124 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:23:58: error: unsolved goals
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+hL : ∀ (P : ComplexMatrixPolynomial m n), complexGaussianMomentLinear P = complexGaussianPolynomialMoment P
+⊢ ∑ x,
+      ∑ x_1,
+        ∑ x_2,
+          ∑ x_3,
+            ((star (M x_3 x) * M x_3 x_1 * star (M x_2 x_1) * M x_2 x +
+                    (if x = x_1 then 1 else 0) * (M x_2 x * star (M x_2 x) + M x_3 x * star (M x_3 x)) +
+                  (if x_3 = x_2 then 1 else 0) * (M x_3 x_1 * star (M x_3 x_1) + M x_3 x * star (M x_3 x)) +
+                if x = x_1 then 1 else 0) +
+              if x_3 = x_2 then 1 else 0) =
+    ∑ i,
+      ∑ j,
+        ∑ k,
+          ∑ l,
+            ((star (M k i) * M k j * star (M l j) * M l i +
+                    (if i = j then 1 else 0) * (M l i * star (M l i) + M k i * star (M k i)) +
+                  (if k = l then 1 else 0) * (M k j * star (M k j) + M k i * star (M k i)) +
+                if i = j then 1 else 0) +
+              if k = l then 1 else 0)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:33:35: error: unsolved goals
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+hL : ∀ (P : ComplexMatrixPolynomial m n), complexGaussianMomentLinear P = complexGaussianPolynomialMoment P
+hs :
+  complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M) =
+    ∑ i,
+      ∑ j,
+        ∑ k,
+          ∑ l,
+            ((star (M k i) * M k j * star (M l j) * M l i +
+                    (if i = j then 1 else 0) * (M l i * star (M l i) + M k i * star (M k i)) +
+                  (if k = l then 1 else 0) * (M k j * star (M k j) + M k i * star (M k i)) +
+                if i = j then 1 else 0) +
+              if k = l then 1 else 0)
+i : Fin n
+a✝³ : i ∈ Finset.univ
+j : Fin n
+a✝² : j ∈ Finset.univ
+k : Fin m
+a✝¹ : k ∈ Finset.univ
+l : Fin m
+a✝ : l ∈ Finset.univ
+⊢ (starRingEnd ℂ) (M k i) * M k j * (starRingEnd ℂ) (M l j) * M l i =
+    (starRingEnd ℂ) (M l i) * M l j * (starRingEnd ℂ) (M k j) * M k i
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:14:97: error: unsolved goals
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+hL : ∀ (P : ComplexMatrixPolynomial m n), complexGaussianMomentLinear P = complexGaussianPolynomialMoment P
+hs :
+  complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M) =
+    ∑ i,
+      ∑ j,
+        ∑ k,
+          ∑ l,
+            ((star (M k i) * M k j * star (M l j) * M l i +
+                    (if i = j then 1 else 0) * (M l i * star (M l i) + M k i * star (M k i)) +
+                  (if k = l then 1 else 0) * (M k j * star (M k j) + M k i * star (M k i)) +
+                if i = j then 1 else 0) +
+              if k = l then 1 else 0)
+hmean : ∑ i, ∑ j, ∑ k, ∑ l, star (M k i) * M k j * star (M l j) * M l i = (complexGram M ^ 2).trace
+hcol :
+  ∀ (i : Fin n),
+    ∑ j, ∑ k, ∑ l, (if i = j then 1 else 0) * (M l i * star (M l i) + M k i * star (M k i)) =
+      ∑ k, ∑ l, (M l i * star (M l i) + M k i * star (M k i))
+htrace : ∑ i, ∑ k, M k i * star (M k i) = (complexGram M).trace
+⊢ ((((complexGram M ^ 2).trace + ↑m * (complexGram M).trace * 2 +
+          ∑ x, ∑ x_1, ∑ x_2, ∑ x_3, if x_2 = x_3 then M x_2 x_1 * star (M x_2 x_1) + M x_2 x * star (M x_2 x) else 0) +
+        ∑ x, ∑ x_1, if x = x_1 then ↑m ^ 2 else 0) +
+      ↑n ^ 2 * ∑ x, ∑ x_1, if x = x_1 then 1 else 0) =
+    (complexGram M ^ 2).trace + ↑m * (complexGram M).trace * 2 + ↑m * ↑n ^ 2 + ↑m ^ 2 * ↑n +
+      (complexGram M).trace * ↑n * 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:57:38: warning: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.mem_univ, ite_true, Finset.sum_ite_irrel, Finset.sum_const,
+    Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:57:57: warning: This simp argument is unused:
+  Finset.mem_univ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', ite_true, Finset.sum_ite_irrel, Finset.sum_const,
+    Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:57:73: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, Finset.sum_ite_irrel,
+    Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:60:21: warning: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.sum_add_distrib, Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul,
+    ← Finset.mul_sum]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianMoment_noncentralGramSquaredTrace_closed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ComplexGaussianWickMoments.lean": {
+      "sha256": "71af02ca0a98f5a777801a00eceec3129197e8505c98b91fff39fee1605a81ee",
+      "supplied": "Full source"
+    },
+    "ComplexGaussianShiftedFourthMoment.lean": {
+      "sha256": "b544d06cbb9419121b1a94edb4d845a40983b16f4a81ad6c0717fbfd3406665f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "3c5609ea9f93a8f1cdf9258b4a46bbdd0339637b7819ca1af58a2f103db1df6d"
+}

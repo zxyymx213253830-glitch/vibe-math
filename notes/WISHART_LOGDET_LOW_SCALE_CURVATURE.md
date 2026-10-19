@@ -1,5 +1,7 @@
 # Actual low-scale logdet curvature
 
+Current420/facade38: ALL finite shapes/fixedcomplexM actual Etrace=mn+F and Etrace(Gram^2)=mn(m+n)+2(m+n)F+trace((M^HM)^2).re, F=SUM||Mij||^2. Full-logdet lowrho first/second coefficients now CLOSED, no rank/inverse-moment/density premise. Earlier unproved-mean/second-moment statements below are historical and superseded. Finalsource realQoderP4 delivered/resolved; humanreview/frozenpublication/fullbuild boundaries unchanged. See WISHART_GAUSSIAN_TRACE_MEAN.md and WISHART_NONCENTRAL_SECOND_MOMENT_CLOSED.md.
+
 For every finite shape m,n (including zero), any fixed deterministic complex M,
 the existing variance-one CN source X=Z+M and natural-log full matrix statistic
 C(r)=log det(I+r X^H X), set T=mn+SUM||Mij||^2. Then

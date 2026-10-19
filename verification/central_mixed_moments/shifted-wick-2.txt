@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianShiftedFourthMoment.lean:44:59: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [U, V, W, Y, complexGaussianPolynomialMoment_fourth,
+    complexGaussianPolynomialMoment_direct_direct_conjugate, complexGaussianPolynomialMoment_direct_conjugate_conjugate,
+    complexGaussianPolynomialMoment_direct_pair, complexGaussianPolynomialMoment_conjugate_pair,
+    complexGaussianPolynomialMoment_X_conj_X, complexGaussianPolynomialMoment_X, complexGaussianPolynomialMoment_C,
+    smul_eq_mul, mul_zero, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianShiftedFourthMoment.lean:44:77: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [U, V, W, Y, complexGaussianPolynomialMoment_fourth,
+    complexGaussianPolynomialMoment_direct_direct_conjugate, complexGaussianPolynomialMoment_direct_conjugate_conjugate,
+    complexGaussianPolynomialMoment_direct_pair, complexGaussianPolynomialMoment_conjugate_pair,
+    complexGaussianPolynomialMoment_X_conj_X, complexGaussianPolynomialMoment_X, complexGaussianPolynomialMoment_C,
+    smul_eq_mul, mul_zero, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianPolynomialMoment_shifted_fourth' depends on axioms: [propext, Classical.choice, Quot.sound]

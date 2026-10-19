@@ -1,5 +1,7 @@
 # Next bounded card: explicit actual Gaussian expected trace
 
+Current420/facade38: ALL finite shapes/fixedcomplexM actual Etrace=mn+F and Etrace(Gram^2)=mn(m+n)+2(m+n)F+trace((M^HM)^2).re, F=SUM||Mij||^2. Full-logdet lowrho first/second coefficients now CLOSED, no rank/inverse-moment/density premise. Earlier unproved-mean/second-moment statements below are historical and superseded. Finalsource realQoderP4 delivered/resolved; humanreview/frozenpublication/fullbuild boundaries unchanged. See WISHART_GAUSSIAN_TRACE_MEAN.md and WISHART_NONCENTRAL_SECOND_MOMENT_CLOSED.md.
+
 Current verified checkpoint:387 bound items including the generic
 GaussianSquaredNormShift helper, final leaf/main-entry33 checks and scoped
 real P4 response. Its review axiom list is incorrect: actual printed axioms

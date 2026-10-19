@@ -1,0 +1,185 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:36:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:38:10: warning: This simp argument is unused:
+  hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Ne.symm hab]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:63:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:68:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:77:47: error: Application type mismatch: The argument
+  hab
+has type
+  a = b
+but is expected to have type
+  ?m.412 ≠ ?m.413
+in the application
+  Ne.symm hab
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:74:4: error: unsolved goals
+case pos
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a b : ι
+hw :
+  ∀ (a b c d : ι),
+    complexGaussianPolynomialMoment
+        (MvPolynomial.X (Sum.inl a) * MvPolynomial.X (Sum.inl b) * MvPolynomial.X (Sum.inr c) *
+          MvPolynomial.X (Sum.inr d)) =
+      ∏ i,
+        if ((if a = i then 1 else 0) + if b = i then 1 else 0) = (if c = i then 1 else 0) + if d = i then 1 else 0 then
+          ↑((if a = i then 1 else 0) + if b = i then 1 else 0).factorial
+        else 0
+hm : ∀ (a b : ι), ∏ i, ↑((if a = i then 1 else 0) + if b = i then 1 else 0).factorial = if a = b then 2 else 1
+hab : a = b
+⊢ 1 + 1 = 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:80:14: error(lean.unknownIdentifier): Unknown identifier `d`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:80:37: error(lean.unknownIdentifier): Unknown identifier `c`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:81:17: error(lean.unknownIdentifier): Unknown identifier `c`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:81:40: error(lean.unknownIdentifier): Unknown identifier `d`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:83:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∏ i, ↑((if ?a = i then 1 else 0) + if ?b = i then 1 else 0).factorial
+in the target expression
+  (∏ i,
+      if ((if a = i then 1 else 0) + if b = i then 1 else 0) = (if b = i then 1 else 0) + if a = i then 1 else 0 then
+        ↑((if a = i then 1 else 0) + if b = i then 1 else 0).factorial
+      else 0) =
+    (if a = b ∧ b = a then 1 else 0) + if True ∧ True then 1 else 0
+
+case pos.inr
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a b : ι
+hw :
+  ∀ (a b c d : ι),
+    complexGaussianPolynomialMoment
+        (MvPolynomial.X (Sum.inl a) * MvPolynomial.X (Sum.inl b) * MvPolynomial.X (Sum.inr c) *
+          MvPolynomial.X (Sum.inr d)) =
+      ∏ i,
+        if ((if a = i then 1 else 0) + if b = i then 1 else 0) = (if c = i then 1 else 0) + if d = i then 1 else 0 then
+          ↑((if a = i then 1 else 0) + if b = i then 1 else 0).factorial
+        else 0
+hm : ∀ (a b : ι), ∏ i, ↑((if a = i then 1 else 0) + if b = i then 1 else 0).factorial = if a = b then 2 else 1
+he :
+  ∀ (i : ι),
+    ((if sorry = i then 1 else 0) + if sorry = i then 1 else 0) =
+      (if sorry = i then 1 else 0) + if sorry = i then 1 else 0
+⊢ (∏ i,
+      if ((if a = i then 1 else 0) + if b = i then 1 else 0) = (if b = i then 1 else 0) + if a = i then 1 else 0 then
+        ↑((if a = i then 1 else 0) + if b = i then 1 else 0).factorial
+      else 0) =
+    (if a = b ∧ b = a then 1 else 0) + if True ∧ True then 1 else 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:87:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:87:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:95:4: error: unsolved goals
+case neg
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a c d : ι
+hw :
+  ∀ (a b c d : ι),
+    complexGaussianPolynomialMoment
+        (MvPolynomial.X (Sum.inl a) * MvPolynomial.X (Sum.inl b) * MvPolynomial.X (Sum.inr c) *
+          MvPolynomial.X (Sum.inr d)) =
+      ∏ x,
+        if ((if a = x then 1 else 0) + if b = x then 1 else 0) = (if c = x then 1 else 0) + if d = x then 1 else 0 then
+          ↑((if c = x then 1 else 0) + if d = x then 1 else 0).factorial
+        else 0
+hm : ∀ (a b : ι), ∏ i, ↑((if a = i then 1 else 0) + if b = i then 1 else 0).factorial = if a = b then 2 else 1
+hp : ¬c = d
+hc : ∀ (i : ι), (if c = i then 1 else 0) = if d = i then 1 else 0
+ha : 2 = 1 + if d = c then 1 else 0
+hac : a = c
+⊢ False
+
+case neg
+ι : Type u_1
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+a c d : ι
+hw :
+  ∀ (a b c d : ι),
+    complexGaussianPolynomialMoment
+        (MvPolynomial.X (Sum.inl a) * MvPolynomial.X (Sum.inl b) * MvPolynomial.X (Sum.inr c) *
+          MvPolynomial.X (Sum.inr d)) =
+      ∏ x,
+        if ((if a = x then 1 else 0) + if b = x then 1 else 0) = (if c = x then 1 else 0) + if d = x then 1 else 0 then
+          ↑((if c = x then 1 else 0) + if d = x then 1 else 0).factorial
+        else 0
+hm : ∀ (a b : ι), ∏ i, ↑((if a = i then 1 else 0) + if b = i then 1 else 0).factorial = if a = b then 2 else 1
+hne : ¬(if c = d then 2 else 1) = 0
+hc : ∀ (i : ι), ((if a = i then 1 else 0) + if a = i then 1 else 0) = (if c = i then 1 else 0) + if d = i then 1 else 0
+ha : 2 = (if c = a then 1 else 0) + if d = a then 1 else 0
+hac : ¬a = c
+had : ¬a = d
+⊢ False
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:82:17: warning: This simp argument is unused:
+  he
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:82:20: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:103:20: warning: This simp argument is unused:
+  Ne.symm hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab, Ne.symm hbd] at hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:110:22: warning: This simp argument is unused:
+  Ne.symm hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab, Ne.symm hbc] at hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:111:16: warning: This simp argument is unused:
+  hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hac, had, Ne.symm hab, Ne.symm hac, Ne.symm had] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:111:20: warning: This simp argument is unused:
+  hac
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab, had, Ne.symm hab, Ne.symm hac, Ne.symm had] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:111:24: warning: This simp argument is unused:
+  had
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab, hac, Ne.symm hab, Ne.symm hac, Ne.symm had] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianPolynomialMoment_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_X_conj_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_fourth' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

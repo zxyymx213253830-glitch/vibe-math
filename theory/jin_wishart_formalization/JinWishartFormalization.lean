@@ -1,3 +1,4 @@
+import JinWishartFormalization.NoncentralGramSecondMomentClosed
 import JinWishartFormalization.NoncentralLogDetCurvatureCoefficient
 import JinWishartFormalization.ActualLogDetLowScaleCurvature
 import JinWishartFormalization.ActualGaussianTraceMean

@@ -1,0 +1,53 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:63:56: warning: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq, Finset.mem_univ, ite_true, Finset.sum_ite_irrel,
+    Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:66:21: warning: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.sum_add_distrib, Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul,
+    ← Finset.mul_sum]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:87:4: error(lean.unknownIdentifier): Unknown constant `Complex.ofNat_re`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:87:21: error(lean.unknownIdentifier): Unknown constant `Complex.ofNat_im`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:89:2: error: Type mismatch
+  h
+has type
+  (complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M)).re =
+    ↑(m * n * (m + n)) +
+        (Complex.re 2 * ↑(m + n) * ∑ i, ∑ j, ‖M i j‖ ^ 2 - (2 * ↑(m + n)).im * (complexGram M).trace.im) +
+      (complexGram M ^ 2).trace.re
+but is expected to have type
+  (complexGaussianPolynomialMoment (noncentralGramSquaredTracePolynomial M)).re =
+    ↑(m * n * (m + n)) + 2 * ↑(m + n) * ∑ i, ∑ j, ‖M i j‖ ^ 2 + (complexGram M ^ 2).trace.re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGramSecondMomentClosed.lean:87:38: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.add_re, Complex.mul_re, Complex.natCast_re, Complex.natCast_im, Complex.ofNat_re,
+    Complex.ofNat_im, mul_zero, sub_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianMoment_noncentralGramSquaredTrace_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMoment_noncentralGramSquaredTrace_re_closed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actualNoncentralGram_squaredTrace_closed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_low_scale_closed_curvature' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,78 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:36:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:38:10: warning: This simp argument is unused:
+  hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Ne.symm hab]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:126:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:131:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:154:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:154:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:176:20: warning: This simp argument is unused:
+  Ne.symm hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab, Ne.symm hbd] at hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:183:22: warning: This simp argument is unused:
+  Ne.symm hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab, Ne.symm hbc] at hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:184:16: warning: This simp argument is unused:
+  hab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hac, had, Ne.symm hab, Ne.symm hac, Ne.symm had] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:184:20: warning: This simp argument is unused:
+  hac
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab, had, Ne.symm hab, Ne.symm hac, Ne.symm had] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWickMoments.lean:184:24: warning: This simp argument is unused:
+  had
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab, hac, Ne.symm hab, Ne.symm hac, Ne.symm had] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianPolynomialMoment_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_X_conj_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_monomial_unbalanced' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_direct_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_conjugate_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_direct_direct_conjugate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_direct_conjugate_conjugate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_fourth' depends on axioms: [propext, Classical.choice, Quot.sound]
