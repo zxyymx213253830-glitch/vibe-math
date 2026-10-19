@@ -25,5 +25,18 @@ for N in range(1,13):
   target=F(fac(N+d),fac(N-1)*fac(d+1)**2)
   assert coeff[k]==target
   records.append(dict(N=N,d=d,Qlow=list(map(str,Q)),sharp=str(coeff[k]),candidate=str(target)))
-result=dict(seed=None,source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),status='PASS exact grouped-cardinality coefficients N1..12 d0..2 against simplified candidate; not proof',records=records)
+missing=[]
+for N in range(1,13):
+ for r in range(min(3,N)+1):
+  for s in range(min(3-r,N)+1):
+   for h in range(min(r,s)+1):
+    if r+s-h<=N:
+     c=N-r-s+h
+     direct=mass(N-c,c,2)*mass(r,s-h,1)*mass(s,r-h,1)/F(fac(N)*fac(N+1))
+     expected=F(1,(r+s-h+1)*fac(r)*fac(s))
+     assert direct==expected
+     missing.append(dict(N=N,r=r,s=s,h=h,normalized_moment=str(direct)))
+ row=next(q for q in records if q['N']==N and q['d']==2)
+ assert list(map(F,row['Qlow']))==[F(1),F(N),F(N*N,2),F(N*(N-1)*(5*N+2),36)]
+result=dict(seed=None,source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),status='PASS exact grouped-cardinality coefficients N1..12 d0..2 and missing-set rational reduction controls; not proof',records=records,missing_set_records=missing)
 p=Path(__file__).resolve().parents[1]/'verification/central_mixed_moments/simplified-coefficient-control.json';p.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');print(result['status'])
