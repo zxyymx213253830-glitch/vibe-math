@@ -1,0 +1,31 @@
+{
+  "closed_utc": "2026-10-19T12:07:03.389986+00:00",
+  "prior_exhaustion": {
+    "ordinaryUsageAllowed": false,
+    "primary_used_percent": 100,
+    "rateLimitReachedType": "rate_limit_reached",
+    "evidence": "Actual get_usage_limits tool response after f15a9ee in prior active turn, not merely rounded100"
+  },
+  "current_closeout_snapshot": {
+    "ordinaryUsageAllowed": true,
+    "primary_used_percent": 1,
+    "interpretation": "Natural later quota window; closeout only"
+  },
+  "last_research_commit": "b0b9271",
+  "last_archive_commit": "f15a9ee",
+  "items": 305,
+  "new_items_this_resumption": 87,
+  "new_modules": 22,
+  "leaf_bundle": "PASS305 source/olean/log/control/review bindings",
+  "facade": "25 actual exit0",
+  "full_build": "NOT_RUN",
+  "proof_bodies": "Codex",
+  "partner": "14 real bounded Qoder receipts inventoried; model P4 not human review; latest P1 nonresponse preserved",
+  "process_closeout": "No session-matching Python/Lean/Qoder process or compute.lock found12:06UTC; no owned service started",
+  "automation": "PAUSED",
+  "unknown_files": "Protected, untouched",
+  "paper_pdf_packages": "UNCHANGED",
+  "human_review": "REQUIRED",
+  "next_card": "notes/WISHART_NEXT_COEFFICIENT_CARD.md",
+  "no_purchase_coupon_or_account_switch": true
+}
