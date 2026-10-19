@@ -1,18 +1,26 @@
 {
-  "collected_utc": "2026-10-19T17:10:17.999149+00:00",
+  "collected_utc": "2026-10-19T18:04:10.317067+00:00",
   "authorized_resume": "2026-10-19T14:13UTC explicit user continue",
   "initial_bound_items": 305,
-  "final_bound_items": 387,
-  "new_printed_declarations": 82,
-  "new_source_modules": 24,
-  "proof_author": "Codex; Qoder route/review responses only, not proof bodies",
+  "final_bound_items": 431,
+  "new_printed_declarations": 126,
+  "new_source_modules": 36,
+  "proof_author": "Codex proof bodies; Qoder route/P4 only; no DS proof authored in this continuation",
   "milestone_commits": [
     "840be08",
     "aa323e1",
     "4323449",
     "311f327",
     "54ac9cd",
-    "857c575"
+    "857c575",
+    "f82124e",
+    "5d5ff2a",
+    "b02fb91",
+    "6e8a0b1",
+    "1078434",
+    "7c8a88e",
+    "928c7dd",
+    "0967999"
   ],
   "facade_checks": [
     "facade-26.txt realexit0",
@@ -22,7 +30,13 @@
     "facade-30.txt realexit0",
     "facade-31.txt realexit0",
     "facade-32.txt realexit0",
-    "facade-33.txt realexit0"
+    "facade-33.txt realexit0",
+    "facade-35.txt realexit0",
+    "facade-36.txt realexit0",
+    "facade-37.txt realexit0",
+    "facade-38.txt realexit0",
+    "facade-39.txt realexit0",
+    "facade-40.txt realexit0"
   ],
   "external_requests": [
     {
@@ -247,21 +261,187 @@
       "substantive_response": true,
       "response_sha256": "749844c2b3997f47c0b18cbf03070bd2dcfc7a28913a9c40195be4e9d0ad8fa6",
       "interpretation": "No concrete proof issue; false axiom metadata corrected against actual print. Not human or independent compile."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p1-correlated-trace.receipt.json",
+      "started_utc": "2026-10-19T17:56:32.814803+00:00",
+      "ended_utc": "2026-10-19T17:57:14.543595+00:00",
+      "seconds": 41.72879359999206,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.27414,
+      "substantive_response": true,
+      "response_sha256": "768c524621db202f3a89d5901e41f5e0b099a8fea48dad43e1ce898e12e0289b",
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p1-logdet-second-order.receipt.json",
+      "started_utc": "2026-10-19T17:15:50.177454+00:00",
+      "ended_utc": "2026-10-19T17:17:20.374254+00:00",
+      "seconds": 90.1968020000495,
+      "exit_code": 124,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [],
+      "reported_provider_credits": null,
+      "substantive_response": false,
+      "response_sha256": null,
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-correlated-gram-mean.receipt.json",
+      "started_utc": "2026-10-19T18:00:15.972634+00:00",
+      "ended_utc": "2026-10-19T18:00:50.419115+00:00",
+      "seconds": 34.44650429999456,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.23793600000000004,
+      "substantive_response": true,
+      "response_sha256": "8ad67167c89cc8337b5bfeec1f81a6a44f02d8b8cf21de83e899b6f558b51bcd",
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-finite-curvature-final.receipt.json",
+      "started_utc": "2026-10-19T17:31:05.891703+00:00",
+      "ended_utc": "2026-10-19T17:32:02.110151+00:00",
+      "seconds": 56.21845190000022,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.24522,
+      "substantive_response": true,
+      "response_sha256": "8248220d61c156f7d706d60690bf00fc12757da729b8e78b82faf07321e31154",
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-finite-curvature.receipt.json",
+      "started_utc": "2026-10-19T17:29:12.299574+00:00",
+      "ended_utc": "2026-10-19T17:30:42.510065+00:00",
+      "seconds": 90.21049199998379,
+      "exit_code": 124,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [],
+      "reported_provider_credits": null,
+      "substantive_response": false,
+      "response_sha256": null,
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-logdet-curvature.receipt.json",
+      "started_utc": "2026-10-19T17:21:54.216831+00:00",
+      "ended_utc": "2026-10-19T17:23:15.144169+00:00",
+      "seconds": 80.92735860001994,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.47370857142857137,
+      "substantive_response": true,
+      "response_sha256": "50e25b5f9d703a45b1181c203b11bad37eacc1b7243ec9130e4a8fc89bdd1274",
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-second-moment-closed.receipt.json",
+      "started_utc": "2026-10-19T17:44:35.827306+00:00",
+      "ended_utc": "2026-10-19T17:45:41.006171+00:00",
+      "seconds": 65.17888610000955,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.32628,
+      "substantive_response": true,
+      "response_sha256": "50aaa7987f845e9b13928e15c2a5056328c8e9ac445104ea17c2144c444b8fdc",
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-trace-mean.receipt.json",
+      "started_utc": "2026-10-19T17:14:13.665889+00:00",
+      "ended_utc": "2026-10-19T17:15:28.740894+00:00",
+      "seconds": 75.0750084000174,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.3772714285714286,
+      "substantive_response": true,
+      "response_sha256": "5076682ab4cd7ac7c339358b23108194a6942fd36a363d373b528ceb46681352",
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-trace-variance.receipt.json",
+      "started_utc": "2026-10-19T17:53:29.374949+00:00",
+      "ended_utc": "2026-10-19T17:54:36.928606+00:00",
+      "seconds": 67.55367980001029,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.4500085714285715,
+      "substantive_response": true,
+      "response_sha256": "7519f5504840361acbbf6708f5c3c25528ecfe0ebf1ecb11d05041415ba1d452",
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-wick.receipt.json",
+      "started_utc": "2026-10-19T17:39:22.585364+00:00",
+      "ended_utc": "2026-10-19T17:40:08.316038+00:00",
+      "seconds": 45.73070650000591,
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_ids": [
+        "qmodel_38max"
+      ],
+      "reported_provider_credits": 0.41730857142857136,
+      "substantive_response": true,
+      "response_sha256": "ffa65d3dba87723614536bf1a528c3b7ebcab3319432abf5106bc0ee0244a633",
+      "interpretation": "Actual raw response retained; timeout not review, model metadata not verified weights; no human/independentcompile approval. Specific false alarms resolved in linked notes."
     }
   ],
   "file_hashes": {
-    "verification/central_mixed_moments/audit.json": "e4443d11dcb9ad324e5a0a54832bf8ad9de6ae9f3dd27c88af39f0a56bec023a",
-    "theory/jin_wishart_formalization/JinWishartFormalization.lean": "69cc66f2fe590fec94d5a872ec8016139c86c584a6ff79def339ec78faab3416",
-    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization.olean": "aab485742910f407f326f523d27cbd87616d6e539437e174f4c52bbf375f8125",
+    "verification/central_mixed_moments/audit.json": "c8999023db829aae2632681fc2909bbd046ee0ce827e5a331df5d61ae1b86123",
+    "theory/jin_wishart_formalization/JinWishartFormalization.lean": "2f4c3062c7e4cbd23eb64709054f7216c40724f7902d450f8a6c206428ac1897",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization.olean": "af91b04a78756b50b8e3a4f2ff126f1b38fc3014f8faf18d32b90b13ec149163",
     "verification/central_mixed_moments/facade-32.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
     "theory/wishart_paper/main.tex": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
     "output/pdf/wishart_formalization.pdf": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
     "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
     "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b",
-    "verification/central_mixed_moments/facade-33.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+    "verification/central_mixed_moments/facade-33.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "verification/central_mixed_moments/spec.json": "d397675b1b8baf81038a52a51fa629d199d3256094206954d6330d13949fa8a5",
+    "verification/central_mixed_moments/facade-39.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "notes/WISHART_NONCENTRAL_SECOND_MOMENT_CLOSED.md": "64a6ba929a44fc340c403e5536c8f0a7c519c17f1488504690f47c6792c63dba",
+    "notes/WISHART_ACTUAL_TRACE_VARIANCE.md": "2b578635c1d2b4f47dbfffd3c951c61ae55df45935dd4c07172f4bf57d84f23a",
+    "verification/central_mixed_moments/facade-40.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "notes/WISHART_CORRELATED_GRAM_MEAN.md": "76f94913cdbfcd4e89ec8f2fcf64e208cae4e8721fb212739ff251c3009c1ac5",
+    "notes/WISHART_LOGDET_RESEARCH_CLAIMS.md": "1efdd04160891c9fbefeb8cd79b5cc041f46a81f82dc70470485bd00a83b8d88"
   },
   "full_build": "NOT_RUN",
   "frozen_publication": "UNCHANGED; hashes identify old frozen version, NOT an updated submission",
   "human_review": "REQUIRED: measure/Fubini/variance/model/paper correspondence",
-  "quota_policy": "Continue useful work until actual ordinary unavailable;17:09UTC ordinaryAllowedtrue primary4% weekly89%, natural refresh no coupons/purchases/accountswitches"
+  "quota_policy": "Latest18:05UTC ordinaryUsageAllowed=true primary71% weekly99%, not exhausted; no purchases/coupons/accounts. Do not stop solely percentage.",
+  "failed_facade_checks": {
+    "facade-34.txt": "Misplaced import after declarations; fixed by moving to beginning; facade35 realexit0."
+  },
+  "pending": "No pending source/check/model process; next weighted correlated fourth moment precise card, numericalcontrol only. Generalcorrelatedvariance/secondmoment/lowrho curvaturenotproved.",
+  "request_observations": {
+    "total_requests": 25,
+    "actual_exit0": 22,
+    "timeouts": 3,
+    "responses_written": 22,
+    "invalid_tooltag_response": "p4-wide-logdet.receipt.json firstresponse only pseudotools, NOT review",
+    "incorrect_P1_correlated": "Momentlabel/realcovariance/differenceformula errors rejected; no 3 independentroutes",
+    "interpretation": "Response delivery is NOT validity, humanreview, compiler independence or proof authorship"
+  }
 }

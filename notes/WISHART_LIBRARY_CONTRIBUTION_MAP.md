@@ -1,5 +1,7 @@
 # Library contributions and the next paper revision
 
+Latest431/facade40: actual first and both distinct secondtrace moments/variance, explicit full-logdet first/second lowrho coefficients closed ALLiidshapes/fixedM. Arbitrary rectangular/singularfactor B actual Gram mean m B^HB+M^HM entrywise also closed (m-by-p source,p-by-n B); correlatedsecondmoments/curvature still controls-only. Exact claims/provenance table WISHART_LOGDET_RESEARCH_CLAIMS.md. Earlier checkpoint/openmean text below historical. Humanreview/frozenpublication/fullbuild boundaries unchanged.
+
 Current420/facade38: ALL finite shapes/fixedcomplexM actual Etrace=mn+F and Etrace(Gram^2)=mn(m+n)+2(m+n)F+trace((M^HM)^2).re, F=SUM||Mij||^2. Full-logdet lowrho first/second coefficients now CLOSED, no rank/inverse-moment/density premise. Earlier unproved-mean/second-moment statements below are historical and superseded. Finalsource realQoderP4 delivered/resolved; humanreview/frozenpublication/fullbuild boundaries unchanged. See WISHART_GAUSSIAN_TRACE_MEAN.md and WISHART_NONCENTRAL_SECOND_MOMENT_CLOSED.md.
 
 Latest386/facade32: actual Efull-logdet<=k log(1+rho*T/k), k=min(m,N)>0,T=actual finite expectedtrace,rho>=0. Low-scale Efull-logdet/rho->T at0right for all dimensions, no fullrank/inverse-moment assumption. Closed T=mN+normM_F^2 remains unproved here; no assumed tracevalue. See WISHART_LOGDET_MEAN_BOUND.md. Final3-source/two P4 responses retained/resolved, humanreview/frozenpublication/fullbuild boundaries unchanged.
