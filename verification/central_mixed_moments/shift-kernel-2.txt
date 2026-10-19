@@ -1,0 +1,3 @@
+'JinWishart.norm_sub_square_le_twice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gaussian_shift_exponent_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.euclideanStdGaussianDensity_shift_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

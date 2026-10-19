@@ -1,0 +1,160 @@
+P4 issues only, no tools/rewrite. Exact final Codex8 statements checked. Imported actual generic Gaussian shift MEASURE sandwich has just passed, no hDensity premise:2^-D exp(-h) Law(Z/2)<=Law(Z+mu)<=2^D exp(h) Law(2Z), h=normmu^2, D=2mN. Applied to SAME central minimum event gives bounds between central covariancev=1/4 and4 and arbitrary FIXED complex-mean noncentral actual CDF. complexSampleMean maps to exactM; mean constants fixed in x, positive. Previous checked all-shapes central local CDF bounds c_v x^(d+1)<=F_v<=C_v x^(d+1), v>0, 0<x<=v. New noncentral local bounds0<x<=1/4 then log F/logx->d+1 for ALL m>=N>0 inclscalar; highSNR at thresholdb/r ->negative exponent. No exact leading coefficient, noncentral explicit CDF/G2, or original generalT4 full constant proved. Fixedmean crucial: no mean growing with threshold/SNR. Measure.real is event.toReal, finite ofReal constant times probability handled explicitly. Review map event signs/variance/finite real conversion/filter/endpoints/dimensions. Earlier squeeze false alarm: negative log denominator makes C correction LOWER,c UPPER; checked generic log theorem already does this.
+
+FULL NoncentralMinimumComparison.lean
+import JinWishartFormalization.GaussianShiftMeasureComparison
+import JinWishartFormalization.CentralMinimumScaledDiversity
+
+/-!
+# Actual arbitrary-mean minimum CDF compared to two central covariance laws
+
+Codex. Constants may depend on the FIXED mean; not a uniform growing-mean result.
+[需人工审查] Shifted Gaussian event transport and complex variance convention.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def gaussianShiftLowerConstant {ι : Type*} [Fintype ι] (y : EuclideanSpace ℝ ι) : ℝ :=
+  ((2 : ℝ)^Fintype.card ι)⁻¹*Real.exp (-‖y‖^2)
+
+def gaussianShiftUpperConstant {ι : Type*} [Fintype ι] (y : EuclideanSpace ℝ ι) : ℝ :=
+  (2 : ℝ)^Fintype.card ι*Real.exp (‖y‖^2)
+
+theorem stdGaussian_shift_real_event_bounds {ι : Type*} [Fintype ι]
+    (y : EuclideanSpace ℝ ι) (S : Set (EuclideanSpace ℝ ι)) (hS : MeasurableSet S) :
+    gaussianShiftLowerConstant y * (stdGaussian (EuclideanSpace ℝ ι)).real
+      ((fun z => (1/2 : ℝ) • z) ⁻¹' S) ≤
+        (stdGaussian (EuclideanSpace ℝ ι)).real ((fun z => z+y) ⁻¹' S) ∧
+    (stdGaussian (EuclideanSpace ℝ ι)).real ((fun z => z+y) ⁻¹' S) ≤
+      gaussianShiftUpperConstant y * (stdGaussian (EuclideanSpace ℝ ι)).real
+        ((fun z => (2 : ℝ) • z) ⁻¹' S) := by
+  have hl := Measure.le_iff.mp (stdGaussian_shift_measure_lower y) S hS
+  have hu := Measure.le_iff.mp (stdGaussian_shift_measure_upper y) S hS
+  have hlR := ENNReal.toReal_mono (by finiteness) hl
+  have huR := ENNReal.toReal_mono (by
+    rw [Measure.smul_apply,smul_eq_mul]
+    exact ENNReal.mul_ne_top ENNReal.ofReal_ne_top (measure_ne_top _ _)) hu
+  rw [Measure.smul_apply,smul_eq_mul,ENNReal.toReal_mul,
+    ENNReal.toReal_ofReal (by positivity),Measure.map_apply (by fun_prop) hS,
+    Measure.map_apply (by fun_prop) hS] at hlR
+  rw [Measure.smul_apply,smul_eq_mul,ENNReal.toReal_mul,
+    ENNReal.toReal_ofReal (by positivity),Measure.map_apply (by fun_prop) hS,
+    Measure.map_apply (by fun_prop) hS] at huR
+  exact ⟨hlR,huR⟩
+
+def actualNoncentralMinimumCDF (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (x : ℝ) : ℝ :=
+  (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))).real
+    {z | complexNoncentralSampleSmallestEigenvalue M (Nat.succ_pos n) z ≤ x}
+
+theorem centralGaussianSampleMinimum_shift {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0 < n) (z : ComplexSample (m := m) (n := n)) :
+    centralGaussianSampleMinimum m n hn (z+complexSampleMean M) =
+      complexNoncentralSampleSmallestEigenvalue M hn z := by
+  simp only [centralGaussianSampleMinimum,complexNoncentralSampleSmallestEigenvalue,
+    complexSampleMatrix_add_mean,zero_add,add_zero]
+
+theorem actualNoncentralMinimumCDF_central_comparison (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (x : ℝ) :
+    gaussianShiftLowerConstant (complexSampleMean M) *
+      actualCentralCovarianceMinimumCDF d n (1/4) x ≤ actualNoncentralMinimumCDF d n M x ∧
+    actualNoncentralMinimumCDF d n M x ≤
+      gaussianShiftUpperConstant (complexSampleMean M)*actualCentralCovarianceMinimumCDF d n 4 x := by
+  have h := stdGaussian_shift_real_event_bounds (complexSampleMean M)
+    {z | centralGaussianSampleMinimum (d+(n+1)) (n+1) (Nat.succ_pos n) z ≤ x}
+    (measurableSet_le (measurable_centralGaussianSampleMinimum _ _ _) measurable_const)
+  have hhalf : Real.sqrt (1/4 : ℝ)=1/2 := by norm_num [Real.sqrt_div]
+  have htwo : Real.sqrt (4 : ℝ)=2 := by norm_num
+  simpa only [Set.preimage_setOf_eq,centralGaussianSampleMinimum_shift,
+    actualCentralCovarianceMinimumCDF,actualNoncentralMinimumCDF,hhalf,htwo] using h
+
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_shift_real_event_bounds
+#print axioms JinWishart.centralGaussianSampleMinimum_shift
+#print axioms JinWishart.actualNoncentralMinimumCDF_central_comparison
+
+FULL NoncentralMinimumDiversity.lean
+import JinWishartFormalization.NoncentralMinimumComparison
+
+/-!
+# Arbitrary fixed-mean noncentral complex Wishart minimum diversity
+
+Codex proofs. Neither a noncentral spectral density nor a sharp T4 constant
+is assumed. Constants depend on the fixed deterministic mean.
+[需人工审查] Mean/variance encoding, minimum spectral event and log exponent.
+-/
+open Matrix Filter MeasureTheory ProbabilityTheory
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def noncentralMinimumPowerLower (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) : ℝ :=
+  gaussianShiftLowerConstant (complexSampleMean M) *
+    (Real.exp (-1)/(Nat.factorial (d+1) : ℝ)/(1/4 : ℝ)^(d+1))
+
+def noncentralMinimumPowerUpper (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) : ℝ :=
+  gaussianShiftUpperConstant (complexSampleMean M) *
+    (((n+1 : ℕ) : ℝ)^(d+2)/(Nat.factorial (d+1) : ℝ)/(4 : ℝ)^(d+1))
+
+theorem noncentralMinimumPower_constants_pos (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) :
+    0 < noncentralMinimumPowerLower d n M ∧ 0 < noncentralMinimumPowerUpper d n M := by
+  unfold noncentralMinimumPowerLower noncentralMinimumPowerUpper
+    gaussianShiftLowerConstant gaussianShiftUpperConstant
+  constructor <;> positivity
+
+theorem actualNoncentralMinimumCDF_local_power_bounds (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (x : ℝ) (hx : 0 < x) (hx1 : x ≤ 1/4) :
+    noncentralMinimumPowerLower d n M*x^(d+1) ≤ actualNoncentralMinimumCDF d n M x ∧
+    actualNoncentralMinimumCDF d n M x ≤ noncentralMinimumPowerUpper d n M*x^(d+1) := by
+  have hs := actualNoncentralMinimumCDF_central_comparison d n M x
+  have hlo := actualCentralCovarianceMinimumCDF_local_bounds d n (1/4) (by norm_num) x hx hx1
+  have hup := actualCentralCovarianceMinimumCDF_local_bounds d n 4 (by norm_num) x hx (by linarith)
+  have hc : 0 ≤ gaussianShiftLowerConstant (complexSampleMean M) := by
+    unfold gaussianShiftLowerConstant; positivity
+  have hC : 0 ≤ gaussianShiftUpperConstant (complexSampleMean M) := by
+    unfold gaussianShiftUpperConstant; positivity
+  constructor
+  · simpa only [noncentralMinimumPowerLower,mul_assoc] using
+      (mul_le_mul_of_nonneg_left hlo.1 hc).trans hs.1
+  · simpa only [noncentralMinimumPowerUpper,mul_assoc] using
+      hs.2.trans (mul_le_mul_of_nonneg_left hup.2 hC)
+
+theorem actualNoncentralMinimumCDF_diversity (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) :
+    Tendsto (fun x : ℝ => Real.log (actualNoncentralMinimumCDF d n M x)/Real.log x)
+      (𝓝[>] 0) (𝓝 ((d+1 : ℕ) : ℝ)) := by
+  apply tendsto_log_ratio_of_power_bounds _ (d+1)
+    (noncentralMinimumPowerLower d n M) (noncentralMinimumPowerUpper d n M)
+    (noncentralMinimumPower_constants_pos d n M).1 (noncentralMinimumPower_constants_pos d n M).2
+  filter_upwards [self_mem_nhdsWithin,
+    (eventually_lt_nhds (by norm_num : (0 : ℝ)<1/4)).filter_mono nhdsWithin_le_nhds] with x hx hx1
+  exact ⟨hx,actualNoncentralMinimumCDF_local_power_bounds d n M x hx hx1.le⟩
+
+theorem actualNoncentralRectangular_minimum_diversity (m n : ℕ) (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun x : ℝ => Real.log ((stdGaussian (ComplexSample (m := m) (n := n))).real
+      {z | complexNoncentralSampleSmallestEigenvalue M hn z ≤ x})/Real.log x)
+      (𝓝[>] 0) (𝓝 ((m-n+1 : ℕ) : ℝ)) := by
+  obtain ⟨k,rfl⟩ := Nat.exists_eq_succ_of_ne_zero hn.ne'
+  have hm : m-(k+1)+(k+1)=m := Nat.sub_add_cancel hnm
+  generalize hd : m-(k+1)=d at *
+  subst m
+  exact actualNoncentralMinimumCDF_diversity d k M
+
+theorem actualNoncentralMinimumCDF_highSNR_diversity (d n : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (b : ℝ) (hb : 0 < b) :
+    Tendsto (fun r : ℝ => Real.log (actualNoncentralMinimumCDF d n M (b/r))/Real.log r)
+      atTop (𝓝 (-((d+1 : ℕ) : ℝ))) :=
+  tendsto_log_ratio_inverse_threshold _ _ (actualNoncentralMinimumCDF_diversity d n M) b hb
+
+end
+end JinWishart
+#print axioms JinWishart.noncentralMinimumPower_constants_pos
+#print axioms JinWishart.actualNoncentralMinimumCDF_local_power_bounds
+#print axioms JinWishart.actualNoncentralMinimumCDF_diversity
+#print axioms JinWishart.actualNoncentralRectangular_minimum_diversity
+#print axioms JinWishart.actualNoncentralMinimumCDF_highSNR_diversity

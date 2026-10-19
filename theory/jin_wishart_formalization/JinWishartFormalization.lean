@@ -1,3 +1,4 @@
+import JinWishartFormalization.NoncentralMinimumDiversity
 import JinWishartFormalization.CentralMinimumScaledDiversity
 import JinWishartFormalization.CentralMinimumHardEdgeBounds
 import JinWishartFormalization.CentralMinimumGammaSandwich

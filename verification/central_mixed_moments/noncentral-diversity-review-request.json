@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "NoncentralMinimumComparison.lean": {
+      "sha256": "4e5369dd9b1482607e6cfac61095deb4f36673b731d2173a94d5947e8705d22f",
+      "supplied": "Full source"
+    },
+    "NoncentralMinimumDiversity.lean": {
+      "sha256": "6a3df6bc5453487a08a67e2f15f46003a7698730b1413f237ac8328757be1b90",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "102cc75bf31d1b09d8f6753379f1a29c040a09eba27f404946d170dddb40f7b2"
+}

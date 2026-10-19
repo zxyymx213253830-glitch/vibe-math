@@ -1,0 +1,44 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftKernelBounds.lean:43:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Real.exp (?x + ?y)
+in the target expression
+  (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-‖y‖ ^ 2 - 2 * ‖x‖ ^ 2) ≤
+    (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-‖x - y‖ ^ 2 / 2)
+
+case left
+ι : Type u_1
+inst✝ : Fintype ι
+x y : EuclideanSpace ℝ ι
+h : -‖y‖ ^ 2 - 2 * ‖x‖ ^ 2 ≤ -‖x - y‖ ^ 2 / 2 ∧ -‖x - y‖ ^ 2 / 2 ≤ ‖y‖ ^ 2 - ‖x‖ ^ 2 / 8
+hnorm2 : ‖2 • x‖ ^ 2 = 4 * ‖x‖ ^ 2
+hnormhalf : ‖(1 / 2) • x‖ ^ 2 = ‖x‖ ^ 2 / 4
+hc : 0 ≤ (√(2 * Real.pi))⁻¹ ^ Fintype.card ι
+he :
+  (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-‖y‖ ^ 2 - 2 * ‖x‖ ^ 2) ≤
+    (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-‖x - y‖ ^ 2 / 2)
+⊢ Real.exp (-‖y‖ ^ 2) * ((√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-(4 * ‖x‖ ^ 2) / 2)) ≤
+    (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-‖x - y‖ ^ 2 / 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftKernelBounds.lean:47:46: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Real.exp ?x)⁻¹
+in the target expression
+  Real.exp (‖y‖ ^ 2) * ((√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-(‖x‖ ^ 2 / 4) * 2⁻¹)) =
+    (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * (Real.exp (‖y‖ ^ 2) / Real.exp (‖x‖ ^ 2 / 8))
+
+case e'_4
+ι : Type u_1
+inst✝ : Fintype ι
+x y : EuclideanSpace ℝ ι
+h : -‖y‖ ^ 2 - 2 * ‖x‖ ^ 2 ≤ -‖x - y‖ ^ 2 / 2 ∧ -‖x - y‖ ^ 2 / 2 ≤ ‖y‖ ^ 2 - ‖x‖ ^ 2 / 8
+hnorm2 : ‖2 • x‖ ^ 2 = 4 * ‖x‖ ^ 2
+hnormhalf : ‖(1 / 2) • x‖ ^ 2 = ‖x‖ ^ 2 / 4
+hc : 0 ≤ (√(2 * Real.pi))⁻¹ ^ Fintype.card ι
+he :
+  (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-‖x - y‖ ^ 2 / 2) ≤
+    (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * (Real.exp (‖y‖ ^ 2) / Real.exp (‖x‖ ^ 2 / 8))
+⊢ Real.exp (‖y‖ ^ 2) * ((√(2 * Real.pi))⁻¹ ^ Fintype.card ι * Real.exp (-(‖x‖ ^ 2 / 4) * 2⁻¹)) =
+    (√(2 * Real.pi))⁻¹ ^ Fintype.card ι * (Real.exp (‖y‖ ^ 2) / Real.exp (‖x‖ ^ 2 / 8))
+'JinWishart.norm_sub_square_le_twice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gaussian_shift_exponent_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.euclideanStdGaussianDensity_shift_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

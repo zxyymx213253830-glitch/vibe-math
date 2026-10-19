@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GaussianShiftKernelBounds.lean": {
+      "sha256": "3a26a88e92ae92fbd9e6fc74f78c19007d5f079ebf18fdf5f8534aefa60c59bb",
+      "supplied": "Full source"
+    },
+    "GaussianShiftMeasureComparison.lean": {
+      "sha256": "675c162cd58a67df0c79267f1b0b03d00b60803b09f716167735b4587205a27a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a073c116926b60a8a861e4b4a3f509c0065f63b274aa5800cdcdad3cf0e2f303"
+}

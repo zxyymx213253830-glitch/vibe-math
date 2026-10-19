@@ -1,0 +1,73 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumComparison.lean:31:38: error: Tactic `aesop` failed, failed to prove the goal. Some goals were not explored because the maximum rule application depth (30) was reached. Set option 'maxRuleApplicationDepth' to increase the limit.
+Initial goal:
+  ι : Type u_1
+  inst✝ : Fintype ι
+  y : EuclideanSpace ℝ ι
+  S : Set (EuclideanSpace ℝ ι)
+  hS : MeasurableSet S
+  hl :
+    (ENNReal.ofReal ((2 ^ Fintype.card ι)⁻¹ * Real.exp (-‖y‖ ^ 2)) •
+          Measure.map (fun z => (1 / 2) • z) (stdGaussian (EuclideanSpace ℝ ι)))
+        S ≤
+      (Measure.map (fun z => z + y) (stdGaussian (EuclideanSpace ℝ ι))) S
+  hu :
+    (Measure.map (fun z => z + y) (stdGaussian (EuclideanSpace ℝ ι))) S ≤
+      (ENNReal.ofReal (2 ^ Fintype.card ι * Real.exp (‖y‖ ^ 2)) •
+          Measure.map (fun z => 2 • z) (stdGaussian (EuclideanSpace ℝ ι)))
+        S
+  hlR :
+    ((ENNReal.ofReal ((2 ^ Fintype.card ι)⁻¹ * Real.exp (-‖y‖ ^ 2)) •
+            Measure.map (fun z => (1 / 2) • z) (stdGaussian (EuclideanSpace ℝ ι)))
+          S).toReal ≤
+      ((Measure.map (fun z => z + y) (stdGaussian (EuclideanSpace ℝ ι))) S).toReal
+  ⊢ (ENNReal.ofReal (2 ^ Fintype.card ι * Real.exp (‖y‖ ^ 2)) •
+          Measure.map (fun z => 2 • z) (stdGaussian (EuclideanSpace ℝ ι)))
+        S ≠
+      ⊤
+Remaining goals after safe rules:
+  ι : Type u_1
+  inst : Fintype ι
+  y : EuclideanSpace ℝ ι
+  S : Set (EuclideanSpace ℝ ι)
+  hS : MeasurableSet S
+  hl :
+    (ENNReal.ofReal ((2 ^ Fintype.card ι)⁻¹ * Real.exp (-‖y‖ ^ 2)) •
+          Measure.map (fun z => (1 / 2) • z) (stdGaussian (EuclideanSpace ℝ ι)))
+        S ≤
+      (Measure.map (fun z => z + y) (stdGaussian (EuclideanSpace ℝ ι))) S
+  hu :
+    (Measure.map (fun z => z + y) (stdGaussian (EuclideanSpace ℝ ι))) S ≤
+      (ENNReal.ofReal (2 ^ Fintype.card ι * Real.exp (‖y‖ ^ 2)) •
+          Measure.map (fun z => 2 • z) (stdGaussian (EuclideanSpace ℝ ι)))
+        S
+  hlR :
+    ((ENNReal.ofReal ((2 ^ Fintype.card ι)⁻¹ * Real.exp (-‖y‖ ^ 2)) •
+            Measure.map (fun z => (1 / 2) • z) (stdGaussian (EuclideanSpace ℝ ι)))
+          S).toReal ≤
+      ((Measure.map (fun z => z + y) (stdGaussian (EuclideanSpace ℝ ι))) S).toReal
+  ⊢ (ENNReal.ofReal (2 ^ Fintype.card ι * Real.exp (‖y‖ ^ 2)) •
+          Measure.map (fun z => 2 • z) (stdGaussian (EuclideanSpace ℝ ι)))
+        S ≠
+      ⊤
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumComparison.lean:50:33: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [centralGaussianSampleMinimum, complexNoncentralSampleSmallestEigenvalue,
+    complexSampleMatrix_add_mean, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumComparison.lean:60:53: error(lean.invalidField): Invalid field `measurableSet_le`: The environment does not contain `Function.measurableSet_le`, so it is not possible to project the field `measurableSet_le` from an expression
+  measurable_centralGaussianSampleMinimum ?m.73 ?m.74 ?m.75
+of type
+  MeasurableSet ?m.76 → MeasurableSet (centralGaussianSampleMinimum ?m.73 ?m.74 ?m.75 ⁻¹' ?m.76)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumComparison.lean:63:14: warning: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵p̵r̵e̵i̵m̵a̵g̵e̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲p̲r̲e̲i̲m̲a̲g̲e̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+'JinWishart.stdGaussian_shift_real_event_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralGaussianSampleMinimum_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimumCDF_central_comparison' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumComparison.lean:52:33: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [centralGaussianSampleMinimum, complexNoncentralSampleSmallestEigenvalue,
+    complexSampleMatrix_add_mean, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumComparison.lean:65:14: warning: `Set.preimage_setOf_eq` has been deprecated: Use `Set.preimage_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵p̵r̵e̵i̵m̵a̵g̵e̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲p̲r̲e̲i̲m̲a̲g̲e̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+'JinWishart.stdGaussian_shift_real_event_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralGaussianSampleMinimum_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimumCDF_central_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]

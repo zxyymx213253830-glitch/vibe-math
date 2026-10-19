@@ -116,3 +116,8 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumScaledDiversity.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumDiversity.lean -text whitespace=cr-at-eol
 /experiments/central_minimum_diversity_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianShiftKernelBounds.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianShiftMeasureComparison.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/NoncentralMinimumComparison.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/NoncentralMinimumDiversity.lean -text whitespace=cr-at-eol
+/experiments/gaussian_shift_comparison_control.py -text whitespace=cr-at-eol

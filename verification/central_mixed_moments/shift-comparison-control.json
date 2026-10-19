@@ -1,0 +1,31 @@
+{
+  "seed": 2026101909,
+  "status": "PASS fixed-seed shift-density inequalities, ncx2/chi2 controls and equal-variance negative control; not proof",
+  "source_sha256": "8f7c139419c1dddfc5949f4ef21b9f810b1232314511861c93630630d9d86548",
+  "records": [
+    {
+      "dimension": 2,
+      "mean_norm_square": 1.5625,
+      "count": 200000,
+      "min_log_lower_gap": 0.5208391611904319,
+      "min_log_upper_gap": 1.3021210206842597,
+      "mean_error_SE": 0.4726917736010297
+    },
+    {
+      "dimension": 8,
+      "mean_norm_square": 1.5625,
+      "count": 200000,
+      "min_log_lower_gap": 0.8543280432657263,
+      "min_log_upper_gap": 1.3505799086663477,
+      "mean_error_SE": -1.153257639049186
+    },
+    {
+      "dimension": 24,
+      "mean_norm_square": 1.5625,
+      "count": 200000,
+      "min_log_lower_gap": 8.059267913609775,
+      "min_log_upper_gap": 3.216623008133204,
+      "mean_error_SE": -0.13676939434687746
+    }
+  ]
+}

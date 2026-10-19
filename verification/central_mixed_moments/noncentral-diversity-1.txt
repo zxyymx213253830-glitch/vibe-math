@@ -1,0 +1,5 @@
+'JinWishart.noncentralMinimumPower_constants_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimumCDF_local_power_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimumCDF_diversity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralRectangular_minimum_diversity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimumCDF_highSNR_diversity' depends on axioms: [propext, Classical.choice, Quot.sound]
