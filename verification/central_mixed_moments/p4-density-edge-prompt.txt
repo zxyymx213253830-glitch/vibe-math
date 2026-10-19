@@ -1,0 +1,79 @@
+P4 issues only,no tools/rewrite. FinalCodex2 kernelPASS standard3axioms. ActualgeneralCENTRAL minimumCDF F~a*x^(d+1),a strictlypositive finitefactorialfunctional coefficient (not simplifiedclassicalconstant). Alreadyprovedactual1Dmarginaldensitycoreh(x)=Gprime(x), analyticGcontinuationseparatefrompiecewiseCDF. NewgenericTaylorlemma analyticf withlowerderivativesi<k zero yieldsf/x^k->derivk/k!, requiresNOpositive/logassumption. Applytoh=Gprime,lowerderivativesvanishbecauseGorderd+1. Thenh/x^d->(d+1)*a. Handlesd0: no lowerderivs,limitdensityat0righta, boundaryPDFvalue0onlyAEirrelevant. NotjointG2/noncentraldensity. Inspectderivativeindex/order/factorial(d+1)!/d!,one-sidedfilter,canonicalRNPDFonlyAEvsanalyticcorepointwise. Humanmeasure/modelreviewREQUIRED. Fullsources:
+
+FULL AnalyticVanishingPowerLimit.lean
+import Mathlib.Analysis.Analytic.Order
+
+/-! Generic Taylor ratio limit from vanishing lower derivatives.
+Codex deterministic calculus. No positivity/log-exponent assumption is needed. -/
+open Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem analytic_ratio_limit_of_vanishing (f : ℝ → ℝ) (k : ℕ)
+    (hf : AnalyticAt ℝ f 0) (hz : ∀ i<k, iteratedDeriv i f 0=0) :
+    Tendsto (fun x => f x/x^k) (𝓝[>] 0)
+      (𝓝 (iteratedDeriv k f 0/(k.factorial : ℝ))) := by
+  obtain ⟨F,hF,he⟩ := hf.exists_eventuallyEq_sum_add_pow_mul (k+1)
+  have hsum (x : ℝ) :
+      (∑ i ∈ Finset.range (k+1), (x^i/(i.factorial : ℝ)) • iteratedDeriv i f 0) =
+        (x^k/(k.factorial : ℝ))*iteratedDeriv k f 0 := by
+    rw [Finset.sum_range_succ]
+    have hs : (∑ i ∈ Finset.range k, (x^i/(i.factorial : ℝ)) • iteratedDeriv i f 0)=0 := by
+      apply Finset.sum_eq_zero
+      intro i hi
+      rw [hz i (Finset.mem_range.mp hi),smul_zero]
+    rw [hs,zero_add,smul_eq_mul]
+  have hlim : Tendsto (fun x : ℝ => iteratedDeriv k f 0/(k.factorial : ℝ)+x*F x)
+      (𝓝[>] 0) (𝓝 (iteratedDeriv k f 0/(k.factorial : ℝ))) := by
+    simpa only [zero_mul,add_zero,id_eq] using tendsto_const_nhds.add
+      (((show Tendsto (fun x : ℝ => x) (𝓝 (0 : ℝ)) (𝓝 (0 : ℝ)) from tendsto_id).mono_left nhdsWithin_le_nhds).mul
+        (hF.continuousAt.tendsto.mono_left nhdsWithin_le_nhds))
+  apply hlim.congr'
+  filter_upwards [self_mem_nhdsWithin,he.filter_mono nhdsWithin_le_nhds] with x hx heq
+  have hx0 : 0<x := hx
+  rw [heq,hsum,smul_eq_mul,pow_succ]
+  field_simp
+
+end
+end JinWishart
+#print axioms JinWishart.analytic_ratio_limit_of_vanishing
+
+FULL CentralMinimumDensityHardEdge.lean
+import JinWishartFormalization.CentralMinimumActualDensity
+import JinWishartFormalization.CentralMinimumFiniteHardEdgeCoefficient
+import JinWishartFormalization.AnalyticVanishingPowerLimit
+
+/-! Sharp right-edge asymptotic of the actual central ONE-dimensional PDF.
+Codex. [需人工审查] Actual density/edge convention, inherited measure interpretation. -/
+open Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem centralMinimumPDFCore_sharp_coefficient_limit (d n : ℕ) :
+    Tendsto (fun x => centralMinimumPDFCore d n x/x^d) (𝓝[>] 0)
+      (𝓝 (((d+1 : ℕ) : ℝ)*centralMinimumFiniteHardEdgeCoefficient d n)) := by
+  have he : deriv (centralMinimumCDFContinuation d n)=centralMinimumPDFCore d n :=
+    funext (fun x => (hasDerivAt_centralMinimumCDFContinuation d n x).deriv)
+  have ha : AnalyticAt ℝ (centralMinimumPDFCore d n) 0 := by
+    rw [← he]
+    exact (analytic_centralMinimumCDFContinuation d n 0).deriv
+  have hz : ∀ i<d, iteratedDeriv i (centralMinimumPDFCore d n) 0=0 := by
+    intro i hi
+    rw [← he,← iteratedDeriv_succ']
+    exact centralMinimumCDFContinuation_derivatives_vanish d n (i+1) (by omega)
+  have ht := analytic_ratio_limit_of_vanishing _ d ha hz
+  have hc : iteratedDeriv d (centralMinimumPDFCore d n) 0/(d.factorial : ℝ)=
+      ((d+1 : ℕ) : ℝ)*centralMinimumFiniteHardEdgeCoefficient d n := by
+    rw [← he,← iteratedDeriv_succ',← centralMinimumHardEdgeCoefficient_eq_finite]
+    unfold centralMinimumHardEdgeCoefficient
+    rw [Nat.factorial_succ,Nat.cast_mul]
+    have hfac : (d.factorial : ℝ)≠0 := by positivity
+    have hs : ((d+1 : ℕ) : ℝ)≠0 := by positivity
+    field_simp
+  rwa [hc] at ht
+
+end
+end JinWishart
+#print axioms JinWishart.centralMinimumPDFCore_sharp_coefficient_limit

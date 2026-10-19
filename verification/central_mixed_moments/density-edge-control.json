@@ -1,0 +1,67 @@
+{
+  "seed": null,
+  "status": "PASS exact density/CDF leading-coefficient differentiation controls; not proof",
+  "source_sha256": "b54871a7bef0fd1458ee824b08f509a85670d995affefe260464812926579878",
+  "records": [
+    {
+      "N": 2,
+      "d": 0,
+      "density_coefficient": "2"
+    },
+    {
+      "N": 2,
+      "d": 1,
+      "density_coefficient": "3"
+    },
+    {
+      "N": 2,
+      "d": 2,
+      "density_coefficient": "2"
+    },
+    {
+      "N": 2,
+      "d": 3,
+      "density_coefficient": "5/6"
+    },
+    {
+      "N": 2,
+      "d": 4,
+      "density_coefficient": "1/4"
+    },
+    {
+      "N": 1,
+      "d": 0,
+      "density_coefficient": "1"
+    },
+    {
+      "N": 1,
+      "d": 1,
+      "density_coefficient": "1"
+    },
+    {
+      "N": 1,
+      "d": 2,
+      "density_coefficient": "1/2"
+    },
+    {
+      "N": 1,
+      "d": 3,
+      "density_coefficient": "1/6"
+    },
+    {
+      "N": 1,
+      "d": 4,
+      "density_coefficient": "1/24"
+    },
+    {
+      "N": 1,
+      "d": 5,
+      "density_coefficient": "1/120"
+    },
+    {
+      "N": 1,
+      "d": 6,
+      "density_coefficient": "1/720"
+    }
+  ]
+}

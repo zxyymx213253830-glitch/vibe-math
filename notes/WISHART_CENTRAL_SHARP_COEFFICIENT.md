@@ -66,3 +66,9 @@ Measure.ext_of_Iic and FTC on finite intervals. Nonnegativity is derived from
 monotonicity of the actual CDF; ofReal does not silently discard negative mass.
 Mass1, mathlib HasPDF and canonical RN-pdf AE equality are checked separately.
 This is NOT the joint spectral density G2 or a general noncentral explicit PDF.
+
+The chosen analytic density core h also satisfies h(x)/x^d ->(d+1)*a asx->0+.
+This follows by Taylor's theorem and the vanishing lower derivatives ofG,
+including d=0 without a missing power. A canonical Radon-Nikodym PDF is only
+AE equal to this representative; arbitrary changes on a nullset need not
+preserve a pointwise limit. The theorem explicitly concerns the analytic core.

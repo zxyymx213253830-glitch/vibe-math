@@ -347,3 +347,13 @@ Classical.choice,Quot.sound, not its choice/classical/funext list. Generic finit
 ext_of_Iic makesνfinite asconsequence ofIicagreement; densitymeasure probability
 notassumed. Zeroatom excludedfromactualCDFG0=0, ofRealnonneg proven onpositiveaxis,
 all finiteintervalintegrabilityconversion checked. FullLake/humanreview stillnotdone.
+
+## Density sharp-edge P4
+
+Final2 exactsource response delivered no concrete defect. Its prose 'core defined as RN
+derivative' is inaccurate: core is explicit analytic exponentialpolynomial, measurelaw
+equality/HasPDF proved later, canonicalRNpdf onlyAEequal. 'BoundaryPDF0 almosteverywhere'
+means chosen indicatorPDF zeroatboundary, not a claim h=0 AE. Pointwiselimit concerns
+that analyticrepresentative; arbitrarynullsetmodification can destroy pointwiselimit.
+Actualmeasuregrounding IS formally checked upstream, though intendedmodel/humanreview
+stillrequired; genericmodelresponse doesnot independentlycompileorqualifyashumanreview.

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "AnalyticVanishingPowerLimit.lean": {
+      "sha256": "39da11266bbaea88ce56f0768a42c5731a7f8f566d7dd0c74813983067181200",
+      "supplied": "Full source"
+    },
+    "CentralMinimumDensityHardEdge.lean": {
+      "sha256": "6152f593fa98e55b1360d1685c2e25b4cba58c7f1ab9ce5ef86145cd9147edd8",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "2721e21510c405e43c59dc188029eae7f7b0fd8b02772d617fb3f088557b69fb"
+}
