@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeasureFromPositivePrimitive.lean:25:30: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.withDensity_apply`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeasureFromPositivePrimitive.lean:22:87: error: unsolved goals
+μ : Measure ℝ
+inst✝ : IsProbabilityMeasure μ
+G h : ℝ → ℝ
+h0 : G 0 = 0
+hCDF : ∀ (x : ℝ), ↑(cdf μ) x = if 0 ≤ x then G x else 0
+hh : Continuous h
+hd : ∀ (x : ℝ), HasDerivAt G (h x) x
+hnn : ∀ (x : ℝ), 0 < x → 0 ≤ h x
+x : ℝ
+⊢ ENNReal.ofReal (if 0 ≤ x then G x else 0) =
+    (volume.withDensity ((Ioi 0).indicator fun x => ENNReal.ofReal (h x))) (Iic x)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeasureFromPositivePrimitive.lean:46:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.measure_eq_withDensity_of_positive_primitive' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.primitive_derivative_nonneg_of_cdf' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "MeasureFromPositivePrimitive.lean": {
+      "sha256": "d17f095e738e4ef46f7c055f3fefb352bbabcf9eea8516d93fdadf052c8c06c6",
+      "supplied": "Full source"
+    },
+    "CentralMinimumActualDensity.lean": {
+      "sha256": "66e4a8d07b430a2e14d7c13048ca29aa4367b4d5117425b43c702150652830ba",
+      "supplied": "Full source"
+    },
+    "CentralMinimumPDF.lean": {
+      "sha256": "bbb5b0b6e3d7cb01ad85feb49a26b502634e742230c990d3625ce8bb03e28e28",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "cdeefdb299352438160f5697eb74dec7930ea53d553f7c614d088ab4d815c1f2"
+}

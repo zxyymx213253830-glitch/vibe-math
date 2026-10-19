@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPDF.lean:11:51: error: expected token
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPDF.lean:11:48: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPDF.lean:11:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPDF.lean:14:8: warning: declaration uses `sorry`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPDF.lean:21:39: error(lean.unknownIdentifier): Unknown identifier `measurableSet_univ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPDF.lean:19:51: error: unsolved goals
+d n : ℕ
+h : 1 = (ℙ.withDensity ((Ioi 0).indicator fun x => ENNReal.ofReal (centralMinimumPDFCore d n x))) univ
+⊢ ∫⁻ (x : ℝ), sorry = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumPDF.lean:24:9: warning: declaration uses `sorry`
+'JinWishart.measurable_actualCentralMinimumDensity' depends on axioms: [sorryAx]
+'JinWishart.lintegral_actualCentralMinimumDensity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimum_hasPDF' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

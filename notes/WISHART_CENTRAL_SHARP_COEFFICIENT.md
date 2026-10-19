@@ -58,3 +58,11 @@ The symbolic control reads the independent prior finite-factorial coefficient
 control, compares the sum against direct SymPy expansion of1-exp(-2x)Q, and
 checks scalar Gamma cases. These controls are not proof dependencies and not
 evidence that finitely many parameter cases cover all shapes.
+
+The actual ONE-dimensional minimum density is now also proved, with respect
+to ordinary Lebesgue measure: exp(-N*x)/M*(N*P(x)-P'(x)) forx>0 and0 forx<=0.
+The proof reconstructs a measure from its independently proved CDF using
+Measure.ext_of_Iic and FTC on finite intervals. Nonnegativity is derived from
+monotonicity of the actual CDF; ofReal does not silently discard negative mass.
+Mass1, mathlib HasPDF and canonical RN-pdf AE equality are checked separately.
+This is NOT the joint spectral density G2 or a general noncentral explicit PDF.

@@ -1,0 +1,180 @@
+P4 issues only, no tools/rewrite. FinalCodex12 declarations kernelPASS standard3axioms. Actual generalCENTRAL m=N+d,N=n+1>0 minimumcdf alreadyproved independentlyviaactualmatrixdensity andcone translation: F(x)=1-exp(-Nx)*P(x)/M forx>=0,0 forx<0. Pfinitefactorialfunctional polynomial, Mpositivefactorialproduct, P0=M. Nowreconstruct actualpushforwardmeasure =Lebesgue.withDensity(Ioi0.indicator(ofReal(exp(-Nx)/M*(N*P-Pderivative)))). ONEdimensional marginal NOTG2jointdensity. GenericμprobabilityCDFagreementplusglobalprimitive Gderivativecontinuoush yieldsmeasureidentitybyext_of_Iic, FTC onIoc0x andlintegralofReal. No targetPDFassumption inactualtheorem. h>=0 onx>0 PROVEDusingmonotoneactualCDFandlocal derivativeequality. G0=0 normalization impliesnoatom0; densityvalue0atboundaryirrelevant. GlobalGnotactualCDFonnegativeaxis, no assumedanalyticCDF. No fictitiousuniformnoncentralclaim orclassicalprefactoridentity. Examineboundaryx0/negative, truncationofReal, finiteintegral conversion, actualGaussianmapmeasurability, variance rawGraminterpretation. Humanmeasure/model reviewREQUIRED. Exact fullsources:
+
+FULL MeasureFromPositivePrimitive.lean
+import Mathlib.Probability.CDF
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+import Mathlib.MeasureTheory.Measure.WithDensity
+import Mathlib.Analysis.Calculus.Deriv.Slope
+
+/-!
+# A probability measure from a smooth primitive on the positive half-line
+
+Generic measure reconstruction, not a target-density assumption. Applications
+must supply an independently established actual CDF. Codex.
+[需人工审查] Measure extensionality, FTC and boundary/atom interpretation.
+-/
+open Filter Set MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem measure_eq_withDensity_of_positive_primitive (μ : Measure ℝ) [IsProbabilityMeasure μ]
+    (G h : ℝ → ℝ) (h0 : G 0=0)
+    (hCDF : ∀ x : ℝ, cdf μ x=if 0≤x then G x else 0)
+    (hh : Continuous h) (hd : ∀ x : ℝ, HasDerivAt G (h x) x)
+    (hnn : ∀ x : ℝ, 0<x → 0≤h x) :
+    μ=volume.withDensity ((Ioi (0 : ℝ)).indicator (fun x => ENNReal.ofReal (h x))) := by
+  apply Measure.ext_of_Iic
+  intro x
+  rw [← ofReal_cdf μ x,hCDF x,withDensity_apply _ measurableSet_Iic,
+    lintegral_indicator measurableSet_Ioi,Measure.restrict_restrict measurableSet_Ioi]
+  have hset : Ioi (0 : ℝ) ∩ Iic x=Ioc 0 x := by ext y; simp
+  rw [hset]
+  by_cases hx : 0≤x
+  · rw [ite_eq_left hx]
+    have hi : IntervalIntegrable h volume 0 x := hh.intervalIntegrable 0 x
+    have hnonneg : 0 ≤ᵐ[volume.restrict (Ioc 0 x)] h := by
+      filter_upwards [ae_restrict_mem measurableSet_Ioc] with y hy
+      exact hnn y hy.1
+    rw [← ofReal_integral_eq_lintegral_ofReal hi.1 hnonneg,
+      ← intervalIntegral.integral_of_le hx,
+      intervalIntegral.integral_eq_sub_of_hasDerivAt (fun y _ => hd y) hi,h0,sub_zero]
+  · rw [ite_eq_right hx,Ioc_eq_empty (not_lt.mpr (le_of_not_ge hx)),Measure.restrict_empty,lintegral_zero_measure,
+      ENNReal.ofReal_zero]
+
+theorem primitive_derivative_nonneg_of_cdf (μ : Measure ℝ) [IsProbabilityMeasure μ]
+    (G h : ℝ → ℝ) (hCDF : ∀ x : ℝ, cdf μ x=if 0≤x then G x else 0)
+    (hd : ∀ x : ℝ, HasDerivAt G (h x) x) (x : ℝ) (hx : 0<x) : 0≤h x := by
+  have he : (fun t => cdf μ t) =ᶠ[nhds x] G := by
+    filter_upwards [eventually_gt_nhds hx] with y hy
+    rw [hCDF y,ite_eq_left hy.le]
+  have hg := (monotone_cdf μ).deriv_nonneg (x := x)
+  rw [he.deriv_eq,(hd x).deriv] at hg
+  exact hg
+
+end
+end JinWishart
+#print axioms JinWishart.measure_eq_withDensity_of_positive_primitive
+#print axioms JinWishart.primitive_derivative_nonneg_of_cdf
+
+FULL CentralMinimumActualDensity.lean
+import JinWishartFormalization.CentralMinimumSharpOrder
+import JinWishartFormalization.MeasureFromPositivePrimitive
+import Mathlib.Analysis.Calculus.Deriv.Polynomial
+
+/-!
+# Actual general CENTRAL least-eigenvalue density from its proved CDF
+
+This is a one-dimensional marginal density, NOT the joint spectral density G2.
+No target PDF is assumed. Variance-one complex entries, raw Gram, N=n+1>0.
+Codex. [需人工审查] CDF/FTC/withDensity boundary and actual-model interpretation.
+-/
+open Set Filter MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def centralMinimumPDFCore (d n : ℕ) (x : ℝ) : ℝ :=
+  Real.exp (-((n+1 : ℕ) : ℝ)*x)*(centralDeterminantPowerMoment 0 (n+1) d)⁻¹*
+    (((n+1 : ℕ) : ℝ)*(centralMinimumRealPolynomial d (n+1)).eval x-
+      (centralMinimumRealPolynomial d (n+1)).derivative.eval x)
+
+theorem continuous_centralMinimumPDFCore (d n : ℕ) : Continuous (centralMinimumPDFCore d n) := by
+  unfold centralMinimumPDFCore
+  fun_prop
+
+theorem hasDerivAt_centralMinimumCDFContinuation (d n : ℕ) (x : ℝ) :
+    HasDerivAt (centralMinimumCDFContinuation d n) (centralMinimumPDFCore d n x) x := by
+  have hE := ((hasDerivAt_id x).const_mul (-((n+1 : ℕ) : ℝ))).exp
+  have hP := ((centralMinimumRealPolynomial d (n+1)).hasDerivAt x).const_mul
+    ((centralDeterminantPowerMoment 0 (n+1) d)⁻¹)
+  convert (hasDerivAt_const x (1 : ℝ)).sub (hE.mul hP) using 1 <;>
+    (try funext y) <;>
+    (try dsimp only [centralMinimumCDFContinuation,centralMinimumPDFCore,id_eq,Pi.sub_apply,Pi.mul_apply]) <;> ring
+
+theorem centralMinimumCDFContinuation_zero (d n : ℕ) : centralMinimumCDFContinuation d n 0=0 := by
+  have h := centralRectangularMinimumPolynomial_eq_realPolynomial d (n+1) 0
+  rw [centralRectangularMinimumPolynomial_zero] at h
+  unfold centralMinimumCDFContinuation
+  simp only [mul_zero,Real.exp_zero,one_mul]
+  rw [← h]
+  ring
+
+theorem actualCentralMinimum_cdf_eq_piecewise_continuation (d n : ℕ) (x : ℝ) :
+    cdf ((stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))).map
+      (centralGaussianSampleMinimum (d+(n+1)) (n+1) (Nat.succ_pos n))) x =
+        if 0≤x then centralMinimumCDFContinuation d n x else 0 := by
+  simpa only [centralRectangularMinimumPolynomial_eq_realPolynomial,centralMinimumCDFContinuation] using
+    actualCentralRectangular_minimum_cdf_function d (n+1) (Nat.succ_pos n) x
+
+theorem centralMinimumPDFCore_nonneg (d n : ℕ) (x : ℝ) (hx : 0<x) :
+    0≤centralMinimumPDFCore d n x := by
+  apply primitive_derivative_nonneg_of_cdf
+    ((stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))).map
+      (centralGaussianSampleMinimum (d+(n+1)) (n+1) (Nat.succ_pos n)))
+    (centralMinimumCDFContinuation d n) (centralMinimumPDFCore d n)
+    (actualCentralMinimum_cdf_eq_piecewise_continuation d n)
+    (hasDerivAt_centralMinimumCDFContinuation d n) x hx
+
+theorem actualCentralMinimum_map_eq_density (d n : ℕ) :
+    ((stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))).map
+      (centralGaussianSampleMinimum (d+(n+1)) (n+1) (Nat.succ_pos n))) =
+      volume.withDensity ((Ioi (0 : ℝ)).indicator
+        (fun x => ENNReal.ofReal (centralMinimumPDFCore d n x))) := by
+  exact measure_eq_withDensity_of_positive_primitive _ _ _
+    (centralMinimumCDFContinuation_zero d n) (actualCentralMinimum_cdf_eq_piecewise_continuation d n)
+    (continuous_centralMinimumPDFCore d n) (hasDerivAt_centralMinimumCDFContinuation d n)
+    (centralMinimumPDFCore_nonneg d n)
+
+end
+end JinWishart
+#print axioms JinWishart.continuous_centralMinimumPDFCore
+#print axioms JinWishart.hasDerivAt_centralMinimumCDFContinuation
+#print axioms JinWishart.centralMinimumCDFContinuation_zero
+#print axioms JinWishart.actualCentralMinimum_cdf_eq_piecewise_continuation
+#print axioms JinWishart.centralMinimumPDFCore_nonneg
+#print axioms JinWishart.actualCentralMinimum_map_eq_density
+
+FULL CentralMinimumPDF.lean
+import JinWishartFormalization.CentralMinimumActualDensity
+import Mathlib.Probability.Density
+
+/-! Public PDF API for the actual general central minimum law.
+Codex. [需人工审查] Inherited FTC/measure/variance/model interpretation.
+The result is a one-dimensional marginal, not joint spectral density G2. -/
+open Set MeasureTheory ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def actualCentralMinimumDensity (d n : ℕ) : ℝ → ℝ≥0∞ :=
+  (Ioi (0 : ℝ)).indicator (fun x => ENNReal.ofReal (centralMinimumPDFCore d n x))
+
+theorem measurable_actualCentralMinimumDensity (d n : ℕ) :
+    Measurable (actualCentralMinimumDensity d n) := by
+  exact ((continuous_centralMinimumPDFCore d n).measurable.ennreal_ofReal).indicator measurableSet_Ioi
+
+theorem lintegral_actualCentralMinimumDensity (d n : ℕ) :
+    (∫⁻ x, actualCentralMinimumDensity d n x)=1 := by
+  have h := congrArg (fun μ : Measure ℝ => μ Set.univ) (actualCentralMinimum_map_eq_density d n)
+  rw [measure_univ,withDensity_apply _ MeasurableSet.univ,setLIntegral_univ] at h
+  exact h.symm
+
+instance actualCentralMinimum_hasPDF (d n : ℕ) :
+    HasPDF (centralGaussianSampleMinimum (d+(n+1)) (n+1) (Nat.succ_pos n))
+      (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))) volume := by
+  exact hasPDF_of_map_eq_withDensity (measurable_centralGaussianSampleMinimum _ _ _).aemeasurable
+    (actualCentralMinimumDensity d n) (measurable_actualCentralMinimumDensity d n).aemeasurable
+    (actualCentralMinimum_map_eq_density d n)
+
+theorem pdf_actualCentralMinimum_eq (d n : ℕ) :
+    pdf (centralGaussianSampleMinimum (d+(n+1)) (n+1) (Nat.succ_pos n))
+      (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))) volume =ᵐ[volume]
+      actualCentralMinimumDensity d n := by
+  rw [pdf_def,actualCentralMinimum_map_eq_density]
+  exact Measure.rnDeriv_withDensity volume (measurable_actualCentralMinimumDensity d n)
+
+end
+end JinWishart
+#print axioms JinWishart.measurable_actualCentralMinimumDensity
+#print axioms JinWishart.lintegral_actualCentralMinimumDensity
+#print axioms JinWishart.actualCentralMinimum_hasPDF
+#print axioms JinWishart.pdf_actualCentralMinimum_eq

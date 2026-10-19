@@ -1,0 +1,92 @@
+{
+  "seed": null,
+  "status": "PASS exact derivative, finite coefficient positivity, unit mass/CDF quadrature, scalar Gamma controls; not proof",
+  "source_sha256": "f63e915678ed2f0bfd422409e31642a9fa0759e29b435f3793c6ff4614d26ba1",
+  "dependency_sha256": "f6475d667394bcfed3744f6e108f7645c2790c816339db41cdb27025a5659e72",
+  "records": [
+    {
+      "N": 2,
+      "d": 0,
+      "polynomial": "2",
+      "density_mass": 1.0,
+      "quadrature_error": 1.547006336759497e-10
+    },
+    {
+      "N": 2,
+      "d": 1,
+      "polynomial": "x**2 + 3*x",
+      "density_mass": 1.0,
+      "quadrature_error": 1.9762555142978013e-11
+    },
+    {
+      "N": 2,
+      "d": 2,
+      "polynomial": "x**4/6 + x**3 + 2*x**2",
+      "density_mass": 1.0,
+      "quadrature_error": 3.0385213729431947e-10
+    },
+    {
+      "N": 2,
+      "d": 3,
+      "polynomial": "x**6/72 + x**5/8 + x**4/2 + 5*x**3/6",
+      "density_mass": 1.0,
+      "quadrature_error": 1.0829692091890839e-09
+    },
+    {
+      "N": 2,
+      "d": 4,
+      "polynomial": "x**8/1440 + x**7/120 + x**6/20 + x**5/6 + x**4/4",
+      "density_mass": 1.0000000000000002,
+      "quadrature_error": 9.47540309645281e-09
+    },
+    {
+      "N": 1,
+      "d": 0,
+      "polynomial": "1",
+      "density_mass": 1.0000000000000002,
+      "quadrature_error": 5.842606701570796e-11
+    },
+    {
+      "N": 1,
+      "d": 1,
+      "polynomial": "x",
+      "density_mass": 0.9999999999999998,
+      "quadrature_error": 5.901457712308874e-10
+    },
+    {
+      "N": 1,
+      "d": 2,
+      "polynomial": "x**2/2",
+      "density_mass": 1.0,
+      "quadrature_error": 5.227121970912641e-11
+    },
+    {
+      "N": 1,
+      "d": 3,
+      "polynomial": "x**3/6",
+      "density_mass": 1.0,
+      "quadrature_error": 4.985871188352755e-10
+    },
+    {
+      "N": 1,
+      "d": 4,
+      "polynomial": "x**4/24",
+      "density_mass": 1.0,
+      "quadrature_error": 3.5144341398350813e-10
+    },
+    {
+      "N": 1,
+      "d": 5,
+      "polynomial": "x**5/120",
+      "density_mass": 1.0,
+      "quadrature_error": 1.8568177935838838e-09
+    },
+    {
+      "N": 1,
+      "d": 6,
+      "polynomial": "x**6/720",
+      "density_mass": 1.0000000000000002,
+      "quadrature_error": 7.420748373205691e-09
+    }
+  ]
+}

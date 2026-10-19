@@ -1,0 +1,25 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeasureFromPositivePrimitive.lean:30:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeasureFromPositivePrimitive.lean:38:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeasureFromPositivePrimitive.lean:38:31: error: Application type mismatch: The argument
+  le_of_not_ge hx
+has type
+  x ≤ 0
+but is expected to have type
+  ¬?m.258 < ?m.257
+in the application
+  Ioc_eq_empty (le_of_not_ge hx)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeasureFromPositivePrimitive.lean:46:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.measure_eq_withDensity_of_positive_primitive' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.primitive_derivative_nonneg_of_cdf' depends on axioms: [propext, Classical.choice, Quot.sound]

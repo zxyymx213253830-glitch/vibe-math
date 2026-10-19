@@ -1,0 +1,33 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumActualDensity.lean:26:86: error: unsolved goals
+case e'_8
+d n : ℕ
+x : ℝ
+hE : HasDerivAt (fun x => Real.exp (-↑(n + 1) * id x)) (Real.exp (-↑(n + 1) * id x) * (-↑(n + 1) * 1)) x
+hP :
+  HasDerivAt
+    (fun y =>
+      (centralDeterminantPowerMoment 0 (n + 1) d)⁻¹ * Polynomial.eval y (centralMinimumRealPolynomial d (n + 1)))
+    ((centralDeterminantPowerMoment 0 (n + 1) d)⁻¹ *
+      Polynomial.eval x (Polynomial.derivative (centralMinimumRealPolynomial d (n + 1))))
+    x
+⊢ centralMinimumCDFContinuation d n =
+    (fun x => 1) -
+      (fun x => Real.exp (-(↑(1 + n) * x))) * fun y =>
+        (centralDeterminantPowerMoment 0 (1 + n) d)⁻¹ * Polynomial.eval y (centralMinimumRealPolynomial d (1 + n))
+'JinWishart.continuous_centralMinimumPDFCore' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hasDerivAt_centralMinimumCDFContinuation' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralMinimumCDFContinuation_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimum_cdf_eq_piecewise_continuation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralMinimumPDFCore_nonneg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralMinimum_map_eq_density' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

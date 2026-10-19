@@ -335,3 +335,15 @@ upstream, NOT generallyd or d+1. Coefficients above degree arezero, no spurious 
 Leibniz exact statement uses exponentialderivative orderi, polynomialorderk-i; sign(-N)^i
 andouternegative for1-exp arechecked, withk=d+1>=1 explicit. Castelaboration andring kernel
 proofs areactualexit0, not numericargument. Requiredhumanmodel/measure review remains.
+
+## Actual central minimum density P4
+
+Final12 exactsource response delivered no concrete proof issue. Its title 'Human Review'
+is model-generated and NOT humanreview. Its rowcount 'X is d by(n+1)' is false: actual
+source uses m=d+(n+1), N=n+1. ComplexSample is a REAL2mN Euclidean Gaussian encoding
+scaledby1/sqrt2, not raw complexstdGaussian directly. No asymptoticO(1) scaling claim
+uniformly overgrowingdimensions is adopted. Actual axiomlogs standardpropext,
+Classical.choice,Quot.sound, not its choice/classical/funext list. Generic finiteμ
+ext_of_Iic makesνfinite asconsequence ofIicagreement; densitymeasure probability
+notassumed. Zeroatom excludedfromactualCDFG0=0, ofRealnonneg proven onpositiveaxis,
+all finiteintervalintegrabilityconversion checked. FullLake/humanreview stillnotdone.
