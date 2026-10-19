@@ -1,0 +1,275 @@
+{
+  "seed": null,
+  "status": "PASS reused fixed-seed actual CN means against min-dimension logdet/Jensen bound with known trace controls; wrong-half-power negativecontrol; not proof",
+  "source_sha256": "a735049412a4b929522d48fc2a7ed2826b1e9c710ae6325d8e9bf0bd67f7ba03",
+  "inputs": [
+    {
+      "path": "verification/central_mixed_moments/logdet-prelog-control.json",
+      "sha256": "83a8a7fa0d8c08575a0026fa11fe07ee6bcca393b98cae456289ed97690af90b",
+      "original_seed": 2026101921
+    },
+    {
+      "path": "verification/central_mixed_moments/wide-logdet-control.json",
+      "sha256": "8b89f4b5ca3ce57c577b1854bbb7802567bae7a6d4461d448daad1dacefba24c",
+      "original_seed": 2026101924
+    }
+  ],
+  "records": [
+    {
+      "m": 1,
+      "n": 1,
+      "rho": 1.0,
+      "observed_mean": 0.5962216915862557,
+      "known_power": 1.0,
+      "upper_bound": 0.6931471805599453
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "rho": 10.0,
+      "observed_mean": 2.014353747093162,
+      "known_power": 1.0,
+      "upper_bound": 2.3978952727983707
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "rho": 1000.0,
+      "observed_mean": 6.337423005774246,
+      "known_power": 1.0,
+      "upper_bound": 6.90875477931522
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "rho": 100000.0,
+      "observed_mean": 10.935481002224446,
+      "known_power": 1.0,
+      "upper_bound": 11.51293546492023
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "rho": 100000000.0,
+      "observed_mean": 17.84311459364868,
+      "known_power": 1.0,
+      "upper_bound": 18.420680753952364
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rho": 1.0,
+      "observed_mean": 1.8782411380154616,
+      "known_power": 4.3636,
+      "upper_bound": 2.3148941487780044
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rho": 10.0,
+      "observed_mean": 5.093176181065394,
+      "known_power": 4.3636,
+      "upper_bound": 6.255099396348355
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rho": 1000.0,
+      "observed_mean": 13.845445291711002,
+      "known_power": 4.3636,
+      "upper_bound": 15.376727470624154
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rho": 100000.0,
+      "observed_mean": 23.04321889925684,
+      "known_power": 4.3636,
+      "upper_bound": 24.586160545025546
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rho": 100000000.0,
+      "observed_mean": 36.85850183649941,
+      "known_power": 4.3636,
+      "upper_bound": 38.40166194543451
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rho": 1.0,
+      "observed_mean": 3.2114023519370245,
+      "known_power": 10.02,
+      "upper_bound": 3.5868494970942324
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rho": 10.0,
+      "observed_mean": 7.2824606904332105,
+      "known_power": 10.02,
+      "upper_bound": 7.867568994419317
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rho": 1000.0,
+      "observed_mean": 16.414943128162214,
+      "known_power": 10.02,
+      "upper_bound": 17.03878154991945
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rho": 100000.0,
+      "observed_mean": 25.62446706675199,
+      "known_power": 10.02,
+      "upper_bound": 26.248726752145988
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rho": 100000000.0,
+      "observed_mean": 39.439969381496155,
+      "known_power": 10.02,
+      "upper_bound": 40.064233322090296
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "rho": 1.0,
+      "observed_mean": 4.799715531088804,
+      "known_power": 15.606,
+      "upper_bound": 5.474615462034771
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "rho": 10.0,
+      "observed_mean": 10.84064661868869,
+      "known_power": 15.606,
+      "upper_bound": 11.912007602582639
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "rho": 1000.0,
+      "observed_mean": 24.52163304619439,
+      "known_power": 15.606,
+      "upper_bound": 25.67097198387091
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "rho": 100000.0,
+      "observed_mean": 38.33570821054787,
+      "known_power": 15.606,
+      "upper_bound": 39.48591166299721
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "rho": 100000000.0,
+      "observed_mean": 59.058959551407064,
+      "known_power": 15.606,
+      "upper_bound": 60.20917173870349
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "rho": 1.0,
+      "observed_mean": 1.296839656799728,
+      "known_power": 3.0,
+      "upper_bound": 1.3862943611198906
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "rho": 10.0,
+      "observed_mean": 3.2715050300439783,
+      "known_power": 3.0,
+      "upper_bound": 3.4339872044851463
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "rho": 1000.0,
+      "observed_mean": 7.829226466514261,
+      "known_power": 3.0,
+      "upper_bound": 8.006700845440367
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "rho": 100000.0,
+      "observed_mean": 12.433901111537843,
+      "known_power": 3.0,
+      "upper_bound": 12.611541086966115
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rho": 1.0,
+      "observed_mean": 2.9506269422946283,
+      "known_power": 8.32,
+      "upper_bound": 3.2818731589869428
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rho": 10.0,
+      "observed_mean": 6.9529039918910645,
+      "known_power": 8.32,
+      "upper_bound": 7.50370850655065
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rho": 1000.0,
+      "observed_mean": 16.073082611590483,
+      "known_power": 8.32,
+      "upper_bound": 16.667021417965884
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rho": 100000.0,
+      "observed_mean": 25.282472077780692,
+      "known_power": 8.32,
+      "upper_bound": 25.87688588617333
+    },
+    {
+      "m": 3,
+      "n": 5,
+      "rho": 1.0,
+      "observed_mean": 4.738871101559779,
+      "known_power": 15.15,
+      "upper_bound": 5.40017481612825
+    },
+    {
+      "m": 3,
+      "n": 5,
+      "rho": 10.0,
+      "observed_mean": 10.764043980744653,
+      "known_power": 15.15,
+      "upper_bound": 11.824745423009071
+    },
+    {
+      "m": 3,
+      "n": 5,
+      "rho": 1000.0,
+      "observed_mean": 24.442078948987863,
+      "known_power": 15.15,
+      "upper_bound": 25.582024567404158
+    },
+    {
+      "m": 3,
+      "n": 5,
+      "rho": 100000.0,
+      "observed_mean": 38.25612137873524,
+      "known_power": 15.15,
+      "upper_bound": 39.39694706536066
+    }
+  ]
+}

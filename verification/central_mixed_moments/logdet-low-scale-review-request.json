@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "LogDetLowScale.lean": {
+      "sha256": "80939f6b2498681300aaf0d5485e72946b3c1a16445c9bbfb9090bf80dd9f531",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "55ce41b67f7d60add6a7d1ad148eee925d07d7122a2f2068f8ddbdaa97057c42"
+}

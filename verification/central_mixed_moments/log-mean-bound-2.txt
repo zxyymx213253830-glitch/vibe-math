@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:30:17: warning: This simp argument is unused:
+  Pi.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply] at hs haint
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:68:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [mul_one, he, add_sub_cancel_right]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:67:12: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:67:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'JinWishart.log_tangent_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_log_tangent_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_mean_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

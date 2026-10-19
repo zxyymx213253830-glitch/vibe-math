@@ -1,5 +1,7 @@
 # 金石等 (2008) Wishart 论文形式化：定理追踪表（B0）
 
+Latest386/facade32: actual Efull-logdet<=k log(1+rho*T/k), k=min(m,N)>0,T=actual finite expectedtrace,rho>=0. Low-scale Efull-logdet/rho->T at0right for all dimensions, no fullrank/inverse-moment assumption. Closed T=mN+normM_F^2 remains unproved here; no assumed tracevalue. See WISHART_LOGDET_MEAN_BOUND.md. Final3-source/two P4 responses retained/resolved, humanreview/frozenpublication/fullbuild boundaries unchanged.
+
 Latest374/facade30: complete actual fixed-mean matrix logdet expectedprelog=min(m,N) for BOTH positive dimensions. Wide offset is Elogdet(XX^H), separately absolutely integrable; never use singular X^H X offset. Actual transpose Gaussian transport, no invented adjointlaw or spectraldensity. See WISHART_WIDE_LOGDET.md. Final2-source realP4 falsealarms/resolutions retained; first tooltag output not review. Humanreview/frozenpublication/fullbuild boundaries unchanged.
 
 Latest365/facade29: actual SQUARE fixed-mean full-logdet offset Delta->0 butrho*Delta->realatTop(+infinity). Generic Fatou divergence and minimum-term lower bound proved; no divergent Bochner integral or exact log(rho)/rho coefficient asserted. Earlier statements saying square scaled divergence unproved are historical. See WISHART_SQUARE_LOGDET_ERROR.md. Final3-source P4 realresponse and resolutions retained, humanreview/frozenpublication/fullbuild boundaries unchanged.

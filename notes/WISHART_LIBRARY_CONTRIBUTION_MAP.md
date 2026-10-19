@@ -1,5 +1,7 @@
 # Library contributions and the next paper revision
 
+Latest386/facade32: actual Efull-logdet<=k log(1+rho*T/k), k=min(m,N)>0,T=actual finite expectedtrace,rho>=0. Low-scale Efull-logdet/rho->T at0right for all dimensions, no fullrank/inverse-moment assumption. Closed T=mN+normM_F^2 remains unproved here; no assumed tracevalue. See WISHART_LOGDET_MEAN_BOUND.md. Final3-source/two P4 responses retained/resolved, humanreview/frozenpublication/fullbuild boundaries unchanged.
+
 Latest374/facade30: complete actual fixed-mean matrix logdet expectedprelog=min(m,N) for BOTH positive dimensions. Wide offset is Elogdet(XX^H), separately absolutely integrable; never use singular X^H X offset. Actual transpose Gaussian transport, no invented adjointlaw or spectraldensity. See WISHART_WIDE_LOGDET.md. Final2-source realP4 falsealarms/resolutions retained; first tooltag output not review. Humanreview/frozenpublication/fullbuild boundaries unchanged.
 
 Latest360 items/facade28: actual full-logdet offset error Delta>=0 bounded by rho^-p/p*SUM E(lambda_i^-p) for0<p<=1 andp<m-N+1. For STRICT m>N, rhoDelta->SUM E(1/lambda_i). Square allows fractional boundp<1 only; no finite square correction asserted. Individual inverse-p sufficiency from minimum criterion, not an individual IFF threshold. See WISHART_LOGDET_ERROR.md. Final3-source real P4 objections/resolutions retained, humanmodelreview REQUIRED. Fullbuild/frozenpublication unchanged.

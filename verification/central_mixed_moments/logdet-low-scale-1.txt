@@ -1,0 +1,29 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScale.lean:37:52: error: unsolved goals
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hf : Integrable f μ
+hnonneg : ∀ᵐ (a : α) ∂μ, 0 ≤ f a
+a : α
+h : Tendsto ((fun x => x * Real.log (1 + f a / x)) ∘ fun x => x⁻¹) (𝓝[>] 0) (𝓝 (f a))
+r : ℝ
+⊢ ((fun x => x * Real.log (1 + f a * x⁻¹)) ∘ fun x => x⁻¹) r = Real.log (1 + f a * r) * r⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScale.lean:39:36: warning: This simp argument is unused:
+  inv_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [div_eq_mul_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScale.lean:55:2: error: `dsimp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogDetLowScale.lean:72:2: error: `dsimp` made no progress
+'JinWishart.integral_log_one_add_mul_low_scale' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_low_scale' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMatrixLogDet_low_scale' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

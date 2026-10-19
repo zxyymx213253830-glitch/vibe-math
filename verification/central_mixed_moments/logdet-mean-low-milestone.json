@@ -1,0 +1,20 @@
+{
+  "collected_utc": "2026-10-19T15:30:41.203772+00:00",
+  "leaf_final_exits": {
+    "log-mean-bound-2": 0,
+    "actual-logdet-mean-bound-1": 0,
+    "logdet-low-scale-2": 0
+  },
+  "main_entry": {
+    "log": "facade-32.txt",
+    "actual_exit_code": 0,
+    "output_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "prior_bound_entry": "facade-31.txt exit0"
+  },
+  "new_declarations": 12,
+  "total_bound_items": 386,
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED",
+  "human_review": "REQUIRED",
+  "scope": "Actual Etrace parameter, no unproved closed mean; min-dimension finite-scale upperbound and low-scale slope."
+}

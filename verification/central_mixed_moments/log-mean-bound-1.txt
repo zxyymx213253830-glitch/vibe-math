@@ -1,0 +1,50 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:27:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a_1 : α), ((fun x => ?m.182) + fun x => f x / a) a_1 - 1 ∂μ
+in the target expression
+  ∫ (x : α), Real.log a + f x / a - 1 ∂μ = Real.log a + (∫ (x : α), f x ∂μ) / a - 1
+
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : α → ℝ
+hf : Integrable f μ
+hpos : ∀ᵐ (x : α) ∂μ, 0 < f x
+hlog : Integrable (fun x => Real.log (f x)) μ
+a : ℝ
+ha : 0 < a
+hb : Integrable (fun x => Real.log a + f x / a - 1) μ
+⊢ ∫ (x : α), Real.log a + f x / a - 1 ∂μ = Real.log a + (∫ (x : α), f x ∂μ) / a - 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:41:24: error: mod_cast has type
+  (0 : ℕ) < Fintype.card ι
+but is expected to have type
+  (0 : ℝ) < K
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:59:6: error: 'change' tactic failed, pattern
+  K * Real.log a + (K * 1 + r * T) / a - K * 1 = K * Real.log a
+is not definitionally equal to target
+  ↑(Fintype.card ι) * Real.log a + ∑ x, (1 + r * ∫ (x_1 : α), f x x_1 ∂μ) / a - ↑(Fintype.card ι) * 1 =
+    ↑(Fintype.card ι) * Real.log (1 + (r * ∑ i, ∫ (x : α), f i x ∂μ) / ↑(Fintype.card ι))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:57:63: warning: This simp argument is unused:
+  Finset.sum_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.sum_sub_distrib, Finset.sum_add_distrib, Finset.sum_const, Finset.card_univ, nsmul_eq_mul,
+    ← Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMeanBound.lean:58:55: warning: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.sum_sub_distrib, Finset.sum_add_distrib, Finset.sum_div, Finset.sum_const, Finset.card_univ,
+    nsmul_eq_mul]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.log_tangent_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_log_tangent_upper_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_mean_upper_bound' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

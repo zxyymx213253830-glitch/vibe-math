@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "LogMeanBound.lean": {
+      "sha256": "cfaa09e8ba9f104b34c9265a3371ef33e26818166ea3222e42ac0b75220b4b2d",
+      "supplied": "Full source"
+    },
+    "ActualLogDetMeanBound.lean": {
+      "sha256": "99676211ac82398f7918f7fa234c1d2743e12ca81b9cec9211b6e2062db3a64d",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "0cdc23fbaae7de9787894e7fe9d5af3504229ffe59a761ed2cae52400fe100ed"
+}
