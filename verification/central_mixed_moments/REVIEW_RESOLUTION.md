@@ -277,3 +277,7 @@ Final3-source response delivered no concrete defect. R>0 physical regime and nat
 
 ## Facade15 evidence timing
 Commitbc74fe9 captured facade-15 output while its process was still running. The real helper subsequently returned exit0; final log bytes are now saved in the next milestone. No earlier claim of a full Lake build is inferred from that partial snapshot. Facade16 and17 were collected after real exit0.
+
+
+## Reciprocal-tail P4
+Exact final4-source response delivered no concrete issue. Non-strict tail/CDF signs and null-set removal confirmed. Reviewer last claim that human concerns are handled is NOT a waiver of required human audit. Inverse measurability follows measurable minimum composed with measurable inverse (inverse is total with inv0=0), not merely positivity. At zero, reciprocal-tail event EXCLUDES singular samples for r>0; CDF event INCLUDES them. Actual AE fullrank discharges precisely this difference. No inverse-moment criterion inferred from log slope alone. Explicit TWO power bounds, not only log exponent, will support that next proof.

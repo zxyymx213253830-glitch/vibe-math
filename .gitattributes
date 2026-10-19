@@ -124,3 +124,4 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/NoncentralMinimumCovarianceDiversity.lean -text whitespace=cr-at-eol
 /experiments/noncentral_covariance_control.py -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/NoncentralMinimumModeOutage.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/NoncentralInverseMinimumTail.lean -text whitespace=cr-at-eol

@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumTail.lean:40:13: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumTail.lean:40:13: warning: This simp argument is unused:
+  Set.mem_setOf_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inv_eq_one_div, le_div_iff₀ hz, le_div_iff₀ hr, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.actualNoncentral_minimum_pos_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralInverseMinimumTail_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralInverseMinimumTail_log_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]

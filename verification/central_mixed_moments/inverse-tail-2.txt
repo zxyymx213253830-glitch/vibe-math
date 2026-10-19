@@ -1,0 +1,27 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumTail.lean:40:13: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumTail.lean:40:13: warning: This simp argument is unused:
+  Set.mem_setOf_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inv_eq_one_div, le_div_iff₀ hz, le_div_iff₀ hr, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumTail.lean:59:22: error(lean.unknownIdentifier): Unknown identifier `mul_inv_eq_div`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralInverseMinimumTail.lean:59:2: error: Type mismatch: After simplification, term
+  actualNoncentralMinimumCDF_local_power_bounds d n M r⁻¹ (inv_pos.mpr hrp) hs
+ has type
+  And (noncentralMinimumPowerLower d n M * (r ^ (d + 1))⁻¹ ≤ actualNoncentralMinimumCDF d n M r⁻¹)
+    (actualNoncentralMinimumCDF d n M r⁻¹ ≤ noncentralMinimumPowerUpper d n M * (r ^ (d + 1))⁻¹)
+but is expected to have type
+  And (noncentralMinimumPowerLower d n M / r ^ (d + 1) ≤ actualNoncentralMinimumCDF d n M r⁻¹)
+    (actualNoncentralMinimumCDF d n M r⁻¹ ≤ noncentralMinimumPowerUpper d n M / r ^ (d + 1))
+'JinWishart.actualNoncentral_minimum_pos_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralInverseMinimumTail_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralInverseMinimumTail_log_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralInverseMinimumTail_power_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
