@@ -19,7 +19,24 @@
 | 维度取值 | `未陈述` / `仅公式侧` / `候选` / `已证` / `审查通过` |
 |---|---|
 
-## 当前状态（2026-10-18）
+## 当前状态（2026-10-19）
+
+最新优先于下方历史范围：任意m>=N>0的实际中央最小CDF已由有限阶乘泛函固定
+一元多项式给出，精确次数Nd、归一化和右尾首项已证。任意固定确定均值M的
+非中心最小值则已证一般分集指数m-N+1，包含固定vI和高SNR阈值b/r；这是
+T4的指数层进展，不是一般T4精确系数、非中心显式CDF或G2闭合。
+
+| 最新实际范围 | 精确声明 | 限制 |
+|---|---|---|
+| 全矩形中央对数硬边指数 | `actualCentralRectangular_minimum_diversity` | m>=N>0，标量分支也由实际Gamma律证明 |
+| 任意固定均值非中心对数硬边指数 | `actualNoncentralRectangular_minimum_diversity` | M固定，不允许误读为随SNR增长均值 |
+| 固定M、固定vI、高SNR最小阈值 | `actualNoncentralCovarianceMinimumCDF_diversity` / `actualNoncentralCovarianceMinimumCDF_highSNR_diversity` | v>0，阈值b/r，b>0；指数不是精确前导系数 |
+| 最弱模式自然对数outage推论 | `actualNoncentralMinimumModeOutage_diversity` | R>0；是log(1+r*lambda_min)，不是全MIMO logdet容量 |
+
+研究证明说明见[WISHART_DIVERSITY_PROOF.md](WISHART_DIVERSITY_PROOF.md)，214项绑定
+审计见verification/central_mixed_moments/audit.json。最终P4原回应与误报澄清均保留；
+完整构建和独立人工语义验收未完成，冻结投稿稿件未同步。原T1一般候选恒等、
+一般非中心G2、T3来源与一般T4精确系数仍开放。
 
 新增一般中央实际结果：任意 t>=s 的闭式矩阵密度与归一化；任意 s>0 的中央 s×s 最小值 Exp(rate s)；标量协方差 vI 时 Exp(rate s/v)；整个正方矩阵在 W>xI 下减去 xI 的条件律。源码及核验映射见 [CENTRAL_WISHART_GENERAL_DENSITY.md](CENTRAL_WISHART_GENERAL_DENSITY.md)。这些不是一般非中心谱 G2，也没有完成原 T1 一般行列式候选的对齐。下面2026-10-15表保留为历史特例记录，不能据此把当前范围描述成仅2×2。原论文/投稿包未更新，[需人工审查]仍保留。
 

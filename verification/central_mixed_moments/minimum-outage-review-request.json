@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "NoncentralMinimumModeOutage.lean": {
+      "sha256": "f5b5aee027e691e3c7733a5b17cf19022f6ffd33e20e95ecf25b56b1338175ba",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9a92226f3bb364eb195205e76403ba05d9f5d317781d01495b74f5e64019969e"
+}

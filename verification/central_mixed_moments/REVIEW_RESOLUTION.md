@@ -266,3 +266,14 @@ Exact9 final declarations delivered. Dimension n counts prior columns everywhere
 P1 three routes delivered, comparison chosen. Its informal phi(2y)/phi(y/2) extra normalization factors and5h/6 optimization are erroneous (maximum is h/6 before normalization), not used in source; final loose law constants agree. Actual inequalities checked independently by norm inequalities and real Jacobian.
 Final kernel/measure6-source P4 critical warning is false: h2 uses x-y and -y, so its simplified inequality is ||x||^2<=2||x-y||^2+2||y||^2 (not reviewer's copy of h1). Thus -||x-y||^2/2<=||y||^2/2-||x||^2/4<=||y||^2-||x||^2/8. Standard nlinarith certificates close; no tuned axiom. withDensity_smul scalar/function placeholders elaborated and checked, exact positive ofReal factors canceled. Reviewer itself confirms Jacobian and lower/upper law constants.
 Final noncentral8 P4 only speculative library/tactic concerns. hlR finiteness is an actual proof of mapped probability event !=top, checked and printed axioms contain no sorryAx/new axiom. huR explicitly mul_ne_top with ofReal_ne_top; the latter holds for EVERY real constant, does not require it nonzero. Complex sample encoded-mean add lemma exact and checked. Full scalar/rectangular/log/highSNR logic otherwise confirmed. No change after final-source review. This is not human or independent compiler approval.
+
+
+## Fixed-mean scalar covariance P4
+Final6-source Qoder response delivered, reports no concrete bug. Its introductory ComplexSample description as complex-entry function is inaccurate: source is real Euclidean2mN and complexSampleMatrix performs1/sqrt2 encoding. Actual source proof correctly uses real source smul and complex mean smul. Reviewer informal F~x^k language must be read as logarithmic slope/two-sided order, not sharp coefficient. FixedM, fixedv>0, exact x/v transformation and highSNR sign checked. Human interpretation remains required.
+
+
+## Minimum-mode outage P4
+Final3-source response delivered no concrete defect. R>0 physical regime and natural-log units are explicit in theorem/note; total definition for nonpositiveR is harmless. `hl` is in fact used via positivity for1+r*l>0, not unused as reviewer says. This is a minor monotone transform, NOT full logdet capacity or an independent density result. Exact-source review not human validation.
+
+## Facade15 evidence timing
+Commitbc74fe9 captured facade-15 output while its process was still running. The real helper subsequently returned exit0; final log bytes are now saved in the next milestone. No earlier claim of a full Lake build is inferred from that partial snapshot. Facade16 and17 were collected after real exit0.

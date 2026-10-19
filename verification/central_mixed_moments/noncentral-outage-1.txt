@@ -1,0 +1,3 @@
+'JinWishart.minimum_mode_log_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimumModeOutage_eq_CDF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimumModeOutage_diversity' depends on axioms: [propext, Classical.choice, Quot.sound]

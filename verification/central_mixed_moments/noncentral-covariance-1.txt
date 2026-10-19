@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumCovarianceDiversity.lean:30:8: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `M' ?a✝ ?a✝¹` is a value of type
+  ℂ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumCovarianceDiversity.lean:48:13: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralMinimumCovarianceDiversity.lean:44:74: error: unsolved goals
+case e_s
+d n : ℕ
+M : Matrix (Fin (d + (n + 1))) (Fin (n + 1)) ℂ
+v : ℝ
+hv : 0 < v
+x : ℝ
+z : ComplexSample
+⊢ complexNoncentralSampleSmallestEigenvalue (↑(√v)⁻¹ • M) ⋯ z * v ≤ x ↔
+    complexNoncentralSampleSmallestEigenvalue ((√v)⁻¹ • M) ⋯ z * v ≤ x
+'JinWishart.complexSampleMean_real_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralSampleMinimum_amplitude_scale' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralCovarianceMinimumCDF_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

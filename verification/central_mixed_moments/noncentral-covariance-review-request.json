@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "NoncentralMinimumCovarianceDiversity.lean": {
+      "sha256": "bb5c44dd8d411ed6301b55e2c9885dfa1975166292836191acea18bdb9d6733c",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "20f7a6b27f1e680505acbba26cf13d55606af0aaf27e9cc7168374d0d64a4e0a"
+}

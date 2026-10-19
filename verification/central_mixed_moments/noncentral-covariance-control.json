@@ -1,0 +1,67 @@
+{
+  "seed": 2026101910,
+  "status": "PASS actual fixed-mean covariance scaling, ncx2 trace mean/CDF controls; not proof",
+  "source_sha256": "123b627a408f637d37081e2de92aa099288552bc3872bb33148ea48c40e80a10",
+  "records": [
+    {
+      "m": 2,
+      "n": 1,
+      "v": 0.25,
+      "count": 200000,
+      "scaling_max_error": 0.0,
+      "trace_mean_error_SE": -0.09733780424872084,
+      "trace_CDF_empirical": 0.569805,
+      "trace_CDF_ncx2": 0.569396855013181
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "v": 3.0,
+      "count": 200000,
+      "scaling_max_error": 1.7763568394002505e-14,
+      "trace_mean_error_SE": -0.27556304852860486,
+      "trace_CDF_empirical": 0.592365,
+      "trace_CDF_ncx2": 0.593205609822138
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "v": 0.25,
+      "count": 200000,
+      "scaling_max_error": 0.0,
+      "trace_mean_error_SE": -0.543919942915852,
+      "trace_CDF_empirical": 0.5495,
+      "trace_CDF_ncx2": 0.5495164480504122
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "v": 3.0,
+      "count": 200000,
+      "scaling_max_error": 2.4868995751603507e-14,
+      "trace_mean_error_SE": 0.057927965396688146,
+      "trace_CDF_empirical": 0.553855,
+      "trace_CDF_ncx2": 0.5542457285489549
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "v": 0.25,
+      "count": 200000,
+      "scaling_max_error": 0.0,
+      "trace_mean_error_SE": 0.2074048238975351,
+      "trace_CDF_empirical": 0.533535,
+      "trace_CDF_ncx2": 0.5335056070058417
+    },
+    {
+      "m": 5,
+      "n": 3,
+      "v": 3.0,
+      "count": 200000,
+      "scaling_max_error": 4.973799150320701e-14,
+      "trace_mean_error_SE": 0.2568144357814274,
+      "trace_CDF_empirical": 0.53424,
+      "trace_CDF_ncx2": 0.5343375439332081
+    }
+  ]
+}
