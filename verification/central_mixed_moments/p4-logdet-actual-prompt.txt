@@ -1,0 +1,252 @@
+P4 critical review. Different-model-family reviewer; only concrete issues: missing assumptions, unsupported steps, or statement/proof/model mismatch. Do not rewrite proofs, do not emit tool tags, do not claim independent compilation. All supplied exact final sources have serial Lean exit0 with standard three axioms. Existing theorem names here refer to real pinned checked assets, not assumptions to grant the target conclusion.
+Target: X=Z+M with independent variance-one complex CN Z, arbitrary FIXED deterministic M, m>=N>0 including square m=N. Complete statistic C(rho)=log(Re det(I+rho X^H X)), natural logarithms, rho>=0. Spectral identity is proved, so not merely the weakest-mode log(1+rho lambda_min). Prove integrability, absolute logdet Gram integrability, E C(rho)-N log rho -> E logdet(X^H X), hence E C/logrho->N. This is NOT a derivation of mutual information or a coding theorem under a communication model; not SNR-growing mean or degenerating covariance.
+Selected route: positive inverse HALF moment exists because already proved inverse-minimum real-p criterion is p<m-N+1; do NOT assume E[1/lambda_min] finite in square case. Noncentral Gram trace is norm of shifted standard-real Gaussian squared/2, hence integrable. Each ordered eigenvalue is measurable via a previously proved full complex Weyl continuity result, is bounded above by trace and below by minimum. log integrability uses |log f|<=f+(f^-1)^p/p. Dominated convergence applies to log(f+1/rho), bounded for rho>=1 between log f and log(1+f), with integrable envelope |log f|+f. Finite sums commute with integrals only using proved individual integrability. Unitarly diagonalization and conjugation determinant identity give real logdet, positivity used before log_prod.
+Independent fixedseed2026101921 control200000 per4shapes PASS after correcting unjustified finite-rho0.2 closeness tolerance: finite offset Elogdet/logrho must be subtracted. Original failed control is retained, not a counterexample. Scalar exp(1/rho)E1(1/rho), noncentral trace, spectrum-vs-slogdet and wrong N/2 prelog controls PASS. Numeric controls are not proofs. Earlier P1 call timed out, not an approval. Human measure/variance/model review remains required.
+
+Imported generic lemmas from the other reviewed group: integrable_log_of_integrable_inverse_rpow (integrable f,positiveAE,p>0,integrable inverse p ->integrable log f); integral_finiteSpectrumLogDet_offset_tendsto (probabilitymeasure,finiteindex,each f positiveAE and integrable and log f integrable -> stated finite offset); analogous prelog; gram_real_logdet_eq_spectral X rho for rho>=0; hermitian_real_logdet_eq_sum_log A hA all positive ordered eigs. Both groups are separately checked; no target actual density premise.
+
+FILE GaussianGramLogMoments.lean
+import JinWishartFormalization.LogMomentIntegrability
+import JinWishartFormalization.NoncentralInverseMinimumRealMoments
+import JinWishartFormalization.CentralWishartTraceLaw
+import JinWishartFormalization.WeylComplexHermitian
+import Mathlib.Probability.Distributions.Gaussian.Fernique
+
+/-! Finite trace, eigenvalue and absolute logarithmic moments of actual Gram samples.
+Codex. Fixed arbitrary mean, every m>=N>0 including square samples.
+[需人工审查] Inherited Gaussian normalization, spectral and AE interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem measurable_actualNoncentralEigenvalue {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (i : Fin (Fintype.card (Fin n))) :
+    Measurable (complexNoncentralSampleEigenvalue M i) := by
+  exact (measurable_pi_iff.mp
+    (measurable_complexNoncentralSampleEigenvalueVector_of_continuous M
+      (orderedHermitianEigenvalueCoordinatesContinuous n))) i
+
+theorem integrable_actualNoncentralGram_trace {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Integrable (fun z : ComplexSample (m := m) (n := n) =>
+      (complexGram (complexSampleMatrix z+M)).trace.re) (stdGaussian _) := by
+  have hid : MemLp (id : ComplexSample (m := m) (n := n) → ComplexSample)
+      2 (stdGaussian _) := IsGaussian.memLp_two_id
+  have hc : MemLp (fun _ : ComplexSample (m := m) (n := n) => complexSampleMean M)
+      2 (stdGaussian _) := memLp_const _
+  have hlp : MemLp (fun z : ComplexSample (m := m) (n := n) => z+complexSampleMean M)
+      2 (stdGaussian _) := hid.add hc
+  have hi := hlp.integrable_norm_pow' (p := 2)
+  have he (z : ComplexSample (m := m) (n := n)) :
+      (complexGram (complexSampleMatrix z+M)).trace.re = ‖z+complexSampleMean M‖^2/2 := by
+    have h := complexSampleGram_trace_half_norm (z+complexSampleMean M)
+    simpa only [complexSampleGram,complexSampleMatrix_add_mean] using h
+  simp_rw [he]
+  exact hi.div_const 2
+
+theorem actualNoncentralEigenvalue_le_trace {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (i : Fin (Fintype.card (Fin n)))
+    (z : ComplexSample (m := m) (n := n)) :
+    complexNoncentralSampleEigenvalue M i z ≤
+      (complexGram (complexSampleMatrix z+M)).trace.re := by
+  classical
+  let h := (complexGram_posSemidef (complexSampleMatrix z+M)).1
+  let e : Fin (Fintype.card (Fin n)) ≃ Fin n :=
+    Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))
+  have hs : (∑ j, h.eigenvalues₀ j) = ∑ j, h.eigenvalues j := by
+    simpa only [Matrix.IsHermitian.eigenvalues,e,Equiv.symm_apply_apply] using
+      (Equiv.sum_comp e (fun j => h.eigenvalues j))
+  have ht := congrArg Complex.re h.trace_eq_sum_eigenvalues
+  simp only [Complex.re_sum] at ht
+  change (complexGram (complexSampleMatrix z+M)).trace.re = ∑ j, h.eigenvalues j at ht
+  rw [← hs] at ht
+  rw [ht]
+  exact Finset.single_le_sum (fun j _ => complexNoncentralSampleEigenvalue_nonneg M j z)
+    (Finset.mem_univ i)
+
+theorem actualNoncentralMinimum_le_eigenvalue {m n : ℕ} (hn : 0 < n)
+    (M : Matrix (Fin m) (Fin n) ℂ) (i : Fin (Fintype.card (Fin n)))
+    (z : ComplexSample (m := m) (n := n)) :
+    complexNoncentralSampleSmallestEigenvalue M hn z ≤ complexNoncentralSampleEigenvalue M i z := by
+  exact complexNoncentralSampleEigenvalue_antitone M z
+    (show i ≤ smallestEigenvalue₀Index hn by
+      apply Fin.le_iff_val_le_val.mpr
+      have hi := i.isLt
+      simp only [Fintype.card_fin] at hi
+      simp only [smallestEigenvalue₀Index,Fin.val_cast,Fin.val_last,Fintype.card_fin]
+      omega)
+
+theorem integrable_actualNoncentralEigenvalue {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (i : Fin (Fintype.card (Fin n))) :
+    Integrable (complexNoncentralSampleEigenvalue M i) (stdGaussian _) := by
+  apply (integrable_actualNoncentralGram_trace M).mono'
+    (measurable_actualNoncentralEigenvalue M i).aestronglyMeasurable
+  exact ae_of_all _ (fun z => by
+    rw [Real.norm_eq_abs,abs_of_nonneg (complexNoncentralSampleEigenvalue_nonneg M i z)]
+    exact actualNoncentralEigenvalue_le_trace M i z)
+
+theorem integrable_actualNoncentral_logEigenvalue {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) (i : Fin (Fintype.card (Fin n))) :
+    Integrable (fun z => Real.log (complexNoncentralSampleEigenvalue M i z)) (stdGaussian _) := by
+  have hpos := actualNoncentral_minimum_pos_ae hn hnm M
+  have hmin := (actualNoncentralRectangular_inverseMinimum_realMoment_integrable_iff
+    m n hn hnm M (1/2) (by norm_num)).mpr (by
+      have : (1 : ℝ) ≤ ((m-n+1 : ℕ) : ℝ) := by exact_mod_cast (show 1 ≤ m-n+1 by omega)
+      linarith)
+  refine integrable_log_of_integrable_inverse_rpow _ _
+    (integrable_actualNoncentralEigenvalue M i) ?_ (1/2) (by norm_num) ?_
+  · filter_upwards [hpos] with z hz
+    exact hz.trans_le (actualNoncentralMinimum_le_eigenvalue hn M i z)
+  · apply hmin.mono'
+      (((measurable_actualNoncentralEigenvalue M i).inv).pow_const (1/2 : ℝ)).aestronglyMeasurable
+    filter_upwards [hpos] with z hz
+    have hnonneg := inv_nonneg.mpr (complexNoncentralSampleEigenvalue_nonneg M i z)
+    change ‖(complexNoncentralSampleEigenvalue M i z)⁻¹ ^ (1/2 : ℝ)‖ ≤
+      (complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹ ^ (1/2 : ℝ)
+    rw [Real.norm_eq_abs,abs_of_nonneg (Real.rpow_nonneg hnonneg _)]
+    apply Real.rpow_le_rpow hnonneg _ (by norm_num)
+    exact inv_anti₀ hz (actualNoncentralMinimum_le_eigenvalue hn M i z)
+
+end
+end JinWishart
+#print axioms JinWishart.measurable_actualNoncentralEigenvalue
+#print axioms JinWishart.integrable_actualNoncentralGram_trace
+#print axioms JinWishart.actualNoncentralEigenvalue_le_trace
+#print axioms JinWishart.actualNoncentralMinimum_le_eigenvalue
+#print axioms JinWishart.integrable_actualNoncentralEigenvalue
+#print axioms JinWishart.integrable_actualNoncentral_logEigenvalue
+
+
+FILE NoncentralGramLogDetGrowth.lean
+import JinWishartFormalization.GaussianGramLogMoments
+import JinWishartFormalization.FiniteSpectrumLogDetGrowth
+
+/-! Actual arbitrary fixed-mean Gaussian full-spectrum log statistic.
+Codex. Natural logarithms. Not a derivation of channel mutual information.
+[需人工审查] Expected log-det, full-rank and channel interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def actualNoncentralGramLogDet {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ)
+    (r : ℝ) (z : ComplexSample (m := m) (n := n)) : ℝ :=
+  finiteSpectrumLogDet (fun i => complexNoncentralSampleEigenvalue M i z) r
+
+theorem integrable_actualNoncentralGramLogDet {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) (hr : 0 ≤ r) :
+    Integrable (actualNoncentralGramLogDet M r) (stdGaussian _) := by
+  unfold actualNoncentralGramLogDet finiteSpectrumLogDet
+  exact integrable_finsetSum Finset.univ (fun i _ =>
+    integrable_log_one_add_mul _ _ (integrable_actualNoncentralEigenvalue M i)
+      (ae_of_all _ (complexNoncentralSampleEigenvalue_nonneg M i)) r hr)
+
+theorem actualNoncentralGramLogDet_expected_offset {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => (∫ z, actualNoncentralGramLogDet M r z ∂stdGaussian _)-
+      (n : ℝ)*Real.log r) atTop
+      (𝓝 (∑ i, ∫ z, Real.log (complexNoncentralSampleEigenvalue M i z) ∂stdGaussian _)) := by
+  simpa only [Fintype.card_fin,actualNoncentralGramLogDet] using
+    integral_finiteSpectrumLogDet_offset_tendsto (stdGaussian _) (complexNoncentralSampleEigenvalue M)
+      (integrable_actualNoncentralEigenvalue M) (fun i =>
+        (actualNoncentral_minimum_pos_ae hn hnm M).mono (fun z hz =>
+          hz.trans_le (actualNoncentralMinimum_le_eigenvalue hn M i z)))
+      (integrable_actualNoncentral_logEigenvalue hn hnm M)
+
+theorem actualNoncentralGramLogDet_expected_prelog {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => (∫ z, actualNoncentralGramLogDet M r z ∂stdGaussian _)/Real.log r)
+      atTop (𝓝 (n : ℝ)) := by
+  simpa only [Fintype.card_fin,actualNoncentralGramLogDet] using
+    integral_finiteSpectrumLogDet_prelog (stdGaussian _) (complexNoncentralSampleEigenvalue M)
+      (integrable_actualNoncentralEigenvalue M) (fun i =>
+        (actualNoncentral_minimum_pos_ae hn hnm M).mono (fun z hz =>
+          hz.trans_le (actualNoncentralMinimum_le_eigenvalue hn M i z)))
+      (integrable_actualNoncentral_logEigenvalue hn hnm M)
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_actualNoncentralGramLogDet
+#print axioms JinWishart.actualNoncentralGramLogDet_expected_offset
+#print axioms JinWishart.actualNoncentralGramLogDet_expected_prelog
+
+
+FILE ActualGramLogDet.lean
+import JinWishartFormalization.NoncentralGramLogDetGrowth
+import JinWishartFormalization.HermitianSpectralLogDet
+
+/-! Full actual matrix log-det expectation, high-SNR prelog and finite offset.
+Codex. Arbitrary fixed deterministic mean, iid variance-one CN noise, m>=N>0.
+Natural units. This statistic is not itself a channel coding theorem.
+[需人工审查] Measure/variance and communication-model correspondence.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def actualNoncentralMatrixLogDet {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ)
+    (r : ℝ) (z : ComplexSample (m := m) (n := n)) : ℝ :=
+  Real.log ((1+(r : ℂ) • complexGram (complexSampleMatrix z+M)).det.re)
+
+theorem actualNoncentralGramLogDet_eq_matrix {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) (hr : 0 ≤ r)
+    (z : ComplexSample (m := m) (n := n)) :
+    actualNoncentralGramLogDet M r z = actualNoncentralMatrixLogDet M r z := by
+  exact (gram_real_logdet_eq_spectral (complexSampleMatrix z+M) r hr).symm
+
+theorem integrable_actualNoncentralMatrixLogDet {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) (hr : 0 ≤ r) :
+    Integrable (actualNoncentralMatrixLogDet M r) (stdGaussian _) := by
+  simpa only [← funext (actualNoncentralGramLogDet_eq_matrix M r hr)] using
+    integrable_actualNoncentralGramLogDet M r hr
+
+theorem actualNoncentral_logGramDet_eq_sum_log_ae {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    (fun z : ComplexSample (m := m) (n := n) =>
+      Real.log (complexGram (complexSampleMatrix z+M)).det.re) =ᵐ[stdGaussian _]
+      (fun z => ∑ i, Real.log (complexNoncentralSampleEigenvalue M i z)) := by
+  filter_upwards [actualNoncentral_minimum_pos_ae hn hnm M] with z hz
+  exact hermitian_real_logdet_eq_sum_log _ (complexGram_posSemidef _).1 (fun i =>
+    hz.trans_le (actualNoncentralMinimum_le_eigenvalue hn M i z))
+
+theorem integrable_actualNoncentral_logGramDet {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Integrable (fun z : ComplexSample (m := m) (n := n) =>
+      Real.log (complexGram (complexSampleMatrix z+M)).det.re) (stdGaussian _) := by
+  apply (integrable_finsetSum Finset.univ (fun i _ =>
+    integrable_actualNoncentral_logEigenvalue hn hnm M i)).congr
+  exact (actualNoncentral_logGramDet_eq_sum_log_ae hn hnm M).symm
+
+theorem actualNoncentralMatrixLogDet_expected_offset {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => (∫ z, actualNoncentralMatrixLogDet M r z ∂stdGaussian _)-
+      (n : ℝ)*Real.log r) atTop
+      (𝓝 (∫ z, Real.log (complexGram (complexSampleMatrix z+M)).det.re ∂stdGaussian _)) := by
+  have he : (∫ z, Real.log (complexGram (complexSampleMatrix z+M)).det.re ∂stdGaussian _) =
+      ∑ i, ∫ z, Real.log (complexNoncentralSampleEigenvalue M i z) ∂stdGaussian _ := by
+    rw [integral_congr_ae (actualNoncentral_logGramDet_eq_sum_log_ae hn hnm M)]
+    exact integral_finsetSum _ (fun i _ => integrable_actualNoncentral_logEigenvalue hn hnm M i)
+  rw [he]
+  apply (actualNoncentralGramLogDet_expected_offset hn hnm M).congr'
+  filter_upwards [eventually_ge_atTop (0 : ℝ)] with r hr
+  simp only [← funext (actualNoncentralGramLogDet_eq_matrix M r hr)]
+
+theorem actualNoncentralMatrixLogDet_expected_prelog {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => (∫ z, actualNoncentralMatrixLogDet M r z ∂stdGaussian _)/Real.log r)
+      atTop (𝓝 (n : ℝ)) := by
+  apply (actualNoncentralGramLogDet_expected_prelog hn hnm M).congr'
+  filter_upwards [eventually_ge_atTop (0 : ℝ)] with r hr
+  simp only [← funext (actualNoncentralGramLogDet_eq_matrix M r hr)]
+
+end
+end JinWishart
+#print axioms JinWishart.actualNoncentralGramLogDet_eq_matrix
+#print axioms JinWishart.integrable_actualNoncentralMatrixLogDet
+#print axioms JinWishart.actualNoncentral_logGramDet_eq_sum_log_ae
+#print axioms JinWishart.integrable_actualNoncentral_logGramDet
+#print axioms JinWishart.actualNoncentralMatrixLogDet_expected_offset
+#print axioms JinWishart.actualNoncentralMatrixLogDet_expected_prelog

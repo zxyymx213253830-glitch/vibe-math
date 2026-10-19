@@ -1,0 +1,3 @@
+'JinWishart.integrable_log_of_integrable_inverse_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_log_one_add_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_log_add_inverse_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,238 @@
+P4 critical review. Different-model-family reviewer; only concrete issues: missing assumptions, unsupported steps, or statement/proof/model mismatch. Do not rewrite proofs, do not emit tool tags, do not claim independent compilation. All supplied exact final sources have serial Lean exit0 with standard three axioms. Existing theorem names here refer to real pinned checked assets, not assumptions to grant the target conclusion.
+Target: X=Z+M with independent variance-one complex CN Z, arbitrary FIXED deterministic M, m>=N>0 including square m=N. Complete statistic C(rho)=log(Re det(I+rho X^H X)), natural logarithms, rho>=0. Spectral identity is proved, so not merely the weakest-mode log(1+rho lambda_min). Prove integrability, absolute logdet Gram integrability, E C(rho)-N log rho -> E logdet(X^H X), hence E C/logrho->N. This is NOT a derivation of mutual information or a coding theorem under a communication model; not SNR-growing mean or degenerating covariance.
+Selected route: positive inverse HALF moment exists because already proved inverse-minimum real-p criterion is p<m-N+1; do NOT assume E[1/lambda_min] finite in square case. Noncentral Gram trace is norm of shifted standard-real Gaussian squared/2, hence integrable. Each ordered eigenvalue is measurable via a previously proved full complex Weyl continuity result, is bounded above by trace and below by minimum. log integrability uses |log f|<=f+(f^-1)^p/p. Dominated convergence applies to log(f+1/rho), bounded for rho>=1 between log f and log(1+f), with integrable envelope |log f|+f. Finite sums commute with integrals only using proved individual integrability. Unitarly diagonalization and conjugation determinant identity give real logdet, positivity used before log_prod.
+Independent fixedseed2026101921 control200000 per4shapes PASS after correcting unjustified finite-rho0.2 closeness tolerance: finite offset Elogdet/logrho must be subtracted. Original failed control is retained, not a counterexample. Scalar exp(1/rho)E1(1/rho), noncentral trace, spectrum-vs-slogdet and wrong N/2 prelog controls PASS. Numeric controls are not proofs. Earlier P1 call timed out, not an approval. Human measure/variance/model review remains required.
+
+
+FILE LogMomentIntegrability.lean
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.MeasureTheory.Integral.DominatedConvergence
+
+/-! Logarithmic moments from any positive inverse moment, and log-shift continuity.
+Codex. [需人工审查] AE hypotheses and dominated-convergence interpretation.+-/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem integrable_log_of_integrable_inverse_rpow {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α → ℝ) (hf : Integrable f μ)
+    (hfpos : ∀ᵐ a ∂μ, 0 < f a) (p : ℝ) (hp : 0 < p)
+    (hinv : Integrable (fun a => ((f a)⁻¹)^p) μ) :
+    Integrable (fun a => Real.log (f a)) μ := by
+  apply (hf.add (hinv.div_const p)).mono'
+    (Real.measurable_log.comp_aemeasurable hf.aemeasurable).aestronglyMeasurable
+  filter_upwards [hfpos] with a ha
+  change ‖Real.log (f a)‖ ≤ f a+((f a)⁻¹)^p/p
+  rw [Real.norm_eq_abs]
+  have hpow : 0 ≤ ((f a)⁻¹)^p/p := div_nonneg (Real.rpow_nonneg (by positivity) _) hp.le
+  have hu := Real.log_le_sub_one_of_pos ha
+  have hl := Real.log_le_rpow_div (inv_nonneg.mpr ha.le) hp
+  rw [Real.log_inv] at hl
+  exact abs_le.mpr ⟨by linarith,by linarith⟩
+
+theorem integrable_log_one_add_mul {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α → ℝ) (hf : Integrable f μ)
+    (hfnonneg : ∀ᵐ a ∂μ, 0 ≤ f a) (r : ℝ) (hr : 0 ≤ r) :
+    Integrable (fun a => Real.log (1+r*f a)) μ := by
+  apply (hf.const_mul r).mono'
+    (Real.measurable_log.comp_aemeasurable
+      (aemeasurable_const.add (aemeasurable_const.mul hf.aemeasurable))).aestronglyMeasurable
+  filter_upwards [hfnonneg] with a ha
+  change ‖Real.log (1+r*f a)‖ ≤ r*f a
+  have hpos : 0 < 1+r*f a := by positivity
+  rw [Real.norm_eq_abs,abs_of_nonneg (Real.log_nonneg (by nlinarith))]
+  have h := Real.log_le_sub_one_of_pos hpos
+  linarith
+
+theorem integral_log_add_inverse_tendsto {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α → ℝ) (hf : Integrable f μ)
+    (hfpos : ∀ᵐ a ∂μ, 0 < f a) (hlog : Integrable (fun a => Real.log (f a)) μ) :
+    Tendsto (fun r : ℝ => ∫ a, Real.log (f a+r⁻¹) ∂μ) atTop
+      (𝓝 (∫ a, Real.log (f a) ∂μ)) := by
+  apply tendsto_integral_filter_of_dominated_convergence
+    (fun a => |Real.log (f a)|+f a)
+  · exact Filter.Eventually.of_forall (fun r =>
+      (Real.measurable_log.comp_aemeasurable (hf.aemeasurable.add_const _)).aestronglyMeasurable)
+  · filter_upwards [eventually_ge_atTop (1 : ℝ)] with r hr
+    filter_upwards [hfpos] with a ha
+    have hrp : 0 < r := lt_of_lt_of_le zero_lt_one hr
+    have hi : r⁻¹ ≤ 1 := by
+      simpa using one_div_le_one_div_of_le zero_lt_one hr
+    have hpos : 0 < f a+r⁻¹ := by positivity
+    have hl := Real.log_le_log ha (le_add_of_nonneg_right (inv_nonneg.mpr hrp.le))
+    have hu := (Real.log_le_sub_one_of_pos hpos)
+    rw [Real.norm_eq_abs]
+    exact abs_le.mpr ⟨by have := neg_abs_le (Real.log (f a)); linarith,
+      by have := le_abs_self (Real.log (f a)); have := abs_nonneg (Real.log (f a)); linarith⟩
+  · exact hlog.abs.add hf
+  · filter_upwards [hfpos] with a ha
+    have ht : Tendsto (fun r : ℝ => f a+r⁻¹) atTop (𝓝 (f a)) := by
+      simpa using (tendsto_const_nhds.add tendsto_inv_atTop_zero :
+        Tendsto (fun r : ℝ => f a+r⁻¹) atTop (𝓝 (f a+0)))
+    exact (Real.continuousAt_log ha.ne').tendsto.comp ht
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_log_of_integrable_inverse_rpow
+#print axioms JinWishart.integrable_log_one_add_mul
+#print axioms JinWishart.integral_log_add_inverse_tendsto
+
+
+FILE FiniteSpectrumLogDetGrowth.lean
+import JinWishartFormalization.LogMomentIntegrability
+
+/-! Finite spectral log sum: integrability, high-scale offset and prelog.
+Codex. This is an abstract finite-spectrum theorem, not a channel coding theorem.
+[需人工审查] Probability integral and limit interpretation.
+-/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def finiteSpectrumLogDet {ι : Type*} [Fintype ι] (l : ι → ℝ) (r : ℝ) : ℝ :=
+  ∑ i, Real.log (1+r*l i)
+
+theorem integrable_finiteSpectrumLogDet {α ι : Type*} [MeasurableSpace α] [Fintype ι]
+    (μ : Measure α) (f : ι → α → ℝ) (hf : ∀ i, Integrable (f i) μ)
+    (hpos : ∀ i, ∀ᵐ a ∂μ, 0 < f i a) (r : ℝ) (hr : 0 ≤ r) :
+    Integrable (fun a => finiteSpectrumLogDet (fun i => f i a) r) μ := by
+  exact integrable_finsetSum _ (fun i _ =>
+    integrable_log_one_add_mul μ (f i) (hf i) ((hpos i).mono (fun _ h => h.le)) r hr)
+
+theorem integral_finiteSpectrumLogDet_offset_tendsto {α ι : Type*}
+    [MeasurableSpace α] [Fintype ι] (μ : Measure α) [IsProbabilityMeasure μ]
+    (f : ι → α → ℝ) (hf : ∀ i, Integrable (f i) μ)
+    (hpos : ∀ i, ∀ᵐ a ∂μ, 0 < f i a)
+    (hlog : ∀ i, Integrable (fun a => Real.log (f i a)) μ) :
+    Tendsto (fun r : ℝ => (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ)-
+      (Fintype.card ι : ℝ)*Real.log r) atTop
+      (𝓝 (∑ i, ∫ a, Real.log (f i a) ∂μ)) := by
+  classical
+  have ht := tendsto_finsetSum Finset.univ (fun i _ =>
+    integral_log_add_inverse_tendsto μ (f i) (hf i) (hpos i) (hlog i))
+  apply ht.congr'
+  filter_upwards [eventually_ge_atTop (1 : ℝ)] with r hr
+  have hrp : 0 < r := lt_of_lt_of_le zero_lt_one hr
+  have hi (i : ι) := integrable_log_one_add_mul μ (f i) (hf i)
+    ((hpos i).mono (fun _ h => h.le)) r hrp.le
+  have he (i : ι) : (∫ a, Real.log (1+r*f i a) ∂μ)-Real.log r =
+      ∫ a, Real.log (f i a+r⁻¹) ∂μ := by
+    calc
+      _ = ∫ a, (Real.log (1+r*f i a)-Real.log r) ∂μ := by
+        rw [integral_sub (hi i) (integrable_const _)]
+        simp
+      _ = _ := integral_congr_ae ((hpos i).mono (fun a ha => by
+        have hp : 0 < f i a+r⁻¹ := by positivity
+        change Real.log (1+r*f i a)-Real.log r = Real.log (f i a+r⁻¹)
+        rw [show 1+r*f i a=r*(f i a+r⁻¹) by field_simp [hrp.ne']; ring,
+          Real.log_mul hrp.ne' hp.ne']
+        ring))
+  rw [show (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ)=
+      ∑ i, ∫ a, Real.log (1+r*f i a) ∂μ from integral_finsetSum _ (fun i _ => hi i)]
+  simp_rw [← he]
+  simp [Finset.sum_sub_distrib]
+
+theorem integral_finiteSpectrumLogDet_prelog {α ι : Type*}
+    [MeasurableSpace α] [Fintype ι] (μ : Measure α) [IsProbabilityMeasure μ]
+    (f : ι → α → ℝ) (hf : ∀ i, Integrable (f i) μ)
+    (hpos : ∀ i, ∀ᵐ a ∂μ, 0 < f i a)
+    (hlog : ∀ i, Integrable (fun a => Real.log (f i a)) μ) :
+    Tendsto (fun r : ℝ => (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ)/Real.log r)
+      atTop (𝓝 (Fintype.card ι : ℝ)) := by
+  have ht := (integral_finiteSpectrumLogDet_offset_tendsto μ f hf hpos hlog).div_atTop
+    Real.tendsto_log_atTop
+  have hs := (tendsto_const_nhds : Tendsto (fun _ : ℝ => (Fintype.card ι : ℝ))
+    atTop (𝓝 (Fintype.card ι : ℝ))).add ht
+  apply (show Tendsto (fun r : ℝ => (Fintype.card ι : ℝ)+
+      ((∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ)-
+        (Fintype.card ι : ℝ)*Real.log r)/Real.log r) atTop
+      (𝓝 (Fintype.card ι : ℝ)) by simpa using hs).congr'
+  filter_upwards [eventually_gt_atTop (1 : ℝ)] with r hr
+  have hlogr := (Real.log_pos hr).ne'
+  field_simp
+  <;> ring
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_finiteSpectrumLogDet
+#print axioms JinWishart.integral_finiteSpectrumLogDet_offset_tendsto
+#print axioms JinWishart.integral_finiteSpectrumLogDet_prelog
+
+
+FILE HermitianSpectralLogDet.lean
+import JinWishartFormalization.FiniteSpectrumLogDetGrowth
+import JinWishartFormalization.WishartProbability
+
+/-! The full spectral log sum is the real logarithm of the matrix determinant.
+Codex deterministic spectral algebra; no probability density assumptions. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem hermitian_det_one_add_smul_eigenvalues {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian) (r : ℝ) :
+    (1+(r : ℂ) • A).det = ((∏ i, (1+r*hA.eigenvalues₀ i) : ℝ) : ℂ) := by
+  classical
+  let U := hA.eigenvectorUnitary
+  let D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hA.eigenvalues)
+  have he : 1+(r : ℂ) • A = Unitary.conjStarAlgAut ℂ _ U (1+(r : ℂ) • D) := by
+    rw [map_add,map_one,map_smul]
+    rw [← hA.spectral_theorem]
+  have hu := congrArg Matrix.det (Unitary.coe_mul_star_self U)
+  simp only [Matrix.det_mul,Matrix.det_one] at hu
+  rw [Unitary.coe_star] at hu
+  have hd : (1+(r : ℂ) • D).det = ((∏ i, (1+r*hA.eigenvalues i) : ℝ) : ℂ) := by
+    have hdiag : 1+(r : ℂ) • D = diagonal (fun i => ((1+r*hA.eigenvalues i : ℝ) : ℂ)) := by
+      ext i j
+      by_cases hij : i=j
+      · subst j
+        simp [D,Matrix.add_apply,Matrix.smul_apply,Matrix.diagonal_apply]
+      · simp [D,Matrix.add_apply,Matrix.smul_apply,Matrix.diagonal_apply,Matrix.one_apply,hij]
+    rw [hdiag,Matrix.det_diagonal]
+    norm_cast
+  rw [he,Unitary.conjStarAlgAut_apply,Matrix.det_mul,Matrix.det_mul]
+  calc
+    _ = (1+(r : ℂ) • D).det * ((U : Matrix (Fin n) (Fin n) ℂ).det*
+        (star (U : Matrix (Fin n) (Fin n) ℂ)).det) := by ring
+    _ = (1+(r : ℂ) • D).det := by rw [hu,mul_one]
+    _ = _ := by
+      rw [hd]
+      congr 1
+      exact Equiv.prod_comp (Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))).symm
+        (fun i => 1+r*hA.eigenvalues₀ i)
+
+theorem gram_real_logdet_eq_spectral {m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ)
+    (r : ℝ) (hr : 0 ≤ r) :
+    Real.log ((1+(r : ℂ) • complexGram X).det.re) =
+      finiteSpectrumLogDet (complexGram_posSemidef X).1.eigenvalues₀ r := by
+  rw [hermitian_det_one_add_smul_eigenvalues _ (complexGram_posSemidef X).1]
+  simp only [Complex.ofReal_re,finiteSpectrumLogDet]
+  exact Real.log_prod (fun i _ => (show 0 < 1+r*(complexGram_posSemidef X).1.eigenvalues₀ i by
+    have := complexGram_eigenvalues₀_nonneg X i
+    positivity).ne')
+
+theorem hermitian_det_eq_prod_ordered {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian) :
+    A.det = ((∏ i, hA.eigenvalues₀ i : ℝ) : ℂ) := by
+  classical
+  rw [hA.det_eq_prod_eigenvalues]
+  push_cast
+  exact Equiv.prod_comp (Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))).symm
+    (fun i => (hA.eigenvalues₀ i : ℂ))
+
+theorem hermitian_real_logdet_eq_sum_log {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian)
+    (hpos : ∀ i, 0 < hA.eigenvalues₀ i) :
+    Real.log A.det.re = ∑ i, Real.log (hA.eigenvalues₀ i) := by
+  rw [hermitian_det_eq_prod_ordered A hA]
+  simp only [Complex.ofReal_re]
+  exact Real.log_prod (fun i _ => (hpos i).ne')
+
+end
+end JinWishart
+#print axioms JinWishart.hermitian_det_one_add_smul_eigenvalues
+#print axioms JinWishart.gram_real_logdet_eq_spectral
+#print axioms JinWishart.hermitian_det_eq_prod_ordered
+#print axioms JinWishart.hermitian_real_logdet_eq_sum_log

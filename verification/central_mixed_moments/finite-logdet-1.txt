@@ -1,0 +1,108 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumLogDetGrowth.lean:46:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  1 + r * f i a
+in the target expression
+  (fun a => Real.log (1 + r * f i a) - Real.log r) a = Real.log (f i a + r⁻¹)
+
+α : Type u_1
+ι : Type u_2
+inst✝² : MeasurableSpace α
+inst✝¹ : Fintype ι
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : ι → α → ℝ
+hf : ∀ (i : ι), Integrable (f i) μ
+hpos : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 < f i a
+hlog : ∀ (i : ι), Integrable (fun a => Real.log (f i a)) μ
+ht : Tendsto (fun b => ∑ c, ∫ (a : α), Real.log (f c a + b⁻¹) ∂μ) atTop (𝓝 (∑ c, ∫ (a : α), Real.log (f c a) ∂μ))
+r : ℝ
+hr : 1 ≤ r
+hrp : 0 < r
+hi : ∀ (i : ι), Integrable (fun a => Real.log (1 + r * f i a)) μ
+i : ι
+a : α
+ha : 0 < f i a
+hp : 0 < f i a + r⁻¹
+⊢ (fun a => Real.log (1 + r * f i a) - Real.log r) a = Real.log (f i a + r⁻¹)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumLogDetGrowth.lean:49:2: error: `dsimp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumLogDetGrowth.lean:64:13: error: don't know how to synthesize implicit argument `a`
+  @Tendsto.add ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.instAdd
+    (IsTopologicalRing.toIsSemitopologicalRing ℝ).toContinuousAdd ℝ (fun x => ?m.82)
+    (fun x => (∫ (a : α), finiteSpectrumLogDet (fun i => f i a) x ∂μ - ↑(Fintype.card ι) * Real.log x) / Real.log x)
+    atTop ?m.82 0 tendsto_const_nhds ht
+context:
+α : Type u_1
+ι : Type u_2
+inst✝² : MeasurableSpace α
+inst✝¹ : Fintype ι
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : ι → α → ℝ
+hf : ∀ (i : ι), Integrable (f i) μ
+hpos : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 < f i a
+hlog : ∀ (i : ι), Integrable (fun a => Real.log (f i a)) μ
+ht :
+  Tendsto
+    (fun x => (∫ (a : α), finiteSpectrumLogDet (fun i => f i a) x ∂μ - ↑(Fintype.card ι) * Real.log x) / Real.log x)
+    atTop (𝓝 0)
+⊢ ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumLogDetGrowth.lean:64:13: error: don't know how to synthesize implicit argument `f`
+  @Tendsto.add ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.instAdd
+    (IsTopologicalRing.toIsSemitopologicalRing ℝ).toContinuousAdd ℝ (fun x => ?m.82)
+    (fun x => (∫ (a : α), finiteSpectrumLogDet (fun i => f i a) x ∂μ - ↑(Fintype.card ι) * Real.log x) / Real.log x)
+    atTop ?m.82 0 tendsto_const_nhds ht
+context:
+α : Type u_1
+ι : Type u_2
+inst✝² : MeasurableSpace α
+inst✝¹ : Fintype ι
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : ι → α → ℝ
+hf : ∀ (i : ι), Integrable (f i) μ
+hpos : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 < f i a
+hlog : ∀ (i : ι), Integrable (fun a => Real.log (f i a)) μ
+ht :
+  Tendsto
+    (fun x => (∫ (a : α), finiteSpectrumLogDet (fun i => f i a) x ∂μ - ↑(Fintype.card ι) * Real.log x) / Real.log x)
+    atTop (𝓝 0)
+⊢ ℝ → ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumLogDetGrowth.lean:64:32: error: don't know how to synthesize placeholder
+context:
+α : Type u_1
+ι : Type u_2
+inst✝² : MeasurableSpace α
+inst✝¹ : Fintype ι
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : ι → α → ℝ
+hf : ∀ (i : ι), Integrable (f i) μ
+hpos : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 < f i a
+hlog : ∀ (i : ι), Integrable (fun a => Real.log (f i a)) μ
+ht :
+  Tendsto
+    (fun x => (∫ (a : α), finiteSpectrumLogDet (fun i => f i a) x ∂μ - ↑(Fintype.card ι) * Real.log x) / Real.log x)
+    atTop (𝓝 0)
+⊢ ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumLogDetGrowth.lean:64:7: error: failed to infer `have` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumLogDetGrowth.lean:61:40: error: unsolved goals
+α : Type u_1
+ι : Type u_2
+inst✝² : MeasurableSpace α
+inst✝¹ : Fintype ι
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : ι → α → ℝ
+hf : ∀ (i : ι), Integrable (f i) μ
+hpos : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 < f i a
+hlog : ∀ (i : ι), Integrable (fun a => Real.log (f i a)) μ
+ht :
+  Tendsto
+    (fun x => (∫ (a : α), finiteSpectrumLogDet (fun i => f i a) x ∂μ - ↑(Fintype.card ι) * Real.log x) / Real.log x)
+    atTop (𝓝 0)
+⊢ Tendsto (fun r => (∫ (a : α), finiteSpectrumLogDet (fun i => f i a) r ∂μ) / Real.log r) atTop (𝓝 ↑(Fintype.card ι))
+'JinWishart.integrable_finiteSpectrumLogDet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_offset_tendsto' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_prelog' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

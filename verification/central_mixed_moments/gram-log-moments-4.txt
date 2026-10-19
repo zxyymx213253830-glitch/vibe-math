@@ -1,0 +1,6 @@
+'JinWishart.measurable_actualNoncentralEigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentralGram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralEigenvalue_le_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimum_le_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentralEigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentral_logEigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]

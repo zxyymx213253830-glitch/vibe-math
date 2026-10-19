@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "GaussianGramLogMoments.lean": {
+      "sha256": "c5d90a52340e410b35daa565a612efd763fb8b3d3aae121f8a38553f687f5af8",
+      "supplied": "Full source"
+    },
+    "NoncentralGramLogDetGrowth.lean": {
+      "sha256": "00c1ed799c70f6523888bce47a08c8195c2138fca4c829b9801febeed32f505b",
+      "supplied": "Full source"
+    },
+    "ActualGramLogDet.lean": {
+      "sha256": "b706213554df85b4830836fafad31edf90553337b716a3e85306e08719a8c6b3",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7d6b6762fc068962ad2ba966c23143bd5e94d78a45139b8f4122fc261b963ee1"
+}

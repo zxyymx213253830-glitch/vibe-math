@@ -1,0 +1,5 @@
+{
+  "status": "FAIL finite-rho tolerance in new experiment, not a mathematical counterexample",
+  "source_sha256": "c391b02f2d3b567d26d27ebb3975fc00ad06e12b54c94bf3de2ab78009e52dba",
+  "reason": "Unjustified absolute 0.2 tolerance for prelog at rho1e8 omitted nonzero Elogdet/logrho correction. Independent spectrum/scalar/trace and offset controls preceding this check passed. Fix is to check the exact sample offset plus vanishing positive correction, not assume asymptotic limit is already close at a selected finite rho."
+}

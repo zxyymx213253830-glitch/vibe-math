@@ -1,0 +1,68 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMomentIntegrability.lean:24:23: error: linarith failed to find a contradiction
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hf : Integrable f μ
+hfpos : ∀ᵐ (a : α) ∂μ, 0 < f a
+p : ℝ
+hp : 0 < p
+hinv : Integrable (fun a => (f a)⁻¹ ^ p) μ
+a : α
+ha : 0 < f a
+hpow : 0 ≤ (f a)⁻¹ ^ p / p
+hu : Real.log (f a) ≤ f a - 1
+hl : -Real.log (f a) ≤ (f a)⁻¹ ^ p / p
+a✝ : (Real.log ∘ f) a < -(f + fun x => (f x)⁻¹ ^ p / p) a
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMomentIntegrability.lean:24:35: error: linarith failed to find a contradiction
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hf : Integrable f μ
+hfpos : ∀ᵐ (a : α) ∂μ, 0 < f a
+p : ℝ
+hp : 0 < p
+hinv : Integrable (fun a => (f a)⁻¹ ^ p) μ
+a : α
+ha : 0 < f a
+hpow : 0 ≤ (f a)⁻¹ ^ p / p
+hu : Real.log (f a) ≤ f a - 1
+hl : -Real.log (f a) ≤ (f a)⁻¹ ^ p / p
+a✝ : (f + fun x => (f x)⁻¹ ^ p / p) a < (Real.log ∘ f) a
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMomentIntegrability.lean:35:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |Real.log ?m.152|
+in the target expression
+  |(Real.log ∘ ((fun _a => 1) + (fun _a => r) * f)) a| ≤ r * f a
+
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hf : Integrable f μ
+hfnonneg : ∀ᵐ (a : α) ∂μ, 0 ≤ f a
+r : ℝ
+hr : 0 ≤ r
+a : α
+ha : 0 ≤ f a
+hpos : 0 < 1 + r * f a
+⊢ |(Real.log ∘ ((fun _a => 1) + (fun _a => r) * f)) a| ≤ r * f a
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogMomentIntegrability.lean:62:6: error: Application type mismatch: The argument
+  Tendsto.add tendsto_const_nhds tendsto_inv_atTop_zero
+has type
+  Tendsto (fun x => ?m.373 + x⁻¹) atTop (𝓝 (?m.373 + 0))
+but is expected to have type
+  Tendsto (fun n => f a + n⁻¹) atTop (𝓝 (f a))
+in the application
+  Tendsto.comp (ContinuousAt.tendsto (Real.continuousAt_log (LT.lt.ne' ha)))
+    (Tendsto.add tendsto_const_nhds tendsto_inv_atTop_zero)
+'JinWishart.integrable_log_of_integrable_inverse_rpow' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_log_one_add_mul' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_log_add_inverse_tendsto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

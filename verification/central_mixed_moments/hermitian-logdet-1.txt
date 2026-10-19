@@ -1,0 +1,64 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralLogDet.lean:27:8: error: No goals to be solved
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralLogDet.lean:33:86: error: unsolved goals
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+r : ℝ
+U : ↥(unitaryGroup (Fin n) ℂ) := hA.eigenvectorUnitary
+D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hA.eigenvalues)
+he : 1 + ↑r • A = ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) U) (1 + ↑r • D)
+hu : (↑U).det * (↑(star U)).det = 1
+hd : (1 + ↑r • D).det = ↑(∏ i, (1 + r * hA.eigenvalues i))
+⊢ (↑U).det * (1 + ↑r • D).det * (star ↑U).det = (1 + ↑r • D).det * det ?m.321 * (star ?m.331).det
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralLogDet.lean:34:38: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (↑U).det * (↑(star U)).det
+in the target expression
+  (1 + ↑r • D).det * (det ?m.321 * (star ?m.331).det) = (1 + ↑r • D).det
+
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+r : ℝ
+U : ↥(unitaryGroup (Fin n) ℂ) := hA.eigenvectorUnitary
+D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hA.eigenvalues)
+he : 1 + ↑r • A = ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) U) (1 + ↑r • D)
+hu : (↑U).det * (↑(star U)).det = 1
+hd : (1 + ↑r • D).det = ↑(∏ i, (1 + r * hA.eigenvalues i))
+⊢ (1 + ↑r • D).det * (det ?m.321 * (star ?m.331).det) = (1 + ↑r • D).det
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralLogDet.lean:33:60: error: Application type mismatch: The argument
+  U
+has type
+  ↥(unitaryGroup (Fin n) ℂ)
+but is expected to have type
+  Matrix ?m.332 ?m.332 ℂ
+in the application
+  star U
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralLogDet.lean:26:51: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralLogDet.lean:28:51: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralLogDet.lean:28:73: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply, Matrix.diagonal_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.hermitian_det_one_add_smul_eigenvalues' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gram_real_logdet_eq_spectral' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

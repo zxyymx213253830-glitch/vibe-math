@@ -1,0 +1,85 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramLogMoments.lean:27:27: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramLogMoments.lean:46:4: error: Type mismatch: After simplification, term
+  Equiv.sum_comp e fun j => h.eigenvalues j
+ has type
+  ∑ i, h.eigenvalues₀ ((Fintype.equivOfCardEq ⋯).symm (e i)) = ∑ i, h.eigenvalues₀ ((Fintype.equivOfCardEq ⋯).symm i)
+but is expected to have type
+  ∑ j, h.eigenvalues₀ j = ∑ j, h.eigenvalues₀ ((Fintype.equivOfCardEq ⋯).symm j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramLogMoments.lean:50:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ j, h.eigenvalues j
+in the target expression
+  (complexGram (complexSampleMatrix z + M)).trace.re = ∑ i, (↑(h.eigenvalues i)).re
+
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+i : Fin (Fintype.card (Fin n))
+z : ComplexSample
+h : (complexGram (complexSampleMatrix z + M)).IsHermitian := (complexGram_posSemidef (complexSampleMatrix z + M)).left
+e : Fin (Fintype.card (Fin n)) ≃ Fin n := Fintype.equivOfCardEq ⋯
+hs : ∑ j, h.eigenvalues₀ j = ∑ j, h.eigenvalues j
+ht : (complexGram (complexSampleMatrix z + M)).trace.re = ∑ i, (↑(h.eigenvalues i)).re
+⊢ complexNoncentralSampleEigenvalue M i z ≤ (complexGram (complexSampleMatrix z + M)).trace.re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramLogMoments.lean:49:28: warning: This simp argument is unused:
+  Complex.ofReal_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.re_sum] at ht
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramLogMoments.lean:65:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 1
+  b ≥ 0
+  b - c ≤ -1
+  b - d ≥ 1
+  a ≥ 1
+  a - b ≥ 1
+where
+ a := ↑n
+ b := ↑↑i
+ c := ↑(Fintype.card (Fin n))
+ d := ↑↑(Fin.cast ⋯ (Fin.last (Fintype.card (Fin n) - 1)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramLogMoments.lean:86:4: error: Type mismatch
+  Filter.mp_mem hpos ?m.114
+has type
+  ?m.119 ∈ ae (stdGaussian ComplexSample)
+but is expected to have type
+  Integrable (fun a => (complexNoncentralSampleEigenvalue M i a)⁻¹ ^ (1 / 2)) (stdGaussian ComplexSample)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianGramLogMoments.lean:88:4: error: Tactic `apply` failed: could not unify the conclusion of `Integrable.mono' hmin
+  (Measurable.aestronglyMeasurable
+    (Measurable.pow_const (Measurable.inv (measurable_actualNoncentralEigenvalue M i)) (1 / 2)))`
+  Integrable (fun x => (complexNoncentralSampleEigenvalue M i)⁻¹ x ^ (1 / 2)) (stdGaussian ComplexSample)
+with the goal
+  ∀ᵐ (a : ComplexSample) ∂stdGaussian ComplexSample, 0 < complexNoncentralSampleEigenvalue M i a
+
+Note: The full type of `Integrable.mono' hmin
+  (Measurable.aestronglyMeasurable
+    (Measurable.pow_const (Measurable.inv (measurable_actualNoncentralEigenvalue M i)) (1 / 2)))` is
+  (∀ᵐ (a : ComplexSample) ∂stdGaussian ComplexSample,
+      ‖(complexNoncentralSampleEigenvalue M i)⁻¹ a ^ (1 / 2)‖ ≤
+        (complexNoncentralSampleSmallestEigenvalue M hn a)⁻¹ ^ (1 / 2)) →
+    Integrable (fun x => (complexNoncentralSampleEigenvalue M i)⁻¹ x ^ (1 / 2)) (stdGaussian ComplexSample)
+
+m n : ℕ
+hn : 0 < n
+hnm : n ≤ m
+M : Matrix (Fin m) (Fin n) ℂ
+i : Fin (Fintype.card (Fin n))
+hpos : ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample, 0 < complexNoncentralSampleSmallestEigenvalue M hn z
+hmin : Integrable (fun z => (complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹ ^ (1 / 2)) (stdGaussian ComplexSample)
+⊢ ∀ᵐ (a : ComplexSample) ∂stdGaussian ComplexSample, 0 < complexNoncentralSampleEigenvalue M i a
+'JinWishart.measurable_actualNoncentralEigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentralGram_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralEigenvalue_le_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralMinimum_le_eigenvalue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentralEigenvalue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualNoncentral_logEigenvalue' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

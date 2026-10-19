@@ -1,5 +1,7 @@
 # Library contributions and the next paper revision
 
+Latest349 bounditems/facade27: actual full matrix logdet statistic log(Re det(I+rho X^H X)), arbitrary fixed mean, m>=N>0, has finite expected offset limit ElogdetGram after subtracting Nlogrho, hence prelog N. LogdetGram absolutely integrable including square case via inverse HALF moment. Not merely weakest-mode outage, but also not a communication mutual-information/coding derivation. Generic wrappers reuse mathlib Lp/DCT/spectral theorem; no upstream novelty claim. Final6-source P4 responses retained and specific warnings resolved; humanreview REQUIRED. See WISHART_LOGDET_EXPECTATION.md. Frozenpublication/full-build status unchanged.
+
 Checkpoint2026-10-19, research bundle305 items. This is a source-based plan,
 not a claim of an accepted mathlib contribution or a new probability theorem.
 Frozen manuscript, PDF and submission archives have not been regenerated.

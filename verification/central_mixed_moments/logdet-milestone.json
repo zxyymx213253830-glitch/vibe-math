@@ -1,0 +1,24 @@
+{
+  "collected_utc": "2026-10-19T14:50:59.079902+00:00",
+  "leaf_final_exits": {
+    "log-moment-2": 0,
+    "gram-log-moments-4": 0,
+    "finite-logdet-2": 0,
+    "noncentral-logdet-2": 0,
+    "hermitian-logdet-3": 0,
+    "actual-logdet-1": 0
+  },
+  "main_entry": {
+    "log": "facade-27.txt",
+    "actual_exit_code": 0,
+    "output_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+  },
+  "new_declarations": 25,
+  "total_bound_items": 349,
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED",
+  "human_review": "REQUIRED",
+  "proof_author": "Codex",
+  "p1": "One Qoder request timed out exit124; no valid route response.",
+  "p4": "Two exact final-source real responses delivered, false domination and conditional import warnings individually resolved; not human or independent compile."
+}

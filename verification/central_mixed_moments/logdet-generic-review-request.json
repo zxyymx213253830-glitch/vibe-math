@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "LogMomentIntegrability.lean": {
+      "sha256": "95b0e15c9244d02cfd9af67b0a0fede5ced3a87b54b378cb73289640613bdb58",
+      "supplied": "Full source"
+    },
+    "FiniteSpectrumLogDetGrowth.lean": {
+      "sha256": "59226ecd38b4fb1a42e059c072c9366b9275f52d1bdd18963b4252dcd717736e",
+      "supplied": "Full source"
+    },
+    "HermitianSpectralLogDet.lean": {
+      "sha256": "dd20a5edc505618069756c5fa4e84374764c62091ca328e960f784e19491708d",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "aec4dba3230d7042c9d12bf3aac76d5a2f595217a03a2276ffecb522f17f26f1"
+}

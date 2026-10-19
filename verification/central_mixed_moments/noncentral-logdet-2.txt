@@ -1,0 +1,3 @@
+'JinWishart.integrable_actualNoncentralGramLogDet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralGramLogDet_expected_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralGramLogDet_expected_prelog' depends on axioms: [propext, Classical.choice, Quot.sound]
