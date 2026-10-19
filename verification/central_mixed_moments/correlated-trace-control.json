@@ -1,0 +1,74 @@
+{
+  "seed": 2026101926,
+  "samples_per_shape": 200000,
+  "source_sha256": "180ab43ba5a5587d6ba5a1434eae7b48b47aa420ae243fb9c1fad519f8f1afff",
+  "status": "PASS actual rectangular/singular/zero-factor moments and independent Gamma control; NOT Lean proof",
+  "model": "Z m-by-p iid CN(0,1), B p-by-n fixed, X=ZB+M; Sigma=B^H B",
+  "records": [
+    {
+      "m": 1,
+      "p": 3,
+      "n": 3,
+      "kind": "identity",
+      "rank": 3,
+      "mean_power": 3.0,
+      "trace_variance": 3.0,
+      "second_spectral": 12.0,
+      "observed_mean": 3.0030103710087186,
+      "observed_variance": 3.0001269580735515,
+      "observed_second_spectral": 12.018189184125863
+    },
+    {
+      "m": 2,
+      "p": 2,
+      "n": 3,
+      "kind": "rectangular",
+      "rank": 2,
+      "mean_power": 5.626388888888889,
+      "trace_variance": 14.479706790123457,
+      "second_spectral": 44.79531828703704,
+      "observed_mean": 5.624777773405022,
+      "observed_variance": 14.471027570249136,
+      "observed_second_spectral": 44.76693288597148
+    },
+    {
+      "m": 3,
+      "p": 4,
+      "n": 2,
+      "kind": "rectangular",
+      "rank": 2,
+      "mean_power": 10.355555555555556,
+      "trace_variance": 33.40207368827161,
+      "second_spectral": 135.9626215277778,
+      "observed_mean": 10.358916940570953,
+      "observed_variance": 33.20317601555688,
+      "observed_second_spectral": 135.83660513107807
+    },
+    {
+      "m": 2,
+      "p": 2,
+      "n": 2,
+      "kind": "singular",
+      "rank": 1,
+      "mean_power": 4.510416666666666,
+      "trace_variance": 10.112326388888889,
+      "second_spectral": 30.400898437499997,
+      "observed_mean": 4.499334707529684,
+      "observed_variance": 10.016741664342502,
+      "observed_second_spectral": 30.205585600783508
+    },
+    {
+      "m": 2,
+      "p": 2,
+      "n": 3,
+      "kind": "zero",
+      "rank": 0,
+      "mean_power": 0.12638888888888888,
+      "trace_variance": 0.0,
+      "second_spectral": 0.01576581790123457,
+      "observed_mean": 0.1263888888888889,
+      "observed_variance": 0.0,
+      "observed_second_spectral": 0.01576581790123457
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CorrelatedGramMean.lean": {
+      "sha256": "505dafd8843320a34f480d92f8eeb108a66863d9fe24973f5a2acd1c2c2f0d03",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a539cb37bb508e992bd21bd3917ad7e14ad42e92c14f1889572d9dc8ed8c8e15"
+}

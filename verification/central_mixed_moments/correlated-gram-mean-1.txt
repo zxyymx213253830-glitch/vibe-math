@@ -1,0 +1,85 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramMean.lean:41:6: error: Tactic `apply` failed: could not unify the conclusion of `Finset.sum_congr rfl`
+  Finset.sum ?m.392 ?m.389 = Finset.sum ?m.392 ?m.390
+with the goal
+  ∑ x,
+      (∑ i_1,
+          MvPolynomial.X (Sum.inr (k, i_1)) * MvPolynomial.C (star (B i_1 i)) *
+            (MvPolynomial.X (Sum.inl (k, x)) * MvPolynomial.C (B x j)) +
+        MvPolynomial.C (star (M k i)) * (MvPolynomial.X (Sum.inl (k, x)) * MvPolynomial.C (B x j))) =
+    ∑ x,
+          ∑ x_1,
+            MvPolynomial.C (star (B x i)) * MvPolynomial.C (B x_1 j) *
+              (MvPolynomial.X (Sum.inl (k, x_1)) * MvPolynomial.X (Sum.inr (k, x))) +
+        ∑ x, MvPolynomial.C (star (B x i)) * MvPolynomial.C (M k j) * MvPolynomial.X (Sum.inr (k, x)) +
+      ∑ x, MvPolynomial.C (star (M k i)) * MvPolynomial.C (B x j) * MvPolynomial.X (Sum.inl (k, x))
+
+Note: The full type of `Finset.sum_congr rfl` is
+  (∀ x ∈ ?m.392, ?m.389 x = ?m.390 x) → Finset.sum ?m.392 ?m.389 = Finset.sum ?m.392 ?m.390
+
+case e_a
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+k : Fin m
+i j : Fin n
+⊢ ∑ x,
+      (∑ i_1,
+          MvPolynomial.X (Sum.inr (k, i_1)) * MvPolynomial.C (star (B i_1 i)) *
+            (MvPolynomial.X (Sum.inl (k, x)) * MvPolynomial.C (B x j)) +
+        MvPolynomial.C (star (M k i)) * (MvPolynomial.X (Sum.inl (k, x)) * MvPolynomial.C (B x j))) =
+    ∑ x,
+          ∑ x_1,
+            MvPolynomial.C (star (B x i)) * MvPolynomial.C (B x_1 j) *
+              (MvPolynomial.X (Sum.inl (k, x_1)) * MvPolynomial.X (Sum.inr (k, x))) +
+        ∑ x, MvPolynomial.C (star (B x i)) * MvPolynomial.C (M k j) * MvPolynomial.X (Sum.inr (k, x)) +
+      ∑ x, MvPolynomial.C (star (M k i)) * MvPolynomial.C (B x j) * MvPolynomial.X (Sum.inl (k, x))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramMean.lean:46:6: error: Tactic `apply` failed: could not unify the conclusion of `Finset.sum_congr rfl`
+  Finset.sum ?m.402 ?m.399 = Finset.sum ?m.402 ?m.400
+with the goal
+  ∑ i_1, MvPolynomial.X (Sum.inr (k, i_1)) * MvPolynomial.C (star (B i_1 i)) * MvPolynomial.C (M k j) +
+      MvPolynomial.C (star (M k i)) * MvPolynomial.C (M k j) =
+    MvPolynomial.C (star (M k i)) * MvPolynomial.C (M k j)
+
+Note: The full type of `Finset.sum_congr rfl` is
+  (∀ x ∈ ?m.402, ?m.399 x = ?m.400 x) → Finset.sum ?m.402 ?m.399 = Finset.sum ?m.402 ?m.400
+
+case e_a
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+k : Fin m
+i j : Fin n
+⊢ ∑ i_1, MvPolynomial.X (Sum.inr (k, i_1)) * MvPolynomial.C (star (B i_1 i)) * MvPolynomial.C (M k j) +
+      MvPolynomial.C (star (M k i)) * MvPolynomial.C (M k j) =
+    MvPolynomial.C (star (M k i)) * MvPolynomial.C (M k j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramMean.lean:49:4: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramMean.lean:59:35: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hL, complexGaussianPolynomialMoment_X_conj_X, complexGaussianPolynomialMoment_X,
+    complexGaussianPolynomialMoment_C, Prod.mk.injEq, true_and, smul_eq_mul, mul_zero, Finset.sum_const_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramMean.lean:78:53: error: unsolved goals
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+i j : Fin n
+z : ComplexSample
+⊢ ∑ x,
+      (∑ x_1, (starRingEnd ℂ) (complexSampleMatrix z x x_1) * (starRingEnd ℂ) (B x_1 i) + (starRingEnd ℂ) (M x i)) *
+        (∑ x_1, complexSampleMatrix z x x_1 * B x_1 j + M x j) =
+    ∑ j_1,
+      (∑ j, (starRingEnd ℂ) (B j i) * (starRingEnd ℂ) (complexSampleMatrix z j_1 j) + (starRingEnd ℂ) (M j_1 i)) *
+        (∑ j_2, complexSampleMatrix z j_1 j_2 * B j_2 j + M j_1 j)
+'JinWishart.complexGaussianMoment_correlated_row_pair' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMoment_correlatedGramEntryPolynomial' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.eval_correlatedGramEntryPolynomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_entry' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

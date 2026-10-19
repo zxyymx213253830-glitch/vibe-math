@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramMean.lean:76:35: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hL, complexGaussianPolynomialMoment_X_conj_X, complexGaussianPolynomialMoment_X,
+    complexGaussianPolynomialMoment_C, Prod.mk.injEq, true_and, smul_eq_mul, mul_zero, Finset.sum_const_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianMoment_correlated_row_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMoment_correlatedGramEntryPolynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.eval_correlatedGramEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedGram_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_entry' depends on axioms: [propext, Classical.choice, Quot.sound]

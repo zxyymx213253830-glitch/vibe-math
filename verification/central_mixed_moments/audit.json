@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T17:55:05.201142+00:00",
-  "spec_sha256": "6428921f5c32685047816628ba97ad67c5fef3663573d5b075562594160b3d4c",
+  "collected_utc": "2026-10-19T18:01:57.348217+00:00",
+  "spec_sha256": "d397675b1b8baf81038a52a51fa629d199d3256094206954d6330d13949fa8a5",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -6098,9 +6098,76 @@
           "sha256": "1fe0441d2545987843a5fa6dc3cec6d9daa6cb7420e86d9390ecd402b8c19a35"
         }
       }
+    },
+    "JinWishartFormalization.CorrelatedGramMean": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianMoment_correlated_row_pair",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianMoment_correlatedGramEntryPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_correlatedGramEntryPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelatedGram_entry",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualCorrelatedGram_entry",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "505dafd8843320a34f480d92f8eeb108a66863d9fe24973f5a2acd1c2c2f0d03",
+      "olean_sha256": "b936657b398a5eb43c9d76d6fd07191be597ba30d008063bcea0aa575937cfc9",
+      "log_sha256": "ad8fefe317b4cbe702ad3d3138b228d2f28f12b34181e049a39143aa3bf2e3b4",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianWickMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianWickMoments.olean",
+          "sha256": "c3571339229c3705e79cf4801d9aa6e055cb08b6c0c49193bf46f19d71d46cf9"
+        },
+        "JinWishartFormalization.NoncentralGramPolynomialMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/NoncentralGramPolynomialMoments.olean",
+          "sha256": "9e65e58ea72d7798a8840961590b02f01ffa2960931f267e8622ae9b13f5e036"
+        }
+      }
     }
   },
-  "total_declarations": 426,
+  "total_declarations": 431,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -6274,6 +6341,12 @@
       "script": "experiments/noncentral_trace_factorial_control.py",
       "script_sha256": "5db6ae8bbd81783e9389f487f5a326a7d32a59ce91239e2cbc7e774e1bf3f40c",
       "result_sha256": "78b99b0fbe6ff1284b95de0650115e19eb7a8a88d29c650e507a643299ec8a99",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/correlated_gaussian_trace_control.py",
+      "script_sha256": "180ab43ba5a5587d6ba5a1434eae7b48b47aa420ae243fb9c1fad519f8f1afff",
+      "result_sha256": "0c51431f24f07a7f23858fa95bcaf2c6d0ae96b5243a3c764f7e8affe74fb1a4",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -6865,6 +6938,18 @@
       "request_sha256": "a466be70a00d390362f8a5828c651ff7493b4c1f316896e7b54daceebb9dc6c7",
       "prompt_sha256": "6db234667630db6bf0af7e56e2705f6307b4be7d92ab6d6729fcae5d7fd7c757",
       "raw_response_sha256": "72d57cd248c5b44856399edc1196b7950df0a6eb4b743884729bb13c77556881",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "f8d892215d01e56007c1271c6f007afbbfd190cd9b681b3fb8bf9912922a0c91",
+      "prompt_sha256": "a539cb37bb508e992bd21bd3917ad7e14ad42e92c14f1889572d9dc8ed8c8e15",
+      "raw_response_sha256": "b4750dc6a902bd1b4f344c9f11f78fe3829c85032c0491d7c99545f0f937b25a",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"
