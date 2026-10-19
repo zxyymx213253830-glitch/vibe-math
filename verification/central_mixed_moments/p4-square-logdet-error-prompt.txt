@@ -1,0 +1,161 @@
+P4 different-family review, only concrete problems; no proof rewrite/tool tags/independent compile. Exact final3sources below serialLean exit0 standard3axioms. New claim: actual SQUARE n-by-n iid variance-one complex CN plus any FIXED meanM, n>0, full logdet offseterror Delta (finite real and tends0) has rho*Delta->atTop(+infinity). Not finite square firstorder, no exact log(rho)/rho coefficient claimed.
+Generic Fatou lemma: F(r,a) measurable for ALL realr, eventually integrable and nonnegativeAE, tends to realgAE, nonnegative ENNReal integral of ofReal g=TOP ->real integrals tend atTop. Fatou filter atTop(real) countablygenerated; hlim identifies pointwise ENNReal liminf using continuityofReal; liminf integrals=TOP gives convergence toTOP; only eventually INTEGRABLE/nonnegative real F converts ofReal integral to lintegral. Never represents divergent real Bochner integral as infinity. Generic scaled log error uses finite inversep,0<p<=1 plus infinite inversefirst nonnegative integral, F=r log(1+1/(r f)), limitg=1/f. Actual square min has positiveAE, finite inverseHALF, inverseFIRST NONintegrable from exact actual criterion n<n false, so inverse lintegralTOP. Minimum logerror is one nonnegative term of complete spectral error, and finite integrability before sum/integral monotonicity is explicit. No independence of eigenvalues or density assumed.
+Imports actually proved for stdGaussian on REAL Euclidean ComplexSample with TWO standardreal coordinates percomplexentry; complexSampleMatrix=(real+i*imag)/sqrt2 is ESSENTIAL for E|CN|^2=1, NOT identity. This actualmodel matches all old min laws. Existing actualNoncentralLogDetOffsetError_eq exact integralfinite sum holds rho>0; previous expectedoffset gives Delta->0; actual inverse minimum integrableiff n<m. No identical inverse-IFF claim for EACH eigenvalue. Numeric deterministic50digit Exp1 closedexp(1/rho)E1 + directquadrature and ElogX=-EulerGamma PASS, only finite-rho control not divergenceproof. Humanmeasure/variance/modelreviewREQUIRED. Read exact hypotheses before raising conditional import or impossible ring-gap alarm; original objections retained either way.
+
+
+FILE FatouIntegralDivergence.lean
+import Mathlib.MeasureTheory.Integral.DominatedConvergence
+import Mathlib.Topology.Order.LiminfLimsup
+
+/-! Nonnegative integral divergence from an AE limit of infinite nonnegative mass.
+Codex. No monotonicity or false real-Bochner infinity premise.
+[需人工审查] Fatou/filter and real-vs-ENNReal interpretation.
+-/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem tendsto_integral_atTop_of_ae_limit_lintegral_top {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (F : ℝ → α → ℝ) (g : α → ℝ)
+    (hmeas : ∀ r, AEStronglyMeasurable (F r) μ)
+    (hint : ∀ᶠ r in atTop, Integrable (F r) μ)
+    (hnonneg : ∀ᶠ r in atTop, ∀ᵐ a ∂μ, 0 ≤ F r a)
+    (hlim : ∀ᵐ a ∂μ, Tendsto (fun r => F r a) atTop (𝓝 (g a)))
+    (htop : (∫⁻ a, ENNReal.ofReal (g a) ∂μ) = ⊤) :
+    Tendsto (fun r => ∫ a, F r a ∂μ) atTop atTop := by
+  have hfat := lintegral_liminf_le' (u := (atTop : Filter ℝ))
+    (fun r => (hmeas r).aemeasurable.ennreal_ofReal)
+  have he : (∫⁻ a, liminf (fun r => ENNReal.ofReal (F r a)) atTop ∂μ) =
+      ∫⁻ a, ENNReal.ofReal (g a) ∂μ := by
+    apply lintegral_congr_ae
+    filter_upwards [hlim] with a ha
+    exact (ENNReal.tendsto_ofReal ha).liminf_eq
+  rw [he,htop] at hfat
+  have ht : Tendsto (fun r => ∫⁻ a, ENNReal.ofReal (F r a) ∂μ) atTop (𝓝 ⊤) :=
+    tendsto_of_le_liminf_of_limsup_le hfat le_top
+  apply ENNReal.tendsto_ofReal_nhds_top.mp
+  apply ht.congr'
+  filter_upwards [hint,hnonneg] with r hi hn
+  exact (ofReal_integral_eq_lintegral_ofReal hi hn).symm
+
+end
+end JinWishart
+#print axioms JinWishart.tendsto_integral_atTop_of_ae_limit_lintegral_top
+
+
+FILE LogErrorDivergence.lean
+import JinWishartFormalization.LogDetErrorBounds
+import JinWishartFormalization.FatouIntegralDivergence
+
+/-! Infinite first inverse moment forces divergent scaled logarithmic error.
+Codex. [需人工审查] Fatou and finite-real-integral vs infinite nonnegative limit.
+-/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem scaled_log_inverse_error_tendsto_atTop {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α → ℝ) (hf : AEMeasurable f μ)
+    (hpos : ∀ᵐ a ∂μ, 0 < f a) (p : ℝ) (hp : 0 < p) (hp1 : p ≤ 1)
+    (hinv : Integrable (fun a => ((f a)⁻¹)^p) μ)
+    (htop : (∫⁻ a, ENNReal.ofReal ((f a)⁻¹) ∂μ) = ⊤) :
+    Tendsto (fun r : ℝ => r*(∫ a, Real.log (1+(r*f a)⁻¹) ∂μ)) atTop atTop := by
+  have ht : Tendsto (fun r : ℝ => ∫ a, r*Real.log (1+(r*f a)⁻¹) ∂μ) atTop atTop := by
+    apply tendsto_integral_atTop_of_ae_limit_lintegral_top μ _ (fun a => (f a)⁻¹) _ _ _ _ htop
+    · intro r
+      exact (aemeasurable_const.mul (Real.measurable_log.comp_aemeasurable
+        (aemeasurable_const.add (aemeasurable_const.mul hf).inv))).aestronglyMeasurable
+    · filter_upwards [eventually_gt_atTop (0 : ℝ)] with r hr
+      exact (integrable_log_inverse_error μ f hf hpos r p hr hp hp1 hinv).const_mul r
+    · filter_upwards [eventually_gt_atTop (0 : ℝ)] with r hr
+      exact hpos.mono (fun a ha => mul_nonneg hr.le
+        (log_inverse_error_bound r (f a) p hr ha hp hp1).1)
+    · filter_upwards [hpos] with a ha
+      apply (Real.tendsto_mul_log_one_add_div_atTop ((f a)⁻¹)).congr'
+      exact Filter.Eventually.of_forall (fun r => by
+        change r*Real.log (1+(f a)⁻¹/r)=r*Real.log (1+(r*f a)⁻¹)
+        rw [_root_.mul_inv_rev,div_eq_mul_inv])
+  simpa only [integral_const_mul] using ht
+
+end
+end JinWishart
+#print axioms JinWishart.scaled_log_inverse_error_tendsto_atTop
+
+
+FILE ActualSquareLogDetError.lean
+import JinWishartFormalization.ActualLogDetError
+import JinWishartFormalization.LogErrorDivergence
+
+/-! Square actual fixed-mean Gram samples have divergent rho-scaled logdet error.
+Codex. The finite real error tends to zero, while rho times it tends to +infinity.
+[需人工审查] Fatou, inverse-moment boundary and actual-model interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem actualSquare_scaled_minimum_log_error_atTop {n : ℕ} (hn : 0 < n)
+    (M : Matrix (Fin n) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => r*(∫ z, Real.log
+      (1+(r*complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹) ∂stdGaussian _)) atTop atTop := by
+  have hpos := actualNoncentral_minimum_pos_ae hn le_rfl M
+  have hf : AEMeasurable (complexNoncentralSampleSmallestEigenvalue M hn) (stdGaussian _) :=
+    (measurable_complexNoncentralSampleSmallestEigenvalue M hn).aemeasurable
+  have hi := (actualNoncentralRectangular_inverseMinimum_realMoment_integrable_iff
+    n n hn le_rfl M (1/2) (by norm_num)).mpr (by norm_num)
+  have htop : (∫⁻ z, ENNReal.ofReal ((complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹)
+      ∂stdGaussian _) = ⊤ := by
+    by_contra h
+    have hinv := (lintegral_ofReal_ne_top_iff_integrable hf.inv.aestronglyMeasurable
+      (ae_of_all _ (fun z => inv_nonneg.mpr (complexNoncentralGram_eigenvalues₀_nonneg M z _)))).mp h
+    exact (Nat.lt_irrefl n)
+      ((actualNoncentralRectangular_inverseMinimum_integrable_iff n n hn le_rfl M).mp hinv)
+  exact scaled_log_inverse_error_tendsto_atTop _ _ hf hpos (1/2)
+    (by norm_num) (by norm_num) hi htop
+
+theorem actualLogDetOffsetError_minimum_lower_bound {m n : ℕ} (hn : 0 < n) (hnm : n ≤ m)
+    (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) (hr : 0 < r) :
+    (∫ z, Real.log (1+(r*complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹) ∂stdGaussian _) ≤
+      actualNoncentralLogDetOffsetError M r := by
+  classical
+  have hpk : (1/2 : ℝ) < ((m-n+1 : ℕ) : ℝ) := by
+    have : (1 : ℝ) ≤ ((m-n+1 : ℕ) : ℝ) := by exact_mod_cast (show 1 ≤ m-n+1 by omega)
+    linarith
+  have hpos := actualNoncentral_minimum_pos_ae hn hnm M
+  have hi := integrable_log_inverse_error (stdGaussian _) _
+    (measurable_complexNoncentralSampleSmallestEigenvalue M hn).aemeasurable hpos
+    r (1/2) hr (by norm_num) (by norm_num)
+      ((actualNoncentralRectangular_inverseMinimum_realMoment_integrable_iff
+        m n hn hnm M (1/2) (by norm_num)).mpr hpk)
+  have his (i : Fin (Fintype.card (Fin n))) := integrable_log_inverse_error (stdGaussian _)
+    (complexNoncentralSampleEigenvalue M i) (measurable_actualNoncentralEigenvalue M i).aemeasurable
+    (hpos.mono (fun z hz => hz.trans_le (actualNoncentralMinimum_le_eigenvalue hn M i z)))
+    r (1/2) hr (by norm_num) (by norm_num)
+      (integrable_actualNoncentral_inverseEigenvalue_rpow hn hnm M i (1/2) (by norm_num) hpk)
+  rw [actualNoncentralLogDetOffsetError_eq hn hnm M r hr]
+  apply integral_mono_ae hi (integrable_finsetSum Finset.univ (fun i _ => his i))
+  exact ae_of_all _ (fun z => by
+    change Real.log (1+(r*complexNoncentralSampleEigenvalue M (smallestEigenvalue₀Index hn) z)⁻¹) ≤
+      ∑ i, Real.log (1+(r*complexNoncentralSampleEigenvalue M i z)⁻¹)
+    exact Finset.single_le_sum
+      (fun i _ => Real.log_nonneg (by
+        change 1 ≤ 1+(r*complexNoncentralSampleEigenvalue M i z)⁻¹
+        have : 0 ≤ (r*complexNoncentralSampleEigenvalue M i z)⁻¹ :=
+          inv_nonneg.mpr (mul_nonneg hr.le (complexNoncentralSampleEigenvalue_nonneg M i z))
+        linarith)) (Finset.mem_univ (smallestEigenvalue₀Index hn)))
+
+theorem actualSquareLogDetOffsetError_scaled_atTop {n : ℕ} (hn : 0 < n)
+    (M : Matrix (Fin n) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => r*actualNoncentralLogDetOffsetError M r) atTop atTop := by
+  apply tendsto_atTop_mono' atTop _ (actualSquare_scaled_minimum_log_error_atTop hn M)
+  filter_upwards [eventually_gt_atTop (0 : ℝ)] with r hr
+  exact mul_le_mul_of_nonneg_left (actualLogDetOffsetError_minimum_lower_bound hn le_rfl M r hr) hr.le
+
+end
+end JinWishart
+#print axioms JinWishart.actualSquare_scaled_minimum_log_error_atTop
+#print axioms JinWishart.actualLogDetOffsetError_minimum_lower_bound
+#print axioms JinWishart.actualSquareLogDetOffsetError_scaled_atTop

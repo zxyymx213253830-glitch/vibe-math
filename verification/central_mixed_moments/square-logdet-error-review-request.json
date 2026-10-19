@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "FatouIntegralDivergence.lean": {
+      "sha256": "42d2c848ab8a6576ad3bb92ba018eee4fd9e8dcab2944a1e6d9117e2b878560b",
+      "supplied": "Full source"
+    },
+    "LogErrorDivergence.lean": {
+      "sha256": "2a246960296c76837ce8761bfce2ab9398555124df37683caee2330f8a63bb02",
+      "supplied": "Full source"
+    },
+    "ActualSquareLogDetError.lean": {
+      "sha256": "e1c42e7e554037941753fe3036af5cb10fb90fa96c020c999ba096b7ec605934",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7bfb2478d3239e95cdf6947220a739069ab9230ff08a5b7c5c9ef108f624ca66"
+}

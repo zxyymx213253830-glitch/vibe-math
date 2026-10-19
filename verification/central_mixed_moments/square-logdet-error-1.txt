@@ -1,0 +1,63 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSquareLogDetError.lean:18:13: error: don't know how to synthesize implicit argument `μ`
+  @Measurable.aemeasurable ComplexSample ℝ (WithLp.measurableSpace 2 ((i : (Fin n × Fin n) × Fin 2) → (fun x => ℝ) i))
+    Real.measurableSpace (complexNoncentralSampleSmallestEigenvalue M hn) ?m.58
+    (measurable_complexNoncentralSampleSmallestEigenvalue M hn)
+context:
+n : ℕ
+hn : 0 < n
+M : Matrix (Fin n) (Fin n) ℂ
+hpos : ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample, 0 < complexNoncentralSampleSmallestEigenvalue M hn z
+⊢ Measure ComplexSample
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSquareLogDetError.lean:18:7: error: failed to infer `have` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSquareLogDetError.lean:16:97: error: unsolved goals
+n : ℕ
+hn : 0 < n
+M : Matrix (Fin n) (Fin n) ℂ
+hpos : ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample, 0 < complexNoncentralSampleSmallestEigenvalue M hn z
+⊢ Tendsto
+    (fun r =>
+      r *
+        ∫ (z : ComplexSample),
+          Real.log (1 + (r * complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹) ∂stdGaussian ComplexSample)
+    atTop atTop
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSquareLogDetError.lean:56:6: error: linarith failed to find a contradiction
+m n : ℕ
+hn : 0 < n
+hnm : n ≤ m
+M : Matrix (Fin m) (Fin n) ℂ
+r : ℝ
+hr : 0 < r
+hpk : 1 / 2 < ↑(m - n + 1)
+hpos : ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample, 0 < complexNoncentralSampleSmallestEigenvalue M hn z
+hi :
+  Integrable (fun a => Real.log (1 + (r * complexNoncentralSampleSmallestEigenvalue M hn a)⁻¹))
+    (stdGaussian ComplexSample)
+his :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun a => Real.log (1 + (r * complexNoncentralSampleEigenvalue M i a)⁻¹)) (stdGaussian ComplexSample)
+z : ComplexSample
+i : Fin (Fintype.card (Fin n))
+x✝ : i ∈ Finset.univ
+this : 0 ≤ (r * complexNoncentralSampleEigenvalue M i z)⁻¹
+a✝ : ?m.270 i < 1
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSquareLogDetError.lean:52:30: error: Type mismatch
+  Finset.single_le_sum (fun i x => Real.log_nonneg ?m.271) (Finset.mem_univ (smallestEigenvalue₀Index hn))
+has type
+  Real.log (?m.270 (smallestEigenvalue₀Index hn)) ≤ ∑ x, Real.log (?m.270 x)
+but is expected to have type
+  (fun a => Real.log (1 + (r * complexNoncentralSampleSmallestEigenvalue M hn a)⁻¹)) z ≤
+    (fun a => ∑ i, Real.log (1 + (r * complexNoncentralSampleEigenvalue M i a)⁻¹)) z
+'JinWishart.actualSquare_scaled_minimum_log_error_atTop' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualLogDetOffsetError_minimum_lower_bound' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualSquareLogDetOffsetError_scaled_atTop' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

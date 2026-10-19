@@ -1,0 +1,19 @@
+{
+  "collected_utc": "2026-10-19T15:08:56.336551+00:00",
+  "leaf_final_exits": {
+    "fatou-divergence-2": 0,
+    "log-error-divergence-1": 0,
+    "square-logdet-error-3": 0
+  },
+  "main_entry": {
+    "log": "facade-29.txt",
+    "actual_exit_code": 0,
+    "output_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+  },
+  "new_declarations": 5,
+  "total_bound_items": 365,
+  "full_build": "NOT_RUN",
+  "frozen_publication": "UNCHANGED",
+  "human_review": "REQUIRED",
+  "author": "Codex proof bodies; Qoder final-source P4 only"
+}
