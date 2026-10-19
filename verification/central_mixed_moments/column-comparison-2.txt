@@ -1,0 +1,35 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:19:58: error: Application type mismatch: The argument
+  le_max_left ?m.19 ?m.20
+has type
+  ?m.19 ≤ max ?m.19 ?m.20
+but is expected to have type
+  1 ≤ matrixColumnControl B
+in the application
+  lt_of_lt_of_le zero_lt_one (le_max_left ?m.19 ?m.20)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:27:44: error: Application type mismatch: The argument
+  le_max_right ?m.99 ?m.100
+has type
+  ?m.100 ≤ max ?m.99 ?m.100
+but is expected to have type
+  ‖toEuclideanCLM B‖ ^ 2 ≤ matrixColumnControl B
+in the application
+  mul_le_mul_of_nonneg_right (le_max_right ?m.99 ?m.100)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:47:30: warning: `ContinuousLinearMap.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+
+Hint: Replace the deprecated name:
+  C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵m̵u̵l̵_̵a̵p̵p̵l̵y̵m̲u̲l̲_̲a̲p̲p̲l̲y̲_̲e̲q̲_̲c̲o̲m̲p̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:47:60: warning: `ContinuousLinearMap.one_apply` has been deprecated: Use `one_apply_eq_self` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.one_apply` to `one_apply_eq_self x`).
+
+Hint: Replace the deprecated name:
+  C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵o̲n̲e̲_̲a̲p̲p̲l̲y̲_̲e̲q̲_̲s̲e̲l̲f̲
+'JinWishart.matrixColumnControl_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_energy_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_inverse_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_mul_column_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_mul_column_lower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,53 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedColumnInverseMoments.lean:31:6: error: Type mismatch: After simplification, term
+  hh
+ has type
+  1 * (F a)⁻¹ ≤ D * (G a)⁻¹
+but is expected to have type
+  (F a)⁻¹ ≤ D * (G a)⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedColumnInverseMoments.lean:32:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |(F a)⁻¹ ^ p|
+in the target expression
+  |F⁻¹ a ^ p| ≤ D ^ p * (G a)⁻¹ ^ p
+
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f g : α → ℝ
+hf : Measurable f
+hg : Measurable g
+hfpos : ∀ᵐ (a : α) ∂μ, 0 < f a
+hgpos : ∀ᵐ (a : α) ∂μ, 0 < g a
+c C : ℝ
+hc : 0 < c
+hC : 0 < C
+hfg : ∀ (a : α), f a ≤ c * g a
+hgf : ∀ (a : α), g a ≤ C * f a
+p : ℝ
+hp : 0 < p
+F G : α → ℝ
+hFm : Measurable F
+hFp : ∀ᵐ (a : α) ∂μ, 0 < F a
+hGp : ∀ᵐ (a : α) ∂μ, 0 < G a
+D : ℝ
+hD : 0 < D
+hb : ∀ (a : α), G a ≤ D * F a
+hi : Integrable (fun a => (G a)⁻¹ ^ p) μ
+a : α
+ha : 0 < F a
+hga : 0 < G a
+hinv : (F a)⁻¹ ≤ D * (G a)⁻¹
+⊢ |F⁻¹ a ^ p| ≤ D ^ p * (G a)⁻¹ ^ p
+'JinWishart.integrable_inverse_rpow_iff_of_comparison' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.correlatedColumnMinimum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.correlatedColumnMinimum_pos_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedColumn_inverseMinimum_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelatedColumn_inverseMinimum_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

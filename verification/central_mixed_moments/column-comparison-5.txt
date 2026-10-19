@@ -1,0 +1,7 @@
+'JinWishart.matrixColumnControl_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_energy_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_inverse_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_mul_column_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_mul_column_lower' depends on axioms: [propext, Classical.choice, Quot.sound]

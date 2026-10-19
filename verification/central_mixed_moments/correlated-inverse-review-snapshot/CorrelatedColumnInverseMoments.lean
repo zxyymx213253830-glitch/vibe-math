@@ -1,0 +1,90 @@
+import JinWishartFormalization.CorrelatedColumnMinimum
+import JinWishartFormalization.NoncentralInverseMinimumRealMoments
+
+/-!
+# Inverse minimum moments under a fixed invertible column factor
+
+The physical mean M stays fixed in Z B+M. The threshold concerns the smallest
+GRAM eigenvalue, not singular value; any positive real p is allowed. Codex.
+[需人工审查] AE positivity, integrability comparisons and covariance interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem integrable_inverse_rpow_iff_of_comparison {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f g : α → ℝ) (hf : Measurable f) (hg : Measurable g)
+    (hfpos : ∀ᵐ a ∂μ, 0<f a) (hgpos : ∀ᵐ a ∂μ, 0<g a)
+    (c C : ℝ) (hc : 0<c) (hC : 0<C)
+    (hfg : ∀ a, f a≤c*g a) (hgf : ∀ a, g a≤C*f a) (p : ℝ) (hp : 0<p) :
+    Integrable (fun a => (f a)⁻¹^p) μ ↔ Integrable (fun a => (g a)⁻¹^p) μ := by
+  have htransfer (F G : α → ℝ) (hFm : Measurable F)
+      (hFp : ∀ᵐ a ∂μ, 0<F a) (hGp : ∀ᵐ a ∂μ, 0<G a)
+      (D : ℝ) (hD : 0<D) (hb : ∀ a, G a≤D*F a)
+      (hi : Integrable (fun a => (G a)⁻¹^p) μ) :
+      Integrable (fun a => (F a)⁻¹^p) μ := by
+    apply (hi.const_mul (D^p)).mono' (hFm.inv.pow_const p).aestronglyMeasurable
+    filter_upwards [hFp,hGp] with a ha hga
+    have hinv : (F a)⁻¹≤D*(G a)⁻¹ := by
+      have hh : (1 : ℝ)/F a≤D/G a :=
+        (div_le_div_iff₀ ha hga).mpr (by simpa only [one_mul] using hb a)
+      simpa only [one_div,div_eq_mul_inv,one_mul] using hh
+    change |((F a)⁻¹)^p|≤D^p*((G a)⁻¹)^p
+    rw [abs_of_nonneg (Real.rpow_nonneg (inv_nonneg.mpr ha.le) p)]
+    calc
+      (F a)⁻¹^p ≤ (D*(G a)⁻¹)^p := Real.rpow_le_rpow (inv_nonneg.mpr ha.le) hinv hp.le
+      _ = D^p*((G a)⁻¹)^p := Real.mul_rpow hD.le (inv_nonneg.mpr hga.le)
+  exact ⟨htransfer g f hg hgpos hfpos c hc hfg,
+    htransfer f g hf hfpos hgpos C hC hgf⟩
+
+theorem correlatedColumnMinimum_nonneg {m n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ)
+    (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0<n) (z : ComplexSample (m := m) (n := n)) :
+    0≤correlatedColumnMinimum B M hn z := gramSmallestValue_nonneg _ hn
+
+theorem correlatedColumnMinimum_pos_ae {m n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ)
+    (hB : IsUnit B.det) (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0<n) (hnm : n≤m) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := n)),
+      0<correlatedColumnMinimum B M hn z := by
+  filter_upwards [actualNoncentral_minimum_pos_ae hn hnm (M*B⁻¹)] with z hz
+  have hb := (correlatedColumnMinimum_bounds B M hn hB z).2
+  exact (mul_pos_iff_of_pos_left (matrixColumnControl_pos B⁻¹)).mp (hz.trans_le hb)
+
+theorem actualCorrelatedColumn_inverseMinimum_realMoment_integrable_iff (d n : ℕ)
+    (B : Matrix (Fin (n+1)) (Fin (n+1)) ℂ) (hB : IsUnit B.det)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (p : ℝ) (hp : 0<p) :
+    Integrable (fun z : ComplexSample (m := d+(n+1)) (n := n+1) =>
+      (correlatedColumnMinimum B M (Nat.succ_pos n) z)⁻¹^p) (stdGaussian _) ↔
+        p<((d+1 : ℕ) : ℝ) := by
+  rw [integrable_inverse_rpow_iff_of_comparison (stdGaussian _)
+    (correlatedColumnMinimum B M (Nat.succ_pos n))
+    (complexNoncentralSampleSmallestEigenvalue (M*B⁻¹) (Nat.succ_pos n))
+    (measurable_correlatedColumnMinimum B M _) (measurable_complexNoncentralSampleSmallestEigenvalue _ _)
+    (correlatedColumnMinimum_pos_ae B hB M _ (by omega))
+    (actualNoncentral_minimum_pos_ae _ (by omega) _)
+    (matrixColumnControl B) (matrixColumnControl B⁻¹)
+    (matrixColumnControl_pos B) (matrixColumnControl_pos B⁻¹)
+    (fun z => (correlatedColumnMinimum_bounds B M _ hB z).1)
+    (fun z => (correlatedColumnMinimum_bounds B M _ hB z).2) p hp]
+  exact actualNoncentralInverseMinimum_realMoment_integrable_iff d n (M*B⁻¹) p hp
+
+theorem actualCorrelatedColumn_inverseMinimum_realMoment_lintegral_eq_top (d n : ℕ)
+    (B : Matrix (Fin (n+1)) (Fin (n+1)) ℂ) (hB : IsUnit B.det)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (p : ℝ) (hp : ((d+1 : ℕ) : ℝ)≤p) :
+    (∫⁻ z, ENNReal.ofReal ((correlatedColumnMinimum B M (Nat.succ_pos n) z)⁻¹^p)
+      ∂stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))) = ⊤ := by
+  have hp0 : 0<p := lt_of_lt_of_le (by positivity : (0 : ℝ)<((d+1 : ℕ) : ℝ)) hp
+  by_contra h
+  have hi := (lintegral_ofReal_ne_top_iff_integrable
+    ((measurable_correlatedColumnMinimum B M _).inv.pow_const p).aestronglyMeasurable
+    (ae_of_all _ (fun z => Real.rpow_nonneg
+      (inv_nonneg.mpr (correlatedColumnMinimum_nonneg B M _ z)) p))).mp h
+  exact (not_lt_of_ge hp) ((actualCorrelatedColumn_inverseMinimum_realMoment_integrable_iff
+    d n B hB M p hp0).mp hi)
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_inverse_rpow_iff_of_comparison
+#print axioms JinWishart.correlatedColumnMinimum_nonneg
+#print axioms JinWishart.correlatedColumnMinimum_pos_ae
+#print axioms JinWishart.actualCorrelatedColumn_inverseMinimum_realMoment_integrable_iff
+#print axioms JinWishart.actualCorrelatedColumn_inverseMinimum_realMoment_lintegral_eq_top

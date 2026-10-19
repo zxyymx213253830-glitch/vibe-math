@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GramMinimumColumnComparison.lean": {
+      "sha256": "b686a08db90568c3eb31459d11e13466fc9b5868a26f710da596d155c4dad839",
+      "supplied": "Full source"
+    },
+    "CorrelatedColumnMinimum.lean": {
+      "sha256": "2d1194b530b67f78bbfe0696f50983e17c549817705f56fb4e27c83d13c11675",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "fa68a4aeb85a60645094c51f4c26110ef11b47f7b2ddb28829245593b7ea1d18"
+}

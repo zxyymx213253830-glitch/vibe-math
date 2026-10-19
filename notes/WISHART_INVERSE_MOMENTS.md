@@ -8,6 +8,18 @@ Let Z have independent CN(0,1) entries in an m by N matrix (real and imaginary
 variance1/2), m>=N>0. Fix an arbitrary deterministic complex mean M, including0,
 and a scalar v>0. Define A=sqrt(v)Z+M and lambda=lambda_min(A^H A).
 
+The same sharp threshold is now also checked for A=Z B+M with ANY fixed
+invertible complex N by N column factor B. The covariance of a centered row
+is E[(Zrow B)^H(Zrow B)]=B^H B. The normalized mean is M B^-1, not M:
+A=(Z+M B^-1)B. No singular-factor or growing-condition-number claim is made.
+`GramMinimumColumnComparison.lean` proves rank-free deterministic inequalities
+with C(B)=max(1,operatorNorm(B)^2), using an attaining unit Gram eigenvector.
+`CorrelatedColumnMinimum.lean` lifts them to the actual CDF sandwich
+Fnorm(x/C(B))<=Fcorr(x)<=Fnorm(C(B^-1)*x) and the same log diversity exponent.
+`CorrelatedColumnInverseMoments.lean` uses AE strict positivity and both
+pointwise comparisons to transfer all positive real inverse-power moments,
+including critical divergence. This is NOT a correlated density derivation.
+
 The actual Gaussian model has lambda>0 almost surely. For every real p>0,
 
     (lambda^-1)^p is integrable  iff  p < m-N+1.

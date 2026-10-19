@@ -295,3 +295,21 @@ Exact final10-source response delivered. Its invented norm bound ||M||>=N or Mpr
 
 ## Positive real inverse moments P4
 Final9 exact-source response delivered. Its alleged scalar-prefactor discrepancy confuses Gram eigenvalue with singular value: noncentralSampleMinimum_amplitude_scale explicitly states a^2 times eigenvalue, so a=sqrt(v) gives v and inverse momentv^-p. No v^-p/2 fix performed. intervalIntegrable_rpow' accepts any real endpoints with exponent>-1, strict integrableOn_Ioi_rpow_iff is exponent<-1; both pinned APIs used exactly. Constants are positive for each fixedM including0, not uniform overunboundedM. Nonnegative inverse holds everywhere includingzero (inverse0=0); prior tail identity explicitly removes actual singular nullset. Full source logs standard propext/Classical.choice/Quot.sound; allowedClassical.choice is not prohibited as reviewer ambiguously suggests. HumanFubini/model review REQUIRED, not discharged by this modelresponse.
+
+## Fixed correlated columns P1/P4
+
+Real P1 route1 operator/Rayleigh was used. Its Frobenius-vs-operator discussion is false:
+CLM norm is operator norm and max(1,norm^2) need not exceed1+norm^2. Its Loewner
+B^H H B<=norm(B)^2 H for arbitraryPSD H is false and unused. Its final CDF
+monotonicity direction is reversed; checked source uses Fnorm(x/C(B))<=Fcorr(x).
+The covariance orientation in its last paragraph is inconsistent with its earlier correct
+E[(Zrow B)^H(Zrow B)]=B^H B; no row/column prose shortcut adopted. No sample covariance
+division bym-1 is used: physical object is rawGram. No density/Jacobian route used.
+Exact final13-source P4 delivered no concrete issue, preserves these corrections.
+Exact finalinverse5 P4 delivered. Controlconstant positivity does NOT require invertibility:
+max1 is positive for ANY B. Invertibility is needed for inverse identities and comparison,
+and is explicitly required there. Reviewer wording inverse0 never activates 'on support'
+is too strong: actual proof removes an AE nullset, not a topological support statement.
+All means including0 allowed. Critical inversepower divergence is ENNRealTOP, no real
+Bochner infinity. Pointwise rank-free bounds hold EVERYWHERE; strict positivity onlyAE.
+Humanmeasure/model review REQUIRED. Both real responses and exact snapshots retained.

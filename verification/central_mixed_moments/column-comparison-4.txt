@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:21:49: error: Application type mismatch: The argument
+  le_max_left 1 ?m.24
+has type
+  1 ≤ max 1 ?m.24
+but is expected to have type
+  1 ≤ max 1 ‖toEuclideanCLM B‖ ^ 2
+in the application
+  lt_of_lt_of_le
+    (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+    (le_max_left 1 ?m.24)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:29:161: error: Type mismatch
+  le_max_right 1 ?m.126
+has type
+  ?m.126 ≤ max 1 ?m.126
+but is expected to have type
+  ‖toEuclideanCLM B‖ ^ 2 ≤ max 1 ‖toEuclideanCLM B‖ ^ 2
+'JinWishart.matrixColumnControl_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_energy_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_inverse_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_mul_column_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_mul_column_lower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

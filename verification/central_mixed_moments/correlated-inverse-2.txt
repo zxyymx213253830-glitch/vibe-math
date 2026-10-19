@@ -1,0 +1,9 @@
+'JinWishart.integrable_inverse_rpow_iff_of_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.correlatedColumnMinimum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.correlatedColumnMinimum_pos_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedColumn_inverseMinimum_realMoment_integrable_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelatedColumn_inverseMinimum_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

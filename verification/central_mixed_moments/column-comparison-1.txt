@@ -1,0 +1,92 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:16:9: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.8 ?m.8 ?m.7 ≃⋆ₐ[?m.7] EuclideanSpace ?m.7 ?m.8 →L[?m.7] EuclideanSpace ?m.7 ?m.8
+
+Note: Expected a function because this term is being applied to the argument
+  B
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:19:58: error: Application type mismatch: The argument
+  le_max_left ?m.19 ?m.20
+has type
+  ?m.19 ≤ max ?m.19 ?m.20
+but is expected to have type
+  1 ≤ matrixColumnControl B
+in the application
+  lt_of_lt_of_le zero_lt_one (le_max_left ?m.19 ?m.20)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:23:5: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.4 ?m.4 ?m.3 ≃⋆ₐ[?m.3] EuclideanSpace ?m.3 ?m.4 →L[?m.3] EuclideanSpace ?m.3 ?m.4
+
+Note: Expected a function because this term is being applied to the argument
+  B
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:24:43: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.54 ?m.54 ?m.53 ≃⋆ₐ[?m.53] EuclideanSpace ?m.53 ?m.54 →L[?m.53] EuclideanSpace ?m.53 ?m.54
+
+Note: Expected a function because this term is being applied to the argument
+  B
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:25:6: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.65 ?m.65 ?m.64 ≃⋆ₐ[?m.64] EuclideanSpace ?m.64 ?m.65 →L[?m.64] EuclideanSpace ?m.64 ?m.65
+
+Note: Expected a function because this term is being applied to the argument
+  B
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:23:67: error: unsolved goals
+n : ℕ
+B : Matrix (Fin n) (Fin n) ℂ
+u : EuclideanSpace ℂ (Fin n)
+⊢ ‖sorry‖ ^ 2 ≤ matrixColumnControl B * ‖u‖ ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:31:47: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.22 ?m.22 ?m.21 ≃⋆ₐ[?m.21] EuclideanSpace ?m.21 ?m.22 →L[?m.21] EuclideanSpace ?m.21 ?m.22
+
+Note: Expected a function because this term is being applied to the argument
+  B
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:44:4: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.9 ?m.9 ?m.8 ≃⋆ₐ[?m.8] EuclideanSpace ?m.8 ?m.9 →L[?m.8] EuclideanSpace ?m.8 ?m.9
+
+Note: Expected a function because this term is being applied to the argument
+  B
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:45:58: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.23 ?m.23 ?m.22 ≃⋆ₐ[?m.22] EuclideanSpace ?m.22 ?m.23 →L[?m.22] EuclideanSpace ?m.22 ?m.23
+
+Note: Expected a function because this term is being applied to the argument
+  T
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:44:65: error: unsolved goals
+n : ℕ
+B : Matrix (Fin n) (Fin n) ℂ
+hB : IsUnit B.det
+u : EuclideanSpace ℂ (Fin n)
+⊢ sorry = u
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:53:11: error: Function expected at
+  toEuclideanCLM
+but this term has type
+  Matrix ?m.49 ?m.49 ?m.48 ≃⋆ₐ[?m.48] EuclideanSpace ?m.48 ?m.49 →L[?m.48] EuclideanSpace ?m.48 ?m.49
+
+Note: Expected a function because this term is being applied to the argument
+  B⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:51:81: error: unsolved goals
+m n : ℕ
+A : Matrix (Fin m) (Fin n) ℂ
+B : Matrix (Fin n) (Fin n) ℂ
+hn : 0 < n
+hB : IsUnit B.det
+w : EuclideanSpace ℂ (Fin n)
+hw : ‖w‖ = 1
+he : ‖(toEuclideanLin A) w‖ ^ 2 = gramSmallestValue A hn
+⊢ gramSmallestValue (A * B) hn ≤ matrixColumnControl B * gramSmallestValue A hn
+'JinWishart.matrixColumnControl_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumColumnComparison.lean:78:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.matrixColumn_energy_bound`
+'JinWishart.matrixColumn_composition' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.matrixColumn_inverse_apply' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_mul_column_upper' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_mul_column_lower' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

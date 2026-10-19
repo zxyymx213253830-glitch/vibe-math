@@ -1,0 +1,79 @@
+{
+  "seed": 2026101914,
+  "status": "PASS invertible correlated-column minimum comparisons, fixed-mean identity and Gaussian trace controls; not proof",
+  "source_sha256": "73ec9c3c789e92b0782b2a39bc5b2f420be0306c68b179fb61646888385fa7b6",
+  "records": [
+    {
+      "m": 2,
+      "n": 1,
+      "count": 200000,
+      "spread": 1.0,
+      "upper_constant": 1.0,
+      "inverse_constant": 1.0000000000000004,
+      "min_upper_gap": 0.0,
+      "min_lower_gap": -3.552713678800501e-15,
+      "trace_mean_error_SE": -0.4673645509026089,
+      "physical_mean_identity_max_error": 6.280369834735101e-16
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "count": 200000,
+      "spread": 4.0,
+      "upper_constant": 1.0000000000000004,
+      "inverse_constant": 1.0,
+      "min_upper_gap": -5.329070518200751e-15,
+      "min_lower_gap": 0.0,
+      "trace_mean_error_SE": -0.46736455090260864,
+      "physical_mean_identity_max_error": 6.280369834735101e-16
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "count": 200000,
+      "spread": 1.0,
+      "upper_constant": 1.0,
+      "inverse_constant": 1.0000000000000004,
+      "min_upper_gap": -5.995204332975845e-15,
+      "min_lower_gap": -7.105427357601002e-15,
+      "trace_mean_error_SE": 0.5235074933065559,
+      "physical_mean_identity_max_error": 4.965068306494546e-16
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "count": 200000,
+      "spread": 4.0,
+      "upper_constant": 15.99999999999999,
+      "inverse_constant": 1.0000000000000004,
+      "min_upper_gap": 0.0004630491028387862,
+      "min_lower_gap": 8.115859118085211e-08,
+      "trace_mean_error_SE": 0.3648117447649163,
+      "physical_mean_identity_max_error": 2.808666774861361e-15
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "count": 200000,
+      "spread": 1.0,
+      "upper_constant": 1.0,
+      "inverse_constant": 1.0000000000000004,
+      "min_upper_gap": -1.1546319456101628e-14,
+      "min_lower_gap": -1.1546319456101628e-14,
+      "trace_mean_error_SE": 1.2658336555384755,
+      "physical_mean_identity_max_error": 6.280369834735101e-16
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "count": 200000,
+      "spread": 4.0,
+      "upper_constant": 16.0,
+      "inverse_constant": 1.0,
+      "min_upper_gap": 0.01528128008973629,
+      "min_lower_gap": 0.0001087769193918826,
+      "trace_mean_error_SE": 0.8066779177992833,
+      "physical_mean_identity_max_error": 3.66205343881779e-15
+    }
+  ]
+}

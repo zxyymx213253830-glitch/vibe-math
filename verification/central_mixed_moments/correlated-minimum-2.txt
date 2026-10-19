@@ -1,0 +1,6 @@
+'JinWishart.measurable_gramSmallestValue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.measurable_correlatedColumnMinimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.correlatedColumn_sample_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.correlatedColumnMinimum_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedColumnMinimumCDF_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedColumnMinimumCDF_diversity' depends on axioms: [propext, Classical.choice, Quot.sound]

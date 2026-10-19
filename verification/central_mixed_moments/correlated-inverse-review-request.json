@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CorrelatedColumnInverseMoments.lean": {
+      "sha256": "03213fe9bc0eecb6657f6b7266fd9d1f0048d50a0fcd4a029222223d3aadde30",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "4af835f67617e745ba2d6d2290e279146349d2bddbae0af2105d23afaf02b9a5"
+}

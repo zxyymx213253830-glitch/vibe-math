@@ -1,0 +1,225 @@
+P4 critical issues only, no rewrite/tools. Codex final13 theorem bodies have kernel PASS, standard propext/Classical.choice/Quot.sound only. Arbitrary rectangular A including singular. Fixed invertible square complex B, physical sample Z B + M; normalized mean M B^-1, N>0, m>=N for diversity, fixed M arbitrary includingzero. Covariance of row samples E[(Zrow B)^H(Zrow B)] is B^H B. CLM norm is OPERATOR norm, C(B)=max(1,norm(CLMB)^2), not Frobenius norm and not1+norm^2. Pointwise bounds: min(AB)<=C(B)min(A), min(A)<=C(Binv)min(AB). Hence Fnorm(x/C(B)) <= Fcorr(x) <= Fnorm(C(Binv)*x). Earlier P1 incorrectly reversed first CDF inequality and asserted false Loewner B^H H B<=norm(B)^2 H for arbitraryPSD H; neither used. No targetdensityassumption, no sharpconstant, no growing-conditionnumber uniformity. Inspect directions/zero/rank/mean/covariance. Do not waive human measure/model review, which remains REQUIRED. Full checkedsources follow.
+
+FULL GramMinimumColumnComparison.lean
+import JinWishartFormalization.GramMinimumRayleigh
+import JinWishartFormalization.GramMinimumResidualUpper
+import Mathlib.Analysis.CStarAlgebra.Matrix
+
+/-!
+# Least Gram eigenvalue under an invertible column transformation
+
+Rank-free deterministic bounds. A may be singular; only B is invertible.
+Codex. [需人工审查] Later covariance interpretation, not a new density assumption.
+-/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+def matrixColumnControl {n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ) : ℝ :=
+  max 1 (‖Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B‖^2)
+
+theorem matrixColumnControl_pos {n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ) :
+    0<matrixColumnControl B := by
+  unfold matrixColumnControl
+  exact lt_of_lt_of_le (by norm_num : (0 : ℝ)<1) (le_max_left (1 : ℝ) _)
+
+theorem matrixColumn_energy_bound {n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ)
+    (u : EuclideanSpace ℂ (Fin n)) :
+    ‖Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B u‖^2 ≤ matrixColumnControl B*‖u‖^2 := by
+  have h := pow_le_pow_left₀ (norm_nonneg (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B u))
+    ((Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B).le_opNorm u) 2
+  rw [mul_pow] at h
+  exact h.trans (mul_le_mul_of_nonneg_right (show ‖Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B‖^2 ≤ matrixColumnControl B from (by unfold matrixColumnControl; exact le_max_right (1 : ℝ) _)) (sq_nonneg _))
+
+theorem matrixColumn_composition {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ)
+    (B : Matrix (Fin n) (Fin n) ℂ) (u : EuclideanSpace ℂ (Fin n)) :
+    (A*B).toEuclideanLin u = A.toEuclideanLin (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B u) := by
+  ext i
+  change ((A*B)*ᵥ (⇑u)) i = (A*ᵥ (B*ᵥ (⇑u))) i
+  rw [Matrix.mulVec_mulVec]
+
+theorem gramSmallestValue_nonneg {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) (hn : 0<n) :
+    0≤gramSmallestValue A hn := by
+  obtain ⟨u,_,he⟩ := exists_gram_minimum_unit_vector A hn
+  rw [← he]
+  exact sq_nonneg _
+
+theorem matrixColumn_inverse_apply {n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ)
+    (hB : IsUnit B.det) (u : EuclideanSpace ℂ (Fin n)) :
+    Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B (Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B⁻¹ u) = u := by
+  have h := congrArg (fun T : Matrix (Fin n) (Fin n) ℂ => Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) T u)
+    (B.mul_nonsing_inv hB)
+  simpa only [map_mul,map_one,mul_apply_eq_comp,one_apply_eq_self] using h
+
+theorem gramSmallestValue_mul_column_upper {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ)
+    (B : Matrix (Fin n) (Fin n) ℂ) (hn : 0<n) (hB : IsUnit B.det) :
+    gramSmallestValue (A*B) hn ≤ matrixColumnControl B*gramSmallestValue A hn := by
+  obtain ⟨w,hw,he⟩ := exists_gram_minimum_unit_vector A hn
+  let u := Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B⁻¹ w
+  have hBu : Matrix.toEuclideanCLM (n := Fin n) (𝕜 := ℂ) B u=w := matrixColumn_inverse_apply B hB w
+  have hbound := matrixColumn_energy_bound B u
+  rw [hBu,hw,one_pow] at hbound
+  have hRay := gramSmallestValue_rayleigh_lower (A*B) hn u
+  rw [matrixColumn_composition,hBu,he] at hRay
+  calc
+    gramSmallestValue (A*B) hn = gramSmallestValue (A*B) hn*1 := by ring
+    _ ≤ gramSmallestValue (A*B) hn*(matrixColumnControl B*‖u‖^2) :=
+      mul_le_mul_of_nonneg_left hbound (gramSmallestValue_nonneg _ hn)
+    _ = matrixColumnControl B*(gramSmallestValue (A*B) hn*‖u‖^2) := by ring
+    _ ≤ matrixColumnControl B*gramSmallestValue A hn :=
+      mul_le_mul_of_nonneg_left hRay (matrixColumnControl_pos B).le
+
+theorem gramSmallestValue_mul_column_lower {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ)
+    (B : Matrix (Fin n) (Fin n) ℂ) (hn : 0<n) (hB : IsUnit B.det) :
+    gramSmallestValue A hn ≤ matrixColumnControl B⁻¹*gramSmallestValue (A*B) hn := by
+  have hBinv : IsUnit (B⁻¹).det := Matrix.isUnit_det_of_left_inverse (B.mul_nonsing_inv hB)
+  have h := gramSmallestValue_mul_column_upper (A*B) B⁻¹ hn hBinv
+  rw [Matrix.mul_assoc,B.mul_nonsing_inv hB,Matrix.mul_one] at h
+  exact h
+
+end
+end JinWishart
+#print axioms JinWishart.matrixColumnControl_pos
+#print axioms JinWishart.matrixColumn_energy_bound
+#print axioms JinWishart.matrixColumn_composition
+#print axioms JinWishart.gramSmallestValue_nonneg
+#print axioms JinWishart.matrixColumn_inverse_apply
+#print axioms JinWishart.gramSmallestValue_mul_column_upper
+#print axioms JinWishart.gramSmallestValue_mul_column_lower
+
+FULL CorrelatedColumnMinimum.lean
+import JinWishartFormalization.GramMinimumColumnComparison
+import JinWishartFormalization.NoncentralMinimumDiversity
+
+/-!
+# Actual minimum with a fixed invertible column covariance factor
+
+The physical sample is Z B + M, not (Z+M) B. Its row covariance is B* B.
+The normalized mean is M B^-1 and is fixed. Codex.
+[需人工审查] Matrix measurability, covariance orientation and spectral model.
+-/
+open Matrix Filter MeasureTheory ProbabilityTheory
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem measurable_gramSmallestValue {m n : ℕ} (hn : 0<n) :
+    Measurable (fun A : Matrix (Fin m) (Fin n) ℂ => gramSmallestValue A hn) := by
+  apply measurable_of_Iio
+  intro x
+  have he : (fun A : Matrix (Fin m) (Fin n) ℂ => gramSmallestValue A hn) ⁻¹' Set.Iio x =
+      (fun A => complexGram A) ⁻¹' (smallestEigenvalueTailEvent x)ᶜ := by
+    ext A
+    have hs := smallestEigenvalueTailEvent_iff_smallest_eigenvalue₀_ge
+      (complexGram A) (complexGram_posSemidef A).1 (by simpa using hn) x
+    change gramSmallestValue A hn < x ↔ complexGram A ∉ smallestEigenvalueTailEvent x
+    rw [hs]
+    exact lt_iff_not_ge
+  rw [he]
+  apply (measurableSet_smallestEigenvalueTailEvent x).compl.preimage
+  apply Measurable.of_eval_matrix
+  intro i j
+  simp only [complexGram,Matrix.mul_apply,Matrix.conjTranspose_apply]
+  fun_prop
+
+def correlatedColumnMinimum {m n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ)
+    (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0<n) (z : ComplexSample (m := m) (n := n)) : ℝ :=
+  gramSmallestValue (complexSampleMatrix z*B+M) hn
+
+theorem measurable_correlatedColumnMinimum {m n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ)
+    (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0<n) :
+    Measurable (correlatedColumnMinimum B M hn) := by
+  apply (measurable_gramSmallestValue hn).comp
+  apply Measurable.of_eval_matrix
+  intro i j
+  simp only [Matrix.add_apply,Matrix.mul_apply,complexSampleMatrix]
+  fun_prop
+
+theorem correlatedColumn_sample_identity {m n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ)
+    (M : Matrix (Fin m) (Fin n) ℂ) (hB : IsUnit B.det)
+    (z : ComplexSample (m := m) (n := n)) :
+    complexSampleMatrix z*B+M = (complexSampleMatrix z+M*B⁻¹)*B := by
+  rw [Matrix.add_mul,Matrix.mul_assoc,B.nonsing_inv_mul hB,Matrix.mul_one]
+
+theorem correlatedColumnMinimum_bounds {m n : ℕ} (B : Matrix (Fin n) (Fin n) ℂ)
+    (M : Matrix (Fin m) (Fin n) ℂ) (hn : 0<n) (hB : IsUnit B.det)
+    (z : ComplexSample (m := m) (n := n)) :
+    correlatedColumnMinimum B M hn z ≤ matrixColumnControl B*
+      complexNoncentralSampleSmallestEigenvalue (M*B⁻¹) hn z ∧
+    complexNoncentralSampleSmallestEigenvalue (M*B⁻¹) hn z ≤
+      matrixColumnControl B⁻¹*correlatedColumnMinimum B M hn z := by
+  unfold correlatedColumnMinimum
+  rw [correlatedColumn_sample_identity B M hB]
+  exact ⟨gramSmallestValue_mul_column_upper _ B hn hB,
+    gramSmallestValue_mul_column_lower _ B hn hB⟩
+
+def actualCorrelatedColumnMinimumCDF (d n : ℕ) (B : Matrix (Fin (n+1)) (Fin (n+1)) ℂ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (x : ℝ) : ℝ :=
+  (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))).real
+    {z | correlatedColumnMinimum B M (Nat.succ_pos n) z≤x}
+
+theorem actualCorrelatedColumnMinimumCDF_sandwich (d n : ℕ)
+    (B : Matrix (Fin (n+1)) (Fin (n+1)) ℂ) (hB : IsUnit B.det)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (x : ℝ) :
+    actualNoncentralMinimumCDF d n (M*B⁻¹) (x/matrixColumnControl B) ≤
+      actualCorrelatedColumnMinimumCDF d n B M x ∧
+    actualCorrelatedColumnMinimumCDF d n B M x ≤
+      actualNoncentralMinimumCDF d n (M*B⁻¹) (matrixColumnControl B⁻¹*x) := by
+  constructor
+  · apply measureReal_mono (h₂ := measure_ne_top _ _)
+    intro z hz
+    have hb := (correlatedColumnMinimum_bounds B M (Nat.succ_pos n) hB z).1
+    have hz' : complexNoncentralSampleSmallestEigenvalue (M*B⁻¹) (Nat.succ_pos n) z ≤
+        x/matrixColumnControl B := hz
+    have hh := (le_div_iff₀ (matrixColumnControl_pos B)).mp hz'
+    exact hb.trans (by nlinarith)
+  · apply measureReal_mono (h₂ := measure_ne_top _ _)
+    intro z hz
+    exact (correlatedColumnMinimum_bounds B M (Nat.succ_pos n) hB z).2.trans
+      (mul_le_mul_of_nonneg_left hz (matrixColumnControl_pos B⁻¹).le)
+
+theorem actualCorrelatedColumnMinimumCDF_diversity (d n : ℕ)
+    (B : Matrix (Fin (n+1)) (Fin (n+1)) ℂ) (hB : IsUnit B.det)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) :
+    Tendsto (fun x : ℝ => Real.log (actualCorrelatedColumnMinimumCDF d n B M x)/Real.log x)
+      (𝓝[>] 0) (𝓝 ((d+1 : ℕ) : ℝ)) := by
+  let c := noncentralMinimumPowerLower d n (M*B⁻¹)/(matrixColumnControl B)^(d+1)
+  let C := noncentralMinimumPowerUpper d n (M*B⁻¹)*(matrixColumnControl B⁻¹)^(d+1)
+  have hc : 0<c := div_pos (noncentralMinimumPower_constants_pos d n _).1
+    (pow_pos (matrixColumnControl_pos B) _)
+  have hC : 0<C := mul_pos (noncentralMinimumPower_constants_pos d n _).2
+    (pow_pos (matrixColumnControl_pos B⁻¹) _)
+  apply tendsto_log_ratio_of_power_bounds _ (d+1) c C hc hC
+  have ha : (0 : ℝ)<matrixColumnControl B/4 := div_pos (matrixColumnControl_pos B) (by norm_num)
+  have hBi : 0<matrixColumnControl B⁻¹ := matrixColumnControl_pos B⁻¹
+  have hb : (0 : ℝ)<1/(4*matrixColumnControl B⁻¹) := by positivity
+  filter_upwards [self_mem_nhdsWithin,
+    (eventually_lt_nhds ha).filter_mono nhdsWithin_le_nhds,
+    (eventually_lt_nhds hb).filter_mono nhdsWithin_le_nhds] with x hx hxa hxb
+  have hxl : 0<x/matrixColumnControl B := div_pos hx (matrixColumnControl_pos B)
+  have hxl1 : x/matrixColumnControl B≤1/4 := by
+    rw [div_le_iff₀ (matrixColumnControl_pos B)]; linarith
+  have hxu : 0<matrixColumnControl B⁻¹*x := mul_pos (matrixColumnControl_pos B⁻¹) hx
+  have hxu1 : matrixColumnControl B⁻¹*x≤1/4 := by
+    have hh := (lt_div_iff₀ (show 0<4*matrixColumnControl B⁻¹ by positivity)).mp hxb
+    nlinarith
+  have hl := (actualNoncentralMinimumCDF_local_power_bounds d n (M*B⁻¹) _ hxl hxl1).1
+  have hu := (actualNoncentralMinimumCDF_local_power_bounds d n (M*B⁻¹) _ hxu hxu1).2
+  have hs := actualCorrelatedColumnMinimumCDF_sandwich d n B hB M x
+  refine ⟨hx,?_,?_⟩
+  · calc
+      c*x^(d+1) = noncentralMinimumPowerLower d n (M*B⁻¹)*(x/matrixColumnControl B)^(d+1) := by
+        dsimp only [c]; rw [div_pow]; ring
+      _ ≤ _ := hl.trans hs.1
+  · calc
+      _ ≤ noncentralMinimumPowerUpper d n (M*B⁻¹)*(matrixColumnControl B⁻¹*x)^(d+1) := hs.2.trans hu
+      _ = C*x^(d+1) := by dsimp only [C]; rw [mul_pow]; ring
+
+end
+end JinWishart
+#print axioms JinWishart.measurable_gramSmallestValue
+#print axioms JinWishart.measurable_correlatedColumnMinimum
+#print axioms JinWishart.correlatedColumn_sample_identity
+#print axioms JinWishart.correlatedColumnMinimum_bounds
+#print axioms JinWishart.actualCorrelatedColumnMinimumCDF_sandwich
+#print axioms JinWishart.actualCorrelatedColumnMinimumCDF_diversity
