@@ -99,3 +99,8 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumRealPolynomial.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumRightTail.lean -text whitespace=cr-at-eol
 /experiments/central_minimum_tail_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/LeaveOneOutGramResidual.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GramMinimumResidualUpper.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GramMinimumRayleigh.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/GramMinimumResidualLower.lean -text whitespace=cr-at-eol
+/experiments/central_minimum_residual_control.py -text whitespace=cr-at-eol

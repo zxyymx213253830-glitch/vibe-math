@@ -1,0 +1,17 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualLower.lean:24:4: error: Type mismatch
+  Fin.insertNth_apply_same ?m.101 ?m.102 ?m.103
+has type
+  Fin.insertNth ?m.101 ?m.102 ?m.103 ?m.101 = ?m.102
+but is expected to have type
+  u.ofLp j = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualLower.lean:26:4: error: 'change' tactic failed, pattern
+  1 • complexMatrixColumn A j + ∑ i, -c.ofLp i • complexMatrixColumn A (j.succAbove i) = ?m.135
+is not definitionally equal to target
+  u.ofLp j • complexMatrixColumn A j + ∑ i, u.ofLp (j.succAbove i) • complexMatrixColumn A (j.succAbove i) =
+    (leaveOneOutColumnSpace A j)ᗮ.starProjection (complexMatrixColumn A j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualLower.lean:50:44: error(lean.invalidField): Invalid field `eigenvalues₀_nonneg`: The environment does not contain `Eq.eigenvalues₀_nonneg`, so it is not possible to project the field `eigenvalues₀_nonneg` from an expression
+  PosSemidef.isHermitian (complexGram_posSemidef A)
+of type
+  (complexGram A)ᴴ = complexGram A
+'JinWishart.exists_leaveOneOut_residual_test_vector' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_le_leaveOneOut_energy' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

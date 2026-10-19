@@ -1,0 +1,46 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LeaveOneOutGramResidual.lean:30:30: warning: `EuclideanSpace.single_apply` has been deprecated: Use `PiLp.single_apply` instead
+
+Note: The updated constant has a different type:
+  ∀ (p : ENNReal) (𝕜 : Type u_1) {ι : Type u_2} [inst : DecidableEq ι] [inst_1 : Zero 𝕜] (i : ι) (a : 𝕜) (j : ι),
+    (PiLp.single p i a).ofLp j = if j = i then a else 0
+instead of
+  ∀ {ι : Type u_1} {𝕜 : Type u_3} [inst : RCLike 𝕜] [inst_1 : DecidableEq ι] (i : ι) (a : 𝕜) (j : ι),
+    (EuclideanSpace.single i a).ofLp j = if j = i then a else 0
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.single_apply` to `PiLp.single_apply x`).
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LeaveOneOutGramResidual.lean:30:4: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.toEuclideanLin, Matrix.toLpLin_apply, complexMatrixColumn, dotProduct,
+    EuclideanSpace.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LeaveOneOutGramResidual.lean:30:19: warning: This simp argument is unused:
+  dotProduct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.toEuclideanLin, Matrix.toLpLin_apply, complexMatrixColumn, Matrix.mulVec,
+    EuclideanSpace.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LeaveOneOutGramResidual.lean:30:30: warning: This simp argument is unused:
+  EuclideanSpace.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.toEuclideanLin, Matrix.toLpLin_apply, complexMatrixColumn, Matrix.mulVec, dotProduct]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LeaveOneOutGramResidual.lean:66:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'JinWishart.leaveOneOut_other_column_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.matrix_column_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.leaveOneOut_projection_column_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.leaveOneOut_coordinate_energy_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_large_unit_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_leaveOneOut_energy_le_dimension_mul' depends on axioms: [propext, Classical.choice, Quot.sound]

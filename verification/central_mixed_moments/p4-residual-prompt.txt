@@ -1,0 +1,254 @@
+P4 direct mathematical issues only, no tools/rewrites. Codex final checked deterministic sources below,13 statements. For ANY complex m by(n+1) matrix, D_j=norm^2 of columnj projection onto complex orthogonal complement of OTHER columns. No full rank assumption; n0 means one column. Sources prove smallestGram<=D_j for allj and existsj D_j<=(n+1)*smallestGram. Upper uses unit least-eigenvector and a coordinate with (n+1)|u_j|^2>=1, projection identity; lower chooses u_j=1, other coefficients cancel best projection, normu>=1, and Rayleigh min bound. Review hidden rank assumptions, singular/zero matrices, test-vector normalization and Gram conjugate order. No independence of residuals, no actual Gamma law or diversity exponent proved yet. Fixedseed4 shapes200000 each with inverse/QR residual, Gamma marginals/trace baseline and negative factor1 control passes; numerical not proof. Prior planning response unsure about deterministic lower bound is not an assumption; explicit checked proof now included. No independent compilation or human approval.
+
+FULL LeaveOneOutGramResidual.lean
+import JinWishartFormalization.GaussianSubmatrixLaw
+import Mathlib.Algebra.BigOperators.Fin
+
+/-!
+# Leave-one-column-out residual geometry
+
+Codex deterministic proofs following actual-sample/QR controls.
+No independence between different column residuals is asserted.
+[需人工审查] Subsequent connection to actual Gaussian residual laws.
+-/
+open Matrix
+open scoped BigOperators
+namespace JinWishart
+noncomputable section
+
+def leaveOneOutColumnSpace {m n : ℕ} (A : Matrix (Fin m) (Fin (n+1)) ℂ)
+    (j : Fin (n+1)) : Submodule ℂ (EuclideanSpace ℂ (Fin m)) :=
+  (A.submatrix id j.succAbove).toEuclideanLin.range
+
+def leaveOneOutResidualEnergy {m n : ℕ} (A : Matrix (Fin m) (Fin (n+1)) ℂ)
+    (j : Fin (n+1)) : ℝ :=
+  ‖(leaveOneOutColumnSpace A j)ᗮ.starProjection (complexMatrixColumn A j)‖^2
+
+theorem leaveOneOut_other_column_mem {m n : ℕ}
+    (A : Matrix (Fin m) (Fin (n+1)) ℂ) (j : Fin (n+1)) (i : Fin n) :
+    complexMatrixColumn A (j.succAbove i) ∈ leaveOneOutColumnSpace A j := by
+  refine ⟨EuclideanSpace.single i 1,?_⟩
+  ext k
+  simp [Matrix.toEuclideanLin,Matrix.toLpLin_apply,complexMatrixColumn,
+    Matrix.mulVec, dotProduct,EuclideanSpace.single_apply]
+
+theorem matrix_column_sum {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ)
+    (u : EuclideanSpace ℂ (Fin n)) :
+    A.toEuclideanLin u = ∑ j, u j • complexMatrixColumn A j := by
+  ext i
+  simp [Matrix.toEuclideanLin,Matrix.toLpLin_apply,complexMatrixColumn,
+    Matrix.mulVec,dotProduct,Finset.sum_apply,mul_comm]
+
+theorem leaveOneOut_projection_column_sum {m n : ℕ}
+    (A : Matrix (Fin m) (Fin (n+1)) ℂ) (j : Fin (n+1))
+    (u : EuclideanSpace ℂ (Fin (n+1))) :
+    (leaveOneOutColumnSpace A j)ᗮ.starProjection (A.toEuclideanLin u) =
+      u j • (leaveOneOutColumnSpace A j)ᗮ.starProjection (complexMatrixColumn A j) := by
+  rw [matrix_column_sum,map_sum]
+  simp_rw [map_smul]
+  rw [Fin.sum_univ_succAbove _ j]
+  have hz (i : Fin n) :
+      (leaveOneOutColumnSpace A j)ᗮ.starProjection (complexMatrixColumn A (j.succAbove i)) = 0 :=
+    Submodule.starProjection_orthogonal_apply_eq_zero (leaveOneOut_other_column_mem A j i)
+  simp only [hz,smul_zero,Finset.sum_const_zero,add_zero]
+
+theorem leaveOneOut_coordinate_energy_le {m n : ℕ}
+    (A : Matrix (Fin m) (Fin (n+1)) ℂ) (j : Fin (n+1))
+    (u : EuclideanSpace ℂ (Fin (n+1))) :
+    ‖u j‖^2 * leaveOneOutResidualEnergy A j ≤ ‖A.toEuclideanLin u‖^2 := by
+  have h := (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mpr
+    ((leaveOneOutColumnSpace A j)ᗮ.norm_starProjection_apply_le (A.toEuclideanLin u))
+  rw [leaveOneOut_projection_column_sum,norm_smul,mul_pow] at h
+  exact h
+
+theorem exists_large_unit_coordinate {n : ℕ} (hn : 0 < n)
+    (u : EuclideanSpace ℂ (Fin n)) (hu : ‖u‖=1) :
+    ∃ j : Fin n, 1 ≤ (n : ℝ)*‖u j‖^2 := by
+  classical
+  by_contra h
+  push_neg at h
+  have hs := Finset.sum_lt_sum (s := Finset.univ)
+    (fun j _ => (h j).le) ⟨⟨0,hn⟩,Finset.mem_univ _,h _⟩
+  rw [← Finset.mul_sum,← EuclideanSpace.norm_sq_eq,hu] at hs
+  simp only [one_pow,mul_one,Finset.sum_const,Finset.card_univ,Fintype.card_fin,
+    nsmul_eq_mul,mul_one] at hs
+  exact (lt_irrefl _ hs)
+
+theorem exists_leaveOneOut_energy_le_dimension_mul {m n : ℕ}
+    (A : Matrix (Fin m) (Fin (n+1)) ℂ) (u : EuclideanSpace ℂ (Fin (n+1))) (hu : ‖u‖=1) :
+    ∃ j, leaveOneOutResidualEnergy A j ≤ ((n+1 : ℕ) : ℝ)*‖A.toEuclideanLin u‖^2 := by
+  obtain ⟨j,hj⟩ := exists_large_unit_coordinate (Nat.succ_pos n) u hu
+  refine ⟨j,?_⟩
+  have h0 := mul_le_mul_of_nonneg_left (leaveOneOut_coordinate_energy_le A j u)
+    (Nat.cast_nonneg (n+1) : (0 : ℝ) ≤ (n+1 : ℕ))
+  have h1 := mul_nonneg (sub_nonneg.mpr hj) (sq_nonneg
+    ‖(leaveOneOutColumnSpace A j)ᗮ.starProjection (complexMatrixColumn A j)‖)
+  change 0 ≤ (((n+1 : ℕ) : ℝ)*‖u j‖^2-1)*leaveOneOutResidualEnergy A j at h1
+  nlinarith
+
+end
+end JinWishart
+#print axioms JinWishart.leaveOneOut_other_column_mem
+#print axioms JinWishart.matrix_column_sum
+#print axioms JinWishart.leaveOneOut_projection_column_sum
+#print axioms JinWishart.leaveOneOut_coordinate_energy_le
+#print axioms JinWishart.exists_large_unit_coordinate
+#print axioms JinWishart.exists_leaveOneOut_energy_le_dimension_mul
+
+FULL GramMinimumResidualUpper.lean
+import JinWishartFormalization.LeaveOneOutGramResidual
+
+/-!
+# A leave-one-out residual is at most dimension times the least Gram eigenvalue
+
+Codex finite-dimensional spectral/projection proofs. No rank premise.
+[需人工审查] Later actual Gaussian event/probability correspondence.
+-/
+open Matrix
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+
+def gramSmallestValue {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) (hn : 0 < n) : ℝ :=
+  (complexGram_posSemidef A).isHermitian.eigenvalues₀ (smallestEigenvalue₀Index hn)
+
+theorem gram_columnMap_energy {m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ)
+    (u : EuclideanSpace ℂ (Fin n)) :
+    ‖A.toEuclideanLin u‖^2 = (star (⇑u) ⬝ᵥ ((complexGram A) *ᵥ ⇑u)).re := by
+  calc
+    _ = (inner ℂ (A.toEuclideanLin u) (A.toEuclideanLin u)).re := by
+      simp only [inner_self_eq_norm_sq_to_K,Complex.ofReal_pow,Complex.ofReal_re]
+      norm_cast
+    _ = _ := by
+      congr 1
+      rw [EuclideanSpace.inner_eq_star_dotProduct]
+      rw [dotProduct_comm]
+      change star (A *ᵥ ⇑u) ⬝ᵥ (A *ᵥ ⇑u) = _
+      rw [star_mulVec,← dotProduct_mulVec,mulVec_mulVec]
+      rfl
+
+theorem exists_gram_minimum_unit_vector {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hn : 0 < n) :
+    ∃ u : EuclideanSpace ℂ (Fin n), ‖u‖=1 ∧ ‖A.toEuclideanLin u‖^2 = gramSmallestValue A hn := by
+  classical
+  let hG := (complexGram_posSemidef A).isHermitian
+  let e : Fin (Fintype.card (Fin n)) ≃ Fin n :=
+    Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))
+  let i := e (smallestEigenvalue₀Index hn)
+  refine ⟨hG.eigenvectorBasis i,hG.eigenvectorBasis.orthonormal.1 i,?_⟩
+  rw [gram_columnMap_energy]
+  calc
+    _ = hG.eigenvalues i := (hG.eigenvalues_eq i).symm
+    _ = _ := by
+      simp only [Matrix.IsHermitian.eigenvalues,i,e,Equiv.symm_apply_apply,gramSmallestValue,hG]
+
+theorem exists_leaveOneOut_energy_le_dimension_mul_minimum {m n : ℕ}
+    (A : Matrix (Fin m) (Fin (n+1)) ℂ) :
+    ∃ j, leaveOneOutResidualEnergy A j ≤ ((n+1 : ℕ) : ℝ)*gramSmallestValue A (Nat.succ_pos n) := by
+  obtain ⟨u,hu,he⟩ := exists_gram_minimum_unit_vector A (Nat.succ_pos n)
+  obtain ⟨j,hj⟩ := exists_leaveOneOut_energy_le_dimension_mul A u hu
+  exact ⟨j,he ▸ hj⟩
+
+end
+end JinWishart
+#print axioms JinWishart.gram_columnMap_energy
+#print axioms JinWishart.exists_gram_minimum_unit_vector
+#print axioms JinWishart.exists_leaveOneOut_energy_le_dimension_mul_minimum
+
+FULL GramMinimumRayleigh.lean
+import JinWishartFormalization.GramMinimumResidualUpper
+
+/-! Least Gram eigenvalue bounds every column-map energy. Codex proofs.
+No rank hypothesis. [需人工审查] Later actual-law correspondence.
+-/
+open Matrix
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem euclidean_star_dot_self_re {n : ℕ} (u : EuclideanSpace ℂ (Fin n)) :
+    (star (⇑u) ⬝ᵥ ⇑u).re = ‖u‖^2 := by
+  have h := congrArg Complex.re (inner_self_eq_norm_sq_to_K (𝕜 := ℂ) u)
+  rw [EuclideanSpace.inner_eq_star_dotProduct,dotProduct_comm] at h
+  norm_cast at h
+
+theorem gramSmallestValue_rayleigh_lower {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hn : 0 < n)
+    (u : EuclideanSpace ℂ (Fin n)) :
+    gramSmallestValue A hn * ‖u‖^2 ≤ ‖A.toEuclideanLin u‖^2 := by
+  have hG := (complexGram_posSemidef A).isHermitian
+  have he : complexGram A ∈ smallestEigenvalueTailEvent (gramSmallestValue A hn) := by
+    apply (smallestEigenvalueTailEvent_iff_smallest_eigenvalue₀_ge _ hG
+      (by simpa using hn) _).mpr
+    exact le_rfl
+  change (complexGram A-(gramSmallestValue A hn : ℂ) • 1).PosSemidef at he
+  have h := he.re_dotProduct_nonneg (⇑u)
+  change 0 ≤ (star (⇑u) ⬝ᵥ
+    ((complexGram A-(gramSmallestValue A hn : ℂ) • 1) *ᵥ ⇑u)).re at h
+  simp only [Matrix.sub_mulVec,Matrix.smul_mulVec,Matrix.one_mulVec,dotProduct_sub,
+    dotProduct_smul,smul_eq_mul,Complex.sub_re,Complex.mul_re,
+    Complex.ofReal_re,Complex.ofReal_im,zero_mul,sub_zero] at h
+  rw [← gram_columnMap_energy,euclidean_star_dot_self_re] at h
+  linarith
+
+end
+end JinWishart
+#print axioms JinWishart.euclidean_star_dot_self_re
+#print axioms JinWishart.gramSmallestValue_rayleigh_lower
+
+FULL GramMinimumResidualLower.lean
+import JinWishartFormalization.GramMinimumRayleigh
+
+/-!
+# The least Gram eigenvalue is no larger than any leave-one-out residual
+
+Codex deterministic proof; no full-rank or generic-position assumption.
+The test vector has distinguished coordinate1, hence norm at least1.
+[需人工审查] Later correspondence to actual Gaussian residual events.
+-/
+open Matrix
+open scoped BigOperators ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem exists_leaveOneOut_residual_test_vector {m n : ℕ}
+    (A : Matrix (Fin m) (Fin (n+1)) ℂ) (j : Fin (n+1)) :
+    ∃ u : EuclideanSpace ℂ (Fin (n+1)), u j=1 ∧
+      A.toEuclideanLin u = (leaveOneOutColumnSpace A j)ᗮ.starProjection (complexMatrixColumn A j) := by
+  classical
+  let K := leaveOneOutColumnSpace A j
+  obtain ⟨c,hc⟩ := K.starProjection_apply_mem (complexMatrixColumn A j)
+  let u : EuclideanSpace ℂ (Fin (n+1)) := WithLp.toLp 2 (j.insertNth 1 (fun i => -c i))
+  refine ⟨u,?_,?_⟩
+  · simp [u]
+  · rw [matrix_column_sum,Fin.sum_univ_succAbove _ j]
+    simp only [u,PiLp.toLp_apply,Fin.insertNth_apply_same,Fin.insertNth_apply_succAbove]
+    simp only [one_smul,neg_smul]
+    have hsum : (∑ i : Fin n, c i • complexMatrixColumn A (j.succAbove i)) =
+        (A.submatrix id j.succAbove).toEuclideanLin c := by
+      rw [matrix_column_sum]
+      rfl
+    rw [Finset.sum_neg_distrib,hsum,hc]
+    have h := K.starProjection_add_starProjection_orthogonal (complexMatrixColumn A j)
+    exact eq_sub_of_add_eq' h |>.symm
+
+theorem gramSmallestValue_le_leaveOneOut_energy {m n : ℕ}
+    (A : Matrix (Fin m) (Fin (n+1)) ℂ) (j : Fin (n+1)) :
+    gramSmallestValue A (Nat.succ_pos n) ≤ leaveOneOutResidualEnergy A j := by
+  obtain ⟨u,huj,hu⟩ := exists_leaveOneOut_residual_test_vector A j
+  have hnrm : 1 ≤ ‖u‖^2 := by
+    rw [EuclideanSpace.norm_sq_eq]
+    have h := Finset.single_le_sum (fun i (_ : i ∈ Finset.univ) => sq_nonneg ‖u i‖)
+      (Finset.mem_univ j)
+    simpa only [huj,norm_one,one_pow] using h
+  have h := gramSmallestValue_rayleigh_lower A (Nat.succ_pos n) u
+  rw [hu] at h
+  change gramSmallestValue A (Nat.succ_pos n)*‖u‖^2 ≤ leaveOneOutResidualEnergy A j at h
+  have hmin : 0 ≤ gramSmallestValue A (Nat.succ_pos n) :=
+    complexGram_eigenvalues₀_nonneg A (smallestEigenvalue₀Index (Nat.succ_pos n))
+  nlinarith
+
+end
+end JinWishart
+#print axioms JinWishart.exists_leaveOneOut_residual_test_vector
+#print axioms JinWishart.gramSmallestValue_le_leaveOneOut_energy

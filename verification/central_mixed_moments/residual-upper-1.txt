@@ -1,0 +1,49 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualUpper.lean:21:66: error: unsolved goals
+m n : ℕ
+A : Matrix (Fin m) (Fin n) ℂ
+u : EuclideanSpace ℂ (Fin n)
+⊢ ‖(toEuclideanLin A) u‖ ^ 2 = (↑‖(toEuclideanLin A) u‖ ^ 2).re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualUpper.lean:26:6: error: 'change' tactic failed, pattern
+  star (A *ᵥ u.ofLp) ⬝ᵥ A *ᵥ u.ofLp = ?m.104
+is not definitionally equal to target
+  ((toEuclideanLin A) u).ofLp ⬝ᵥ star ((toEuclideanLin A) u).ofLp = star u.ofLp ⬝ᵥ complexGram A *ᵥ u.ofLp
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualUpper.lean:22:44: warning: This simp argument is unused:
+  Complex.ofReal_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inner_self_eq_norm_sq_to_K, Complex.ofReal_re]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualUpper.lean:22:63: warning: This simp argument is unused:
+  Complex.ofReal_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inner_self_eq_norm_sq_to_K, Complex.ofReal_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualUpper.lean:35:70: error: Application type mismatch: The argument
+  Fintype.card_fin n
+has type
+  Fintype.card (Fin n) = n
+but is expected to have type
+  Fintype.card (Fin (Fintype.card (Fin n))) = Fintype.card (Fin n)
+in the application
+  Fintype.equivOfCardEq ⋯
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualUpper.lean:38:28: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  RCLike.re (star (hG.eigenvectorBasis i).ofLp ⬝ᵥ complexGram A *ᵥ (hG.eigenvectorBasis i).ofLp)
+in the target expression
+  (star (hG.eigenvectorBasis i).ofLp ⬝ᵥ complexGram A *ᵥ (hG.eigenvectorBasis i).ofLp).re = gramSmallestValue A hn
+
+m n : ℕ
+A : Matrix (Fin m) (Fin n) ℂ
+hn : 0 < n
+hG : (complexGram A).IsHermitian := PosSemidef.isHermitian (complexGram_posSemidef A)
+e : Fin (Fintype.card (Fin n)) ≃ Fin n := Fintype.equivOfCardEq ⋯
+i : Fin n := e (smallestEigenvalue₀Index hn)
+⊢ (star (hG.eigenvectorBasis i).ofLp ⬝ᵥ complexGram A *ᵥ (hG.eigenvectorBasis i).ofLp).re = gramSmallestValue A hn
+'JinWishart.gram_columnMap_energy' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.exists_gram_minimum_unit_vector' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.exists_leaveOneOut_energy_le_dimension_mul_minimum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "LeaveOneOutGramResidual.lean": {
+      "sha256": "c093f320c194080ef38e79fb43c590a152a2d81167629dd95f714746b233c0ba",
+      "supplied": "Full source"
+    },
+    "GramMinimumResidualUpper.lean": {
+      "sha256": "512843eb8a61add7fc5edac11df901798ab59d66648e4d74a735472312e02c95",
+      "supplied": "Full source"
+    },
+    "GramMinimumRayleigh.lean": {
+      "sha256": "49a962832a274d11660065fda3ebcb4dc8f1aef3b4bc2fc0a7a4eba3189431ef",
+      "supplied": "Full source"
+    },
+    "GramMinimumResidualLower.lean": {
+      "sha256": "0f660271f4eab7e91a2f01b8a5caa8eb8bf4adb71cec311daccfcebb362873e4",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "56a942c7b16a01fb564d15f15a148a922c129347086ceb461fb5798bb2ab82f4"
+}

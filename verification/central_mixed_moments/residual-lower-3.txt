@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumResidualLower.lean:26:17: warning: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [u, Fin.insertNth_apply_same, Fin.insertNth_apply_succAbove]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.exists_leaveOneOut_residual_test_vector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_le_leaveOneOut_energy' depends on axioms: [propext, Classical.choice, Quot.sound]

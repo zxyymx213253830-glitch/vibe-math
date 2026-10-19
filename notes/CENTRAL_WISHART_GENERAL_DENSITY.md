@@ -417,3 +417,21 @@ These11 declarations and final facade PASS; total140 bound items.
 Deterministic polynomial/Gamma right-tail controls pass, not proof. Qoder
 exact-source P4 delivered no concrete issue; human review still required.
 This is RIGHT tail, not the general left hard-edge/T4 coefficient.
+
+
+### Left hard-edge route: deterministic residual geometry closed
+
+For ANY m-by-r complex matrix A,r>0, define D_j as the squared norm of
+columnj projected onto the complex orthogonal complement of all other columns.
+New4 modules prove minGram<=D_j everyj and existsj D_j<=r*minGram, including
+singular matrices. Upper uses a unit least-eigenvector and large coordinate;
+lower uses a test coefficient vector with distinguished coordinate1, norm>=1,
+and image equal to the projection residual. Qoder planning uncertainty about
+the deterministic lower bound was unfounded; exact proof needs no rank.
+Four actual shapes each200000 pass pointwise inequalities, independent QR
+check, Gamma residual moments/trace controls, and factor1 false-bound control.
+These13 declarations,153 total bound items, and final facade PASS.
+Next: compare complex/real projections and transport actual leave-one-out
+Gamma laws; then Gamma CDF event sandwich and diversity exponent r.dof-r+1.
+Those probabilistic consequences are NOT proved by the current deterministic
+lemmas; no exact general T4 prefactor claimed. Human interpretation remains.

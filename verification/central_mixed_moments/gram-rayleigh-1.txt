@@ -1,0 +1,3 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinimumRayleigh.lean:16:2: error: No goals to be solved
+'JinWishart.euclidean_star_dot_self_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_rayleigh_lower' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,3 +1,4 @@
+import JinWishartFormalization.GramMinimumResidualLower
 import JinWishartFormalization.CentralMinimumRightTail
 import JinWishartFormalization.CentralMinimumPolynomialNormalization
 import JinWishartFormalization.CentralMinimumUnivariatePolynomial

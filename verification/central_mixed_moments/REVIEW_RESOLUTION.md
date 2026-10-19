@@ -201,3 +201,18 @@ Normalization3 statements already kernel PASS; P4 response pending.
 Normalization P4 delivered on exact final3 sources. Its warning about arbitrary ENNReal.toReal injection is inapplicable to the actual hi at that step: both sides are already ENNReal.ofReal of explicit real quantities, hence finite unconditionally, and toReal_ofReal only requires their proved nonnegativity. No extra finiteness or integrability premise is missing. The earlier norm-moment theorem takes row surplus d, dimension n, integer power p, with no invented m<=n hypothesis; d0 specialization is square.
 
 Final real/right-tail P4 delivered on both exact checked files: coefficientwise real extraction, monicity, atTop filters, exp sign, covariance exponent v^(d*n) and CDF complement confirmed within source scope. No concrete mathematical issue reported. This is not independent compilation or human semantic review. Left-tail/T4 remains separate.
+
+
+## General hard-edge route: actual obligations, not planning assertions
+
+The real Qoder P1 favors residual/Gamma sandwich but incorrectly doubts the
+deterministic lower bound minGram<=D_j. It holds for ALL matrices: a residual
+test coefficient vector has u_j=1, norm>=1 and A*u equal to that residual;
+Rayleigh min bound and minGram>=0 prove it. GramMinimumResidualLower now
+checks this exactly, with no rank/generic-position premise. The planning
+response also treats the actual per-column Gamma law as already instantiated;
+only the underlying fresh-column/random-projection framework is proved so
+far. Leave-one-out marginal transport and final event sandwich remain to do.
+Finally a single determinant mass M does NOT determine Q low derivatives;
+the full Gaussian polynomial functional is needed for analytic cancellations.
+No exact general T4 coefficient follows merely from the loose Gamma bounds.
