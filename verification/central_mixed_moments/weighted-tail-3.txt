@@ -1,0 +1,66 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailNaturalMoments.lean:31:19: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailNaturalMoments.lean:31:19: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailNaturalMoments.lean:73:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |↑(q + 1) * t ^ q * probabilityTail μ f t|
+in the target expression
+  |weightedProbabilityTail μ f q t| ≤ ↑(q + 1) * 4 ^ q
+
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : α → ℝ
+q : ℕ
+t : ℝ
+ht : t ∈ Ioc 0 4
+ht0 : 0 ≤ t
+hw0 : 0 ≤ ↑(q + 1) * t ^ q
+⊢ |weightedProbabilityTail μ f q t| ≤ ↑(q + 1) * 4 ^ q
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailNaturalMoments.lean:91:4: error: Type mismatch
+  mul_nonneg (le_of_lt hc) (probabilityTail_nonneg μ f t)
+has type
+  0 ≤ c * probabilityTail μ f t
+but is expected to have type
+  c * ↑(q + 1) * (t ^ q / t ^ k) ≤ weightedProbabilityTail μ f q t ∧
+    weightedProbabilityTail μ f q t ≤ C * ↑(q + 1) * (t ^ q / t ^ k)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailNaturalMoments.lean:98:4: error: Tactic `constructor` failed: target is not an inductive datatype
+
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : α → ℝ
+hf : Measurable f
+hnn : 0 ≤ᵐ[μ] f
+q k : ℕ
+c C : ℝ
+hc : 0 < c
+hC : 0 < C
+hb : ∀ (t : ℝ), 4 ≤ t → c / t ^ k ≤ probabilityTail μ f t ∧ probabilityTail μ f t ≤ C / t ^ k
+t : ℝ
+ht : t ∈ Ioi 4
+ht4 : 4 < t
+ht0 : 0 < t
+hw : 0 ≤ ↑(q + 1) * t ^ q
+hlo : ↑(q + 1) * t ^ q * (c / t ^ k) ≤ ↑(q + 1) * t ^ q * probabilityTail μ f t
+hup : ↑(q + 1) * t ^ q * probabilityTail μ f t ≤ ↑(q + 1) * t ^ q * (C / t ^ k)
+⊢ 0 ≤ weightedProbabilityTail μ f q t
+'JinWishart.measurable_weightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.lintegral_natPower_eq_weightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_natPower_iff_weightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.weightedProbabilityTail_integrableOn_near_zero' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_succPower_iff_two_sided_power_tail' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_natPower_iff_two_sided_power_tail' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

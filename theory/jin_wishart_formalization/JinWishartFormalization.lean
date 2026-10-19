@@ -1,3 +1,4 @@
+import JinWishartFormalization.NoncentralInverseMinimumMoments
 import JinWishartFormalization.NoncentralInverseMinimumFirstMoment
 import JinWishartFormalization.NoncentralInverseMinimumTail
 import JinWishartFormalization.NoncentralMinimumModeOutage

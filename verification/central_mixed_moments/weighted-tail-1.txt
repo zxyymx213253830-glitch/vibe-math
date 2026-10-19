@@ -1,0 +1,26 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailNaturalMoments.lean:27:74: error: unsolved goals
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : α → ℝ
+hf : Measurable f
+hnn : 0 ≤ᵐ[μ] f
+q : ℕ
+u : ℝ
+⊢ ↑(1 + q) * u * u ^ q = u * u ^ q + u * u ^ q * ↑q
+'JinWishart.measurable_weightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.lintegral_natPower_eq_weightedProbabilityTail' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_natPower_iff_weightedProbabilityTail' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

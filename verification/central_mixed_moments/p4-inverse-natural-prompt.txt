@@ -1,0 +1,194 @@
+P4 concrete issues only, no tools/rewrite. Exact final Codex10 declarations checked. Generic weighted layercake: MOMENT q+1 uses weight(q+1)t^q, notmomentq. Two-sided tailc/t^k,C/t^k withprobability boundnear0 yields momentq+1 finite iff q+1<k. Generic final Nat momentq includesq0 withk>0. Actual arbitraryfixedmean noncentral m>=N>0, inverse minimum kth threshold: E[lambda^-q] integrable iff q<m-N+1, covariancevI fixedv>0 included; criticalandabove ENNReal integralTOP, not Bochner infinity. No exactmomentvalue/Gamma law forminimum/densityassumption. Imported generic power comparison andactualtail bounds checked, fixedseedGamma/quad controls notproof. Audit q vsq+1, cast REAL subtraction vsNat truncation, near0 (Natweight bounded), fixedmean covariance normalizedM/sqrtv notscalingphysicalM, inverse0 exceptionalnullset already handled. HumanFubini/model review stays REQUIRED regardless of your verdict.
+
+FULL ProbabilityTailNaturalMoments.lean
+import JinWishartFormalization.ProbabilityTailFirstMoment
+import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+
+/-!
+# Positive integer moments as weighted probability-tail integrals
+
+The index q below describes moment q+1, with weight (q+1)t^q.
+Codex. [需人工审查] Weighted layercake/Fubini and critical moment interpretation.
+-/
+open Filter Set MeasureTheory
+namespace JinWishart
+noncomputable section
+variable {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsProbabilityMeasure μ]
+
+def weightedProbabilityTail (f : α → ℝ) (q : ℕ) (t : ℝ) : ℝ :=
+  ((q+1 : ℕ) : ℝ)*t^q*probabilityTail μ f t
+
+theorem measurable_weightedProbabilityTail (f : α → ℝ) (q : ℕ) :
+    Measurable (weightedProbabilityTail μ f q) := by
+  unfold weightedProbabilityTail
+  exact (measurable_const.mul (measurable_id.pow_const q)).mul (measurable_probabilityTail μ f)
+
+theorem lintegral_natPower_eq_weightedProbabilityTail (f : α → ℝ)
+    (hf : Measurable f) (hnn : 0 ≤ᵐ[μ] f) (q : ℕ) :
+    (∫⁻ a, ENNReal.ofReal (f a^(q+1)) ∂μ) =
+      ∫⁻ t in Ioi 0, ENNReal.ofReal (weightedProbabilityTail μ f q t) := by
+  have hG (u : ℝ) : (∫ t in (0 : ℝ)..u, ((q+1 : ℕ) : ℝ)*t^q) = u^(q+1) := by
+    rw [intervalIntegral.integral_const_mul,integral_pow]
+    simp only [zero_pow (Nat.succ_ne_zero q),sub_zero]
+    push_cast
+    field_simp
+  have h := lintegral_comp_eq_lintegral_meas_le_mul μ
+    (g := fun t : ℝ => ((q+1 : ℕ) : ℝ)*t^q) hnn hf.aemeasurable
+    (fun t _ => (continuous_const.mul (continuous_id.pow q)).intervalIntegrable 0 t)
+    (by
+      filter_upwards [ae_restrict_mem measurableSet_Ioi] with t ht
+      have ht0 : (0 : ℝ)<t := ht
+      positivity)
+  simp_rw [hG] at h
+  rw [h]
+  apply lintegral_congr_ae
+  filter_upwards [ae_restrict_mem measurableSet_Ioi] with t ht
+  have ht0 : (0 : ℝ)<t := ht
+  rw [show μ {a | t≤f a} = ENNReal.ofReal (probabilityTail μ f t) from
+    (ENNReal.ofReal_toReal (measure_ne_top _ _)).symm,
+    ← ENNReal.ofReal_mul (probabilityTail_nonneg μ f t)]
+  congr 1
+  unfold weightedProbabilityTail
+  ring
+
+theorem integrable_natPower_iff_weightedProbabilityTail (f : α → ℝ)
+    (hf : Measurable f) (hnn : 0 ≤ᵐ[μ] f) (q : ℕ) :
+    Integrable (fun a => f a^(q+1)) μ ↔ IntegrableOn (weightedProbabilityTail μ f q) (Ioi 0) := by
+  have hp : 0 ≤ᵐ[μ] (fun a => f a^(q+1)) := hnn.mono (fun _ h => pow_nonneg h _)
+  have hw : 0 ≤ᵐ[volume.restrict (Ioi 0)] weightedProbabilityTail μ f q := by
+    filter_upwards [ae_restrict_mem measurableSet_Ioi] with t ht
+    have ht0 : (0 : ℝ)<t := ht
+    exact mul_nonneg (by positivity) (probabilityTail_nonneg μ f t)
+  change Integrable (fun a => f a^(q+1)) μ ↔
+    Integrable (weightedProbabilityTail μ f q) (volume.restrict (Ioi 0))
+  rw [← lintegral_ofReal_ne_top_iff_integrable (hf.pow_const (q+1)).aestronglyMeasurable hp,
+    ← lintegral_ofReal_ne_top_iff_integrable
+      (measurable_weightedProbabilityTail μ f q).aestronglyMeasurable hw,
+    lintegral_natPower_eq_weightedProbabilityTail μ f hf hnn q]
+
+theorem weightedProbabilityTail_integrableOn_near_zero (f : α → ℝ) (q : ℕ) :
+    IntegrableOn (weightedProbabilityTail μ f q) (Ioc (0 : ℝ) 4) := by
+  apply (integrable_const (((q+1 : ℕ) : ℝ)*(4 : ℝ)^q)).mono'
+    (measurable_weightedProbabilityTail μ f q).aestronglyMeasurable
+  filter_upwards [ae_restrict_mem measurableSet_Ioc] with t ht
+  have ht0 : 0≤t := ht.1.le
+  have hw0 : 0 ≤ ((q+1 : ℕ) : ℝ)*t^q := by positivity
+  dsimp only [weightedProbabilityTail]
+  rw [Real.norm_eq_abs,abs_of_nonneg (mul_nonneg hw0 (probabilityTail_nonneg μ f t))]
+  exact (mul_le_of_le_one_right hw0 (probabilityTail_le_one μ f t)).trans
+    (mul_le_mul_of_nonneg_left (pow_le_pow_left₀ ht0 ht.2 q) (by positivity))
+
+theorem integrable_succPower_iff_two_sided_power_tail (f : α → ℝ)
+    (hf : Measurable f) (hnn : 0 ≤ᵐ[μ] f) (q k : ℕ)
+    (c C : ℝ) (hc : 0<c) (hC : 0<C)
+    (hb : ∀ t : ℝ, 4≤t → c/t^k ≤ probabilityTail μ f t ∧ probabilityTail μ f t ≤ C/t^k) :
+    Integrable (fun a => f a^(q+1)) μ ↔ q+1<k := by
+  rw [integrable_natPower_iff_weightedProbabilityTail μ f hf hnn q,
+    ← Ioc_union_Ioi_eq_Ioi (by norm_num : (0 : ℝ)≤4),integrableOn_union]
+  simp only [weightedProbabilityTail_integrableOn_near_zero,true_and]
+  apply integrableOn_powerTail_iff (weightedProbabilityTail μ f q)
+    (measurable_weightedProbabilityTail μ f q) (by
+      intro t ht
+      have ht4 : (4 : ℝ)<t := ht
+      have ht0 : 0<t := by linarith
+      exact mul_nonneg (by positivity) (probabilityTail_nonneg μ f t)) q k
+    (c*((q+1 : ℕ) : ℝ)) (C*((q+1 : ℕ) : ℝ)) (by positivity) (by positivity)
+  intro t ht
+  have ht4 : (4 : ℝ)<t := ht
+  have ht0 : 0<t := by linarith
+  have hw : 0≤((q+1 : ℕ) : ℝ)*t^q := by positivity
+  have hlo := mul_le_mul_of_nonneg_left (hb t ht4.le).1 hw
+  have hup := mul_le_mul_of_nonneg_left (hb t ht4.le).2 hw
+  constructor
+  · convert hlo using 1 <;> (try dsimp only [weightedProbabilityTail]) <;> ring
+  · convert hup using 1 <;> (try dsimp only [weightedProbabilityTail]) <;> ring
+
+theorem integrable_natPower_iff_two_sided_power_tail (f : α → ℝ)
+    (hf : Measurable f) (hnn : 0 ≤ᵐ[μ] f) (q k : ℕ) (hk : 0<k)
+    (c C : ℝ) (hc : 0<c) (hC : 0<C)
+    (hb : ∀ t : ℝ, 4≤t → c/t^k ≤ probabilityTail μ f t ∧ probabilityTail μ f t ≤ C/t^k) :
+    Integrable (fun a => f a^q) μ ↔ q<k := by
+  cases q with
+  | zero => simp only [pow_zero,hk,iff_true]; exact integrable_const 1
+  | succ q => exact integrable_succPower_iff_two_sided_power_tail μ f hf hnn q k c C hc hC hb
+
+end
+end JinWishart
+#print axioms JinWishart.measurable_weightedProbabilityTail
+#print axioms JinWishart.lintegral_natPower_eq_weightedProbabilityTail
+#print axioms JinWishart.integrable_natPower_iff_weightedProbabilityTail
+#print axioms JinWishart.weightedProbabilityTail_integrableOn_near_zero
+#print axioms JinWishart.integrable_succPower_iff_two_sided_power_tail
+#print axioms JinWishart.integrable_natPower_iff_two_sided_power_tail
+
+FULL NoncentralInverseMinimumMoments.lean
+import JinWishartFormalization.NoncentralInverseMinimumFirstMoment
+import JinWishartFormalization.ProbabilityTailNaturalMoments
+import JinWishartFormalization.NoncentralMinimumCovarianceDiversity
+
+/-!
+# Exact nonnegative integer inverse-minimum moment threshold
+
+Codex. Includes moment0 and critical exponent divergence. Fixed arbitrary mean
+and fixed scalar covariance; no exact numerical moment value is claimed.
+[需人工审查] Weighted layercake, model/variance and expectation interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem actualNoncentralInverseMinimum_natMoment_integrable_iff (d n q : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) :
+    Integrable (fun z => (actualNoncentralInverseMinimum d n M z)^q)
+      (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))) ↔ q<d+1 := by
+  apply integrable_natPower_iff_two_sided_power_tail
+    (stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1)))
+    (actualNoncentralInverseMinimum d n M) (measurable_actualNoncentralInverseMinimum d n M)
+    (ae_of_all _ (actualNoncentralInverseMinimum_nonneg d n M)) q (d+1) (Nat.succ_pos d)
+    (noncentralMinimumPowerLower d n M) (noncentralMinimumPowerUpper d n M)
+    (noncentralMinimumPower_constants_pos d n M).1 (noncentralMinimumPower_constants_pos d n M).2
+  intro t ht
+  exact actualNoncentralInverseMinimumTail_power_bounds d n M t ht
+
+theorem actualNoncentralRectangular_inverseMinimum_natMoment_integrable_iff (m n q : ℕ)
+    (hn : 0<n) (hnm : n≤m) (M : Matrix (Fin m) (Fin n) ℂ) :
+    Integrable (fun z : ComplexSample (m := m) (n := n) =>
+      ((complexNoncentralSampleSmallestEigenvalue M hn z)⁻¹)^q) (stdGaussian _) ↔ q<m-n+1 := by
+  obtain ⟨k,rfl⟩ := Nat.exists_eq_succ_of_ne_zero hn.ne'
+  have hm : m-(k+1)+(k+1)=m := Nat.sub_add_cancel hnm
+  generalize hd : m-(k+1)=d at *
+  subst m
+  exact actualNoncentralInverseMinimum_natMoment_integrable_iff d k q M
+
+theorem actualNoncentralInverseMinimum_natMoment_lintegral_eq_top (d n q : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (hq : d+1≤q) :
+    (∫⁻ z, ENNReal.ofReal ((actualNoncentralInverseMinimum d n M z)^q)
+      ∂stdGaussian (ComplexSample (m := d+(n+1)) (n := n+1))) = ⊤ := by
+  by_contra h
+  have hi := (lintegral_ofReal_ne_top_iff_integrable
+    ((measurable_actualNoncentralInverseMinimum d n M).pow_const q).aestronglyMeasurable
+    (ae_of_all _ (fun z => pow_nonneg (actualNoncentralInverseMinimum_nonneg d n M z) q))).mp h
+  exact (Nat.not_lt_of_ge hq) ((actualNoncentralInverseMinimum_natMoment_integrable_iff d n q M).mp hi)
+
+theorem actualNoncentralCovariance_inverseMinimum_natMoment_integrable_iff (d n q : ℕ)
+    (M : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ) (v : ℝ) (hv : 0<v) :
+    Integrable (fun z : ComplexSample (m := d+(n+1)) (n := n+1) =>
+      ((complexNoncentralSampleSmallestEigenvalue M (Nat.succ_pos n) (Real.sqrt v • z))⁻¹)^q)
+      (stdGaussian _) ↔ q<d+1 := by
+  let M' : Matrix (Fin (d+(n+1))) (Fin (n+1)) ℂ := (((Real.sqrt v)⁻¹ : ℝ) : ℂ) • M
+  have he : (fun z : ComplexSample (m := d+(n+1)) (n := n+1) =>
+      ((complexNoncentralSampleSmallestEigenvalue M (Nat.succ_pos n) (Real.sqrt v • z))⁻¹)^q) =
+      (fun z => (v⁻¹)^q*(actualNoncentralInverseMinimum d n M' z)^q) := by
+    funext z
+    rw [noncentralSampleMinimum_amplitude_scale _ _ _ (Real.sqrt_pos.mpr hv),
+      Real.sq_sqrt hv.le,_root_.mul_inv_rev,mul_pow]
+    simp only [actualNoncentralInverseMinimum,M',mul_comm]
+  rw [he,integrable_const_mul_iff (isUnit_iff_ne_zero.mpr (pow_ne_zero q (inv_ne_zero hv.ne')))]
+  exact actualNoncentralInverseMinimum_natMoment_integrable_iff d n q M'
+
+end
+end JinWishart
+#print axioms JinWishart.actualNoncentralInverseMinimum_natMoment_integrable_iff
+#print axioms JinWishart.actualNoncentralRectangular_inverseMinimum_natMoment_integrable_iff
+#print axioms JinWishart.actualNoncentralInverseMinimum_natMoment_lintegral_eq_top
+#print axioms JinWishart.actualNoncentralCovariance_inverseMinimum_natMoment_integrable_iff

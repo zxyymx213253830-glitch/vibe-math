@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailNaturalMoments.lean:100:28: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProbabilityTailNaturalMoments.lean:101:28: error: `simp` made no progress
+'JinWishart.measurable_weightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.lintegral_natPower_eq_weightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_natPower_iff_weightedProbabilityTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.weightedProbabilityTail_integrableOn_near_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_succPower_iff_two_sided_power_tail' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_natPower_iff_two_sided_power_tail' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

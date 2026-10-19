@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ProbabilityTailNaturalMoments.lean": {
+      "sha256": "5c835606e9d1bc66c6bf9308d7a6c2afe6b582aa8f187948cf3e49842fdd64b3",
+      "supplied": "Full source"
+    },
+    "NoncentralInverseMinimumMoments.lean": {
+      "sha256": "f4c95eeca32e4173eb9335853fde3847bcac4cde1e2aa0cac8628f66c4122b5c",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "33de304cd8b3aad604cc53c5de95bcf087a98b89086149aaf2fec78301788b57"
+}
