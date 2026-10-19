@@ -1,0 +1,9 @@
+'JinWishart.realCoefficientPolynomial_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.realCoefficientPolynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.realCoefficientPolynomial_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumRealPolynomial_coeff_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumRealPolynomial_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumRealPolynomial_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_eq_realPolynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

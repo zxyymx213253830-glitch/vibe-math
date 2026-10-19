@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRightTail.lean:56:4: error: Application type mismatch: The argument
+  tendsto_div_const_atTop_of_pos hv
+has type
+  Tendsto (fun x => ?m.101 x / v) ?m.100 atTop ↔ Tendsto ?m.101 ?m.100 atTop
+but is expected to have type
+  Tendsto ?m.90 ?m.92 atTop
+in the application
+  Tendsto.comp (centralRectangularMinimumPolynomial_leading_limit d n) (tendsto_div_const_atTop_of_pos hv)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRightTail.lean:54:71: error: unsolved goals
+d n : ℕ
+hn : 0 < n
+v : ℝ
+hv : 0 < v
+⊢ Tendsto
+    (fun x =>
+      (1 - ((stdGaussian ComplexSample) {z | centralGaussianSampleMinimum (d + n) n hn (√v • z) ≤ x}).toReal) /
+        (Real.exp (-↑n * (x / v)) * x ^ (d * n)))
+    atTop (𝓝 ((centralDeterminantPowerMoment 0 n d)⁻¹ / v ^ (d * n)))
+'JinWishart.centralMinimumRealPolynomial_leading_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_leading_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_right_tail_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralRectangular_covariance_right_tail_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

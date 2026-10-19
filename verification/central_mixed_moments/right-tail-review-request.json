@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CentralMinimumRealPolynomial.lean": {
+      "sha256": "aeac3cc1b563c931c31f03bc9265f2549352ad3d86c35904564a338c8686eb2c",
+      "supplied": "Full source"
+    },
+    "CentralMinimumRightTail.lean": {
+      "sha256": "7c519cf207787acdf7fbc6d15e20c8abdd2d9037a31244d271a53195ee2bfc23",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "e702f3343f9fa38284cb98899ac13c76f3e4c65cf8d3fb13d57817d4a0406345"
+}

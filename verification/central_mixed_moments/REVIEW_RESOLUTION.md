@@ -197,3 +197,7 @@ is proved directly by simp on the explicit factorial coefficient functional,
 not an assumed normalization axiom. The independent constant-term bridge
 uses the actual Gamma determinant moment law, not the desired minimum CDF.
 Normalization3 statements already kernel PASS; P4 response pending.
+
+Normalization P4 delivered on exact final3 sources. Its warning about arbitrary ENNReal.toReal injection is inapplicable to the actual hi at that step: both sides are already ENNReal.ofReal of explicit real quantities, hence finite unconditionally, and toReal_ofReal only requires their proved nonnegativity. No extra finiteness or integrability premise is missing. The earlier norm-moment theorem takes row surplus d, dimension n, integer power p, with no invented m<=n hypothesis; d0 specialization is square.
+
+Final real/right-tail P4 delivered on both exact checked files: coefficientwise real extraction, monicity, atTop filters, exp sign, covariance exponent v^(d*n) and CDF complement confirmed within source scope. No concrete mathematical issue reported. This is not independent compilation or human semantic review. Left-tail/T4 remains separate.

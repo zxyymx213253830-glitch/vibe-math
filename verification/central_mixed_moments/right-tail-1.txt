@@ -1,0 +1,20 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRightTail.lean:21:43: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  1 * ?a
+in the target expression
+  (fun x => Polynomial.eval x (centralMinimumRealPolynomial d n)) ~[atTop] fun x => 1 * x ^ (d * n)
+
+d n : ℕ
+h : (fun x => Polynomial.eval x (centralMinimumRealPolynomial d n)) ~[atTop] fun x => 1 * x ^ (d * n)
+⊢ Tendsto (fun x => Polynomial.eval x (centralMinimumRealPolynomial d n) / x ^ (d * n)) atTop (𝓝 1)
+'JinWishart.centralMinimumRealPolynomial_leading_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_leading_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_right_tail_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

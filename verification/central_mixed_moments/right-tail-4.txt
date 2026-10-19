@@ -1,0 +1,30 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRightTail.lean:54:71: error: unsolved goals
+d n : ℕ
+hn : 0 < n
+v : ℝ
+hv : 0 < v
+h :
+  Tendsto
+    (fun a => ((fun x => centralRectangularMinimumPolynomial d n x / x ^ (d * n)) ∘ fun x => id x / v) a / v ^ (d * n))
+    atTop (𝓝 ((centralDeterminantPowerMoment 0 n d)⁻¹ / v ^ (d * n)))
+x : ℝ
+hx : 0 < x
+⊢ centralRectangularMinimumPolynomial d n (id x * v⁻¹) * x ^ (d * n) * Real.exp (-(v⁻¹ * ↑n * x)) =
+    id x ^ (d * n) * Real.exp (-(v⁻¹ * ↑n * x)) * centralRectangularMinimumPolynomial d n (v⁻¹ * x)
+'JinWishart.centralMinimumRealPolynomial_leading_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_leading_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_right_tail_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralRectangular_covariance_right_tail_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

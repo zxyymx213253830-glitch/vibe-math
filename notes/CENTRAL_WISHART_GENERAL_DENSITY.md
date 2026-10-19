@@ -403,3 +403,17 @@ Fixedseed exact symbolic matrix and square2x2 factorial controls precede
 proofs; not general proof. Next real-coefficient polynomial and tail
 asymptotic can use this algebra, without another spectral change of variables.
 Frozen publication remains unchanged, human interpretation review required.
+
+
+### General actual right-tail asymptotic
+
+CentralMinimumRealPolynomial takes coefficient real parts additively, never
+as a ring map, and preserves real evaluation and the monic exact degree nd.
+CentralMinimumRightTail proves for every d>=0,n>0:
+ Pr(min>x)/(exp(-n*x)*x^(nd)) ->1/M as x->infinity.
+With covariance vI, denominator exp(-n*x/v)*x^(nd) gives limit1/(M*v^(nd)).
+Constant-degree d0 is included; no accidental n0 probabilistic statement.
+These11 declarations and final facade PASS; total140 bound items.
+Deterministic polynomial/Gamma right-tail controls pass, not proof. Qoder
+exact-source P4 delivered no concrete issue; human review still required.
+This is RIGHT tail, not the general left hard-edge/T4 coefficient.

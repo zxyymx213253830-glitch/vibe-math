@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRightTail.lean:54:71: error: unsolved goals
+d n : ℕ
+hn : 0 < n
+v : ℝ
+hv : 0 < v
+h :
+  Tendsto
+    (fun a => ((fun x => centralRectangularMinimumPolynomial d n x / x ^ (d * n)) ∘ fun x => id x / v) a / v ^ (d * n))
+    atTop (𝓝 ((centralDeterminantPowerMoment 0 n d)⁻¹ / v ^ (d * n)))
+x : ℝ
+hx : 0 < x
+⊢ x ^ (d * n) * (centralRectangularMinimumPolynomial d n (x / v) * Real.exp (-(x * ↑n / v))) =
+    x ^ (d * n) * (1 - (1 - centralRectangularMinimumPolynomial d n (x / v) * Real.exp (-(x * ↑n / v))))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRightTail.lean:63:28: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [id_eq, mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRightTail.lean:63:42: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [id_eq, mul_comm, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.centralMinimumRealPolynomial_leading_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_leading_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_right_tail_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralRectangular_covariance_right_tail_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

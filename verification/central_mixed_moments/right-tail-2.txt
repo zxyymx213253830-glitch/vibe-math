@@ -1,0 +1,7 @@
+'JinWishart.centralMinimumRealPolynomial_leading_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_leading_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralRectangular_minimum_right_tail_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

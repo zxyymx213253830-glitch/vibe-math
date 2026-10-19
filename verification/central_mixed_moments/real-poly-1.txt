@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRealPolynomial.lean:30:66: error: unsolved goals
+P : Polynomial ℂ
+x : ℝ
+k : ℕ
+a✝ : k ∈ P.support
+⊢ (P.coeff k).re * x ^ k = (P.coeff k).re * (↑x ^ k).re - (P.coeff k).im * (↑x ^ k).im
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralMinimumRealPolynomial.lean:65:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (centralMinimumRealPolynomial ?d ?n).coeff (?d * ?n)
+in the target expression
+  (realCoefficientPolynomial (centralMinimumUnivariatePolynomial d n)).coeff (d * n) ≠ 0
+
+d n : ℕ
+⊢ (realCoefficientPolynomial (centralMinimumUnivariatePolynomial d n)).coeff (d * n) ≠ 0
+'JinWishart.realCoefficientPolynomial_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.realCoefficientPolynomial_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.realCoefficientPolynomial_natDegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumRealPolynomial_coeff_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumRealPolynomial_natDegree' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralMinimumRealPolynomial_monic' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralRectangularMinimumPolynomial_eq_realPolynomial' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

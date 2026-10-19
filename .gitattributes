@@ -96,3 +96,6 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumPolynomialDegree.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumPolynomialNormalization.lean -text whitespace=cr-at-eol
 /experiments/central_minimum_degree_control.py -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumRealPolynomial.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMinimumRightTail.lean -text whitespace=cr-at-eol
+/experiments/central_minimum_tail_control.py -text whitespace=cr-at-eol
