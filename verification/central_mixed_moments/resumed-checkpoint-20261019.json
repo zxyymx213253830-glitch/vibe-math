@@ -1,0 +1,100 @@
+{
+  "collected_utc": "2026-10-19T08:36:39.385195+00:00",
+  "checkpoint": "305 bounditems/facade25 realexit0",
+  "audit_status": "PASS specified leaf bundle and bindings",
+  "new_items_since_prior218": 87,
+  "new_modules": 22,
+  "proof_bodies": "Codex",
+  "partner_role": "Real bounded Qoder P1/P4, not proof author or human reviewer",
+  "receipts": [
+    {
+      "file": "p1-analytic-hard-edge.receipt.json",
+      "started": "2026-10-19T08:03:17.745543+00:00",
+      "exit_code": 0,
+      "reported_credits": 0.9937928571428571
+    },
+    {
+      "file": "p1-correlated-covariance.receipt.json",
+      "started": "2026-10-19T07:49:56.929994+00:00",
+      "exit_code": 0,
+      "reported_credits": 1.0276071428571427
+    },
+    {
+      "file": "p1-inverse-moments.receipt.json",
+      "started": "2026-10-19T07:21:34.443809+00:00",
+      "exit_code": 0,
+      "reported_credits": 1.06965
+    },
+    {
+      "file": "p1-simplified-prefactor.receipt.json",
+      "started": "2026-10-19T08:33:26.314541+00:00",
+      "exit_code": 0,
+      "reported_credits": 0.39351428571428565
+    },
+    {
+      "file": "p4-correlated-column.receipt.json",
+      "started": "2026-10-19T07:57:07.732536+00:00",
+      "exit_code": 0,
+      "reported_credits": 0.874692857142857
+    },
+    {
+      "file": "p4-correlated-inverse.receipt.json",
+      "started": "2026-10-19T07:59:29.925307+00:00",
+      "exit_code": 0,
+      "reported_credits": 0.5843442857142856
+    },
+    {
+      "file": "p4-density-edge.receipt.json",
+      "started": "2026-10-19T08:29:40.326185+00:00",
+      "exit_code": 0,
+      "reported_credits": 0.6640499999999999
+    },
+    {
+      "file": "p4-inverse-first-moment.receipt.json",
+      "started": "2026-10-19T07:29:53.293746+00:00",
+      "exit_code": 0,
+      "reported_credits": 0.49467
+    },
+    {
+      "file": "p4-inverse-natural.receipt.json",
+      "started": "2026-10-19T07:37:48.571381+00:00",
+      "exit_code": 0,
+      "reported_credits": 1.1957142857142855
+    },
+    {
+      "file": "p4-inverse-real.receipt.json",
+      "started": "2026-10-19T07:44:58.842493+00:00",
+      "exit_code": 0,
+      "reported_credits": 1.4209714285714286
+    },
+    {
+      "file": "p4-minimum-density.receipt.json",
+      "started": "2026-10-19T08:26:25.956998+00:00",
+      "exit_code": 0,
+      "reported_credits": 0.9989142857142856
+    },
+    {
+      "file": "p4-sharp-actual.receipt.json",
+      "started": "2026-10-19T08:14:57.136932+00:00",
+      "exit_code": 0,
+      "reported_credits": 0.8454385714285714
+    },
+    {
+      "file": "p4-sharp-analytic.receipt.json",
+      "started": "2026-10-19T08:13:39.970877+00:00",
+      "exit_code": 0,
+      "reported_credits": 1.2107357142857142
+    },
+    {
+      "file": "p4-tail-moment-framework.receipt.json",
+      "started": "2026-10-19T07:29:43.090855+00:00",
+      "exit_code": 0,
+      "reported_credits": 1.114242857142857
+    }
+  ],
+  "paper_pdf_packages": "UNCHANGED",
+  "full_lake_build": "NOT_RUN",
+  "human_review": "REQUIRED",
+  "quota": "Latest100 percent rounded but ordinaryUsageAllowed true; NOT claiming exhaustion",
+  "next_card": "notes/WISHART_NEXT_COEFFICIENT_CARD.md"
+}
