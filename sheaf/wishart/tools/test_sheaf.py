@@ -54,6 +54,38 @@ class CoordinatorTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'No successful real P4'):
                 a.verify_acceptance(evidence)
 
+    def test_separate_run_manifest_cannot_weaken_a_target(self):
+        evidence = deepcopy(a.read(a.ROOT / 'verification/sheaf_wishart/pilot-acceptance.json'))
+        with tempfile.TemporaryDirectory(dir=a.PROJECT / 'local') as temporary:
+            path = Path(temporary) / 'targets.json'
+            lock = deepcopy(a.read(a.PROJECT / 'locks/targets.json'))
+            name = next(iter(lock['statements']))
+            lock['statements'][name] += ' OR True'
+            a.write(path, lock)
+            evidence['target_lock'] = a.rel(path)
+            with self.assertRaisesRegex(ValueError, 'LOCKED TARGET CHANGED'):
+                a.verify_acceptance(evidence)
+
+    def test_separate_run_checker_must_match_its_lock(self):
+        with tempfile.TemporaryDirectory(dir=a.PROJECT / 'local') as temporary:
+            path = Path(temporary) / 'targets.json'
+            checker = Path(temporary) / 'Checker.lean'
+            checker.write_text('different checker', encoding='utf-8')
+            lock = deepcopy(a.read(a.PROJECT / 'locks/targets.json'))
+            lock['type_check_source'] = a.rel(checker)
+            a.write(path, lock)
+            with self.assertRaisesRegex(ValueError, 'type-comparison source changed'):
+                a.validate_locks(a.rel(path))
+
+    def test_successful_leaf_without_main_integration_is_rejected(self):
+        evidence = a.read(a.ROOT / 'verification/sheaf_wishart/pilot-acceptance.json')
+        with tempfile.TemporaryDirectory(dir=a.PROJECT / 'local') as temporary:
+            fake_lean = Path(temporary)
+            (fake_lean / 'JinWishartFormalization.lean').write_text('import AnotherModule\n', encoding='utf-8')
+            with patch.object(a, 'LEAN', fake_lean):
+                with self.assertRaisesRegex(ValueError, 'Target module not imported'):
+                    a.verify_acceptance(evidence)
+
     def test_target_hypothesis_drift_is_rejected(self):
         lock = a.read(a.PROJECT / "locks/targets.json")
         text = a.within_root(lock["source"]).read_text(encoding="utf-8")

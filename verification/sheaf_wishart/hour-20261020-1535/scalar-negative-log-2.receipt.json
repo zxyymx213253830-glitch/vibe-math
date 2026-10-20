@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-10-20T15:48:35.517856+00:00",
+  "ended_utc": "2026-10-20T15:48:47.285526+00:00",
+  "module": "JinWishartFormalization.ScalarUniformNegativeLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarUniformNegativeLog.lean",
+  "source_sha256_before": "24d6552deb93e8f7eab1880e43493e7d19f1fe0e5eed6f6fbe68c0b72fef1afa",
+  "source_sha256": "24d6552deb93e8f7eab1880e43493e7d19f1fe0e5eed6f6fbe68c0b72fef1afa",
+  "gated_helper_exit_code": 1,
+  "log_sha256": "4ccfdf7c809fbbfb3b1133137f9dd2053028892bb490ddd164217790c1aa1f13"
+}

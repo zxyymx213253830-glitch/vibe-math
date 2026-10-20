@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-10-20T15:55:32.604352+00:00",
+  "ended_utc": "2026-10-20T15:55:45.450143+00:00",
+  "module": "JinWishartFormalization.ComplexGaussianRootNegativeLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianRootNegativeLog.lean",
+  "source_sha256_before": "b4860972e2b355d041f5b7da4219b42873aea61bb4796b81739fa468a4f7dc32",
+  "source_sha256": "b4860972e2b355d041f5b7da4219b42873aea61bb4796b81739fa468a4f7dc32",
+  "gated_helper_exit_code": 1,
+  "log_sha256": "bac0d2744797ae969c017756882ac05a554d6d9f756bd1ea032bacfe489d4884"
+}

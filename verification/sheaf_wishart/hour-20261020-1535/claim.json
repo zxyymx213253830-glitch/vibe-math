@@ -1,0 +1,10 @@
+{
+  "token": "d8ff5a03ee2949189af58334d68d3dee",
+  "group": "codex-one-hour-20261020-1535",
+  "coordinator": "Current Codex thread; no second runner",
+  "hard_deadline_utc": "2026-10-20T16:35:52+00:00",
+  "tasks": [
+    "L-negative-log-tail",
+    "S3-uniform-negative-log"
+  ]
+}

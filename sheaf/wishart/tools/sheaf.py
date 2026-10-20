@@ -198,13 +198,18 @@ def validate_lock_data(lock, source_text=None):
     for path, expected in lock["definition_dependencies"].items():
         if sha(within_root(path)) != expected:
             raise ValueError(f"LOCKED DEFINITION/DEPENDENCY CHANGED: {path}")
-    if sha(PROJECT / "locks/SheafPilotTargetTypes.lean") != lock["type_check_source_sha256"]:
+    checker = within_root(lock.get("type_check_source", rel(PROJECT / "locks/SheafPilotTargetTypes.lean")))
+    if sha(checker) != lock["type_check_source_sha256"]:
         raise ValueError("Locked type-comparison source changed")
     return source
 
 
-def validate_locks():
-    lock = read(PROJECT / "locks/targets.json")
+def target_lock_path(path=None):
+    return within_root(path) if path else PROJECT / "locks/targets.json"
+
+
+def validate_locks(path=None):
+    lock = read(target_lock_path(path))
     return lock, validate_lock_data(lock)
 
 
@@ -269,24 +274,26 @@ def gated(source, module, tag, source_root=None):
     return result
 
 
-def check(group):
+def check(group, lock_path=None):
+    lock_file = target_lock_path(lock_path)
+    lock, source = validate_locks(lock_path)
+    checker = within_root(lock.get("type_check_source", rel(PROJECT / "locks/SheafPilotTargetTypes.lean")))
     with exclusive(PROJECT / "coord/operation.lock", group), exclusive(
-            PROJECT / "coord/claims/ScalarUniformSmallBall.lock", group), lease():
-        lock, source = validate_locks()
+            PROJECT / "coord/claims" / (lock["module"].replace(".", "_") + ".lock"), group), lease():
+        lock, source = validate_locks(lock_path)
         nodes = pilot_nodes(lock)
-        locked_hash = sha(PROJECT / "locks/targets.json")
+        locked_hash = sha(lock_file)
         tag = "pilot-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:6]
         leaf = gated(source, lock["module"], tag + "-leaf")
-        types = gated(PROJECT / "locks/SheafPilotTargetTypes.lean", "SheafPilotTargetTypes", tag + "-types",
-                      PROJECT / "locks") if leaf["success"] else None
-        if sha(PROJECT / "locks/targets.json") != locked_hash or sha(source) != leaf["source_sha256"]:
+        types = gated(checker, checker.stem, tag + "-types", checker.parent) if leaf["success"] else None
+        if sha(lock_file) != locked_hash or sha(source) != leaf["source_sha256"]:
             raise ValueError("Source or target lock changed during checks; receipts retained, nothing accepted")
-        validate_locks()
+        validate_locks(lock_path)
         ok = bool(types and types["success"] and "SHEAF_TARGET_TYPES_EQ PASS" in
                   within_root(types["log"]).read_text(encoding="utf-8"))
         report = dict(started_utc=leaf["started_utc"], ended_utc=now(), success=ok,
                       source_sha256=sha(source), leaf=leaf, types=types,
-                      target_lock_sha256=sha(PROJECT / "locks/targets.json"),
+                      target_lock_sha256=sha(lock_file),
                       acceptance="PENDING final-source P4, written resolution, facade and bundle audit")
         receipt = ROOT / "verification/sheaf_wishart" / (tag + ".json")
         write(receipt, report)
@@ -304,11 +311,12 @@ def check(group):
 
 
 def verify_acceptance(evidence):
-    lock, source = validate_locks()
+    lock_file = target_lock_path(evidence.get("target_lock"))
+    lock, source = validate_locks(evidence.get("target_lock"))
     check_record = read(within_root(evidence["check"]))
     if not check_record.get("success") or check_record["source_sha256"] != sha(source):
         raise ValueError("Failed/stale source check")
-    if check_record["target_lock_sha256"] != sha(PROJECT / "locks/targets.json"):
+    if check_record["target_lock_sha256"] != sha(lock_file):
         raise ValueError("Stale target lock")
     if not all(isinstance(check_record.get(part), dict) for part in ("leaf", "types")):
         raise ValueError("Missing leaf/type compiler receipt")
@@ -353,11 +361,15 @@ def verify_acceptance(evidence):
            for d in module["declarations"]):
         raise ValueError("Nonstandard target axioms")
     facade = read(within_root(evidence["facade_receipt"]))
+    main_source = LEAN / "JinWishartFormalization.lean"
+    if not re.search(r"^import\s+" + re.escape(lock["module"]) + r"\s*$",
+                     main_source.read_text(encoding="utf-8"), re.M):
+        raise ValueError("Target module not imported in main facade")
     if facade.get("gated_helper_exit_code") != 0 or facade.get("module") != "JinWishartFormalization":
         raise ValueError("No successful main facade check")
     facade_path = within_root(evidence["facade_receipt"])
     facade_log = facade_path.with_name(facade_path.name.removesuffix(".receipt.json") + ".txt")
-    if facade.get("source_sha256") != sha(LEAN / "JinWishartFormalization.lean") or \
+    if facade.get("source_sha256") != sha(main_source) or \
             facade.get("log_sha256") != sha(facade_log):
         raise ValueError("Stale facade source/log")
     return source
@@ -376,19 +388,20 @@ def accept(path, group):
         graph()
         evidence = read(within_root(path))
         source = verify_acceptance(evidence)
-        lock, _ = validate_locks()
+        lock, _ = validate_locks(evidence.get("target_lock"))
         for ident in (node["id"] for node in pilot_nodes(lock)):
             p = PROJECT / "dag/nodes" / (ident + ".json")
             node = read(p)
             node["verification"] = dict(status="verified", evidence=path, source_sha256=sha(source))
             write(p, node)
-        refresh()
-        ledger(f"Pilot accepted via {path}; human measure/model review remains REQUIRED.")
+        rows = refresh()
+        ledger(f"Queue milestone accepted via {path}; human measure/model review remains REQUIRED.")
+        phase = "QUEUE_WORK_REMAINS" if rows else "QUEUE_MILESTONE_COMPLETE"
         (PROJECT / "coord/STATE.md").write_text(
-            "# State\n\nPILOT_COMPLETE\n\nLocked scalar targets checked, reviewed and audit-bound.\n"
+            f"# State\n\n{phase}\n\nCurrent locked targets checked, reviewed and audit-bound.\n"
             "General polynomial log moments remain OPEN, outside this pilot.\n"
             "No background service; heartbeat PAUSED.\n", encoding="utf-8")
-        print("PILOT_COMPLETE; human model/measure review remains REQUIRED")
+        print(f"{phase}; human model/measure review remains REQUIRED")
 
 
 def main():
@@ -396,10 +409,11 @@ def main():
     parser.add_argument("command", choices=["status", "queue", "check", "accept"])
     parser.add_argument("evidence", nargs="?")
     parser.add_argument("--group", default="codex")
+    parser.add_argument("--lock", help="Workspace-relative target manifest for a new queue milestone; default preserves original pilot")
     args = parser.parse_args()
     if args.command in {"status", "queue"}:
+        validate_locks(args.lock)
         rows = refresh()
-        validate_locks()
         if any(r["kind"] == "stale-evidence" for r in rows):
             print("STALE_EVIDENCE: prior completion is invalid; recheck/review/audit required.")
         else:
@@ -409,7 +423,7 @@ def main():
             print((PROJECT / "coord/queue.md").read_text(encoding="utf-8"))
         return 0
     if args.command == "check":
-        return check(args.group)
+        return check(args.group, args.lock)
     if not args.evidence:
         parser.error("accept needs a workspace-relative evidence JSON")
     accept(args.evidence, args.group)

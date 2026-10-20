@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarUniformNegativeLog.lean:27:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @LE.le ℝ Real.instLE ((stdGaussian ComplexSample) (complexNoncentralSampleSmallestEigenvalue M ⋯ ⁻¹' Iic x)).toReal x
+but is expected to have type
+  @LE.le ℝ Real.instLE ((stdGaussian ComplexSample).real {a | complexNoncentralSampleSmallestEigenvalue M ⋯ a ≤ x}) x
+'JinWishart.actual_noncentralScalar_negativeLog_uniform_mean' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

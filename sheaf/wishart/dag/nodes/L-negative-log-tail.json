@@ -1,0 +1,20 @@
+{
+  "id": "L-negative-log-tail",
+  "kind": "statement",
+  "statement": "Generic probability smallball<=C*x gives integrable max(0,-log f) and integral<=C through nonnegative tail/layercake.",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "module": "JinWishartFormalization.ProbabilityNegativeLogBounds",
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-core.json",
+    "source_sha256": "bdce05aa5bc4b923fe48317743f7fd60b841a3aba7773527b9c0f66b263cec39"
+  },
+  "declaration": "JinWishart.negativeLog_probabilityTail_le",
+  "proof": [
+    {
+      "text": "For t>0, upper-log-tail event is contained in f<=exp(-t), then apply probability monotonicity and smallball bound.",
+      "uses": []
+    }
+  ]
+}

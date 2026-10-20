@@ -1,0 +1,5 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarUniformNegativeLog.lean:30:46: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+'JinWishart.actual_noncentralScalar_negativeLog_uniform_mean' depends on axioms: [propext, Classical.choice, Quot.sound]

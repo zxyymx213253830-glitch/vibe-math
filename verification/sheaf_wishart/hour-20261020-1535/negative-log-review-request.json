@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ProbabilityNegativeLogBounds.lean": {
+      "sha256": "bdce05aa5bc4b923fe48317743f7fd60b841a3aba7773527b9c0f66b263cec39",
+      "supplied": "Full source"
+    },
+    "ScalarUniformNegativeLog.lean": {
+      "sha256": "20a2f4db82e6c1cba31e252ec22091d0206afeb3b64a45dc5d905ae03c705174",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "bd16cd6eaee111bd4078c686268f31e3f19fe92510565dae467317e25e8727f7"
+}

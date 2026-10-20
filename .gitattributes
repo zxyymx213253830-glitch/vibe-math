@@ -141,3 +141,7 @@
 /sheaf/** -text whitespace=cr-at-eol
 /verification/sheaf_wishart/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 /notes/WISHART_SHEAF_PILOT.md -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityNegativeLogBounds.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/ScalarUniformNegativeLog.lean -text whitespace=cr-at-eol
+/theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianRootNegativeLog.lean -text whitespace=cr-at-eol
+/experiments/complex_root_negative_log_control.py -text whitespace=cr-at-eol

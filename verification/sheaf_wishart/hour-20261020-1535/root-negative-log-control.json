@@ -1,0 +1,148 @@
+{
+  "source_sha256": "131bc816ade25f660a135d27658c9d20a050f4889f57b3376357c383730caba7",
+  "seed": 2026102021,
+  "samples": 200000,
+  "model": "stdGaussian(C): independent N(0,1) real/imaginary coordinates",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "root-bound-0.0",
+      "passed": true,
+      "quadrature": 0.2219210395588741,
+      "bound": 0.25
+    },
+    {
+      "name": "root-MC-0.0",
+      "passed": true,
+      "empirical": 0.22259635762893312,
+      "reference": 0.2219210395588741,
+      "standard_error": 0.0009699404942874178
+    },
+    {
+      "name": "central-Rayleigh-reference",
+      "passed": true,
+      "tail": 0.2219210395588741,
+      "polar_integral": 0.22192103955887416,
+      "closed_form": 0.2219210395588742
+    },
+    {
+      "name": "root-bound-0.2",
+      "passed": true,
+      "quadrature": 0.21802097841921078,
+      "bound": 0.25
+    },
+    {
+      "name": "root-MC-0.2",
+      "passed": true,
+      "empirical": 0.21820333461631286,
+      "reference": 0.21802097841921078,
+      "standard_error": 0.0009605208538370441
+    },
+    {
+      "name": "root-bound-1.0",
+      "passed": true,
+      "quadrature": 0.1424429004299094,
+      "bound": 0.25
+    },
+    {
+      "name": "root-MC-1.0",
+      "passed": true,
+      "empirical": 0.14213860867553868,
+      "reference": 0.1424429004299094,
+      "standard_error": 0.0007987816242027484
+    },
+    {
+      "name": "root-bound-3.0",
+      "passed": true,
+      "quadrature": 0.004064608212450113,
+      "bound": 0.25
+    },
+    {
+      "name": "root-MC-3.0",
+      "passed": true,
+      "empirical": 0.0039713330993163464,
+      "reference": 0.004064608212450113,
+      "standard_error": 0.0001302546287304216
+    },
+    {
+      "name": "root-bound-8.0",
+      "passed": true,
+      "quadrature": 6.305605457427061e-14,
+      "bound": 0.25
+    },
+    {
+      "name": "root-MC-8.0",
+      "passed": true,
+      "empirical": 0.0,
+      "reference": 6.305605457427061e-14,
+      "standard_error": 0.0
+    },
+    {
+      "name": "wrong-factor-two-detected",
+      "passed": true,
+      "correct_reference": 0.2219210395588742,
+      "wrong_bound": 0.125
+    },
+    {
+      "name": "proper-CN1-variance-detected",
+      "passed": true,
+      "proper_CN1_reference": 0.3982997996485267,
+      "invalid_stdGaussian_bound": 0.25
+    },
+    {
+      "name": "product-1.0-[]",
+      "passed": true,
+      "empirical": 0.0,
+      "bound": 0.0,
+      "standard_error": 0.0
+    },
+    {
+      "name": "product-0.01-[]",
+      "passed": true,
+      "empirical": 4.605170185988092,
+      "bound": 4.605170185988091,
+      "standard_error": 1.986032287684744e-18
+    },
+    {
+      "name": "product-1.0-[0.0]",
+      "passed": true,
+      "empirical": 0.22259635762893312,
+      "bound": 0.25,
+      "standard_error": 0.0009699404942874178
+    },
+    {
+      "name": "known-monomial-1",
+      "passed": true,
+      "empirical": 0.22259635762893312,
+      "reference": 0.2219210395588742
+    },
+    {
+      "name": "product-1.0-[0.0, 0.0, 0.0]",
+      "passed": true,
+      "empirical": 0.6677890728867995,
+      "bound": 0.75,
+      "standard_error": 0.0029098214828622536
+    },
+    {
+      "name": "known-monomial-3",
+      "passed": true,
+      "empirical": 0.6677890728867995,
+      "reference": 0.6657631186766226
+    },
+    {
+      "name": "product-0.2-[1.0, (-2+1j)]",
+      "passed": true,
+      "empirical": 0.5703627240399307,
+      "bound": 2.1094379124341005,
+      "standard_error": 0.0011029334721181087
+    },
+    {
+      "name": "product-2.0-[(0.3+2j), (-0-0.5j), 1.0]",
+      "passed": true,
+      "empirical": 0.014946467597977759,
+      "bound": 0.75,
+      "standard_error": 0.0002679663833636837
+    }
+  ],
+  "interpretation": "Finite controls and known central closed forms; NOT a general polynomial proof"
+}

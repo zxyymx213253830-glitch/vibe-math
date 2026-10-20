@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-20T15:53:29.630971+00:00",
+  "module": "JinWishartFormalization.ProbabilityNegativeLogBounds",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityNegativeLogBounds.lean",
+  "statements": {
+    "JinWishart.negativeLog_probabilityTail_le": "(f : α → ℝ) (C : ℝ) (hsmall : ∀ x : ℝ, 0 < x → μ.real {a | f a ≤ x} ≤ C*x) (t : ℝ) (ht : 0 < t) : probabilityTail μ (fun a => max 0 (-Real.log (f a))) t ≤ C*Real.exp (-t)",
+    "JinWishart.negativeLog_integrable_integral_le_of_smallball": "(f : α → ℝ) (hf : Measurable f) (C : ℝ) (hC : 0 ≤ C) (hsmall : ∀ x : ℝ, 0 < x → μ.real {a | f a ≤ x} ≤ C*x) : Integrable (fun a => max 0 (-Real.log (f a))) μ ∧ (∫ a, max 0 (-Real.log (f a)) ∂μ) ≤ C"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03",
+    "theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailIntegrability.lean": "fd2949f1884f84f5a0ff6cb2e312e2ec452b3908164ac84dd35b1d938b240229",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ProbabilityTailIntegrability.olean": "440709ce4819b32a8514f59ef58fa1446046ecc4bd033474eb0c4f405eba9f45"
+  },
+  "type_check_source": "verification/sheaf_wishart/hour-20261020-1535/SheafNegativeLogTargets.lean",
+  "type_check_source_sha256": "7de18ef86dc74ef132953ee0c8372180390a45fdf1b27c5e2083a96e3875bd7d",
+  "scope": "Authorized onehour uniform-negative-log task; original pilot unchanged."
+}

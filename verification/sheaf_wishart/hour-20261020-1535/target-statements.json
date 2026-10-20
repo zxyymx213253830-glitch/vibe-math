@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-10-20T15:40:20.999656+00:00",
+  "locked_before_checks": true,
+  "targets": {
+    "ProbabilityNegativeLogBounds": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityNegativeLogBounds.lean",
+      "statements": {
+        "JinWishart.negativeLog_probabilityTail_le": "(f : α → ℝ) (C : ℝ) (hsmall : ∀ x : ℝ, 0 < x → μ.real {a | f a ≤ x} ≤ C*x) (t : ℝ) (ht : 0 < t) : probabilityTail μ (fun a => max 0 (-Real.log (f a))) t ≤ C*Real.exp (-t)",
+        "JinWishart.negativeLog_integrable_integral_le_of_smallball": "(f : α → ℝ) (hf : Measurable f) (C : ℝ) (hC : 0 ≤ C) (hsmall : ∀ x : ℝ, 0 < x → μ.real {a | f a ≤ x} ≤ C*x) : Integrable (fun a => max 0 (-Real.log (f a))) μ ∧ (∫ a, max 0 (-Real.log (f a)) ∂μ) ≤ C"
+      }
+    },
+    "ScalarUniformNegativeLog": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarUniformNegativeLog.lean",
+      "statements": {
+        "JinWishart.actual_noncentralScalar_negativeLog_uniform_mean": "(M : Matrix (Fin 1) (Fin 1) ℂ) : Integrable (fun z : ComplexSample (m := 1) (n := 1) => max 0 (-Real.log (complexNoncentralSampleSmallestEigenvalue M (by norm_num) z))) (stdGaussian _) ∧ (∫ z : ComplexSample (m := 1) (n := 1), max 0 (-Real.log (complexNoncentralSampleSmallestEigenvalue M (by norm_num) z)) ∂(stdGaussian _)) ≤ 1"
+      }
+    }
+  },
+  "hard_deadline_utc": "2026-10-20T16:35:52+00:00"
+}

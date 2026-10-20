@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-20T15:54:13.870526+00:00",
+  "ended_utc": "2026-10-20T15:54:25.364244+00:00",
+  "module": "JinWishartFormalization.ProbabilityNegativeLogBounds",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityNegativeLogBounds.lean",
+  "source_sha256_before": "bdce05aa5bc4b923fe48317743f7fd60b841a3aba7773527b9c0f66b263cec39",
+  "source_sha256": "bdce05aa5bc4b923fe48317743f7fd60b841a3aba7773527b9c0f66b263cec39",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/hour1535-core-locked.txt",
+  "log_exists": true,
+  "log_sha256": "7ef037e472ee5f513301d44340b07c49696c7d3334679a9249c1283d645ff5a2",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-10-20T15:40:21.086071+00:00",
+  "ended_utc": "2026-10-20T15:43:13.628272+00:00",
+  "module": "JinWishartFormalization.ProbabilityNegativeLogBounds",
+  "source_sha256": "ea21e32c6293a5d399584ff88dccf025d7cc8bbb5de575567e572d26fe691876",
+  "source_sha256_before": "ea21e32c6293a5d399584ff88dccf025d7cc8bbb5de575567e572d26fe691876",
+  "gated_helper_exit_code": 1,
+  "log_sha256": "497fac0b1634e4160807c964a40cc80274f3cacf89071c532874adf1052c125f"
+}

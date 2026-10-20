@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianRootNegativeLog.lean:36:53: error: Application type mismatch: The argument
+  add_le_add_left ih ?m.39
+has type
+  complexNegativeLog l.prod + ?m.39 ≤ (List.map complexNegativeLog l).sum + ?m.39
+but is expected to have type
+  complexNegativeLog a + complexNegativeLog l.prod ≤ complexNegativeLog a + (List.map complexNegativeLog l).sum
+in the application
+  LE.le.trans (complexNegativeLog_mul_le a l.prod) (add_le_add_left ih ?m.39)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianRootNegativeLog.lean:46:17: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianRootNegativeLog.lean:48:23: error: typeclass instance problem is stuck
+  SeminormedAddGroup ?m.154
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `SeminormedAddGroup` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+'JinWishart.complexNegativeLog_mul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexNegativeLog_list_prod_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_complex_negativeLog_uniform_root' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

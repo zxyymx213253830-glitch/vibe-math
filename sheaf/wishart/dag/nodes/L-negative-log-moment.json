@@ -1,0 +1,24 @@
+{
+  "id": "L-negative-log-moment",
+  "kind": "statement",
+  "statement": "Measurable f with probability smallball<=C*x, C>=0, has negative-log L1 and integral<=C.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-negative-log-tail"
+  ],
+  "module": "JinWishartFormalization.ProbabilityNegativeLogBounds",
+  "declaration": "JinWishart.negativeLog_integrable_integral_le_of_smallball",
+  "proof": [
+    {
+      "text": "Integrable exponential probability-tail majorant, layercake and integral exp(-t)=1.",
+      "uses": [
+        "L-negative-log-tail"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-core.json",
+    "source_sha256": "bdce05aa5bc4b923fe48317743f7fd60b841a3aba7773527b9c0f66b263cec39"
+  }
+}

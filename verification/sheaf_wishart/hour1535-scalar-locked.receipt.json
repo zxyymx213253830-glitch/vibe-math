@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-20T15:54:25.386482+00:00",
+  "ended_utc": "2026-10-20T15:54:36.633858+00:00",
+  "module": "JinWishartFormalization.ScalarUniformNegativeLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarUniformNegativeLog.lean",
+  "source_sha256_before": "20a2f4db82e6c1cba31e252ec22091d0206afeb3b64a45dc5d905ae03c705174",
+  "source_sha256": "20a2f4db82e6c1cba31e252ec22091d0206afeb3b64a45dc5d905ae03c705174",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/hour1535-scalar-locked.txt",
+  "log_exists": true,
+  "log_sha256": "14acd2d883225b2f40266bb9696dcfdad51e0e5b979de25b83754b70fc91a0c0",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

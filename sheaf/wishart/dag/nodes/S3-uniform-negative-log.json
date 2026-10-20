@@ -1,0 +1,29 @@
+{
+  "id": "S3-uniform-negative-log",
+  "kind": "target",
+  "target": true,
+  "statement": "For every fixed1x1 complex mean M, Y=max(0,-log(actual CN1 scalar Gram minimum)) is L1 and E Y<=1, uniform in M. Real.log0=0; no general polynomial claim.",
+  "stmt_deps": [
+    "D-CN1-model"
+  ],
+  "proof_deps": [
+    "S2-actual-CN1-smallball",
+    "L-negative-log-moment"
+  ],
+  "module": "JinWishartFormalization.ScalarUniformNegativeLog",
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-scalar.json",
+    "source_sha256": "20a2f4db82e6c1cba31e252ec22091d0206afeb3b64a45dc5d905ae03c705174"
+  },
+  "declaration": "JinWishart.actual_noncentralScalar_negativeLog_uniform_mean",
+  "proof": [
+    {
+      "text": "Rewrite actual scalar CDF to real sublevel mass; apply generic bound with C=1.",
+      "uses": [
+        "S2-actual-CN1-smallball",
+        "L-negative-log-moment"
+      ]
+    }
+  ]
+}
