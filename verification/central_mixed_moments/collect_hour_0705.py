@@ -41,7 +41,8 @@ main_artifact=root/spec['library']/'JinWishartFormalization.olean'
 assert main_artifact.stat().st_mtime>=main.stat().st_mtime
 tags=['rank-algebra-0705','rank-compression-0705','gaussian-rank-0705',
  'logdet-generic-rank-0705','minimum-zero-atom-0705','noiseless-floor-inverse-0705']
-receipts=[base/'p1-correlated-rank-upper-0705.receipt.json']+[base/('p4-'+t+'.receipt.json') for t in tags]
+receipts=[base/'p1-correlated-rank-upper-0705.receipt.json',
+          base/'p1-noiseless-offset-short-route-0705.receipt.json']+[base/('p4-'+t+'.receipt.json') for t in tags]
 reviews=[]
 for p in receipts:
     r=json.loads(p.read_text(encoding='utf-8'))
@@ -61,13 +62,17 @@ state.update(stage='CLOSED_USER_ONE_HOUR' if close else 'ACTIVE_USER_ONE_HOUR_RE
  'columnminimum zeroatom; noiseless-surjective fixedmean gives uniform ROW floor and all real inverse orders. '
  'General noiseless row offset remainsOPEN/preflight only.',
  updated_utc=now.isoformat(),automation_status='PAUSED')
+quota=json.loads((base/'quota-0705-close-snapshot.json').read_text(encoding='utf-8'))
+state['current_quota_note']=('Observed '+quota['observed_utc']+' ordinaryUsageAllowed='+str(quota['ordinaryUsageAllowed'])+
+ '; primary used '+str(quota['primaryUsedPercent'])+'%, weekly used '+str(quota['secondaryUsedPercent'])+
+ '%. This run stops on the fixed user hour, not quota exhaustion; no purchase/reset/account switch.')
 if close:
     state.update(ended_utc=now.isoformat(),paused_utc=now.isoformat(),
       pause_reason='Fixed one-hour user deadline reached; not quota exhaustion. No new research without renewed authorization.')
 (session/'state.json').write_text(json.dumps(state,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 summary=dict(stage=state['stage'],started_utc='2026-10-20T07:05:09+00:00',deadline_utc=deadline.isoformat(),
  collected_utc=now.isoformat(),initial_bound_items=491,final_bound_items=515,new_declarations=24,
- new_modules=8,proof_author='Codex',planning_and_review='Qoder only;1P1+6scoped final-source P4',
+ new_modules=8,proof_author='Codex',planning_and_review='Qoder only;2P1+6scoped final-source P4',
  new_targets=targets,new_exact_source_bindings={x['module']:audit['modules'][x['module']] for x in targets},
  qoder_calls=reviews,facade48=facade,
  facade47=dict(reported_exec_exit_code=1,log_bytes=(base/'facade-47.txt').stat().st_size,
@@ -80,6 +85,7 @@ summary=dict(stage=state['stage'],started_utc='2026-10-20T07:05:09+00:00',deadli
  open_scope='General row offset/error, general singular inverse threshold, noncentral explicit minimum CDF/PDF/G2, '
  'original general T1 identity, generald simplified coefficient, T3 journal normalization/full paper mapping remainOPEN.',
  no_remote_push=True,no_purchases_resets_or_account_switches=True,
+ close_quota_snapshot=quota,
  quota_stop='Fixed user hour governs this run; actual ordinary usage at close is recorded separately in state.',
  protected_unknown=['.mimosa/','.workbuddy/','.write_probe.tmp','output/screenshots/','tmp/'])
 out=base/'one-hour-20261020-0705-summary.json'

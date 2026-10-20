@@ -4,6 +4,24 @@
 本轮已证：固定δ>0使对所有Z，lambda_min(XX^H)≥δ；实际最小值所有p≥0逆矩L1。
 一般任意B/M通用秩与full-logdet斜率也已证，但本卡要求更强的偏移结论。
 
+## 优先短路线：先由C(1)推出logdet可积，暂不建逐谱积分接口
+
+本轮末提出并交Qoder P1核对（`p1-noiseless-offset-short-route-0705`），得到真实回复。
+令ell=log(Re det W)，W=XX^H。先逐点证
+e_r=C(r)-m log r-ell=SUM log(1+1/(r lambda_i))，0≤e_r≤m/(rδ)。
+在r=1，ell=C(1)-e_1。ell由实际矩阵det与总定义Real.log可测，e_1有界且可测，
+C(1)已真L1，故直接推出ell真L1。再积分同一误差界，得到偏移极限和O(1/r)界。
+这样无须先构造每个行特征值的L1/logL1。下面逐谱路线作为备选，不再首选。
+所需源接口已经定位：`CorrelatedLogDetLowScale.integrable_actualCorrelatedMatrixLogDet`
+（r=1）、`HermitianSpectralLogDet.hermitian_real_logdet_eq_sum_log`、
+`.gram_real_logdet_eq_spectral`，以及已闭合的标量log_inverse_error_bound。
+有界支配用已知integrable_const.mono'，不要直接采纳未经核实的API猜名。
+
+P1确认该数学路线在固定δ>0、概率测度、ROW方向下成立；这不是Lean新证明或P4。
+其“谱误差界已经机检完成”的措辞过强：本轮完成的是δ谱下界，e_r身份/上界仍待写。
+其n>m也不是必须，n=m、B=0、M可逆仍符合条件；只在n>m时列Gram必奇异。
+它猜测的Matrix.log_det/Integrable.of_bounded未采用。首阶逆矩阵trace系数仍单列待补。
+
 下一目标，当前没有新证明源码：
 
 1. 实际 log det(XX^H) 绝对可积；

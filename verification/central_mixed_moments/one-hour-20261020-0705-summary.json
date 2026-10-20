@@ -1,14 +1,14 @@
 {
-  "stage": "ACTIVE_USER_ONE_HOUR_REVIEW_PACKETS",
+  "stage": "CLOSED_USER_ONE_HOUR",
   "started_utc": "2026-10-20T07:05:09+00:00",
   "deadline_utc": "2026-10-20T08:05:09+00:00",
-  "collected_utc": "2026-10-20T07:56:35.789951+00:00",
+  "collected_utc": "2026-10-20T08:05:40.451924+00:00",
   "initial_bound_items": 491,
   "final_bound_items": 515,
   "new_declarations": 24,
   "new_modules": 8,
   "proof_author": "Codex",
-  "planning_and_review": "Qoder only;1P1+6scoped final-source P4",
+  "planning_and_review": "Qoder only;2P1+6scoped final-source P4",
   "new_targets": [
     {
       "module": "JinWishartFormalization.CorrelatedRankUpperBound",
@@ -489,6 +489,28 @@
       "human_review": false
     },
     {
+      "receipt": "verification/central_mixed_moments/p1-noiseless-offset-short-route-0705.receipt.json",
+      "sha256": "59ece81e7b211852f495e3bba087e03adc8b4ef081212e40cf36127708107c92",
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_usage": {
+        "qmodel_38max": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0,
+          "contextWindow": 0,
+          "maxOutputTokens": 0,
+          "credits": 0.7907142857142857
+        }
+      },
+      "seconds": 51.19585730001563,
+      "exit_code": 0,
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
       "receipt": "verification/central_mixed_moments/p4-rank-algebra-0705.receipt.json",
       "sha256": "6dc565eef52460109fa560946020304033a3f38fd1e64764793208b03d9e96d4",
       "requested_model": "Qwen3.8-Max",
@@ -646,7 +668,7 @@
   "audit_sha256": "affc06be5d5e5f7de486944c5256f17a655b667ad2037ff772f4a12d6b085185",
   "spec_sha256": "4d28d9ea227f7c117fb27a5e226bc9181966dca94cf31be02d012c9c1e9ddcc8",
   "source_main_sha256": "309fcff94cbcd5ec50ad14537fff181c92c48d5976e91360d06948325a8c4b2e",
-  "current_head": "6bac414485f5c5c54ca266dcb3910b6e6e2e53a7",
+  "current_head": "039d25e371a4084b759839cd62e37125a19c3394",
   "research_milestone_commits": [
     "a48cdb6",
     "6bac414"
@@ -659,6 +681,13 @@
   "open_scope": "General row offset/error, general singular inverse threshold, noncentral explicit minimum CDF/PDF/G2, original general T1 identity, generald simplified coefficient, T3 journal normalization/full paper mapping remainOPEN.",
   "no_remote_push": true,
   "no_purchases_resets_or_account_switches": true,
+  "close_quota_snapshot": {
+    "ordinaryUsageAllowed": true,
+    "primaryUsedPercent": 48,
+    "secondaryUsedPercent": 8,
+    "no_purchases_resets_or_account_switches": true,
+    "observed_utc": "2026-10-20 08:02:02 UTC"
+  },
   "quota_stop": "Fixed user hour governs this run; actual ordinary usage at close is recorded separately in state.",
   "protected_unknown": [
     ".mimosa/",
