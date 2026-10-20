@@ -1,0 +1,30 @@
+{
+  "id": "S1-planar-ball",
+  "kind": "statement",
+  "statement": "forall mu:Complex,R>=0, standard real planar Gaussian mass closedBall(mu,R)<=R^2/2",
+  "stmt_deps": [
+    "D-CN1-model"
+  ],
+  "proof_deps": [
+    "L-planar-density",
+    "M-complex-volume",
+    "M-integral-mono"
+  ],
+  "proof": [
+    {
+      "text": "Bound density by1/(2pi), integrate constant over compact disk of area piR².",
+      "uses": [
+        "L-planar-density",
+        "M-complex-volume",
+        "M-integral-mono"
+      ]
+    }
+  ],
+  "module": "JinWishartFormalization.ScalarUniformSmallBall",
+  "declaration": "JinWishart.stdGaussian_complex_closedBall_le_radius_sq_half",
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/pilot-acceptance.json",
+    "source_sha256": "f78b4294f2a9749ec9b27baa0e4cb5a91093e0401496a5b1bcf734a5eb2575cc"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "M-complex-volume",
+  "kind": "statement",
+  "status": "mathlib",
+  "mathlib_match": "Complex.volume_closedBall",
+  "statement": "Planar disk volume piR².",
+  "search": {
+    "query": "Complex.volume_closedBall",
+    "file": "Mathlib/MeasureTheory/Measure/Lebesgue/VolumeOfBalls.lean"
+  }
+}

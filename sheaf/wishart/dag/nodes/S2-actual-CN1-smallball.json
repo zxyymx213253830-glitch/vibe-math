@@ -1,0 +1,29 @@
+{
+  "id": "S2-actual-CN1-smallball",
+  "kind": "target",
+  "target": true,
+  "statement": "forall M:Matrix1x1Complex,x>=0, actual noncentral CN1 Gram minimum CDF(x)<=x",
+  "stmt_deps": [
+    "D-CN1-model"
+  ],
+  "proof_deps": [
+    "S1-planar-ball",
+    "L-scalar-disk-bridge"
+  ],
+  "proof": [
+    {
+      "text": "Rewrite actual CDF to shifted planar standard-Gaussian ball of radius sqrt(2x), apply S1 and square-root identity.",
+      "uses": [
+        "S1-planar-ball",
+        "L-scalar-disk-bridge"
+      ]
+    }
+  ],
+  "module": "JinWishartFormalization.ScalarUniformSmallBall",
+  "declaration": "JinWishart.actual_noncentralScalarCDF_le_threshold_uniform_mean",
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/pilot-acceptance.json",
+    "source_sha256": "f78b4294f2a9749ec9b27baa0e4cb5a91093e0401496a5b1bcf734a5eb2575cc"
+  }
+}

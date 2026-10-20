@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-20T14:58:20.397603+00:00",
+  "ended_utc": "2026-10-20T14:58:46.311398+00:00",
+  "module": "SheafPilotTargetTypes",
+  "source": "sheaf/wishart/locks/SheafPilotTargetTypes.lean",
+  "source_sha256_before": "ed83cbc7fc4639ae25e637bd91d7034b518f9244e954affd7602e903b9601af1",
+  "source_sha256": "ed83cbc7fc4639ae25e637bd91d7034b518f9244e954affd7602e903b9601af1",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/pilot-20261020T145715Z-7caef7-types.txt",
+  "log_exists": true,
+  "log_sha256": "33cc64eedb76fa175bb343bb7bca489c7d9797cde4aa767219d6100e43a04a73",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-20T14:57:15.965886+00:00",
+  "ended_utc": "2026-10-20T14:58:20.395698+00:00",
+  "module": "JinWishartFormalization.ScalarUniformSmallBall",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ScalarUniformSmallBall.lean",
+  "source_sha256_before": "f78b4294f2a9749ec9b27baa0e4cb5a91093e0401496a5b1bcf734a5eb2575cc",
+  "source_sha256": "f78b4294f2a9749ec9b27baa0e4cb5a91093e0401496a5b1bcf734a5eb2575cc",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/pilot-20261020T145715Z-7caef7-leaf.txt",
+  "log_exists": true,
+  "log_sha256": "af1c251e81df9b8578a96183ede1141188f0d191a2bddb0769c04636a8ef39df",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

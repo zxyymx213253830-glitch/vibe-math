@@ -1,0 +1,10 @@
+{
+  "id": "DEFERRED-polynomial-negative-log",
+  "kind": "statement",
+  "statement": "General nonzero holomorphic Gaussian polynomial log-norm integrable; OPEN, outside scalar pilot.",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "verification": {
+    "status": "open"
+  }
+}

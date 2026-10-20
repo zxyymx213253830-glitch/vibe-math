@@ -1,0 +1,13 @@
+{
+  "id": "L-planar-density",
+  "kind": "statement",
+  "module": "JinWishartFormalization.ScalarGaussianComplexBridge",
+  "declaration": "JinWishart.stdGaussian_complex_ball_real_eq_densityIntegral",
+  "statement": "Planar REAL standard Gaussian disk mass equals integral density1/(2pi) exp(-norm²/2).",
+  "proof": [
+    "Existing compiled project theorem."
+  ],
+  "verification": {
+    "status": "inherited"
+  }
+}

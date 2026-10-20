@@ -1,0 +1,13 @@
+{
+  "id": "L-scalar-disk-bridge",
+  "kind": "statement",
+  "module": "JinWishartFormalization.ScalarGaussianComplexBridge",
+  "declaration": "JinWishart.scalarGaussian_shiftedBall_eq_complexBall",
+  "statement": "Same-source scalar shift event transported isometrically to the complex disk with sqrt2 mean.",
+  "proof": [
+    "Existing compiled project theorem; mathematical interpretation remains human review."
+  ],
+  "verification": {
+    "status": "inherited"
+  }
+}

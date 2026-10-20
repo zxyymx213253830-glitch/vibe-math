@@ -1,0 +1,44 @@
+{
+  "collected_utc": "2026-10-20T15:13:39.858525+00:00",
+  "status": "PASS bounded Windows SHEAF pilot",
+  "upstream": {
+    "repository": "https://github.com/frenzymath/SHEAF",
+    "commit": "6e5abd804e1b0c8d4626349e3508103c97452711",
+    "files": {
+      "leanindex.py": "ac1c7972dc55cca62ca4d4d40442ab9211755a40cffb3d7e590ad8ebb58f6714",
+      "dag_queue.py": "551f1787367098c8feadc33997e4954302cc3425a5161a2ce5f1af700f79eb59"
+    },
+    "adaptation": "Windows native coordinator; upstream leanindex/dag_queue unchanged. No upstream shell, tmux, build/landing scripts executed."
+  },
+  "adapter_sha256": "2c99da1960286a724c7104010824518c7302022d30851eb60f68bb07fb2b4adf",
+  "test_count": 17,
+  "tests": "verification/sheaf_wishart/coordinator-tests.json",
+  "locked_target_count": 2,
+  "dependency_locks": 26,
+  "target_lock_sha256": "aac603483222c566e4c69177c8177071ca6dad5b472a99f34e29498d67d3dc87",
+  "acceptance": "verification/sheaf_wishart/pilot-acceptance.json",
+  "acceptance_sha256": "3ff653809619a9bcf50ebf4159e4c9eada88a37b5fcce6f014cf0e22da7f146e",
+  "audit_sha256": "45f8d2cde22a3d60750a6cf69dc6d92a9ae652475cdf8ffcdf90f61fb92e1eef",
+  "before": 547,
+  "after": 549,
+  "code_review": {
+    "prompt_sha256": "85715848d772771e13ad682acc38beecbb0975040c01fa244943d57cc24df35e",
+    "receipt_sha256": "a28a7ba6a83d5cd69b8886f609538d0b795504636c23f8efd6192f3716cab716",
+    "raw_sha256": "3b1ebaa8cad4c6b7b3ea88c2b81185f3c421f75ee5479abdb5381859ca544b10",
+    "resolution_sha256": "061eb0babe5ed8a7b83a2d90bc5a07d14e2fbd5438e131c40bd4e02eaa94bfac",
+    "human_review": false,
+    "independent_compilation": false
+  },
+  "frozen_publication": {
+    "theory/wishart_paper/main.tex": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+    "output/pdf/wishart_formalization.pdf": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+    "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+    "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b"
+  },
+  "automation": "PAUSED",
+  "background_services_started": false,
+  "full_upstream_launcher": "NOT_RUN",
+  "upstream_comparator": "NOT_RUN",
+  "full_lake_mathlib_build": "NOT_RUN",
+  "human_measure_variance_model_review": "REQUIRED"
+}

@@ -1,0 +1,13 @@
+{
+  "check": "verification/sheaf_wishart/pilot-20261020T151023Z-3886ff.json",
+  "review": {
+    "request": "verification/central_mixed_moments/sheaf-smallball-20261020-review-request.json",
+    "prompt": "verification/central_mixed_moments/p4-sheaf-smallball-20261020-prompt.txt",
+    "receipt": "verification/central_mixed_moments/p4-sheaf-smallball-20261020.receipt.json",
+    "raw": "verification/central_mixed_moments/p4-sheaf-smallball-20261020.raw.json",
+    "snapshot": "verification/central_mixed_moments/sheaf-smallball-20261020-snapshot",
+    "resolution": "notes/WISHART_SHEAF_PILOT.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/central_mixed_moments/facade-53.receipt.json"
+}

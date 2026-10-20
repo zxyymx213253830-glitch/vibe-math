@@ -135,3 +135,9 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailRealMoments.lean -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/NoncentralInverseMinimumRealMoments.lean -text whitespace=cr-at-eol
 /experiments/inverse_minimum_real_moment_control.py -text whitespace=cr-at-eol
+
+# SHEAF target locks and review receipts bind exact file bytes.
+/sheaf.ps1 -text
+/sheaf/** -text whitespace=cr-at-eol
+/verification/sheaf_wishart/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+/notes/WISHART_SHEAF_PILOT.md -text whitespace=cr-at-eol

@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarUniformSmallBall.lean:31:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarUniformSmallBall.lean:31:10: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'JinWishart.stdGaussian_complex_closedBall_le_radius_sq_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actual_noncentralScalarCDF_le_threshold_uniform_mean' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ScalarUniformSmallBall.lean": {
+      "sha256": "f78b4294f2a9749ec9b27baa0e4cb5a91093e0401496a5b1bcf734a5eb2575cc",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a70fd42ce71616bc0e1e96055eae998a6fc8ce47676691ba5da6b48e4e607bb8"
+}

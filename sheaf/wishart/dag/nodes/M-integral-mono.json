@@ -1,0 +1,11 @@
+{
+  "id": "M-integral-mono",
+  "kind": "statement",
+  "status": "mathlib",
+  "mathlib_match": "MeasureTheory.integral_mono",
+  "statement": "Order of integrals for real integrable functions.",
+  "search": {
+    "query": "integral_mono",
+    "file": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean"
+  }
+}

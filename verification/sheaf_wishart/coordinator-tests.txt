@@ -1,0 +1,24 @@
+test_bounded_lease_closes_even_when_check_raises (__main__.CoordinatorTests.test_bounded_lease_closes_even_when_check_raises) ... ok
+test_cleanup_never_deletes_another_owners_lock (__main__.CoordinatorTests.test_cleanup_never_deletes_another_owners_lock) ... D:\vibe math\sheaf\wishart\tools\sheaf.py:88: UserWarning: Different-owner claim retained: D:\vibe math\sheaf\wishart\local\tmptdvup72g\claim.lock
+  warnings.warn(f"Different-owner claim retained: {path}")
+ok
+test_cycle_blocks_graph (__main__.CoordinatorTests.test_cycle_blocks_graph) ... ok
+test_existing_active_coordinator_is_not_replaced (__main__.CoordinatorTests.test_existing_active_coordinator_is_not_replaced) ... ok
+test_existing_stop_marker_is_preserved (__main__.CoordinatorTests.test_existing_stop_marker_is_preserved) ... ok
+test_imported_definition_drift_is_rejected (__main__.CoordinatorTests.test_imported_definition_drift_is_rejected) ... ok
+test_malformed_claim_cleanup_preserves_original_failure (__main__.CoordinatorTests.test_malformed_claim_cleanup_preserves_original_failure) ... ok
+test_missing_dependency_blocks_graph (__main__.CoordinatorTests.test_missing_dependency_blocks_graph) ... ok
+test_named_argument_does_not_truncate_target (__main__.CoordinatorTests.test_named_argument_does_not_truncate_target) ... ok
+test_no_sorry_does_not_mean_verified (__main__.CoordinatorTests.test_no_sorry_does_not_mean_verified) ... ok
+test_null_type_receipt_cannot_be_accepted (__main__.CoordinatorTests.test_null_type_receipt_cannot_be_accepted) ... ok
+test_proof_edits_do_not_require_unlocking_targets (__main__.CoordinatorTests.test_proof_edits_do_not_require_unlocking_targets) ... ok
+test_second_process_cannot_take_a_live_claim (__main__.CoordinatorTests.test_second_process_cannot_take_a_live_claim) ... ok
+test_string_delimiters_are_ignored_by_header_balancing (__main__.CoordinatorTests.test_string_delimiters_are_ignored_by_header_balancing) ... ok
+test_target_drift_after_named_argument_is_rejected (__main__.CoordinatorTests.test_target_drift_after_named_argument_is_rejected) ... ok
+test_target_hypothesis_drift_is_rejected (__main__.CoordinatorTests.test_target_hypothesis_drift_is_rejected) ... ok
+test_timed_out_review_cannot_be_accepted (__main__.CoordinatorTests.test_timed_out_review_cannot_be_accepted) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.129s
+
+OK

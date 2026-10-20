@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/frenzymath/SHEAF",
+  "commit": "6e5abd804e1b0c8d4626349e3508103c97452711",
+  "files": {
+    "leanindex.py": "ac1c7972dc55cca62ca4d4d40442ab9211755a40cffb3d7e590ad8ebb58f6714",
+    "dag_queue.py": "551f1787367098c8feadc33997e4954302cc3425a5161a2ce5f1af700f79eb59"
+  },
+  "adaptation": "Windows native coordinator; upstream leanindex/dag_queue unchanged. No upstream shell, tmux, build/landing scripts executed."
+}

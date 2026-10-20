@@ -1,0 +1,10 @@
+{
+  "id": "D-CN1-model",
+  "kind": "definition",
+  "module": "JinWishartFormalization.WishartProbability",
+  "declaration": "JinWishart.complexSampleMatrix",
+  "statement": "Two standard REAL Gaussian coordinates divided by sqrt2 define CN1.",
+  "verification": {
+    "status": "inherited"
+  }
+}

@@ -1,0 +1,393 @@
+P4 CODE review final revised source. No tools/tool tags; direct issues only. Different family from Codex. Bounded Windows SHEAF adaptation; it intentionally is not the upstream Linux/tmux launcher or comparator. All imports of Lean are checked through existing collaborative_check.py. That helper exclusively acquires compute.lock/CODEX_REVIEW, checks STOP and deadline while waiting, runs Lean-j1 with timeout<=180seconds and the shared deadline, terminates only its owned child on timeout, and releases its own markers. The adapter NEVER substitutes its lease for that compiler lock. Public check()/accept() acquire operation.lock before lease/state changes; do not infer simultaneous invocations bypass that lock. The local files are owned project configuration, not an adversarial multi-user service. Missing/corrupted/changed evidence must fail closed; no-sorry alone is not completion. Real #eval Lean.Meta.isDefEq comparison uses independent literal locked targets, not just string hashes. We revised stale source/lock checks, missing receipt guards, corrupted-claim cleanup, graph-node validation and stale-verified requeuing after prior review. Identify remaining concrete failure scenarios, distinguish actual incorrect acceptance from conservative rejection/manual recovery. No rewrite.
+FULL FINAL SOURCE:
+"""Bounded Windows adapter for pinned SHEAF DAGs and the existing Lean gate.
+
+This does not run SHEAF's Linux launcher, upstream landing scripts, or comparator.
+The upstream lexer/DAG scheduler are reused unchanged; compilation stays serialized.
+"""
+from __future__ import annotations
+
+import argparse
+from contextlib import contextmanager
+from datetime import datetime, timedelta, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+import uuid
+import warnings
+
+PROJECT = Path(__file__).resolve().parents[1]
+ROOT = PROJECT.parents[1]
+LEAN = ROOT / "theory/jin_wishart_formalization"
+SESSION = ROOT / ".tools/central-mixed-moments-20261019"
+LIBRARY = ROOT / ".tools/publication-revision-20261016/fresh-project-library"
+PYTHON = Path(r"D:\miniconda3\python.exe")
+sys.path.insert(0, str(PROJECT / "upstream"))
+import leanindex as li
+li.ROOT, li.LEAN = PROJECT, LEAN
+import dag_queue as dq
+
+
+def now():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def read(path):
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def write(path, data):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = path.with_name(path.name + "." + uuid.uuid4().hex + ".tmp")
+    temp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    os.replace(temp, path)
+
+
+def rel(path):
+    return Path(path).resolve().relative_to(ROOT).as_posix()
+
+
+def within_root(path):
+    p = (ROOT / path).resolve()
+    p.relative_to(ROOT)
+    return p
+
+
+def ledger(message):
+    with (PROJECT / "coord/ledger.md").open("a", encoding="utf-8") as stream:
+        stream.write(f"- {now()} {message}\n")
+
+
+@contextmanager
+def exclusive(path, group):
+    """Never take over or delete another owner's claim, including expired ones."""
+    path = Path(path)
+    token = uuid.uuid4().hex
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    with os.fdopen(fd, "w", encoding="utf-8") as out:
+        json.dump(dict(token=token, group=group, pid=os.getpid(), started_utc=now()), out)
+    try:
+        yield token
+    finally:
+        try:
+            record = read(path) if path.exists() else None
+        except (OSError, ValueError):
+            warnings.warn(f"Unreadable claim retained for inspection: {path}")
+            record = None
+        if record and record.get("token") == token:
+            path.unlink()
+        elif record:
+            warnings.warn(f"Different-owner claim retained: {path}")
+
+
+def graph():
+    nodes = dq.load()
+    if not nodes:
+        raise ValueError("No DAG nodes")
+    for ident, node in nodes.items():
+        for dep in dq.deps_of(node, "all"):
+            if dep not in nodes:
+                raise ValueError(f"Missing DAG dependency: {ident} -> {dep}")
+    visiting, done = set(), set()
+
+    def visit(ident):
+        if ident in visiting:
+            raise ValueError(f"DAG cycle at {ident}")
+        if ident in done:
+            return
+        visiting.add(ident)
+        for dep in dq.deps_of(nodes[ident], "all"):
+            visit(dep)
+        visiting.remove(ident)
+        done.add(ident)
+
+    for ident in nodes:
+        visit(ident)
+    return dq.Dag(nodes)
+
+
+def queue_data(g):
+    rows = [dict(id=i, stage=1, distance=d, kind="split") for d, i in g.stage1()]
+    stated, _ = g.stage2()
+    rows += [dict(id=i, stage=2, distance=h, kind="state") for _, h, i in stated]
+    waiting = {m for m, _ in g.waiting()}
+    for ident, node in g.live.items():
+        module = dq.module_of(node)
+        status = node.get("verification", {}).get("status")
+        if ident not in g.dist or not module or dq.is_leaf(node) or status == "inherited":
+            continue
+        if status == "verified" and verification_current(node):
+            continue
+        if module in waiting:
+            continue
+        if dq.unfolded(node):
+            rows.append(dict(id=ident, stage=3, distance=g.dist[ident],
+                             kind="stale-evidence" if status == "verified" else "compile-review-audit"))
+    return sorted(rows, key=lambda r: (r["stage"], r["distance"], r["id"]))
+
+
+def refresh():
+    g = graph()
+    rows = queue_data(g)
+    coord = PROJECT / "coord"
+    text = "# SHEAF work queue\n\nCompiler/review/audit evidence decides completion; absence of sorry does not.\n\n"
+    text += "| Item | Stage | Distance | Work |\n|---|---:|---:|---|\n"
+    text += "".join(f"| {r['id']} | {r['stage']} | {r['distance']} | {r['kind']} |\n" for r in rows)
+    outside = sorted(set(g.live) - set(g.dist))
+    text += "\nDeferred/outside target closure: " + (", ".join(outside) or "none") + ".\n"
+    text += "These nodes are not proved or deleted.\n"
+    (coord / "queue.md").write_text(text, encoding="utf-8")
+    (coord / "queue.tsv").write_text("# id\tstage\tdistance\tkind\n" + "".join(
+        f"{r['id']}\t{r['stage']}\t{r['distance']}\t{r['kind']}\n" for r in rows), encoding="utf-8")
+    return rows
+
+
+def statements(source):
+    return {c["name"]: c["statement"] for c in li.commands(Path(source).read_text(encoding="utf-8"))
+            if c["kind"] in {"theorem", "lemma"}}
+
+
+def validate_lock_data(lock, source_text=None):
+    source = within_root(lock["source"])
+    actual = statements(source) if source_text is None else {
+        c["name"]: c["statement"] for c in li.commands(source_text) if c["kind"] in {"theorem", "lemma"}}
+    for name, expected in lock["statements"].items():
+        if actual.get(name) != expected:
+            raise ValueError(f"LOCKED TARGET CHANGED: {name}; explicit target review required")
+    for path, expected in lock["definition_dependencies"].items():
+        if sha(within_root(path)) != expected:
+            raise ValueError(f"LOCKED DEFINITION/DEPENDENCY CHANGED: {path}")
+    if sha(PROJECT / "locks/SheafPilotTargetTypes.lean") != lock["type_check_source_sha256"]:
+        raise ValueError("Locked type-comparison source changed")
+    return source
+
+
+def validate_locks():
+    lock = read(PROJECT / "locks/targets.json")
+    return lock, validate_lock_data(lock)
+
+
+def pilot_nodes(lock):
+    nodes = [node for node in graph().live.values() if node.get("declaration") in lock["statements"]]
+    if len(nodes) != len(lock["statements"]) or {n["declaration"] for n in nodes} != set(lock["statements"]):
+        raise ValueError("Locked declarations do not map one-to-one to DAG nodes")
+    return nodes
+
+
+@contextmanager
+def lease():
+    for name in ("STOP", "compute.lock", "CODEX_REVIEW", "runner.lock"):
+        if (SESSION / name).exists():
+            raise ValueError(f"Existing {name}: inspect ownership; adapter will not remove it")
+    state = read(SESSION / "state.json")
+    if state.get("stage", "").startswith("ACTIVE"):
+        raise ValueError("Another active coordinator lease is recorded; inspect it before starting")
+    token = uuid.uuid4().hex
+    state.update(stage="ACTIVE_SHEAF_BOUNDED_CHECK", resumed_utc=now(), updated_utc=now(),
+                 deadline_utc=(datetime.now(timezone.utc) + timedelta(minutes=15)).isoformat(),
+                 authorization="User authorized direct SHEAF setup and bounded pilot operation. 15-minute technical lease, not an indefinite run.",
+                 automation_status="PAUSED", sheaf_coordinator_token=token, sheaf_coordinator_pid=os.getpid())
+    for key in ("ended_utc", "paused_utc", "pause_reason"):
+        state.pop(key, None)
+    write(SESSION / "state.json", state)
+    try:
+        yield token
+    finally:
+        final = read(SESSION / "state.json")
+        if final.get("sheaf_coordinator_token") == token:
+            final.update(stage="SHEAF_BOUNDED_CHECK_FINISHED", updated_utc=now(), ended_utc=now(),
+                         automation_status="PAUSED", pause_reason="Bounded SHEAF check ended; no automatic next run.")
+            final.pop("sheaf_coordinator_token", None)
+            final.pop("sheaf_coordinator_pid", None)
+            write(SESSION / "state.json", final)
+
+
+def gated(source, module, tag, source_root=None):
+    base = ROOT / "verification/sheaf_wishart"
+    base.mkdir(exist_ok=True)
+    log = base / (tag + ".txt")
+    receipt = base / (tag + ".receipt.json")
+    if log.exists() or receipt.exists():
+        raise ValueError("Refusing to overwrite evidence")
+    before = sha(source)
+    cmd = [str(PYTHON), "-X", "utf8", str(ROOT / "tools/deepseek_prover/collaborative_check.py"),
+           "--session", str(SESSION), "--source", str(source), "--module", module,
+           "--library", str(LIBRARY), "--log", str(log)]
+    if source_root:
+        cmd += ["--root", str(source_root)]
+    started = now()
+    code = subprocess.run(cmd, cwd=ROOT).returncode
+    diagnostic = log.read_text(encoding="utf-8") if log.exists() else ""
+    result = dict(started_utc=started, ended_utc=now(), module=module, source=rel(source),
+                  source_sha256_before=before, source_sha256=sha(source), exit_code=code,
+                  log=rel(log), log_exists=log.exists(), log_sha256=sha(log) if log.exists() else None,
+                  success=code == 0 and log.exists() and before == sha(source) and
+                  not re.search(r"\berror(?::|\()|sorryAx", diagnostic),
+                  gate="tools/deepseek_prover/collaborative_check.py", direct_lean=False)
+    write(receipt, result)
+    return result
+
+
+def check(group):
+    with exclusive(PROJECT / "coord/operation.lock", group), exclusive(
+            PROJECT / "coord/claims/ScalarUniformSmallBall.lock", group), lease():
+        lock, source = validate_locks()
+        nodes = pilot_nodes(lock)
+        locked_hash = sha(PROJECT / "locks/targets.json")
+        tag = "pilot-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:6]
+        leaf = gated(source, lock["module"], tag + "-leaf")
+        types = gated(PROJECT / "locks/SheafPilotTargetTypes.lean", "SheafPilotTargetTypes", tag + "-types",
+                      PROJECT / "locks") if leaf["success"] else None
+        if sha(PROJECT / "locks/targets.json") != locked_hash or sha(source) != leaf["source_sha256"]:
+            raise ValueError("Source or target lock changed during checks; receipts retained, nothing accepted")
+        validate_locks()
+        ok = bool(types and types["success"] and "SHEAF_TARGET_TYPES_EQ PASS" in
+                  within_root(types["log"]).read_text(encoding="utf-8"))
+        report = dict(started_utc=leaf["started_utc"], ended_utc=now(), success=ok,
+                      source_sha256=sha(source), leaf=leaf, types=types,
+                      target_lock_sha256=sha(PROJECT / "locks/targets.json"),
+                      acceptance="PENDING final-source P4, written resolution, facade and bundle audit")
+        receipt = ROOT / "verification/sheaf_wishart" / (tag + ".json")
+        write(receipt, report)
+        for ident in (node["id"] for node in nodes):
+            p = PROJECT / "dag/nodes" / (ident + ".json")
+            node = read(p)
+            node["verification"] = dict(status="checked_pending_review" if ok else "check_failed", receipt=rel(receipt))
+            write(p, node)
+        refresh()
+        ledger(f"Bounded check {rel(receipt)}: success={ok}; NOT accepted yet.")
+        (PROJECT / "coord/STATE.md").write_text(
+            f"# State\n\n{'WAITING_REVIEW' if ok else 'CHECK_FAILED'}\n\nReceipt: {rel(receipt)}\n\nNo background worker; heartbeat PAUSED.\n", encoding="utf-8")
+        print(json.dumps(dict(receipt=rel(receipt), success=ok), ensure_ascii=False))
+        return 0 if ok else 1
+
+
+def verify_acceptance(evidence):
+    lock, source = validate_locks()
+    check_record = read(within_root(evidence["check"]))
+    if not check_record.get("success") or check_record["source_sha256"] != sha(source):
+        raise ValueError("Failed/stale source check")
+    if check_record["target_lock_sha256"] != sha(PROJECT / "locks/targets.json"):
+        raise ValueError("Stale target lock")
+    if not all(isinstance(check_record.get(part), dict) for part in ("leaf", "types")):
+        raise ValueError("Missing leaf/type compiler receipt")
+    for part in ("leaf", "types"):
+        r = check_record[part]
+        if not r["success"] or r["exit_code"] != 0 or sha(within_root(r["log"])) != r["log_sha256"]:
+            raise ValueError("Missing/changed compiler evidence")
+    if check_record["leaf"]["module"] != lock["module"] or check_record["leaf"]["source"] != lock["source"]:
+        raise ValueError("Wrong module/source checked")
+    types = check_record["types"]
+    if types["source_sha256"] != lock["type_check_source_sha256"] or \
+            "SHEAF_TARGET_TYPES_EQ PASS" not in within_root(types["log"]).read_text(encoding="utf-8"):
+        raise ValueError("No current locked target-type comparison")
+    review = evidence["review"]
+    request, receipt, raw = (read(within_root(review[k])) for k in ("request", "receipt", "raw"))
+    prompt_hash = sha(within_root(review["prompt"]))
+    if receipt["exit_code"] != 0 or raw.get("is_error", True) or not raw.get("result", "").strip():
+        raise ValueError("No successful real P4 response")
+    result_text = raw["result"].strip()
+    if result_text.startswith(("<tool_call", "<function", "{\"tool")) or len(result_text) < 100:
+        raise ValueError("Tool-tag/empty fragment is not a substantive P4 review")
+    if not (request["prompt_sha256"] == receipt["prompt_sha256"] == prompt_hash):
+        raise ValueError("Review prompt mismatch")
+    record = request["inputs"][source.name]
+    if record["sha256"] != sha(source) or sha(within_root(review["snapshot"]) / source.name) != sha(source):
+        raise ValueError("P4 does not cover final source")
+    if not within_root(review["resolution"]).read_text(encoding="utf-8").strip():
+        raise ValueError("No written P4 resolution")
+    audit = read(within_root(evidence["audit"]))
+    if audit["auditor_sha256"] != sha(ROOT / "tools/verification/audit_lean_bundle.py") or \
+            audit["spec_sha256"] != sha(ROOT / "verification/central_mixed_moments/spec.json"):
+        raise ValueError("Stale audit implementation/specification")
+    module = audit["modules"][lock["module"]]
+    if module["source_sha256"] != sha(source) or module["log_sha256"] != check_record["leaf"]["log_sha256"]:
+        raise ValueError("Audit/source/leaf log mismatch")
+    olean = LIBRARY / Path(lock["module"].replace(".", "/") + ".olean")
+    if module["olean_sha256"] != sha(olean):
+        raise ValueError("Stale compiled artifact")
+    if {d["name"] for d in module["declarations"]} != set(lock["statements"]):
+        raise ValueError("Audit declaration coverage mismatch")
+    if any(set(d["axioms"]) - {"propext", "Classical.choice", "Quot.sound"}
+           for d in module["declarations"]):
+        raise ValueError("Nonstandard target axioms")
+    facade = read(within_root(evidence["facade_receipt"]))
+    if facade.get("gated_helper_exit_code") != 0 or facade.get("module") != "JinWishartFormalization":
+        raise ValueError("No successful main facade check")
+    facade_path = within_root(evidence["facade_receipt"])
+    facade_log = facade_path.with_name(facade_path.name.removesuffix(".receipt.json") + ".txt")
+    if facade.get("source_sha256") != sha(LEAN / "JinWishartFormalization.lean") or \
+            facade.get("log_sha256") != sha(facade_log):
+        raise ValueError("Stale facade source/log")
+    return source
+
+
+def verification_current(node):
+    try:
+        source = verify_acceptance(read(within_root(node["verification"]["evidence"])))
+        return node["verification"]["source_sha256"] == sha(source)
+    except (ValueError, KeyError, TypeError, OSError):
+        return False
+
+
+def accept(path, group):
+    with exclusive(PROJECT / "coord/operation.lock", group):
+        graph()
+        evidence = read(within_root(path))
+        source = verify_acceptance(evidence)
+        lock, _ = validate_locks()
+        for ident in (node["id"] for node in pilot_nodes(lock)):
+            p = PROJECT / "dag/nodes" / (ident + ".json")
+            node = read(p)
+            node["verification"] = dict(status="verified", evidence=path, source_sha256=sha(source))
+            write(p, node)
+        refresh()
+        ledger(f"Pilot accepted via {path}; human measure/model review remains REQUIRED.")
+        (PROJECT / "coord/STATE.md").write_text(
+            "# State\n\nPILOT_COMPLETE\n\nLocked scalar targets checked, reviewed and audit-bound.\n"
+            "General polynomial log moments remain OPEN, outside this pilot.\n"
+            "No background service; heartbeat PAUSED.\n", encoding="utf-8")
+        print("PILOT_COMPLETE; human model/measure review remains REQUIRED")
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("command", choices=["status", "queue", "check", "accept"])
+    parser.add_argument("evidence", nargs="?")
+    parser.add_argument("--group", default="codex")
+    args = parser.parse_args()
+    if args.command in {"status", "queue"}:
+        rows = refresh()
+        validate_locks()
+        if any(r["kind"] == "stale-evidence" for r in rows):
+            print("STALE_EVIDENCE: prior completion is invalid; recheck/review/audit required.")
+        else:
+            print((PROJECT / "coord/STATE.md").read_text(encoding="utf-8"))
+        print(f"Queue: {len(rows)} items; locked statements/dependencies unchanged.")
+        if args.command == "queue":
+            print((PROJECT / "coord/queue.md").read_text(encoding="utf-8"))
+        return 0
+    if args.command == "check":
+        return check(args.group)
+    if not args.evidence:
+        parser.error("accept needs a workspace-relative evidence JSON")
+    accept(args.evidence, args.group)
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except (ValueError, KeyError, TypeError, OSError) as error:
+        print(f"SHEAF BLOCKED: {error}", file=sys.stderr)
+        raise SystemExit(2)

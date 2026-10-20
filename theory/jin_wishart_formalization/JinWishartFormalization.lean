@@ -1,3 +1,4 @@
+import JinWishartFormalization.ScalarUniformSmallBall
 import JinWishartFormalization.CorrelatedConditionalOffset
 import JinWishartFormalization.NonnegativeSpectrumOffset
 import JinWishartFormalization.CorrelatedNoiselessSecondCorrection
