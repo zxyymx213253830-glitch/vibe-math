@@ -1,3 +1,4 @@
+import JinWishartFormalization.CorrelatedNoiselessInverseMoments
 import JinWishartFormalization.CorrelatedMinimumZeroAtom
 import JinWishartFormalization.CorrelatedLogDetGenericRank
 import JinWishartFormalization.CorrelatedLogDetExpectedRank

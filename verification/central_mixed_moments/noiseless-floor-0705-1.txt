@@ -1,0 +1,41 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedNoiselessSpectralFloor.lean:40:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (EuclideanSpace ℂ ?m.12 →L[ℂ] EuclideanSpace ℂ ?m.12)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedNoiselessSpectralFloor.lean:40:41: error: Application type mismatch: The argument
+  C
+has type
+  Matrix (Fin n) (Fin m) ℂ
+but is expected to have type
+  Matrix ?m.12 ?m.12 ℂ
+in the application
+  Cᴴ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedNoiselessSpectralFloor.lean:44:43: error: Application type mismatch: The argument
+  le_max_left ?m.21 ?m.22
+has type
+  ?m.21 ≤ max ?m.21 ?m.22
+but is expected to have type
+  1 ≤ noiselessRightInverseControl C
+in the application
+  lt_of_lt_of_le
+    (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl false))
+    (le_max_left ?m.21 ?m.22)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedNoiselessSpectralFloor.lean:51:70: error: Type mismatch
+  u
+has type
+  EuclideanSpace ℂ (Fin m)
+but is expected to have type
+  EuclideanSpace ℂ (Fin n)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedNoiselessSpectralFloor.lean:51:43: error: Application type mismatch: The argument
+  C
+has type
+  Matrix (Fin n) (Fin m) ℂ
+but is expected to have type
+  Matrix (Fin n) (Fin n) ℂ
+in the application
+  Cᴴ
+'JinWishart.exists_noiseless_right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noiselessRightInverseControl_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.rowGram_minimum_lower_of_right_inverse' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.correlated_rowGram_uniform_floor' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

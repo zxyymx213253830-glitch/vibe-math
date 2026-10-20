@@ -1,0 +1,8 @@
+{
+  "started_utc": "2026-10-20T07:49:11.143906+00:00",
+  "ended_utc": "2026-10-20T07:49:54.788882+00:00",
+  "gated_helper_exit_code": 0,
+  "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+  "log_bytes": 299,
+  "policy": "Same serialized gated helper, no extra compiler flags; retry of empty-log facade47 failure"
+}

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CorrelatedNoiselessSpectralFloor.lean": {
+      "sha256": "891217e8b22716766215439fdafd4c35e57e1bd3b580cde2a8562838b2265ae6",
+      "supplied": "Full source"
+    },
+    "CorrelatedNoiselessInverseMoments.lean": {
+      "sha256": "b009b9408804100b6d795fd34b1e7069287ec117debf6a88715729b9c76a6395",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ff5f302d79ad4c57fe9dbada8c6c2631c323b86b35b95075d1a6a5a59df1ed03"
+}

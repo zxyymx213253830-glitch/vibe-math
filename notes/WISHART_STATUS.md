@@ -1,5 +1,15 @@
 # Wishart 形式化：滚动状态
 
+2026-10-20 07:50UTC 新里程碑：当固定M限制kerB的像维数为m（m>0）时，存在固定
+δ>0使所有Z的行Gram (ZB+M)(ZB+M)^H 最小特征值≥δ；实际高斯行最小值所有
+非负实数阶逆矩均真L1。不是所有奇异B的逆矩阈值，也不是恒奇异列Gram的结论。
+6新声明，累计513定理/实例+2构造=515项审计PASS，最终主facade48实际退出0。
+facade47曾空日志异常退出，原因未确认，原空日志保留；同源码/同串行gate复核48
+有独立receipt真实code0，没有改编译参数/工具链。最终2源码Qoder P4已交付，
+max倒数方向/m≤p误报已裁决。35精确控制与20万seed标量偏移前检通过；一般
+行Gram偏移与首阶误差仍开放，具体下一卡WISHART_NEXT_NOISELESS_OFFSET_CARD.md。
+冻结4个发表文件哈希逐项未变，人审必需/全库Lake NOT_RUN，当前一小时仍于08:05:09UTC截止。
+
 2026-10-20 07:36UTC 本轮新一小时（07:05:09–08:05:09UTC）里程碑：任意固定矩形/
 奇异/零B、固定M，实际复秩rank(ZB+M)=min(m,rank[B;M])几乎处处；等于
 min(m,rankB+rank(M限制kerB))。实际full-logdet期望/logrho的高SNR斜率为同一

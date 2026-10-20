@@ -1,0 +1,117 @@
+{
+  "seed": 202610200705,
+  "n_samples": 200000,
+  "status": "PASS scalar noiseless-row offset preflight; NOT general correlated offset proof",
+  "source_sha256": "da6ec0ef02c32e757c08f7ac66a88f0c96da423fd74d16302a3404d4f0e001f6",
+  "model": "m=p=1,n=2,B=[1,0],M=[0,1]",
+  "offset_closed_form": "e*E1(1)",
+  "offset_value": 0.5963473623231946,
+  "records": [
+    {
+      "label": "CN1 energy mean",
+      "mean": 1.0020205685120964,
+      "reference": 1.0,
+      "se": 0.002241713046324546,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "row Gram mean",
+      "mean": 2.002020568512097,
+      "reference": 2.0,
+      "se": 0.002241713046324546,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "row Gram second moment",
+      "mean": 5.013136807880452,
+      "reference": 5.0,
+      "se": 0.014200473702344776,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "logdet row offset",
+      "mean": 0.5972435827352728,
+      "reference": 0.5963473623231946,
+      "se": 0.0009391702952369448,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "inverse first coefficient",
+      "mean": 0.595834219552141,
+      "reference": 0.5963473623231946,
+      "se": 0.0004897759386873232,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "inverse row moment 0.5",
+      "mean": 0.7575402236538075,
+      "reference": 0.757872156141312,
+      "se": 0.00033141468686809054,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "inverse row moment 1",
+      "mean": 0.595834219552141,
+      "reference": 0.5963473623231728,
+      "se": 0.0004897759386873232,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "inverse row moment 2",
+      "mean": 0.4029942713322485,
+      "reference": 0.403652637676806,
+      "se": 0.0005954865314117612,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "inverse row moment 5",
+      "mean": 0.190963671738081,
+      "reference": 0.19151447343013214,
+      "se": 0.0005575781007994679,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "inverse row moment 20",
+      "mean": 0.049797720087455116,
+      "reference": 0.049869520156757344,
+      "se": 0.0003359348614373305,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "full matrix logdet rho=0.1",
+      "mean": 0.179307343862249,
+      "reference": 0.17915195866467082,
+      "se": 0.0001745739172826509,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "full matrix logdet rho=1",
+      "mean": 1.0550565607499582,
+      "reference": 1.054475797448168,
+      "se": 0.0006338995253370549,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "full matrix logdet rho=10",
+      "mean": 2.957490819414113,
+      "reference": 2.956642828968607,
+      "se": 0.0008940874240452439,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "full matrix logdet rho=100",
+      "mean": 5.208352059795101,
+      "reference": 5.207460938112809,
+      "se": 0.0009344264836696873,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    },
+    {
+      "label": "full matrix logdet rho=1000",
+      "mean": 7.505594494538937,
+      "reference": 7.5046987869406685,
+      "se": 0.0009386934074598256,
+      "bound": "8SE + 1e-10; numerical evidence only"
+    }
+  ],
+  "next_obligation": "General actual noiseless-floor row logdet offset and finite first error coefficient still OPEN"
+}

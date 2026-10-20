@@ -1,0 +1,254 @@
+{
+  "seed": null,
+  "status": "PASS exact fixed-right-inverse spectral-floor controls; NOT general proof",
+  "source_sha256": "94ed13b37f7336bb575b08a1fd0e0beee26ff4af070c4d3a49f9b72304d890e5",
+  "records": [
+    {
+      "m": 1,
+      "r": 0,
+      "samples_index": 0,
+      "frobenius_floor": "1",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 0,
+      "samples_index": 1,
+      "frobenius_floor": "1",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 0,
+      "samples_index": 2,
+      "frobenius_floor": "1",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 0,
+      "samples_index": 3,
+      "frobenius_floor": "1",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 0,
+      "samples_index": 4,
+      "frobenius_floor": "1",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 1,
+      "samples_index": 0,
+      "frobenius_floor": "1/3",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 1,
+      "samples_index": 1,
+      "frobenius_floor": "1/3",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 1,
+      "samples_index": 2,
+      "frobenius_floor": "1/3",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 1,
+      "samples_index": 3,
+      "frobenius_floor": "1/3",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 1,
+      "samples_index": 4,
+      "frobenius_floor": "1/3",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 2,
+      "samples_index": 0,
+      "frobenius_floor": "1/7",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 2,
+      "samples_index": 1,
+      "frobenius_floor": "1/7",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 2,
+      "samples_index": 2,
+      "frobenius_floor": "1/7",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 2,
+      "samples_index": 3,
+      "frobenius_floor": "1/7",
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "r": 2,
+      "samples_index": 4,
+      "frobenius_floor": "1/7",
+      "rank": 1
+    },
+    {
+      "m": 2,
+      "r": 0,
+      "samples_index": 0,
+      "frobenius_floor": "4/7",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 0,
+      "samples_index": 1,
+      "frobenius_floor": "4/7",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 0,
+      "samples_index": 2,
+      "frobenius_floor": "4/7",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 0,
+      "samples_index": 3,
+      "frobenius_floor": "4/7",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 0,
+      "samples_index": 4,
+      "frobenius_floor": "4/7",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 1,
+      "samples_index": 0,
+      "frobenius_floor": "4/19",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 1,
+      "samples_index": 1,
+      "frobenius_floor": "4/19",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 1,
+      "samples_index": 2,
+      "frobenius_floor": "4/19",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 1,
+      "samples_index": 3,
+      "frobenius_floor": "4/19",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 1,
+      "samples_index": 4,
+      "frobenius_floor": "4/19",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 2,
+      "samples_index": 0,
+      "frobenius_floor": "4/43",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 2,
+      "samples_index": 1,
+      "frobenius_floor": "4/43",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 2,
+      "samples_index": 2,
+      "frobenius_floor": "4/43",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 2,
+      "samples_index": 3,
+      "frobenius_floor": "4/43",
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "r": 2,
+      "samples_index": 4,
+      "frobenius_floor": "4/43",
+      "rank": 2
+    },
+    {
+      "m": 3,
+      "r": 1,
+      "samples_index": 0,
+      "frobenius_floor": "12/77",
+      "rank": 3
+    },
+    {
+      "m": 3,
+      "r": 1,
+      "samples_index": 1,
+      "frobenius_floor": "12/77",
+      "rank": 3
+    },
+    {
+      "m": 3,
+      "r": 1,
+      "samples_index": 2,
+      "frobenius_floor": "12/77",
+      "rank": 3
+    },
+    {
+      "m": 3,
+      "r": 1,
+      "samples_index": 3,
+      "frobenius_floor": "12/77",
+      "rank": 3
+    },
+    {
+      "m": 3,
+      "r": 1,
+      "samples_index": 4,
+      "frobenius_floor": "12/77",
+      "rank": 3
+    }
+  ],
+  "known_scalar_rowgram": "|z|^2+1 >=1",
+  "naive_rank_only_hard_edge_exponent_not_valid_here": true
+}

@@ -1,0 +1,133 @@
+P4 adversarial review. You are a different model family from Codex proof author. No tools available: answer directly, no tool tags. Issues only. Review exact full Lean sources below for hidden assumptions, unsupported steps, dimension/mean/rank errors or statement/proof scope mismatch. Kernel exit0 and standard three axioms are separately recorded, not an independent compilation by you. Do not claim human approval. No numerical evidence is used as proof. Zero dimensions are intentional. Fixed B:p-by-n, M:m-by-n, sourceZ:m-by-p; CN1 source uses two standard real coordinates divided by sqrt2. Inheritance of polynomial null sets/Fubini and model correspondence remains [需人工审查]. Review the scope of this supplied module; imported results are separately checked and are not claimed to have been re-proved here.
+
+
+FULL SOURCE CorrelatedNoiselessSpectralFloor.lean
+import JinWishartFormalization.CorrelatedRankUpperBound
+import JinWishartFormalization.GramMinimumColumnComparison
+import Mathlib.LinearAlgebra.Dimension.Free
+
+/-! Fixed noiseless mean directions can enforce a uniform ROW Gram spectral gap.
+Codex. The fixed-right-inverse criterion is deterministic, for every noise Z.
+[需人工审查] Operator/spectral and physical-model correspondence.
+No general singular-model inverse-moment threshold is claimed.
+-/
+open Matrix Module
+namespace JinWishart
+noncomputable section
+
+theorem exists_noiseless_right_inverse {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hs : finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))=m) :
+    ∃ C : Matrix (Fin n) (Fin m) ℂ, B*C=0 ∧ M*C=1 := by
+  classical
+  let K := LinearMap.ker B.mulVecLin
+  let a := M.mulVecLin.domRestrict K
+  have ha : LinearMap.range a=⊤ := by
+    apply Submodule.eq_top_of_finrank_eq
+    simpa only [Module.finrank_pi,Fintype.card_fin] using hs
+  obtain ⟨s,hs⟩ := a.exists_rightInverse_of_surjective ha
+  let c := K.subtype.comp s
+  have hb : B.mulVecLin.comp c=0 := by
+    apply LinearMap.ext
+    intro v
+    exact (s v).property
+  have hm : M.mulVecLin.comp c=LinearMap.id := hs
+  refine ⟨LinearMap.toMatrix' c,?_,?_⟩
+  · have h := congrArg LinearMap.toMatrix' hb
+    simpa only [LinearMap.toMatrix'_comp,← Matrix.toLin'_apply',
+      LinearMap.toMatrix'_toLin',map_zero] using h
+  · have h := congrArg LinearMap.toMatrix' hm
+    simpa only [LinearMap.toMatrix'_comp,← Matrix.toLin'_apply',
+      LinearMap.toMatrix'_toLin',LinearMap.toMatrix'_id] using h
+
+def noiselessRightInverseControl {m n : ℕ} (C : Matrix (Fin n) (Fin m) ℂ) : ℝ :=
+  max 1 (‖LinearMap.toContinuousLinearMap ((Cᴴ).toEuclideanLin)‖^2)
+
+theorem noiselessRightInverseControl_pos {m n : ℕ} (C : Matrix (Fin n) (Fin m) ℂ) :
+    0<noiselessRightInverseControl C :=
+  lt_of_lt_of_le (by norm_num : (0 : ℝ)<1) (le_max_left _ _)
+
+theorem rowGram_minimum_lower_of_right_inverse {m n : ℕ}
+    (X : Matrix (Fin m) (Fin n) ℂ) (C : Matrix (Fin n) (Fin m) ℂ)
+    (hXC : X*C=1) (hm : 0<m) :
+    1/noiselessRightInverseControl C ≤ gramSmallestValue Xᴴ hm := by
+  obtain ⟨u,hu,he⟩ := exists_gram_minimum_unit_vector Xᴴ hm
+  have hi : LinearMap.toContinuousLinearMap ((Cᴴ).toEuclideanLin) ((Xᴴ).toEuclideanLin u)=u := by
+    ext i
+    change (Cᴴ *ᵥ (Xᴴ *ᵥ ⇑u)) i=u i
+    rw [Matrix.mulVec_mulVec,← Matrix.conjTranspose_mul,hXC,Matrix.conjTranspose_one,Matrix.one_mulVec]
+  have hb := pow_le_pow_left₀ (norm_nonneg (LinearMap.toContinuousLinearMap ((Cᴴ).toEuclideanLin)
+      ((Xᴴ).toEuclideanLin u)))
+    ((LinearMap.toContinuousLinearMap ((Cᴴ).toEuclideanLin)).le_opNorm ((Xᴴ).toEuclideanLin u)) 2
+  rw [hi,hu,one_pow,mul_pow,he] at hb
+  have hc : ‖LinearMap.toContinuousLinearMap ((Cᴴ).toEuclideanLin)‖^2 ≤ noiselessRightInverseControl C :=
+    le_max_right _ _
+  have hn := gramSmallestValue_nonneg Xᴴ hm
+  have hp := noiselessRightInverseControl_pos C
+  apply (div_le_iff₀ hp).mpr
+  nlinarith
+
+theorem correlated_rowGram_uniform_floor {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m)
+    (hs : finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))=m) :
+    ∃ δ : ℝ, 0<δ ∧ ∀ Z : Matrix (Fin m) (Fin p) ℂ,
+      δ ≤ gramSmallestValue (Z*B+M)ᴴ hm := by
+  obtain ⟨C,hBC,hMC⟩ := exists_noiseless_right_inverse B M hs
+  refine ⟨1/noiselessRightInverseControl C,one_div_pos.mpr (noiselessRightInverseControl_pos C),?_⟩
+  intro Z
+  apply rowGram_minimum_lower_of_right_inverse _ C _ hm
+  rw [Matrix.add_mul,Matrix.mul_assoc,hBC,Matrix.mul_zero,zero_add,hMC]
+
+end
+end JinWishart
+#print axioms JinWishart.exists_noiseless_right_inverse
+#print axioms JinWishart.noiselessRightInverseControl_pos
+#print axioms JinWishart.rowGram_minimum_lower_of_right_inverse
+#print axioms JinWishart.correlated_rowGram_uniform_floor
+
+
+FULL SOURCE CorrelatedNoiselessInverseMoments.lean
+import JinWishartFormalization.CorrelatedNoiselessSpectralFloor
+import JinWishartFormalization.CorrelatedColumnMinimum
+
+/-! All nonnegative real inverse orders for the ROW minimum in the noiseless-floor regime.
+Codex. This is NOT the inverse minimum criterion for every singular factor.
+[需人工审查] Measurability/integral domination and row/column model correspondence.
+-/
+open Matrix Module MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem measurable_actualCorrelatedRowMinimum {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m) :
+    Measurable (fun z : ComplexSample (m := m) (n := p) =>
+      gramSmallestValue (complexSampleMatrix z*B+M)ᴴ hm) := by
+  apply (measurable_gramSmallestValue hm).comp
+  apply Measurable.of_eval_matrix
+  intro i j
+  simp only [Matrix.conjTranspose_apply,Matrix.add_apply,Matrix.mul_apply,complexSampleMatrix]
+  fun_prop
+
+theorem actualCorrelatedRow_inverseMoment_integrable_of_noiseless_surjective {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m)
+    (hs : finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))=m)
+    (pwr : ℝ) (hpwr : 0≤pwr) :
+    Integrable (fun z : ComplexSample (m := m) (n := p) =>
+      (gramSmallestValue (complexSampleMatrix z*B+M)ᴴ hm)⁻¹^pwr) (stdGaussian _) := by
+  obtain ⟨δ,hδ,hδf⟩ := correlated_rowGram_uniform_floor B M hm hs
+  have hf := measurable_actualCorrelatedRowMinimum B M hm
+  apply (integrable_const (δ⁻¹^pwr)).mono' (hf.inv.pow_const pwr).aestronglyMeasurable
+  apply ae_of_all
+  intro z
+  have hz := hδf (complexSampleMatrix z)
+  have hpos : 0<gramSmallestValue (complexSampleMatrix z*B+M)ᴴ hm := hδ.trans_le hz
+  have hinv : (gramSmallestValue (complexSampleMatrix z*B+M)ᴴ hm)⁻¹≤δ⁻¹ := by
+    simpa only [one_div] using one_div_le_one_div_of_le hδ hz
+  change |(gramSmallestValue (complexSampleMatrix z*B+M)ᴴ hm)⁻¹^pwr|≤δ⁻¹^pwr
+  rw [abs_of_nonneg (Real.rpow_nonneg (inv_nonneg.mpr hpos.le) pwr)]
+  exact Real.rpow_le_rpow (inv_nonneg.mpr hpos.le) hinv hpwr
+
+end
+end JinWishart
+#print axioms JinWishart.measurable_actualCorrelatedRowMinimum
+#print axioms JinWishart.actualCorrelatedRow_inverseMoment_integrable_of_noiseless_surjective
