@@ -1,0 +1,299 @@
+{
+  "stage": "CLOSED_USER_ONE_HOUR",
+  "started_utc": "2026-10-20T04:57:13+00:00",
+  "deadline_utc": "2026-10-20T05:57:13+00:00",
+  "collected_utc": "2026-10-20T05:53:04.987496+00:00",
+  "user_authorization": "Continue useful work for ONE HOUR with cooperation; supersedes older indefinite quota request for this run.",
+  "initial_bound_items": 431,
+  "final_bound_items": 491,
+  "new_bound_declarations": 60,
+  "carried_over_previously_locally_passed_declarations": 1,
+  "new_proof_declarations_authored_this_hour": 59,
+  "new_integrated_modules": 11,
+  "newly_authored_modules": 10,
+  "new_module_targets": [
+    {
+      "module": "JinWishartFormalization.ComplexGaussianWeightedFourthMoment",
+      "count": 1,
+      "log": "verification/central_mixed_moments/weighted-wick-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianWeightedShiftedMoment",
+      "count": 8,
+      "log": "verification/central_mixed_moments/weighted-shifted-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGaussianFourthMoment",
+      "count": 10,
+      "log": "verification/central_mixed_moments/correlated-fourth-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramEntryCovariance",
+      "count": 5,
+      "log": "verification/central_mixed_moments/correlated-entry-product-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramTraceAlgebra",
+      "count": 3,
+      "log": "verification/central_mixed_moments/correlated-trace-algebra-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramTraceMoments",
+      "count": 11,
+      "log": "verification/central_mixed_moments/correlated-trace-moments-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedLogDetLowScale",
+      "count": 12,
+      "log": "verification/central_mixed_moments/correlated-logdet-low-5.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramClosedSecondMoment",
+      "count": 2,
+      "log": "verification/central_mixed_moments/correlated-closed-second-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NonnegativeSpectrumPrelog",
+      "count": 4,
+      "log": "verification/central_mixed_moments/zero-spectrum-prelog-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedLogDetPrelog",
+      "count": 1,
+      "log": "verification/central_mixed_moments/correlated-zero-prelog-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedLogDetExpectedRank",
+      "count": 3,
+      "log": "verification/central_mixed_moments/correlated-expected-rank-4.txt",
+      "kernel_exit_code_recorded": 0
+    }
+  ],
+  "proof_author": "Codex new proof bodies; Qoder bounded P1/P4 only. Earlier DS provenance retained, not reattributed.",
+  "main_checks": [
+    {
+      "log": "facade-41.txt",
+      "actual_exit_code": 0
+    },
+    {
+      "log": "facade-42.txt",
+      "actual_exit_code": 0
+    },
+    {
+      "log": "facade-43.txt",
+      "actual_exit_code": 0
+    },
+    {
+      "log": "facade-44.txt",
+      "actual_exit_code": 0
+    },
+    {
+      "log": "facade-45.txt",
+      "actual_exit_code": 0
+    }
+  ],
+  "external_requests": [
+    {
+      "prefix": "p4-weighted-wick",
+      "started_utc": "2026-10-20T04:57:49.374584+00:00",
+      "ended_utc": "2026-10-20T04:58:26.384103+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "be3a2a5658e21fc03af484f67db6f18f9467745a77276b7b5797db2200b1f0d2",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p1-weighted-affine",
+      "started_utc": "2026-10-20T04:59:22.320809+00:00",
+      "ended_utc": "2026-10-20T05:00:44.356950+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "37ba4f5c63a8e8e702b9cf6e988cd8595a57c2ef69cbdbb15e030c0df4822e3f",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p4-weighted-shifted",
+      "started_utc": "2026-10-20T05:03:36.170053+00:00",
+      "ended_utc": "2026-10-20T05:03:49.976727+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "922edb254d2dfbde904ed238e0a74a1d16bc34f5cdc1646abb03b0cdbc747cd9",
+      "interpretation": "INVALID P4: unexecuted tool tags only"
+    },
+    {
+      "prefix": "p4-weighted-shifted-final",
+      "started_utc": "2026-10-20T05:05:00.886456+00:00",
+      "ended_utc": "2026-10-20T05:05:41.694639+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "f66dd401d48dae2c5f4201ef5857252ff689bd22dfd02385d15b76f60913c5cc",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p4-correlated-fourth",
+      "started_utc": "2026-10-20T05:09:18.400635+00:00",
+      "ended_utc": "2026-10-20T05:10:00.664881+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "088c1e1cb032451ad7692e1ce24ac3df2b58e423c18210b4aeb4c1a4a76c939d",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p4-correlated-entry-product",
+      "started_utc": "2026-10-20T05:12:32.116084+00:00",
+      "ended_utc": "2026-10-20T05:13:06.126190+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "963dbf370b6be03606aa9b26a7603af231b8bde3af841e6643664fdb4a556929",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p4-correlated-trace-moments",
+      "started_utc": "2026-10-20T05:20:43.250289+00:00",
+      "ended_utc": "2026-10-20T05:21:25.349886+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "67923abc566260c04376282f9edf64cdedd87a8b78b3751cdb14c37c2c36606e",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p4-correlated-logdet-low",
+      "started_utc": "2026-10-20T05:30:53.667978+00:00",
+      "ended_utc": "2026-10-20T05:31:29.005273+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "b3ea7eae8ed9cd93098b624c8f06dc3e5522b23520dfc8b01b513062a28be782",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p1-zero-spectrum-prelog",
+      "started_utc": "2026-10-20T05:30:05.471949+00:00",
+      "ended_utc": "2026-10-20T05:31:07.621522+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "e411c965ed1d3e6530844447c5931937e64d1988f909d95053c55925eb628f49",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p4-zero-spectrum-prelog",
+      "started_utc": "2026-10-20T05:37:53.020605+00:00",
+      "ended_utc": "2026-10-20T05:38:41.733057+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "8866efcbacdb8582377b9be38930cd1c4b0e3ea343463d7a8e0552e4c76d6f38",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p1-correlated-generic-rank",
+      "started_utc": "2026-10-20T05:39:01.067651+00:00",
+      "ended_utc": "2026-10-20T05:40:17.131229+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "4c990563b6cc17d53aadd90342641d2f2cf01566e1750b5490ca4f2e67d9357d",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    },
+    {
+      "prefix": "p4-correlated-expected-rank",
+      "started_utc": "2026-10-20T05:48:44.129338+00:00",
+      "ended_utc": "2026-10-20T05:49:34.142918+00:00",
+      "exit_code": 0,
+      "requested_model": "Qwen3.8-Max",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "receipt_sha256": "e881cf317ea8f08f9e70d94c5d16c206eeea3e6fefe7dff991e47a99e2433370",
+      "interpretation": "Real model response delivered; scope/errors resolved in notes; NOT human or independent compiler review"
+    }
+  ],
+  "real_external_call_count": 12,
+  "invalid_p4_tooltag_responses": 1,
+  "final_source_p4_review_groups_added": 8,
+  "file_hashes": {
+    "theory/wishart_paper/main.tex": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+    "output/pdf/wishart_formalization.pdf": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+    "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+    "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b",
+    "verification/central_mixed_moments/audit.json": "646b523671528e603db6a3d4cae5bc3c09ad4239ad08f61bb334ee572c3f5840",
+    "verification/central_mixed_moments/spec.json": "03de8a965eaf2e8971f4ec0a9aec8c6cd28cf31ed25fbd41d0f892f5a7a9ec82",
+    "theory/jin_wishart_formalization/JinWishartFormalization.lean": "55dd4a3c9694caf438a4e9194b847e61c63295bf366a6a57cde465fcdc50618f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization.olean": "73167811af384cb9db49d18f9b206e06830077ad0430559fab24f12c9ed3e845",
+    "verification/central_mixed_moments/facade-41.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "verification/central_mixed_moments/facade-42.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "verification/central_mixed_moments/facade-43.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "verification/central_mixed_moments/facade-44.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "verification/central_mixed_moments/facade-45.txt": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+  },
+  "frozen_publication": "Verified unchanged against preceding431 checkpoint; OLD frozen artifacts do not include these research results.",
+  "full_build": "NOT_RUN; selected leaf and main facade checks only.",
+  "human_review": "REQUIRED: Gaussian variance, product measures/Fubini, DCT/limit interchange, spectrum/rank/model/paper correspondence.",
+  "open": [
+    "General deterministic a.s.rank formula for ZB+M only exact64finitewitnesscontrols and nextcard, NOT general proof.",
+    "General noncentral minimum explicit CDF/PDF/jointG2.",
+    "Original generalT1 determinant identity, general-d simplifiedcentralhardedge constant, T3 normalization/fullT1-4mapping."
+  ],
+  "automation_status": "PAUSED",
+  "no_remote_push": true,
+  "no_purchases_or_reset_actions": true,
+  "ended_utc": "2026-10-20T05:57:51.409164+00:00",
+  "elapsed_seconds": 3638.409164,
+  "stop_reason": "Fixed user one-hour deadline reached; ordinary quota still allowed at last snapshot.",
+  "own_active_compute_or_review_processes": [],
+  "compute_lock_present": false,
+  "review_priority_marker_present": false,
+  "last_quota_snapshot": {
+    "at_utc": "2026-10-20T05:53:06+00:00",
+    "ordinaryUsageAllowed": true,
+    "primary_used_percent": 70,
+    "weekly_used_percent": 11
+  },
+  "milestone_commits": [
+    "4d8a586",
+    "8c85e95",
+    "f5ff29f",
+    "5c923d8",
+    "e0e8989"
+  ]
+}
