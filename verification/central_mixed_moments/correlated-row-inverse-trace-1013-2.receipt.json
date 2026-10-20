@@ -1,0 +1,10 @@
+{
+  "module": "JinWishartFormalization.CorrelatedRowInverseTrace",
+  "started_utc": "2026-10-20T10:32:55.316061+00:00",
+  "ended_utc": "2026-10-20T10:33:04.969552+00:00",
+  "gated_helper_exit_code": 0,
+  "source_sha256": "a7d1b80d2c0494f76685e267bb2fbee272fe22d7fded7853b33e0bb9dd1b1fd1",
+  "log_sha256": "0ac1fc547ba11741c07d10f60b151056e75baed2e05a604b2e74e32c52ccd44e",
+  "log_bytes": 593,
+  "policy": "Unmodified serialized gated helper, no added compiler flags"
+}

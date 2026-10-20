@@ -1,0 +1,8 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogOneAddTaylorBounds.lean:31:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogOneAddTaylorBounds.lean:49:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.log_one_add_quadratic_gap_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.log_one_add_cubic_remainder_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

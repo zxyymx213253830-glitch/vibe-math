@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CorrelatedRowInverseTrace.lean": {
+      "sha256": "a7d1b80d2c0494f76685e267bb2fbee272fe22d7fded7853b33e0bb9dd1b1fd1",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "c7c1ef7ac3280d02c6397796a590b5cf0c5b436425a9fc0cd4fdcb3b984cc230"
+}

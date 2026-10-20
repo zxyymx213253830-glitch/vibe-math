@@ -1,0 +1,10 @@
+{
+  "module": "JinWishartFormalization.HermitianInverseTrace",
+  "started_utc": "2026-10-20T10:27:16.023632+00:00",
+  "ended_utc": "2026-10-20T10:27:24.165704+00:00",
+  "gated_helper_exit_code": 1,
+  "source_sha256": "b56a2d9f532bd797fdcf3f37e97a5474c293c7e7f93352ae490168cde03a8981",
+  "log_sha256": "143c4a27c4ce09f14c57f8646a26c41bbbb2d295cfe099f6dcd6e3c9ae3fb462",
+  "log_bytes": 2565,
+  "policy": "Unmodified serialized gated helper, no added compiler flags"
+}

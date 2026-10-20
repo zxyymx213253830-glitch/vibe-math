@@ -1,0 +1,7 @@
+'JinWishart.measurable_actualCorrelatedRowEigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedRowEigenvalue_uniform_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedRowEigenvalue_inverse_pow_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelatedRowInverseTracePow_eq_spectral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedRowInverseTracePow' depends on axioms: [propext, Classical.choice, Quot.sound]

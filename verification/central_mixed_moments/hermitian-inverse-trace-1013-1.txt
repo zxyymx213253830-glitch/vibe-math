@@ -1,0 +1,54 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianInverseTrace.lean:41:11: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianInverseTrace.lean:24:12: warning: This simp argument is unused:
+  D
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, Function.comp_def, hn i]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianInverseTrace.lean:24:14: warning: This simp argument is unused:
+  E
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Function.comp_def, hn i]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianInverseTrace.lean:24:16: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, E, hn i]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianInverseTrace.lean:25:12: warning: This simp argument is unused:
+  D
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, Matrix.diagonal_apply, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianInverseTrace.lean:25:14: warning: This simp argument is unused:
+  E
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.diagonal_apply, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianInverseTrace.lean:25:16: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, E, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianInverseTrace.lean:25:38: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, E, Matrix.diagonal_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.hermitian_trace_inverse_pow_eq_orderedEigenvalues' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

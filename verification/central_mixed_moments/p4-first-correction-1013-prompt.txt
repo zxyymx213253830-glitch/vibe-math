@@ -1,0 +1,146 @@
+P4 adversarial review. You are a different model family from Codex proof author. No tools available: answer directly, no tool tags. Issues only. Review exact full Lean sources below for hidden assumptions, unsupported steps, dimension/mean/rank errors or statement/proof scope mismatch. Kernel exit0 and standard three axioms are separately recorded, not an independent compilation by you. Do not claim human approval. No numerical evidence is used as proof. Zero dimensions are intentional. Fixed B:p-by-n, M:m-by-n, sourceZ:m-by-p; CN1 source uses two standard real coordinates divided by sqrt2. Inheritance of polynomial null sets/Fubini and model correspondence remains [需人工审查]. Review the scope of this supplied module; imported results are separately checked and are not claimed to have been re-proved here.
+
+
+FULL SOURCE NoiselessRowFirstCorrection.lean
+import JinWishartFormalization.NoiselessRowLogDetError
+import JinWishartFormalization.HermitianInverseTrace
+import JinWishartFormalization.LogOneAddTaylorBounds
+
+/-! Deterministic inverse-trace first correction with a global half-quadratic bound.
+Codex. ROW direction and ordinary inverse throughout.
+-/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem scaled_log_inverse_first_correction_bounds (r x : ℝ) (hr : 0<r) (hx : 0<x) :
+    0≤x⁻¹-r*Real.log (1+(r*x)⁻¹) ∧
+    x⁻¹-r*Real.log (1+(r*x)⁻¹)≤1/(2*r*x^2) := by
+  have h := log_one_add_quadratic_gap_bounds ((r*x)⁻¹) (by positivity)
+  have h0 := mul_nonneg hr.le h.1
+  have h2 := mul_le_mul_of_nonneg_left h.2 hr.le
+  have he : r*((r*x)⁻¹-Real.log (1+(r*x)⁻¹))=x⁻¹-r*Real.log (1+(r*x)⁻¹) := by
+    field_simp [hr.ne',hx.ne'] <;> ring
+  rw [he] at h0 h2
+  refine ⟨h0,?_⟩
+  convert h2 using 1 <;> field_simp [hr.ne',hx.ne'] <;> ring
+
+theorem finiteSpectrum_inverse_first_correction_bounds {ι : Type*} [Fintype ι]
+    (l : ι → ℝ) (δ r : ℝ) (hδ : 0<δ) (hl : ∀ i, δ≤l i) (hr : 0<r) :
+    0≤(∑ i, (l i)⁻¹)-r*(∑ i, Real.log (1+(r*l i)⁻¹)) ∧
+    (∑ i, (l i)⁻¹)-r*(∑ i, Real.log (1+(r*l i)⁻¹))≤
+      (Fintype.card ι:ℝ)/(2*r*δ^2) := by
+  classical
+  have hb (i : ι) : 0≤(l i)⁻¹-r*Real.log (1+(r*l i)⁻¹) ∧
+      (l i)⁻¹-r*Real.log (1+(r*l i)⁻¹)≤1/(2*r*δ^2) := by
+    have h := scaled_log_inverse_first_correction_bounds r (l i) hr (hδ.trans_le (hl i))
+    refine ⟨h.1,h.2.trans ?_⟩
+    exact one_div_le_one_div_of_le (by positivity)
+      (mul_le_mul_of_nonneg_left (pow_le_pow_left₀ hδ.le (hl i) 2) (by positivity))
+  rw [Finset.mul_sum,← Finset.sum_sub_distrib]
+  constructor
+  · exact Finset.sum_nonneg (fun i _ => (hb i).1)
+  · calc
+      _ ≤ ∑ _i : ι, 1/(2*r*δ^2) := Finset.sum_le_sum (fun i _ => (hb i).2)
+      _ = _ := by simp [div_eq_mul_inv]
+
+theorem rowLogDet_first_correction_bounds {m n : ℕ}
+    (X : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m) (δ r : ℝ)
+    (hδ : 0<δ) (hfloor : δ≤gramSmallestValue Xᴴ hm) (hr : 0<r) :
+    0≤((complexGram Xᴴ)⁻¹).trace.re-r*(
+      Real.log ((1+(r:ℂ) • complexGram X).det.re)-(m:ℝ)*Real.log r-
+        Real.log ((complexGram Xᴴ).det.re)) ∧
+    ((complexGram Xᴴ)⁻¹).trace.re-r*(
+      Real.log ((1+(r:ℂ) • complexGram X).det.re)-(m:ℝ)*Real.log r-
+        Real.log ((complexGram Xᴴ).det.re)) ≤ (m:ℝ)/(2*r*δ^2) := by
+  have hf (i : Fin (Fintype.card (Fin m))) :
+      δ≤(complexGram_posSemidef Xᴴ).1.eigenvalues₀ i :=
+    hfloor.trans (gramSmallestValue_le_orderedEigenvalue Xᴴ hm i)
+  have hi := hermitian_trace_inverse_pow_eq_orderedEigenvalues (complexGram Xᴴ)
+    (complexGram_posSemidef Xᴴ).1 (fun i => (hδ.trans_le (hf i)).ne') 1
+  simp only [pow_one] at hi
+  rw [hi,rowLogDet_offset_error_identity X hm δ r hδ hfloor hr]
+  simpa only [Fintype.card_fin] using finiteSpectrum_inverse_first_correction_bounds _ δ r hδ hf hr
+
+end
+end JinWishart
+#print axioms JinWishart.scaled_log_inverse_first_correction_bounds
+#print axioms JinWishart.finiteSpectrum_inverse_first_correction_bounds
+#print axioms JinWishart.rowLogDet_first_correction_bounds
+
+
+FULL SOURCE CorrelatedNoiselessFirstCorrection.lean
+import JinWishartFormalization.CorrelatedRowInverseTrace
+import JinWishartFormalization.NoiselessRowFirstCorrection
+
+/-! Actual expected inverse-trace first correction, with a deterministic rate.
+Codex. Fixed noiseless-surjective model; natural log; no channel coding assertion.
+[需人工审查] Integrability/linearity/squeeze and model correspondence.
+-/
+open Matrix Module MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def actualCorrelatedExpectedRowOffsetError {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) : ℝ :=
+  (∫ z, actualCorrelatedMatrixLogDet B M r z ∂stdGaussian _)-(m:ℝ)*Real.log r-
+    (∫ z, actualCorrelatedRowLogDet B M z ∂stdGaussian _)
+
+theorem actualCorrelatedRow_expectedFirstCorrection_bounds {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m)
+    (hs : finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))=m) :
+    ∃ δ : ℝ, 0<δ ∧ ∀ r : ℝ, 0<r →
+      0≤(∫ z, actualCorrelatedRowInverseTracePow B M 1 z ∂stdGaussian _)-
+        r*actualCorrelatedExpectedRowOffsetError B M r ∧
+      (∫ z, actualCorrelatedRowInverseTracePow B M 1 z ∂stdGaussian _)-
+        r*actualCorrelatedExpectedRowOffsetError B M r ≤ (m:ℝ)/(2*r*δ^2) := by
+  obtain ⟨δ,hδ,hfloor⟩ := correlated_rowGram_uniform_floor B M hm hs
+  refine ⟨δ,hδ,fun r hr => ?_⟩
+  let E := fun z : ComplexSample (m := m) (n := p) =>
+    actualCorrelatedMatrixLogDet B M r z-(m:ℝ)*Real.log r-actualCorrelatedRowLogDet B M z
+  have hC := integrable_actualCorrelatedMatrixLogDet B M r hr.le
+  have hL := integrable_actualCorrelatedRowLogDet_of_noiseless_surjective B M hm hs
+  have hE : Integrable E (stdGaussian _) := (hC.sub (integrable_const _)).sub hL
+  have he : (∫ z, E z ∂stdGaussian _)=actualCorrelatedExpectedRowOffsetError B M r := by
+    dsimp only [E,actualCorrelatedExpectedRowOffsetError]
+    rw [integral_sub (f := fun z => actualCorrelatedMatrixLogDet B M r z-(m:ℝ)*Real.log r)
+      (g := actualCorrelatedRowLogDet B M) (hC.sub (integrable_const _)) hL,
+      integral_sub (f := actualCorrelatedMatrixLogDet B M r) (g := fun _ => (m:ℝ)*Real.log r)
+        hC (integrable_const _)]
+    simp
+  have hb (z : ComplexSample (m := m) (n := p)) :
+      0≤actualCorrelatedRowInverseTracePow B M 1 z-0-r*E z ∧
+      actualCorrelatedRowInverseTracePow B M 1 z-0-r*E z≤(m:ℝ)/(2*r*δ^2) := by
+    simpa only [actualCorrelatedRowInverseTracePow,pow_one,sub_zero,E,
+      actualCorrelatedMatrixLogDet,actualCorrelatedRowLogDet] using
+      rowLogDet_first_correction_bounds (complexSampleMatrix z*B+M) hm δ r hδ
+        (hfloor (complexSampleMatrix z)) hr
+  have h := integral_offset_remainder_bounds (stdGaussian _)
+    (actualCorrelatedRowInverseTracePow B M 1) (fun z => r*E z)
+    (integrable_actualCorrelatedRowInverseTracePow B M hm hs 1) (hE.const_mul r)
+    0 ((m:ℝ)/(2*r*δ^2)) hb
+  simpa only [sub_zero,integral_const_mul,he] using h
+
+theorem actualCorrelatedRow_expectedFirstCorrection_tendsto {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m)
+    (hs : finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))=m) :
+    Tendsto (fun r : ℝ => r*actualCorrelatedExpectedRowOffsetError B M r) atTop
+      (𝓝 (∫ z, actualCorrelatedRowInverseTracePow B M 1 z ∂stdGaussian _)) := by
+  obtain ⟨δ,hδ,hb⟩ := actualCorrelatedRow_expectedFirstCorrection_bounds B M hm hs
+  let L := ∫ z, actualCorrelatedRowInverseTracePow B M 1 z ∂stdGaussian _
+  have ht : Tendsto (fun r : ℝ => L-r*actualCorrelatedExpectedRowOffsetError B M r) atTop (𝓝 0) := by
+    have hK : Tendsto (fun r : ℝ => ((m:ℝ)/(2*δ^2))/r) atTop (𝓝 0) :=
+      tendsto_const_nhds.div_atTop tendsto_id
+    apply squeeze_zero' ?_ ?_ hK
+    · filter_upwards [eventually_gt_atTop (0:ℝ)] with r hr
+      exact (hb r hr).1
+    · filter_upwards [eventually_gt_atTop (0:ℝ)] with r hr
+      convert (hb r hr).2 using 1 <;> ring
+  have hs := (tendsto_const_nhds : Tendsto (fun _ : ℝ => L) atTop (𝓝 L)).sub ht
+  simpa only [sub_sub_cancel,sub_zero] using hs
+
+end
+end JinWishart
+#print axioms JinWishart.actualCorrelatedRow_expectedFirstCorrection_bounds
+#print axioms JinWishart.actualCorrelatedRow_expectedFirstCorrection_tendsto

@@ -1,0 +1,3 @@
+'JinWishart.hermitian_trace_inverse_pow_eq_orderedEigenvalues' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

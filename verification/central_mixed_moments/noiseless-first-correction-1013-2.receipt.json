@@ -1,0 +1,10 @@
+{
+  "module": "JinWishartFormalization.NoiselessRowFirstCorrection",
+  "started_utc": "2026-10-20T10:34:04.495635+00:00",
+  "ended_utc": "2026-10-20T10:34:14.042724+00:00",
+  "gated_helper_exit_code": 0,
+  "source_sha256": "16973f47c00ca91e7bcedb3f9ceda048df8ef6f9022ceea1d31af25f4f239fea",
+  "log_sha256": "8ec3548720cc18b81f2a7fa5266a2549d78409fc3dfd176039d20a52cf3b760c",
+  "log_bytes": 1547,
+  "policy": "Unmodified serialized gated helper, no added compiler flags"
+}

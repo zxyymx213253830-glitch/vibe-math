@@ -1,0 +1,111 @@
+P4 adversarial review. You are a different model family from Codex proof author. No tools available: answer directly, no tool tags. Issues only. Review exact full Lean sources below for hidden assumptions, unsupported steps, dimension/mean/rank errors or statement/proof scope mismatch. Kernel exit0 and standard three axioms are separately recorded, not an independent compilation by you. Do not claim human approval. No numerical evidence is used as proof. Zero dimensions are intentional. Fixed B:p-by-n, M:m-by-n, sourceZ:m-by-p; CN1 source uses two standard real coordinates divided by sqrt2. Inheritance of polynomial null sets/Fubini and model correspondence remains [需人工审查]. Review the scope of this supplied module; imported results are separately checked and are not claimed to have been re-proved here.
+
+
+FULL SOURCE HermitianInverseTrace.lean
+import JinWishartFormalization.HermitianSquaredTrace
+
+/-! Trace of ordinary matrix inverse powers from a nonzero Hermitian spectrum.
+Codex deterministic algebra, not a pseudoinverse or an expectation assertion.
+-/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem hermitian_trace_inverse_pow_eq_orderedEigenvalues {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian)
+    (hnz : ∀ i, hA.eigenvalues₀ i ≠ 0) (k : ℕ) :
+    ((A⁻¹)^k).trace.re = ∑ i, ((hA.eigenvalues₀ i)⁻¹)^k := by
+  classical
+  let U := hA.eigenvectorUnitary
+  let D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hA.eigenvalues)
+  let E : Matrix (Fin n) (Fin n) ℂ := diagonal (fun i => ((hA.eigenvalues i)⁻¹ : ℝ))
+  have hn (i : Fin n) : hA.eigenvalues i ≠ 0 := hnz _
+  have hDE : D*E=1 := by
+    rw [Matrix.diagonal_mul_diagonal]
+    ext i j
+    by_cases hij : i=j
+    · subst j
+      simp [hn i]
+    · simp [hij]
+  have hAE : A * Unitary.conjStarAlgAut ℂ _ U E=1 := by
+    calc
+      _ = Unitary.conjStarAlgAut ℂ _ U D * Unitary.conjStarAlgAut ℂ _ U E := by
+        rw [hA.spectral_theorem]
+      _ = Unitary.conjStarAlgAut ℂ _ U (D*E) := (map_mul _ _ _).symm
+      _ = 1 := by rw [hDE,map_one]
+  have hi : A⁻¹=Unitary.conjStarAlgAut ℂ _ U E := Matrix.inv_eq_right_inv hAE
+  rw [hi,← map_pow,Unitary.conjStarAlgAut_apply,trace_mul_cycle,
+    Unitary.coe_star_mul_self,one_mul]
+  dsimp only [E]
+  rw [Matrix.diagonal_pow,Matrix.trace_diagonal]
+  simp only [Pi.pow_apply,Complex.re_sum]
+  change (∑ i : Fin n, ((((hA.eigenvalues i)⁻¹:ℝ):ℂ)^k).re)=_
+  simp only [← Complex.ofReal_pow,Complex.ofReal_re]
+  simpa only [Matrix.IsHermitian.eigenvalues] using
+    Equiv.sum_comp (Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))).symm
+      (fun i => ((hA.eigenvalues₀ i)⁻¹)^k)
+
+end
+end JinWishart
+#print axioms JinWishart.hermitian_trace_inverse_pow_eq_orderedEigenvalues
+
+
+FULL SOURCE LogOneAddTaylorBounds.lean
+import JinWishartFormalization.LogDetLowScaleSecondOrder
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+
+/-! Global positive-side Taylor inequalities for log(1+u), not a power-series assumption.
+Codex deterministic calculus, controls precede formalization.
+-/
+open Set
+namespace JinWishart
+noncomputable section
+
+private theorem nonneg_of_nonneg_derivative_on_nonneg (f g : ℝ → ℝ)
+    (hf0 : f 0=0) (hd : ∀ x, 0≤x → HasDerivAt f (g x) x)
+    (hg : ∀ x, 0≤x → 0≤g x) (u : ℝ) (hu : 0≤u) : 0≤f u := by
+  have hc : ContinuousOn f (Ici 0) := fun x hx => (hd x hx).continuousAt.continuousWithinAt
+  have hmono : MonotoneOn f (Ici 0) := monotoneOn_of_hasDerivWithinAt_nonneg
+    (convex_Ici 0) hc (fun x hx => (hd x (interior_subset hx)).hasDerivWithinAt)
+    (fun x hx => hg x (interior_subset hx))
+  simpa only [hf0] using hmono (show (0:ℝ)∈Ici 0 by simp) hu hu
+
+theorem log_one_add_quadratic_gap_bounds (u : ℝ) (hu : 0≤u) :
+    0≤u-Real.log (1+u) ∧ u-Real.log (1+u)≤u^2/2 := by
+  have hd (x : ℝ) (hx : 0≤x) :
+      HasDerivAt (fun t : ℝ => Real.log (1+t)-t+t^2/2) (x^2/(1+x)) x := by
+    have hp : 0<1+x := by positivity
+    have h := ((((hasDerivAt_id x).const_add 1).log hp.ne').sub (hasDerivAt_id x)).add
+      (((hasDerivAt_id x).fun_pow 2).div_const 2)
+    convert h using 1
+    · rfl
+    · dsimp
+      field_simp [hp.ne']
+      <;> ring
+  have h := nonneg_of_nonneg_derivative_on_nonneg
+    (fun t => Real.log (1+t)-t+t^2/2) (fun x => x^2/(1+x))
+    (by norm_num) hd (fun x hx => by positivity) u hu
+  exact ⟨(log_one_add_linear_gap_bounds u hu).1,by linarith⟩
+
+theorem log_one_add_cubic_remainder_bounds (u : ℝ) (hu : 0≤u) :
+    0≤Real.log (1+u)-u+u^2/2 ∧ Real.log (1+u)-u+u^2/2≤u^3/3 := by
+  have hd (x : ℝ) (hx : 0≤x) :
+      HasDerivAt (fun t : ℝ => t^3/3-Real.log (1+t)+t-t^2/2) (x^3/(1+x)) x := by
+    have hp : 0<1+x := by positivity
+    have h := (((((hasDerivAt_id x).fun_pow 3).div_const 3).sub
+      (((hasDerivAt_id x).const_add 1).log hp.ne')).add (hasDerivAt_id x)).sub
+      (((hasDerivAt_id x).fun_pow 2).div_const 2)
+    convert h using 1
+    · rfl
+    · dsimp
+      field_simp [hp.ne']
+      <;> ring
+  have h := nonneg_of_nonneg_derivative_on_nonneg
+    (fun t => t^3/3-Real.log (1+t)+t-t^2/2) (fun x => x^3/(1+x))
+    (by norm_num) hd (fun x hx => by positivity) u hu
+  exact ⟨by have := (log_one_add_quadratic_gap_bounds u hu).2; linarith,by linarith⟩
+
+end
+end JinWishart
+#print axioms JinWishart.log_one_add_quadratic_gap_bounds
+#print axioms JinWishart.log_one_add_cubic_remainder_bounds

@@ -1,3 +1,5 @@
+2026-10-20 10:38UTC 当前增量：539审计绑定项（537 theorem/instance+2构造），audit PASS，facade50真实exit0。固定无噪声撑满模型下普通行Gram逆迹幂全体自然阶真L1；rho Delta->Etr(W^-1)，且0<=Etr(W^-1)-rhoDelta<=m/(2rho delta^2)。详见 WISHART_NOISELESS_FIRST_CORRECTION.md。三份最终P4真实返回、误报已裁决；二阶系数尚未纳入审计。固定截止11:13:42UTC，heartbeatPAUSED；人工审查/冻结产物/完整构建边界不变。
+
 2026-10-20 10:27UTC 当前增量：526审计绑定项（524 theorem/instance+2构造），audit PASS，facade49真实exit0。新增无噪声撑满条件 rank(M|kerB)=m>0 下的实际行Gram logdet绝对可积、期望高SNR偏移和0<=Delta<=m/(rho delta)；不是任意B/M的普遍偏移定理。三份最终源码Qoder P4真实返回，错误Gram/API/源维度警报已保留裁决。详见 WISHART_NOISELESS_LOGDET_OFFSET.md。首阶逆矩阵迹修正此时仍OPEN；冻结论文/完整构建/人工审查边界不变。本轮用户固定截止11:13:42UTC，自动任务保持PAUSED。
 
 # Wishart 形式化：滚动状态

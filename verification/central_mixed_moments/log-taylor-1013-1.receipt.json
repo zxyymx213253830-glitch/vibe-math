@@ -1,0 +1,10 @@
+{
+  "module": "JinWishartFormalization.LogOneAddTaylorBounds",
+  "started_utc": "2026-10-20T10:28:59.929429+00:00",
+  "ended_utc": "2026-10-20T10:29:09.517840+00:00",
+  "gated_helper_exit_code": 1,
+  "source_sha256": "1cfa22452f33c76e89b8c9f9cccea7165ef8b5980ecdf3b2f93e2366f8693732",
+  "log_sha256": "6b5d78c9079cdcf0094c0cb7df96be022def6912359b8e048a742dcfad3b7328",
+  "log_bytes": 770,
+  "policy": "Unmodified serialized gated helper, no added compiler flags"
+}

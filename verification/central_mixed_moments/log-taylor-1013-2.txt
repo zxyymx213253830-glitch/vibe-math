@@ -1,0 +1,72 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogOneAddTaylorBounds.lean:23:72: error: unsolved goals
+case e'_8
+u : ℝ
+hu : 0 ≤ u
+x : ℝ
+hx : 0 ≤ x
+hp : 0 < 1 + x
+h :
+  HasDerivAt ((fun y => Real.log (1 + id y)) - id + fun x => id x ^ 2 / 2)
+    (1 / (1 + id x) - 1 + ↑2 * id x ^ (2 - 1) * 1 / 2) x
+⊢ (fun t => -t + t ^ 2 * (1 / 2) + Real.log (1 + t)) = (fun y => Real.log (1 + id y)) - id + fun x => id x ^ 2 * (1 / 2)
+
+case e'_9
+u : ℝ
+hu : 0 ≤ u
+x : ℝ
+hx : 0 ≤ x
+hp : 0 < 1 + x
+h :
+  HasDerivAt ((fun y => Real.log (1 + id y)) - id + fun x => id x ^ 2 / 2)
+    (1 / (1 + id x) - 1 + ↑2 * id x ^ (2 - 1) * 1 / 2) x
+⊢ x ^ 2 * 2 = -2 - x * 2 + x * id x * 2 + x * (1 + id x)⁻¹ * 2 + id x * 2 + (1 + id x)⁻¹ * 2
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LogOneAddTaylorBounds.lean:36:78: error: unsolved goals
+case e'_8
+u : ℝ
+hu : 0 ≤ u
+x : ℝ
+hx : 0 ≤ x
+hp : 0 < 1 + x
+h :
+  HasDerivAt (((fun x => id x ^ 3 / 3) - fun y => Real.log (1 + id y)) + id - fun x => id x ^ 2 / 2)
+    (↑3 * id x ^ (3 - 1) * 1 / 3 - 1 / (1 + id x) + 1 - ↑2 * id x ^ (2 - 1) * 1 / 2) x
+⊢ (fun t => t + t ^ 2 * (-1 / 2) + t ^ 3 * (1 / 3) - Real.log (1 + t)) =
+    ((fun x => id x ^ 3 * (1 / 3)) - fun y => Real.log (1 + id y)) + id - fun x => id x ^ 2 * (1 / 2)
+
+case e'_9
+u : ℝ
+hu : 0 ≤ u
+x : ℝ
+hx : 0 ≤ x
+hp : 0 < 1 + x
+h :
+  HasDerivAt (((fun x => id x ^ 3 / 3) - fun y => Real.log (1 + id y)) + id - fun x => id x ^ 2 / 2)
+    (↑3 * id x ^ (3 - 1) * 1 / 3 - 1 / (1 + id x) + 1 - ↑2 * id x ^ (2 - 1) * 1 / 2) x
+⊢ x ^ 3 * 6 =
+    6 + x * 6 - x * id x * 6 + x * id x ^ 2 * 6 - x * (1 + id x)⁻¹ * 6 - id x * 6 + id x ^ 2 * 6 - (1 + id x)⁻¹ * 6
+'JinWishart.log_one_add_quadratic_gap_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.log_one_add_cubic_remainder_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

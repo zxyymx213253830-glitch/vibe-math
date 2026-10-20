@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "HermitianInverseTrace.lean": {
+      "sha256": "e6d529f8e2ce1dd4024721fe97f3ecea5f497a2d3ca08ec24f5938f60e476312",
+      "supplied": "Full source"
+    },
+    "LogOneAddTaylorBounds.lean": {
+      "sha256": "c184cd11c79bb3c1b35f4a39c1fe24d00442c4e7978a6b5694d4b6f4774467ae",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a336967e373380f6793fa382ff9f90ab834e8c4b96b1cf646b1d5e0e6ca32777"
+}

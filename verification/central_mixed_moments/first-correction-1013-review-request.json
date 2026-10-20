@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "NoiselessRowFirstCorrection.lean": {
+      "sha256": "16973f47c00ca91e7bcedb3f9ceda048df8ef6f9022ceea1d31af25f4f239fea",
+      "supplied": "Full source"
+    },
+    "CorrelatedNoiselessFirstCorrection.lean": {
+      "sha256": "3d614f438c6112ea48ebbe9b61617c43d97833fd1d9d6c54ca5040350e33709a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "972a16f84d87cdd2c140ac5540a99fa3f61c10e9a2d63d87705500e18103cbd9"
+}
