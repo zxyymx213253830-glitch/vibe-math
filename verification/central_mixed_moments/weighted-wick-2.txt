@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedFourthMoment.lean:47:4: warning: This simp argument is unused:
+  Finset.sum_ite_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_add, mul_ite, mul_one, mul_zero, ite_and, Finset.sum_add_distrib, Finset.sum_ite_eq',
+    Finset.mem_univ, ite_true, Finset.sum_const_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedFourthMoment.lean:47:66: warning: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_add, mul_ite, mul_one, mul_zero, ite_and, Finset.sum_add_distrib, Finset.sum_ite_eq,
+    Finset.sum_ite_eq', Finset.mem_univ, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedFourthMoment.lean:48:13: warning: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Finset.sum_mul]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianPolynomialMoment_weighted_fourth' depends on axioms: [propext, Classical.choice, Quot.sound]
