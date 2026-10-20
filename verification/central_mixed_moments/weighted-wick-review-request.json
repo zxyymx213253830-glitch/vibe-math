@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ComplexGaussianWeightedFourthMoment.lean": {
+      "sha256": "849e1f0f51fef73a74a3b4fc296c677bfbee469a6eb162a04d429f0d5812d7b2",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "c91d3aa8849e62b89dc73adfb5d4512fe4a8bc31ebfc72c298ee947d679588cf"
+}

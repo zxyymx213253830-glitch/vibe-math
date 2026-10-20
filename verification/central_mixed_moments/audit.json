@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-19T18:05:31.100847+00:00",
-  "spec_sha256": "40a45f412ac06e6539c9cdc8c7d52dc9dbd0ea715cc91835ecde535d4afcad51",
+  "collected_utc": "2026-10-20T04:59:53.121512+00:00",
+  "spec_sha256": "828a68a117e7053f9eef6db2634e21d47095389a0b32dd198e54475385d9bd4f",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -6165,9 +6165,32 @@
           "sha256": "9e65e58ea72d7798a8840961590b02f01ffa2960931f267e8622ae9b13f5e036"
         }
       }
+    },
+    "JinWishartFormalization.ComplexGaussianWeightedFourthMoment": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_fourth",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "849e1f0f51fef73a74a3b4fc296c677bfbee469a6eb162a04d429f0d5812d7b2",
+      "olean_sha256": "29059903e868bc9c30690cb131ea43a2c94b83db35e0e5a89de0adf8633aae49",
+      "log_sha256": "a2b7c1004324a6a0b0d4853a0e8fd79278735d4792e998ae56c9c768f7d398c7",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianWickMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianWickMoments.olean",
+          "sha256": "c3571339229c3705e79cf4801d9aa6e055cb08b6c0c49193bf46f19d71d46cf9"
+        }
+      }
     }
   },
-  "total_declarations": 431,
+  "total_declarations": 432,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -6956,6 +6979,18 @@
       "request_sha256": "f8d892215d01e56007c1271c6f007afbbfd190cd9b681b3fb8bf9912922a0c91",
       "prompt_sha256": "a539cb37bb508e992bd21bd3917ad7e14ad42e92c14f1889572d9dc8ed8c8e15",
       "raw_response_sha256": "b4750dc6a902bd1b4f344c9f11f78fe3829c85032c0491d7c99545f0f937b25a",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "9c8f3322d475464634d8e707dc36917012d46c5131255e770db7300507369915",
+      "prompt_sha256": "c91d3aa8849e62b89dc73adfb5d4512fe4a8bc31ebfc72c298ee947d679588cf",
+      "raw_response_sha256": "5d0bae28e5199e40395153404836a65b167b5ccd3ad98686af4dc0d27733c5a4",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"
