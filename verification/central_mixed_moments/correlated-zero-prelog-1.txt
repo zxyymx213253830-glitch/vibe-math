@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetPrelog.lean:21:88: error: unsolved goals
+case h
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+i : Fin (Fintype.card (Fin n))
+⊢ ?m.88
+
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+i : Fin (Fintype.card (Fin n))
+h : ?m.88
+⊢ Integrable (fun z => if 0 < actualCorrelatedEigenvalue B M i z then 1 else 0) (stdGaussian ComplexSample)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetPrelog.lean:17:95: error: unsolved goals
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hi :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => if 0 < actualCorrelatedEigenvalue B M i z then 1 else 0) (stdGaussian ComplexSample)
+⊢ Tendsto
+    (fun r => (∫ (z : ComplexSample), actualCorrelatedMatrixLogDet B M r z ∂stdGaussian ComplexSample) / Real.log r)
+    atTop
+    (𝓝 (∫ (z : ComplexSample), ∑ i, if 0 < actualCorrelatedEigenvalue B M i z then 1 else 0 ∂stdGaussian ComplexSample))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetPrelog.lean:22:10: error: unexpected token 'λ'; expected command
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_positive_modes' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,67 @@
+{
+  "seed": 2026102002,
+  "samples": 200000,
+  "status": "PASS zero-atom/Gamma and logspace infinite-logmoment prelog controls; NOT proof",
+  "source_sha256": "d63bbeb7bc242e6f9d19fb3a0d8c9c70030ddf10c06c5b16a71175a465aee727",
+  "records": [
+    {
+      "case": "Bernoulli-Gamma",
+      "q": 0.0,
+      "empirical_active": 0.0,
+      "logr": [
+        10.0,
+        100.0,
+        1000.0
+      ],
+      "errors": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "Bernoulli-Gamma",
+      "q": 0.3,
+      "empirical_active": 0.299695,
+      "logr": [
+        10.0,
+        100.0,
+        1000.0
+      ],
+      "errors": [
+        0.01724764108514748,
+        0.0017259214964897573,
+        0.00017259214964898684
+      ]
+    },
+    {
+      "case": "Bernoulli-Gamma",
+      "q": 1.0,
+      "empirical_active": 1.0,
+      "logr": [
+        10.0,
+        100.0,
+        1000.0
+      ],
+      "errors": [
+        0.058171889747350325,
+        0.00582170464110765,
+        0.0005821704641106873
+      ]
+    },
+    {
+      "case": "positive bounded f with infinite absolute log moment",
+      "logr": [
+        100.0,
+        10000.0,
+        1000000.0
+      ],
+      "ratios": [
+        0.8103160036084263,
+        0.980331004348736,
+        0.9979157008451811
+      ],
+      "convention": "Logspace evaluation; never represent exp(-Y) aszero to decide positivity. Infinite moment follows analytic Pareto tail, not sampling."
+    }
+  ]
+}

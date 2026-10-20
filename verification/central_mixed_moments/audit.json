@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-20T05:34:18.039757+00:00",
-  "spec_sha256": "2fd74c760592861f9740c8628766bc8403eb63cc6e697db5ae5f9d926f854d52",
+  "collected_utc": "2026-10-20T05:40:30.109689+00:00",
+  "spec_sha256": "210bebef88c8a43bb4a11735a723beb523a3e9511ef6b64485787f78193a7c72",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -6813,9 +6813,89 @@
           "sha256": "4853bdaf10d612928188387a653131b91ee055fe3624b2468dfb6c2c350d789a"
         }
       }
+    },
+    "JinWishartFormalization.NonnegativeSpectrumPrelog": {
+      "declarations": [
+        {
+          "name": "JinWishart.log_one_add_mul_prelog_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.log_one_add_mul_prelog_norm_bound",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_log_one_add_mul_prelog_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_finiteSpectrumLogDet_prelog_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "8a87bcfbbbc4e2ef34fac7d71532e512742b635dae10833938059c6627549714",
+      "olean_sha256": "9ef9109d334c77ff553436e9dcc7e280a776d8369e93df131f5aa319b65cc1a2",
+      "log_sha256": "3c5d48ce89503806bb159205a90921eda932336af591995e443c24eadbfb56d2",
+      "imports": {
+        "JinWishartFormalization.FiniteSpectrumLogDetGrowth": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FiniteSpectrumLogDetGrowth.olean",
+          "sha256": "4feb34a00c1182731152c7f111212984c1546e7aa8164107143c9c8e030e37c0"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedLogDetPrelog": {
+      "declarations": [
+        {
+          "name": "JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_positive_modes",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "322f393a1baefa6c26980898536e066af4b41f90e5203b0ba66ba00d550862a1",
+      "olean_sha256": "9fd0d19839c2e12426e403574357bdfe12d4dfd772e8967ed4542d827043225e",
+      "log_sha256": "f5a4a9dcecec007eec3e30c4dff2843f40e1eb9d8d34eb40b357806cd0803038",
+      "imports": {
+        "JinWishartFormalization.NonnegativeSpectrumPrelog": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/NonnegativeSpectrumPrelog.olean",
+          "sha256": "9ef9109d334c77ff553436e9dcc7e280a776d8369e93df131f5aa319b65cc1a2"
+        },
+        "JinWishartFormalization.CorrelatedLogDetLowScale": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedLogDetLowScale.olean",
+          "sha256": "630657bf6f0094a2445993ee1e293bf1bf586857b3a7db5c1408ea1061f57e27"
+        }
+      }
     }
   },
-  "total_declarations": 483,
+  "total_declarations": 488,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -7013,6 +7093,18 @@
       "script": "experiments/correlated_logdet_low_scale_control.py",
       "script_sha256": "71fc221e99c82341c63d7f08864cf29cba73693fcd7e118c58b65899aed889bc",
       "result_sha256": "cf3222e61fb59d90daca25d1b00ba6e9ee9be3b5d636427be5be5c90dec95d1b",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/zero_spectrum_prelog_control.py",
+      "script_sha256": "d63bbeb7bc242e6f9d19fb3a0d8c9c70030ddf10c06c5b16a71175a465aee727",
+      "result_sha256": "d60d2396e0f769cbd7760e7ad678f5fd19d320b23295321b93e1c5a9e7fd311e",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/correlated_generic_rank_witness_control.py",
+      "script_sha256": "c67f0116f7c0a2a25c0ce297f81121fb5e3c8ea1c6031bc7fc573d579f58fcd0",
+      "result_sha256": "5995d77165b0ef01ad7bc23dc352e81d4681209d1f3bfec900401e7475ae687a",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -7688,6 +7780,18 @@
       "request_sha256": "750d36a4a7cf5a49580a1d40270c92dbc4e344d217bdcfdbb0cb66c5cf9f9cea",
       "prompt_sha256": "680a02be223d6b233a8378ee2f62ab56f898ab825b7255a643ab45bc7651b09c",
       "raw_response_sha256": "36f762e4a5341f3e0aba37fe4c37ed576d3cfaa48a7c522419eee2092ba62356",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "3db044204bfccacd6da3ba82efadd17105283532277621fd980ef9a74928a930",
+      "prompt_sha256": "5417429a46d031f76edd994e85047374b86c28c8ae29eb53b9e60ec72c0d937b",
+      "raw_response_sha256": "fe2a086820b789f0a12fadd25bf427184b5badd2108f7a60427e6dcec9af3084",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"

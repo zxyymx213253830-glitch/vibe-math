@@ -1,0 +1,8 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetPrelog.lean:24:75: error: `fun_prop` was unable to prove `Measurable fun z => if 0 < actualCorrelatedEigenvalue B M i z then 1 else 0`
+
+Issues:
+  No theorems found for `ite` in order to prove `Measurable fun z => if 0 < actualCorrelatedEigenvalue B M i z then 1 else 0`
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_positive_modes' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

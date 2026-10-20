@@ -1,0 +1,3 @@
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_positive_modes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

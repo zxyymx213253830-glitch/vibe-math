@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "NonnegativeSpectrumPrelog.lean": {
+      "sha256": "8a87bcfbbbc4e2ef34fac7d71532e512742b635dae10833938059c6627549714",
+      "supplied": "Full source"
+    },
+    "CorrelatedLogDetPrelog.lean": {
+      "sha256": "322f393a1baefa6c26980898536e066af4b41f90e5203b0ba66ba00d550862a1",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "5417429a46d031f76edd994e85047374b86c28c8ae29eb53b9e60ec72c0d937b"
+}

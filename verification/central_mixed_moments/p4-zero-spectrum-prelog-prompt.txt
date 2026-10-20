@@ -1,0 +1,144 @@
+P4 issues-only; all tools disabled, do NOT emit XML/tooltags/file readrequests. Full final2sources below locallychecked zero-spectrum1 and correlated-zero3 exit0,5 standard3 axioms prints. Generic probability theorem: real-valued f nonnegativeAE and L1 ONLY, NO E|logf| premise, atomsat0 allowed. Limit Elog(1+rf)/logr = E indicator(f>0); finite spectrum ->sum expectations. Bound0<=ratio<=1+f forr>=max1exp1 gives DCT. Integrable implies AEstrongmeasurable, not necessarilyglobalmeasurable; generic RHS deliberately integralindicator not explicit setmeasure. Actual Gaussian eigenvalues aregloballymeasurable and L1 (proved), so physical theorem identifies expectednumberpositiveeigenvalues forANYFIXEDrectangular/singular/zeroB,M allshapes. DoesNOTprove deterministic rankformula/min(m,n), and doesNOTclaim arbitrary varyingB/M uniformity. Mathlib Real.log and division aretotal; useeventuallargepositive r, not hypothesesforallr. Imports: integrable_log_one_add_mul forL1/nonnegative/r>=0, finiteSpectrumLogDet definition sum, actualCorrelated low module eigenL1/nonnegative/measurable + exact matrix-spectral equalityr>=0 areproved, no target density assumption. Check DCTbound/filterAE/emptyindices, scalarzero/positive, expectation-sum moves and outputstrength. Humanmeasure/modelreviewREQUIRED; you do not independentlycompile.
+
+FILE NonnegativeSpectrumPrelog.lean
+import JinWishartFormalization.FiniteSpectrumLogDetGrowth
+
+/-! Expected high-scale prelog with zero modes and no absolute-log moment.
+Codex. L1/nonnegative spectra only. [需人工审查] AE/DCT/integral interpretation.
+-/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem log_one_add_mul_prelog_nonneg (x : ℝ) (hx : 0 ≤ x) :
+    Tendsto (fun r : ℝ => Real.log (1+r*x)/Real.log r) atTop
+      (𝓝 (if 0<x then 1 else 0)) := by
+  by_cases hp : 0<x
+  · rw [if_pos hp]
+    have ha : Tendsto (fun r : ℝ => x+r⁻¹) atTop (𝓝 x) := by
+      simpa using (tendsto_const_nhds.add tendsto_inv_atTop_zero :
+        Tendsto (fun r : ℝ => x+r⁻¹) atTop (𝓝 (x+0)))
+    have hl := (Real.continuousAt_log hp.ne').tendsto.comp ha
+    have ht := (tendsto_const_nhds : Tendsto (fun _ : ℝ => (1 : ℝ)) atTop (𝓝 1)).add
+      (hl.div_atTop Real.tendsto_log_atTop)
+    apply (show Tendsto (fun r : ℝ => 1+Real.log (x+r⁻¹)/Real.log r) atTop (𝓝 1) by
+      simpa using ht).congr'
+    filter_upwards [eventually_gt_atTop (1 : ℝ)] with r hr
+    have hrp : 0<r := lt_trans zero_lt_one hr
+    have harg : 0<x+r⁻¹ := by positivity
+    have he : 1+r*x=r*(x+r⁻¹) := by field_simp; ring
+    rw [he,Real.log_mul hrp.ne' harg.ne']
+    field_simp [(Real.log_pos hr).ne']
+    <;> ring
+  · have hz : x=0 := le_antisymm (le_of_not_gt hp) hx
+    simp [hz]
+
+theorem log_one_add_mul_prelog_norm_bound (x r : ℝ) (hx : 0 ≤ x)
+    (hr : 1 ≤ r) (hl : 1 ≤ Real.log r) :
+    ‖Real.log (1+r*x)/Real.log r‖ ≤ 1+x := by
+  have hrp : 0<r := zero_lt_one.trans_le hr
+  have hlp : 0<Real.log r := zero_lt_one.trans_le hl
+  have h1 : 0<1+x := by positivity
+  have h2 : 0<1+r*x := by positivity
+  have hb : 1+r*x ≤ r*(1+x) := by nlinarith
+  have hu : Real.log (1+r*x) ≤ Real.log r+Real.log (1+x) := by
+    calc
+      _ ≤ Real.log (r*(1+x)) := Real.log_le_log h2 hb
+      _ = _ := Real.log_mul hrp.ne' h1.ne'
+  have hxlog := Real.log_le_sub_one_of_pos h1
+  have hn : 0 ≤ Real.log (1+r*x) := Real.log_nonneg (by nlinarith)
+  rw [Real.norm_eq_abs,abs_of_nonneg (div_nonneg hn hlp.le)]
+  apply (div_le_iff₀ hlp).mpr
+  nlinarith [mul_nonneg hx (sub_nonneg.mpr hl)]
+
+theorem integral_log_one_add_mul_prelog_nonneg {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ] (f : α → ℝ) (hf : Integrable f μ)
+    (hn : ∀ᵐ a ∂μ, 0 ≤ f a) :
+    Tendsto (fun r : ℝ => (∫ a, Real.log (1+r*f a) ∂μ)/Real.log r) atTop
+      (𝓝 (∫ a, (if 0<f a then (1 : ℝ) else 0) ∂μ)) := by
+  have ht : Tendsto (fun r : ℝ => ∫ a, Real.log (1+r*f a)/Real.log r ∂μ) atTop
+      (𝓝 (∫ a, (if 0<f a then (1 : ℝ) else 0) ∂μ)) := by
+    apply tendsto_integral_filter_of_dominated_convergence (fun a => 1+f a)
+    · exact Eventually.of_forall (fun r =>
+        ((Real.measurable_log.comp_aemeasurable
+          (aemeasurable_const.add (aemeasurable_const.mul hf.aemeasurable))).div_const
+            (Real.log r)).aestronglyMeasurable)
+    · filter_upwards [eventually_ge_atTop (max (1 : ℝ) (Real.exp 1))] with r hr
+      have hr1 : 1 ≤ r := (le_max_left _ _).trans hr
+      have hre : Real.exp 1 ≤ r := (le_max_right _ _).trans hr
+      have hl : 1 ≤ Real.log r := by
+        calc
+          1 = Real.log (Real.exp 1) := (Real.log_exp 1).symm
+          _ ≤ _ := Real.log_le_log (Real.exp_pos 1) hre
+      exact hn.mono (fun a ha => log_one_add_mul_prelog_norm_bound (f a) r ha hr1 hl)
+    · exact (integrable_const (1 : ℝ)).add hf
+    · exact hn.mono (fun a ha => log_one_add_mul_prelog_nonneg (f a) ha)
+  simpa only [integral_div] using ht
+
+theorem integral_finiteSpectrumLogDet_prelog_nonneg {α ι : Type*}
+    [MeasurableSpace α] [Fintype ι] (μ : Measure α) [IsProbabilityMeasure μ]
+    (f : ι → α → ℝ) (hf : ∀ i, Integrable (f i) μ)
+    (hn : ∀ i, ∀ᵐ a ∂μ, 0 ≤ f i a) :
+    Tendsto (fun r : ℝ => (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ)/Real.log r)
+      atTop (𝓝 (∑ i, ∫ a, (if 0<f i a then (1 : ℝ) else 0) ∂μ)) := by
+  classical
+  have ht := tendsto_finsetSum Finset.univ (fun i _ =>
+    integral_log_one_add_mul_prelog_nonneg μ (f i) (hf i) (hn i))
+  apply ht.congr'
+  filter_upwards [eventually_ge_atTop (1 : ℝ)] with r hr
+  have hrp : 0<r := zero_lt_one.trans_le hr
+  rw [show (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ) =
+      ∑ i, ∫ a, Real.log (1+r*f i a) ∂μ from
+    integral_finsetSum _ (fun i _ => integrable_log_one_add_mul μ (f i) (hf i) (hn i) r hrp.le)]
+  exact (Finset.sum_div _ _ _).symm
+
+end
+end JinWishart
+#print axioms JinWishart.log_one_add_mul_prelog_nonneg
+#print axioms JinWishart.log_one_add_mul_prelog_norm_bound
+#print axioms JinWishart.integral_log_one_add_mul_prelog_nonneg
+#print axioms JinWishart.integral_finiteSpectrumLogDet_prelog_nonneg
+
+FILE CorrelatedLogDetPrelog.lean
+import JinWishartFormalization.NonnegativeSpectrumPrelog
+import JinWishartFormalization.CorrelatedLogDetLowScale
+
+/-! Expected positive-mode prelog for arbitrary fixed correlated factors.
+Codex. This does NOT identify the almost-sure rank by a deterministic formula.
+[需人工审查] AE/DCT, ordered-spectrum and model interpretation.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem actualCorrelatedMatrixLogDet_prelog_expected_positive_modes {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => (∫ z, actualCorrelatedMatrixLogDet B M r z ∂stdGaussian _)/Real.log r)
+      atTop (𝓝 (∫ z : ComplexSample (m := m) (n := p),
+        (∑ i, if 0<actualCorrelatedEigenvalue B M i z then (1 : ℝ) else 0) ∂stdGaussian _)) := by
+  classical
+  have hi (i : Fin (Fintype.card (Fin n))) :
+      Integrable (fun z : ComplexSample (m := m) (n := p) =>
+        if 0<actualCorrelatedEigenvalue B M i z then (1 : ℝ) else 0) (stdGaussian _) := by
+    have hlam := measurable_actualCorrelatedEigenvalue B M i
+    have hm : Measurable (fun z : ComplexSample (m := m) (n := p) =>
+        if 0<actualCorrelatedEigenvalue B M i z then (1 : ℝ) else 0) :=
+      Measurable.ite (measurableSet_lt measurable_const hlam) measurable_const measurable_const
+    apply (integrable_const (1 : ℝ)).mono' hm.aestronglyMeasurable
+    exact ae_of_all _ (fun z => by split_ifs <;> norm_num)
+  have ht := integral_finiteSpectrumLogDet_prelog_nonneg (stdGaussian _) (actualCorrelatedEigenvalue B M)
+    (integrable_actualCorrelatedEigenvalue B M)
+    (fun i => ae_of_all _ (actualCorrelatedEigenvalue_nonneg B M i))
+  rw [← integral_finsetSum _ (fun i _ => hi i)] at ht
+  apply ht.congr'
+  filter_upwards [eventually_ge_atTop (0 : ℝ)] with r hr
+  have he : (fun z => finiteSpectrumLogDet (fun i => actualCorrelatedEigenvalue B M i z) r) =
+      actualCorrelatedMatrixLogDet B M r :=
+    funext (fun z => (actualCorrelatedMatrixLogDet_eq_spectral B M r hr z).symm)
+  rw [he]
+
+end
+end JinWishart
+#print axioms JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_positive_modes

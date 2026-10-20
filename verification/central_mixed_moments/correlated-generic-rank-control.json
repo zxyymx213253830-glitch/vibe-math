@@ -1,0 +1,1512 @@
+{
+  "seed": null,
+  "status": "PASS exact rational-complex finite affine-rank witnesses and wrong-fullrank/noise-only controls; NOT general proof",
+  "source_sha256": "c67f0116f7c0a2a25c0ce297f81121fb5e3c8ea1c6031bc7fc573d579f58fcd0",
+  "records": [
+    {
+      "shape": [
+        0,
+        0,
+        0
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": []
+    },
+    {
+      "shape": [
+        0,
+        2,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": []
+    },
+    {
+      "shape": [
+        0,
+        2,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": []
+    },
+    {
+      "shape": [
+        0,
+        2,
+        3
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": []
+    },
+    {
+      "shape": [
+        2,
+        0,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": [
+        [],
+        []
+      ]
+    },
+    {
+      "shape": [
+        2,
+        0,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [],
+        []
+      ]
+    },
+    {
+      "shape": [
+        2,
+        0,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 2,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [],
+        []
+      ]
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 2,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 0,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "2/3"
+        ],
+        [
+          "-2/3 - I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 1,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "-1/3"
+        ],
+        [
+          "1/3 - I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 2,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "-1/3"
+        ],
+        [
+          "-2/3 - I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 2,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 3,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 0,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "2/3",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 1,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "-1/3",
+          "0"
+        ],
+        [
+          "1/3 - I/5",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 2,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "-1/3",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0"
+        ],
+        [
+          "-2*I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 3,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "-1/3",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 0,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "2/3",
+          "-2/3 + I/5"
+        ],
+        [
+          "-2/3 - I/5",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "-4/3 - I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 1,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "-1/3",
+          "-2/3 + I/5"
+        ],
+        [
+          "1/3 - I/5",
+          "-1"
+        ],
+        [
+          "-1 - 2*I/5",
+          "-1/3 - I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 2,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "-1/3",
+          "-2/3 + I/5"
+        ],
+        [
+          "-2/3 - I/5",
+          "-1"
+        ],
+        [
+          "-2*I/5",
+          "-4/3 - I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 2,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 0,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "2/3",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 1,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "-1/3",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/3 - I/5",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 2,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "-1/3",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 0,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "2/3",
+          "-2/3 + I/5",
+          "0",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 1,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "-1/3",
+          "-2/3 + I/5",
+          "0",
+          "0"
+        ],
+        [
+          "1/3 - I/5",
+          "-1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "rankB": 3,
+      "rank_M_on_kernel": 0,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "2/3",
+          "-2/3 + I/5",
+          "-1 + 2*I/5",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0",
+          "-4/3 + I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 2,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 3,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 0,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "2/3",
+          "0",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 1,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "-1/3",
+          "0",
+          "0"
+        ],
+        [
+          "1/3 - I/5",
+          "0",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 2,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "-1/3",
+          "0",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0",
+          "0"
+        ],
+        [
+          "-2*I/5",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 0,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "2/3",
+          "-2/3 + I/5",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "-4/3 - I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 1,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "-1/3",
+          "-2/3 + I/5",
+          "0"
+        ],
+        [
+          "1/3 - I/5",
+          "-1",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "-1/3 - I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "rankB": 3,
+      "rank_M_on_kernel": 0,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "2/3",
+          "-2/3 + I/5",
+          "-1 + 2*I/5"
+        ],
+        [
+          "-2/3 - I/5",
+          "0",
+          "-4/3 + I/5"
+        ],
+        [
+          "-1 - 2*I/5",
+          "-4/3 - I/5",
+          "-2/3"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 2,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 3,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 4,
+      "predicted": 4,
+      "witness_rank": 4,
+      "Z": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 0,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "2/3",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "0"
+        ],
+        [
+          "-4/3 - 3*I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 1,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "-1/3",
+          "0"
+        ],
+        [
+          "1/3 - I/5",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "0"
+        ],
+        [
+          "-4/3 - 3*I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 2,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "-1/3",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0"
+        ],
+        [
+          "-2*I/5",
+          "0"
+        ],
+        [
+          "-4/3 - 3*I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 3,
+      "predicted": 4,
+      "witness_rank": 4,
+      "Z": [
+        [
+          "-1/3",
+          "0"
+        ],
+        [
+          "-2/3 - I/5",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "0"
+        ],
+        [
+          "-1/3 - 3*I/5",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 0,
+      "predicted": 2,
+      "witness_rank": 2,
+      "Z": [
+        [
+          "2/3",
+          "-2/3 + I/5"
+        ],
+        [
+          "-2/3 - I/5",
+          "0"
+        ],
+        [
+          "-1 - 2*I/5",
+          "-4/3 - I/5"
+        ],
+        [
+          "-4/3 - 3*I/5",
+          "-5/3 - 2*I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 1,
+      "predicted": 3,
+      "witness_rank": 3,
+      "Z": [
+        [
+          "-1/3",
+          "-2/3 + I/5"
+        ],
+        [
+          "1/3 - I/5",
+          "-1"
+        ],
+        [
+          "-1 - 2*I/5",
+          "-1/3 - I/5"
+        ],
+        [
+          "-4/3 - 3*I/5",
+          "-5/3 - 2*I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 2,
+      "predicted": 4,
+      "witness_rank": 4,
+      "Z": [
+        [
+          "-1/3",
+          "-2/3 + I/5"
+        ],
+        [
+          "-2/3 - I/5",
+          "-1"
+        ],
+        [
+          "-2*I/5",
+          "-4/3 - I/5"
+        ],
+        [
+          "-4/3 - 3*I/5",
+          "-2/3 - 2*I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": [
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 0,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "2/3",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "-1/3",
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 0,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "2/3",
+          "-2/3 + I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "rankB": 2,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "-1/3",
+          "-2/3 + I/5"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 0,
+      "predicted": 0,
+      "witness_rank": 0,
+      "Z": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "rankB": 0,
+      "rank_M_on_kernel": 1,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ]
+    },
+    {
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "rankB": 1,
+      "rank_M_on_kernel": 0,
+      "predicted": 1,
+      "witness_rank": 1,
+      "Z": [
+        [
+          "2/3"
+        ],
+        [
+          "-2/3 - I/5"
+        ],
+        [
+          "-1 - 2*I/5"
+        ]
+      ]
+    }
+  ],
+  "wrong_fullrank_detected": 31,
+  "wrong_noise_only_detected": 35
+}
