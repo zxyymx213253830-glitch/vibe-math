@@ -1,0 +1,10 @@
+{
+  "module": "JinWishartFormalization.NonnegativeSpectrumOffset",
+  "started_utc": "2026-10-20T10:48:02.168676+00:00",
+  "ended_utc": "2026-10-20T10:48:22.318491+00:00",
+  "gated_helper_exit_code": 0,
+  "source_sha256": "89de9eb20544bb4b971f81c8a4d5432842963150d940f85ef7dd52fc5211757b",
+  "log_sha256": "d038f89bd01e3876dc97b87c31994c03e2f2d30bf977a2e5c5fe8b5b58b8a524",
+  "log_bytes": 227,
+  "policy": "Unmodified serialized gated helper, no added compiler flags"
+}

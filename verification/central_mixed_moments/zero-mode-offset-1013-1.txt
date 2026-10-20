@@ -1,0 +1,71 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeSpectrumOffset.lean:27:35: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeSpectrumOffset.lean:51:62: error: unsolved goals
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsFiniteMeasure μ
+f : α → ℝ
+hm : Measurable f
+hf : Integrable f μ
+hn : ∀ᵐ (a : α) ∂μ, 0 ≤ f a
+hlog : Integrable (fun a => positiveSpectrumLog (f a)) μ
+S : Set α := {a | 0 < f a}
+hS : MeasurableSet S
+hp : ∀ᵐ (a : α) ∂μ.restrict S, 0 < f a
+hl : Integrable (fun a => Real.log (f a)) (μ.restrict S)
+he : ∫ (a : α), positiveSpectrumLog (f a) ∂μ = ∫ (a : α) in S, Real.log (f a) ∂μ
+ht : Tendsto (fun r => ∫ (a : α) in S, Real.log (f a + r⁻¹) ∂μ) atTop (𝓝 (∫ (a : α) in S, Real.log (f a) ∂μ))
+r : ℝ
+hr : 1 ≤ r
+hrp : 0 < r
+hC : ∫ (a : α), Real.log (1 + r * f a) ∂μ = ∫ (a : α) in S, Real.log (1 + r * f a) ∂μ
+hi : Integrable (fun a => Real.log (1 + r * f a)) (μ.restrict S)
+hconst : (μ.restrict S).real univ = μ.real S
+⊢ ∫ (a : α) in S, Real.log (f a + r⁻¹) ∂μ = ∫ (a : α) in S, Real.log (1 + r * f a) ∂μ - μ.real S * Real.log r
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeSpectrumOffset.lean:20:49: error: unsolved goals
+case calc.step
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsFiniteMeasure μ
+f : α → ℝ
+hm : Measurable f
+hf : Integrable f μ
+hn : ∀ᵐ (a : α) ∂μ, 0 ≤ f a
+hlog : Integrable (fun a => positiveSpectrumLog (f a)) μ
+S : Set α := {a | 0 < f a}
+hS : MeasurableSet S
+hp : ∀ᵐ (a : α) ∂μ.restrict S, 0 < f a
+hl : Integrable (fun a => Real.log (f a)) (μ.restrict S)
+he : ∫ (a : α), positiveSpectrumLog (f a) ∂μ = ∫ (a : α) in S, Real.log (f a) ∂μ
+ht : Tendsto (fun r => ∫ (a : α) in S, Real.log (f a + r⁻¹) ∂μ) atTop (𝓝 (∫ (a : α) in S, Real.log (f a) ∂μ))
+r : ℝ
+hr : 1 ≤ r
+hrp : 0 < r
+hC : ∫ (a : α), Real.log (1 + r * f a) ∂μ = ∫ (a : α) in S, Real.log (1 + r * f a) ∂μ
+hi : Integrable (fun a => Real.log (1 + r * f a)) (μ.restrict S)
+hconst : (μ.restrict S).real univ = μ.real S
+⊢ ∫ (a : α) in S, Real.log (f a + r⁻¹) ∂μ =
+    ∫ (a : α) in S, Real.log (1 + r * f a) ∂μ - μ.real {a | 0 < f a} * Real.log r
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeSpectrumOffset.lean:42:14: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [S, hpa]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeSpectrumOffset.lean:44:14: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [S, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.integral_log_one_add_mul_offset_nonneg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_offset_nonneg' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

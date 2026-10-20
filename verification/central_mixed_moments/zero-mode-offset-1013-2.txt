@@ -1,0 +1,2 @@
+'JinWishart.integral_log_one_add_mul_offset_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumLogDet_offset_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]

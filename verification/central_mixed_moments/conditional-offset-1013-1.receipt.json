@@ -1,0 +1,10 @@
+{
+  "module": "JinWishartFormalization.CorrelatedConditionalOffset",
+  "started_utc": "2026-10-20T10:48:32.241599+00:00",
+  "ended_utc": "2026-10-20T10:49:12.382752+00:00",
+  "gated_helper_exit_code": 1,
+  "source_sha256": "32dbb2bbced9ca20cccd950575a5fc216403e9a31bf4b3243197a1a4bc72dc21",
+  "log_sha256": "2c309e5367beb45e83b8fc8234a41c89288481fb6c7d78d7e0eac6684c116f35",
+  "log_bytes": 10659,
+  "policy": "Unmodified serialized gated helper, no added compiler flags"
+}

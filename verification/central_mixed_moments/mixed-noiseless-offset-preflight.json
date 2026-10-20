@@ -1,0 +1,139 @@
+{
+  "source_sha256": "614fb87a953d13201565d8ef517b094eabf13d13fc94d1ba9f98945ef0a8625c",
+  "seed": 202610201013,
+  "samples": 200000,
+  "scope": "Fixed block controls and closed reference checks only. No proof of generic offset or inverse moments.",
+  "checks": [
+    {
+      "name": "closed-logdet-1-1-1",
+      "passed": true,
+      "estimate": -0.5753706484448773,
+      "reference": -0.5772156649015329,
+      "se": 0.002861598506373881
+    },
+    {
+      "name": "CN1-energy-1-1",
+      "passed": true
+    },
+    {
+      "name": "Schur-1-1-1",
+      "passed": true,
+      "max_error": 4.2188474935755964e-15
+    },
+    {
+      "name": "square-A-cancels-D-1",
+      "passed": true,
+      "max_error": 4.163336342344337e-15
+    },
+    {
+      "name": "offset-positive-1-1-10.0",
+      "passed": true,
+      "mean_remainder": 0.5292297651251837
+    },
+    {
+      "name": "offset-positive-1-1-1000.0",
+      "passed": true,
+      "mean_remainder": 0.014034428606359343
+    },
+    {
+      "name": "closed-logdet-2-2-1",
+      "passed": true,
+      "estimate": -0.1522539634260466,
+      "reference": -0.15443132980306573,
+      "se": 0.0033799256556012814
+    },
+    {
+      "name": "CN1-energy-2-2",
+      "passed": true
+    },
+    {
+      "name": "Schur-2-2-1",
+      "passed": true,
+      "max_error": 1.8495205367235055e-12
+    },
+    {
+      "name": "square-A-cancels-D-2",
+      "passed": true,
+      "max_error": 8.896741121589002e-10
+    },
+    {
+      "name": "offset-positive-2-2-10.0",
+      "passed": true,
+      "mean_remainder": 0.8271443201362138
+    },
+    {
+      "name": "offset-positive-2-2-1000.0",
+      "passed": true,
+      "mean_remainder": 0.02503065909001059
+    },
+    {
+      "name": "closed-logdet-1-2-1",
+      "passed": true,
+      "estimate": 1.0157348243221678,
+      "reference": 1.0191316974216618,
+      "se": 0.0020295399549229813
+    },
+    {
+      "name": "CN1-energy-1-2",
+      "passed": true
+    },
+    {
+      "name": "Schur-1-2-1",
+      "passed": true,
+      "max_error": 1.6653345369377348e-15
+    },
+    {
+      "name": "offset-positive-1-2-10.0",
+      "passed": true,
+      "mean_remainder": 0.18757040944577769
+    },
+    {
+      "name": "offset-positive-1-2-1000.0",
+      "passed": true,
+      "mean_remainder": 0.0021978853436330705
+    },
+    {
+      "name": "zero-mode-known-1.0",
+      "passed": true,
+      "value": 0.2981736811615973,
+      "quadrature": 0.2981736811615969,
+      "offset": 0.2981736811615973,
+      "limit": -0.28860783245076643
+    },
+    {
+      "name": "zero-mode-known-10.0",
+      "passed": true,
+      "value": 1.007321272354226,
+      "quadrature": 1.0073212723542255,
+      "offset": -0.14397127414279698,
+      "limit": -0.28860783245076643
+    },
+    {
+      "name": "zero-mode-known-1000.0",
+      "passed": true,
+      "value": 3.168937035162744,
+      "quadrature": 3.1689370351627435,
+      "offset": -0.28494060432832446,
+      "limit": -0.28860783245076643
+    },
+    {
+      "name": "log-nonintegrability-warning-0.1",
+      "passed": true,
+      "truncated_negative_log_integral": 2.302585092994053,
+      "exact": 2.3025850929940455
+    },
+    {
+      "name": "log-nonintegrability-warning-0.01",
+      "passed": true,
+      "truncated_negative_log_integral": 4.605170185988091,
+      "exact": 4.605170185988091
+    },
+    {
+      "name": "log-nonintegrability-warning-0.001",
+      "passed": true,
+      "truncated_negative_log_integral": 6.907755278982137,
+      "exact": 6.907755278982137
+    }
+  ],
+  "status": "PASS"
+}

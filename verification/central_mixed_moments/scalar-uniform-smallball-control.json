@@ -1,0 +1,367 @@
+{
+  "source_sha256": "c2ab0420827b5bd943f56ed728a030ae6b50dd98de5f55e177a902e0cf56e754",
+  "seed": null,
+  "model": "CN1+mu, Y=norm^2; 2Y is noncentral chi-square(df2,nc2normmu^2)",
+  "scope": "CDF controls precede proof. Inverse/negative-log uniform bounds remain controls until separately proved.",
+  "checks": [
+    {
+      "name": "CDF-0.0-0.0",
+      "passed": true,
+      "probability": 0.0,
+      "bound": 0.0
+    },
+    {
+      "name": "CDF-0.0-1e-08",
+      "passed": true,
+      "probability": 9.999999949999975e-09,
+      "bound": 1e-08
+    },
+    {
+      "name": "CDF-0.0-0.001",
+      "passed": true,
+      "probability": 0.0009995001666250082,
+      "bound": 0.001
+    },
+    {
+      "name": "CDF-0.0-0.1",
+      "passed": true,
+      "probability": 0.09516258196404044,
+      "bound": 0.1
+    },
+    {
+      "name": "CDF-0.0-1.0",
+      "passed": true,
+      "probability": 0.6321205588285577,
+      "bound": 1
+    },
+    {
+      "name": "CDF-0.0-10.0",
+      "passed": true,
+      "probability": 0.9999546000702375,
+      "bound": 1
+    },
+    {
+      "name": "inverse-control-0.0-0.25",
+      "passed": true,
+      "integral": 1.225416702465178,
+      "bound": 1.3333333333333333,
+      "not_formalized": true
+    },
+    {
+      "name": "known-Gamma-0.25",
+      "passed": true,
+      "integral": 1.225416702465178,
+      "reference": 1.2254167024651774
+    },
+    {
+      "name": "inverse-control-0.0-0.5",
+      "passed": true,
+      "integral": 1.7724538509055123,
+      "bound": 2.0,
+      "not_formalized": true
+    },
+    {
+      "name": "known-Gamma-0.5",
+      "passed": true,
+      "integral": 1.7724538509055123,
+      "reference": 1.7724538509055159
+    },
+    {
+      "name": "inverse-control-0.0-0.9",
+      "passed": true,
+      "integral": 9.513507698669134,
+      "bound": 10.000000000000002,
+      "not_formalized": true
+    },
+    {
+      "name": "known-Gamma-0.9",
+      "passed": true,
+      "integral": 9.513507698669134,
+      "reference": 9.513507698668734
+    },
+    {
+      "name": "negative-log-0.0",
+      "passed": true,
+      "integral": 0.7965995992970532,
+      "bound": 1,
+      "not_formalized": true
+    },
+    {
+      "name": "known-negative-log",
+      "passed": true
+    },
+    {
+      "name": "CDF-0.2-0.0",
+      "passed": true,
+      "probability": 0.0,
+      "bound": 0.0
+    },
+    {
+      "name": "CDF-0.2-1e-08",
+      "passed": true,
+      "probability": 9.60789434540534e-09,
+      "bound": 1e-08
+    },
+    {
+      "name": "CDF-0.2-0.001",
+      "passed": true,
+      "probability": 0.0009603284076353651,
+      "bound": 0.001
+    },
+    {
+      "name": "CDF-0.2-0.1",
+      "passed": true,
+      "probability": 0.09161113787272401,
+      "bound": 0.1
+    },
+    {
+      "name": "CDF-0.2-1.0",
+      "passed": true,
+      "probability": 0.6175518773645216,
+      "bound": 1
+    },
+    {
+      "name": "CDF-0.2-10.0",
+      "passed": true,
+      "probability": 0.9999349499000229,
+      "bound": 1
+    },
+    {
+      "name": "inverse-control-0.2-0.25",
+      "passed": true,
+      "integral": 1.2133141931189566,
+      "bound": 1.3333333333333333,
+      "not_formalized": true
+    },
+    {
+      "name": "inverse-control-0.2-0.5",
+      "passed": true,
+      "integral": 1.7375306531898047,
+      "bound": 2.0,
+      "not_formalized": true
+    },
+    {
+      "name": "inverse-control-0.2-0.9",
+      "passed": true,
+      "integral": 9.177445601073833,
+      "bound": 10.000000000000002,
+      "not_formalized": true
+    },
+    {
+      "name": "negative-log-0.2",
+      "passed": true,
+      "integral": 0.7717106003784048,
+      "bound": 1,
+      "not_formalized": true
+    },
+    {
+      "name": "CDF-1.0-0.0",
+      "passed": true,
+      "probability": 0.0,
+      "bound": 0.0
+    },
+    {
+      "name": "CDF-1.0-1e-08",
+      "passed": true,
+      "probability": 3.6787944117144235e-09,
+      "bound": 1e-08
+    },
+    {
+      "name": "CDF-1.0-0.001",
+      "passed": true,
+      "probability": 0.0003678794105250393,
+      "bound": 0.001
+    },
+    {
+      "name": "CDF-1.0-0.1",
+      "passed": true,
+      "probability": 0.03675829046056438,
+      "bound": 0.1
+    },
+    {
+      "name": "CDF-1.0-1.0",
+      "passed": true,
+      "probability": 0.3457458387231645,
+      "bound": 1
+    },
+    {
+      "name": "CDF-1.0-10.0",
+      "passed": true,
+      "probability": 0.9979162474528483,
+      "bound": 1
+    },
+    {
+      "name": "inverse-control-1.0-0.25",
+      "passed": true,
+      "integral": 0.9950061286444053,
+      "bound": 1.3333333333333333,
+      "not_formalized": true
+    },
+    {
+      "name": "inverse-control-1.0-0.5",
+      "passed": true,
+      "integral": 1.143295249077477,
+      "bound": 2.0,
+      "not_formalized": true
+    },
+    {
+      "name": "inverse-control-1.0-0.9",
+      "passed": true,
+      "integral": 3.973688531027096,
+      "bound": 10.000000000000002,
+      "not_formalized": true
+    },
+    {
+      "name": "negative-log-1.0",
+      "passed": true,
+      "integral": 0.3598691998822212,
+      "bound": 1,
+      "not_formalized": true
+    },
+    {
+      "name": "CDF-5.0-0.0",
+      "passed": true,
+      "probability": 0.0,
+      "bound": 0.0
+    },
+    {
+      "name": "CDF-5.0-1e-08",
+      "passed": true,
+      "probability": 1.3887945531517348e-19,
+      "bound": 1e-08
+    },
+    {
+      "name": "CDF-5.0-0.001",
+      "passed": true,
+      "probability": 1.4055210111690811e-14,
+      "bound": 0.001
+    },
+    {
+      "name": "CDF-5.0-0.1",
+      "passed": true,
+      "probability": 3.775280361816027e-12,
+      "bound": 0.1
+    },
+    {
+      "name": "CDF-5.0-1.0",
+      "passed": true,
+      "probability": 3.2788533149701844e-09,
+      "bound": 1
+    },
+    {
+      "name": "CDF-5.0-10.0",
+      "passed": true,
+      "probability": 0.0035987082678616807,
+      "bound": 1
+    },
+    {
+      "name": "inverse-control-5.0-0.25",
+      "passed": true,
+      "integral": 0.44836922016424563,
+      "bound": 1.3333333333333333,
+      "not_formalized": true
+    },
+    {
+      "name": "inverse-control-5.0-0.5",
+      "passed": true,
+      "integral": 0.20209860796266174,
+      "bound": 2.0,
+      "not_formalized": true
+    },
+    {
+      "name": "inverse-control-5.0-0.9",
+      "passed": true,
+      "integral": 0.05712365900290713,
+      "bound": 10.000000000000002,
+      "not_formalized": true
+    },
+    {
+      "name": "negative-log-5.0",
+      "passed": true,
+      "integral": 8.245742082574083e-10,
+      "bound": 1,
+      "not_formalized": true
+    },
+    {
+      "name": "CDF-10.0-0.0",
+      "passed": true,
+      "probability": 0.0,
+      "bound": 0.0
+    },
+    {
+      "name": "CDF-10.0-1e-08",
+      "passed": true,
+      "probability": 0.0,
+      "bound": 1e-08
+    },
+    {
+      "name": "CDF-10.0-0.001",
+      "passed": true,
+      "probability": 0.0,
+      "bound": 0.001
+    },
+    {
+      "name": "CDF-10.0-0.1",
+      "passed": true,
+      "probability": 9.053317366375472e-44,
+      "bound": 0.1
+    },
+    {
+      "name": "CDF-10.0-1.0",
+      "passed": true,
+      "probability": 6.399783339299419e-38,
+      "bound": 1
+    },
+    {
+      "name": "CDF-10.0-10.0",
+      "passed": true,
+      "probability": 1.1262626684137985e-22,
+      "bound": 1
+    },
+    {
+      "name": "inverse-control-10.0-0.25",
+      "passed": true,
+      "integral": 0.31642697922196994,
+      "bound": 1.3333333333333333,
+      "not_formalized": true
+    },
+    {
+      "name": "inverse-control-10.0-0.5",
+      "passed": true,
+      "integral": 0.10025287296476053,
+      "bound": 2.0,
+      "not_formalized": true
+    },
+    {
+      "name": "inverse-control-10.0-0.9",
+      "passed": true,
+      "integral": 0.01597969302099298,
+      "bound": 10.000000000000002,
+      "not_formalized": true
+    },
+    {
+      "name": "negative-log-10.0",
+      "passed": true,
+      "integral": 7.226586755930156e-39,
+      "bound": 1,
+      "not_formalized": true
+    },
+    {
+      "name": "zero-mean-CDF-1e-08",
+      "passed": true
+    },
+    {
+      "name": "zero-mean-CDF-0.01",
+      "passed": true
+    },
+    {
+      "name": "zero-mean-CDF-1.0",
+      "passed": true
+    },
+    {
+      "name": "zero-mean-CDF-10.0",
+      "passed": true
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,191 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:24:15: error: don't know how to synthesize implicit argument
+  @Measurable.ite ComplexSample ?m.141 (fun x => ?m.140) (fun x => ?m.145)
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.143
+    (fun a => ?m.132 < actualCorrelatedEigenvalue B M i a) ?m.116
+    (measurableSet_lt measurable_const (measurable_actualCorrelatedEigenvalue B M i)) measurable_const measurable_const
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ DecidablePred fun a => ?m.132 < actualCorrelatedEigenvalue B M i a
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:24:15: error: don't know how to synthesize implicit argument `p`
+  @Measurable.ite ComplexSample ?m.141 (fun x => ?m.140) (fun x => ?m.145)
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.143
+    (fun a => ?m.132 < actualCorrelatedEigenvalue B M i a) ?m.116
+    (measurableSet_lt measurable_const (measurable_actualCorrelatedEigenvalue B M i)) measurable_const measurable_const
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ ComplexSample → Prop
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:24:15: error: don't know how to synthesize implicit argument `mβ`
+  @Measurable.ite ComplexSample ?m.141 (fun x => ?m.140) (fun x => ?m.145)
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.143
+    (fun a => ?m.132 < actualCorrelatedEigenvalue B M i a) ?m.116
+    (measurableSet_lt measurable_const (measurable_actualCorrelatedEigenvalue B M i)) measurable_const measurable_const
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ MeasurableSpace ?m.141
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:24:15: error: don't know how to synthesize implicit argument `g`
+  @Measurable.ite ComplexSample ?m.141 (fun x => ?m.140) (fun x => ?m.145)
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.143
+    (fun a => ?m.132 < actualCorrelatedEigenvalue B M i a) ?m.116
+    (measurableSet_lt measurable_const (measurable_actualCorrelatedEigenvalue B M i)) measurable_const measurable_const
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ ComplexSample → ?m.141
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:24:15: error: don't know how to synthesize implicit argument `f`
+  @Measurable.ite ComplexSample ?m.141 (fun x => ?m.140) (fun x => ?m.145)
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.143
+    (fun a => ?m.132 < actualCorrelatedEigenvalue B M i a) ?m.116
+    (measurableSet_lt measurable_const (measurable_actualCorrelatedEigenvalue B M i)) measurable_const measurable_const
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ ComplexSample → ?m.141
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:24:15: error: don't know how to synthesize implicit argument `β`
+  @Measurable.ite ComplexSample ?m.141 (fun x => ?m.140) (fun x => ?m.145)
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.143
+    (fun a => ?m.132 < actualCorrelatedEigenvalue B M i a) ?m.116
+    (measurableSet_lt measurable_const (measurable_actualCorrelatedEigenvalue B M i)) measurable_const measurable_const
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ Type ?u.76
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:26:23: error: don't know how to synthesize implicit argument `a`
+  @measurable_const ?m.141 ComplexSample ?m.143
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.145
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ ?m.141
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:26:23: error: don't know how to synthesize implicit argument `mα`
+  @measurable_const ?m.141 ComplexSample ?m.143
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.145
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ MeasurableSpace ?m.141
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:26:23: error: don't know how to synthesize implicit argument `α`
+  @measurable_const ?m.141 ComplexSample ?m.143
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.145
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ Type ?u.76
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:26:6: error: don't know how to synthesize implicit argument `a`
+  @measurable_const ?m.141 ComplexSample ?m.143
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.140
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ ?m.141
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:26:6: error: don't know how to synthesize implicit argument `mα`
+  @measurable_const ?m.141 ComplexSample ?m.143
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.140
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ MeasurableSpace ?m.141
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:26:6: error: don't know how to synthesize implicit argument `α`
+  @measurable_const ?m.141 ComplexSample ?m.143
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.140
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ Type ?u.76
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:25:7: error: don't know how to synthesize implicit argument `f`
+  @measurableSet_lt ℝ ComplexSample PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.measurableSpace
+    BorelSpace.opensMeasurable (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i))
+    Real.linearOrder instSecondCountableTopologyReal HasSolidNorm.orderClosedTopology (fun x => ?m.132)
+    (actualCorrelatedEigenvalue B M i) measurable_const (measurable_actualCorrelatedEigenvalue B M i)
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ ComplexSample → ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:25:24: error: don't know how to synthesize implicit argument `a`
+  @measurable_const ℝ ComplexSample Real.measurableSpace
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.132
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hlog :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+i : Fin (Fintype.card (Fin n))
+⊢ ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:24:9: error: failed to infer `have` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedConditionalOffset.lean:34:36: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+'JinWishart.actualCorrelatedMatrixLogDet_offset_of_log_moments' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

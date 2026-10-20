@@ -1,3 +1,5 @@
+2026-10-20 10:13续轮更新：本卡的行Gram绝对logdet可积、期望偏移、显式误差及一/二阶逆迹系数均已机检闭合。精确适用条件仍为rank(M|kerB)=m>0。详见WISHART_NOISELESS_LOGDET_OFFSET.md、WISHART_NOISELESS_FIRST_CORRECTION.md、WISHART_NOISELESS_SECOND_CORRECTION.md。下一实际缺口见WISHART_NEXT_GAUSSIAN_POLYNOMIAL_LOG_CARD.md。下文保留历史OPEN卡，不作为当前状态。
+
 # 下一张卡：无噪声撑满情形的行 Gram 偏移与误差 — OPEN
 
 固定B:p×n、M:m×n，m>0，s=rank(M|kerB)=m，X=ZB+M。

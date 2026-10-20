@@ -1,0 +1,304 @@
+Exact context: this review concerns CONDITIONAL offset theorems, NOT a proof of the absolute positive-log moments for arbitrary B/M. hlog is an explicit premise. Zero modes are omitted from positiveSpectrumLog by the definition (else0); negative inputs are irrelevant AE by hn. Restricting the finite measure to {f>0} does not normalize it or divide by its mass; even zero measure is allowed. The imported integral_log_add_inverse_tendsto works for ANY measure with the stated L1/positive/log L1 assumptions, no IsProbabilityMeasure prerequisite. Matrix complexGram A=A^H A. All actual functions share source ComplexSample(m,p) and stdGaussian with /sqrt2 in complexSampleMatrix. Existing actualCorrelatedRank_eq_generic_ae gives min(m, rankB+rank(M restricted kerB)); matrix_fromRows_rank_eq is separately proved. No source transport or growing-parameter uniformity assumed. Review the statements/proofs as given; do not invent extra imported premises.
+P4 adversarial review. You are a different model family from Codex proof author. No tools available: answer directly, no tool tags. Issues only. Review exact full Lean sources below for hidden assumptions, unsupported steps, dimension/mean/rank errors or statement/proof scope mismatch. Kernel exit0 and standard three axioms are separately recorded, not an independent compilation by you. Do not claim human approval. No numerical evidence is used as proof. Zero dimensions are intentional. Fixed B:p-by-n, M:m-by-n, sourceZ:m-by-p; CN1 source uses two standard real coordinates divided by sqrt2. Inheritance of polynomial null sets/Fubini and model correspondence remains [需人工审查]. Review the scope of this supplied module; imported results are separately checked and are not claimed to have been re-proved here.
+
+
+FULL SOURCE NonnegativeSpectrumOffset.lean
+import JinWishartFormalization.NonnegativeSpectrumPrelog
+
+
+
+/-! Zero modes in expected logdet offsets: positive log moments are explicit premises.
+
+Codex. This does NOT prove those moments for arbitrary singular Gaussian factors.
+
+[需人工审查] Restriction to positive modes, integral algebra and dominated convergence.
+
+-/
+
+open MeasureTheory Filter Set
+
+open scoped Topology
+
+namespace JinWishart
+
+noncomputable section
+
+
+
+def positiveSpectrumLog (x : ℝ) : ℝ := if 0<x then Real.log x else 0
+
+
+
+theorem integral_log_one_add_mul_offset_nonneg {α : Type*} [MeasurableSpace α]
+
+    (μ : Measure α) [IsFiniteMeasure μ] (f : α → ℝ) (hm : Measurable f)
+
+    (hf : Integrable f μ) (hn : ∀ᵐ a ∂μ, 0≤f a)
+
+    (hlog : Integrable (fun a => positiveSpectrumLog (f a)) μ) :
+
+    Tendsto (fun r : ℝ => (∫ a, Real.log (1+r*f a) ∂μ)-
+
+      μ.real {a | 0<f a}*Real.log r) atTop
+
+      (𝓝 (∫ a, positiveSpectrumLog (f a) ∂μ)) := by
+
+  let S := {a | 0<f a}
+
+  have hS : MeasurableSet S := measurableSet_lt measurable_const hm
+
+  have hp : ∀ᵐ a ∂μ.restrict S, 0<f a := ae_restrict_mem hS
+
+  have hl : Integrable (fun a => Real.log (f a)) (μ.restrict S) := by
+
+    apply hlog.restrict.congr
+
+    filter_upwards [hp] with a ha
+
+    simp [positiveSpectrumLog,ha]
+
+  have he : (∫ a, positiveSpectrumLog (f a) ∂μ)=∫ a, Real.log (f a) ∂μ.restrict S := by
+
+    rw [← integral_indicator hS]
+
+    apply integral_congr_ae
+
+    exact ae_of_all _ (fun a => by simp [S,positiveSpectrumLog,Set.indicator_apply])
+
+  rw [he]
+
+  have ht := integral_log_add_inverse_tendsto (μ.restrict S) f hf.restrict hp hl
+
+  apply ht.congr'
+
+  filter_upwards [eventually_ge_atTop (1:ℝ)] with r hr
+
+  have hrp : 0<r := zero_lt_one.trans_le hr
+
+  have hC : (∫ a, Real.log (1+r*f a) ∂μ)=∫ a, Real.log (1+r*f a) ∂μ.restrict S := by
+
+    rw [← integral_indicator hS]
+
+    apply integral_congr_ae
+
+    filter_upwards [hn] with a ha
+
+    by_cases hpa : 0<f a
+
+    · simp [S,hpa]
+
+    · have hz : f a=0 := le_antisymm (le_of_not_gt hpa) ha
+
+      simp [S,hz]
+
+  have hi := integrable_log_one_add_mul (μ.restrict S) f hf.restrict
+
+    (hp.mono (fun _ h => h.le)) r hrp.le
+
+  have hconst : (μ.restrict S).real univ=μ.real S := by
+
+    simp [Measure.real]
+
+  rw [hC]
+
+  symm
+
+  calc
+
+    _ = ∫ a, (Real.log (1+r*f a)-Real.log r) ∂μ.restrict S := by
+
+      rw [integral_sub (f := fun a => Real.log (1+r*f a)) (g := fun _ => Real.log r)
+
+        hi (integrable_const _),integral_const,hconst,smul_eq_mul]
+
+    _ = _ := integral_congr_ae (hp.mono (fun a ha => by
+
+      have harg : 0<f a+r⁻¹ := by positivity
+
+      change Real.log (1+r*f a)-Real.log r=Real.log (f a+r⁻¹)
+
+      rw [show 1+r*f a=r*(f a+r⁻¹) by field_simp [hrp.ne']; ring,
+
+        Real.log_mul hrp.ne' harg.ne']
+
+      ring))
+
+
+
+theorem integral_finiteSpectrumLogDet_offset_nonneg {α ι : Type*}
+
+    [MeasurableSpace α] [Fintype ι] (μ : Measure α) [IsFiniteMeasure μ]
+
+    (f : ι → α → ℝ) (hm : ∀ i, Measurable (f i)) (hf : ∀ i, Integrable (f i) μ)
+
+    (hn : ∀ i, ∀ᵐ a ∂μ, 0≤f i a)
+
+    (hlog : ∀ i, Integrable (fun a => positiveSpectrumLog (f i a)) μ) :
+
+    Tendsto (fun r : ℝ => (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ)-
+
+      (∑ i, μ.real {a | 0<f i a})*Real.log r) atTop
+
+      (𝓝 (∑ i, ∫ a, positiveSpectrumLog (f i a) ∂μ)) := by
+
+  classical
+
+  have ht := tendsto_finsetSum Finset.univ (fun i _ =>
+
+    integral_log_one_add_mul_offset_nonneg μ (f i) (hm i) (hf i) (hn i) (hlog i))
+
+  apply ht.congr'
+
+  filter_upwards [eventually_ge_atTop (0:ℝ)] with r hr
+
+  rw [show (∫ a, finiteSpectrumLogDet (fun i => f i a) r ∂μ)=
+
+      ∑ i, ∫ a, Real.log (1+r*f i a) ∂μ from
+
+      integral_finsetSum _ (fun i _ => integrable_log_one_add_mul μ (f i) (hf i) (hn i) r hr)]
+
+  simp only [Finset.sum_sub_distrib,Finset.sum_mul]
+
+
+
+end
+
+end JinWishart
+
+#print axioms JinWishart.integral_log_one_add_mul_offset_nonneg
+
+#print axioms JinWishart.integral_finiteSpectrumLogDet_offset_nonneg
+
+
+
+FULL SOURCE CorrelatedConditionalOffset.lean
+import JinWishartFormalization.NonnegativeSpectrumOffset
+
+import JinWishartFormalization.CorrelatedLogDetGenericRank
+
+
+
+/-! General fixed-factor offset CONDITIONAL on absolute positive-log moments.
+
+Codex. The log-moment premise is OPEN for arbitrary B/M; this is not an unconditional law.
+
+[需人工审查] Positive-mode restriction, Gaussian rank null sets, integration and model.
+
+-/
+
+open Matrix Module MeasureTheory ProbabilityTheory Filter Set
+
+open scoped Topology
+
+namespace JinWishart
+
+noncomputable section
+
+
+
+theorem actualCorrelatedMatrixLogDet_offset_of_log_moments {m p n : ℕ}
+
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+
+    (hlog : ∀ i, Integrable (fun z => positiveSpectrumLog (actualCorrelatedEigenvalue B M i z))
+
+      (stdGaussian _)) :
+
+    Tendsto (fun r : ℝ => (∫ z, actualCorrelatedMatrixLogDet B M r z ∂stdGaussian _)-
+
+      ((min m (Matrix.fromRows B M).rank):ℝ)*Real.log r) atTop
+
+      (𝓝 (∫ z, (∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) ∂stdGaussian _)) := by
+
+  classical
+
+  have hi (i : Fin (Fintype.card (Fin n))) :
+
+      Integrable (fun z : ComplexSample (m := m) (n := p) =>
+
+        if 0<actualCorrelatedEigenvalue B M i z then (1:ℝ) else 0) (stdGaussian _) := by
+
+    have hm : Measurable (fun z : ComplexSample (m := m) (n := p) =>
+
+        if 0<actualCorrelatedEigenvalue B M i z then (1:ℝ) else 0) := Measurable.ite
+
+      (measurableSet_lt measurable_const (measurable_actualCorrelatedEigenvalue B M i))
+
+      measurable_const measurable_const
+
+    apply (integrable_const (1:ℝ)).mono' hm.aestronglyMeasurable
+
+    exact ae_of_all _ (fun z => by split_ifs <;> norm_num)
+
+  have hmass (i : Fin (Fintype.card (Fin n))) :
+
+      (stdGaussian _).real {z | 0<actualCorrelatedEigenvalue B M i z} =
+
+      ∫ z : ComplexSample (m := m) (n := p),
+
+        (if 0<actualCorrelatedEigenvalue B M i z then (1:ℝ) else 0) ∂stdGaussian _ := by
+
+    symm
+
+    simpa [Set.indicator_apply] using
+
+      integral_indicator_const (μ := stdGaussian (ComplexSample (m := m) (n := p))) (1:ℝ)
+
+        (measurableSet_lt measurable_const (measurable_actualCorrelatedEigenvalue B M i))
+
+  have hq : (∑ i, (stdGaussian _).real {z | 0<actualCorrelatedEigenvalue B M i z})=
+
+      ((min m (Matrix.fromRows B M).rank):ℝ) := by
+
+    simp_rw [hmass]
+
+    rw [← integral_finsetSum _ (fun i _ => hi i)]
+
+    calc
+
+      _ = ∫ z : ComplexSample (m := m) (n := p), ((complexSampleMatrix z*B+M).rank:ℝ) ∂stdGaussian _ :=
+
+        integral_congr_ae (ae_of_all _ (fun z => gram_positive_modes_eq_rank _))
+
+      _ = ∫ _z : ComplexSample (m := m) (n := p), ((min m (Matrix.fromRows B M).rank):ℝ) ∂stdGaussian _ := by
+
+        apply integral_congr_ae
+
+        filter_upwards [actualCorrelatedRank_eq_generic_ae B M] with z hz
+
+        rw [matrix_fromRows_rank_eq]
+
+        exact_mod_cast hz
+
+      _ = _ := by simp
+
+  have ht := integral_finiteSpectrumLogDet_offset_nonneg (stdGaussian _)
+
+    (actualCorrelatedEigenvalue B M) (measurable_actualCorrelatedEigenvalue B M)
+
+    (integrable_actualCorrelatedEigenvalue B M)
+
+    (fun i => ae_of_all _ (actualCorrelatedEigenvalue_nonneg B M i)) hlog
+
+  rw [hq,← integral_finsetSum _ (fun i _ => hlog i)] at ht
+
+  apply ht.congr'
+
+  filter_upwards [eventually_ge_atTop (0:ℝ)] with r hr
+
+  have he : (fun z => finiteSpectrumLogDet (fun i => actualCorrelatedEigenvalue B M i z) r)=
+
+      actualCorrelatedMatrixLogDet B M r :=
+
+    funext (fun z => (actualCorrelatedMatrixLogDet_eq_spectral B M r hr z).symm)
+
+  rw [he]
+
+
+
+end
+
+end JinWishart
+
+#print axioms JinWishart.actualCorrelatedMatrixLogDet_offset_of_log_moments
+

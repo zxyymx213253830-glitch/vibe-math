@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "NonnegativeSpectrumOffset.lean": {
+      "sha256": "89de9eb20544bb4b971f81c8a4d5432842963150d940f85ef7dd52fc5211757b",
+      "supplied": "Full source"
+    },
+    "CorrelatedConditionalOffset.lean": {
+      "sha256": "112f94e971f24acca5ecd7fbcf42d95e17203759030c0b8cbc59fdb56462085c",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "e91f6244a8836fb051c709284fbea659f0bba57c52bc5a91accbafbc1253b15a"
+}
