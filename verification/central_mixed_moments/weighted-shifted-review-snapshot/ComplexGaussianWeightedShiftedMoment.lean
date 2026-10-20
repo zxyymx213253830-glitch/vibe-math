@@ -1,0 +1,195 @@
+import JinWishartFormalization.ComplexGaussianWeightedFourthMoment
+
+/-! Affine weighted fourth moment over any finite source, including empty sources.
+Codex proof bodies. Conjugate-source coefficients are already conjugated.
+L is linear, not multiplicative. [需人工审查] Actual Gaussian interpretation.
+-/
+namespace JinWishart
+noncomputable section
+
+theorem complexGaussianPolynomialMoment_weighted_direct {ι : Type*} [Fintype ι]
+    (a : ι → ℂ) :
+    complexGaussianPolynomialMoment (complexDirectLinearPolynomial a) = 0 := by
+  classical
+  have he : complexDirectLinearPolynomial a = ∑ i, (a i) • (MvPolynomial.X (Sum.inl i)) := by
+    simp only [complexDirectLinearPolynomial,complexConjugateLinearPolynomial,
+      Finset.sum_mul,Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro i _
+    simp only [MvPolynomial.smul_eq_C_mul,map_mul]
+  have hL (P : MvPolynomial (ι ⊕ ι) ℂ) :
+      complexGaussianMomentLinear P = complexGaussianPolynomialMoment P := rfl
+  change complexGaussianMomentLinear _ = _
+  rw [he]
+  simp only [map_sum,map_smul]
+  simp only [hL,complexGaussianPolynomialMoment_X,smul_eq_mul,mul_zero,Finset.sum_const_zero]
+
+theorem complexGaussianPolynomialMoment_weighted_conjugate {ι : Type*} [Fintype ι]
+    (c : ι → ℂ) :
+    complexGaussianPolynomialMoment (complexConjugateLinearPolynomial c) = 0 := by
+  classical
+  have he : complexConjugateLinearPolynomial c = ∑ i, (c i) • (MvPolynomial.X (Sum.inr i)) := by
+    simp only [complexDirectLinearPolynomial,complexConjugateLinearPolynomial,
+      Finset.sum_mul,Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro i _
+    simp only [MvPolynomial.smul_eq_C_mul,map_mul]
+  have hL (P : MvPolynomial (ι ⊕ ι) ℂ) :
+      complexGaussianMomentLinear P = complexGaussianPolynomialMoment P := rfl
+  change complexGaussianMomentLinear _ = _
+  rw [he]
+  simp only [map_sum,map_smul]
+  simp only [hL,complexGaussianPolynomialMoment_X,smul_eq_mul,mul_zero,Finset.sum_const_zero]
+
+theorem complexGaussianPolynomialMoment_weighted_direct_pair {ι : Type*} [Fintype ι]
+    (a b : ι → ℂ) :
+    complexGaussianPolynomialMoment (complexDirectLinearPolynomial a*complexDirectLinearPolynomial b) = 0 := by
+  classical
+  have he : complexDirectLinearPolynomial a*complexDirectLinearPolynomial b = ∑ j, ∑ i, (a i*b j) • (MvPolynomial.X (Sum.inl i)*MvPolynomial.X (Sum.inl j)) := by
+    simp only [complexDirectLinearPolynomial,complexConjugateLinearPolynomial,
+      Finset.sum_mul,Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro j _
+    apply Finset.sum_congr rfl
+    intro i _
+    simp only [MvPolynomial.smul_eq_C_mul,map_mul]
+    ring
+  have hL (P : MvPolynomial (ι ⊕ ι) ℂ) :
+      complexGaussianMomentLinear P = complexGaussianPolynomialMoment P := rfl
+  change complexGaussianMomentLinear _ = _
+  rw [he]
+  simp only [map_sum,map_smul]
+  simp only [hL,complexGaussianPolynomialMoment_direct_pair,smul_eq_mul,mul_zero,Finset.sum_const_zero]
+
+theorem complexGaussianPolynomialMoment_weighted_conjugate_pair {ι : Type*} [Fintype ι]
+    (c d : ι → ℂ) :
+    complexGaussianPolynomialMoment (complexConjugateLinearPolynomial c*complexConjugateLinearPolynomial d) = 0 := by
+  classical
+  have he : complexConjugateLinearPolynomial c*complexConjugateLinearPolynomial d = ∑ j, ∑ i, (c i*d j) • (MvPolynomial.X (Sum.inr i)*MvPolynomial.X (Sum.inr j)) := by
+    simp only [complexDirectLinearPolynomial,complexConjugateLinearPolynomial,
+      Finset.sum_mul,Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro j _
+    apply Finset.sum_congr rfl
+    intro i _
+    simp only [MvPolynomial.smul_eq_C_mul,map_mul]
+    ring
+  have hL (P : MvPolynomial (ι ⊕ ι) ℂ) :
+      complexGaussianMomentLinear P = complexGaussianPolynomialMoment P := rfl
+  change complexGaussianMomentLinear _ = _
+  rw [he]
+  simp only [map_sum,map_smul]
+  simp only [hL,complexGaussianPolynomialMoment_conjugate_pair,smul_eq_mul,mul_zero,Finset.sum_const_zero]
+
+theorem complexGaussianPolynomialMoment_weighted_pair {ι : Type*} [Fintype ι]
+    (a c : ι → ℂ) :
+    complexGaussianPolynomialMoment (complexDirectLinearPolynomial a*complexConjugateLinearPolynomial c) = ∑ i, a i*c i := by
+  classical
+  have he : complexDirectLinearPolynomial a*complexConjugateLinearPolynomial c = ∑ j, ∑ i, (a i*c j) • (MvPolynomial.X (Sum.inl i)*MvPolynomial.X (Sum.inr j)) := by
+    simp only [complexDirectLinearPolynomial,complexConjugateLinearPolynomial,
+      Finset.sum_mul,Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro j _
+    apply Finset.sum_congr rfl
+    intro i _
+    simp only [MvPolynomial.smul_eq_C_mul,map_mul]
+    ring
+  have hL (P : MvPolynomial (ι ⊕ ι) ℂ) :
+      complexGaussianMomentLinear P = complexGaussianPolynomialMoment P := rfl
+  change complexGaussianMomentLinear _ = _
+  rw [he]
+  simp only [map_sum,map_smul]
+  simp only [hL,complexGaussianPolynomialMoment_X_conj_X,smul_eq_mul,mul_zero,Finset.sum_const_zero]
+  simp
+
+theorem complexGaussianPolynomialMoment_weighted_direct_direct_conjugate {ι : Type*} [Fintype ι]
+    (a b c : ι → ℂ) :
+    complexGaussianPolynomialMoment (complexDirectLinearPolynomial a*complexDirectLinearPolynomial b*complexConjugateLinearPolynomial c) = 0 := by
+  classical
+  have he : complexDirectLinearPolynomial a*complexDirectLinearPolynomial b*complexConjugateLinearPolynomial c = ∑ k, ∑ j, ∑ i, (a i*b j*c k) • (MvPolynomial.X (Sum.inl i)*MvPolynomial.X (Sum.inl j)*MvPolynomial.X (Sum.inr k)) := by
+    simp only [complexDirectLinearPolynomial,complexConjugateLinearPolynomial,
+      Finset.sum_mul,Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro k _
+    apply Finset.sum_congr rfl
+    intro j _
+    apply Finset.sum_congr rfl
+    intro i _
+    simp only [MvPolynomial.smul_eq_C_mul,map_mul]
+    ring
+  have hL (P : MvPolynomial (ι ⊕ ι) ℂ) :
+      complexGaussianMomentLinear P = complexGaussianPolynomialMoment P := rfl
+  change complexGaussianMomentLinear _ = _
+  rw [he]
+  simp only [map_sum,map_smul]
+  simp only [hL,complexGaussianPolynomialMoment_direct_direct_conjugate,smul_eq_mul,mul_zero,Finset.sum_const_zero]
+
+theorem complexGaussianPolynomialMoment_weighted_direct_conjugate_conjugate {ι : Type*} [Fintype ι]
+    (a c d : ι → ℂ) :
+    complexGaussianPolynomialMoment (complexDirectLinearPolynomial a*complexConjugateLinearPolynomial c*complexConjugateLinearPolynomial d) = 0 := by
+  classical
+  have he : complexDirectLinearPolynomial a*complexConjugateLinearPolynomial c*complexConjugateLinearPolynomial d = ∑ k, ∑ j, ∑ i, (a i*c j*d k) • (MvPolynomial.X (Sum.inl i)*MvPolynomial.X (Sum.inr j)*MvPolynomial.X (Sum.inr k)) := by
+    simp only [complexDirectLinearPolynomial,complexConjugateLinearPolynomial,
+      Finset.sum_mul,Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro k _
+    apply Finset.sum_congr rfl
+    intro j _
+    apply Finset.sum_congr rfl
+    intro i _
+    simp only [MvPolynomial.smul_eq_C_mul,map_mul]
+    ring
+  have hL (P : MvPolynomial (ι ⊕ ι) ℂ) :
+      complexGaussianMomentLinear P = complexGaussianPolynomialMoment P := rfl
+  change complexGaussianMomentLinear _ = _
+  rw [he]
+  simp only [map_sum,map_smul]
+  simp only [hL,complexGaussianPolynomialMoment_direct_conjugate_conjugate,smul_eq_mul,mul_zero,Finset.sum_const_zero]
+
+theorem complexGaussianPolynomialMoment_weighted_shifted_fourth {ι : Type*} [Fintype ι]
+    (a b c d : ι → ℂ) (α β γ δ : ℂ) :
+    complexGaussianPolynomialMoment
+      ((complexDirectLinearPolynomial a+MvPolynomial.C α)*
+       (complexDirectLinearPolynomial b+MvPolynomial.C β)*
+       (complexConjugateLinearPolynomial c+MvPolynomial.C γ)*
+       (complexConjugateLinearPolynomial d+MvPolynomial.C δ)) =
+      α*β*γ*δ + β*δ*(∑ i, a i*c i) + β*γ*(∑ i, a i*d i) +
+      α*δ*(∑ i, b i*c i) + α*γ*(∑ i, b i*d i) +
+      (∑ i, a i*c i)*(∑ i, b i*d i)+(∑ i, a i*d i)*(∑ i, b i*c i) := by
+  let U := complexDirectLinearPolynomial a
+  let V := complexDirectLinearPolynomial b
+  let W := complexConjugateLinearPolynomial c
+  let Y := complexConjugateLinearPolynomial d
+  have he : (U+MvPolynomial.C α)*(V+MvPolynomial.C β)*(W+MvPolynomial.C γ)*(Y+MvPolynomial.C δ) =
+      U*V*W*Y + δ • (U*V*W) + γ • (U*V*Y) + β • (U*W*Y) + α • (V*W*Y) +
+      (γ*δ) • (U*V) + (β*δ) • (U*W) + (β*γ) • (U*Y) +
+      (α*δ) • (V*W) + (α*γ) • (V*Y) + (α*β) • (W*Y) +
+      (β*γ*δ) • U + (α*γ*δ) • V + (α*β*δ) • W + (α*β*γ) • Y + MvPolynomial.C (α*β*γ*δ) := by
+    simp only [MvPolynomial.smul_eq_C_mul,map_mul]
+    ring
+  have hL (P : MvPolynomial (ι ⊕ ι) ℂ) :
+      complexGaussianMomentLinear P = complexGaussianPolynomialMoment P := rfl
+  change complexGaussianMomentLinear
+    ((U+MvPolynomial.C α)*(V+MvPolynomial.C β)*(W+MvPolynomial.C γ)*(Y+MvPolynomial.C δ)) = _
+  rw [he]
+  simp only [map_add,map_smul]
+  simp only [hL,U,V,W,Y,complexGaussianPolynomialMoment_weighted_fourth,
+    complexGaussianPolynomialMoment_weighted_direct_direct_conjugate,
+    complexGaussianPolynomialMoment_weighted_direct_conjugate_conjugate,
+    complexGaussianPolynomialMoment_weighted_direct_pair,
+    complexGaussianPolynomialMoment_weighted_conjugate_pair,
+    complexGaussianPolynomialMoment_weighted_pair,
+    complexGaussianPolynomialMoment_weighted_direct,complexGaussianPolynomialMoment_weighted_conjugate,
+    complexGaussianPolynomialMoment_C,smul_eq_mul,mul_zero,zero_mul,add_zero,zero_add]
+  ring
+
+end
+end JinWishart
+#print axioms JinWishart.complexGaussianPolynomialMoment_weighted_direct
+#print axioms JinWishart.complexGaussianPolynomialMoment_weighted_conjugate
+#print axioms JinWishart.complexGaussianPolynomialMoment_weighted_direct_pair
+#print axioms JinWishart.complexGaussianPolynomialMoment_weighted_conjugate_pair
+#print axioms JinWishart.complexGaussianPolynomialMoment_weighted_pair
+#print axioms JinWishart.complexGaussianPolynomialMoment_weighted_direct_direct_conjugate
+#print axioms JinWishart.complexGaussianPolynomialMoment_weighted_direct_conjugate_conjugate
+#print axioms JinWishart.complexGaussianPolynomialMoment_weighted_shifted_fourth

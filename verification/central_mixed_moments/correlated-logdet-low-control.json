@@ -1,0 +1,96 @@
+{
+  "seed": 2026102001,
+  "samples": 200000,
+  "status": "PASS actual correlated low-scale trace/curvature, Gamma and singular/zero-source controls; NOT proof",
+  "source_sha256": "71fc221e99c82341c63d7f08864cf29cba73693fcd7e118c58b65899aed889bc",
+  "records": [
+    {
+      "case": "identity Gamma trace",
+      "shape": [
+        2,
+        2,
+        2
+      ],
+      "T": 4.0,
+      "half_second": 8.0,
+      "empirical_T": 4.001364523559086,
+      "empirical_half_second": 7.993367329173125,
+      "r": [
+        0.01,
+        0.001,
+        0.0001
+      ],
+      "curvature_errors": [
+        0.26665541843792884,
+        0.027773068441113935,
+        0.002789006850984599
+      ]
+    },
+    {
+      "case": "rank-one singular",
+      "shape": [
+        2,
+        1,
+        2
+      ],
+      "T": 1.8355555555555556,
+      "half_second": 2.1679703703703703,
+      "empirical_T": 1.8412016125905069,
+      "empirical_half_second": 2.184896531975061,
+      "r": [
+        0.01,
+        0.001,
+        0.0001
+      ],
+      "curvature_errors": [
+        0.04641127880018381,
+        0.004768101526841928,
+        0.00047812890780907225
+      ]
+    },
+    {
+      "case": "rectangular",
+      "shape": [
+        2,
+        3,
+        2
+      ],
+      "T": 1.8928571428571428,
+      "half_second": 2.3135347251145353,
+      "empirical_T": 1.8964438551853904,
+      "empirical_half_second": 2.321349179853046,
+      "r": [
+        0.01,
+        0.001,
+        0.0001
+      ],
+      "curvature_errors": [
+        0.050519161966433135,
+        0.005193338829891925,
+        0.0005208038945876403
+      ]
+    },
+    {
+      "case": "deterministic zero source",
+      "shape": [
+        2,
+        0,
+        2
+      ],
+      "T": 0.7777777777777777,
+      "half_second": 0.191358024691358,
+      "empirical_T": 0.7777777777777777,
+      "empirical_half_second": 0.19135802469135796,
+      "r": [
+        0.01,
+        0.001,
+        0.0001
+      ],
+      "curvature_errors": [
+        0.0007011306253891514,
+        7.03856642605416e-05,
+        7.041305314120505e-06
+      ]
+    }
+  ]
+}

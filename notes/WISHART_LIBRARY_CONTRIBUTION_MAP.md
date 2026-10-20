@@ -1,3 +1,5 @@
+Latest2026-10-20 checkpoint469/facade42 actualexit0/auditPASS: arbitraryfixed rectangular/singular B actual Gram-entry product, trace second/spectral second and centeredtracevariance CLOSED with trueL1. Exactclaims and P4 resolutions WISHART_CORRELATED_SECOND_MOMENTS.md. Earlier open correlatedmoment statements below historical. Correlated logdetlow-scale undercheck; notyetclaimed. FullbuildNOT_RUN/frozenpublicationOLDunchanged/[需人工审查].
+
 # Library contributions and the next paper revision
 
 Latest431/facade40: actual first and both distinct secondtrace moments/variance, explicit full-logdet first/second lowrho coefficients closed ALLiidshapes/fixedM. Arbitrary rectangular/singularfactor B actual Gram mean m B^HB+M^HM entrywise also closed (m-by-p source,p-by-n B); correlatedsecondmoments/curvature still controls-only. Exact claims/provenance table WISHART_LOGDET_RESEARCH_CLAIMS.md. Earlier checkpoint/openmean text below historical. Humanreview/frozenpublication/fullbuild boundaries unchanged.

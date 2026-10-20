@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CorrelatedGaussianFourthMoment.lean": {
+      "sha256": "a728d430bc8842859fdb53a94dcd3ebdf884e57e06789b85b7a43c36ba02959f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "74d82fe9c4f169accc5afb7f7927caae79bd408900b2afcdddc9aa3f2392866a"
+}

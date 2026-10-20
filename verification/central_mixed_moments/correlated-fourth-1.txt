@@ -1,0 +1,91 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:59:41: error: unsolved goals
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+k : Fin m
+j : Fin n
+z : ComplexSample
+⊢ ∑ x, B x j * complexSampleMatrix z k x = ∑ j_1, complexSampleMatrix z k j_1 * B j_1 j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:96:97: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:117:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  Integrable
+    (fun z =>
+      (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i)))
+              (correlatedConjugateEntryPolynomial B M k i) *
+            (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i)))
+              (correlatedDirectEntryPolynomial B M k j) *
+          (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i)))
+            (correlatedConjugateEntryPolynomial B M l u) *
+        (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i)))
+          (correlatedDirectEntryPolynomial B M l v))
+    (stdGaussian ComplexSample)
+but is expected to have type
+  Integrable
+    (fun z =>
+      star ((complexSampleMatrix z * B + M) k i) * (complexSampleMatrix z * B + M) k j *
+          star ((complexSampleMatrix z * B + M) l u) *
+        (complexSampleMatrix z * B + M) l v)
+    (stdGaussian ComplexSample)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:137:2: error: Type mismatch
+  h
+has type
+  ∫ (z : ComplexSample),
+      (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i)))
+              (correlatedConjugateEntryPolynomial B M k i) *
+            (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i)))
+              (correlatedDirectEntryPolynomial B M k j) *
+          (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i)))
+            (correlatedConjugateEntryPolynomial B M l u) *
+        (MvPolynomial.eval (complexMatrixEntries z ⊕ᵥ fun i => star (complexMatrixEntries z i)))
+          (correlatedDirectEntryPolynomial B M l v) ∂stdGaussian ComplexSample =
+    star (M k i) * M k j * star (M l u) * M l v + complexGram B i j * star (M l u) * M l v +
+            complexGram B u v * star (M k i) * M k j +
+          (if k = l then 1 else 0) *
+            (complexGram B i v * M k j * star (M l u) + complexGram B u j * star (M k i) * M l v) +
+        complexGram B i j * complexGram B u v +
+      (if k = l then 1 else 0) * complexGram B i v * complexGram B u j
+but is expected to have type
+  ∫ (z : ComplexSample),
+      star ((complexSampleMatrix z * B + M) k i) * (complexSampleMatrix z * B + M) k j *
+          star ((complexSampleMatrix z * B + M) l u) *
+        (complexSampleMatrix z * B + M) l v ∂stdGaussian ComplexSample =
+    star (M k i) * M k j * star (M l u) * M l v + complexGram B i j * star (M l u) * M l v +
+            complexGram B u v * star (M k i) * M k j +
+          (if k = l then 1 else 0) *
+            (complexGram B i v * M k j * star (M l u) + complexGram B u j * star (M k i) * M l v) +
+        complexGram B i j * complexGram B u v +
+      (if k = l then 1 else 0) * complexGram B i v * complexGram B u j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:135:51: warning: This simp argument is unused:
+  eval_correlatedDirectEntryPolynomial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGaussianPolynomialEval, map_mul, eval_correlatedConjugateEntryPolynomial,
+    complexGaussianMoment_correlated_four_entry] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:136:4: warning: This simp argument is unused:
+  eval_correlatedConjugateEntryPolynomial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGaussianPolynomialEval, map_mul, eval_correlatedDirectEntryPolynomial,
+    complexGaussianMoment_correlated_four_entry] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexDirectLinearPolynomial_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexConjugateLinearPolynomial_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexRowCoefficient_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexRowCoefficient_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedDirectEntryPolynomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedConjugateEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMoment_correlated_four_entry' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_actualCorrelated_four_entry' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelated_four_entry' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

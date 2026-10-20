@@ -1,3 +1,5 @@
+Update2026-10-20: weighted affine Wick and actual correlated secondmoments/tracevariance now CLOSED at469/facade42. See WISHART_CORRELATED_SECOND_MOMENTS.md. Below next/open card is historical; correlated logdet curvature remains undercheck.
+
 # Next useful card: weighted complex fourth moment
 
 Completed checkpoint431/facade40: all-shape iid trace first/second/variance and

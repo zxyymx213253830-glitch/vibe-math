@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CorrelatedGramTraceAlgebra.lean": {
+      "sha256": "f98f350d54cb5e05585ea6ae5cfb630c29acf7487dd9f9bfec074858f55b11e0",
+      "supplied": "Full source"
+    },
+    "CorrelatedGramTraceMoments.lean": {
+      "sha256": "25b05fc1ea7b8ad5b5b0a3101f388d73272e2999d8987e35657a9af98920b271",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "4599fee399dd6cad02410af16250024b382332b73c140bfa67f3ef615ce1626c"
+}

@@ -1,3 +1,5 @@
+Update2026-10-20: weighted affine Wick and actual correlated secondmoments/tracevariance now CLOSED at469/facade42. See WISHART_CORRELATED_SECOND_MOMENTS.md. Below next/open card is historical; correlated logdet curvature remains undercheck.
+
 # Actual Gram mean with arbitrary rectangular or singular column factor
 
 For any finite m,p,n, arbitrary FIXED complex B of shape p by n, arbitrary

@@ -1,0 +1,55 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceAlgebra.lean:44:2: error: 'change' tactic failed, pattern
+  ∑ i, ∑ j, (K i j * K j i + ↑m * S i i * S j j + S i i * A j j + S j j * A i i) =
+    (K ^ 2).trace + ↑m * S.trace ^ 2 + 2 * S.trace * A.trace
+is not definitionally equal to target
+  complexGaussianPolynomialMoment
+      (∑ i, ∑ j, correlatedGramEntryPolynomial B M i j * correlatedGramEntryPolynomial B M j i) =
+    ((↑m • complexGram B + complexGram M) ^ 2).trace + ↑m * (complexGram B).trace ^ 2 +
+      2 * (complexGram B).trace * (complexGram M).trace
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceAlgebra.lean:42:50: warning: This simp argument is unused:
+  map_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [correlatedGramSquaredTracePolynomial, hL, complexGaussianMoment_correlatedGramEntry_product]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceAlgebra.lean:43:4: warning: This simp argument is unused:
+  complexGaussianMoment_correlatedGramEntry_product
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [correlatedGramSquaredTracePolynomial, map_sum, hL]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceAlgebra.lean:75:2: error: 'change' tactic failed, pattern
+  ∑ j, ∑ i, (K i i * K j j + ↑m * S i j * S j i + S i j * A j i + S j i * A i j) =
+    K.trace ^ 2 + ↑m * (S ^ 2).trace + 2 * (S * A).trace
+is not definitionally equal to target
+  complexGaussianPolynomialMoment
+      (∑ x, ∑ i, correlatedGramEntryPolynomial B M i i * correlatedGramEntryPolynomial B M x x) =
+    (↑m • complexGram B + complexGram M).trace * (↑m • complexGram B + complexGram M).trace +
+        ↑m * (complexGram B * complexGram B).trace +
+      2 * (complexGram B * complexGram M).trace
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceAlgebra.lean:73:81: warning: This simp argument is unused:
+  map_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [correlatedGramTracePolynomial, pow_two, Finset.sum_mul, Finset.mul_sum, hL,
+    complexGaussianMoment_correlatedGramEntry_product]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceAlgebra.lean:74:4: warning: This simp argument is unused:
+  complexGaussianMoment_correlatedGramEntry_product
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [correlatedGramTracePolynomial, pow_two, Finset.sum_mul, Finset.mul_sum, map_sum, hL]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianMoment_correlatedGram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMoment_correlatedGram_squaredTrace' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMoment_correlatedGram_trace_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

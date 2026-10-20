@@ -1,0 +1,125 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:70:4: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    S i
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:76:29: error: unsolved goals
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+i j u v : Fin n
+S : Matrix (Fin n) (Fin n) ℂ := complexGram B
+A : Matrix (Fin n) (Fin n) ℂ := complexGram M
+hm : ∀ (i j : Fin n), ∑ k, star (M k i) * M k j = A i j
+hL : ∀ (P : ComplexMatrixPolynomial m p), complexGaussianMomentLinear P = complexGaussianPolynomialMoment P
+hs :
+  complexGaussianPolynomialMoment (correlatedGramEntryPolynomial B M i j * correlatedGramEntryPolynomial B M u v) =
+    ∑ k,
+      ∑ l,
+        (star (M k i) * M k j * star (M l u) * M l v + S i j * star (M l u) * M l v + S u v * star (M k i) * M k j +
+              (if k = l then 1 else 0) * (S i v * M k j * star (M l u) + S u j * star (M k i) * M l v) +
+            S i j * S u v +
+          (if k = l then 1 else 0) * S i v * S u j)
+hmean : ∑ k, ∑ l, star (M k i) * M k j * star (M l u) * M l v = A i j * A u v
+hfirst : ∑ k, ∑ l, S i j * star (M l u) * M l v = ↑m * S i j * A u v
+hsecond : ∑ k, ∑ l, S u v * star (M k i) * M k j = ↑m * S u v * A i j
+hcross :
+  ∑ k, ∑ l, (if k = l then 1 else 0) * (S i v * M k j * star (M l u) + S u j * star (M k i) * M l v) =
+    S i v * A u j + S u j * A i v
+hnoise : ∑ _k, ∑ _l, S i j * S u v = ↑m ^ 2 * S i j * S u v
+⊢ (∑ x, ∑ x_1, if x = x_1 then S i v * S u j else 0) = S i v * S u j * ↑m
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:67:40: warning: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.mem_univ, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:67:59: warning: This simp argument is unused:
+  Finset.mem_univ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:67:75: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:77:40: warning: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.mem_univ, ite_true, Finset.sum_const, Finset.card_univ,
+    Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:77:59: warning: This simp argument is unused:
+  Finset.mem_univ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', ite_true, Finset.sum_const, Finset.card_univ,
+    Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:77:75: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, Finset.sum_const,
+    Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:78:6: warning: This simp argument is unused:
+  Finset.sum_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, ite_true, Finset.card_univ,
+    Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:78:23: warning: This simp argument is unused:
+  Finset.card_univ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, ite_true, Finset.sum_const,
+    Fintype.card_fin, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:78:40: warning: This simp argument is unused:
+  Fintype.card_fin
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, ite_true, Finset.sum_const,
+    Finset.card_univ, nsmul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramEntryCovariance.lean:78:57: warning: This simp argument is unused:
+  nsmul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_mul, one_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, ite_true, Finset.sum_const,
+    Finset.card_univ, Fintype.card_fin]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.correlatedGramEntryPolynomial_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMoment_correlatedGramEntry_product' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.eval_correlatedGramEntry_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedGram_entry_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_entry_product' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

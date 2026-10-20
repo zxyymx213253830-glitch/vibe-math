@@ -1,0 +1,137 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:20:4: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:15:45: warning: This simp argument is unused:
+  complexConjugateLinearPolynomial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexDirectLinearPolynomial, Finset.sum_mul, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:16:6: warning: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexDirectLinearPolynomial, complexConjugateLinearPolynomial, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:16:21: warning: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexDirectLinearPolynomial, complexConjugateLinearPolynomial, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:19:42: warning: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [MvPolynomial.smul_eq_C_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:38:4: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:33:15: warning: This simp argument is unused:
+  complexDirectLinearPolynomial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexConjugateLinearPolynomial, Finset.sum_mul, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:34:6: warning: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexDirectLinearPolynomial, complexConjugateLinearPolynomial, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:34:21: warning: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexDirectLinearPolynomial, complexConjugateLinearPolynomial, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:37:42: warning: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [MvPolynomial.smul_eq_C_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:51:45: warning: This simp argument is unused:
+  complexConjugateLinearPolynomial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexDirectLinearPolynomial, Finset.sum_mul, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:71:15: warning: This simp argument is unused:
+  complexDirectLinearPolynomial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexConjugateLinearPolynomial, Finset.sum_mul, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:104:69: warning: This simp argument is unused:
+  mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hL, complexGaussianPolynomialMoment_X_conj_X, smul_eq_mul, Finset.sum_const_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:104:78: warning: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hL, complexGaussianPolynomialMoment_X_conj_X, smul_eq_mul, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:185:59: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hL, U, V, W, Y, complexGaussianPolynomialMoment_weighted_fourth,
+    complexGaussianPolynomialMoment_weighted_direct_direct_conjugate,
+    complexGaussianPolynomialMoment_weighted_direct_conjugate_conjugate,
+    complexGaussianPolynomialMoment_weighted_direct_pair, complexGaussianPolynomialMoment_weighted_conjugate_pair,
+    complexGaussianPolynomialMoment_weighted_pair, complexGaussianPolynomialMoment_weighted_direct,
+    complexGaussianPolynomialMoment_weighted_conjugate, complexGaussianPolynomialMoment_C, smul_eq_mul, mul_zero,
+    add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianWeightedShiftedMoment.lean:185:77: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hL, U, V, W, Y, complexGaussianPolynomialMoment_weighted_fourth,
+    complexGaussianPolynomialMoment_weighted_direct_direct_conjugate,
+    complexGaussianPolynomialMoment_weighted_direct_conjugate_conjugate,
+    complexGaussianPolynomialMoment_weighted_direct_pair, complexGaussianPolynomialMoment_weighted_conjugate_pair,
+    complexGaussianPolynomialMoment_weighted_pair, complexGaussianPolynomialMoment_weighted_direct,
+    complexGaussianPolynomialMoment_weighted_conjugate, complexGaussianPolynomialMoment_C, smul_eq_mul, mul_zero,
+    zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complexGaussianPolynomialMoment_weighted_direct' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_weighted_conjugate' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_weighted_direct_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_weighted_conjugate_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_weighted_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_weighted_direct_direct_conjugate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_weighted_direct_conjugate_conjugate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianPolynomialMoment_weighted_shifted_fourth' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

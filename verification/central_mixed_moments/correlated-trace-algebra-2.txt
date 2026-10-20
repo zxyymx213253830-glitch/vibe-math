@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceAlgebra.lean:75:2: error: 'change' tactic failed, pattern
+  ∑ j, ∑ i, (K i i * K j j + ↑m * S i j * S j i + S i j * A j i + S j i * A i j) =
+    K.trace ^ 2 + ↑m * (S ^ 2).trace + 2 * (S * A).trace
+is not definitionally equal to target
+  ∑ x,
+      ∑ x_1,
+        ((↑m * complexGram B x_1 x_1 + complexGram M x_1 x_1) * (↑m * complexGram B x x + complexGram M x x) +
+              ↑m * complexGram B x_1 x * complexGram B x x_1 +
+            complexGram B x_1 x * complexGram M x x_1 +
+          complexGram B x x_1 * complexGram M x_1 x) =
+    (↑m • complexGram B + complexGram M).trace * (↑m • complexGram B + complexGram M).trace +
+        ↑m * (complexGram B * complexGram B).trace +
+      2 * (complexGram B * complexGram M).trace
+'JinWishart.complexGaussianMoment_correlatedGram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMoment_correlatedGram_squaredTrace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMoment_correlatedGram_trace_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

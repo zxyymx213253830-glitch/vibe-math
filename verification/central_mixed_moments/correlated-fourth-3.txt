@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:104:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:104:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.complexDirectLinearPolynomial_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexConjugateLinearPolynomial_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexRowCoefficient_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexRowCoefficient_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedDirectEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedConjugateEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMoment_correlated_four_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelated_four_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelated_four_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedFourEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]

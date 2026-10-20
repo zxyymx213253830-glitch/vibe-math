@@ -26,3 +26,11 @@ Actual standard axiom print: propext, Classical.choice, Quot.sound.
 variance/model correspondence remains inherited. Full Lake/mathlib build NOT_RUN.
 Frozen manuscript/PDF/upload/code archives remain old and unchanged.
 Affine weighted fourth moment is next; do not count unverified sources.
+
+2026-10-20 affine extension now locally checked weighted-shifted-2, integrated
+at469/facade42/auditPASS. P1 RouteA selected (16-term expansion); proposed
+coordinate RouteB cannot directly handle arbitrary weighted variables. Existing
+L(C c)=c supplies normalization, no new axiom. First affine P4 onlytooltags is
+invalid; final self-contained P4 delivered. Its map_mul warning confuses the
+constant ringhom C with the moment linear map L. Full resolutions in
+WISHART_CORRELATED_SECOND_MOMENTS.md. All proof bodies remain Codex.

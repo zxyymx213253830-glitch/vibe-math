@@ -1,0 +1,62 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:55:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm ComplexSample
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i))
+    (fun x => RCLike.re (complexGram (complexSampleMatrix x * B + M)).trace) (stdGaussian ComplexSample)
+but is expected to have type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm ComplexSample
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i))
+    (fun z => (complexGram (complexSampleMatrix z * B + M)).trace.re) (stdGaussian ComplexSample)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:69:11: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:77:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm ComplexSample
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i))
+    (fun x => RCLike.re (complexGram (complexSampleMatrix x * B + M) ^ 2).trace) (stdGaussian ComplexSample)
+but is expected to have type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm ComplexSample
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i))
+    (fun z => (complexGram (complexSampleMatrix z * B + M) ^ 2).trace.re) (stdGaussian ComplexSample)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:92:11: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:115:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  Integrable
+    (fun x =>
+      RCLike.re (complexGaussianPolynomialEval (correlatedGramTracePolynomial B M ^ 2) (complexMatrixEntries x)))
+    (stdGaussian ComplexSample)
+but is expected to have type
+  Integrable (fun z => (complexGram (complexSampleMatrix z * B + M)).trace.re ^ 2) (stdGaussian ComplexSample)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:126:11: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:153:26: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.sub_apply] at ha hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.eval_correlatedGram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedGram_squaredTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedGram_trace_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedGram_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_trace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedGram_squaredTrace' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_squaredTrace' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.correlatedGram_trace_sq_eval_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedGram_trace_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_trace_sq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_trace_centered_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

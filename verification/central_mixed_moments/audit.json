@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-20T04:59:53.121512+00:00",
-  "spec_sha256": "828a68a117e7053f9eef6db2634e21d47095389a0b32dd198e54475385d9bd4f",
+  "collected_utc": "2026-10-20T05:22:48.289554+00:00",
+  "spec_sha256": "66753809ddaca6e4018b5d44c33b8eab781dae9778dadff5603b893d8b7f41b2",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -6188,9 +6188,448 @@
           "sha256": "c3571339229c3705e79cf4801d9aa6e055cb08b6c0c49193bf46f19d71d46cf9"
         }
       }
+    },
+    "JinWishartFormalization.ComplexGaussianWeightedShiftedMoment": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_direct",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_conjugate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_direct_pair",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_conjugate_pair",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_pair",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_direct_direct_conjugate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_direct_conjugate_conjugate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianPolynomialMoment_weighted_shifted_fourth",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "f93b656592e156a2ac2723ffc0a11436579f4e1d18fe45394d9a13f08dc73365",
+      "olean_sha256": "989d379d7ac4c2db9a2364ad4fc9b70c520befd9d485d73e6c0fa548040a35c6",
+      "log_sha256": "7a0025b360af643b772897c0fefec17f76ea7dc7d765c1c77d458215c4a7cc0e",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianWeightedFourthMoment": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianWeightedFourthMoment.olean",
+          "sha256": "29059903e868bc9c30690cb131ea43a2c94b83db35e0e5a89de0adf8633aae49"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedGaussianFourthMoment": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexDirectLinearPolynomial_row",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexConjugateLinearPolynomial_row",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexRowCoefficient_pair",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexRowCoefficient_gram",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_correlatedDirectEntryPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_correlatedConjugateEntryPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianMoment_correlated_four_entry",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_correlatedFourEntryPolynomial",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelated_four_entry",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualCorrelated_four_entry",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "a728d430bc8842859fdb53a94dcd3ebdf884e57e06789b85b7a43c36ba02959f",
+      "olean_sha256": "81e823e5c345219bf0b40c51f56e1bcbdafccd875f7c9dca326c93f73bb84b30",
+      "log_sha256": "f232f94d14cb4b94d1e12dd662f768a1fd3121e62b407465f2ef26ac655d3273",
+      "imports": {
+        "JinWishartFormalization.ComplexGaussianWeightedShiftedMoment": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGaussianWeightedShiftedMoment.olean",
+          "sha256": "989d379d7ac4c2db9a2364ad4fc9b70c520befd9d485d73e6c0fa548040a35c6"
+        },
+        "JinWishartFormalization.CorrelatedGramMean": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedGramMean.olean",
+          "sha256": "b936657b398a5eb43c9d76d6fd07191be597ba30d008063bcea0aa575937cfc9"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedGramEntryCovariance": {
+      "declarations": [
+        {
+          "name": "JinWishart.correlatedGramEntryPolynomial_eq_sum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianMoment_correlatedGramEntry_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_correlatedGramEntry_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelatedGram_entry_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualCorrelatedGram_entry_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "95a8414ed30c3e2b4ef5f5eeafd0aad01e6050a34c59be008099fab7309aaa65",
+      "olean_sha256": "79ba9ccabc0321e139f8c01f2ae99a77b911d085ca247891bf4c2b036e60b1b4",
+      "log_sha256": "38b68803f4235463992cc8e512d5be8f45e07f2e9bda5c33c005364901f3f2cf",
+      "imports": {
+        "JinWishartFormalization.CorrelatedGaussianFourthMoment": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedGaussianFourthMoment.olean",
+          "sha256": "81e823e5c345219bf0b40c51f56e1bcbdafccd875f7c9dca326c93f73bb84b30"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedGramTraceAlgebra": {
+      "declarations": [
+        {
+          "name": "JinWishart.complexGaussianMoment_correlatedGram_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianMoment_correlatedGram_squaredTrace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.complexGaussianMoment_correlatedGram_trace_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "f98f350d54cb5e05585ea6ae5cfb630c29acf7487dd9f9bfec074858f55b11e0",
+      "olean_sha256": "0319264d1ea8e0a999dda00fca7a615b3a969a07c4706435d57aa6400539e714",
+      "log_sha256": "1dcf54aa97d086ca741807e6b4dd36af475afab2652ce829f08731af226ece7d",
+      "imports": {
+        "JinWishartFormalization.CorrelatedGramEntryCovariance": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedGramEntryCovariance.olean",
+          "sha256": "79ba9ccabc0321e139f8c01f2ae99a77b911d085ca247891bf4c2b036e60b1b4"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedGramTraceMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.eval_correlatedGram_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_correlatedGram_squaredTrace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.eval_correlatedGram_trace_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelatedGram_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualCorrelatedGram_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelatedGram_squaredTrace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualCorrelatedGram_squaredTrace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.correlatedGram_trace_sq_eval_re",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelatedGram_trace_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualCorrelatedGram_trace_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualCorrelatedGram_trace_centered_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "25b05fc1ea7b8ad5b5b0a3101f388d73272e2999d8987e35657a9af98920b271",
+      "olean_sha256": "4853bdaf10d612928188387a653131b91ee055fe3624b2468dfb6c2c350d789a",
+      "log_sha256": "758862b38f7c96b2c0d8286423741b286aee7064fd946ebb317ee79bbbc40b99",
+      "imports": {
+        "JinWishartFormalization.CorrelatedGramTraceAlgebra": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedGramTraceAlgebra.olean",
+          "sha256": "0319264d1ea8e0a999dda00fca7a615b3a969a07c4706435d57aa6400539e714"
+        }
+      }
     }
   },
-  "total_declarations": 432,
+  "total_declarations": 469,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -6376,6 +6815,18 @@
       "script": "experiments/complex_linear_wick_control.py",
       "script_sha256": "bddd59bc43ee84a34dfa929d48ee3acd9ef2ae2820c6b0d137aef7ce347699dd",
       "result_sha256": "bedbad95bac2d05d47033bc8babd685d0ea5e4fae183501263c78dbc9a0ed244",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/correlated_gaussian_four_entry_control.py",
+      "script_sha256": "7048c3babe40c5fe6502418f71bb75bc01969f67df464bcff434243472f6be56",
+      "result_sha256": "7621961e355f64729dcebd83355ce8037ed7e92ccaf85816a52e903c661931d3",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/correlated_logdet_low_scale_control.py",
+      "script_sha256": "71fc221e99c82341c63d7f08864cf29cba73693fcd7e118c58b65899aed889bc",
+      "result_sha256": "cf3222e61fb59d90daca25d1b00ba6e9ee9be3b5d636427be5be5c90dec95d1b",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -6991,6 +7442,54 @@
       "request_sha256": "9c8f3322d475464634d8e707dc36917012d46c5131255e770db7300507369915",
       "prompt_sha256": "c91d3aa8849e62b89dc73adfb5d4512fe4a8bc31ebfc72c298ee947d679588cf",
       "raw_response_sha256": "5d0bae28e5199e40395153404836a65b167b5ccd3ad98686af4dc0d27733c5a4",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "ced8bbf1a14ab3d9c9caa642562f1b9d04d9639ed091dc9592f25333b9e1f857",
+      "prompt_sha256": "86ac4a18f7c5811ef2858fd8120ff4d5b6e01af3b700ebeb3ceba529f8170240",
+      "raw_response_sha256": "24131a607366426998b4e125a161215b6cef4dedc6731bce6853a9ca4d731503",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "8d78ddab6e85d52fcca59966ab00345c6f8f8c5365f6e522db7ba8d8a12786d6",
+      "prompt_sha256": "74d82fe9c4f169accc5afb7f7927caae79bd408900b2afcdddc9aa3f2392866a",
+      "raw_response_sha256": "a5b975dd31be321a06f3b128abcfcfe695da2863a2c52961f595d9739cb70df7",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "7120d00b06e31095982b3f8e5fa32ede4b5d917f83f4c1a986761c0645a22033",
+      "prompt_sha256": "9465ab675e49e20c388ff65eaaa8f407954a655ebf425fb4aa9845ea28b977c6",
+      "raw_response_sha256": "b86ffd949b23913d0d6391cfafd93e195f8d99cc7de557fd7614c6a09deb67a5",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "362f1b1057f445083a0cbc146034eb9d981d6da66beea2808a393defbc798e03",
+      "prompt_sha256": "4599fee399dd6cad02410af16250024b382332b73c140bfa67f3ef615ce1626c",
+      "raw_response_sha256": "ec16117cf23b3e32b7fef36d7a28f4e5fda85dc100068b3a92d304be252533e9",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"

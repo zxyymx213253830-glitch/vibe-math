@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianFourthMoment.lean:97:97: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'JinWishart.complexDirectLinearPolynomial_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexConjugateLinearPolynomial_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexRowCoefficient_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexRowCoefficient_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedDirectEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedConjugateEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMoment_correlated_four_entry' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_actualCorrelated_four_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelated_four_entry' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedFourEntryPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]

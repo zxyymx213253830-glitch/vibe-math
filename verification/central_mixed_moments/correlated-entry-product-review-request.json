@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CorrelatedGramEntryCovariance.lean": {
+      "sha256": "95a8414ed30c3e2b4ef5f5eeafd0aad01e6050a34c59be008099fab7309aaa65",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9465ab675e49e20c388ff65eaaa8f407954a655ebf425fb4aa9845ea28b977c6"
+}

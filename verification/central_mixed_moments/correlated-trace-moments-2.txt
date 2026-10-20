@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:130:87: error: unsolved goals
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hi :
+  Integrable (fun z => complexGaussianPolynomialEval (correlatedGramTracePolynomial B M ^ 2) (complexMatrixEntries z))
+    (stdGaussian ComplexSample)
+h :
+  ∫ (z : ComplexSample),
+      complexGaussianPolynomialEval (correlatedGramTracePolynomial B M ^ 2)
+        (complexMatrixEntries z) ∂stdGaussian ComplexSample =
+    complexGaussianPolynomialMoment (correlatedGramTracePolynomial B M ^ 2)
+hr :
+  ∫ (z : ComplexSample), (complexGram (complexSampleMatrix z * B + M)).trace.re ^ 2 ∂stdGaussian ComplexSample =
+    (∫ (z : ComplexSample),
+        complexGaussianPolynomialEval (correlatedGramTracePolynomial B M ^ 2)
+          (complexMatrixEntries z) ∂stdGaussian ComplexSample).re
+hzS : (complexGram B).trace.im = 0
+hzA : (complexGram M).trace.im = 0
+hzK : (↑m • complexGram B + complexGram M).trace.im = 0
+⊢ ↑m * (complexGram B).trace.im + (complexGram M).trace.im = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramTraceMoments.lean:165:26: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.sub_apply] at ha hb
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.eval_correlatedGram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedGram_squaredTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.eval_correlatedGram_trace_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedGram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedGram_squaredTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_squaredTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.correlatedGram_trace_sq_eval_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedGram_trace_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_trace_sq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_trace_centered_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

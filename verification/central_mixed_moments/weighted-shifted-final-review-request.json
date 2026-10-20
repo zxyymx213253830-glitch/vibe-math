@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ComplexGaussianWeightedShiftedMoment.lean": {
+      "sha256": "f93b656592e156a2ac2723ffc0a11436579f4e1d18fe45394d9a13f08dc73365",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "86ac4a18f7c5811ef2858fd8120ff4d5b6e01af3b700ebeb3ceba529f8170240"
+}
