@@ -1,0 +1,79 @@
+import JinWishartFormalization.CorrelatedLogDetPrelog
+import Mathlib.LinearAlgebra.Matrix.Rank
+
+/-! Deterministic rank identifies the previously proved expected-positive-mode limit.
+Codex. Does not identify the generic rank of ZB+M by a deterministic formula.
+[需人工审查] Spectral/rank/model correspondence.
+-/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem hermitian_rank_eq_nonzero_eigenvalues_card {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian) :
+    A.rank = Fintype.card {i : Fin n // hA.eigenvalues i ≠ 0} := by
+  classical
+  let U := hA.eigenvectorUnitary
+  let D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hA.eigenvalues)
+  have he : A = Unitary.conjStarAlgAut ℂ _ U D := by rw [← hA.spectral_theorem]
+  have hu := Matrix.UnitaryGroup.det_isUnit U
+  have hus : IsUnit (star (U : Matrix (Fin n) (Fin n) ℂ)).det := by
+    simpa only [Unitary.coe_star] using Matrix.UnitaryGroup.det_isUnit (star U)
+  conv_lhs =>
+    rw [he,Unitary.conjStarAlgAut_apply,
+      Matrix.rank_mul_eq_left_of_isUnit_det _ _ hus,Matrix.rank_mul_eq_right_of_isUnit_det _ _ hu,
+      Matrix.rank_diagonal]
+  simp only [D,Function.comp_apply]
+  apply Fintype.card_congr
+  exact Equiv.subtypeEquivRight (fun i => by
+    constructor
+    · intro hne hz
+      exact hne (by simp [hz])
+    · intro hne hz
+      apply hne
+      exact RCLike.ofReal_eq_zero.mp hz)
+
+theorem gram_positive_modes_eq_rank {m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) :
+    (∑ i, if 0<(complexGram_posSemidef X).1.eigenvalues₀ i then (1 : ℝ) else 0) =
+      (X.rank : ℝ) := by
+  classical
+  let h := (complexGram_posSemidef X).1
+  let e : Fin (Fintype.card (Fin n)) ≃ Fin n :=
+    Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))
+  have hi (i : Fin (Fintype.card (Fin n))) :
+      (if 0<h.eigenvalues₀ i then (1 : ℝ) else 0) =
+        (if h.eigenvalues₀ i ≠ 0 then (1 : ℝ) else 0) := by
+    have hn := complexGram_eigenvalues₀_nonneg X i
+    by_cases hz : h.eigenvalues₀ i=0
+    · simp [hz]
+    · have hp : 0<h.eigenvalues₀ i := lt_of_le_of_ne hn (Ne.symm hz)
+      simp [hz,hp]
+  have hs : (∑ i, if h.eigenvalues₀ i ≠ 0 then (1 : ℝ) else 0) =
+      ∑ i, if h.eigenvalues i ≠ 0 then (1 : ℝ) else 0 := by
+    simpa only [Matrix.IsHermitian.eigenvalues,e,Equiv.symm_apply_apply] using
+      (Equiv.sum_comp e (fun i => if h.eigenvalues i ≠ 0 then (1 : ℝ) else 0))
+  have hc : (∑ i, if h.eigenvalues i ≠ 0 then (1 : ℝ) else 0) =
+      (Fintype.card {i : Fin n // h.eigenvalues i ≠ 0} : ℝ) := by
+    rw [Finset.sum_boole,Fintype.card_subtype]
+  change (∑ i, if 0<h.eigenvalues₀ i then (1 : ℝ) else 0) = _
+  simp_rw [hi]
+  rw [hs,hc,← hermitian_rank_eq_nonzero_eigenvalues_card _ h]
+  exact_mod_cast Matrix.rank_conjTranspose_mul_self X
+
+theorem actualCorrelatedMatrixLogDet_prelog_expected_rank {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    Tendsto (fun r : ℝ => (∫ z, actualCorrelatedMatrixLogDet B M r z ∂stdGaussian _)/Real.log r)
+      atTop (𝓝 (∫ z : ComplexSample (m := m) (n := p),
+        ((complexSampleMatrix z*B+M).rank : ℝ) ∂stdGaussian _)) := by
+  have ht := actualCorrelatedMatrixLogDet_prelog_expected_positive_modes B M
+  have he (z : ComplexSample (m := m) (n := p)) :
+      (∑ i, if 0<actualCorrelatedEigenvalue B M i z then (1 : ℝ) else 0) =
+        ((complexSampleMatrix z*B+M).rank : ℝ) := gram_positive_modes_eq_rank _
+  simpa only [he] using ht
+
+end
+end JinWishart
+#print axioms JinWishart.hermitian_rank_eq_nonzero_eigenvalues_card
+#print axioms JinWishart.gram_positive_modes_eq_rank
+#print axioms JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_rank

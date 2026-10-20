@@ -19,8 +19,9 @@ FIXED M m-by-n and W=(ZB+M)^H(ZB+M), the full-matrix logdet expected prelog is
 
     E[sum_i if lambda_i(W)>0 then1 else0].
 
-This is an expected POSITIVE-MODE COUNT, not yet a proved deterministic formula
-for rank(ZB+M). The separate deterministic spectral/rank bridge is undercheck.
+This expected POSITIVE-MODE COUNT is now proved equal to actual expectedrank
+at491/facade45; see WISHART_EXPECTED_RANK_PRELOG.md. The deterministic generic
+rank formula in B,M remains OPEN.
 Do not replace the limit by min(m,n) for singular B: B=0 gives deterministicM.
 
 Proof: fixedscalar f=0 gives0, f>0 gives1 via log(1+rf)=logr+log(f+1/r).

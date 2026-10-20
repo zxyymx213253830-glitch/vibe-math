@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CorrelatedLogDetExpectedRank.lean": {
+      "sha256": "03e869166c65c08b0254e444408e1248ee4c82086ef45dc1d98f3c15f586c043",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "68433ffea5914a2364a18cdf21cd6caacabc5e11064e98719ead83c5935cd9bd"
+}

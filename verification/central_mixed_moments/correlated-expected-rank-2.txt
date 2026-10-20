@@ -1,0 +1,33 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetExpectedRank.lean:15:65: error: unsolved goals
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+U : ↥(unitaryGroup (Fin n) ℂ) := hA.eigenvectorUnitary
+D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hA.eigenvalues)
+he : A = ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) U) D
+hu : IsUnit (↑U).det
+hus : IsUnit (star ↑U).det
+⊢ Fintype.card { i // ↑(hA.eigenvalues i) ≠ 0 } = Fintype.card { i // hA.eigenvalues i ≠ 0 }
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetExpectedRank.lean:27:13: warning: This simp argument is unused:
+  D
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Function.comp_apply, Complex.ofReal_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetExpectedRank.lean:27:35: warning: This simp argument is unused:
+  Complex.ofReal_ne_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [D, Function.comp_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.hermitian_rank_eq_nonzero_eigenvalues_card' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gram_positive_modes_eq_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_rank' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

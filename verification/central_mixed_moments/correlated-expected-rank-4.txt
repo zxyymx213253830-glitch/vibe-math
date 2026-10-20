@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetExpectedRank.lean:27:13: warning: This simp argument is unused:
+  D
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Function.comp_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.hermitian_rank_eq_nonzero_eigenvalues_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_positive_modes_eq_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,6 +1,6 @@
 # Current logdet and moment research claims
 
-Research checkpoint488, selected leaves and main facade44 realexit0; this is NOT
+Research checkpoint491, selected leaves and main facade45 realexit0; this is NOT
 the frozen manuscript or a new arXiv upload. The frozen PDF/source/code archives
 still describe an older checkpoint. Author byline remains ZHOU XINGYUAN.
 The provenance below describes tool assistance, not additional paper authors.
@@ -38,8 +38,9 @@ Correlated full-logdet: EC(r)/r->Re trK and (rRe trK-EC(r))/r^2->S2/2,
 S2=Re trK^2+m(Re trSigma)^2+2Re trSigma Re trA, actual finite closed moment.
 No rank/inverse-moment premise, natural units.
 
-Additional zero-mode interface: expected full-logdet/logr ->expectednumberpositive
-modes for arbitraryfixedB/M, no logL1/fullrank premise. GenericnonnegativeL1
+Additional zero-mode interface: expected full-logdet/logr ->ACTUAL EXPECTEDRANK
+of ZB+M for arbitraryfixedB/M, no logL1/fullrank premise. The deterministic
+positive-mode/rank bridge is checked. GenericnonnegativeL1
 finite-spectrum theorem included. Deterministic singular-factor rankformula
 remains OPEN. See WISHART_ZERO_MODE_PRELOG.md.
 
@@ -59,10 +60,10 @@ provenance/GUIDED_COLLABORATION labels. They must not be reattributed to Codex,
 and Qoder route/P4 responses must not be called independent Lean compilation.
 This new table does not assert those earlier outputs were reauthored here.
 
-Audit488 =486 theorem/instance declarations+2 earlier constructions, with
+Audit491 =489 theorem/instance declarations+2 earlier constructions, with
 exact source/olean/log/direct-dependency/control/final-review snapshot hashes.
 Counts include deterministic algebra and generic integration helpers; they
-are NOT488 independent probability breakthroughs. Each new source was checked
+are NOT491 independent probability breakthroughs. Each new source was checked
 through the same serial gate. The main source imports use fresh project
 artifacts, but a complete Lake/mathlib build is NOT_RUN.
 

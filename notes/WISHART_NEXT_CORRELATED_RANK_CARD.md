@@ -1,7 +1,8 @@
 # Next card: deterministic generic rank for singular fixed factors — OPEN
 
-2026-10-20. Current488 actual prelog equals expected numberpositiveGram modes.
-The spectral/rank bridge is separately undercheck, not a deterministic rank law.
+2026-10-20. Current491 actual prelog equals ACTUAL EXPECTEDRANK, after the
+checked deterministic spectral/rank bridge (WISHART_EXPECTED_RANK_PRELOG.md).
+This is not a deterministic generic-rank law in B,M.
 No new proof source for the candidate below has been started.
 
 Actual X=ZB+M, Z m-by-p iidCN1, B FIXED p-by-n arbitrary, M FIXED m-by-n.

@@ -1,3 +1,4 @@
+import JinWishartFormalization.CorrelatedLogDetExpectedRank
 import JinWishartFormalization.CorrelatedLogDetPrelog
 import JinWishartFormalization.CorrelatedLogDetLowScale
 import JinWishartFormalization.CorrelatedGramClosedSecondMoment

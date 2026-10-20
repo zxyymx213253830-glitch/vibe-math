@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-20T05:40:30.109689+00:00",
-  "spec_sha256": "210bebef88c8a43bb4a11735a723beb523a3e9511ef6b64485787f78193a7c72",
+  "collected_utc": "2026-10-20T05:50:21.515176+00:00",
+  "spec_sha256": "03de8a965eaf2e8971f4ec0a9aec8c6cd28cf31ed25fbd41d0f892f5a7a9ec82",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -6893,9 +6893,56 @@
           "sha256": "630657bf6f0094a2445993ee1e293bf1bf586857b3a7db5c1408ea1061f57e27"
         }
       }
+    },
+    "JinWishartFormalization.CorrelatedLogDetExpectedRank": {
+      "declarations": [
+        {
+          "name": "JinWishart.hermitian_rank_eq_nonzero_eigenvalues_card",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.gram_positive_modes_eq_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedMatrixLogDet_prelog_expected_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "03e869166c65c08b0254e444408e1248ee4c82086ef45dc1d98f3c15f586c043",
+      "olean_sha256": "c029ded6b896771fadc78e2deec907947e43f3285422a02081ef28c44d0e6567",
+      "log_sha256": "298045a8014ad8b246cb1a9189c3e671d42d2ea40da5a11a1b1d106cadadce92",
+      "imports": {
+        "JinWishartFormalization.CorrelatedLogDetPrelog": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedLogDetPrelog.olean",
+          "sha256": "9fd0d19839c2e12426e403574357bdfe12d4dfd772e8967ed4542d827043225e"
+        },
+        "Mathlib.LinearAlgebra.Matrix.Rank": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Rank.olean",
+          "sha256": "e23cf479e3879707881838d5c4e461ad34ff9bba6dbcec353481858d8a74f147"
+        }
+      }
     }
   },
-  "total_declarations": 488,
+  "total_declarations": 491,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -7105,6 +7152,12 @@
       "script": "experiments/correlated_generic_rank_witness_control.py",
       "script_sha256": "c67f0116f7c0a2a25c0ce297f81121fb5e3c8ea1c6031bc7fc573d579f58fcd0",
       "result_sha256": "5995d77165b0ef01ad7bc23dc352e81d4681209d1f3bfec900401e7475ae687a",
+      "interpretation": "Reproducible control, not a proof"
+    },
+    {
+      "script": "experiments/hermitian_rank_modes_control.py",
+      "script_sha256": "d7de8ec93accec7b7b58bfe0d9cad65f2fa9db58a4f38f4e1b920fe8eb6049ac",
+      "result_sha256": "1a07c2cf40cdaf867a71866d8119690235d5b49b85fb68da6ce0a7fb84ff1438",
       "interpretation": "Reproducible control, not a proof"
     }
   ],
@@ -7792,6 +7845,18 @@
       "request_sha256": "3db044204bfccacd6da3ba82efadd17105283532277621fd980ef9a74928a930",
       "prompt_sha256": "5417429a46d031f76edd994e85047374b86c28c8ae29eb53b9e60ec72c0d937b",
       "raw_response_sha256": "fe2a086820b789f0a12fadd25bf427184b5badd2108f7a60427e6dcec9af3084",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "6dc767d382ed2ccb53739375099fa832b94a65dfda24414e7244ce9840c04e06",
+      "prompt_sha256": "68433ffea5914a2364a18cdf21cd6caacabc5e11064e98719ead83c5935cd9bd",
+      "raw_response_sha256": "619ca9f9e7e72867dbcd84d9b6f3017b17986493cae7e5908f4f2dc8f61c4b3a",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"

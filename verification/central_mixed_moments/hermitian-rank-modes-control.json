@@ -1,0 +1,35 @@
+{
+  "seed": null,
+  "status": "PASS exact Hermitian/Gram rank and positive-mode controls incl empty/indefinite negative; NOT general proof",
+  "source_sha256": "d7de8ec93accec7b7b58bfe0d9cad65f2fa9db58a4f38f4e1b920fe8eb6049ac",
+  "records": [
+    {
+      "n": 0,
+      "rank": 0,
+      "nonzero_modes": 0,
+      "positive_modes": 0,
+      "psd": true
+    },
+    {
+      "n": 3,
+      "rank": 2,
+      "nonzero_modes": 2,
+      "positive_modes": 1,
+      "psd": false
+    },
+    {
+      "n": 2,
+      "rank": 1,
+      "nonzero_modes": 1,
+      "positive_modes": 1,
+      "psd": true
+    },
+    {
+      "n": 3,
+      "rank": 2,
+      "nonzero_modes": 2,
+      "positive_modes": 2,
+      "psd": true
+    }
+  ]
+}
