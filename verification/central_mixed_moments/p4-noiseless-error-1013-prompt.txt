@@ -1,0 +1,83 @@
+P4 adversarial review. You are a different model family from Codex proof author. No tools available: answer directly, no tool tags. Issues only. Review exact full Lean sources below for hidden assumptions, unsupported steps, dimension/mean/rank errors or statement/proof scope mismatch. Kernel exit0 and standard three axioms are separately recorded, not an independent compilation by you. Do not claim human approval. No numerical evidence is used as proof. Zero dimensions are intentional. Fixed B:p-by-n, M:m-by-n, sourceZ:m-by-p; CN1 source uses two standard real coordinates divided by sqrt2. Inheritance of polynomial null sets/Fubini and model correspondence remains [需人工审查]. Review the scope of this supplied module; imported results are separately checked and are not claimed to have been re-proved here.
+
+
+FULL SOURCE NoiselessRowLogDetError.lean
+import JinWishartFormalization.CorrelatedNoiselessSpectralFloor
+import JinWishartFormalization.HermitianSpectralLogDet
+import JinWishartFormalization.GramLogDetTranspose
+import JinWishartFormalization.LogDetOffsetIdentity
+import JinWishartFormalization.LogDetErrorBounds
+
+/-! Deterministic ROW Gram offset remainder under a uniform positive floor.
+Codex. No Gaussian transpose law or column determinant offset is assumed.
+-/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem gramSmallestValue_le_orderedEigenvalue {a b : ℕ}
+    (X : Matrix (Fin a) (Fin b) ℂ) (hb : 0<b)
+    (i : Fin (Fintype.card (Fin b))) :
+    gramSmallestValue X hb ≤ (complexGram_posSemidef X).1.eigenvalues₀ i := by
+  have hi : i ≤ smallestEigenvalue₀Index hb := by
+    apply Fin.le_iff_val_le_val.mpr
+    simp [smallestEigenvalue₀Index]
+    have hi := i.isLt
+    simpa using Nat.le_sub_one_of_lt hi
+  exact (complexGram_posSemidef X).1.eigenvalues₀_antitone hi
+
+theorem real_logdet_column_eq_row {m n : ℕ}
+    (X : Matrix (Fin m) (Fin n) ℂ) (r : ℝ) :
+    Real.log ((1+(r:ℂ) • complexGram X).det.re) =
+      Real.log ((1+(r:ℂ) • complexGram Xᴴ).det.re) := by
+  congr 2
+  simpa only [Matrix.mul_smul,Matrix.smul_mul,complexGram,
+    Matrix.conjTranspose_conjTranspose] using
+    Matrix.det_one_add_mul_comm Xᴴ ((r:ℂ) • X)
+
+theorem rowLogDet_offset_error_identity {m n : ℕ}
+    (X : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m) (δ r : ℝ)
+    (hδ : 0<δ) (hfloor : δ ≤ gramSmallestValue Xᴴ hm) (hr : 0<r) :
+    Real.log ((1+(r:ℂ) • complexGram X).det.re)-(m:ℝ)*Real.log r-
+      Real.log ((complexGram Xᴴ).det.re) =
+      ∑ i, Real.log (1+(r*(complexGram_posSemidef Xᴴ).1.eigenvalues₀ i)⁻¹) := by
+  have hp (i : Fin (Fintype.card (Fin m))) :
+      0<(complexGram_posSemidef Xᴴ).1.eigenvalues₀ i :=
+    hδ.trans_le (hfloor.trans (gramSmallestValue_le_orderedEigenvalue Xᴴ hm i))
+  rw [real_logdet_column_eq_row X r,gram_real_logdet_eq_spectral Xᴴ r hr.le,
+    hermitian_real_logdet_eq_sum_log _ _ hp]
+  simpa only [Fintype.card_fin] using
+    finiteSpectrumLogDet_offset_error _ hp r hr
+
+theorem rowLogDet_offset_error_bounds {m n : ℕ}
+    (X : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m) (δ r : ℝ)
+    (hδ : 0<δ) (hfloor : δ ≤ gramSmallestValue Xᴴ hm) (hr : 0<r) :
+    0 ≤ Real.log ((1+(r:ℂ) • complexGram X).det.re)-(m:ℝ)*Real.log r-
+      Real.log ((complexGram Xᴴ).det.re) ∧
+    Real.log ((1+(r:ℂ) • complexGram X).det.re)-(m:ℝ)*Real.log r-
+      Real.log ((complexGram Xᴴ).det.re) ≤ (m:ℝ)/(r*δ) := by
+  rw [rowLogDet_offset_error_identity X hm δ r hδ hfloor hr]
+  have hb (i : Fin (Fintype.card (Fin m))) :
+      0 ≤ Real.log (1+(r*(complexGram_posSemidef Xᴴ).1.eigenvalues₀ i)⁻¹) ∧
+      Real.log (1+(r*(complexGram_posSemidef Xᴴ).1.eigenvalues₀ i)⁻¹) ≤ (r*δ)⁻¹ := by
+    have hi := hfloor.trans (gramSmallestValue_le_orderedEigenvalue Xᴴ hm i)
+    have hp := hδ.trans_le hi
+    have h := log_inverse_error_bound r _ 1 hr hp (by norm_num) (by norm_num)
+    simp only [Real.rpow_one,div_one] at h
+    refine ⟨h.1,h.2.trans ?_⟩
+    rw [← _root_.mul_inv_rev]
+    simpa only [mul_comm] using
+      inv_anti₀ (mul_pos hr hδ) (mul_le_mul_of_nonneg_left hi hr.le)
+  constructor
+  · exact Finset.sum_nonneg (fun i _ => (hb i).1)
+  · calc
+      _ ≤ ∑ _i : Fin (Fintype.card (Fin m)), (r*δ)⁻¹ :=
+        Finset.sum_le_sum (fun i _ => (hb i).2)
+      _ = _ := by simp [div_eq_mul_inv]
+
+end
+end JinWishart
+#print axioms JinWishart.gramSmallestValue_le_orderedEigenvalue
+#print axioms JinWishart.real_logdet_column_eq_row
+#print axioms JinWishart.rowLogDet_offset_error_identity
+#print axioms JinWishart.rowLogDet_offset_error_bounds

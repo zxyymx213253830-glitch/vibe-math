@@ -1,0 +1,6 @@
+'JinWishart.measurable_actualCorrelatedRowLogDet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedRowLogDet_of_noiseless_surjective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelatedRow_expectedOffset_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedRow_expectedOffset_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]

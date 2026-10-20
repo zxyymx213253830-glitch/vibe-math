@@ -1,0 +1,10 @@
+{
+  "module": "JinWishartFormalization",
+  "started_utc": "2026-10-20T10:24:58.437552+00:00",
+  "ended_utc": "2026-10-20T10:25:10.357907+00:00",
+  "gated_helper_exit_code": 0,
+  "source_sha256": "dca350571bca4eedaeef47afef894a0ba11c56dfbc9b8121cfc3c228ae53cabc",
+  "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+  "log_bytes": 299,
+  "policy": "Unmodified serialized gated helper, no added compiler flags"
+}

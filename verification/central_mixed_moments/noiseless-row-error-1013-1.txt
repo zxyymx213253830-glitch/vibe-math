@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowLogDetError.lean:21:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 1
+  c - e ≤ -1
+where
+ c := ↑↑i
+ d := ↑(b - 1)
+ e := ↑(Fintype.card (Fin b))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowLogDetError.lean:63:10: error: Ambiguous term
+  mul_inv_rev
+Possible interpretations:
+  _root_.mul_inv_rev : ∀ (a b : ?m.234), (a * b)⁻¹ = b⁻¹ * a⁻¹
+  
+  Matrix.mul_inv_rev : ∀ (A B : Matrix ?m.234 ?m.234 ?m.235), (A * B)⁻¹ = B⁻¹ * A⁻¹
+'JinWishart.gramSmallestValue_le_orderedEigenvalue' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.real_logdet_column_eq_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.rowLogDet_offset_error_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.rowLogDet_offset_error_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "BoundedOffsetExpectation.lean": {
+      "sha256": "be9d25dad8f4ec20da8a274dc856f79dea57f1aa8b861c85e645b74d4bdf52fb",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "34bd772d96eed57ad70695885a73ba76a2736b7891aabe18d5df26f40aaa8a25"
+}

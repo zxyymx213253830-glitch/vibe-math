@@ -1,0 +1,3 @@
+'JinWishart.integrable_offset_of_bounded_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_offset_remainder_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.tendsto_offset_of_inverse_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

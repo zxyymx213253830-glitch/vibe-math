@@ -1,0 +1,59 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BoundedOffsetExpectation.lean:18:27: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |C a - L a|
+in the target expression
+  |(C - L) a| ≤ K
+
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+C L : α → ℝ
+hC : Integrable C μ
+hL : Measurable L
+K : ℝ
+hb : ∀ (a : α), 0 ≤ C a - L a ∧ C a - L a ≤ K
+a : α
+⊢ |(C - L) a| ≤ K
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BoundedOffsetExpectation.lean:20:2: error: Type mismatch: After simplification, term
+  Integrable.sub hC he
+ has type
+  Integrable (C - fun a => C a - L a) μ
+but is expected to have type
+  Integrable L μ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BoundedOffsetExpectation.lean:30:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : α), (C - fun x => c) a - L a ∂μ
+in the target expression
+  ∫ (a : α), C a - c - L a ∂μ = ∫ (a : α), C a ∂μ - c - ∫ (a : α), L a ∂μ
+
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+C L : α → ℝ
+hC : Integrable C μ
+hL : Integrable L μ
+c K : ℝ
+hb : ∀ (a : α), 0 ≤ C a - c - L a ∧ C a - c - L a ≤ K
+he : Integrable (fun a => C a - c - L a) μ
+⊢ ∫ (a : α), C a - c - L a ∂μ = ∫ (a : α), C a ∂μ - c - ∫ (a : α), L a ∂μ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BoundedOffsetExpectation.lean:42:6: error: Type mismatch
+  mp_mem (eventually_gt_atTop 0) ?m.75
+has type
+  ?m.80 ∈ atTop
+of sort `Prop` but is expected to have type
+  ℝ
+of sort `Type`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BoundedOffsetExpectation.lean:45:6: error: Type mismatch
+  (hb r hr).right
+has type
+  F r - L ≤ K / r
+but is expected to have type
+  0 ≤ F r - L
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BoundedOffsetExpectation.lean:40:56: error: unsolved goals
+F : ℝ → ℝ
+L K : ℝ
+hb : ∀ (r : ℝ), 0 < r → 0 ≤ F r - L ∧ F r - L ≤ K / r
+⊢ ∀ᶠ (t : ℝ) in atTop, F t - L ≤ sorry / id t
+'JinWishart.integrable_offset_of_bounded_remainder' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_offset_remainder_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.tendsto_offset_of_inverse_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

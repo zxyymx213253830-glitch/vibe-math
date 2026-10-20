@@ -1,0 +1,58 @@
+import JinWishartFormalization.LogDetErrorBounds
+
+/-! A measurable offset recovered from one integrable regularization.
+Codex. [需人工审查] Integral linearity and uniform-error squeeze.
+-/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem integrable_offset_of_bounded_remainder {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ] (C L : α → ℝ)
+    (hC : Integrable C μ) (hL : Measurable L) (K : ℝ)
+    (hb : ∀ a, 0≤C a-L a ∧ C a-L a≤K) : Integrable L μ := by
+  have he : Integrable (fun a => C a-L a) μ := by
+    apply (integrable_const K).mono' (hC.aestronglyMeasurable.sub hL.aestronglyMeasurable)
+    exact ae_of_all _ (fun a => by
+      change |C a-L a|≤K
+      rw [abs_of_nonneg (hb a).1]
+      exact (hb a).2)
+  apply (hC.sub he).congr
+  exact ae_of_all _ (fun a => by change C a-(C a-L a)=L a; ring)
+
+theorem integral_offset_remainder_bounds {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) [IsProbabilityMeasure μ] (C L : α → ℝ)
+    (hC : Integrable C μ) (hL : Integrable L μ) (c K : ℝ)
+    (hb : ∀ a, 0≤C a-c-L a ∧ C a-c-L a≤K) :
+    0≤(∫ a, C a ∂μ)-c-(∫ a, L a ∂μ) ∧
+    (∫ a, C a ∂μ)-c-(∫ a, L a ∂μ)≤K := by
+  have he : Integrable (fun a => C a-c-L a) μ := (hC.sub (integrable_const c)).sub hL
+  have hid : (∫ a, C a-c-L a ∂μ)=(∫ a, C a ∂μ)-c-(∫ a, L a ∂μ) := by
+    rw [integral_sub (f := fun a => C a-c) (g := L)
+      (hC.sub (integrable_const c)) hL,
+      integral_sub (f := C) (g := fun _ => c) hC (integrable_const c)]
+    simp
+  rw [← hid]
+  constructor
+  · exact integral_nonneg_of_ae (ae_of_all _ (fun a => (hb a).1))
+  · simpa using integral_mono_ae he (integrable_const K) (ae_of_all _ (fun a => (hb a).2))
+
+theorem tendsto_offset_of_inverse_bound (F : ℝ → ℝ) (L K : ℝ)
+    (hb : ∀ r, 0<r → 0≤F r-L ∧ F r-L≤K/r) :
+    Tendsto F atTop (𝓝 L) := by
+  have ht : Tendsto (fun r : ℝ => F r-L) atTop (𝓝 0) := by
+    have hK : Tendsto (fun r : ℝ => K/r) atTop (𝓝 0) :=
+      tendsto_const_nhds.div_atTop tendsto_id
+    apply squeeze_zero' ?_ ?_ hK
+    · filter_upwards [eventually_gt_atTop (0:ℝ)] with r hr
+      exact (hb r hr).1
+    · filter_upwards [eventually_gt_atTop (0:ℝ)] with r hr
+      exact (hb r hr).2
+  simpa only [sub_add_cancel,zero_add] using ht.add_const L
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_offset_of_bounded_remainder
+#print axioms JinWishart.integral_offset_remainder_bounds
+#print axioms JinWishart.tendsto_offset_of_inverse_bound

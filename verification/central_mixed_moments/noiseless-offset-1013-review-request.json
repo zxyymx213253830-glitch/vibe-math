@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CorrelatedNoiselessLogDetOffset.lean": {
+      "sha256": "fb5db895db650dd11a22da512aea984bacf6b21d8c073bfd23bf164b068bd12d",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "2cdaa7094446924f14fd4615c548d23e3784358dbe2aef04e31c94faa183106c"
+}

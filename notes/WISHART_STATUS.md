@@ -1,3 +1,5 @@
+2026-10-20 10:27UTC 当前增量：526审计绑定项（524 theorem/instance+2构造），audit PASS，facade49真实exit0。新增无噪声撑满条件 rank(M|kerB)=m>0 下的实际行Gram logdet绝对可积、期望高SNR偏移和0<=Delta<=m/(rho delta)；不是任意B/M的普遍偏移定理。三份最终源码Qoder P4真实返回，错误Gram/API/源维度警报已保留裁决。详见 WISHART_NOISELESS_LOGDET_OFFSET.md。首阶逆矩阵迹修正此时仍OPEN；冻结论文/完整构建/人工审查边界不变。本轮用户固定截止11:13:42UTC，自动任务保持PAUSED。
+
 # Wishart 形式化：滚动状态
 
 2026-10-20 08:05UTC 本轮一小时已到期关闭。515绑定项/auditPASS/facade48实际exit0，

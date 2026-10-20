@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "NoiselessRowLogDetError.lean": {
+      "sha256": "765db9dcbbf8dcf381e8239c018d3b7dafacdb4dfed5beb3585a073fb7033137",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "91bf2d3927d4ba9f5d7e1f30a6a22425a528fb76889bfdfca8396526ed786c03"
+}
