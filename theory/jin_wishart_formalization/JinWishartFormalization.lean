@@ -1,3 +1,5 @@
+import JinWishartFormalization.CorrelatedMinimumZeroAtom
+import JinWishartFormalization.CorrelatedLogDetGenericRank
 import JinWishartFormalization.CorrelatedLogDetExpectedRank
 import JinWishartFormalization.CorrelatedLogDetPrelog
 import JinWishartFormalization.CorrelatedLogDetLowScale

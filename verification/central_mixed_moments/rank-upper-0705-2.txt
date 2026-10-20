@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:3:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:40:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 0
+  c ≥ 0
+  c - d ≤ 0
+  c - e ≥ 0
+  c - e - f ≤ -1
+where
+ c := ↑(finrank ℂ ↥(b.prod a).range)
+ d := ↑(finrank ℂ V)
+ e := ↑(finrank ℂ ↥b.range)
+ f := ↑(finrank ℂ ↥(a.domRestrict b.ker).range)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:65:2: error: Type mismatch: After simplification, term
+  linearMap_affine_comp_rank_le B.mulVecLin M.mulVecLin Z.mulVecLin
+ has type
+  finrank ℂ ↥(Z.mulVecLin ∘ₗ B.mulVecLin + M.mulVecLin).range ≤
+    min m (finrank ℂ ↥B.mulVecLin.range + finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range)
+but is expected to have type
+  finrank ℂ ↥(Z * B + M).mulVecLin.range ≤
+    min m (finrank ℂ ↥B.mulVecLin.range + finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range)
+'JinWishart.linearMap_pair_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.linearMap_affine_comp_rank_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.matrix_affine_comp_rank_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

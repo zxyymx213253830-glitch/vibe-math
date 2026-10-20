@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CorrelatedRankUpperBound.lean": {
+      "sha256": "d7ec987f98f5903b8a13af8a99db62e1c55baa1458f3f81550b31a956d10866b",
+      "supplied": "Full source"
+    },
+    "CorrelatedRankWitness.lean": {
+      "sha256": "1ab200347ffbdbca77eae187875e40474f5f4e0f88c4a88924e8751fc573604a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "01452cf2f2371d7aee43c0ac343ade2d3745aefec64323009411c3d8b136a396"
+}

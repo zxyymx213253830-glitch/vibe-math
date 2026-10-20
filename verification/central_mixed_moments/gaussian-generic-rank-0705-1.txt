@@ -1,0 +1,33 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianGenericRank.lean:37:29: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (map ?A ⇑MvPolynomial.C).map ⇑(sampleEval z)
+in the target expression
+  ((L.map ⇑MvPolynomial.C).map ⇑(sampleEval z) *
+          (complexSampleMatrix z * (B.map ⇑MvPolynomial.C).map ⇑(sampleEval z) +
+            (M.map ⇑MvPolynomial.C).map ⇑(sampleEval z)) *
+        (H.map ⇑MvPolynomial.C).map ⇑(sampleEval z)).det =
+    (L * (complexSampleMatrix z * B + M) * H).det
+
+m p n q : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+L : Matrix (Fin q) (Fin m) ℂ
+H : Matrix (Fin n) (Fin q) ℂ
+z : ComplexSample
+hc : ∀ {a : Type u_1} {b : Type u_2} (A : Matrix a b ℂ), (A.map ⇑MvPolynomial.C).map ⇑(sampleEval z) = A
+⊢ ((L.map ⇑MvPolynomial.C).map ⇑(sampleEval z) *
+          (complexSampleMatrix z * (B.map ⇑MvPolynomial.C).map ⇑(sampleEval z) +
+            (M.map ⇑MvPolynomial.C).map ⇑(sampleEval z)) *
+        (H.map ⇑MvPolynomial.C).map ⇑(sampleEval z)).det =
+    (L * (complexSampleMatrix z * B + M) * H).det
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianGenericRank.lean:21:0: error: AddConstAsyncResult.commitConst: constant has level params [u_1, u_2] but expected []
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianGenericRank.lean:39:8: error: (kernel) unknown constant 'JinWishart.genericAffineCompressedDet_eval'
+'JinWishart.genericAffineCompressedDet_eval' does not depend on any axioms
+'JinWishart.actualCorrelatedRank_ge_witness_ae' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.actualCorrelatedRank_ge_witness_ae,
+ Quot.sound]
+'JinWishart.exists_matrix_affine_comp_maximal_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedRank_eq_generic_ae' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.actualCorrelatedRank_ge_witness_ae,
+ Quot.sound]

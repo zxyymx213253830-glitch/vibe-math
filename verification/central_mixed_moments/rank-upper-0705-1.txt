@@ -1,0 +1,88 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:13:10: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:16:38: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:16:33: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:16:41: error(lean.unknownIdentifier): Unknown identifier `U`
+
+Note: It is not possible to treat `U` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:16:54: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:16:49: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:16:57: error(lean.unknownIdentifier): Unknown identifier `W`
+
+Note: It is not possible to treat `W` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:17:12: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:18:14: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:19:16: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:41:48: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:41:43: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:41:51: error(lean.unknownIdentifier): Unknown identifier `U`
+
+Note: It is not possible to treat `U` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:41:64: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:41:59: error(lean.unknownIdentifier): Unknown identifier `V`
+
+Note: It is not possible to treat `V` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:41:67: error(lean.unknownIdentifier): Unknown identifier `W`
+
+Note: It is not possible to treat `W` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:42:14: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:42:9: error(lean.unknownIdentifier): Unknown identifier `U`
+
+Note: It is not possible to treat `U` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:42:17: error(lean.unknownIdentifier): Unknown identifier `W`
+
+Note: It is not possible to treat `W` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:43:12: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:44:19: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:44:21: error(lean.unknownIdentifier): Unknown identifier `W`
+
+Note: It is not possible to treat `W` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:44:33: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:45:16: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:60:32: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:60:63: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:61:32: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:63:14: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:65:28: error(lean.unknownIdentifier): Unknown identifier `linearMap_affine_comp_rank_le`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:69:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.linearMap_pair_rank`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:70:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.linearMap_affine_comp_rank_le`
+'JinWishart.matrix_affine_comp_rank_le' depends on axioms: [sorryAx]

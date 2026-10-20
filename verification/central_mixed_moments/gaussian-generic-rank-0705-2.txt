@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGaussianGenericRank.lean:26:47: error: unsolved goals
+case hf
+m p n q : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+L : Matrix (Fin q) (Fin m) ℂ
+H : Matrix (Fin n) (Fin q) ℂ
+z : ComplexSample
+hc : ∀ {a b : ℕ} (A : Matrix (Fin a) (Fin b) ℂ), (A.map ⇑MvPolynomial.C).map ⇑(sampleEval z) = A
+⊢ ∀ (a₁ a₂ : MvPolynomial (SampleIdx m p) ℂ), (sampleEval z) (a₁ + a₂) = (sampleEval z) a₁ + (sampleEval z) a₂
+'JinWishart.genericAffineCompressedDet_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedRank_ge_witness_ae' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.exists_matrix_affine_comp_maximal_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedRank_eq_generic_ae' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

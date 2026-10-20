@@ -1,0 +1,8 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankWitness.lean:28:0: warning: automatically included section variable(s) unused in theorem `JinWishart.exists_linearMap_affine_comp_maximal_rank`:
+  [Module.Finite ℂ U]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℂ U] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'JinWishart.exists_linearMap_maximal_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_linearMap_affine_comp_maximal_rank' depends on axioms: [propext, Classical.choice, Quot.sound]

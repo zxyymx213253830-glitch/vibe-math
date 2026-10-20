@@ -1,0 +1,16 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankWitness.lean:47:6: error(lean.unknownIdentifier): Unknown constant `LinearMap.kerComplementEquivRange_apply`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankWitness.lean:45:4: error: Type mismatch: After simplification, term
+  ht
+ has type
+  @Eq W (z ↑(e c)) (ψ c - a ↑c)
+but is expected to have type
+  @Eq W (z (b ↑c)) (ψ c - a ↑c)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankWitness.lean:69:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Max (Type u_3)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'JinWishart.exists_linearMap_maximal_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_linearMap_affine_comp_maximal_rank' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

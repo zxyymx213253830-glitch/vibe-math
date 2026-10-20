@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedMinimumZeroAtom.lean:76:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedMinimumZeroAtom.lean:79:36: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedMinimumZeroAtom.lean:83:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedMinimumZeroAtom.lean:87:18: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+'JinWishart.gram_posDef_iff_full_column_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_pos_iff_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gramSmallestValue_zero_iff_rank_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMinimum_zero_iff_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMinimum_zero_atom' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,12 @@
+{
+  "seed": null,
+  "status": "PASS exact mean-restored and deficient Gram controls; NOT an almost-sure proof",
+  "source_sha256": "f7cbfd54765ce6fad9abc3a0fa442eae160cadad70afcfd0939efc0ad75a05db",
+  "restored_gram_det": "a^2",
+  "rankB": 1,
+  "restored_stacked_rank": 2,
+  "deficient_stacked_rank": 1,
+  "wrong_singular_B_implies_zero_min_detected": true,
+  "wrong_pointwise_rank_attainment_detected": true,
+  "zero_B_nonzero_M_deterministic_full_rank": true
+}

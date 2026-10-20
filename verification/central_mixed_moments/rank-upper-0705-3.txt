@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedRankUpperBound.lean:17:0: warning: automatically included section variable(s) unused in theorem `JinWishart.linearMap_pair_rank`:
+  [Module.Finite ℂ U]
+  [Module.Finite ℂ W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℂ U] [Module.Finite ℂ W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'JinWishart.linearMap_pair_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.linearMap_affine_comp_rank_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.matrix_affine_comp_rank_le' depends on axioms: [propext, Classical.choice, Quot.sound]

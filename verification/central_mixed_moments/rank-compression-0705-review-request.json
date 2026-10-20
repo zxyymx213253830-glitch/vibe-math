@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "MatrixRankCompression.lean": {
+      "sha256": "bf33b3a2b64307d3207338fb977f6da44efa2fad9d198ed10dbdd4560f26211f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "cff4cb1d68437f04e9fd86eb5d0092c6e2a670991ff335e888223a19198dd38f"
+}

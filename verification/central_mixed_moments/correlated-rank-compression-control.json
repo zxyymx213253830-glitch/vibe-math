@@ -1,0 +1,712 @@
+{
+  "seed": null,
+  "status": "PASS finite exact square-compression and real-coordinate controls; NOT general proof",
+  "source_sha256": "00356749a08e52e853ccc665ff6b621a6d88b6aba2b09285890e18abe0ddce52",
+  "records": [
+    {
+      "shape": [
+        0,
+        0,
+        0
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        0,
+        2,
+        3
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        0,
+        2,
+        3
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        0,
+        2,
+        3
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        2,
+        0,
+        3
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        2,
+        0,
+        3
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        2,
+        0,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        2,
+        1,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 4
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        2,
+        4
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 4
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        2,
+        4,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 4,
+      "compression_determinant": "1",
+      "square_size": 4,
+      "stacked_rank": 4
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 4,
+      "compression_determinant": "1",
+      "square_size": 4,
+      "stacked_rank": 4
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 2,
+      "compression_determinant": "1",
+      "square_size": 2,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 3,
+      "compression_determinant": "1",
+      "square_size": 3,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        4,
+        2,
+        4
+      ],
+      "q": 4,
+      "compression_determinant": "1",
+      "square_size": 4,
+      "stacked_rank": 4
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 2
+    },
+    {
+      "shape": [
+        1,
+        2,
+        4
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 3
+    },
+    {
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "q": 0,
+      "compression_determinant": "1",
+      "square_size": 0,
+      "stacked_rank": 0
+    },
+    {
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    },
+    {
+      "shape": [
+        3,
+        1,
+        1
+      ],
+      "q": 1,
+      "compression_determinant": "1",
+      "square_size": 1,
+      "stacked_rank": 1
+    }
+  ],
+  "wrong_full_gram_witness_detected": 43
+}

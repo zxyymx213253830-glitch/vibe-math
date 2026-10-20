@@ -1,0 +1,43 @@
+# P4 Adversarial Review: `CorrelatedMinimumZeroAtom.lean`
+
+## Issues Identified
+
+### 1. Potential Type Mismatch in Measure Space (Major)
+In `actualCorrelatedMinimum_zero_atom`, the measure `μ := stdGaussian (ComplexSample (m := m) (n := p))` is defined on the complex sample space, but `μ.real` is applied to extract a real-valued measure. The set `{z | gramSmallestValue ... = 0}` must be measurable with respect to the real measure's σ-algebra. The coercion from complex Gaussian measure to its real counterpart and the measurability of this specific set under that coercion are not established in this module — they are inherited via [需人工审查]. If the imported `actualCorrelatedRank_eq_generic_ae` uses the complex measure while `μ.real` expects real-measurable sets, there is a scope mismatch.
+
+### 2. `matrix_fromRows_rank_eq` Scope/Preconditions (Major)
+The rewrite `rw [..., hz, matrix_fromRows_rank_eq]` in `actualCorrelatedMinimum_zero_iff_ae` applies `matrix_fromRows_rank_eq` without visible side conditions. This theorem equates the rank of `complexSampleMatrix z * B + M` to `min m (fromRows B M).rank`. However:
+- `B` is p×n, `M` is m×n, `z` lives in `ComplexSample (m:=m) (n:=p)`, so `complexSampleMatrix z` is m×p.
+- The product `complexSampleMatrix z * B` is m×n, matching `M`. ✓
+- But `Matrix.fromRows B M` stacks a p×n and m×n matrix into a (p+m)×n matrix. The claim that the generic rank of `z*B + M` equals `min m (fromRows B M).rank` requires that the row spaces interact generically. The `min m ·` is suspicious: the rank of `z*B + M` cannot exceed `min(m, n)`, but `fromRows B M` has rank up to `min(p+m, n)`. The `min m` truncation needs justification — it appears to assert that only m rows can ever be independent in the sum, which is true (the output is m×n), but whether `fromRows B M` captures this correctly depends on the exact statement of the imported theorem. **If the imported theorem states `min (m+p)` or omits the outer `min m`, this is a statement/proof mismatch.**
+
+### 3. `hn : 0 < n` Required but Not Structurally Enforced (Minor)
+All theorems carry `hn : 0 < n` explicitly. Zero dimensions are stated as intentional in the preamble, but `gramSmallestValue` itself requires `0 < n` to define the minimum eigenvalue over a nonempty index set. If any caller instantiates `n = 0`, these theorems simply don't apply rather than yielding a vacuous truth. This is consistent but worth noting: **no theorem here covers the `n = 0` edge case**, which is by design but could confuse downstream users expecting totality.
+
+### 4. `classical` Noncomputability Scope (Minor)
+`actualCorrelatedMinimum_zero_atom` opens a `classical` block locally. This is fine for the proof, but the top-level `noncomputable section` already signals noncomputability. The `classical` keyword here is redundant given the section declaration but harmless. Not an error, just noise.
+
+### 5. `propext` Usage Hides Classical Logic Dependency (Minor)
+Both branches of `actualCorrelatedMinimum_zero_atom` use `propext` inside `filter_upwards`. This invokes propositional extensionality (equivalent to classical reasoning for propositions). Combined with `measure_congr`, this is standard mathlib practice, but it means the 0/1 dichotomy relies on LEM at the proposition level. Not a bug, but **this is not constructively valid** — relevant if anyone attempts constructive extraction.
+
+### 6. No Verification That `stdGaussian` Is a Probability Measure (Implicit)
+The final simplification `simp [μ]` to get `μ.real Set.univ = 1` assumes `stdGaussian` is normalized (total measure 1). This is a property of the imported construction, not proved here. If the imported `stdGaussian` were accidentally a non-normalized Gaussian reference measure, this would yield a wrong constant. **Relies entirely on import correctness.**
+
+### 7. Hermitian Shift Lemma Application (Low Risk)
+In `gramSmallestValue_pos_iff_rank`, the call to `hermitian_shift_posDef_iff_smallest` with shift `t = 0` reduces to `PosDef ↔ smallest > 0`. The `simpa` discharges `Complex.ofReal_zero, zero_smul, sub_zero`. This is correct provided `hermitian_shift_posDef_iff_smallest` is stated for all Hermitian matrices (not just positive semidefinite ones). Since `complexGram_posSemidef X` is passed as an argument, the PSD condition is available. ✓
+
+---
+
+## Summary
+
+| # | Severity | Issue |
+|---|----------|-------|
+| 1 | Major | Real/complex measure coercion and measurability scope unclear |
+| 2 | Major | `matrix_fromRows_rank_eq` preconditions and `min m` truncation need external verification |
+| 3 | Minor | `n=0` intentionally uncovered; no totality |
+| 4 | Minor | Redundant `classical` in noncomputable section |
+| 5 | Minor | `propext` makes proof non-constructive |
+| 6 | Medium | Probability normalization of `stdGaussian` assumed from imports |
+| 7 | Low | Hermitian shift lemma application verified correct |
+
+**Bottom line:** The internal logic of this module is self-consistent. The two substantive risks are **(1)** the measure-theoretic coercion between complex and real Gaussian measures, and **(2)** the exact statement of `matrix_fromRows_rank_eq` regarding the `min m` truncation. Both are inherited and marked [需人工审查]. No dimension errors, rank contradictions, or unsupported algebraic steps were found within the module's own proofs.

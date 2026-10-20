@@ -1,0 +1,6 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MatrixRankCompression.lean:27:4: error: 'change' tactic failed, pattern
+  l (X.mulVecLin (s (e.symm ↑↑v))) = ↑↑v
+is not definitionally equal to target
+  (((l ∘ₗ X.mulVecLin) ∘ₗ h) ∘ₗ LinearMap.single ℂ (fun i => ℂ) v) 1 x✝ =
+    (LinearMap.id ∘ₗ LinearMap.single ℂ (fun i => ℂ) v) 1 x✝
+'JinWishart.matrix_rank_compression' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

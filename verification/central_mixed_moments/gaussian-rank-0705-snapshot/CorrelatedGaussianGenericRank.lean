@@ -1,0 +1,94 @@
+import JinWishartFormalization.CorrelatedRankWitness
+import JinWishartFormalization.MatrixRankCompression
+import JinWishartFormalization.ComplexGramSimpleSpectrum
+
+/-! Generic rank of the actual affine Gaussian matrix with a fixed arbitrary factor.
+Codex. Polynomial square compression, not the full Gram determinant.
+[需人工审查] Inherited polynomial null-set/Fubini and real Gaussian coordinate/model convention.
+-/
+open Matrix Module MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def genericAffineCompressedDet {m p n q : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (L : Matrix (Fin q) (Fin m) ℂ) (H : Matrix (Fin n) (Fin q) ℂ) :
+    MvPolynomial (SampleIdx m p) ℂ :=
+  (L.map MvPolynomial.C *
+    (genericComplexSample m p * B.map MvPolynomial.C + M.map MvPolynomial.C) *
+      H.map MvPolynomial.C).det
+
+theorem genericAffineCompressedDet_eval {m p n q : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (L : Matrix (Fin q) (Fin m) ℂ) (H : Matrix (Fin n) (Fin q) ℂ)
+    (z : ComplexSample (m := m) (n := p)) :
+    sampleEval z (genericAffineCompressedDet B M L H) =
+      (L*(complexSampleMatrix z*B+M)*H).det := by
+  have hc {a b : ℕ} (A : Matrix (Fin a) (Fin b) ℂ) :
+      (A.map (MvPolynomial.C : ℂ →+* MvPolynomial (SampleIdx m p) ℂ)).map (sampleEval z)=A := by
+    ext i j
+    simp [sampleEval]
+  unfold genericAffineCompressedDet
+  rw [RingHom.map_det]
+  change ((L.map MvPolynomial.C *
+    (genericComplexSample m p * B.map MvPolynomial.C + M.map MvPolynomial.C) *
+      H.map MvPolynomial.C).map (sampleEval z)).det = _
+  rw [Matrix.map_mul,Matrix.map_mul,Matrix.map_add,Matrix.map_mul,
+    genericComplexSample_map]
+  simp only [hc]
+  all_goals exact fun x y => map_add (sampleEval z) x y
+
+theorem actualCorrelatedRank_ge_witness_ae {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (Z₀ : Matrix (Fin m) (Fin p) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := p)),
+      (Z₀*B+M).rank ≤ (complexSampleMatrix z*B+M).rank := by
+  classical
+  let X₀ := Z₀*B+M
+  obtain ⟨L,H,hLH⟩ := matrix_rank_compression X₀
+  have hp : genericAffineCompressedDet B M L H ≠ 0 := by
+    intro hz
+    have ht := genericAffineCompressedDet_eval B M L H (complexSampleMean Z₀)
+    rw [hz,map_zero,complexSampleMatrix_complexSampleMean] at ht
+    change 0=(L*X₀*H).det at ht
+    rw [hLH,Matrix.det_one] at ht
+    exact zero_ne_one ht
+  have ha := sampleEval_ne_zero_ae hp (0 : Matrix (Fin m) (Fin p) ℂ)
+  have hm : complexSampleMean (0 : Matrix (Fin m) (Fin p) ℂ)=0 := by
+    ext k
+    simp [complexSampleMean]
+  filter_upwards [ha] with z hz
+  have hz' : (L*(complexSampleMatrix z*B+M)*H).det ≠ 0 := by
+    simpa only [hm,add_zero,genericAffineCompressedDet_eval] using hz
+  have hr := Matrix.rank_of_det_ne_zero hz'
+  have hle : (L*(complexSampleMatrix z*B+M)*H).rank ≤ (complexSampleMatrix z*B+M).rank :=
+    (Matrix.rank_mul_le_left _ _).trans (Matrix.rank_mul_le_right _ _)
+  rw [hr,Fintype.card_fin] at hle
+  exact hle
+
+theorem exists_matrix_affine_comp_maximal_rank {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∃ Z : Matrix (Fin m) (Fin p) ℂ, (Z*B+M).rank = min m (B.rank +
+      finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))) := by
+  obtain ⟨z,hz⟩ := exists_linearMap_affine_comp_maximal_rank B.mulVecLin M.mulVecLin
+  refine ⟨LinearMap.toMatrix' z,?_⟩
+  change finrank ℂ (LinearMap.range (LinearMap.toMatrix' z*B+M).mulVecLin) = _
+  rw [Matrix.mulVecLin_add,Matrix.mulVecLin_mul,← Matrix.toLin'_apply',Matrix.toLin'_toMatrix']
+  simpa only [Matrix.rank,Module.finrank_pi,Fintype.card_fin] using hz
+
+theorem actualCorrelatedRank_eq_generic_ae {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := p)),
+      (complexSampleMatrix z*B+M).rank = min m (B.rank +
+        finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))) := by
+  obtain ⟨Z₀,hZ₀⟩ := exists_matrix_affine_comp_maximal_rank B M
+  filter_upwards [actualCorrelatedRank_ge_witness_ae B M Z₀] with z hz
+  rw [hZ₀] at hz
+  exact le_antisymm (matrix_affine_comp_rank_le B M _) hz
+
+end
+end JinWishart
+#print axioms JinWishart.genericAffineCompressedDet_eval
+#print axioms JinWishart.actualCorrelatedRank_ge_witness_ae
+#print axioms JinWishart.exists_matrix_affine_comp_maximal_rank
+#print axioms JinWishart.actualCorrelatedRank_eq_generic_ae

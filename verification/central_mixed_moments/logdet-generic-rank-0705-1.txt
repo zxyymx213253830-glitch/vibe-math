@@ -1,0 +1,16 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetGenericRank.lean:68:2: error: Type mismatch
+  actualCorrelatedMatrixLogDet_prelog_generic_rank B M
+has type
+  Tendsto
+    (fun r => (∫ (z : ComplexSample), actualCorrelatedMatrixLogDet B M r z ∂stdGaussian ComplexSample) / Real.log r)
+    atTop (𝓝 (min (↑m) (↑B.rank + ↑(finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range))))
+but is expected to have type
+  Tendsto
+    (fun r => (∫ (z : ComplexSample), actualCorrelatedMatrixLogDet B M r z ∂stdGaussian ComplexSample) / Real.log r)
+    atTop (𝓝 (min ↑m ↑(B.rank + finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range)))
+'JinWishart.matrix_fromRows_rank_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_generic_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_stacked_rank' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

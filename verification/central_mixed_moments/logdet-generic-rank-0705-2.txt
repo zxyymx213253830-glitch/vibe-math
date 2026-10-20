@@ -1,0 +1,3 @@
+'JinWishart.matrix_fromRows_rank_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_generic_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_prelog_stacked_rank' depends on axioms: [propext, Classical.choice, Quot.sound]

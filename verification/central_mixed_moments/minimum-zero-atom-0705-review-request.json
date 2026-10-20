@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CorrelatedMinimumZeroAtom.lean": {
+      "sha256": "8e38ddd70622d4c1132b248638a986b7792f4f71f25f66f78324cdbb765e671f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ab1484116b7e4814fd800e73834d25366914d2aa0bbbb6d6ca4d0c8175c815f1"
+}
