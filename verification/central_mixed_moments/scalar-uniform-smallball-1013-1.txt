@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarUniformSmallBall.lean:17:6: error: Application type mismatch: The argument
+  isCompact_closedBall
+has type
+  ∀ (x : ?m.157) (r : ℝ), IsCompact (Metric.closedBall x r)
+but is expected to have type
+  IsCompact S
+in the application
+  ContinuousOn.integrableOn_compact isCompact_closedBall
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScalarUniformSmallBall.lean:19:55: error: Application type mismatch: The argument
+  isCompact_closedBall
+has type
+  ∀ (x : ?m.274) (r : ℝ), IsCompact (Metric.closedBall x r)
+but is expected to have type
+  IsCompact S
+in the application
+  ContinuousOn.integrableOn_compact isCompact_closedBall
+'JinWishart.stdGaussian_complex_closedBall_le_radius_sq_half' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actual_noncentralScalarCDF_le_threshold_uniform_mean' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

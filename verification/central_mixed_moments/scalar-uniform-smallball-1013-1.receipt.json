@@ -1,0 +1,10 @@
+{
+  "module": "JinWishartFormalization.ScalarUniformSmallBall",
+  "started_utc": "2026-10-20T10:54:15.369265+00:00",
+  "ended_utc": "2026-10-20T10:54:29.729361+00:00",
+  "gated_helper_exit_code": 1,
+  "source_sha256": "361bf931acadca53f2218e20a11f99b39887829f7accabda5a72c9d3bc092834",
+  "log_sha256": "5c5f0cb49e1be05110d648d3d50fc1d4164f244cc934374c2dbe7b75754514be",
+  "log_bytes": 1003,
+  "policy": "Unmodified serialized gated helper, no added compiler flags"
+}

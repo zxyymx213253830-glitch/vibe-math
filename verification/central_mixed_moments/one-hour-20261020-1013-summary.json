@@ -1,0 +1,91 @@
+{
+  "started_utc": "2026-10-20T10:13:42+00:00",
+  "fixed_deadline_utc": "2026-10-20T11:13:42+00:00",
+  "closure_observed_utc": "2026-10-20T14:45:22.089236+00:00",
+  "interrupted": true,
+  "full_hour_completion_claimed": false,
+  "final_bound_items": 547,
+  "new_printed_declarations": 32,
+  "new_modules": 12,
+  "audit": "PASS",
+  "facade": 52,
+  "facade_actual_exit": 0,
+  "commits": [
+    "6f97f6d",
+    "3f0e6be",
+    "6e01701",
+    "7e61d1f"
+  ],
+  "partner_receipts": [
+    {
+      "path": "verification/central_mixed_moments/p1-general-rank-offset-1013.receipt.json",
+      "exit_code": 124,
+      "started_utc": "2026-10-20T10:42:12.475959+00:00",
+      "ended_utc": "2026-10-20T10:43:42.958780+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p1-noiseless-first-correction-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:19:01.525542+00:00",
+      "ended_utc": "2026-10-20T10:19:45.629898+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p4-bounded-offset-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:23:33.244164+00:00",
+      "ended_utc": "2026-10-20T10:23:59.508921+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p4-first-correction-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:35:50.173272+00:00",
+      "ended_utc": "2026-10-20T10:36:40.137043+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p4-inverse-taylor-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:31:41.927833+00:00",
+      "ended_utc": "2026-10-20T10:32:10.145977+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p4-noiseless-error-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:21:12.220418+00:00",
+      "ended_utc": "2026-10-20T10:21:53.298688+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p4-noiseless-offset-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:24:25.047030+00:00",
+      "ended_utc": "2026-10-20T10:25:01.865257+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p4-row-inverse-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:34:39.631881+00:00",
+      "ended_utc": "2026-10-20T10:35:11.533052+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p4-second-correction-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:39:31.059183+00:00",
+      "ended_utc": "2026-10-20T10:40:20.911822+00:00"
+    },
+    {
+      "path": "verification/central_mixed_moments/p4-zero-mode-offset-1013.receipt.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-20T10:50:02.029313+00:00",
+      "ended_utc": "2026-10-20T10:51:00.841962+00:00"
+    }
+  ],
+  "pending": "ScalarUniformSmallBall.lean changed after first failed check; second invocation produced no log/receipt and wrapper exit1, cause not established. Excluded from547, no P4 or main integration.",
+  "frozen_sha256": {
+    "theory/wishart_paper/main.tex": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+    "output/pdf/wishart_formalization.pdf": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+    "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+    "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b"
+  },
+  "full_lake_build": "NOT_RUN",
+  "human_review": "REQUIRED",
+  "automation": "PAUSED"
+}
