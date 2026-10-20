@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedGramClosedSecondMoment.lean:13:66: warning: This simp argument is unused:
+  smul_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pow_two, add_mul, mul_add, smul_mul_assoc, mul_smul_comm, Matrix.trace_add, Matrix.trace_smul,
+    smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.complex_matrix_trace_square_smul_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_actualCorrelatedGram_squaredTrace_expanded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

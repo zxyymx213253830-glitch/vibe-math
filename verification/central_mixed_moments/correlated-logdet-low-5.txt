@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:38:10: warning: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵a̵s̵u̵r̵a̵b̵l̵e̵_̵p̵i̵_̵l̵a̵m̵b̵d̵a̵M̲e̲a̲s̲u̲r̲a̲b̲l̲e̲.̲o̲f̲_̲e̲v̲a̲l̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:40:10: warning: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵a̵s̵u̵r̵a̵b̵l̵e̵_̵p̵i̵_̵l̵a̵m̵b̵d̵a̵M̲e̲a̲s̲u̲r̲a̲b̲l̲e̲.̲o̲f̲_̲e̲v̲a̲l̲
+'JinWishart.measurable_actualCorrelatedEigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedEigenvalue_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_actualCorrelatedEigenvalues_eq_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedEigenvalue_le_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedEigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedEigenvalue_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_eq_spectral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedMatrixLogDet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_integral_actualCorrelatedEigenvalues_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_integral_actualCorrelatedEigenvalue_sq_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_low_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_low_scale_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]

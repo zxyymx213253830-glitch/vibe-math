@@ -1,0 +1,74 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:35:4: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:28:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:33:27: warning: This simp argument is unused:
+  complexSampleMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, Matrix.mul_apply, Matrix.conjTranspose_apply, Matrix.add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:33:47: warning: This simp argument is unused:
+  Matrix.mul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, complexSampleMatrix, Matrix.conjTranspose_apply, Matrix.add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:34:6: warning: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, complexSampleMatrix, Matrix.mul_apply, Matrix.add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:34:33: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [complexGram, complexSampleMatrix, Matrix.mul_apply, Matrix.conjTranspose_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:75:8: error: (kernel) unknown constant 'JinWishart.measurable_actualCorrelatedEigenvalue'
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CorrelatedLogDetLowScale.lean:84:8: error: (kernel) unknown constant 'JinWishart.measurable_actualCorrelatedEigenvalue'
+'JinWishart.measurable_actualCorrelatedEigenvalue' does not depend on any axioms
+'JinWishart.actualCorrelatedEigenvalue_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_actualCorrelatedEigenvalues_eq_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedEigenvalue_le_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedEigenvalue' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.integrable_actualCorrelatedEigenvalue,
+ Quot.sound]
+'JinWishart.integrable_actualCorrelatedEigenvalue_sq' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.integrable_actualCorrelatedEigenvalue_sq,
+ Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_eq_spectral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelatedMatrixLogDet' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.integrable_actualCorrelatedEigenvalue,
+ Quot.sound]
+'JinWishart.sum_integral_actualCorrelatedEigenvalues_closed' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.integrable_actualCorrelatedEigenvalue,
+ Quot.sound]
+'JinWishart.sum_integral_actualCorrelatedEigenvalue_sq_closed' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.integrable_actualCorrelatedEigenvalue_sq,
+ Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_low_scale' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.integrable_actualCorrelatedEigenvalue,
+ Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_low_scale_curvature' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.integrable_actualCorrelatedEigenvalue,
+ JinWishart.integrable_actualCorrelatedEigenvalue_sq,
+ Quot.sound]

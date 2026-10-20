@@ -1,6 +1,6 @@
 # Current logdet and moment research claims
 
-Research checkpoint469, selected leaves and main facade42 realexit0; this is NOT
+Research checkpoint483, selected leaves and main facade43 realexit0; this is NOT
 the frozen manuscript or a new arXiv upload. The frozen PDF/source/code archives
 still describe an older checkpoint. Author byline remains ZHOU XINGYUAN.
 The provenance below describes tool assistance, not additional paper authors.
@@ -34,6 +34,10 @@ Sigma=B^HB,A=M^HM,K=mSigma+A): Etrace(W^2)=Re trace(K^2)+m(Re traceSigma)^2
 +2Re trace(Sigma A). Ordinary entry-product moment and trueL1 also exported.
 All dimensions including0; no B inverse/rank assumption.
 
+Correlated full-logdet: EC(r)/r->Re trK and (rRe trK-EC(r))/r^2->S2/2,
+S2=Re trK^2+m(Re trSigma)^2+2Re trSigma Re trA, actual finite closed moment.
+No rank/inverse-moment premise, natural units.
+
 ## Provenance and review
 
 All new proof bodies in this continuation are Codex-generated. Qoder supplied
@@ -50,10 +54,10 @@ provenance/GUIDED_COLLABORATION labels. They must not be reattributed to Codex,
 and Qoder route/P4 responses must not be called independent Lean compilation.
 This new table does not assert those earlier outputs were reauthored here.
 
-Audit469 =467 theorem/instance declarations+2 earlier constructions, with
+Audit483 =481 theorem/instance declarations+2 earlier constructions, with
 exact source/olean/log/direct-dependency/control/final-review snapshot hashes.
 Counts include deterministic algebra and generic integration helpers; they
-are NOT469 independent probability breakthroughs. Each new source was checked
+are NOT483 independent probability breakthroughs. Each new source was checked
 through the same serial gate. The main source imports use fresh project
 artifacts, but a complete Lake/mathlib build is NOT_RUN.
 
@@ -69,6 +73,6 @@ General noncentral minimum explicit CDF/PDF and joint spectral G2; original
 general T1 determinant-candidate identity; general-d simplified central hard-edge
 constant (d0/1/2 cases are separately closed); T3 journal/source normalization
 resolution and full original T1-4 mapping. Correlated B trace variance and second spectral moment are now CLOSED; see
-WISHART_CORRELATED_SECOND_MOMENTS.md. Correlated low-scale logdet curvature
-is under check and not yet claimed.
+WISHART_CORRELATED_SECOND_MOMENTS.md. Correlated full-logdet low-scale first/secondcoefficients are now CLOSED for
+ALL shapes and arbitrary fixed rectangular/singular/zero B; see WISHART_CORRELATED_LOGDET.md.
 See WISHART_CORRELATED_GRAM_MEAN.md for the exact weighted-Wick next card.

@@ -1,6 +1,6 @@
 {
-  "collected_utc": "2026-10-20T05:22:48.289554+00:00",
-  "spec_sha256": "66753809ddaca6e4018b5d44c33b8eab781dae9778dadff5603b893d8b7f41b2",
+  "collected_utc": "2026-10-20T05:34:18.039757+00:00",
+  "spec_sha256": "2fd74c760592861f9740c8628766bc8403eb63cc6e697db5ae5f9d926f854d52",
   "auditor_sha256": "b262ef0bc92774ed57b6bffc96ec55db331c1effc27488757817ab9c48e4cea5",
   "modules": {
     "JinWishartFormalization.CentralWishartDeterminantBias": {
@@ -6627,9 +6627,195 @@
           "sha256": "0319264d1ea8e0a999dda00fca7a615b3a969a07c4706435d57aa6400539e714"
         }
       }
+    },
+    "JinWishartFormalization.CorrelatedLogDetLowScale": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_actualCorrelatedEigenvalue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedEigenvalue_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.sum_actualCorrelatedEigenvalues_eq_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedEigenvalue_le_trace",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelatedEigenvalue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelatedEigenvalue_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedMatrixLogDet_eq_spectral",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integrable_actualCorrelatedMatrixLogDet",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.sum_integral_actualCorrelatedEigenvalues_closed",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.sum_integral_actualCorrelatedEigenvalue_sq_closed",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedMatrixLogDet_low_scale",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedMatrixLogDet_low_scale_curvature",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "5b68818d763c3210152a6f7338a56077feccd2ce6d4ae3190786d64a94526ed7",
+      "olean_sha256": "630657bf6f0094a2445993ee1e293bf1bf586857b3a7db5c1408ea1061f57e27",
+      "log_sha256": "d170558d9a12753ceeaa11d0ff1cd047159ddba9ef58a6c7d1fba6432140879d",
+      "imports": {
+        "JinWishartFormalization.CorrelatedGramTraceMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedGramTraceMoments.olean",
+          "sha256": "4853bdaf10d612928188387a653131b91ee055fe3624b2468dfb6c2c350d789a"
+        },
+        "JinWishartFormalization.WeylComplexHermitian": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/WeylComplexHermitian.olean",
+          "sha256": "5ad035ae059bcbaa1056ed256ac54e7fe5c9a0857cd932bd2f6656bf28a506fc"
+        },
+        "JinWishartFormalization.HermitianSpectralLogDet": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianSpectralLogDet.olean",
+          "sha256": "b4bc47d6e595ae9f1316a8658b168052294997c74e59303f7d081145c1bd5c3c"
+        },
+        "JinWishartFormalization.HermitianSquaredTrace": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianSquaredTrace.olean",
+          "sha256": "3b7548ec8bc8d383f5d2691fad31723713448e2f10ad9f034cab4f74cb5c4f91"
+        },
+        "JinWishartFormalization.LogDetLowScaleSecondOrder": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LogDetLowScaleSecondOrder.olean",
+          "sha256": "99be943d713e19aa0204365be4e841c10cbba9225326a1b4c207f9f510853258"
+        },
+        "JinWishartFormalization.LogDetLowScale": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LogDetLowScale.olean",
+          "sha256": "49ce2c8bcc3eb97d858629173d06e5bec5c422bf4aa606ccd227184ae9e6ddba"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedGramClosedSecondMoment": {
+      "declarations": [
+        {
+          "name": "JinWishart.complex_matrix_trace_square_smul_add",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.integral_actualCorrelatedGram_squaredTrace_expanded",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "765ac945f56c36389b9f4a671e34926d11e75f03ca8a6d958cae8f027c43e6b8",
+      "olean_sha256": "b2b189739b86e88b63545e652dbd18f09ffb5059c7d31007c948fc47ce3f8657",
+      "log_sha256": "277bbc4685aae713ca67a2ea0b949abb094a12b70994acf2a61c74ea2409e848",
+      "imports": {
+        "JinWishartFormalization.CorrelatedGramTraceMoments": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedGramTraceMoments.olean",
+          "sha256": "4853bdaf10d612928188387a653131b91ee055fe3624b2468dfb6c2c350d789a"
+        }
+      }
     }
   },
-  "total_declarations": 469,
+  "total_declarations": 483,
   "controls": [
     {
       "script": "experiments/central_mixed_minor_control.py",
@@ -7490,6 +7676,18 @@
       "request_sha256": "362f1b1057f445083a0cbc146034eb9d981d6da66beea2808a393defbc798e03",
       "prompt_sha256": "4599fee399dd6cad02410af16250024b382332b73c140bfa67f3ef615ce1626c",
       "raw_response_sha256": "ec16117cf23b3e32b7fef36d7a28f4e5fda85dc100068b3a92d304be252533e9",
+      "provider": "qoder",
+      "reported_models": [
+        "qmodel_38max"
+      ],
+      "independent_compilation": false,
+      "human_review": false,
+      "source_changes": []
+    },
+    {
+      "request_sha256": "750d36a4a7cf5a49580a1d40270c92dbc4e344d217bdcfdbb0cb66c5cf9f9cea",
+      "prompt_sha256": "680a02be223d6b233a8378ee2f62ab56f898ab825b7255a643ab45bc7651b09c",
+      "raw_response_sha256": "36f762e4a5341f3e0aba37fe4c37ed576d3cfaa48a7c522419eee2092ba62356",
       "provider": "qoder",
       "reported_models": [
         "qmodel_38max"

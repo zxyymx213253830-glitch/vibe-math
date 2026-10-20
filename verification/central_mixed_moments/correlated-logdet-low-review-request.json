@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CorrelatedLogDetLowScale.lean": {
+      "sha256": "5b68818d763c3210152a6f7338a56077feccd2ce6d4ae3190786d64a94526ed7",
+      "supplied": "Full source"
+    },
+    "CorrelatedGramClosedSecondMoment.lean": {
+      "sha256": "765ac945f56c36389b9f4a671e34926d11e75f03ca8a6d958cae8f027c43e6b8",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "680a02be223d6b233a8378ee2f62ab56f898ab825b7255a643ab45bc7651b09c"
+}

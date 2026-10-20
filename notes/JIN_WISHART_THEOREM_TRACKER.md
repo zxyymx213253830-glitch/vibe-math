@@ -1,3 +1,5 @@
+Latest2026-10-20 checkpoint483/facade43 actualexit0/auditPASS: actual arbitraryfactor full-logdet low-scale first/secondcoefficients CLOSED inclsingular/zeroB, plus expandedclosed S2. See WISHART_CORRELATED_LOGDET.md. Earlier undercheck wording below historical. General singular-factor highprelog rankformula stillOPEN; humanreview/fullbuild/frozenpublication unchanged.
+
 Latest2026-10-20 checkpoint469/facade42 actualexit0/auditPASS: arbitraryfixed rectangular/singular B actual Gram-entry product, trace second/spectral second and centeredtracevariance CLOSED with trueL1. Exactclaims and P4 resolutions WISHART_CORRELATED_SECOND_MOMENTS.md. Earlier open correlatedmoment statements below historical. Correlated logdetlow-scale undercheck; notyetclaimed. FullbuildNOT_RUN/frozenpublicationOLDunchanged/[需人工审查].
 
 # 金石等 (2008) Wishart 论文形式化：定理追踪表（B0）
