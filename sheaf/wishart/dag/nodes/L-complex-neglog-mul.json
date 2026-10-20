@@ -1,0 +1,21 @@
+{
+  "id": "L-complex-neglog-mul",
+  "kind": "statement",
+  "target": false,
+  "statement": "ComplexNegativeLog(ab)<=negativeLog(a)+negativeLog(b), including zeros.",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "module": "JinWishartFormalization.ComplexGaussianRootNegativeLog",
+  "declaration": "JinWishart.complexNegativeLog_mul_le",
+  "proof": [
+    {
+      "text": "ComplexNegativeLog(ab)<=negativeLog(a)+negativeLog(b), including zeros.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-root.json",
+    "source_sha256": "376940ce57536a82fdedcb73dfd2a8048146597bef8f1f0b1ba6ea8542c0dc7e"
+  }
+}

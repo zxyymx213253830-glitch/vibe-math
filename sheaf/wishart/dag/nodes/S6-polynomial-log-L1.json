@@ -1,0 +1,27 @@
+{
+  "id": "S6-polynomial-log-L1",
+  "kind": "target",
+  "target": true,
+  "statement": "All one-variable complex polynomials have totalized real log norm L1 under stdGaussian(C); general multivariate caseOPEN.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "S5-polynomial-neglog",
+    "L-polynomial-eval-L1"
+  ],
+  "module": "JinWishartFormalization.ComplexGaussianPolynomialLog",
+  "declaration": "JinWishart.stdGaussian_complex_polynomial_log_integrable",
+  "proof": [
+    {
+      "text": "All one-variable complex polynomials have totalized real log norm L1 under stdGaussian(C); general multivariate caseOPEN.",
+      "uses": [
+        "S5-polynomial-neglog",
+        "L-polynomial-eval-L1"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-polynomial.json",
+    "source_sha256": "84e846a544a13f09609aa4fc92cdfbeedcaf4e86234ea6416bebbe2476dea135"
+  }
+}

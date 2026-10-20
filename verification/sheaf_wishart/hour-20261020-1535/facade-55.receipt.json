@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-10-20T16:08:06.290875+00:00",
+  "ended_utc": "2026-10-20T16:08:35.024557+00:00",
+  "module": "JinWishartFormalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
+  "source_sha256_before": "2e9f9b87f9eb852072e603717b5117a0945dfd0c452adbbd3972d6339d1f0fa2",
+  "source_sha256": "2e9f9b87f9eb852072e603717b5117a0945dfd0c452adbbd3972d6339d1f0fa2",
+  "gated_helper_exit_code": 0,
+  "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164"
+}

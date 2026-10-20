@@ -1,0 +1,21 @@
+{
+  "id": "L-polynomial-eval-L1",
+  "kind": "statement",
+  "target": false,
+  "statement": "Polynomial eval is L1 under stdGaussian(C), by Gaussian finite moments.",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "module": "JinWishartFormalization.ComplexGaussianPolynomialLog",
+  "declaration": "JinWishart.integrable_stdGaussian_complex_polynomial_eval",
+  "proof": [
+    {
+      "text": "Polynomial eval is L1 under stdGaussian(C), by Gaussian finite moments.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-polynomial.json",
+    "source_sha256": "84e846a544a13f09609aa4fc92cdfbeedcaf4e86234ea6416bebbe2476dea135"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ComplexGaussianRootNegativeLog.lean": {
+      "sha256": "376940ce57536a82fdedcb73dfd2a8048146597bef8f1f0b1ba6ea8542c0dc7e",
+      "supplied": "Full source"
+    },
+    "ComplexGaussianPolynomialLog.lean": {
+      "sha256": "84e846a544a13f09609aa4fc92cdfbeedcaf4e86234ea6416bebbe2476dea135",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "e0de6affbaa480a85f898e6b9da86e512c335c0bc622053265592950f9cc948a"
+}

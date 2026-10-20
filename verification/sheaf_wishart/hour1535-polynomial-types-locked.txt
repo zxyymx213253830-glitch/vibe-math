@@ -1,0 +1,7 @@
+SHEAF_TARGET_TYPES_EQ PASS
+'JinWishart.complexNegativeLog_mul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_complex_negativeLog_uniform_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_complex_rootProduct_negativeLog' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_complex_polynomial_negativeLog' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_stdGaussian_complex_polynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_complex_polynomial_log_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]

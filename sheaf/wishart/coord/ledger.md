@@ -8,3 +8,5 @@
 - 2026-10-20T15:12:52.969371+00:00 Pilot accepted via verification/sheaf_wishart/pilot-acceptance.json; human measure/model review remains REQUIRED.
 - 2026-10-20T15:56:35.961665+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261020-1535/acceptance-core.json; human measure/model review remains REQUIRED.
 - 2026-10-20T15:56:36.287511+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261020-1535/acceptance-scalar.json; human measure/model review remains REQUIRED.
+- 2026-10-20T16:13:55.090557+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261020-1535/acceptance-root.json; human measure/model review remains REQUIRED.
+- 2026-10-20T16:13:55.413802+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261020-1535/acceptance-polynomial.json; human measure/model review remains REQUIRED.

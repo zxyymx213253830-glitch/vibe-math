@@ -53,3 +53,26 @@ ModelP4 not human/independentcompile. [需人工审查] Layercake/Tonelli, varia
 Next bounded card in this same hour: planar root-uniform negative-log norm bound<=1/4 and one-variable polynomial
 negative-log integrability by finite rootfactorization, subject to successful checks/review. 21 new controls PASS
 (seed2026102021,200000samples, independent Rayleigh/E1central references plus wrongvariance negativecontrols).
+
+## One-variable milestone
+
+Root/onevariable six declarations passed standard3 axioms, exact literal target type comparisons and facade55 exit0.
+New bound under planar stdGaussian(C): E negativeLog norm(Z-root)<=1/4, uniformroot;
+E negativeLog norm(P(Z))<=negativeLog norm(leadingCoeff P)+natDegree(P)/4.
+Polynomial evaluation L1 plus this negative-part bound proves absolute integrability of totalized real log norm.
+Zero polynomial is included ONLY because Real.log0=0; no extended-real log=-infinity claim.
+An unused pointwise list-product lemma was pruned after route selection; root v1 statements/failedlogs retained,
+root v2 preserves the original root bound/multiplication lemma and was rechecked.
+
+Finalsource QoderP4 polynomial response retained with these resolutions:
+- Its alleged nonzero preconditions on Splits.eval_eq_prod_roots/natDegree_eq_card_roots are false in pinned Mathlib:
+  Splits.lean299/311/368 handle zero leadingCoeff explicitly and require no P!=0.
+- Real.log_pow (x:Real)(n:Nat) at Log/Basic.lean288 has NO nonzero hypothesis, and works at0 under totalization.
+  Thus pointwise square-log identity is checked for ALLz, not just AE; no added zero-fiber assumption needed.
+- The reviewer retracted its supposed integrability circularity after tracing the actual mono' then integral_mono order.
+- Root multiplicity/listlength conversion and zero polynomial literalcase are checked, not guessed fromnumerics.
+No randomroot choices/Fubini claimed here. [需人工审查] normalization/root/model interpretation remains.
+
+Parameterized section helper has also locally passed, with explicit joint measurability, coefficient-logL1,
+and AE uniformdegree premises. It is NOT yet counted in this milestone and is not an unconditionalmultivariate proof.
+BivariateGaussianPolynomialLog is undercheck after8 newfixedseed200000sample controls, includingthedegree-drop fiber.

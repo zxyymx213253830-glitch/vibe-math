@@ -1,0 +1,198 @@
+P4 exact-final-source mathematical adversarial review. No tools, no rewriting; only real issues. Six declarations are kernel checked with ONLY propext/Classical.choice/Quot.sound. All six independent literal target types checked via Lean Meta.isDefEq. Point out missing assumptions, measure/Fubini/zero cases or scope mismatch, not imaginary syntax/API errors. stdGaussian(C) here has real/imag VARIANCE1, totalE|Z|²=2, so root negative-log norm bound1/4 (max density1/(2pi)) is CORRECT. This is not properCN1; that transport not claimed in these files. complexNegativeLog z=max0(-Real.log normz), Real.log0=0. Mul-subadd handleszero explicitly before log_mul. Finite roots are for ONE FIXED deterministic univariate complex polynomial, multiplicities retained via roots.toList; no measurable randomroot selection, no Fubini over changingroots. Factorization is actual IsAlgClosed.splits.eval_eq_prod_roots. Negative part integral<=neglog(normleadingCoeff)+natDegree/4. Polynomialeval L1 uses Gaussian finite moments; absolute-log integrability follows normeval + negativepart. Statements intentionally include zero polynomial under totalized log0=0 (not extended real log=-infinity). General multivariate Gaussian polynomial result and general singular Wishart unconditional offset remainOPEN; do NOT interpret as those. Original pointwise list-product helper was pruned as unused; no axiomplaceholder accepted. Numerical21controls with independentRayleigh/E1references notproof. [需人工审查] model normalization and root/measure interpretation remain even after kernel/model review. Full finalsources follow.
+
+FULL SOURCE ComplexGaussianRootNegativeLog.lean
+import JinWishartFormalization.ProbabilityNegativeLogBounds
+import JinWishartFormalization.ScalarUniformSmallBall
+
+/-! A root-uniform logarithmic bound for the planar Gaussian with two real
+variance-one coordinates. This is stdGaussian(C), not proper CN1.
+Codex. [需人工审查] Gaussian/disk normalization and logarithmic expectation.
+-/
+open MeasureTheory ProbabilityTheory Set
+namespace JinWishart
+noncomputable section
+
+def complexNegativeLog (z : ℂ) : ℝ := max 0 (-Real.log ‖z‖)
+
+theorem complexNegativeLog_mul_le (a b : ℂ) :
+    complexNegativeLog (a*b) ≤ complexNegativeLog a + complexNegativeLog b := by
+  by_cases ha : a=0
+  · simp [ha,complexNegativeLog]
+  by_cases hb : b=0
+  · simp [hb,complexNegativeLog]
+  have hl : Real.log ‖a*b‖ = Real.log ‖a‖ + Real.log ‖b‖ := by
+    rw [norm_mul,Real.log_mul (norm_ne_zero_iff.mpr ha) (norm_ne_zero_iff.mpr hb)]
+  unfold complexNegativeLog
+  rw [hl]
+  apply max_le
+  · exact add_nonneg (le_max_left _ _) (le_max_left _ _)
+  · have h1 := le_max_right (0 : ℝ) (-Real.log ‖a‖)
+    have h2 := le_max_right (0 : ℝ) (-Real.log ‖b‖)
+    linarith
+
+theorem stdGaussian_complex_negativeLog_uniform_root (μ : ℂ) :
+    Integrable (fun z : ℂ => complexNegativeLog (z-μ)) (stdGaussian ℂ) ∧
+      (∫ z : ℂ, complexNegativeLog (z-μ) ∂stdGaussian ℂ) ≤ 1/4 := by
+  have hsmall : ∀ x : ℝ, 0 < x →
+      (stdGaussian ℂ).real {z : ℂ | ‖z-μ‖^2 ≤ x} ≤ (1/2)*x := by
+    intro x hx
+    have hset : {z : ℂ | ‖z-μ‖^2 ≤ x} = Metric.closedBall μ (Real.sqrt x) := by
+      ext z
+      simp only [Set.mem_setOf_eq,Metric.mem_closedBall,dist_eq_norm]
+      constructor
+      · intro hz
+        apply (sq_le_sq₀ (norm_nonneg (z-μ)) (Real.sqrt_nonneg x)).mp
+        simpa only [Real.sq_sqrt hx.le] using hz
+      · intro hz
+        have hsq := (sq_le_sq₀ (norm_nonneg (z-μ)) (Real.sqrt_nonneg x)).mpr hz
+        simpa only [Real.sq_sqrt hx.le] using hsq
+    rw [hset]
+    have h := stdGaussian_complex_closedBall_le_radius_sq_half μ (Real.sqrt x) (Real.sqrt_nonneg x)
+    rw [Real.sq_sqrt hx.le] at h
+    linarith
+  have hs := negativeLog_integrable_integral_le_of_smallball (stdGaussian ℂ)
+    (fun z : ℂ => ‖z-μ‖^2) (by fun_prop) (1/2) (by norm_num) hsmall
+  have heq (z : ℂ) : complexNegativeLog (z-μ) =
+      max 0 (-Real.log (‖z-μ‖^2))/2 := by
+    have htwice : max 0 (-Real.log (‖z-μ‖^2)) = 2*complexNegativeLog (z-μ) := by
+      rw [complexNegativeLog,Real.log_pow,
+        mul_max_of_nonneg _ _ (by norm_num : (0 : ℝ) ≤ 2)]
+      simp only [mul_zero,mul_neg,Nat.cast_ofNat]
+    linarith
+  have hi : Integrable (fun z : ℂ => complexNegativeLog (z-μ)) (stdGaussian ℂ) :=
+    (hs.1.div_const 2).congr (ae_of_all _ (fun z => (heq z).symm))
+  refine ⟨hi, ?_⟩
+  calc
+    _ = (∫ z : ℂ, max 0 (-Real.log (‖z-μ‖^2)) ∂stdGaussian ℂ)/2 := by
+      rw [← integral_div]
+      exact integral_congr_ae (ae_of_all _ heq)
+    _ ≤ (1/2)/2 := div_le_div_of_nonneg_right hs.2 (by norm_num)
+    _ = 1/4 := by norm_num
+
+end
+end JinWishart
+#print axioms JinWishart.complexNegativeLog_mul_le
+#print axioms JinWishart.stdGaussian_complex_negativeLog_uniform_root
+
+FULL SOURCE ComplexGaussianPolynomialLog.lean
+import JinWishartFormalization.ComplexGaussianRootNegativeLog
+import Mathlib.Analysis.Complex.Polynomial.Basic
+import Mathlib.Probability.Distributions.Gaussian.Fernique
+
+/-! One-variable complex polynomial logarithms under stdGaussian(C).
+Real.log is totalized at zero; in particular the zero polynomial is harmless
+for these literal statements. No multivariate or randomly selected roots.
+Codex. [需人工审查] Root multiplicity, Gaussian normalization, integration.
+-/
+open MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem stdGaussian_complex_rootProduct_negativeLog (l : List ℂ) :
+    Integrable (fun z : ℂ => complexNegativeLog ((l.map (fun r => z-r)).prod))
+      (stdGaussian ℂ) ∧
+    (∫ z : ℂ, complexNegativeLog ((l.map (fun r => z-r)).prod) ∂stdGaussian ℂ)
+      ≤ (l.length : ℝ)/4 := by
+  have hcont (s : List ℂ) : Continuous (fun z : ℂ => (s.map (fun r => z-r)).prod) := by
+    induction s with
+    | nil => simpa using (continuous_const : Continuous (fun _z : ℂ => (1 : ℂ)))
+    | cons r s ih =>
+      simp only [List.map_cons,List.prod_cons]
+      fun_prop
+  induction l with
+  | nil =>
+    constructor
+    · simpa [complexNegativeLog] using
+        (integrable_const (0 : ℝ) : Integrable (fun _z : ℂ => 0) (stdGaussian ℂ))
+    · simp [complexNegativeLog]
+  | cons r l ih =>
+    have hr := stdGaussian_complex_negativeLog_uniform_root r
+    have hm : Measurable (fun z : ℂ => complexNegativeLog (((r::l).map (fun a => z-a)).prod)) :=
+      measurable_const.max ((hcont (r::l)).norm.measurable.log.neg)
+    have hb (z : ℂ) :
+        complexNegativeLog ((((r::l).map (fun a => z-a))).prod) ≤
+          complexNegativeLog (z-r)+complexNegativeLog ((l.map (fun a => z-a)).prod) := by
+      simpa only [List.map_cons,List.prod_cons] using
+        complexNegativeLog_mul_le (z-r) ((l.map (fun a => z-a)).prod)
+    have hi := (hr.1.add ih.1).mono' hm.aestronglyMeasurable (ae_of_all _ (fun z => by
+      rw [Real.norm_eq_abs,abs_of_nonneg (le_max_left _ _)]
+      exact hb z))
+    refine ⟨hi, ?_⟩
+    calc
+      _ ≤ ∫ z : ℂ, complexNegativeLog (z-r)+complexNegativeLog ((l.map (fun a => z-a)).prod)
+          ∂stdGaussian ℂ := integral_mono_ae hi (hr.1.add ih.1) (ae_of_all _ hb)
+      _ = (∫ z : ℂ, complexNegativeLog (z-r) ∂stdGaussian ℂ)+
+          (∫ z : ℂ, complexNegativeLog ((l.map (fun a => z-a)).prod) ∂stdGaussian ℂ) :=
+        integral_add hr.1 ih.1
+      _ ≤ 1/4+(l.length : ℝ)/4 := add_le_add hr.2 ih.2
+      _ = ((r::l).length : ℝ)/4 := by simp only [List.length_cons,Nat.cast_add,Nat.cast_one]; ring
+
+theorem stdGaussian_complex_polynomial_negativeLog (P : Polynomial ℂ) :
+    Integrable (fun z : ℂ => complexNegativeLog (P.eval z)) (stdGaussian ℂ) ∧
+    (∫ z : ℂ, complexNegativeLog (P.eval z) ∂stdGaussian ℂ) ≤
+      complexNegativeLog P.leadingCoeff + (P.natDegree : ℝ)/4 := by
+  classical
+  let l := P.roots.toList
+  have heval (z : ℂ) : P.eval z = P.leadingCoeff*(l.map (fun r => z-r)).prod := by
+    rw [(IsAlgClosed.splits P).eval_eq_prod_roots]
+    simp only [l,Multiset.prod_map_toList]
+  have hr := stdGaussian_complex_rootProduct_negativeLog l
+  have hc : Integrable (fun _z : ℂ => complexNegativeLog P.leadingCoeff) (stdGaussian ℂ) :=
+    integrable_const _
+  have hm : Measurable (fun z : ℂ => complexNegativeLog (P.eval z)) :=
+    measurable_const.max (P.continuous.norm.measurable.log.neg)
+  have hb (z : ℂ) : complexNegativeLog (P.eval z) ≤
+      complexNegativeLog P.leadingCoeff + complexNegativeLog ((l.map (fun r => z-r)).prod) := by
+    rw [heval]
+    exact complexNegativeLog_mul_le _ _
+  have hi := (hc.add hr.1).mono' hm.aestronglyMeasurable (ae_of_all _ (fun z => by
+    rw [Real.norm_eq_abs,abs_of_nonneg (le_max_left _ _)]
+    exact hb z))
+  refine ⟨hi, ?_⟩
+  calc
+    _ ≤ ∫ z : ℂ, complexNegativeLog P.leadingCoeff +
+        complexNegativeLog ((l.map (fun r => z-r)).prod) ∂stdGaussian ℂ :=
+      integral_mono_ae hi (hc.add hr.1) (ae_of_all _ hb)
+    _ = complexNegativeLog P.leadingCoeff+
+        (∫ z : ℂ, complexNegativeLog ((l.map (fun r => z-r)).prod) ∂stdGaussian ℂ) := by
+      rw [integral_add hc hr.1]
+      simp
+    _ ≤ complexNegativeLog P.leadingCoeff+(l.length : ℝ)/4 := add_le_add le_rfl hr.2
+    _ = complexNegativeLog P.leadingCoeff+(P.natDegree : ℝ)/4 := by
+      simp only [l,Multiset.length_toList,(IsAlgClosed.splits P).natDegree_eq_card_roots]
+
+theorem integrable_stdGaussian_complex_polynomial_eval (P : Polynomial ℂ) :
+    Integrable (fun z : ℂ => P.eval z) (stdGaussian ℂ) := by
+  classical
+  have hk (k : ℕ) : Integrable (fun z : ℂ => z^k) (stdGaussian ℂ) := by
+    have hm : MemLp (id : ℂ → ℂ) k (stdGaussian ℂ) := IsGaussian.memLp_id _ _ (by simp)
+    apply hm.integrable_norm_pow'.mono' (by fun_prop)
+    exact ae_of_all _ (fun z => by simp only [norm_pow,id_eq]; exact le_rfl)
+  simp_rw [Polynomial.eval_eq_sum,Polynomial.sum_def]
+  apply integrable_finsetSum
+  intro k _
+  exact (hk k).const_mul _
+
+theorem stdGaussian_complex_polynomial_log_integrable (P : Polynomial ℂ) :
+    Integrable (fun z : ℂ => Real.log ‖P.eval z‖) (stdGaussian ℂ) := by
+  have hf := (integrable_stdGaussian_complex_polynomial_eval P).norm
+  have hn := (stdGaussian_complex_polynomial_negativeLog P).1
+  apply (hf.add hn).mono' P.continuous.norm.measurable.log.aestronglyMeasurable
+  filter_upwards [] with z
+  rw [Real.norm_eq_abs]
+  change |Real.log ‖P.eval z‖| ≤ ‖P.eval z‖ + max 0 (-Real.log ‖P.eval z‖)
+  by_cases hz : P.eval z=0
+  · simp [hz]
+  have hpos : 0 < ‖P.eval z‖ := norm_pos_iff.mpr hz
+  have hu := Real.log_le_sub_one_of_pos hpos
+  have h1 := le_max_left (0 : ℝ) (-Real.log ‖P.eval z‖)
+  have h2 := le_max_right (0 : ℝ) (-Real.log ‖P.eval z‖)
+  have hnorm := norm_nonneg (P.eval z)
+  exact abs_le.mpr ⟨by linarith,by linarith⟩
+
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_complex_rootProduct_negativeLog
+#print axioms JinWishart.stdGaussian_complex_polynomial_negativeLog
+#print axioms JinWishart.integrable_stdGaussian_complex_polynomial_eval
+#print axioms JinWishart.stdGaussian_complex_polynomial_log_integrable

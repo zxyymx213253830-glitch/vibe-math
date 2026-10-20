@@ -1,0 +1,27 @@
+{
+  "id": "L-rootproduct-neglog",
+  "kind": "statement",
+  "target": false,
+  "statement": "Finite root-product negativeLog L1 and expectation<=length/4.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "S4-planar-root-neglog",
+    "L-complex-neglog-mul"
+  ],
+  "module": "JinWishartFormalization.ComplexGaussianPolynomialLog",
+  "declaration": "JinWishart.stdGaussian_complex_rootProduct_negativeLog",
+  "proof": [
+    {
+      "text": "Finite root-product negativeLog L1 and expectation<=length/4.",
+      "uses": [
+        "S4-planar-root-neglog",
+        "L-complex-neglog-mul"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-polynomial.json",
+    "source_sha256": "84e846a544a13f09609aa4fc92cdfbeedcaf4e86234ea6416bebbe2476dea135"
+  }
+}

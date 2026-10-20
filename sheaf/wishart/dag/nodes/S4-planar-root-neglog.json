@@ -1,0 +1,27 @@
+{
+  "id": "S4-planar-root-neglog",
+  "kind": "target",
+  "target": true,
+  "statement": "stdGaussian(C) root-negative-log norm L1 with uniform expectation<=1/4; two variance-one real coordinates.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "S1-planar-ball",
+    "L-negative-log-moment"
+  ],
+  "module": "JinWishartFormalization.ComplexGaussianRootNegativeLog",
+  "declaration": "JinWishart.stdGaussian_complex_negativeLog_uniform_root",
+  "proof": [
+    {
+      "text": "stdGaussian(C) root-negative-log norm L1 with uniform expectation<=1/4; two variance-one real coordinates.",
+      "uses": [
+        "S1-planar-ball",
+        "L-negative-log-moment"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-root.json",
+    "source_sha256": "376940ce57536a82fdedcb73dfd2a8048146597bef8f1f0b1ba6ea8542c0dc7e"
+  }
+}

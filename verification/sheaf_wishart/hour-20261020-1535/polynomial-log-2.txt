@@ -1,0 +1,28 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLog.lean:23:6: error: Type mismatch: After simplification, term
+  Continuous.mul (Continuous.sub continuous_id continuous_const) ih
+ has type
+  @Continuous ℂ ℂ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    ((id - fun x => r) * fun z => (List.map (fun r => z - r) s).prod)
+but is expected to have type
+  @Continuous ℂ ℂ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace fun z => (z - r) * (List.map (fun r => z - r) s).prod
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLog.lean:28:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [complexNegativeLog]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'JinWishart.stdGaussian_complex_rootProduct_negativeLog' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.stdGaussian_complex_polynomial_negativeLog' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_stdGaussian_complex_polynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_complex_polynomial_log_integrable' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

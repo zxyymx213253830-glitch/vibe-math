@@ -1,0 +1,27 @@
+{
+  "id": "S5-polynomial-neglog",
+  "kind": "target",
+  "target": true,
+  "statement": "One-variable polynomial negativeLog L1 and expectation<=negativeLog(leadingCoeff)+natDegree/4. Real.log0=0.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-rootproduct-neglog",
+    "L-complex-neglog-mul"
+  ],
+  "module": "JinWishartFormalization.ComplexGaussianPolynomialLog",
+  "declaration": "JinWishart.stdGaussian_complex_polynomial_negativeLog",
+  "proof": [
+    {
+      "text": "One-variable polynomial negativeLog L1 and expectation<=negativeLog(leadingCoeff)+natDegree/4. Real.log0=0.",
+      "uses": [
+        "L-rootproduct-neglog",
+        "L-complex-neglog-mul"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-polynomial.json",
+    "source_sha256": "84e846a544a13f09609aa4fc92cdfbeedcaf4e86234ea6416bebbe2476dea135"
+  }
+}

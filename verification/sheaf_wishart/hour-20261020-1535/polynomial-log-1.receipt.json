@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-10-20T16:03:37.139124+00:00",
+  "ended_utc": "2026-10-20T16:03:48.047969+00:00",
+  "module": "JinWishartFormalization.ComplexGaussianPolynomialLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianPolynomialLog.lean",
+  "source_sha256_before": "b1529a954a8d48156273888ff11861d24b31ab4bd2ce4ec85a101a5fa6a1595e",
+  "source_sha256": "b1529a954a8d48156273888ff11861d24b31ab4bd2ce4ec85a101a5fa6a1595e",
+  "gated_helper_exit_code": 1,
+  "log_sha256": "085e37fcfce440aad40f307ff178f2f56ac9585e5e7677cc56707432f0fcdc5d"
+}

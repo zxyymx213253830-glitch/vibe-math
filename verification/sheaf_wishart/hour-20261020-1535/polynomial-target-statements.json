@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-20T16:02:44.384867+00:00",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianPolynomialLog.lean",
+  "statements": {
+    "JinWishart.stdGaussian_complex_rootProduct_negativeLog": "(l : List ℂ) : Integrable (fun z : ℂ => complexNegativeLog ((l.map (fun r => z-r)).prod)) (stdGaussian ℂ) ∧ (∫ z : ℂ, complexNegativeLog ((l.map (fun r => z-r)).prod) ∂stdGaussian ℂ) ≤ (l.length : ℝ)/4",
+    "JinWishart.stdGaussian_complex_polynomial_negativeLog": "(P : Polynomial ℂ) : Integrable (fun z : ℂ => complexNegativeLog (P.eval z)) (stdGaussian ℂ) ∧ (∫ z : ℂ, complexNegativeLog (P.eval z) ∂stdGaussian ℂ) ≤ complexNegativeLog P.leadingCoeff + (P.natDegree : ℝ)/4",
+    "JinWishart.integrable_stdGaussian_complex_polynomial_eval": "(P : Polynomial ℂ) : Integrable (fun z : ℂ => P.eval z) (stdGaussian ℂ)",
+    "JinWishart.stdGaussian_complex_polynomial_log_integrable": "(P : Polynomial ℂ) : Integrable (fun z : ℂ => Real.log ‖P.eval z‖) (stdGaussian ℂ)"
+  },
+  "locked_before_checks": true
+}

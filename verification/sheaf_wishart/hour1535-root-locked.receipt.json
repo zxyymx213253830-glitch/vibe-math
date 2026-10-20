@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-20T16:07:37.569756+00:00",
+  "ended_utc": "2026-10-20T16:07:47.325463+00:00",
+  "module": "JinWishartFormalization.ComplexGaussianRootNegativeLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianRootNegativeLog.lean",
+  "source_sha256_before": "376940ce57536a82fdedcb73dfd2a8048146597bef8f1f0b1ba6ea8542c0dc7e",
+  "source_sha256": "376940ce57536a82fdedcb73dfd2a8048146597bef8f1f0b1ba6ea8542c0dc7e",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/hour1535-root-locked.txt",
+  "log_exists": true,
+  "log_sha256": "71f7c484cec77ae58cb3020206e83c533bac40ac9cf41ba52b5a54c44d362445",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
