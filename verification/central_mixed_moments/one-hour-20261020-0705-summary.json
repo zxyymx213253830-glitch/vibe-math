@@ -1,0 +1,670 @@
+{
+  "stage": "ACTIVE_USER_ONE_HOUR_REVIEW_PACKETS",
+  "started_utc": "2026-10-20T07:05:09+00:00",
+  "deadline_utc": "2026-10-20T08:05:09+00:00",
+  "collected_utc": "2026-10-20T07:56:35.789951+00:00",
+  "initial_bound_items": 491,
+  "final_bound_items": 515,
+  "new_declarations": 24,
+  "new_modules": 8,
+  "proof_author": "Codex",
+  "planning_and_review": "Qoder only;1P1+6scoped final-source P4",
+  "new_targets": [
+    {
+      "module": "JinWishartFormalization.CorrelatedRankUpperBound",
+      "count": 3,
+      "log": "verification/central_mixed_moments/rank-upper-0705-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedRankWitness",
+      "count": 2,
+      "log": "verification/central_mixed_moments/rank-witness-0705-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.MatrixRankCompression",
+      "count": 1,
+      "log": "verification/central_mixed_moments/rank-compression-0705-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGaussianGenericRank",
+      "count": 4,
+      "log": "verification/central_mixed_moments/gaussian-generic-rank-0705-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedLogDetGenericRank",
+      "count": 3,
+      "log": "verification/central_mixed_moments/logdet-generic-rank-0705-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedMinimumZeroAtom",
+      "count": 5,
+      "log": "verification/central_mixed_moments/minimum-zero-atom-0705-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedNoiselessSpectralFloor",
+      "count": 4,
+      "log": "verification/central_mixed_moments/noiseless-floor-0705-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedNoiselessInverseMoments",
+      "count": 2,
+      "log": "verification/central_mixed_moments/noiseless-inverse-0705-1.txt",
+      "kernel_exit_code_recorded": 0
+    }
+  ],
+  "new_exact_source_bindings": {
+    "JinWishartFormalization.CorrelatedRankUpperBound": {
+      "declarations": [
+        {
+          "name": "JinWishart.linearMap_pair_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.linearMap_affine_comp_rank_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.matrix_affine_comp_rank_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "d7ec987f98f5903b8a13af8a99db62e1c55baa1458f3f81550b31a956d10866b",
+      "olean_sha256": "fb2684583efa31353c72b89d74fdfba56686647689d2badc6ffa602630790d5f",
+      "log_sha256": "293618abebffc3edb3cdde7ccc3d7cea80719bbaae84a9517db1396b2ed1a27c",
+      "imports": {
+        "Mathlib.LinearAlgebra.Matrix.Rank": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Rank.olean",
+          "sha256": "e23cf479e3879707881838d5c4e461ad34ff9bba6dbcec353481858d8a74f147"
+        },
+        "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.olean",
+          "sha256": "eaca8425de4fa61f94214036800311681a18ffd3ccccbbb87584ce00209d16e8"
+        },
+        "Mathlib.Basic.Complex.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Basic/Complex/Basic.olean",
+          "sha256": "c2d6ca52017d2463bcac9172d7ed0c03e53530ac65c3b94ddda5924387a13326"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedRankWitness": {
+      "declarations": [
+        {
+          "name": "JinWishart.exists_linearMap_maximal_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.exists_linearMap_affine_comp_maximal_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "1ab200347ffbdbca77eae187875e40474f5f4e0f88c4a88924e8751fc573604a",
+      "olean_sha256": "3eefcece65a2497e90df67f1cf7af95cbc4f6a35eb8f581205939ce3269c746a",
+      "log_sha256": "01a8fea6b4bc490467e51eece36333284f31d59ca6e4ff17ca00aa48cc116f66",
+      "imports": {
+        "JinWishartFormalization.CorrelatedRankUpperBound": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedRankUpperBound.olean",
+          "sha256": "fb2684583efa31353c72b89d74fdfba56686647689d2badc6ffa602630790d5f"
+        },
+        "Mathlib.LinearAlgebra.Projection": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Projection.olean",
+          "sha256": "55049cb28a9445899ed72218c7ee89a2e90e73f29c32f900354251e3127eb6b1"
+        },
+        "Mathlib.LinearAlgebra.Dimension.Free": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Dimension/Free.olean",
+          "sha256": "3e797caaec8023f2af638c8d63f561ad26812312727af6aca054f0de06dcb9ea"
+        }
+      }
+    },
+    "JinWishartFormalization.MatrixRankCompression": {
+      "declarations": [
+        {
+          "name": "JinWishart.matrix_rank_compression",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "bf33b3a2b64307d3207338fb977f6da44efa2fad9d198ed10dbdd4560f26211f",
+      "olean_sha256": "d75e37728a1528cefe3988117fb80fdff5ea2c7fd8acd5ee683674dade3335c9",
+      "log_sha256": "62f4b201ea830b54e57698d28f57f87a898d575e98ddc878c8f8b59c99fe7c6b",
+      "imports": {
+        "Mathlib.LinearAlgebra.Matrix.Rank": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Rank.olean",
+          "sha256": "e23cf479e3879707881838d5c4e461ad34ff9bba6dbcec353481858d8a74f147"
+        },
+        "Mathlib.LinearAlgebra.Dimension.Free": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Dimension/Free.olean",
+          "sha256": "3e797caaec8023f2af638c8d63f561ad26812312727af6aca054f0de06dcb9ea"
+        },
+        "Mathlib.Basic.Complex.Basic": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Basic/Complex/Basic.olean",
+          "sha256": "c2d6ca52017d2463bcac9172d7ed0c03e53530ac65c3b94ddda5924387a13326"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedGaussianGenericRank": {
+      "declarations": [
+        {
+          "name": "JinWishart.genericAffineCompressedDet_eval",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedRank_ge_witness_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.exists_matrix_affine_comp_maximal_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedRank_eq_generic_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "89711e15540ec4ebccae5a618e485ada4b98cec7760586d9874fe0e1b59628f5",
+      "olean_sha256": "5babbba385ba0cad687be452598105869c1341269e95d73b83d6f13057580df1",
+      "log_sha256": "43657cfc50026b246cdabcb462b4e4b7982993474971b0a98ccc7a5b4c6e759f",
+      "imports": {
+        "JinWishartFormalization.CorrelatedRankWitness": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedRankWitness.olean",
+          "sha256": "3eefcece65a2497e90df67f1cf7af95cbc4f6a35eb8f581205939ce3269c746a"
+        },
+        "JinWishartFormalization.MatrixRankCompression": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/MatrixRankCompression.olean",
+          "sha256": "d75e37728a1528cefe3988117fb80fdff5ea2c7fd8acd5ee683674dade3335c9"
+        },
+        "JinWishartFormalization.ComplexGramSimpleSpectrum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ComplexGramSimpleSpectrum.olean",
+          "sha256": "a76490e9e80bdd200883f7e08421437484f39ccd4eb13688dd90ba1c6da66190"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedLogDetGenericRank": {
+      "declarations": [
+        {
+          "name": "JinWishart.matrix_fromRows_rank_eq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedMatrixLogDet_prelog_generic_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedMatrixLogDet_prelog_stacked_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "d05b579a72fdd16a25d9d8fe0fc719036da1646d7d145f428968ed99ff5c6f52",
+      "olean_sha256": "817325eab9c1837ce59a7df3dda0d7bc44de011def6efe8f6e1171cf77286c68",
+      "log_sha256": "7bb01367aceff368574d4737ed3a1f1f249f0b55ffa3ecd7555cdef17b19a35e",
+      "imports": {
+        "JinWishartFormalization.CorrelatedGaussianGenericRank": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedGaussianGenericRank.olean",
+          "sha256": "5babbba385ba0cad687be452598105869c1341269e95d73b83d6f13057580df1"
+        },
+        "JinWishartFormalization.CorrelatedLogDetExpectedRank": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedLogDetExpectedRank.olean",
+          "sha256": "c029ded6b896771fadc78e2deec907947e43f3285422a02081ef28c44d0e6567"
+        },
+        "Mathlib.Data.Matrix.ColumnRowPartitioned": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Matrix/ColumnRowPartitioned.olean",
+          "sha256": "9e45599bcb4df0bb0129ed669de770a9edb3478060b61104756465467631b414"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedMinimumZeroAtom": {
+      "declarations": [
+        {
+          "name": "JinWishart.gram_posDef_iff_full_column_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.gramSmallestValue_pos_iff_rank",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.gramSmallestValue_zero_iff_rank_lt",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedMinimum_zero_iff_ae",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedMinimum_zero_atom",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "8e38ddd70622d4c1132b248638a986b7792f4f71f25f66f78324cdbb765e671f",
+      "olean_sha256": "95dd6ae0bd7d7730f46f10f7624ad7b5018e4d9fe276c705c5909ab42b1167a4",
+      "log_sha256": "269234a013df429ed78aa66759ec18bc54a8e2667f5e14665088df52f91c21f9",
+      "imports": {
+        "JinWishartFormalization.CorrelatedLogDetGenericRank": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedLogDetGenericRank.olean",
+          "sha256": "817325eab9c1837ce59a7df3dda0d7bc44de011def6efe8f6e1171cf77286c68"
+        },
+        "JinWishartFormalization.CorrelatedColumnMinimum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedColumnMinimum.olean",
+          "sha256": "7d29b706acb86521a252395c0486b598af0dc1d15b7e35889c398e2f11b98ad7"
+        },
+        "JinWishartFormalization.CentralWishartCone": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CentralWishartCone.olean",
+          "sha256": "fc3574c0b4fda7ff9e4da3866ebb8295e91592f03d0015a97d9b9999db2980ef"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedNoiselessSpectralFloor": {
+      "declarations": [
+        {
+          "name": "JinWishart.exists_noiseless_right_inverse",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.noiselessRightInverseControl_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.rowGram_minimum_lower_of_right_inverse",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.correlated_rowGram_uniform_floor",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "891217e8b22716766215439fdafd4c35e57e1bd3b580cde2a8562838b2265ae6",
+      "olean_sha256": "540bbc2f76d2bf66a4d2d3936d535b8d6c73dc6962dc3ca135dc7a9a45b21ac2",
+      "log_sha256": "4f406e29778fac44b4ef0202948d10009f0a1ef6ec5f3d293a1e5aa924df57a3",
+      "imports": {
+        "JinWishartFormalization.CorrelatedRankUpperBound": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedRankUpperBound.olean",
+          "sha256": "fb2684583efa31353c72b89d74fdfba56686647689d2badc6ffa602630790d5f"
+        },
+        "JinWishartFormalization.GramMinimumColumnComparison": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramMinimumColumnComparison.olean",
+          "sha256": "daad0084b880e65487df8f9306f0669ed6efe96f187723f803fdb738ae14e37b"
+        },
+        "Mathlib.LinearAlgebra.Dimension.Free": {
+          "path": "theory/jin_wishart_formalization/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Dimension/Free.olean",
+          "sha256": "3e797caaec8023f2af638c8d63f561ad26812312727af6aca054f0de06dcb9ea"
+        }
+      }
+    },
+    "JinWishartFormalization.CorrelatedNoiselessInverseMoments": {
+      "declarations": [
+        {
+          "name": "JinWishart.measurable_actualCorrelatedRowMinimum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        },
+        {
+          "name": "JinWishart.actualCorrelatedRow_inverseMoment_integrable_of_noiseless_surjective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "author": "Codex",
+          "kind": "theorem or instance"
+        }
+      ],
+      "source_sha256": "b009b9408804100b6d795fd34b1e7069287ec117debf6a88715729b9c76a6395",
+      "olean_sha256": "d7e2106df71eb4f1a2a89fb6341b1bec2585dda755d3377b666b185687038b71",
+      "log_sha256": "904cd200a5b0fe7a489fe5ba746d3aeb22c24c1307ea6d30f10b8a18683ebc45",
+      "imports": {
+        "JinWishartFormalization.CorrelatedNoiselessSpectralFloor": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedNoiselessSpectralFloor.olean",
+          "sha256": "540bbc2f76d2bf66a4d2d3936d535b8d6c73dc6962dc3ca135dc7a9a45b21ac2"
+        },
+        "JinWishartFormalization.CorrelatedColumnMinimum": {
+          "path": ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/CorrelatedColumnMinimum.olean",
+          "sha256": "7d29b706acb86521a252395c0486b598af0dc1d15b7e35889c398e2f11b98ad7"
+        }
+      }
+    }
+  },
+  "qoder_calls": [
+    {
+      "receipt": "verification/central_mixed_moments/p1-correlated-rank-upper-0705.receipt.json",
+      "sha256": "fd6de491a6c28a74ca77da7cc8a60246937454ddcf7c622f54a0329d544e065b",
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_usage": {
+        "qmodel_38max": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0,
+          "contextWindow": 0,
+          "maxOutputTokens": 0,
+          "credits": 0.9006428571428572
+        }
+      },
+      "seconds": 55.4396018999978,
+      "exit_code": 0,
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-rank-algebra-0705.receipt.json",
+      "sha256": "6dc565eef52460109fa560946020304033a3f38fd1e64764793208b03d9e96d4",
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_usage": {
+        "qmodel_38max": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0,
+          "contextWindow": 0,
+          "maxOutputTokens": 0,
+          "credits": 1.11465
+        }
+      },
+      "seconds": 51.73344870004803,
+      "exit_code": 0,
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-rank-compression-0705.receipt.json",
+      "sha256": "6e6107586b517f00bdd59821a982d4e16f0c5a4e25b7f4787b9ba62411eaa8c0",
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_usage": {
+        "qmodel_38max": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0,
+          "contextWindow": 0,
+          "maxOutputTokens": 0,
+          "credits": 0.43590857142857137
+        }
+      },
+      "seconds": 34.84459789999528,
+      "exit_code": 0,
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-gaussian-rank-0705.receipt.json",
+      "sha256": "af23efa8d8586f04660d4df632a2b601dc1ecc90a853adbfdb79312382edaef2",
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_usage": {
+        "qmodel_38max": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0,
+          "contextWindow": 0,
+          "maxOutputTokens": 0,
+          "credits": 0.6275014285714285
+        }
+      },
+      "seconds": 42.752946500026155,
+      "exit_code": 0,
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-logdet-generic-rank-0705.receipt.json",
+      "sha256": "0d4e725099dca31384199370c630694dc158c0dcac06d4c178dbdeece6b77b70",
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_usage": {
+        "qmodel_38max": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0,
+          "contextWindow": 0,
+          "maxOutputTokens": 0,
+          "credits": 0.5370514285714285
+        }
+      },
+      "seconds": 46.54437560000224,
+      "exit_code": 0,
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-minimum-zero-atom-0705.receipt.json",
+      "sha256": "b76c0f4fc36f6b7de786a3d3802ee55ca660724255d4d77a51e8fe002490aa26",
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_usage": {
+        "qmodel_38max": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0,
+          "contextWindow": 0,
+          "maxOutputTokens": 0,
+          "credits": 0.5531228571428571
+        }
+      },
+      "seconds": 42.22725559998071,
+      "exit_code": 0,
+      "independent_compilation": false,
+      "human_review": false
+    },
+    {
+      "receipt": "verification/central_mixed_moments/p4-noiseless-floor-inverse-0705.receipt.json",
+      "sha256": "67da89a0c69b38b3048b65f4464c591f177326c0feb317133ef7240d74e65c98",
+      "requested_model": "Qwen3.8-Max",
+      "reported_model_usage": {
+        "qmodel_38max": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0,
+          "contextWindow": 0,
+          "maxOutputTokens": 0,
+          "credits": 0.9937285714285713
+        }
+      },
+      "seconds": 66.82417410000926,
+      "exit_code": 0,
+      "independent_compilation": false,
+      "human_review": false
+    }
+  ],
+  "facade48": {
+    "started_utc": "2026-10-20T07:49:11.143906+00:00",
+    "ended_utc": "2026-10-20T07:49:54.788882+00:00",
+    "gated_helper_exit_code": 0,
+    "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "log_bytes": 299,
+    "policy": "Same serialized gated helper, no extra compiler flags; retry of empty-log facade47 failure"
+  },
+  "facade47": {
+    "reported_exec_exit_code": 1,
+    "log_bytes": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cause": "UNKNOWN; retained, not counted as PASS; unchanged-source retry48 passed"
+  },
+  "full_build": "NOT_RUN",
+  "human_review": "REQUIRED",
+  "frozen_publication_hashes_unchanged": {
+    "theory/wishart_paper/main.tex": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+    "output/pdf/wishart_formalization.pdf": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+    "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+    "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b"
+  },
+  "audit_sha256": "affc06be5d5e5f7de486944c5256f17a655b667ad2037ff772f4a12d6b085185",
+  "spec_sha256": "4d28d9ea227f7c117fb27a5e226bc9181966dca94cf31be02d012c9c1e9ddcc8",
+  "source_main_sha256": "309fcff94cbcd5ec50ad14537fff181c92c48d5976e91360d06948325a8c4b2e",
+  "current_head": "6bac414485f5c5c54ca266dcb3910b6e6e2e53a7",
+  "research_milestone_commits": [
+    "a48cdb6",
+    "6bac414"
+  ],
+  "locks": {
+    "compute.lock": false,
+    "CODEX_REVIEW": false
+  },
+  "next_card": "notes/WISHART_NEXT_NOISELESS_OFFSET_CARD.md",
+  "open_scope": "General row offset/error, general singular inverse threshold, noncentral explicit minimum CDF/PDF/G2, original general T1 identity, generald simplified coefficient, T3 journal normalization/full paper mapping remainOPEN.",
+  "no_remote_push": true,
+  "no_purchases_resets_or_account_switches": true,
+  "quota_stop": "Fixed user hour governs this run; actual ordinary usage at close is recorded separately in state.",
+  "protected_unknown": [
+    ".mimosa/",
+    ".workbuddy/",
+    ".write_probe.tmp",
+    "output/screenshots/",
+    "tmp/"
+  ]
+}

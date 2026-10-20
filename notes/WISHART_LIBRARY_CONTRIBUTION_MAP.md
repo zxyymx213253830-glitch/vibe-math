@@ -1,3 +1,5 @@
+Latest2026-10-20 checkpoint515/auditPASS/facade48 realexit0: fixed arbitrary rectangular/singular/zero B:p-by-n and fixed M:m-by-n, actual complex rank(ZB+M)=min(m,rank stacked[B;M]) AE, equivalently min(m,rankB+rank(M restricted kerB)); actual expected full-logdet/logrho has that explicit limit. For n>0, COLUMN minimum atom at0 is1 iff this rank<n, else0. If M restricted kerB surjects onto m-dimensional output (m>0), fixed positive ROW minimum floor holds for EVERY noise, hence all nonnegative real ROW inverse minimum orders are integrable. No general singular inverse threshold/offset or growing-parameter uniformity asserted. 24 new declarations in8modules, not24 probability breakthroughs. All proof bodiesCodex;1realQoderP1+6final-sourceP4 delivered, errors/resolutions retained. Facade47 empty-log failure retained; same-gate unchanged-source retry48 actualexit0 withreceipt. WISHART_GENERIC_RANK.md / WISHART_NOISELESS_SPECTRAL_FLOOR.md exactscopes; WISHART_NEXT_NOISELESS_OFFSET_CARD.md remainsOPEN with scalar200000sample preflight only. HumanreviewREQUIRED/fullLakeNOT_RUN/frozenpublicationOLDUNCHANGED. Earlier latest/open-rank paragraphs below are historical and superseded only within this scope.
+
 Latest2026-10-20 checkpoint491/facade45 actualexit0/auditPASS: actual arbitraryfixedB/M full-logdet expectedprelog=E rank(ZB+M), after deterministic spectral/rank bridge. No logL1/fullrank assumption. Deterministic genericrankformula min(m,rankB+rankMrestrictedkerB) STILL OPEN; finite64witnesscontrols only. WISHART_EXPECTED_RANK_PRELOG.md resolves falseP4fatal warnings against pinned exactdefinitions. No upstreamnoveltyclaim; humanreview/fullbuild/frozenpublication boundaries unchanged.
 
 Latest2026-10-20 checkpoint488/facade44 actualexit0/auditPASS: expectedpositive-mode prelog for nonnegativeL1 spectra inclzeroatoms and actualarbitraryB/M; NO logL1/fullrank prerequisite. Generic rankformula stillOPEN/64exactfinitewitnesscontrols only. WISHART_ZERO_MODE_PRELOG.md/WISHART_NEXT_CORRELATED_RANK_CARD.md exactscopes. No mathematical/upstream novelty claim; humanreview/fullbuild/frozenpublication boundaries unchanged.
@@ -7,6 +9,21 @@ Latest2026-10-20 checkpoint483/facade43 actualexit0/auditPASS: actual arbitraryf
 Latest2026-10-20 checkpoint469/facade42 actualexit0/auditPASS: arbitraryfixed rectangular/singular B actual Gram-entry product, trace second/spectral second and centeredtracevariance CLOSED with trueL1. Exactclaims and P4 resolutions WISHART_CORRELATED_SECOND_MOMENTS.md. Earlier open correlatedmoment statements below historical. Correlated logdetlow-scale undercheck; notyetclaimed. FullbuildNOT_RUN/frozenpublicationOLDunchanged/[需人工审查].
 
 # Library contributions and the next paper revision
+
+## 本轮515检查点新增接口的定位
+
+`linearMap_pair_rank`、`exists_linearMap_affine_comp_maximal_rank` 和矩形
+`matrix_rank_compression` 把标准秩零化度、补空间/线性延拓、有限基打包为当前
+模型可用的接口。它们不是新的线性代数定理；目前限定复数域，且有少量未使用的
+有限性实例警告。若提取到通用库，应先查现行上游是否已有等价的exact-sequence/
+rank-factorization接口，再泛化域、去掉冗余假设和模型命名；本轮没有进行上游检索
+或提交，不声称已被mathlib接受，也不为“贡献数”重复计包装。
+
+无噪声右逆的谱下界完全独立于高斯分布，可作为一般有限维Hilbert/矩形算子接口
+的候选用法；核心只是恒等分解和算子范数。实际逆矩结果用既有可测性和常数支配，
+不是新积分理论。最有研究价值的模型桥是将确定性见证压缩的非零多项式，连接到
+同一实际2mp实源的零集律，从而关闭任意固定奇异B的通用秩和full-logdet显式斜率。
+数学/文献新颖性没有被本轮证明，不能从形式化进展直接推断论文新颖性。
 
 Latest431/facade40: actual first and both distinct secondtrace moments/variance, explicit full-logdet first/second lowrho coefficients closed ALLiidshapes/fixedM. Arbitrary rectangular/singularfactor B actual Gram mean m B^HB+M^HM entrywise also closed (m-by-p source,p-by-n B); correlatedsecondmoments/curvature still controls-only. Exact claims/provenance table WISHART_LOGDET_RESEARCH_CLAIMS.md. Earlier checkpoint/openmean text below historical. Humanreview/frozenpublication/fullbuild boundaries unchanged.
 

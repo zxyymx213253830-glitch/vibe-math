@@ -1,3 +1,7 @@
+# CLOSED2026-10-20: generic rank and explicit prelog
+
+The candidate below is now proved by the eight-module continuation described in WISHART_GENERIC_RANK.md (rank core) and WISHART_NOISELESS_SPECTRAL_FLOOR.md (additional row-floor regime). Audit515/facade48 exit0. The original OPEN card below is preserved as a historical obligation list, not current status. Next actual offset card: WISHART_NEXT_NOISELESS_OFFSET_CARD.md, stillOPEN.
+
 # Next card: deterministic generic rank for singular fixed factors — OPEN
 
 2026-10-20. Current491 actual prelog equals ACTUAL EXPECTEDRANK, after the
