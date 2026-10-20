@@ -1,0 +1,6 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowSecondCorrection.lean:21:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.scaled_log_inverse_second_correction_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finiteSpectrum_inverse_second_correction_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.rowLogDet_second_correction_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

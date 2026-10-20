@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowSecondCorrection.lean:18:35: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowSecondCorrection.lean:21:56: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowSecondCorrection.lean:21:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowSecondCorrection.lean:18:35: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowSecondCorrection.lean:21:56: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoiselessRowSecondCorrection.lean:35:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?f i / ?a
+in the target expression
+  0 ≤ ∑ i, r ^ 2 * Real.log (1 + (r * l i)⁻¹) - ∑ i, r * (l i)⁻¹ + (∑ i, (l i)⁻¹ ^ 2) / 2 ∧
+    ∑ i, r ^ 2 * Real.log (1 + (r * l i)⁻¹) - ∑ i, r * (l i)⁻¹ + (∑ i, (l i)⁻¹ ^ 2) / 2 ≤
+      ↑(Fintype.card ι) / (3 * r * δ ^ 3)
+
+ι : Type u_1
+inst✝ : Fintype ι
+l : ι → ℝ
+δ r : ℝ
+hδ : 0 < δ
+hl : ∀ (i : ι), δ ≤ l i
+hr : 0 < r
+hb :
+  ∀ (i : ι),
+    0 ≤ r ^ 2 * Real.log (1 + (r * l i)⁻¹) - r * (l i)⁻¹ + (l i)⁻¹ ^ 2 / 2 ∧
+      r ^ 2 * Real.log (1 + (r * l i)⁻¹) - r * (l i)⁻¹ + (l i)⁻¹ ^ 2 / 2 ≤ 1 / (3 * r * δ ^ 3)
+⊢ 0 ≤ ∑ i, r ^ 2 * Real.log (1 + (r * l i)⁻¹) - ∑ i, r * (l i)⁻¹ + (∑ i, (l i)⁻¹ ^ 2) / 2 ∧
+    ∑ i, r ^ 2 * Real.log (1 + (r * l i)⁻¹) - ∑ i, r * (l i)⁻¹ + (∑ i, (l i)⁻¹ ^ 2) / 2 ≤
+      ↑(Fintype.card ι) / (3 * r * δ ^ 3)
+'JinWishart.scaled_log_inverse_second_correction_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finiteSpectrum_inverse_second_correction_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.rowLogDet_second_correction_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

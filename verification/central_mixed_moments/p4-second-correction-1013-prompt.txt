@@ -1,0 +1,299 @@
+Verified dependency contracts for this review (do not guess opposite conventions):
+complexGram A is defined as A.conjTranspose * A. For X:m-by-n, complexGram X^H=XX^H is m-by-m.
+complexGram_posSemidef A returns a PosSemidef proof; .1 is the IsHermitian proof of that SAME matrix, not another matrix.
+complexSampleMatrix z i j=(real_coordinate0 + I*real_coordinate1)/sqrt2, source ComplexSample(m,p) with stdGaussian.
+correlated_rowGram_uniform_floor B M hm hs returns exists delta>0, forall Z:m-by-p, delta<=row minimum; it is pointwise not merely AE.
+eigenvalues i is DEFINED as eigenvalues_0 at the symm Fintype.equivOfCardEq index, not an unrelated unordered family.
+All inverse powers here are ordinary inverses of uniformly positive ROW Gram. actualCorrelatedRowInverseTracePow B M k z=trace((W^-1)^k).re and has separately kernel checked L1 under SAME hs.
+Real.log and inverse are total definitions; positivity is required for spectral identities, not for Borel measurability itself.
+M restricted kerB surjective imposes rankB+m<=n, NOT p+m<=n. B=0 permits p arbitrary. No generic-all-parameters claim is made.
+
+P4 adversarial review. You are a different model family from Codex proof author. No tools available: answer directly, no tool tags. Issues only. Review exact full Lean sources below for hidden assumptions, unsupported steps, dimension/mean/rank errors or statement/proof scope mismatch. Kernel exit0 and standard three axioms are separately recorded, not an independent compilation by you. Do not claim human approval. No numerical evidence is used as proof. Zero dimensions are intentional. Fixed B:p-by-n, M:m-by-n, sourceZ:m-by-p; CN1 source uses two standard real coordinates divided by sqrt2. Inheritance of polynomial null sets/Fubini and model correspondence remains [需人工审查]. Review the scope of this supplied module; imported results are separately checked and are not claimed to have been re-proved here.
+
+
+FULL SOURCE NoiselessRowSecondCorrection.lean
+import JinWishartFormalization.NoiselessRowFirstCorrection
+
+
+
+/-! Deterministic second inverse-trace correction and a positive cubic remainder.
+
+Codex. Global positive-side inequalities; no local power series or probability hypothesis.
+
+-/
+
+open Matrix
+
+namespace JinWishart
+
+noncomputable section
+
+
+
+theorem scaled_log_inverse_second_correction_bounds (r x : ℝ) (hr : 0<r) (hx : 0<x) :
+
+    0≤r^2*Real.log (1+(r*x)⁻¹)-r*x⁻¹+(x⁻¹)^2/2 ∧
+
+    r^2*Real.log (1+(r*x)⁻¹)-r*x⁻¹+(x⁻¹)^2/2≤1/(3*r*x^3) := by
+
+  have h := log_one_add_cubic_remainder_bounds ((r*x)⁻¹) (by positivity)
+
+  have h0 := mul_nonneg (sq_nonneg r) h.1
+
+  have h2 := mul_le_mul_of_nonneg_left h.2 (sq_nonneg r)
+
+  have he : r^2*(Real.log (1+(r*x)⁻¹)-(r*x)⁻¹+((r*x)⁻¹)^2/2)=
+
+      r^2*Real.log (1+(r*x)⁻¹)-r*x⁻¹+(x⁻¹)^2/2 := by
+
+    field_simp [hr.ne',hx.ne']
+
+  rw [he] at h0 h2
+
+  refine ⟨h0,?_⟩
+
+  convert h2 using 1 <;> field_simp [hr.ne',hx.ne']
+
+
+
+theorem finiteSpectrum_inverse_second_correction_bounds {ι : Type*} [Fintype ι]
+
+    (l : ι → ℝ) (δ r : ℝ) (hδ : 0<δ) (hl : ∀ i, δ≤l i) (hr : 0<r) :
+
+    0≤r^2*(∑ i, Real.log (1+(r*l i)⁻¹))-r*(∑ i, (l i)⁻¹)+(∑ i, ((l i)⁻¹)^2)/2 ∧
+
+    r^2*(∑ i, Real.log (1+(r*l i)⁻¹))-r*(∑ i, (l i)⁻¹)+(∑ i, ((l i)⁻¹)^2)/2≤
+
+      (Fintype.card ι:ℝ)/(3*r*δ^3) := by
+
+  classical
+
+  have hb (i : ι) : 0≤r^2*Real.log (1+(r*l i)⁻¹)-r*(l i)⁻¹+((l i)⁻¹)^2/2 ∧
+
+      r^2*Real.log (1+(r*l i)⁻¹)-r*(l i)⁻¹+((l i)⁻¹)^2/2≤1/(3*r*δ^3) := by
+
+    have h := scaled_log_inverse_second_correction_bounds r (l i) hr (hδ.trans_le (hl i))
+
+    refine ⟨h.1,h.2.trans ?_⟩
+
+    exact one_div_le_one_div_of_le (by positivity)
+
+      (mul_le_mul_of_nonneg_left (pow_le_pow_left₀ hδ.le (hl i) 3) (by positivity))
+
+  rw [Finset.mul_sum,Finset.mul_sum,Finset.sum_div,← Finset.sum_sub_distrib,← Finset.sum_add_distrib]
+
+  constructor
+
+  · exact Finset.sum_nonneg (fun i _ => (hb i).1)
+
+  · calc
+
+      _ ≤ ∑ _i : ι, 1/(3*r*δ^3) := Finset.sum_le_sum (fun i _ => (hb i).2)
+
+      _ = _ := by simp [div_eq_mul_inv]
+
+
+
+theorem rowLogDet_second_correction_bounds {m n : ℕ}
+
+    (X : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m) (δ r : ℝ)
+
+    (hδ : 0<δ) (hfloor : δ≤gramSmallestValue Xᴴ hm) (hr : 0<r) :
+
+    0≤r^2*(Real.log ((1+(r:ℂ) • complexGram X).det.re)-(m:ℝ)*Real.log r-
+
+      Real.log ((complexGram Xᴴ).det.re))-r*((complexGram Xᴴ)⁻¹).trace.re+
+
+        (((complexGram Xᴴ)⁻¹)^2).trace.re/2 ∧
+
+    r^2*(Real.log ((1+(r:ℂ) • complexGram X).det.re)-(m:ℝ)*Real.log r-
+
+      Real.log ((complexGram Xᴴ).det.re))-r*((complexGram Xᴴ)⁻¹).trace.re+
+
+        (((complexGram Xᴴ)⁻¹)^2).trace.re/2 ≤ (m:ℝ)/(3*r*δ^3) := by
+
+  have hf (i : Fin (Fintype.card (Fin m))) : δ≤(complexGram_posSemidef Xᴴ).1.eigenvalues₀ i :=
+
+    hfloor.trans (gramSmallestValue_le_orderedEigenvalue Xᴴ hm i)
+
+  have hi := hermitian_trace_inverse_pow_eq_orderedEigenvalues (complexGram Xᴴ)
+
+    (complexGram_posSemidef Xᴴ).1 (fun i => (hδ.trans_le (hf i)).ne') 1
+
+  have h2 := hermitian_trace_inverse_pow_eq_orderedEigenvalues (complexGram Xᴴ)
+
+    (complexGram_posSemidef Xᴴ).1 (fun i => (hδ.trans_le (hf i)).ne') 2
+
+  simp only [pow_one] at hi
+
+  rw [hi,h2,rowLogDet_offset_error_identity X hm δ r hδ hfloor hr]
+
+  simpa only [Fintype.card_fin] using finiteSpectrum_inverse_second_correction_bounds _ δ r hδ hf hr
+
+
+
+end
+
+end JinWishart
+
+#print axioms JinWishart.scaled_log_inverse_second_correction_bounds
+
+#print axioms JinWishart.finiteSpectrum_inverse_second_correction_bounds
+
+#print axioms JinWishart.rowLogDet_second_correction_bounds
+
+
+
+FULL SOURCE CorrelatedNoiselessSecondCorrection.lean
+import JinWishartFormalization.CorrelatedNoiselessFirstCorrection
+
+import JinWishartFormalization.NoiselessRowSecondCorrection
+
+
+
+/-! Actual second inverse-trace coefficient with a positive cubic remainder.
+
+Codex, fixed noiseless-surjective B/M. No SNR-varying parameter uniformity.
+
+[需人工审查] Probability integrability, expectation linearity, asymptotics and model.
+
+-/
+
+open Matrix Module MeasureTheory ProbabilityTheory Filter
+
+open scoped Topology
+
+namespace JinWishart
+
+noncomputable section
+
+
+
+theorem actualCorrelatedRow_expectedSecondCorrection_bounds {m p n : ℕ}
+
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m)
+
+    (hs : finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))=m) :
+
+    ∃ δ : ℝ, 0<δ ∧ ∀ r : ℝ, 0<r →
+
+      0≤r^2*actualCorrelatedExpectedRowOffsetError B M r-
+
+        r*(∫ z, actualCorrelatedRowInverseTracePow B M 1 z ∂stdGaussian _)+
+
+          (∫ z, actualCorrelatedRowInverseTracePow B M 2 z ∂stdGaussian _)/2 ∧
+
+      r^2*actualCorrelatedExpectedRowOffsetError B M r-
+
+        r*(∫ z, actualCorrelatedRowInverseTracePow B M 1 z ∂stdGaussian _)+
+
+          (∫ z, actualCorrelatedRowInverseTracePow B M 2 z ∂stdGaussian _)/2 ≤ (m:ℝ)/(3*r*δ^3) := by
+
+  obtain ⟨δ,hδ,hfloor⟩ := correlated_rowGram_uniform_floor B M hm hs
+
+  refine ⟨δ,hδ,fun r hr => ?_⟩
+
+  let E := fun z : ComplexSample (m := m) (n := p) =>
+
+    actualCorrelatedMatrixLogDet B M r z-(m:ℝ)*Real.log r-actualCorrelatedRowLogDet B M z
+
+  have hC := integrable_actualCorrelatedMatrixLogDet B M r hr.le
+
+  have hL := integrable_actualCorrelatedRowLogDet_of_noiseless_surjective B M hm hs
+
+  have hE : Integrable E (stdGaussian _) := (hC.sub (integrable_const _)).sub hL
+
+  have hI1 := integrable_actualCorrelatedRowInverseTracePow B M hm hs 1
+
+  have hI2 := integrable_actualCorrelatedRowInverseTracePow B M hm hs 2
+
+  have he : (∫ z, E z ∂stdGaussian _)=actualCorrelatedExpectedRowOffsetError B M r := by
+
+    dsimp only [E,actualCorrelatedExpectedRowOffsetError]
+
+    rw [integral_sub (f := fun z => actualCorrelatedMatrixLogDet B M r z-(m:ℝ)*Real.log r)
+
+      (g := actualCorrelatedRowLogDet B M) (hC.sub (integrable_const _)) hL,
+
+      integral_sub (f := actualCorrelatedMatrixLogDet B M r) (g := fun _ => (m:ℝ)*Real.log r)
+
+        hC (integrable_const _)]
+
+    simp
+
+  let F := fun z => r^2*E z-r*actualCorrelatedRowInverseTracePow B M 1 z+
+
+    actualCorrelatedRowInverseTracePow B M 2 z/2
+
+  have hF : Integrable F (stdGaussian _) :=
+
+    ((hE.const_mul (r^2)).sub (hI1.const_mul r)).add (hI2.div_const 2)
+
+  have hFe : (∫ z, F z ∂stdGaussian _)=r^2*actualCorrelatedExpectedRowOffsetError B M r-
+
+      r*(∫ z, actualCorrelatedRowInverseTracePow B M 1 z ∂stdGaussian _)+
+
+        (∫ z, actualCorrelatedRowInverseTracePow B M 2 z ∂stdGaussian _)/2 := by
+
+    dsimp only [F]
+
+    rw [integral_add (f := fun z => r^2*E z-r*actualCorrelatedRowInverseTracePow B M 1 z)
+
+      (g := fun z => actualCorrelatedRowInverseTracePow B M 2 z/2)
+
+      ((hE.const_mul _).sub (hI1.const_mul _)) (hI2.div_const 2),
+
+      integral_sub (f := fun z => r^2*E z) (g := fun z => r*actualCorrelatedRowInverseTracePow B M 1 z)
+
+        (hE.const_mul _) (hI1.const_mul _),integral_div,integral_const_mul,integral_const_mul,he]
+
+  have hb : ∀ z, 0≤F z-0-0 ∧ F z-0-0≤(m:ℝ)/(3*r*δ^3) := by
+
+    intro z
+
+    simpa only [F,E,sub_zero,actualCorrelatedRowInverseTracePow,pow_one,
+
+      actualCorrelatedMatrixLogDet,actualCorrelatedRowLogDet] using
+
+      rowLogDet_second_correction_bounds (complexSampleMatrix z*B+M) hm δ r hδ
+
+        (hfloor (complexSampleMatrix z)) hr
+
+  have h := integral_offset_remainder_bounds (stdGaussian _) F (fun _ => 0)
+
+    hF (integrable_const 0) 0 ((m:ℝ)/(3*r*δ^3)) hb
+
+  simpa only [integral_zero,sub_zero,hFe] using h
+
+
+
+theorem actualCorrelatedRow_expectedSecondCorrection_tendsto {m p n : ℕ}
+
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (hm : 0<m)
+
+    (hs : finrank ℂ (LinearMap.range (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))=m) :
+
+    Tendsto (fun r : ℝ => r^2*actualCorrelatedExpectedRowOffsetError B M r-
+
+      r*(∫ z, actualCorrelatedRowInverseTracePow B M 1 z ∂stdGaussian _)) atTop
+
+      (𝓝 (-(∫ z, actualCorrelatedRowInverseTracePow B M 2 z ∂stdGaussian _)/2)) := by
+
+  obtain ⟨δ,hδ,hb⟩ := actualCorrelatedRow_expectedSecondCorrection_bounds B M hm hs
+
+  apply tendsto_offset_of_inverse_bound _ _ ((m:ℝ)/(3*δ^3))
+
+  intro r hr
+
+  convert hb r hr using 1 <;> ring
+
+
+
+end
+
+end JinWishart
+
+#print axioms JinWishart.actualCorrelatedRow_expectedSecondCorrection_bounds
+
+#print axioms JinWishart.actualCorrelatedRow_expectedSecondCorrection_tendsto
+
