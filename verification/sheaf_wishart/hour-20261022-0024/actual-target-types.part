@@ -1,0 +1,39 @@
+namespace SheafActualSingular
+noncomputable section
+def Compress : Prop := ∀ {m n q : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) (f : Fin q → Fin m) (g : Fin q → Fin n),
+ (1 : Matrix (Fin m) (Fin m) ℂ).submatrix f (Equiv.refl _) * X *
+ (1 : Matrix (Fin n) (Fin n) ℂ).submatrix (Equiv.refl _) g = X.submatrix f g
+def Witness : Prop := ∀ {m p n : ℕ} (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ),
+ ∃ (f : Fin (min m (Matrix.fromRows B M).rank) → Fin m)
+ (g : Fin (min m (Matrix.fromRows B M).rank) → Fin n),
+ Function.Injective f ∧ Function.Injective g ∧
+ MeasureTheory.Integrable (fun z => Real.log ‖((JinWishart.complexSampleMatrix z*B+M).submatrix f g).det‖)
+ (ProbabilityTheory.stdGaussian (JinWishart.ComplexSample (m:=m) (n:=p))) ∧
+ (∀ᵐ z ∂ProbabilityTheory.stdGaussian (JinWishart.ComplexSample (m:=m) (n:=p)),
+ ((JinWishart.complexSampleMatrix z*B+M).submatrix f g).det≠0)
+def Sum : Prop := ∀ {m p n : ℕ} (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ),
+ MeasureTheory.Integrable (fun z => ∑ i,JinWishart.positiveSpectrumLog (JinWishart.actualCorrelatedEigenvalue B M i z))
+ (ProbabilityTheory.stdGaussian (JinWishart.ComplexSample (m:=m) (n:=p)))
+def Mode : Prop := ∀ {m p n : ℕ} (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+ (i : Fin (Fintype.card (Fin n))),
+ MeasureTheory.Integrable (fun z => JinWishart.positiveSpectrumLog (JinWishart.actualCorrelatedEigenvalue B M i z))
+ (ProbabilityTheory.stdGaussian (JinWishart.ComplexSample (m:=m) (n:=p)))
+def Offset : Prop := ∀ {m p n : ℕ} (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ),
+ Filter.Tendsto (fun r : ℝ => (∫ z,JinWishart.actualCorrelatedMatrixLogDet B M r z ∂ProbabilityTheory.stdGaussian _)-
+ ((min m (Matrix.fromRows B M).rank):ℝ)*Real.log r) Filter.atTop
+ (𝓝 (∫ z,(∑ i,JinWishart.positiveSpectrumLog (JinWishart.actualCorrelatedEigenvalue B M i z)) ∂ProbabilityTheory.stdGaussian _))
+end
+end SheafActualSingular
+open Lean Meta in
+#eval show MetaM Unit from do
+ for (target,expected) in [
+  (`JinWishart.coordinate_submatrix_as_compression,`SheafActualSingular.Compress),
+  (`JinWishart.exists_actual_fixed_rank_minor_log_witness,`SheafActualSingular.Witness),
+  (`JinWishart.integrable_actualCorrelated_positive_log_sum,`SheafActualSingular.Sum),
+  (`JinWishart.integrable_actualCorrelated_positive_log,`SheafActualSingular.Mode),
+  (`JinWishart.actualCorrelatedMatrixLogDet_offset_generic_rank,`SheafActualSingular.Offset)] do
+   let actualType ← inferType (← mkConstWithFreshMVarLevels target)
+   let expectedType ← whnf (← mkConstWithFreshMVarLevels expected)
+   unless ← isDefEq actualType expectedType do
+    throwError "SHEAF target type differs: {target}"
+ IO.println "SHEAF_TARGET_TYPES_EQ PASS"

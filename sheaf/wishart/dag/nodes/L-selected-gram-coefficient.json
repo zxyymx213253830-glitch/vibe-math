@@ -1,0 +1,20 @@
+{
+  "id": "L-selected-gram-coefficient",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramMinorCoefficientBound",
+  "declaration": "JinWishart.selected_gram_det_le_coefficient",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-coefficient-bound.json",
+    "source_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787"
+  }
+}

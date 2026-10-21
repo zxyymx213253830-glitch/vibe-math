@@ -1,0 +1,35 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetDerivative.lean:24:30: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetDerivative.lean:31:31: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetDerivative.lean:37:113: error: unsolved goals
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+r : ℝ
+hr : 0 < r
+hi :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    HasDerivAt
+      (fun x => ∫ (a : ComplexSample), Real.log (1 + x * actualCorrelatedEigenvalue B M i a) ∂stdGaussian ComplexSample)
+      (∫ (a : ComplexSample),
+        actualCorrelatedEigenvalue B M i a / (1 + r * actualCorrelatedEigenvalue B M i a) ∂stdGaussian ComplexSample)
+      r
+ht :
+  HasDerivAt
+    (∑ i, fun x =>
+      ∫ (a : ComplexSample), Real.log (1 + x * actualCorrelatedEigenvalue B M i a) ∂stdGaussian ComplexSample)
+    (∑ i,
+      ∫ (a : ComplexSample),
+        actualCorrelatedEigenvalue B M i a / (1 + r * actualCorrelatedEigenvalue B M i a) ∂stdGaussian ComplexSample)
+    r
+x : ℝ
+hx : x ∈ Ioi 0
+he : actualCorrelatedMatrixLogDet B M x = fun z => finiteSpectrumLogDet (fun i => actualCorrelatedEigenvalue B M i z) x
+⊢ ∑ i, ∫ (a : ComplexSample), Real.log (1 + x * actualCorrelatedEigenvalue B M i a) ∂stdGaussian ComplexSample =
+    (∑ i, fun x =>
+        ∫ (a : ComplexSample), Real.log (1 + x * actualCorrelatedEigenvalue B M i a) ∂stdGaussian ComplexSample)
+      x
+'JinWishart.integral_log_one_add_mul_hasDerivAt' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_hasDerivAt' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

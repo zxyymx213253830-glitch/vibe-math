@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "AveragedCauchyBinet.lean": {
+      "sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+      "supplied": "Full source"
+    },
+    "GramMinorCoefficientBound.lean": {
+      "sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787",
+      "supplied": "Full source"
+    },
+    "GramMinorLogDomination.lean": {
+      "sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "bb7a074c16ef9d91885efece59434c9730c4c9fb4b3e3cc76310dfc06fb8c06f"
+}

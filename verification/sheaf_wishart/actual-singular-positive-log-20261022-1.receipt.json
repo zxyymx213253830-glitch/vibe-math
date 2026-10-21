@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T16:50:02.238168+00:00",
+  "ended_utc": "2026-10-21T16:50:13.852998+00:00",
+  "module": "JinWishartFormalization.ActualSingularPositiveLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularPositiveLog.lean",
+  "source_sha256_before": "c641b479e22655d2008c3625c0e5ac206e957f8244be094b121440f8279dbc99",
+  "source_sha256": "c641b479e22655d2008c3625c0e5ac206e957f8244be094b121440f8279dbc99",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/actual-singular-positive-log-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "9b0e8274dd4bdb25944cdae722726cfdc3af3c5064084b1e0e1cbf584862e438",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

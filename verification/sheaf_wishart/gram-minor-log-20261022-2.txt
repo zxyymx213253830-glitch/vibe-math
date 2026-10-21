@@ -1,0 +1,4 @@
+'JinWishart.gram_rank_coefficient_log_eq_ordered_positive_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.abs_positive_log_sum_le_minor_log' depends on axioms: [propext, Classical.choice, Quot.sound]

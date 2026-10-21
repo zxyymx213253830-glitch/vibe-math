@@ -1,0 +1,20 @@
+{
+  "id": "L-coordinate-physical-compression",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualSingularPositiveLog",
+  "declaration": "JinWishart.coordinate_submatrix_as_compression",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-actual-singular.json",
+    "source_sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8"
+  }
+}

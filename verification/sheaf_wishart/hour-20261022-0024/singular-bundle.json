@@ -1,0 +1,27 @@
+{
+  "checker": "SheafSingularBundleTargets.lean",
+  "types_tag": "singular-bundle-types-20261022-locked",
+  "modules": [
+    {"tag": "average", "module": "AveragedCauchyBinet", "nodes": [
+      ["L-rectangular-permutation-average", "rectangular_det_permutation_weight_sum", ["L-rectangular-all-functions"]],
+      ["L-averaged-cauchy-binet", "det_mul_rectangular_factorial_sum_functions", ["L-rectangular-permutation-average"]],
+      ["L-gram-factorial-squares", "gram_det_factorial_sum_squared_minors", ["L-averaged-cauchy-binet"]],
+      ["L-minor-factorial-domination", "squared_minor_le_factorial_gram_det", ["L-gram-factorial-squares"]]
+    ]},
+    {"tag": "coefficient-bound", "module": "GramMinorCoefficientBound", "nodes": [
+      ["L-selected-gram-coefficient", "selected_gram_det_le_coefficient", []],
+      ["L-coordinate-minor-coefficient-bound", "squared_coordinate_minor_le_factorial_coefficient", ["L-selected-gram-coefficient", "L-minor-factorial-domination"]]
+    ]},
+    {"tag": "log-domination", "module": "GramMinorLogDomination", "nodes": [
+      ["L-ordered-gram-rank-log", "gram_rank_coefficient_log_eq_ordered_positive_sum", ["L-gram-rank-spectral-coefficient"]],
+      ["L-positive-log-minor-domination", "abs_positive_log_sum_le_minor_log", ["L-ordered-gram-rank-log", "L-coordinate-minor-coefficient-bound"]]
+    ]},
+    {"tag": "actual-singular", "module": "ActualSingularPositiveLog", "nodes": [
+      ["L-coordinate-physical-compression", "coordinate_submatrix_as_compression", []],
+      ["L-fixed-rank-minor-log-witness", "exists_actual_fixed_rank_minor_log_witness", ["L-coordinate-physical-compression", "S18-rank-coordinate-minor", "S15-compressed-log"]],
+      ["L-actual-aggregate-positive-log", "integrable_actualCorrelated_positive_log_sum", ["L-fixed-rank-minor-log-witness", "L-positive-log-minor-domination"]],
+      ["L-actual-mode-positive-log", "integrable_actualCorrelated_positive_log", ["L-actual-aggregate-positive-log", "L-mode-log-L1"]],
+      ["S17-general-singular-offset", "actualCorrelatedMatrixLogDet_offset_generic_rank", ["L-actual-aggregate-positive-log", "S16-offset-aggregate-log"]]
+    ]}
+  ]
+}

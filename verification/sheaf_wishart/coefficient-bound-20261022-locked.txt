@@ -1,0 +1,4 @@
+'JinWishart.selected_gram_det_le_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.squared_coordinate_minor_le_factorial_coefficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

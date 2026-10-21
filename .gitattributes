@@ -188,3 +188,15 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/averaged_cauchy_binet_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_GRAM_RANK_COEFFICIENT.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/AveragedCauchyBinet.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GramMinorCoefficientBound.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GramMinorLogDomination.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularPositiveLog.lean -text whitespace=cr-at-eol
+
+/experiments/singular_factor_offset_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_SINGULAR_LOGDET_OFFSET.md -text whitespace=cr-at-eol

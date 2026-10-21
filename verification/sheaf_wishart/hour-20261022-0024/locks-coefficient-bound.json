@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-21T16:54:43.434669+00:00",
+  "module": "JinWishartFormalization.GramMinorCoefficientBound",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramMinorCoefficientBound.lean",
+  "statements": {
+    "JinWishart.selected_gram_det_le_coefficient": "{m n q : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) (g : Fin q → Fin n) (hg : Injective g) : (complexGram (X.submatrix id g)).det.re ≤ (((1+(Polynomial.X : ℂ[X]) • (complexGram X).map Polynomial.C).det).coeff q).re",
+    "JinWishart.squared_coordinate_minor_le_factorial_coefficient": "{m n q : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) (f : Fin q → Fin m) (g : Fin q → Fin n) (hg : Injective g) : Complex.normSq ((X.submatrix f g).det) ≤ (q.factorial : ℝ)* (((1+(Polynomial.X : ℂ[X]) • (complexGram X).map Polynomial.C).det).coeff q).re"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GramRankSpectralCoefficient.lean": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramRankSpectralCoefficient.olean": "cfc4367fefec9420a975c785d34d77b7c7758193ffbd017978d288483670ff0a",
+    "theory/jin_wishart_formalization/JinWishartFormalization/HermitianSpectralLogDet.lean": "dd20a5edc505618069756c5fa4e84374764c62091ca328e960f784e19491708d",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianSpectralLogDet.olean": "b4bc47d6e595ae9f1316a8658b168052294997c74e59303f7d081145c1bd5c3c",
+    "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumLogDetGrowth.lean": "59226ecd38b4fb1a42e059c072c9366b9275f52d1bdd18963b4252dcd717736e",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FiniteSpectrumLogDetGrowth.olean": "4feb34a00c1182731152c7f111212984c1546e7aa8164107143c9c8e030e37c0",
+    "theory/jin_wishart_formalization/JinWishartFormalization/LogMomentIntegrability.lean": "95b0e15c9244d02cfd9af67b0a0fede5ced3a87b54b378cb73289640613bdb58",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LogMomentIntegrability.olean": "539ff450f2ccbe5d6eb9637e7680ec0545c146b586890eaf91f29282a2912c11",
+    "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/WishartProbability.olean": "5d5dad561c507df7943f399fb4f93cf17fa45106ca408c8b38959cb856817aaa",
+    "theory/jin_wishart_formalization/JinWishartFormalization/AveragedCauchyBinet.lean": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/AveragedCauchyBinet.olean": "379a7576f6af841963d9f5ea7ac7daca75fc417c96cc02c6f4a4b54d42bd572e",
+    "theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/RectangularDeterminantExpansion.olean": "c0fa651f0fd2c240e7d42d25aeb7035aefda0e4dd10ff0b78d8700aaf51ec35f",
+    "theory/jin_wishart_formalization/JinWishartFormalization/MatrixRankCompression.lean": "bf33b3a2b64307d3207338fb977f6da44efa2fad9d198ed10dbdd4560f26211f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/MatrixRankCompression.olean": "d75e37728a1528cefe3988117fb80fdff5ea2c7fd8acd5ee683674dade3335c9",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/hour-20261022-0024/SheafSingularBundleTargets.lean",
+  "type_check_source_sha256": "5d7a9cdd6fe99070d67d7286f2f436e03b0bcf7b73aa0fcdb69de8d1a0b587df",
+  "locked_local_definitions": {}
+}

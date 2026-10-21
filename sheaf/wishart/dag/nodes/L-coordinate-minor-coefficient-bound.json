@@ -1,0 +1,26 @@
+{
+  "id": "L-coordinate-minor-coefficient-bound",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramMinorCoefficientBound",
+  "declaration": "JinWishart.squared_coordinate_minor_le_factorial_coefficient",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-selected-gram-coefficient",
+    "L-minor-factorial-domination"
+  ],
+  "proof": [
+    {
+      "text": "Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.",
+      "uses": [
+        "L-selected-gram-coefficient",
+        "L-minor-factorial-domination"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-coefficient-bound.json",
+    "source_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787"
+  }
+}

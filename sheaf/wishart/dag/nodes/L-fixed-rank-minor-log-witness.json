@@ -1,0 +1,28 @@
+{
+  "id": "L-fixed-rank-minor-log-witness",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualSingularPositiveLog",
+  "declaration": "JinWishart.exists_actual_fixed_rank_minor_log_witness",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-coordinate-physical-compression",
+    "S18-rank-coordinate-minor",
+    "S15-compressed-log"
+  ],
+  "proof": [
+    {
+      "text": "Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.",
+      "uses": [
+        "L-coordinate-physical-compression",
+        "S18-rank-coordinate-minor",
+        "S15-compressed-log"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-actual-singular.json",
+    "source_sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "ActualSingularPositiveLog.lean": {
+      "sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8",
+      "supplied": "Full source"
+    },
+    "GramMinorLogDomination.lean": {
+      "sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+      "supplied": "Full source"
+    },
+    "NonnegativeSpectrumOffset.lean": {
+      "sha256": "89de9eb20544bb4b971f81c8a4d5432842963150d940f85ef7dd52fc5211757b",
+      "supplied": "Exact positiveSpectrumLog definition"
+    }
+  },
+  "prompt_sha256": "d0fb0a1e54c4c7a05d90f4c6568bbda7488a76a726d46975bb588c490769bb72"
+}

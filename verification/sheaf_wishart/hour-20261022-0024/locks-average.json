@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-10-21T16:54:43.394871+00:00",
+  "module": "JinWishartFormalization.AveragedCauchyBinet",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/AveragedCauchyBinet.lean",
+  "statements": {
+    "JinWishart.rectangular_det_permutation_weight_sum": "{q m : ℕ} (A : Matrix (Fin q) (Fin m) ℂ) (B : Matrix (Fin m) (Fin q) ℂ) (σ : Equiv.Perm (Fin q)) : (∑ f : Fin q → Fin m, (∏ i, A (σ i) (f i))*(B.submatrix f id).det) = ((Equiv.Perm.sign σ : ℤ) : ℂ)*(A*B).det",
+    "JinWishart.det_mul_rectangular_factorial_sum_functions": "{q m : ℕ} (A : Matrix (Fin q) (Fin m) ℂ) (B : Matrix (Fin m) (Fin q) ℂ) : (q.factorial : ℂ)*(A*B).det = ∑ f : Fin q → Fin m, (A.submatrix id f).det*(B.submatrix f id).det",
+    "JinWishart.gram_det_factorial_sum_squared_minors": "{m q : ℕ} (B : Matrix (Fin m) (Fin q) ℂ) : (q.factorial : ℂ)*(complexGram B).det = ∑ f : Fin q → Fin m, star ((B.submatrix f id).det)*(B.submatrix f id).det",
+    "JinWishart.squared_minor_le_factorial_gram_det": "{m q : ℕ} (B : Matrix (Fin m) (Fin q) ℂ) (f : Fin q → Fin m) : Complex.normSq ((B.submatrix f id).det) ≤ (q.factorial : ℝ)*(complexGram B).det.re"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/RectangularDeterminantExpansion.olean": "c0fa651f0fd2c240e7d42d25aeb7035aefda0e4dd10ff0b78d8700aaf51ec35f",
+    "theory/jin_wishart_formalization/JinWishartFormalization/MatrixRankCompression.lean": "bf33b3a2b64307d3207338fb977f6da44efa2fad9d198ed10dbdd4560f26211f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/MatrixRankCompression.olean": "d75e37728a1528cefe3988117fb80fdff5ea2c7fd8acd5ee683674dade3335c9",
+    "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/WishartProbability.olean": "5d5dad561c507df7943f399fb4f93cf17fa45106ca408c8b38959cb856817aaa",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/hour-20261022-0024/SheafSingularBundleTargets.lean",
+  "type_check_source_sha256": "5d7a9cdd6fe99070d67d7286f2f436e03b0bcf7b73aa0fcdb69de8d1a0b587df",
+  "locked_local_definitions": {}
+}

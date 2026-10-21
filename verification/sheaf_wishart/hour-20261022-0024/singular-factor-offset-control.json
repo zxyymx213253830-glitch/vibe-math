@@ -1,0 +1,139 @@
+{
+  "status": "PASS known-reference controls; NOT a proof",
+  "seed": 2026102202,
+  "samples": 200000,
+  "source_sha256": "0255f895c2475b9e102b98af392d6d47eaedffdabb1d76eabe2be15cc085a4ce",
+  "checks": 27,
+  "details": [
+    {
+      "name": "rank1-singular-B-log-gamma-m1",
+      "mean": -0.5760787599795503,
+      "reference": -0.5772156649015329,
+      "standard_error": 0.0028689106356792698
+    },
+    {
+      "name": "proper-cn1-energy-m1",
+      "mean": 1.0025449378094995,
+      "reference": 1.0,
+      "standard_error": 0.0022499955351521096
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m1-rho100.0"
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m1-rho10000.0"
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m1-rho1000000.0"
+    },
+    {
+      "name": "rank1-offset-error-decreases-m1",
+      "errors": [
+        0.05039203768515364,
+        0.0008923237642801764,
+        1.051481383420796e-05
+      ]
+    },
+    {
+      "name": "rank1-singular-B-log-gamma-m2",
+      "mean": 0.42266893885222206,
+      "reference": 0.42278433509846713,
+      "standard_error": 0.0017965826064923127
+    },
+    {
+      "name": "proper-cn1-energy-m2",
+      "mean": 2.0003813222914792,
+      "reference": 2.0,
+      "standard_error": 0.0031629648458794822
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m2-rho100.0"
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m2-rho10000.0"
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m2-rho1000000.0"
+    },
+    {
+      "name": "rank1-offset-error-decreases-m2",
+      "errors": [
+        0.009771931808034562,
+        9.979751901564068e-05,
+        9.982402773443328e-07
+      ]
+    },
+    {
+      "name": "rank1-singular-B-log-gamma-m3",
+      "mean": 0.9233797729932773,
+      "reference": 0.9227843350984671,
+      "standard_error": 0.001405942169461937
+    },
+    {
+      "name": "proper-cn1-energy-m3",
+      "mean": 3.0026817574872444,
+      "reference": 3.0,
+      "standard_error": 0.0038830299748737296
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m3-rho100.0"
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m3-rho10000.0"
+    },
+    {
+      "name": "rank1-offset-error-nonnegative-m3-rho1000000.0"
+    },
+    {
+      "name": "rank1-offset-error-decreases-m3",
+      "errors": [
+        0.0049728448572758654,
+        4.996537356507643e-05,
+        4.996779058885767e-07
+      ]
+    },
+    {
+      "name": "rank2-B-singular-M-noiseless-complement-logdet",
+      "mean": 0.2319341761127329,
+      "reference": 0.2337145513147959,
+      "standard_error": 0.0028776989278781226
+    },
+    {
+      "name": "rank2-logdet-direct-identity"
+    },
+    {
+      "name": "rank2-correlated-trace",
+      "mean": 4.249889782355232,
+      "reference": 4.25,
+      "standard_error": 0.0031571968978876385
+    },
+    {
+      "name": "rank2-offset-error-nonnegative-rho100.0"
+    },
+    {
+      "name": "rank2-offset-error-nonnegative-rho10000.0"
+    },
+    {
+      "name": "rank2-offset-error-nonnegative-rho1000000.0"
+    },
+    {
+      "name": "rank2-offset-error-decreases",
+      "errors": [
+        0.07261043991880523,
+        0.001484840256345666,
+        2.1949816665144245e-05
+      ]
+    },
+    {
+      "name": "zero-B-fixed-rank1-offset-reference",
+      "rank": 1,
+      "offset": 1.3862943611198906
+    },
+    {
+      "name": "empty-rank0-offset",
+      "rank": 0,
+      "offset": 0
+    }
+  ],
+  "scope": "Fixed properCN1 singular B; rank1 gamma references, rank2 singular B plus fixed noiseless mean complement, zero B and rank0. No parameter-uniform assertion."
+}

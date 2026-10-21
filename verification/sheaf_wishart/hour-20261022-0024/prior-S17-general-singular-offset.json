@@ -1,0 +1,55 @@
+{
+  "id": "S17-general-singular-offset",
+  "kind": "target",
+  "target": true,
+  "statement": "For all fixed rectangular complex B p-by-n,M m-by-n, r=min(m,rank stacked[B;M]), prove aggregate positive-spectrum-log L1 and Elogdet(I+rho X^H X)-r log(rho) tends its finite expectation, X=ZB+M, Z proper independent CN1. No uniformity in B,M.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-gram-minor-coefficient",
+    "L-gram-rank-spectral-coefficient",
+    "S15-compressed-log",
+    "S16-offset-aggregate-log"
+  ],
+  "proof": [
+    {
+      "text": "At a maximal-rank deterministic witness, positivity of coefficient plus sum-of-squares selects one fixed nonzero coordinate minor.",
+      "uses": [
+        "L-gram-minor-coefficient",
+        "L-gram-rank-spectral-coefficient",
+        "S15-compressed-log",
+        "S16-offset-aggregate-log"
+      ]
+    },
+    {
+      "text": "Establish its physical-entry polynomial is nonzero and its evaluation nonzero AE; use accepted fixed-compression log L1.",
+      "uses": [
+        "L-gram-minor-coefficient",
+        "L-gram-rank-spectral-coefficient",
+        "S15-compressed-log",
+        "S16-offset-aggregate-log"
+      ]
+    },
+    {
+      "text": "On AE rank event derive 2log|P|<=S<=trace and |S|<=trace+2|log|P||. Treat rank0 separately.",
+      "uses": [
+        "L-gram-minor-coefficient",
+        "L-gram-rank-spectral-coefficient",
+        "S15-compressed-log",
+        "S16-offset-aggregate-log"
+      ]
+    },
+    {
+      "text": "Apply accepted conditional aggregate offset after supplying actual aggregate L1.",
+      "uses": [
+        "L-gram-minor-coefficient",
+        "L-gram-rank-spectral-coefficient",
+        "S15-compressed-log",
+        "S16-offset-aggregate-log"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "open_not_formalized",
+    "evidence": "notes/WISHART_NEXT_PSEUDODET_CARD.md"
+  }
+}

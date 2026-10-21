@@ -1,0 +1,26 @@
+{
+  "id": "L-positive-log-minor-domination",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramMinorLogDomination",
+  "declaration": "JinWishart.abs_positive_log_sum_le_minor_log",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-ordered-gram-rank-log",
+    "L-coordinate-minor-coefficient-bound"
+  ],
+  "proof": [
+    {
+      "text": "Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.",
+      "uses": [
+        "L-ordered-gram-rank-log",
+        "L-coordinate-minor-coefficient-bound"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-log-domination.json",
+    "source_sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696"
+  }
+}

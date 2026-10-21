@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ActualSingularPositiveLog.lean": {
+      "sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8",
+      "supplied": "Full source"
+    },
+    "GramMinorLogDomination.lean": {
+      "sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "bfbb5df8b97c773d860f018759cacb1722521ae8a230914f8b2017b258e51a91"
+}

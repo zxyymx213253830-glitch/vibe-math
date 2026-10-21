@@ -1,0 +1,54 @@
+{
+  "status": "PASS closed-reference derivative controls; NOT a proof",
+  "seed": 2026102203,
+  "samples": 200000,
+  "source_sha256": "45de28419751f28449c9be44d8a44c8c371ba65348e7a509bb27e3996fb737a0",
+  "checks": 8,
+  "details": [
+    {
+      "rho": 0.1,
+      "mean": 0.8408477235941184,
+      "reference": 0.843666606021193,
+      "standard_error": 0.0016183179008854495,
+      "finite_difference_max_error": 6.732529200803583e-09
+    },
+    {
+      "rho": 1.0,
+      "mean": 0.4029761579285226,
+      "reference": 0.40365263767680537,
+      "standard_error": 0.0004896598257323817,
+      "finite_difference_max_error": 2.718149705316364e-09
+    },
+    {
+      "rho": 10.0,
+      "mean": 0.07980893968155317,
+      "reference": 0.07985357455291549,
+      "standard_error": 4.4345427770184424e-05,
+      "finite_difference_max_error": 3.261107078822434e-10
+    },
+    {
+      "rho": 100.0,
+      "mean": 0.009591028736902724,
+      "reference": 0.009592148855654358,
+      "standard_error": 1.994738013183791e-06,
+      "finite_difference_max_error": 3.3301875146385385e-11
+    },
+    {
+      "deterministic_eigenvalue": 0.0,
+      "derivative": 0.0
+    },
+    {
+      "deterministic_eigenvalue": 0.25,
+      "derivative": 0.16666666666666666
+    },
+    {
+      "deterministic_eigenvalue": 1.0,
+      "derivative": 0.3333333333333333
+    },
+    {
+      "deterministic_eigenvalue": 4.0,
+      "derivative": 0.4444444444444444
+    }
+  ],
+  "scope": "Exponential(1) scalar properCN1 and fixed spectrum including zero mode. E lambda/(1+rho lambda) uses exact E1 reference; shared samples in finite differences."
+}

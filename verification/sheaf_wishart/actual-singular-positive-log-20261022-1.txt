@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularPositiveLog.lean:77:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fromRows ?B ?M).rank
+in the target expression
+  (complexSampleMatrix z * B + M).rank = r
+
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+r : ℕ := min m (B.fromRows M).rank
+f : Fin (min m (B.fromRows M).rank) → Fin m
+g : Fin (min m (B.fromRows M).rank) → Fin n
+hf : Function.Injective f
+hg : Function.Injective g
+hlog : Integrable (fun z => Real.log ‖((complexSampleMatrix z * B + M).submatrix f g).det‖) (stdGaussian ComplexSample)
+hne : ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample, ((complexSampleMatrix z * B + M).submatrix f g).det ≠ 0
+ht : Integrable (fun z => ∑ i, actualCorrelatedEigenvalue B M i z) (stdGaussian ComplexSample)
+hi :
+  Integrable
+    (((fun z => ∑ i, actualCorrelatedEigenvalue B M i z) + fun x => |Real.log ↑r.factorial|) + fun x =>
+      2 * ‖Real.log ‖((complexSampleMatrix x * B + M).submatrix f g).det‖‖)
+    (stdGaussian ComplexSample)
+hm : Measurable fun z => ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)
+z : ComplexSample
+hz : ((complexSampleMatrix z * B + M).submatrix f g).det ≠ 0
+hr :
+  (complexSampleMatrix z * B + M).rank =
+    min m (B.rank + Module.finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range)
+⊢ (complexSampleMatrix z * B + M).rank = r
+'JinWishart.coordinate_submatrix_as_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_actual_fixed_rank_minor_log_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelated_positive_log_sum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_actualCorrelated_positive_log' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_offset_generic_rank' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T16:55:07.364982+00:00",
+  "ended_utc": "2026-10-21T16:55:18.925394+00:00",
+  "module": "JinWishartFormalization.GramMinorLogDomination",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramMinorLogDomination.lean",
+  "source_sha256_before": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+  "source_sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/log-domination-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "30b14bc2e2f393deaf2b4dd0edc177bf09ab0f072206dcda289502b3af4ff22d",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

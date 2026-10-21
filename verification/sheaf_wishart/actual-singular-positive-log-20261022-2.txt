@@ -1,0 +1,5 @@
+'JinWishart.coordinate_submatrix_as_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_actual_fixed_rank_minor_log_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelated_positive_log_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelated_positive_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_offset_generic_rank' depends on axioms: [propext, Classical.choice, Quot.sound]

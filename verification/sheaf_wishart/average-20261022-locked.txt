@@ -1,0 +1,11 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AveragedCauchyBinet.lean:86:46: warning: This simp argument is unused:
+  Complex.star_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.mul_re, Complex.normSq_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.rectangular_det_permutation_weight_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.det_mul_rectangular_factorial_sum_functions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_det_factorial_sum_squared_minors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.squared_minor_le_factorial_gram_det' depends on axioms: [propext, Classical.choice, Quot.sound]

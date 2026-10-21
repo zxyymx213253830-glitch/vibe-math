@@ -1,0 +1,24 @@
+{
+  "id": "L-gram-factorial-squares",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.AveragedCauchyBinet",
+  "declaration": "JinWishart.gram_det_factorial_sum_squared_minors",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-averaged-cauchy-binet"
+  ],
+  "proof": [
+    {
+      "text": "Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.",
+      "uses": [
+        "L-averaged-cauchy-binet"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-average.json",
+    "source_sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58"
+  }
+}

@@ -1,3 +1,5 @@
+2026-10-22 此卡的通用奇异偏移目标已由平均Cauchy-Binet替代路线验收闭合：608/auditPASS/facade63。下面是保留的历史路线；完整子集恒等式仍未证明，不影响已验收目标。详见WISHART_SINGULAR_LOGDET_OFFSET.md。
+
 # Next substantive obligation: fixed coordinate minor to positive-spectrum log
 
 Checkpoint585, fixed hour2026-10-21. This is a research card, not a proved Lean theorem.

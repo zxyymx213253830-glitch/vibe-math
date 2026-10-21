@@ -1,7 +1,5 @@
 # State
 
-QUEUE_WORK_REMAINS
+608 accepted; S17 fixed singular-factor generic-rank expected offset CLOSED. Exact subset-grouped Cauchy-Binet remains deferred outside target closure. Positive-scale derivative currently pending, not counted.
 
-Current locked targets checked, reviewed and audit-bound.
-General polynomial log moments remain OPEN, outside this pilot.
-No background service; heartbeat PAUSED.
+Hour ends17:24:50UTC; heartbeatPAUSED; human reviewREQUIRED.
