@@ -1,0 +1,24 @@
+{
+  "id": "L-gram-rank-coefficient-product",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramRankSpectralCoefficient",
+  "declaration": "JinWishart.gram_rank_coefficient_eq_nonzero_product",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-hermitian-polynomial-identity"
+  ],
+  "proof": [
+    {
+      "text": "Deterministic finite algebra; exact source and target type locked.",
+      "uses": [
+        "L-hermitian-polynomial-identity"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-spectral.json",
+    "source_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589"
+  }
+}

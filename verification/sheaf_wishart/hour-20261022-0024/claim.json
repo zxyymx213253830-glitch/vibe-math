@@ -1,0 +1,8 @@
+{
+  "token": "e250635f65414a31aab4a732a52d8a24",
+  "group": "codex-one-hour-20261022-0024",
+  "started_utc": "2026-10-21T16:24:50+00:00",
+  "hard_deadline_utc": "2026-10-21T17:24:50+00:00",
+  "authorization": "User explicitly renewed one hour; no automatic extension.",
+  "single_coordinator": true
+}

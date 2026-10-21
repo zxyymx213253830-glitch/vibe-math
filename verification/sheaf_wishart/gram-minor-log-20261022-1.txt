@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinorLogDomination.lean:54:4: error: linarith failed to find a contradiction
+case left
+m n q : ℕ
+X : Matrix (Fin m) (Fin n) ℂ
+f : Fin q → Fin m
+g : Fin q → Fin n
+hg : Function.Injective g
+hr : X.rank = q
+hp : (X.submatrix f g).det ≠ 0
+hb : Complex.normSq (X.submatrix f g).det ≤ ↑q.factorial * ((1 + Polynomial.X • (complexGram X).map ⇑C).det.coeff q).re
+hc : 0 < ((1 + Polynomial.X • (complexGram X).map ⇑C).det.coeff q).re
+hf : 0 < ↑q.factorial
+hn : 0 < Complex.normSq (X.submatrix f g).det
+hl : ↑2 * Real.log ‖(X.submatrix f g).det‖ ≤ Real.log ↑q.factorial + ∑ i, positiveSpectrumLog (⋯.eigenvalues₀ i)
+he : Real.log ((1 + Polynomial.X • (complexGram X).map ⇑C).det.coeff q).re = ∑ i, positiveSpectrumLog (⋯.eigenvalues₀ i)
+hu : ∑ i, positiveSpectrumLog (⋯.eigenvalues₀ i) ≤ ∑ i, ⋯.eigenvalues₀ i
+ht : 0 ≤ ∑ i, ⋯.eigenvalues₀ i
+a✝ :
+  ∑ i, positiveSpectrumLog (⋯.eigenvalues₀ i) <
+    -(∑ i, ⋯.eigenvalues₀ i + |Real.log ↑q.factorial| + 2 * |Real.log ‖(X.submatrix f g).det‖|)
+⊢ False
+failed
+'JinWishart.gram_rank_coefficient_log_eq_ordered_positive_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.abs_positive_log_sum_le_minor_log' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

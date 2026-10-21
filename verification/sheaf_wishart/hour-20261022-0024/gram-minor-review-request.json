@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GramRankSpectralCoefficient.lean": {
+      "sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+      "supplied": "Full source"
+    },
+    "RectangularDeterminantExpansion.lean": {
+      "sha256": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "840b54f90e7bd117f1a247ad19156d05ecf5038e3984a93641435e1c2d1ecf3c"
+}

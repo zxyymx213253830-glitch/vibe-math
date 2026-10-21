@@ -1,22 +1,26 @@
 {
   "id": "L-gram-rank-spectral-coefficient",
-  "kind": "statement",
+  "kind": "lemma",
   "target": false,
-  "statement": "For rectangular complex X of rank r, coefficient r of det(I+t X^H X) is the positive product of its strictly positive eigenvalues; coefficient0=1 when rank0.",
+  "module": "JinWishartFormalization.GramRankSpectralCoefficient",
+  "declaration": "JinWishart.gram_rank_coefficient_log_eq_positive_sum",
   "stmt_deps": [],
-  "proof_deps": [],
+  "proof_deps": [
+    "L-gram-rank-coefficient-product",
+    "L-gram-rank-coefficient-positive"
+  ],
   "proof": [
     {
-      "text": "Prove polynomial determinant spectral identity from unitary diagonalization.",
-      "uses": []
-    },
-    {
-      "text": "Use nonnegative spectrum, rank equals number positive eigenvalues, and finite-product coefficient.",
-      "uses": []
+      "text": "Deterministic finite algebra; exact source and target type locked.",
+      "uses": [
+        "L-gram-rank-coefficient-product",
+        "L-gram-rank-coefficient-positive"
+      ]
     }
   ],
   "verification": {
-    "status": "open_not_formalized",
-    "evidence": "notes/WISHART_NEXT_PSEUDODET_CARD.md"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-spectral.json",
+    "source_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589"
   }
 }

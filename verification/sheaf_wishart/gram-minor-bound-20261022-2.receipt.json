@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T16:44:29.094961+00:00",
+  "ended_utc": "2026-10-21T16:44:38.743086+00:00",
+  "module": "JinWishartFormalization.GramMinorCoefficientBound",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramMinorCoefficientBound.lean",
+  "source_sha256_before": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787",
+  "source_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/gram-minor-bound-20261022-2.txt",
+  "log_exists": true,
+  "log_sha256": "5edb7c5bc9a476c07ab47b6c21dd04b8019427337f71ed396f055eecd15d3961",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T16:35:53.042018+00:00",
+  "ended_utc": "2026-10-21T16:35:59.995440+00:00",
+  "module": "JinWishartFormalization.RectangularDeterminantExpansion",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean",
+  "source_sha256_before": "b7346382d02ae2189d62a4bc1d8227ae5c1a8d17255489674610686eda65f483",
+  "source_sha256": "b7346382d02ae2189d62a4bc1d8227ae5c1a8d17255489674610686eda65f483",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/rectangular-expansion-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "106ad33bb070cc6c3ed12a87d267532ad5efc70f2cd92b7ad253e98fd869f189",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

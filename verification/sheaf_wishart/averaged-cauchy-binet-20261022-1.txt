@@ -1,0 +1,61 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AveragedCauchyBinet.lean:31:20: error: Application type mismatch: The argument
+  fun i => A i (g i)
+has type
+  Fin q → ℂ
+but is expected to have type
+  Finset (Fin q)
+in the application
+  Equiv.Perm.prod_comp σ fun i => A i (g i)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AveragedCauchyBinet.lean:47:78: error: unsolved goals
+q m : ℕ
+A : Matrix (Fin q) (Fin m) ℂ
+B : Matrix (Fin m) (Fin q) ℂ
+⊢ ∑ y, ∑ x, ∑ x_1, ↑↑(Equiv.Perm.sign x_1) * ((∏ i, A (x_1 i) (x i)) * (↑↑(Equiv.Perm.sign y) * ∏ i, B (x (y i)) i)) =
+    ∑ x,
+      ∑ x_1,
+        ∑ i, ↑↑(Equiv.Perm.sign x) * ((∏ i, A (x i) (x_1 i)) * (↑↑(Equiv.Perm.sign i) * ∏ i_1, B (x_1 (i i_1)) i_1))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AveragedCauchyBinet.lean:69:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℂ (↑q.factorial * (Bᴴ * B).det) (∑ x, star (B.submatrix x id).det * (B.submatrix x id).det)
+but is expected to have type
+  @Eq ℂ (↑q.factorial * (complexGram B).det) (∑ f, star (B.submatrix f id).det * (B.submatrix f id).det)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AveragedCauchyBinet.lean:78:4: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AveragedCauchyBinet.lean:81:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (↑q.factorial * (complexGram B).det.re)
+    (∑ x,
+      ((B.submatrix x id).det.re * (B.submatrix x id).det.re + (B.submatrix x id).det.im * (B.submatrix x id).det.im))
+but is expected to have type
+  @Eq ℝ (↑q.factorial * (complexGram B).det.re) (∑ g, Complex.normSq (B.submatrix g id).det)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AveragedCauchyBinet.lean:83:2: error: Tactic `apply` failed: could not unify the conclusion of `@single_le_sum`
+  ?f ?a ≤ ∑ x ∈ ?s, ?f x
+with the goal
+  Complex.normSq (B.submatrix f id).det ≤ ∑ g, Complex.normSq (B.submatrix g id).det
+
+Note: The full type of `@single_le_sum` is
+  ∀ {ι : Type ?u.64} {N : Type ?u.63} [inst : AddCommMonoid N] [inst_1 : Preorder N] {f : ι → N} {s : Finset ι}
+    [AddLeftMono N], (∀ i ∈ s, 0 ≤ f i) → ∀ {a : ι}, a ∈ s → f a ≤ ∑ x ∈ s, f x
+
+m q : ℕ
+B : Matrix (Fin m) (Fin q) ℂ
+f : Fin q → Fin m
+h : (↑q.factorial * (complexGram B).det).re = (∑ f, star (B.submatrix f id).det * (B.submatrix f id).det).re
+ht : ∀ (z : ℂ), (star z * z).re = Complex.normSq z
+hr : ↑q.factorial * (complexGram B).det.re = ∑ g, Complex.normSq (B.submatrix g id).det
+⊢ Complex.normSq (B.submatrix f id).det ≤ ∑ g, Complex.normSq (B.submatrix g id).det
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\AveragedCauchyBinet.lean:77:46: warning: This simp argument is unused:
+  Complex.star_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.mul_re, Complex.normSq_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.rectangular_det_permutation_weight_sum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.det_mul_rectangular_factorial_sum_functions' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gram_det_factorial_sum_squared_minors' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.squared_minor_le_factorial_gram_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

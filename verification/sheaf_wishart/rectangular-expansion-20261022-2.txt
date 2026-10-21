@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularDeterminantExpansion.lean:29:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'JinWishart.det_mul_rectangular_sum_functions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.det_submatrix_eq_zero_of_not_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_injective_row_minor_of_mul_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_coordinate_minor_of_compression_det_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.exists_rank_coordinate_minor' depends on axioms: [propext, Classical.choice, Quot.sound]

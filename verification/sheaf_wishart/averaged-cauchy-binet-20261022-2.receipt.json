@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T16:39:52.829427+00:00",
+  "ended_utc": "2026-10-21T16:40:03.038827+00:00",
+  "module": "JinWishartFormalization.AveragedCauchyBinet",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/AveragedCauchyBinet.lean",
+  "source_sha256_before": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+  "source_sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/averaged-cauchy-binet-20261022-2.txt",
+  "log_exists": true,
+  "log_sha256": "01b470eee0f5713d8527d22a1c11c04eeeead549cb15e10f15fcd993299faba8",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

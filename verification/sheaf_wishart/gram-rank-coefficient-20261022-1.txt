@@ -1,0 +1,66 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:28:51: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:29:51: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:29:73: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply, Matrix.diagonal_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:47:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ((evalRingHom c).mapMatrix (1 + X • A.map ⇑C)).det
+in the target expression
+  eval c (1 + X • A.map ⇑C).det = eval c (∏ i, (1 + C ↑(hA.eigenvalues i) * X))
+
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+c : ℂ
+h : (evalRingHom c) (1 + X • A.map ⇑C).det = ((evalRingHom c).mapMatrix (1 + X • A.map ⇑C)).det
+⊢ eval c (1 + X • A.map ⇑C).det = eval c (∏ i, (1 + C ↑(hA.eigenvalues i) * X))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:76:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?Aᴴ * ?A).rank
+in the target expression
+  (complexGram A).rank = Fintype.card { i // hA.eigenvalues i ≠ 0 }
+
+m n : ℕ
+A : Matrix (Fin m) (Fin n) ℂ
+hA : (complexGram A).IsHermitian := (complexGram_posSemidef A).left
+S : Finset (Fin n) := {i | hA.eigenvalues i ≠ 0}
+p : Fin n → ℂ[X] := fun i => 1 + C ↑(hA.eigenvalues i) * X
+hp : ∏ i, p i = ∏ i ∈ S, p i
+hr : (complexGram A).rank = Fintype.card { i // hA.eigenvalues i ≠ 0 }
+⊢ S.card = A.rank
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:84:13: error: Function expected at
+  natDegree_mul_le
+but this term has type
+  (?m.282 * ?m.283).natDegree ≤ natDegree ?m.282 + natDegree ?m.283
+
+Note: Expected a function because this term is being applied to the argument
+  _
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:85:2: error: Type mismatch: After simplification, term
+  coeff_prod_of_natDegree_le S p 1 hd
+ has type
+  (∏ x with ¬hA.eigenvalues x = 0, (1 + C ↑(hA.eigenvalues x) * X)).coeff {x | ¬hA.eigenvalues x = 0}.card =
+    ∏ x with ¬hA.eigenvalues x = 0, ((coeff 1) 1 + ↑(hA.eigenvalues x))
+but is expected to have type
+  (∏ x with ¬hA.eigenvalues x = 0, (1 + C ↑(hA.eigenvalues x) * X)).coeff {x | ¬hA.eigenvalues x = 0}.card =
+    ∏ x with ¬⋯.eigenvalues x = 0, ↑(⋯.eigenvalues x)
+'JinWishart.hermitian_det_one_add_complex_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitian_det_polynomial_eq_product' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gram_rank_coefficient_eq_nonzero_product' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

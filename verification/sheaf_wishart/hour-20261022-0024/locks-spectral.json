@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-21T16:41:07.974703+00:00",
+  "module": "JinWishartFormalization.GramRankSpectralCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramRankSpectralCoefficient.lean",
+  "statements": {
+    "JinWishart.hermitian_det_one_add_complex_smul": "{n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian) (c : ℂ) : (1+c • A).det = ∏ i, (1+c*(hA.eigenvalues i : ℂ))",
+    "JinWishart.hermitian_det_polynomial_eq_product": "{n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ) (hA : A.IsHermitian) : (1+(Polynomial.X : ℂ[X]) • A.map Polynomial.C).det = ∏ i, (1+Polynomial.C (hA.eigenvalues i : ℂ)*Polynomial.X)",
+    "JinWishart.gram_rank_coefficient_eq_nonzero_product": "{m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) : ((1+(Polynomial.X : ℂ[X]) • (complexGram A).map Polynomial.C).det).coeff A.rank = ∏ i ∈ Finset.univ.filter (fun i => (complexGram_posSemidef A).1.eigenvalues i ≠ 0), ((complexGram_posSemidef A).1.eigenvalues i : ℂ)",
+    "JinWishart.gram_rank_coefficient_re_pos": "{m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) : 0 < (((1+(Polynomial.X : ℂ[X]) • (complexGram A).map Polynomial.C).det).coeff A.rank).re",
+    "JinWishart.gram_rank_coefficient_log_eq_positive_sum": "{m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) : Real.log (((1+(Polynomial.X : ℂ[X]) • (complexGram A).map Polynomial.C).det).coeff A.rank).re = ∑ i, (if 0 < (complexGram_posSemidef A).1.eigenvalues i then Real.log ((complexGram_posSemidef A).1.eigenvalues i) else 0)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/HermitianSpectralLogDet.lean": "dd20a5edc505618069756c5fa4e84374764c62091ca328e960f784e19491708d",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianSpectralLogDet.olean": "b4bc47d6e595ae9f1316a8658b168052294997c74e59303f7d081145c1bd5c3c",
+    "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/WishartProbability.olean": "5d5dad561c507df7943f399fb4f93cf17fa45106ca408c8b38959cb856817aaa",
+    "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumLogDetGrowth.lean": "59226ecd38b4fb1a42e059c072c9366b9275f52d1bdd18963b4252dcd717736e",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FiniteSpectrumLogDetGrowth.olean": "4feb34a00c1182731152c7f111212984c1546e7aa8164107143c9c8e030e37c0",
+    "theory/jin_wishart_formalization/JinWishartFormalization/LogMomentIntegrability.lean": "95b0e15c9244d02cfd9af67b0a0fede5ced3a87b54b378cb73289640613bdb58",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LogMomentIntegrability.olean": "539ff450f2ccbe5d6eb9637e7680ec0545c146b586890eaf91f29282a2912c11",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/hour-20261022-0024/SheafGramMinorTargets.lean",
+  "type_check_source_sha256": "3d54463d84ac597e99e151cc737db4ca7be351978d3cc39fd579297c77f68abb",
+  "locked_local_definitions": {}
+}

@@ -180,3 +180,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/compression_pseudodet_bridge_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_NEXT_PSEUDODET_CARD.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GramRankSpectralCoefficient.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean -text whitespace=cr-at-eol
+
+/experiments/averaged_cauchy_binet_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_GRAM_RANK_COEFFICIENT.md -text whitespace=cr-at-eol

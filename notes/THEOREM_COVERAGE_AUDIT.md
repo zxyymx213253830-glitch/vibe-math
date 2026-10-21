@@ -1,3 +1,5 @@
+2026-10-22 固定小时里程碑：595审计绑定项（593 theorem/instance+2构造），auditPASS/facade62真实exit0。新增10个确定性代数声明：Gram秩次数系数等于非零谱乘积、实部严格正、对数等于正谱对数和；任意矩阵存在秩大小的注入坐标非零子式。10个独立字面类型比较通过，最终Qoder P4已返回；Real.log_prod误报按其实际非零因子签名裁决。平均Cauchy-Binet及其系数界仍在本小时验收中，不计595。一般奇异模型无条件偏移仍未宣称完成。[需人工审查]继承AE/Fubini/方差/模型，冻结产物未改/fullLake及Linux内核NOT_RUN，heartbeatPAUSED，截止01:24:50北京时间。
+
 2026-10-21 固定小时当前里程碑：585绑定项（583 theorem/instance+2构造），audit PASS/facade61真实exit0。本轮14个打印声明：properCN1有限全纯多项式负部/绝对对数L1，实际固定压缩det(L(ZB+M)H)对数L1，以及非负可积迹+总谱对数L1推出各模态L1的条件偏移工具。后者总对数L1仍是显式前提，一般奇异Wishart伪行列式/无条件偏移桥仍OPEN。14个字面目标类型比较通过；Qoder最终源码审查真实返回，方差与抵消误报已逐式裁决。[需人工审查]测度/Fubini/方差/模型。Linux仅源文件/DAG索引，Linux内核未运行；冻结产物未改/fullLakeNOT_RUN/heartbeatPAUSED。详见WISHART_ONE_HOUR_20261021_1201.md。
 
 2026-10-21 有限维里程碑：571绑定项（569 theorem/instance+2构造），audit PASS，主facade59真实exit0。对所有有限n及固定复MvPolynomial，独立平面stdGaussian(C)乘积下负对数部分、绝对实对数及多项式本身均真L1；非零多项式求值AE非零。6个字面目标类型比较PASS；最终Qoder P4真实返回，未发现阻塞问题并逐项裁决。零多项式仅按Real.log0=0，总复二阶矩2；properCN1缩放和奇异Wishart伪行列式/偏移桥仍OPEN。Linux原生副本388文件已逐哈希校验并索引30个DAG节点，Linux Lean尚未运行，内核证据仍来自Windows串行gate。人审必需/heartbeatPAUSED/冻结产物未改/fullLakeNOT_RUN。详见WISHART_FINITE_GAUSSIAN_POLYNOMIAL_LOG.md。

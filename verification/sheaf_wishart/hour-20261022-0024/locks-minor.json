@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-21T16:41:07.995583+00:00",
+  "module": "JinWishartFormalization.RectangularDeterminantExpansion",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean",
+  "statements": {
+    "JinWishart.det_mul_rectangular_sum_functions": "{q m : ℕ} (A : Matrix (Fin q) (Fin m) ℂ) (B : Matrix (Fin m) (Fin q) ℂ) : (A*B).det = ∑ f : Fin q → Fin m, (∏ i, A i (f i))*(B.submatrix f id).det",
+    "JinWishart.det_submatrix_eq_zero_of_not_injective": "{q m : ℕ} (B : Matrix (Fin m) (Fin q) ℂ) (f : Fin q → Fin m) (hf : ¬Injective f) : (B.submatrix f id).det=0",
+    "JinWishart.exists_injective_row_minor_of_mul_det_ne_zero": "{q m : ℕ} (A : Matrix (Fin q) (Fin m) ℂ) (B : Matrix (Fin m) (Fin q) ℂ) (h : (A*B).det≠0) : ∃ f : Fin q → Fin m, Injective f ∧ (B.submatrix f id).det≠0",
+    "JinWishart.exists_coordinate_minor_of_compression_det_ne_zero": "{m n q : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) (L : Matrix (Fin q) (Fin m) ℂ) (H : Matrix (Fin n) (Fin q) ℂ) (h : (L*X*H).det≠0) : ∃ (f : Fin q → Fin m) (g : Fin q → Fin n), Injective f ∧ Injective g ∧ (X.submatrix f g).det≠0",
+    "JinWishart.exists_rank_coordinate_minor": "{m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) : ∃ (f : Fin X.rank → Fin m) (g : Fin X.rank → Fin n), Injective f ∧ Injective g ∧ (X.submatrix f g).det≠0"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/MatrixRankCompression.lean": "bf33b3a2b64307d3207338fb977f6da44efa2fad9d198ed10dbdd4560f26211f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/MatrixRankCompression.olean": "d75e37728a1528cefe3988117fb80fdff5ea2c7fd8acd5ee683674dade3335c9",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/hour-20261022-0024/SheafGramMinorTargets.lean",
+  "type_check_source_sha256": "3d54463d84ac597e99e151cc737db4ca7be351978d3cc39fd579297c77f68abb",
+  "locked_local_definitions": {}
+}

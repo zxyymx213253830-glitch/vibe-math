@@ -1,0 +1,94 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:28:51: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:29:51: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:29:73: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply, Matrix.diagonal_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:49:17: error: unsolved goals
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+c : ℂ
+i j : Fin n
+⊢ eval c (if i = j then 1 else 0) + A i j * c = (if i = j then 1 else 0) + c * A i j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:54:46: error(lean.unknownIdentifier): Unknown constant `Polynomial.evalRingHom_apply`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:41:67: error: unsolved goals
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+c : ℂ
+hm : (1 + X • A.map ⇑C).map ⇑(evalRingHom c) = 1 + c • A
+i : Fin n
+hi : i ∈ Finset.univ
+⊢ 1 + c * ↑(IsHermitian.eigenvalues ?hA i) = 1 + (evalRingHom c) (C ↑(hA.eigenvalues i)) * (evalRingHom c) X
+
+case hA
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+c : ℂ
+hm : (1 + X • A.map ⇑C).map ⇑(evalRingHom c) = 1 + c • A
+⊢ A.IsHermitian
+
+case hA
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+c : ℂ
+hm : (1 + X • A.map ⇑C).map ⇑(evalRingHom c) = 1 + c • A
+⊢ A.IsHermitian
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:55:4: warning: This simp argument is unused:
+  Polynomial.eval_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_prod, map_add, map_one, map_mul, Polynomial.evalRingHom_apply, Polynomial.eval_X]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:55:22: warning: This simp argument is unused:
+  Polynomial.eval_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_prod, map_add, map_one, map_mul, Polynomial.evalRingHom_apply, Polynomial.eval_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:78:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:78:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  StarOrderedRing ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:79:4: error: Type mismatch: After simplification, term
+  Eq.symm hr
+ has type
+  @Eq ℕ {x | ¬hA.eigenvalues x = 0}.card A.rank
+but is expected to have type
+  @Eq ℕ {x | ¬hA.eigenvalues x = 0}.card A.rank
+'JinWishart.hermitian_det_one_add_complex_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitian_det_polynomial_eq_product' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gram_rank_coefficient_eq_nonzero_product' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

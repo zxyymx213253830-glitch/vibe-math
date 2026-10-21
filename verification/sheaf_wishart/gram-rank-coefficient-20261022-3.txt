@@ -1,0 +1,41 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:29:51: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:30:51: warning: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply, Matrix.one_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:30:73: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Matrix.add_apply, Matrix.smul_apply, Matrix.diagonal_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:54:6: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:55:6: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramRankSpectralCoefficient.lean:85:4: error: Type mismatch: After simplification, term
+  Eq.symm hr
+ has type
+  @Eq ℕ {x | ¬hA.eigenvalues x = 0}.card A.rank
+but is expected to have type
+  @Eq ℕ {x | ¬hA.eigenvalues x = 0}.card A.rank
+'JinWishart.hermitian_det_one_add_complex_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitian_det_polynomial_eq_product' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gram_rank_coefficient_eq_nonzero_product' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

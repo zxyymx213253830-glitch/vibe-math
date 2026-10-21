@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T16:35:31.326171+00:00",
+  "ended_utc": "2026-10-21T16:35:41.114855+00:00",
+  "module": "JinWishartFormalization.GramRankSpectralCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramRankSpectralCoefficient.lean",
+  "source_sha256_before": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+  "source_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/gram-rank-coefficient-20261022-5.txt",
+  "log_exists": true,
+  "log_sha256": "cd52ecb6d486aeb161c56bf87e0e2e988eac0aecd8549e9c26007caf84d50a9e",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

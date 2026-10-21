@@ -1,0 +1,26 @@
+{
+  "id": "L-extract-row-minor",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.RectangularDeterminantExpansion",
+  "declaration": "JinWishart.exists_injective_row_minor_of_mul_det_ne_zero",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-rectangular-all-functions",
+    "L-repeated-row-zero"
+  ],
+  "proof": [
+    {
+      "text": "Deterministic finite algebra; exact source and target type locked.",
+      "uses": [
+        "L-rectangular-all-functions",
+        "L-repeated-row-zero"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-minor.json",
+    "source_sha256": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af"
+  }
+}

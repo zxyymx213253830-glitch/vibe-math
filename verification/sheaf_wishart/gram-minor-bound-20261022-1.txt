@@ -1,0 +1,17 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinorCoefficientBound.lean:43:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype s
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramMinorCoefficientBound.lean:43:108: error: Application type mismatch: The argument
+  hS
+has type
+  Membership.mem.{0, 0} (powersetCard q univ) S
+but is expected to have type
+  Membership.mem.{?u.208 + 1, ?u.208 + 1} ?m.319 ?m.351
+in the application
+  single_le_sum (fun s hs => ?m.349) hS
+'JinWishart.selected_gram_det_le_coefficient' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.squared_coordinate_minor_le_factorial_coefficient' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
