@@ -76,3 +76,37 @@ No randomroot choices/Fubini claimed here. [需人工审查] normalization/root/
 Parameterized section helper has also locally passed, with explicit joint measurability, coefficient-logL1,
 and AE uniformdegree premises. It is NOT yet counted in this milestone and is not an unconditionalmultivariate proof.
 BivariateGaussianPolynomialLog is undercheck after8 newfixedseed200000sample controls, includingthedegree-drop fiber.
+
+
+## Resumed acceptance on 2026-10-21 (new user authorization)
+
+No new compiler run was needed: final section/bivariate sources, independent literal type
+checks and facade56 are unchanged from their genuine pre-deadline receipts. This acceptance
+is after explicit user renewal, not an extension/backdating of the expired hour.
+
+Final-source p4-bivariate-log Qoder response is resolved as follows:
+- stdGaussian_complex_polynomial_negativeLog has no nonzero premise, as its exact locked
+  literal type and successful independent comparison show; zeroP is totalized Real.log0=0.
+- The generic section theorem explicitly assumes joint evaluation measurability and
+  coefficient-negative-log L1. In the concrete bivariate theorem these are actually supplied
+  by continuous_complexBivariateEval and the already-proved leading-coefficient polynomial
+  theorem. No hidden applicability premise is dropped.
+- Degree dropping is handled AE via nonzero leading-coefficient evaluation. The bound on
+  mapped natDegree holds everywhere; no pointwise leadingCoeff equality at exceptional fibers.
+- Integrable.mul_prod receives the two respective L1 proofs under the product law; the
+  successful kernel check resolves API/class constraints. Gaussian probability measures
+  supply sigma finiteness. No separate independence premise is silently asserted.
+- withDensity inherits null singletons from volume; the exact pinned instance and actual
+  successful infer_instance step establish the required class. Density positivity is not
+  needed to preserve a volume-null singleton.
+- The reviewer itself confirms the Fubini ordering: product L1 is proved before integral_prod.
+  No measurable root selection or extended-real log theorem is used.
+
+Seven new declarations cover one conditional section helper and six bivariate facts.
+They establish true negative-part and absolute-log L1 for deterministic nested complex
+polynomials of TWO independent planar stdGaussians, with explicit leading-coefficient/
+lexicographic degree bound. They do not prove the all-finite-dimensional polynomial
+result or the arbitrary singular Wishart offset. Proper CN1 transport remains separate.
+
+[需人工审查] Gaussian normalization, null sets, product measurability/Fubini and model
+interpretation remain required. Model P4 is neither human review nor independent compile.

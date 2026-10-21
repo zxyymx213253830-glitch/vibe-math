@@ -14,6 +14,8 @@
     }
   ],
   "verification": {
-    "status": "open"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261020-1535/acceptance-bivariate.json",
+    "source_sha256": "1eede5b4f6151e0098e851fe047eeacb35bcccfb02ad2e8f4176e7321701e544"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/hour-20261020-1535/locks-bivariate.json",
+  "check": "verification/sheaf_wishart/hour-20261020-1535/check-bivariate.json",
+  "review": {
+    "request": "verification/sheaf_wishart/hour-20261020-1535/bivariate-log-review-request.json",
+    "prompt": "verification/sheaf_wishart/hour-20261020-1535/p4-bivariate-log-prompt.txt",
+    "receipt": "verification/sheaf_wishart/hour-20261020-1535/p4-bivariate-log.receipt.json",
+    "raw": "verification/sheaf_wishart/hour-20261020-1535/p4-bivariate-log.raw.json",
+    "snapshot": "verification/sheaf_wishart/hour-20261020-1535/bivariate-log-snapshot",
+    "resolution": "notes/WISHART_SHEAF_HOUR_20261020_1535.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/hour-20261020-1535/facade-56.receipt.json"
+}
