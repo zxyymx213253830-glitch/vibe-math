@@ -1,0 +1,28 @@
+{
+  "id": "L-gram-minor-coefficient",
+  "kind": "statement",
+  "target": false,
+  "statement": "Coefficient q of det(I+t X^H X) equals sum of squared absolute values of ALL q-by-q coordinate minors of arbitrary complex rectangular X.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-rectangular-cauchy-binet"
+  ],
+  "proof": [
+    {
+      "text": "Use pinned coeff_det_one_add_X_smul_eq_sum_minors for Gram principal minors.",
+      "uses": [
+        "L-rectangular-cauchy-binet"
+      ]
+    },
+    {
+      "text": "Apply rectangular Cauchy-Binet to X[:,J], then sum J; retain conjugation.",
+      "uses": [
+        "L-rectangular-cauchy-binet"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "open_not_formalized",
+    "evidence": "notes/WISHART_NEXT_PSEUDODET_CARD.md"
+  }
+}

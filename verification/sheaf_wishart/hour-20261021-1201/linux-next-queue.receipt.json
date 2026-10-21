@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "seconds": 5.6716684000002715,
+  "stdout": "{\"native_directory\": \"/root/wishart-sheaf-hour-20261021-1201-queue\", \"verified_files\": 409, \"manifest_sha256\": \"92e964a29411b19ed6cfaef73984c9a4fc437618045ca9ed70823390023474f9\", \"modules\": 355, \"dag_nodes\": 48, \"stage2\": [[0, 2, \"S17-general-singular-offset\"], [1, 1, \"L-gram-rank-spectral-coefficient\"], [1, 1, \"L-rectangular-cauchy-binet\"], [1, 2, \"L-gram-minor-coefficient\"]], \"new_nodes_status\": \"OPEN_NOT_FORMALIZED; not a proof\", \"linux_lean_compile\": \"NOT_RUN\"}\n",
+  "stderr": "wsl: 检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。\r\n",
+  "script_sha256": "0f071c60e34443178833f77516acda8816e61206876f0c99c7c59461b8c3c29a"
+}

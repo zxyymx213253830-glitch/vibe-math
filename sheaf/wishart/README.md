@@ -13,7 +13,7 @@ Codex 负责读取任务卡、提出证明、串行编译和验收；Qoder 负�
 .\sheaf.ps1 queue
 ```
 
-`status` 检查目标锁和完成证据；`queue` 显示可推进的依赖节点。两者不会调用模型或启动 Lean。当前试跑目标完成后队列为空，通用高斯多项式负对数矩仍在延后节点中，需要单独确定下一张任务卡。
+`status` 检查目标锁和完成证据；`queue` 显示可推进的依赖节点。两者不会调用模型或启动 Lean。最初试跑完成时队列为空；2026-10-21 固定小时已验收有限 proper CN1 多项式对数可积性，并加入四个尚未形式化的子式/谱系数/一般奇异偏移目标。当前队列以 `coord/queue.md` 为准，详细路线见 `notes/WISHART_NEXT_PSEUDODET_CARD.md`。
 
 需要复核当前两个目标时：
 
@@ -59,9 +59,11 @@ Codex 负责读取任务卡、提出证明、串行编译和验收；Qoder 负�
 
 ## 2026-10-21 后续结果与 Linux 副本
 
-当前571审计绑定项，已经覆盖所有有限n的平面复高斯乘积上多项式负部/绝对对数L1；
-早先试跑章节为历史范围。实际证明和边界见 notes/WISHART_FINITE_GAUSSIAN_POLYNOMIAL_LOG.md。
-Linux副本位于 SheafBenchUbuntu 的 /root/wishart-sheaf-work-20261021-1031，388个
-输入文件逐哈希一致；上游索引/DAG读取已实际运行。它是源码工作快照，不是已经通过
+当前585审计绑定项，覆盖所有有限n的平面复高斯及 proper CN1 多项式负部/绝对对数L1，
+以及实际固定压缩行列式对数L1；一般奇异模型的总谱对数L1仍待证明。
+早先试跑章节为历史范围。实际证明和边界见 notes/WISHART_ONE_HOUR_20261021_1201.md。
+最新 Linux 副本位于 SheafBenchUbuntu 的 /root/wishart-sheaf-hour-20261021-1201-queue，409个
+输入文件逐哈希一致、48个DAG节点含4个明确未形式化目标；上游索引/DAG读取已实际运行。
+之前388/405文件快照保留。它是源码工作快照，不是已经通过
 Linux内核构建的green库。Windows仍是源码与编译证据的权威位置；没有迁移认证令牌。
 后续Linux编译必须先准备同版Lean/mathlib并评审便携串行gate，不得绕过现有门禁。

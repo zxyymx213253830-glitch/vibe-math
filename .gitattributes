@@ -171,8 +171,8 @@
 
 /notes/WISHART_PROPER_COMPLEX_POLYNOMIAL_LOG.md -text whitespace=cr-at-eol
 
-theory/jin_wishart_formalization/JinWishartFormalization/PositiveSpectrumLogIntegrability.lean -text
+theory/jin_wishart_formalization/JinWishartFormalization/PositiveSpectrumLogIntegrability.lean -text whitespace=cr-at-eol
 
-experiments/positive_spectrum_log_control.py -text
+experiments/positive_spectrum_log_control.py -text whitespace=cr-at-eol
 
-notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text
+notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol

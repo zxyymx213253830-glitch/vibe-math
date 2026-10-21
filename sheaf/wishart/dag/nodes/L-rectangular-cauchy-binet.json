@@ -1,0 +1,22 @@
+{
+  "id": "L-rectangular-cauchy-binet",
+  "kind": "statement",
+  "target": false,
+  "statement": "For complex A q-by-m and B m-by-q, det(AB)=sum over q-subsets I of m det(A[:,I])*det(B[I,:]); includes q=0 and q>m.",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Expand determinant multilinearly in rows or columns; duplicate intermediate indices vanish by alternatingness.",
+      "uses": []
+    },
+    {
+      "text": "Group injective intermediate-index functions by image subset, keeping permutation signs and empty case.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "open_not_formalized",
+    "evidence": "notes/WISHART_NEXT_PSEUDODET_CARD.md"
+  }
+}

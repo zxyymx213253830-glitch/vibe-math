@@ -1,1 +1,5 @@
 # id	stage	distance	kind
+L-gram-rank-spectral-coefficient	2	1	state
+L-rectangular-cauchy-binet	2	1	state
+L-gram-minor-coefficient	2	2	state
+S17-general-singular-offset	2	2	state

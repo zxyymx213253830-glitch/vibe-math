@@ -1,5 +1,5 @@
 # State
 
-585 accepted bound items; properCN1 polynomial logs and fixed physical compressed determinant logs CLOSED. Aggregate spectrum-to-mode L1 CLOSED under explicit aggregate L1 premise. General singular pseudoDet/offset bridge OPEN.
+585 accepted bound items. Next four nodes OPEN_NOT_FORMALIZED; no Lean declaration or verification implied. Queue records Cauchy-Binet, Gram coefficient identities and unconditional singular offset obligation.
 
-Current user fixed hour ends13:01:41UTC. No background service; heartbeat PAUSED. Human measure/model review REQUIRED.
+Fixed hour ends13:01:41UTC; heartbeat PAUSED; human review REQUIRED.

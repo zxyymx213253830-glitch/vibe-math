@@ -1,0 +1,916 @@
+{
+  "status": "PASS exact finite controls; NOT a general proof",
+  "seed": 2026102126,
+  "source_sha256": "4267a3605ed7d97e13235932ef52a1ab8a60ee75ceb32cb006675395aa9276b7",
+  "checks": 285,
+  "details": [
+    {
+      "name": "coefficient-minor-squares-0-0-0-0"
+    },
+    {
+      "name": "rank-coefficient-positive-0-0-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-0-1-0"
+    },
+    {
+      "name": "rank-coefficient-positive-0-0-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-1-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-1-0-1"
+    },
+    {
+      "name": "rank-coefficient-positive-0-1-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-1-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-1-1-1"
+    },
+    {
+      "name": "rank-coefficient-positive-0-1-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-2-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-2-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-2-0-2"
+    },
+    {
+      "name": "rank-coefficient-positive-0-2-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-2-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-2-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-2-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-2-1-2"
+    },
+    {
+      "name": "rank-coefficient-positive-0-2-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-2-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-3-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-3-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-3-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-0-3-0-3"
+    },
+    {
+      "name": "rank-coefficient-positive-0-3-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-3-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-3-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-3-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-3-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-0-3-1-3"
+    },
+    {
+      "name": "rank-coefficient-positive-0-3-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-3-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-0-3"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-0-4"
+    },
+    {
+      "name": "rank-coefficient-positive-0-4-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-4-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-1-3"
+    },
+    {
+      "name": "coefficient-minor-squares-0-4-1-4"
+    },
+    {
+      "name": "rank-coefficient-positive-0-4-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-0-4-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-0-0-0"
+    },
+    {
+      "name": "rank-coefficient-positive-1-0-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-1-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-0-1-0"
+    },
+    {
+      "name": "rank-coefficient-positive-1-0-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-1-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-1-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-1-0-1"
+    },
+    {
+      "name": "rank-coefficient-positive-1-1-0",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-1-1-0"
+    },
+    {
+      "name": "aggregate-log-domination-1-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-1-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-1-1-1"
+    },
+    {
+      "name": "rank-coefficient-positive-1-1-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-1-1-1"
+    },
+    {
+      "name": "aggregate-log-domination-1-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-2-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-2-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-2-0-2"
+    },
+    {
+      "name": "rank-coefficient-positive-1-2-0",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-1-2-0"
+    },
+    {
+      "name": "aggregate-log-domination-1-2-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-2-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-2-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-2-1-2"
+    },
+    {
+      "name": "rank-coefficient-positive-1-2-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-1-2-1"
+    },
+    {
+      "name": "aggregate-log-domination-1-2-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-3-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-3-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-3-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-1-3-0-3"
+    },
+    {
+      "name": "rank-coefficient-positive-1-3-0",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-1-3-0"
+    },
+    {
+      "name": "aggregate-log-domination-1-3-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-3-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-3-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-3-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-1-3-1-3"
+    },
+    {
+      "name": "rank-coefficient-positive-1-3-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-1-3-1"
+    },
+    {
+      "name": "aggregate-log-domination-1-3-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-0-3"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-0-4"
+    },
+    {
+      "name": "rank-coefficient-positive-1-4-0",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-1-4-0"
+    },
+    {
+      "name": "aggregate-log-domination-1-4-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-1-3"
+    },
+    {
+      "name": "coefficient-minor-squares-1-4-1-4"
+    },
+    {
+      "name": "rank-coefficient-positive-1-4-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-1-4-1"
+    },
+    {
+      "name": "aggregate-log-domination-1-4-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-0-0-0"
+    },
+    {
+      "name": "rank-coefficient-positive-2-0-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-2-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-0-1-0"
+    },
+    {
+      "name": "rank-coefficient-positive-2-0-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-2-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-1-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-1-0-1"
+    },
+    {
+      "name": "rank-coefficient-positive-2-1-0",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-2-1-0"
+    },
+    {
+      "name": "aggregate-log-domination-2-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-1-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-1-1-1"
+    },
+    {
+      "name": "rank-coefficient-positive-2-1-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-2-1-1"
+    },
+    {
+      "name": "aggregate-log-domination-2-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-2-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-2-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-2-0-2"
+    },
+    {
+      "name": "rank-coefficient-positive-2-2-0",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-2-2-0"
+    },
+    {
+      "name": "aggregate-log-domination-2-2-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-2-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-2-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-2-1-2"
+    },
+    {
+      "name": "rank-coefficient-positive-2-2-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-2-2-1"
+    },
+    {
+      "name": "aggregate-log-domination-2-2-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-3-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-3-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-3-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-2-3-0-3"
+    },
+    {
+      "name": "rank-coefficient-positive-2-3-0",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-2-3-0"
+    },
+    {
+      "name": "aggregate-log-domination-2-3-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-3-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-3-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-3-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-2-3-1-3"
+    },
+    {
+      "name": "rank-coefficient-positive-2-3-1",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-2-3-1"
+    },
+    {
+      "name": "aggregate-log-domination-2-3-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-0-3"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-0-4"
+    },
+    {
+      "name": "rank-coefficient-positive-2-4-0",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-2-4-0"
+    },
+    {
+      "name": "aggregate-log-domination-2-4-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-1-3"
+    },
+    {
+      "name": "coefficient-minor-squares-2-4-1-4"
+    },
+    {
+      "name": "rank-coefficient-positive-2-4-1",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-2-4-1"
+    },
+    {
+      "name": "aggregate-log-domination-2-4-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-0-0-0"
+    },
+    {
+      "name": "rank-coefficient-positive-3-0-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-3-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-0-1-0"
+    },
+    {
+      "name": "rank-coefficient-positive-3-0-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-3-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-1-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-1-0-1"
+    },
+    {
+      "name": "rank-coefficient-positive-3-1-0",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-3-1-0"
+    },
+    {
+      "name": "aggregate-log-domination-3-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-1-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-1-1-1"
+    },
+    {
+      "name": "rank-coefficient-positive-3-1-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-3-1-1"
+    },
+    {
+      "name": "aggregate-log-domination-3-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-2-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-2-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-2-0-2"
+    },
+    {
+      "name": "rank-coefficient-positive-3-2-0",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-3-2-0"
+    },
+    {
+      "name": "aggregate-log-domination-3-2-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-2-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-2-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-2-1-2"
+    },
+    {
+      "name": "rank-coefficient-positive-3-2-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-3-2-1"
+    },
+    {
+      "name": "aggregate-log-domination-3-2-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-3-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-3-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-3-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-3-3-0-3"
+    },
+    {
+      "name": "rank-coefficient-positive-3-3-0",
+      "rank": 3
+    },
+    {
+      "name": "chosen-compression-domination-3-3-0"
+    },
+    {
+      "name": "aggregate-log-domination-3-3-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-3-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-3-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-3-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-3-3-1-3"
+    },
+    {
+      "name": "rank-coefficient-positive-3-3-1",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-3-3-1"
+    },
+    {
+      "name": "aggregate-log-domination-3-3-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-0-3"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-0-4"
+    },
+    {
+      "name": "rank-coefficient-positive-3-4-0",
+      "rank": 3
+    },
+    {
+      "name": "chosen-compression-domination-3-4-0"
+    },
+    {
+      "name": "aggregate-log-domination-3-4-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-1-3"
+    },
+    {
+      "name": "coefficient-minor-squares-3-4-1-4"
+    },
+    {
+      "name": "rank-coefficient-positive-3-4-1",
+      "rank": 3
+    },
+    {
+      "name": "chosen-compression-domination-3-4-1"
+    },
+    {
+      "name": "aggregate-log-domination-3-4-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-0-0-0"
+    },
+    {
+      "name": "rank-coefficient-positive-4-0-0",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-4-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-0-1-0"
+    },
+    {
+      "name": "rank-coefficient-positive-4-0-1",
+      "rank": 0
+    },
+    {
+      "name": "rank-zero-empty-product-4-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-1-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-1-0-1"
+    },
+    {
+      "name": "rank-coefficient-positive-4-1-0",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-4-1-0"
+    },
+    {
+      "name": "aggregate-log-domination-4-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-1-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-1-1-1"
+    },
+    {
+      "name": "rank-coefficient-positive-4-1-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-4-1-1"
+    },
+    {
+      "name": "aggregate-log-domination-4-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-2-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-2-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-2-0-2"
+    },
+    {
+      "name": "rank-coefficient-positive-4-2-0",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-4-2-0"
+    },
+    {
+      "name": "aggregate-log-domination-4-2-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-2-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-2-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-2-1-2"
+    },
+    {
+      "name": "rank-coefficient-positive-4-2-1",
+      "rank": 1
+    },
+    {
+      "name": "chosen-compression-domination-4-2-1"
+    },
+    {
+      "name": "aggregate-log-domination-4-2-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-3-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-3-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-3-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-4-3-0-3"
+    },
+    {
+      "name": "rank-coefficient-positive-4-3-0",
+      "rank": 3
+    },
+    {
+      "name": "chosen-compression-domination-4-3-0"
+    },
+    {
+      "name": "aggregate-log-domination-4-3-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-3-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-3-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-3-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-4-3-1-3"
+    },
+    {
+      "name": "rank-coefficient-positive-4-3-1",
+      "rank": 2
+    },
+    {
+      "name": "chosen-compression-domination-4-3-1"
+    },
+    {
+      "name": "aggregate-log-domination-4-3-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-0-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-0-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-0-2"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-0-3"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-0-4"
+    },
+    {
+      "name": "rank-coefficient-positive-4-4-0",
+      "rank": 4
+    },
+    {
+      "name": "chosen-compression-domination-4-4-0"
+    },
+    {
+      "name": "aggregate-log-domination-4-4-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-1-0"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-1-1"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-1-2"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-1-3"
+    },
+    {
+      "name": "coefficient-minor-squares-4-4-1-4"
+    },
+    {
+      "name": "rank-coefficient-positive-4-4-1",
+      "rank": 3
+    },
+    {
+      "name": "chosen-compression-domination-4-4-1"
+    },
+    {
+      "name": "aggregate-log-domination-4-4-1"
+    },
+    {
+      "name": "missing-conjugation-negative-control"
+    },
+    {
+      "name": "singular-column-det-is-not-pseudodet-negative-control"
+    },
+    {
+      "name": "totalized-log0-does-not-justify-AE-nonzero",
+      "explanation": "For X=diag(1/10,0) and a zero chosen minor, log pseudoDet=log(1/100)<0=2*totalizedLog0; so log comparison requires nonzero minor AE."
+    }
+  ],
+  "seconds": 0.6676616000004287,
+  "scope": "Rational complex dimensions0..4, duplicated columns, rank0 and conjugation negative controls. No probability/measure theorem."
+}
