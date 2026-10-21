@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "seconds": 3.637357399999928,
+  "stdout": "{\"python\": \"3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]\", \"bash\": \"/usr/bin/bash\", \"tmux\": \"/usr/bin/tmux\", \"fcntl_cross_process_exclusion\": \"PASS\", \"fcntl_release_control\": \"PASS\", \"tmux_private_session\": \"PASS\", \"owned_tmux_cleanup\": \"DONE\"}\n",
+  "stderr": "wsl: 检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。\r\n"
+}

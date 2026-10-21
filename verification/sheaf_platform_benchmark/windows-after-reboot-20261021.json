@@ -1,0 +1,78 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.7 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 10:12:46) [MSC v.1942 64 bit (AMD64)]",
+  "processor": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel",
+  "logical_cpus": 20,
+  "script_sha256": "ca3b672f363c63ff6ab8f4027ffa02f7b1722e80fe1bd885d153d11bc414db3c",
+  "manifest_sha256": "5ab5b31116c4c601dd00765d6ec37a86f5396daa2054f69910de93bfe62020ea",
+  "samples": [
+    {
+      "scan_seconds": 0.8767353999999727,
+      "dag_seconds": 0.0029469999999491847,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 1.0073025999999459
+    },
+    {
+      "scan_seconds": 0.8798608999999828,
+      "dag_seconds": 0.0029083999999670596,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 0.9723174000000085
+    },
+    {
+      "scan_seconds": 0.8857801999999992,
+      "dag_seconds": 0.0031085999999618252,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 0.9811251999999513
+    },
+    {
+      "scan_seconds": 0.883756500000004,
+      "dag_seconds": 0.0028674999999793727,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 0.9814777999999933
+    },
+    {
+      "scan_seconds": 0.8632405000000176,
+      "dag_seconds": 0.002958999999975731,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 0.9573637000000303
+    },
+    {
+      "scan_seconds": 0.8839258000000427,
+      "dag_seconds": 0.0031506000000263157,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 0.9812056000000098
+    }
+  ],
+  "first_process_seconds": 1.0073025999999459,
+  "warm_process_median_seconds": 0.9811251999999513,
+  "warm_scan_median_seconds": 0.883756500000004,
+  "warm_dag_median_seconds": 0.002958999999975731,
+  "tmux_found": false,
+  "lean_compile": "NOT_RUN",
+  "model_calls": 0,
+  "scope": "Index/DAG only; first run is NOT an OS-cold-cache measurement; includes process startup."
+}

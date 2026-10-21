@@ -1,0 +1,12 @@
+{
+  "command": [
+    "wsl.exe",
+    "--install",
+    "--distribution",
+    "Ubuntu",
+    "--no-launch"
+  ],
+  "exit_code": 4294967295,
+  "seconds": 303.70672780000007,
+  "output": "正在下载: Ubuntu\r\n服务器返回无效或不可识别的响应 \r\n错误代码： Wsl/InstallDistro/WININET_E_INVALID_SERVER_RESPONSE\r\n如果此错误是意外错误，请考虑搜索现有问题或在 https://github.com/microsoft/WSL/issues 提交新问题。\r\n"
+}

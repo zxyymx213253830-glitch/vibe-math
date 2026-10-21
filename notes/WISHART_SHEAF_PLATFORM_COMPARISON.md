@@ -1,70 +1,89 @@
-# SHEAF Windows / Linux comparison
+# SHEAF Windows / WSL2 Linux comparison
 
-2026-10-21: user authorized a trial and comparison. Linux is NOT_RUN. The current
-process is not a Windows administrator. `wsl --status` exits50 and reports WSL
-is not installed. Both the documented distribution install command and bare
-`wsl --install` exited1 immediately with the same installation message. No Linux
-distribution, WSL component, or reboot was started. No administrator prompt was
-bypassed. Administrator installation/reboot is the pending user action.
+Current result, 2026-10-21: the index/DAG comparison is COMPLETE. This is not a Lean
+compiler, model proof-generation, or end-to-end formalization throughput benchmark.
 
-Official installation reference: https://learn.microsoft.com/en-us/windows/wsl/install
+## Measurements
 
-## Completed Windows baseline
+Same exact script, 381 input files (351 Lean modules and 24 DAG nodes), six separate
+UTF8 Python processes per environment. First process reported separately; table
+uses medians of the following five. All 18 fresh-run outputs have exactly the same
+result SHA256, and known lexer/DAG controls PASS. The 2152 lexical declaration
+names are NOT a verified theorem count. No OS cache flush was performed.
 
-`experiments/sheaf_platform_benchmark.py` snapshots exact bytes of project Lean
-sources, DAG nodes, pinned upstream lexer/scheduler, configuration and dependency
-locks. It does not invoke Lean or models, alter project targets or accept proofs.
-Snapshot: `.tools/sheaf-platform-benchmark-20261021/snapshot` (381 files).
-Tracked `verification/sheaf_platform_benchmark/input-manifest.json` binds these
-bytes. The snapshot must be copied verbatim, not recreated from a changed checkout.
+| Environment | Worker incl. Python startup | Source index | DAG load/route |
+| --- | ---: | ---: | ---: |
+| Windows native, D: | 0.9811 s | 0.8838 s | 2.959 ms |
+| WSL2 Ubuntu, Linux home filesystem | 0.5387 s | 0.4897 s | 4.049 ms |
+| WSL2 Ubuntu, Windows /mnt/d files | 7.9130 s | 7.0627 s | 517.678 ms |
 
-Results: `verification/sheaf_platform_benchmark/windows-20261021.json`.
-Six separate UTF8 Python processes; the first is reported separately, followed by
-five samples for the warm median. The first run is NOT an OS-cold-cache test.
-Known lexer/dependency-graph controls pass. All six output hashes match.
+Observed worker ratio: Windows/Linux-home = 1.82.
+Linux-home was about 45.1% shorter for this task.
+The mounted Windows path was 8.07 times as long as
+Windows native, and 14.69 times as long as Linux-home.
+DAG-only work is a few milliseconds locally and was not uniformly faster on Linux.
 
-| Work | Windows warm median | Linux |
-| --- | ---: | --- |
-| Whole index/DAG worker including Python startup | 1.0033 s | NOT_RUN |
-| Source index: 351 modules, 2152 lexical declaration names | 0.8983 s | NOT_RUN |
-| DAG: 24 nodes | 0.00345 s | NOT_RUN |
-| Lean kernel compilation | NOT_RUN | NOT_RUN |
-| Model proof generation / concurrent landing | NOT_RUN | NOT_RUN |
+**Confounds:** Windows Python3.14.7 Anaconda/MSVC versus Ubuntu Python3.14.4/GCC;
+WSL2 virtualization versus native Windows; filesystem placement; finite small
+sample; uncontrolled background load. Thus this is a practical environment
+comparison, not an isolated causal measurement of OS alone. No end-to-end
+formalization acceleration factor is inferred. A ~0.44-second local saving cannot
+by itself establish a major improvement to minute-long proof/model loops.
 
-Lexical declaration counts are not verified theorem counts. Timings describe this
-small current DAG and current machine only. No speedup ratio can yet be calculated.
-Python version/build and filesystem placement must be recorded as confounds.
-This baseline does not measure the complete native Windows acceptance adapter.
+Recommendation from this measured workload: if continuing in WSL, put its working
+copy in the Linux filesystem, not /mnt/d. Microsoft gives the same filesystem
+placement guidance: https://learn.microsoft.com/en-us/windows/wsl/filesystems
+No project migration was made; only a benchmark snapshot was copied.
 
-## Resume when WSL is ready
+## Native compatibility
 
-1. From an administrator PowerShell, install Ubuntu using `wsl --install -d Ubuntu`.
-   User saves work and reboots if Windows requests it; then finishes first launch.
-2. Copy the existing snapshot and exact benchmark script into the Linux home
-   filesystem. Initially measure there, rather than silently comparing different
-   source data. A second `/mnt/d` run can isolate filesystem placement as a factor.
-3. Run the exact same script with UTF8 mode and six repeats:
+Ubuntu26.04.1 on WSL2 kernel6.18.54.1; isolated distro name `SheafBenchUbuntu`.
+Bash and tmux were already installed. Real cross-process fcntl exclusion and
+release control PASS; private tmux session creation/lookup PASS and its owned
+server was shut down. First smoke invocation had a Python string-escaping error;
+its failed receipt is retained. The corrected smoke source and successful second
+receipt are preserved. This does NOT certify the whole upstream autonomous
+launcher, landing system or comparator, which remain NOT_RUN.
 
-   `python3 -X utf8 sheaf_platform_benchmark.py run --snapshot snapshot --output linux-home.json`
+Existing localhost proxy settings produced a WSL NAT warning. No proxy/auth keys
+were copied or changed; Linux model CLI network/login paths remain untested.
 
-4. Compare result/input/script hashes before timing ratios:
+## Setup and provenance
 
-   `python3 compare_sheaf_platform_results.py windows-20261021.json linux-home.json`
+WSL runtime was installed by the user, then Windows restarted. Standard Ubuntu
+download failed after303.7s with WININET_E_INVALID_SERVER_RESPONSE. Its owned web
+retry was stopped after104.8s. A slow direct-source download was also stopped via
+its owned tool session; the partial file was never installed. USTC mirror download
+completed129.0s (418495746 bytes). Its SHA256 exactly matched the Microsoft WSL
+manifest: `48d56724b5c8e60f24893e83e73bbb58c60b3ca22fba3da977075420acd54104`.
+Local-image installation took12.76s; snapshot copying took18.32s. These one-time
+costs are outside the warm worker timings. First Linux boot/preflight includes
+additional setup costs recorded in receipts.
 
-5. Only after this stage, prepare an isolated Linux Lean environment with the exact
-   pinned `leanprover/lean4:v4.35.0-rc2` and lake-manifest revisions. Record dependency
-   preparation separately from repeated checks. Linux compilation requires a
-   reviewed portable equivalent of the existing serial compute gate; the current
-   helper hardcodes Windows executable paths and process flags. Do not invoke Lean
-   directly to evade that gate. Do not reuse Windows timings as Linux measurements.
-6. A proof-throughput trial needs independent bounded tasks, identical locked
-   statements, explicit model/version/call budgets and the same acceptance rules.
-   OS microbenchmarks cannot establish a formalization speedup.
+Manifest source: https://raw.githubusercontent.com/microsoft/WSL/master/distributions/DistributionInfo.json
+Upstream image: https://releases.ubuntu.com/26.04.1/ubuntu-26.04.1-wsl-amd64.wsl
+Mirror: https://mirrors.ustc.edu.cn/ubuntu-releases/26.04.1/ubuntu-26.04.1-wsl-amd64.wsl
 
-Research hour remains closed; heartbeat remains PAUSED. The prior seven bivariate
-declarations are still pending final audit/native acceptance, unchanged by this
-benchmark. No mathematics claims or frozen publication artifacts were updated.
+Image and distro live under `.tools/sheaf-platform-benchmark-20261021/`; native
+snapshot lives at `/root/sheaf-platform-benchmark-20261021`. The native experiment
+used explicit `--user root`; no account/password was created or changed. No
+unrelated processes or locks were stopped. No persistent tmux experiment server
+remains. Distro is installed for future work; it was not unregistered.
 
-## Follow-up after user installation
+## Reproduction and next boundary
 
-2026-10-21: WSL engine now reports version3.0.3.0, kernel6.18.54.1-1. No distribution is registered yet. VirtualMachinePlatform reports installed; WSL status still warns the runtime cannot start. Running `wsl.exe --install --distribution Ubuntu --no-launch` returned exit0 with the explicit message that changes do not take effect until a system restart. Receipt: `verification/sheaf_platform_benchmark/install-after-user-20261021.json`. User reboot is required; no restart was initiated by the agent. Linux benchmark remains NOT_RUN, and no speedup ratio is claimed.
+- Benchmark: `experiments/sheaf_platform_benchmark.py`; input manifest and each raw
+  measurement/receipt: `verification/sheaf_platform_benchmark/`.
+- Result matcher: `experiments/compare_sheaf_platform_results.py`. It rejects
+  different script/input/output hashes; reports Python version mismatch.
+- Same Linux interpreter measured both Linux-home and /mnt/d, so their comparison
+  holds Python version constant. Native Windows comparison has the confounds above.
+- Read-only index/DAG benchmarking invokes no Lean or model. A future kernel test
+  must keep leanprover/lean4:v4.35.0-rc2 and lake-manifest revisions, prepare native
+  dependencies separately, and port/review the shared serial compute gate first.
+  The current gate hardcodes Windows executable paths and process flags; direct
+  Lean invocation must not bypass it. No Linux dependencies/toolchains upgraded.
+
+Research hour remains CLOSED; heartbeat PAUSED. The seven bivariate declarations
+remain pending final audit/native acceptance. No frozen publication artifacts or
+mathematical claims were changed by this test. Full Lake/mathlib build NOT_RUN.

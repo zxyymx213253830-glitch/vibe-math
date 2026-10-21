@@ -1,0 +1,6 @@
+{
+  "recorded_utc": "2026-10-21T10:00:51.889265+00:00",
+  "status": "Owned slow direct-source download interrupted via its tool session; partial file never used.",
+  "replacement": "USTC mirror exact same image with Microsoft expected SHA256",
+  "stalled_web_installer": "Stopped only verified owned parent22984 and child5360 with exact command/ancestry checks."
+}

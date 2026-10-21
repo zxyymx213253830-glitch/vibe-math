@@ -1,0 +1,13 @@
+{
+  "command": [
+    "wsl.exe",
+    "--install",
+    "--distribution",
+    "Ubuntu",
+    "--no-launch",
+    "--web-download"
+  ],
+  "exit_code": 4294967295,
+  "seconds": 104.79426579999995,
+  "output": ""
+}

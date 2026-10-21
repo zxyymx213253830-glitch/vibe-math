@@ -1,0 +1,17 @@
+{
+  "command": [
+    "wsl.exe",
+    "--distribution",
+    "SheafBenchUbuntu",
+    "--user",
+    "root",
+    "--exec",
+    "python3",
+    "-c",
+    "import pathlib,shutil,json,time\nbase=pathlib.Path('/root/sheaf-platform-benchmark-20261021')\nbase.mkdir(exist_ok=False)\nsource=pathlib.Path('/mnt/d/vibe math')\nt=time.monotonic()\nshutil.copytree(source/'.tools/sheaf-platform-benchmark-20261021/snapshot',base/'snapshot',ignore=shutil.ignore_patterns('__pycache__'))\nshutil.copyfile(source/'experiments/sheaf_platform_benchmark.py',base/'sheaf_platform_benchmark.py')\nprint(json.dumps({'copy_seconds':time.monotonic()-t,'linux_directory':str(base)}))\n"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 18.48432779999996,
+  "stdout": "{\"copy_seconds\": 18.320674808999996, \"linux_directory\": \"/root/sheaf-platform-benchmark-20261021\"}\n",
+  "stderr": "wsl: 检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。\r\n"
+}

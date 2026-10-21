@@ -1,0 +1,16 @@
+{
+  "command": [
+    "wsl.exe",
+    "--install",
+    "--from-file",
+    "D:\\vibe math\\.tools\\sheaf-platform-benchmark-20261021\\ubuntu-26.04.1-verified.wsl",
+    "--name",
+    "SheafBenchUbuntu",
+    "--location",
+    "D:\\vibe math\\.tools\\sheaf-platform-benchmark-20261021\\ubuntu-distro",
+    "--no-launch"
+  ],
+  "exit_code": 0,
+  "seconds": 12.763544499999966,
+  "output": "正在安装: D:\\vibe math\\.tools\\sheaf-platform-benchmark-20261021\\ubuntu-26.04.1-verified.wsl\r\n已成功安装分发。可以通过“wsl.exe -d SheafBenchUbuntu”启动它\r\n"
+}

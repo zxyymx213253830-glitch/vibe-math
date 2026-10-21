@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-10-21T10:06:22.694509+00:00",
+  "windows_vs_linux_home": {
+    "status": "MATCHED_INDEX_DAG_ONLY",
+    "python_versions_identical": false,
+    "windows_over_linux_wall_ratio": 1.821400991412535,
+    "windows_over_linux_scan_ratio": 1.8048239781037598,
+    "windows_over_linux_dag_ratio": 0.7307632561604838,
+    "limitations": [
+      "Different Python builds/versions are a confound; record them.",
+      "No conclusion about Lean, proof throughput or parallel workers.",
+      "First process is not a cold filesystem cache measurement."
+    ]
+  },
+  "windows_vs_linux_mounted": {
+    "status": "MATCHED_INDEX_DAG_ONLY",
+    "python_versions_identical": false,
+    "windows_over_linux_wall_ratio": 0.12398952646336148,
+    "windows_over_linux_scan_ratio": 0.12513065018097086,
+    "windows_over_linux_dag_ratio": 0.005715906069987684,
+    "limitations": [
+      "Different Python builds/versions are a confound; record them.",
+      "No conclusion about Lean, proof throughput or parallel workers.",
+      "First process is not a cold filesystem cache measurement."
+    ]
+  },
+  "mounted_over_linux_home_wall_ratio": 14.68995844540751,
+  "native_tools_smoke": true,
+  "lean_compile": "NOT_RUN",
+  "model_calls": 0,
+  "upstream_autonomous_launcher": "NOT_RUN"
+}

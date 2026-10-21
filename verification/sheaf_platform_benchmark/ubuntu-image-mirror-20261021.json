@@ -1,0 +1,9 @@
+{
+  "url": "https://mirrors.ustc.edu.cn/ubuntu-releases/26.04.1/ubuntu-26.04.1-wsl-amd64.wsl",
+  "upstream_url": "https://releases.ubuntu.com/26.04.1/ubuntu-26.04.1-wsl-amd64.wsl",
+  "manifest_source": "https://raw.githubusercontent.com/microsoft/WSL/master/distributions/DistributionInfo.json",
+  "expected_sha256": "48d56724b5c8e60f24893e83e73bbb58c60b3ca22fba3da977075420acd54104",
+  "actual_sha256": "48d56724b5c8e60f24893e83e73bbb58c60b3ca22fba3da977075420acd54104",
+  "bytes": 418495746,
+  "seconds": 129.03222040000003
+}

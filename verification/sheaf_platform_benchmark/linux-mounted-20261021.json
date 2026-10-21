@@ -1,0 +1,78 @@
+{
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+  "processor": "",
+  "logical_cpus": 20,
+  "script_sha256": "ca3b672f363c63ff6ab8f4027ffa02f7b1722e80fe1bd885d153d11bc414db3c",
+  "manifest_sha256": "5ab5b31116c4c601dd00765d6ec37a86f5396daa2054f69910de93bfe62020ea",
+  "samples": [
+    {
+      "scan_seconds": 7.130985237000004,
+      "dag_seconds": 0.4980776299999974,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 7.9732507090000055
+    },
+    {
+      "scan_seconds": 7.161391722999994,
+      "dag_seconds": 0.5176782059999994,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 7.994824601999994
+    },
+    {
+      "scan_seconds": 6.833769189999998,
+      "dag_seconds": 0.5063519840000055,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 7.635949624999995
+    },
+    {
+      "scan_seconds": 7.014112134000001,
+      "dag_seconds": 0.5064934020000038,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 7.826951926999996
+    },
+    {
+      "scan_seconds": 7.097887775999993,
+      "dag_seconds": 0.5258624500000053,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 7.912968360999997
+    },
+    {
+      "scan_seconds": 7.062670087000001,
+      "dag_seconds": 0.5404210690000042,
+      "result_sha256": "2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6",
+      "modules": 351,
+      "declarations": 2152,
+      "nodes": 24,
+      "control": "PASS",
+      "process_wall_seconds": 7.919120511999992
+    }
+  ],
+  "first_process_seconds": 7.9732507090000055,
+  "warm_process_median_seconds": 7.912968360999997,
+  "warm_scan_median_seconds": 7.062670087000001,
+  "warm_dag_median_seconds": 0.5176782059999994,
+  "tmux_found": true,
+  "lean_compile": "NOT_RUN",
+  "model_calls": 0,
+  "scope": "Index/DAG only; first run is NOT an OS-cold-cache measurement; includes process startup."
+}

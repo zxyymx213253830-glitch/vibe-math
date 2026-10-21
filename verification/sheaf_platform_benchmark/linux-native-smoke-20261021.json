@@ -1,0 +1,6 @@
+{
+  "exit_code": 1,
+  "seconds": 4.039228500000036,
+  "stdout": "",
+  "stderr": "w\u0000s\u0000l\u0000:\u0000 \u0000\ufffdhKm0R \u0000l\u0000o\u0000c\u0000a\u0000l\u0000h\u0000o\u0000s\u0000t\u0000 \u0000\ufffdN\u0006tM\ufffdn\u007f\f\ufffdFO*g\\\ufffd\ufffdP0R \u0000W\u0000S\u0000L\u0000\u00020N\u0000A\u0000T\u0000 \u0000!j\u000f_\u000bN\ufffdv \u0000W\u0000S\u0000L\u0000 \u0000\rN/e\u0001c \u0000l\u0000o\u0000c\u0000a\u0000l\u0000h\u0000o\u0000s\u0000t\u0000 \u0000\ufffdN\u0006t\u00020\r\u0000\n\u0000  File \"<string>\", line 6\n    child=child.replace(\"\\n\",\"\n                             ^\nSyntaxError: unterminated string literal (detected at line 6)\n"
+}

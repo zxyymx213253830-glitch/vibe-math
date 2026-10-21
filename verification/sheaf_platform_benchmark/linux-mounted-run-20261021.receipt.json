@@ -1,0 +1,23 @@
+{
+  "command": [
+    "wsl.exe",
+    "--distribution",
+    "SheafBenchUbuntu",
+    "--user",
+    "root",
+    "--exec",
+    "python3",
+    "-X",
+    "utf8",
+    "/root/sheaf-platform-benchmark-20261021/sheaf_platform_benchmark.py",
+    "run",
+    "--snapshot",
+    "/mnt/d/vibe math/.tools/sheaf-platform-benchmark-20261021/snapshot",
+    "--output",
+    "/mnt/d/vibe math/verification/sheaf_platform_benchmark/linux-mounted-20261021.json"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 54.54611339999997,
+  "stdout": "{\n  \"platform\": \"Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43\",\n  \"python\": \"3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]\",\n  \"processor\": \"\",\n  \"logical_cpus\": 20,\n  \"script_sha256\": \"ca3b672f363c63ff6ab8f4027ffa02f7b1722e80fe1bd885d153d11bc414db3c\",\n  \"manifest_sha256\": \"5ab5b31116c4c601dd00765d6ec37a86f5396daa2054f69910de93bfe62020ea\",\n  \"samples\": [\n    {\n      \"scan_seconds\": 7.130985237000004,\n      \"dag_seconds\": 0.4980776299999974,\n      \"result_sha256\": \"2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6\",\n      \"modules\": 351,\n      \"declarations\": 2152,\n      \"nodes\": 24,\n      \"control\": \"PASS\",\n      \"process_wall_seconds\": 7.9732507090000055\n    },\n    {\n      \"scan_seconds\": 7.161391722999994,\n      \"dag_seconds\": 0.5176782059999994,\n      \"result_sha256\": \"2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6\",\n      \"modules\": 351,\n      \"declarations\": 2152,\n      \"nodes\": 24,\n      \"control\": \"PASS\",\n      \"process_wall_seconds\": 7.994824601999994\n    },\n    {\n      \"scan_seconds\": 6.833769189999998,\n      \"dag_seconds\": 0.5063519840000055,\n      \"result_sha256\": \"2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6\",\n      \"modules\": 351,\n      \"declarations\": 2152,\n      \"nodes\": 24,\n      \"control\": \"PASS\",\n      \"process_wall_seconds\": 7.635949624999995\n    },\n    {\n      \"scan_seconds\": 7.014112134000001,\n      \"dag_seconds\": 0.5064934020000038,\n      \"result_sha256\": \"2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6\",\n      \"modules\": 351,\n      \"declarations\": 2152,\n      \"nodes\": 24,\n      \"control\": \"PASS\",\n      \"process_wall_seconds\": 7.826951926999996\n    },\n    {\n      \"scan_seconds\": 7.097887775999993,\n      \"dag_seconds\": 0.5258624500000053,\n      \"result_sha256\": \"2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6\",\n      \"modules\": 351,\n      \"declarations\": 2152,\n      \"nodes\": 24,\n      \"control\": \"PASS\",\n      \"process_wall_seconds\": 7.912968360999997\n    },\n    {\n      \"scan_seconds\": 7.062670087000001,\n      \"dag_seconds\": 0.5404210690000042,\n      \"result_sha256\": \"2ccc2a23813320cfc073f5251d136afd7149bb7027d4d25b71774d334a0bb6d6\",\n      \"modules\": 351,\n      \"declarations\": 2152,\n      \"nodes\": 24,\n      \"control\": \"PASS\",\n      \"process_wall_seconds\": 7.919120511999992\n    }\n  ],\n  \"first_process_seconds\": 7.9732507090000055,\n  \"warm_process_median_seconds\": 7.912968360999997,\n  \"warm_scan_median_seconds\": 7.062670087000001,\n  \"warm_dag_median_seconds\": 0.5176782059999994,\n  \"tmux_found\": true,\n  \"lean_compile\": \"NOT_RUN\",\n  \"model_calls\": 0,\n  \"scope\": \"Index/DAG only; first run is NOT an OS-cold-cache measurement; includes process startup.\"\n}\n",
+  "stderr": "wsl: 检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。\r\n"
+}
