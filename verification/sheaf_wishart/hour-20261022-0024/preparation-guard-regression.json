@@ -1,0 +1,29 @@
+{
+  "status": "PASS three completed-preparation rerun guards",
+  "items": [
+    {
+      "script": "accept_gram_minor.py",
+      "source_sha256": "7963f187e709458e63930564d37e20cf4abcd69975d3750f6c39643694787e4b",
+      "exit_code": 1,
+      "guard": "duplicate preparation refused before mutation"
+    },
+    {
+      "script": "accept_singular_bundle.py",
+      "source_sha256": "9edd5e658c04693e018584d3ff52173a27f0a0ed842a3caffd124ae19181d1d5",
+      "exit_code": 1,
+      "guard": "duplicate preparation refused before mutation"
+    },
+    {
+      "script": "accept_derivative.py",
+      "source_sha256": "7e5bf0824691397cb717a0a17cf6ac204b7f1ca4320154d6db4c83c1e573fb04",
+      "exit_code": 1,
+      "guard": "duplicate preparation refused before mutation"
+    }
+  ],
+  "bound_file_hashes": {
+    "theory\\jin_wishart_formalization\\JinWishartFormalization.lean": "c118de4443d904c75694c0f0791816d383e99cd1a1f8d66ba507b8930d469cc1",
+    "verification\\central_mixed_moments\\spec.json": "c373cd757170c92d8dc4420c833399d40301af5ea5a4ab99b5e934ce824bdef2"
+  },
+  "kernel_calls": 0,
+  "model_calls": 0
+}

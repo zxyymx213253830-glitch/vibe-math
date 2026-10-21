@@ -3,7 +3,13 @@ import sys
 R=Path(__file__).resolve().parents[3];run=Path(__file__).parent
 sys.path.insert(0,str(R/'sheaf/wishart/tools'))
 import sheaf as a
+from datetime import datetime,timezone
+claim=a.read(a.PROJECT/'coord/claims/cauchy-binet-hour-20261022.lock')
+assert a.read(a.SESSION/'state.json').get('current_coordinator_token')==claim['token']
+assert datetime.now(timezone.utc)<datetime.fromisoformat(claim['hard_deadline_utc'])
 cfg=a.read(run/'singular-bundle.json')
+prior=a.read(R/'verification/central_mixed_moments/spec.json')
+assert not any(t['module'] in ['JinWishartFormalization.'+c['module'] for c in cfg['modules']] for t in prior['targets']), 'Refusing repeated preparation before any mutation'
 main=a.LEAN/'JinWishartFormalization.lean'
 prefix=''.join('import JinWishartFormalization.'+card['module']+'\n' for card in cfg['modules'])
 main.write_bytes(prefix.encode()+main.read_bytes())
