@@ -1,0 +1,209 @@
+{
+  "started_utc": "2026-10-21T16:24:50+00:00",
+  "hard_deadline_utc": "2026-10-21T17:24:50+00:00",
+  "archived_utc": "2026-10-21T17:25:01.122598+00:00",
+  "baseline_items": 585,
+  "final_items": 610,
+  "new_printed_declarations": 25,
+  "new_modules": 7,
+  "proof_author": "Codex",
+  "source_commits": [
+    "e53fe9a",
+    "4aedf84",
+    "8c9ced9"
+  ],
+  "documentation_commit": "a7db472",
+  "archive_integrity_commit": "b27edce",
+  "preparation_guard_commit": "19c57d4",
+  "facade": {
+    "started_utc": "2026-10-21T17:08:37.602570+00:00",
+    "ended_utc": "2026-10-21T17:08:50.272205+00:00",
+    "module": "JinWishartFormalization",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
+    "source_sha256_before": "c118de4443d904c75694c0f0791816d383e99cd1a1f8d66ba507b8930d469cc1",
+    "source_sha256": "c118de4443d904c75694c0f0791816d383e99cd1a1f8d66ba507b8930d469cc1",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/facade-64.txt",
+    "log_exists": true,
+    "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false,
+    "gated_helper_exit_code": 0
+  },
+  "audit_sha256": "bc41108fe7bc831c2d2922a85d0979d3c5efb3e1ef0f72f1db11382619ac2a10",
+  "literal_target_types": 25,
+  "current_acceptance_records": 18,
+  "model_calls": [
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p1-cauchy-binet.receipt.json",
+      "exit_code": 0,
+      "seconds": 45.51807230000122,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-actual-singular-corrected.receipt.json",
+      "exit_code": 0,
+      "seconds": 25.458542899999884,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-actual-singular-final.receipt.json",
+      "exit_code": 0,
+      "seconds": 25.58822019999934,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-actual-singular.receipt.json",
+      "exit_code": 0,
+      "seconds": 22.05059600000095,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-average-bound.receipt.json",
+      "exit_code": 0,
+      "seconds": 23.961622799997713,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-derivative-exactapi.receipt.json",
+      "exit_code": 0,
+      "seconds": 30.126220999998623,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-derivative.receipt.json",
+      "exit_code": 0,
+      "seconds": 22.824197599999025,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-gram-minor.receipt.json",
+      "exit_code": 0,
+      "seconds": 26.67183010000008,
+      "requested_model": "Qwen3.8-Max"
+    }
+  ],
+  "model_review_is_human_review": false,
+  "model_independent_compilation": false,
+  "linux_receipt": {
+    "exit_code": 0,
+    "seconds": 4.455325300001277,
+    "stdout": "{\"native_directory\": \"/root/wishart-sheaf-hour-20261022-0024\", \"manifest_sha256\": \"20d786e021b9cc6ed676202e79cf76bc3cba252ee1411d5ac6ad2644656e4fc6\", \"verified_input_files\": 439, \"modules\": 362, \"lexical_declarations\": 2200, \"dag_nodes\": 71, \"new_target_records\": [\"S17-general-singular-offset\", \"S18-rank-coordinate-minor\", \"S19-actual-expected-logdet-derivative\"], \"stage1\": [], \"stage2\": [], \"seconds\": 0.4321275210000004, \"kernel_evidence\": \"Windows serial gate receipts; no independent Linux compilation\", \"linux_lean_compile\": \"NOT_RUN\"}\n",
+    "stderr": "wsl: 检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。\r\n"
+  },
+  "linux_lean_compile": "NOT_RUN",
+  "full_build": "NOT_RUN",
+  "control_checks": {
+    "averaged_exact": 52,
+    "singular_known_reference": 27,
+    "derivative_known_reference": 8,
+    "reused_exact": 426
+  },
+  "claims": "Fixed arbitrary B/M aggregate positive-spectrum log L1 and expected generic-rank offset; positive-scale expected full-logdet derivative. No evaluated offset constant/rate/parameter-uniformity/coding theorem.",
+  "deferred": [
+    "Full subset-grouped Cauchy-Binet",
+    "Original paper T1/G2/T3/full coverage obligations; human review"
+  ],
+  "frozen": {
+    "theory/wishart_paper/main.tex": {
+      "sha256": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+      "unchanged": true
+    },
+    "output/pdf/wishart_formalization.pdf": {
+      "sha256": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+      "unchanged": true
+    },
+    "output/publication/wishart_arxiv_upload.zip": {
+      "sha256": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+      "unchanged": true
+    },
+    "output/publication/wishart_formalization_code.zip": {
+      "sha256": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b",
+      "unchanged": true
+    }
+  },
+  "automation_status": "PAUSED",
+  "locks_present": [],
+  "human_review": "REQUIRED measure/Fubini/derivative/variance/model",
+  "committed_source_byte_audit": {
+    "status": "PASS exact committed/working/audit source bytes",
+    "head": "a7db47245b9ad558275d6eeecfef316eafb9ce4e",
+    "items": [
+      {
+        "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramRankSpectralCoefficient.lean",
+        "committed_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+        "working_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+        "audit_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589"
+      },
+      {
+        "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean",
+        "committed_sha256": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+        "working_sha256": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+        "audit_sha256": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af"
+      },
+      {
+        "source": "theory/jin_wishart_formalization/JinWishartFormalization/AveragedCauchyBinet.lean",
+        "committed_sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+        "working_sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+        "audit_sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58"
+      },
+      {
+        "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramMinorCoefficientBound.lean",
+        "committed_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787",
+        "working_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787",
+        "audit_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787"
+      },
+      {
+        "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramMinorLogDomination.lean",
+        "committed_sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+        "working_sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+        "audit_sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696"
+      },
+      {
+        "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularPositiveLog.lean",
+        "committed_sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8",
+        "working_sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8",
+        "audit_sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8"
+      },
+      {
+        "source": "theory/jin_wishart_formalization/JinWishartFormalization/ExpectedLogDetDerivative.lean",
+        "committed_sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634",
+        "working_sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634",
+        "audit_sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634"
+      }
+    ],
+    "scope": "Archive integrity only; not another compiler run",
+    "collected_utc": "2026-10-21T17:16:33.538712+00:00"
+  },
+  "preparation_guard_regression": {
+    "status": "PASS three completed-preparation rerun guards",
+    "items": [
+      {
+        "script": "accept_gram_minor.py",
+        "source_sha256": "7963f187e709458e63930564d37e20cf4abcd69975d3750f6c39643694787e4b",
+        "exit_code": 1,
+        "guard": "duplicate preparation refused before mutation"
+      },
+      {
+        "script": "accept_singular_bundle.py",
+        "source_sha256": "9edd5e658c04693e018584d3ff52173a27f0a0ed842a3caffd124ae19181d1d5",
+        "exit_code": 1,
+        "guard": "duplicate preparation refused before mutation"
+      },
+      {
+        "script": "accept_derivative.py",
+        "source_sha256": "7e5bf0824691397cb717a0a17cf6ac204b7f1ca4320154d6db4c83c1e573fb04",
+        "exit_code": 1,
+        "guard": "duplicate preparation refused before mutation"
+      }
+    ],
+    "bound_file_hashes": {
+      "theory\\jin_wishart_formalization\\JinWishartFormalization.lean": "c118de4443d904c75694c0f0791816d383e99cd1a1f8d66ba507b8930d469cc1",
+      "verification\\central_mixed_moments\\spec.json": "c373cd757170c92d8dc4420c833399d40301af5ea5a4ab99b5e934ce824bdef2"
+    },
+    "kernel_calls": 0,
+    "model_calls": 0
+  },
+  "report": "notes/WISHART_HOUR_20261022_REVIEW_CN.md"
+}
