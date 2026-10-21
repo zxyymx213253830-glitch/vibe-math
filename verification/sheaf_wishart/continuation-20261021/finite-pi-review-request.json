@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "FiniteComplexGaussianPolynomialLog.lean": {
+      "sha256": "a96ce662237c4c8540de8554328a7e0e0cb2ab78e8c5642ca90de3b5080124ac",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7ac78ba83239bbb83c0ca502f9f19efda1698c93e759e3af6f37eecc778913ac"
+}

@@ -55,3 +55,13 @@ Codex 负责读取任务卡、提出证明、串行编译和验收；Qoder 负�
 队列始终显示同一项目的全部目标；TargetLock 选择本次验证/检查的清单，不创建另一个项目。
 工作中的固定小时协调者持有活动租约时，不要另起 check；脚本会拒绝。让当前 Codex 继续即可。
 验收文件自带 target_lock、最终源码审查、类型比较及主入口证据；直接导入检查避免新叶子漏入主入口。
+
+
+## 2026-10-21 后续结果与 Linux 副本
+
+当前571审计绑定项，已经覆盖所有有限n的平面复高斯乘积上多项式负部/绝对对数L1；
+早先试跑章节为历史范围。实际证明和边界见 notes/WISHART_FINITE_GAUSSIAN_POLYNOMIAL_LOG.md。
+Linux副本位于 SheafBenchUbuntu 的 /root/wishart-sheaf-work-20261021-1031，388个
+输入文件逐哈希一致；上游索引/DAG读取已实际运行。它是源码工作快照，不是已经通过
+Linux内核构建的green库。Windows仍是源码与编译证据的权威位置；没有迁移认证令牌。
+后续Linux编译必须先准备同版Lean/mathlib并评审便携串行gate，不得绕过现有门禁。

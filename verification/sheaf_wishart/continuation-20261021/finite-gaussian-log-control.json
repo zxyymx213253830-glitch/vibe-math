@@ -1,0 +1,146 @@
+{
+  "seed": 2026102123,
+  "samples": 200000,
+  "status": "PASS 21 controls",
+  "source_sha256": "b3dcbe9e8165b2f16662bbd3fee170945e138a93a498c521e9c1339a97c920ba",
+  "normalization": "Each real coordinate N(0,1); complex second moment2.",
+  "interpretation": "Reproducible controls only; not an all-N proof.",
+  "rows": [
+    {
+      "case": "product-1",
+      "status": "PASS",
+      "mean_log": 0.05689497703444451,
+      "exact_mean_log": 0.05796575782920621,
+      "standard_error": 0.0014304699132107782
+    },
+    {
+      "case": "sum-1",
+      "status": "PASS",
+      "negative_mean": 0.22239531677178095,
+      "exact_negative_mean": 0.2219210395588742,
+      "standard_error": 0.0009600872108477006
+    },
+    {
+      "case": "product-plus-one-1",
+      "status": "PASS",
+      "negative_mean": 0.14222162518200246,
+      "candidate_bound": 0.25
+    },
+    {
+      "case": "product-2",
+      "status": "PASS",
+      "mean_log": 0.11761066277524651,
+      "exact_mean_log": 0.11593151565841242,
+      "standard_error": 0.002028367683027022
+    },
+    {
+      "case": "sum-2",
+      "status": "PASS",
+      "negative_mean": 0.11753212111610406,
+      "exact_negative_mean": 0.11760196911269022,
+      "standard_error": 0.000734372162245223
+    },
+    {
+      "case": "product-plus-one-2",
+      "status": "PASS",
+      "negative_mean": 0.11176232100865274,
+      "candidate_bound": 0.5
+    },
+    {
+      "case": "product-3",
+      "status": "PASS",
+      "mean_log": 0.1770165301553355,
+      "exact_mean_log": 0.17389727348761863,
+      "standard_error": 0.0024799306488195887
+    },
+    {
+      "case": "sum-3",
+      "status": "PASS",
+      "negative_mean": 0.07944283401070652,
+      "exact_negative_mean": 0.0799857978947821,
+      "standard_error": 0.0006117629845503983
+    },
+    {
+      "case": "product-plus-one-3",
+      "status": "PASS",
+      "negative_mean": 0.09606074700222522,
+      "candidate_bound": 0.75
+    },
+    {
+      "case": "product-4",
+      "status": "PASS",
+      "mean_log": 0.22631295920846653,
+      "exact_mean_log": 0.23186303131682484,
+      "standard_error": 0.00287044901171965
+    },
+    {
+      "case": "sum-4",
+      "status": "PASS",
+      "negative_mean": 0.06097136543642375,
+      "exact_negative_mean": 0.06059988190293286,
+      "standard_error": 0.0005384445660648411
+    },
+    {
+      "case": "product-plus-one-4",
+      "status": "PASS",
+      "negative_mean": 0.08714171676740032,
+      "candidate_bound": 1.0
+    },
+    {
+      "case": "product-5",
+      "status": "PASS",
+      "mean_log": 0.2938508928239843,
+      "exact_mean_log": 0.28982878914603105,
+      "standard_error": 0.003210998252925694
+    },
+    {
+      "case": "sum-5",
+      "status": "PASS",
+      "negative_mean": 0.048980419912781334,
+      "exact_negative_mean": 0.04877726516343894,
+      "standard_error": 0.0004860264162786242
+    },
+    {
+      "case": "product-plus-one-5",
+      "status": "PASS",
+      "negative_mean": 0.08025650467222649,
+      "candidate_bound": 1.25
+    },
+    {
+      "case": "product-6",
+      "status": "PASS",
+      "mean_log": 0.3458713699122383,
+      "exact_mean_log": 0.34779454697523726,
+      "standard_error": 0.00351734973739668
+    },
+    {
+      "case": "sum-6",
+      "status": "PASS",
+      "negative_mean": 0.041020726209195266,
+      "exact_negative_mean": 0.04081443835111964,
+      "standard_error": 0.0004453967552918899
+    },
+    {
+      "case": "product-plus-one-6",
+      "status": "PASS",
+      "negative_mean": 0.07438964078732606,
+      "candidate_bound": 1.5
+    },
+    {
+      "case": "dependent-leading-coefficient",
+      "status": "PASS",
+      "negative_mean": 0.09793867243408765,
+      "candidate_bound": 0.75
+    },
+    {
+      "case": "zero-polynomial-totalization",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-variance-negative-control",
+      "status": "PASS",
+      "planar_value": 0.2219210395588742,
+      "proper_cn1_value": 0.3982997996485267
+    }
+  ]
+}

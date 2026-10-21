@@ -1,0 +1,8 @@
+{
+  "JinWishart.planarGaussianSplit_measurePreserving": "(n : ℕ) : MeasurePreserving (planarGaussianSplit n) (Measure.pi (fun _ : Fin (n+1) => stdGaussian ℂ)) ((Measure.pi (fun _ : Fin n => stdGaussian ℂ)).prod (stdGaussian ℂ))",
+  "JinWishart.planarGaussianSplit_cons": "(n : ℕ) (x : Fin (n+1) → ℂ) : Fin.cons (planarGaussianSplit n x).2 (planarGaussianSplit n x).1 = x",
+  "JinWishart.stdGaussian_pi_mvPolynomial_ne_zero_ae": ": ∀ n (P : MvPolynomial (Fin n) ℂ), P≠0 → ∀ᵐ x ∂Measure.pi (fun _ : Fin n => stdGaussian ℂ), MvPolynomial.eval x P ≠ 0",
+  "JinWishart.stdGaussian_pi_mvPolynomial_negativeLog_integrable": ": ∀ n (P : MvPolynomial (Fin n) ℂ), Integrable (fun x => complexNegativeLog (MvPolynomial.eval x P)) (Measure.pi (fun _ : Fin n => stdGaussian ℂ))",
+  "JinWishart.integrable_stdGaussian_pi_mvPolynomial_eval": "(n : ℕ) (P : MvPolynomial (Fin n) ℂ) : Integrable (fun x => MvPolynomial.eval x P) (Measure.pi (fun _ : Fin n => stdGaussian ℂ))",
+  "JinWishart.stdGaussian_pi_mvPolynomial_log_integrable": "(n : ℕ) (P : MvPolynomial (Fin n) ℂ) : Integrable (fun x => Real.log ‖MvPolynomial.eval x P‖) (Measure.pi (fun _ : Fin n => stdGaussian ℂ))"
+}

@@ -156,3 +156,9 @@
 /experiments/sheaf_platform_benchmark.py -text whitespace=cr-at-eol
 
 /experiments/compare_sheaf_platform_results.py -text whitespace=cr-at-eol
+
+/experiments/finite_gaussian_polynomial_log_control.py -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteComplexGaussianPolynomialLog.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_FINITE_GAUSSIAN_POLYNOMIAL_LOG.md -text whitespace=cr-at-eol

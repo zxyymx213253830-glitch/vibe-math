@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/continuation-20261021/locks-finite.json",
+  "check": "verification/sheaf_wishart/continuation-20261021/check-finite.json",
+  "review": {
+    "request": "verification/sheaf_wishart/continuation-20261021/finite-pi-review-request.json",
+    "prompt": "verification/sheaf_wishart/continuation-20261021/p4-finite-pi-prompt.txt",
+    "receipt": "verification/sheaf_wishart/continuation-20261021/p4-finite-pi.receipt.json",
+    "raw": "verification/sheaf_wishart/continuation-20261021/p4-finite-pi.raw.json",
+    "snapshot": "verification/sheaf_wishart/continuation-20261021/finite-pi-snapshot",
+    "resolution": "notes/WISHART_FINITE_GAUSSIAN_POLYNOMIAL_LOG.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-59.receipt.json"
+}

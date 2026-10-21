@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T10:42:59.277352+00:00",
+  "ended_utc": "2026-10-21T10:43:07.240132+00:00",
+  "module": "JinWishartFormalization.FiniteComplexGaussianPolynomialLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteComplexGaussianPolynomialLog.lean",
+  "source_sha256_before": "a96ce662237c4c8540de8554328a7e0e0cb2ab78e8c5642ca90de3b5080124ac",
+  "source_sha256": "a96ce662237c4c8540de8554328a7e0e0cb2ab78e8c5642ca90de3b5080124ac",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/finite-pi-20261021-locked.txt",
+  "log_exists": true,
+  "log_sha256": "e43713cb9e05c74d81e917cca88cd2c0822023af9f37b45f617e2c6e1ec24f62",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

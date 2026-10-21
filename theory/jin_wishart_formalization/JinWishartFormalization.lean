@@ -1,3 +1,4 @@
+import JinWishartFormalization.FiniteComplexGaussianPolynomialLog
 import JinWishartFormalization.ScalarUniformSmallBall
 import JinWishartFormalization.ProbabilityNegativeLogBounds
 import JinWishartFormalization.ScalarUniformNegativeLog
@@ -383,4 +384,3 @@ theorem weakest_mode_has_smallest_snr
     (mul_le_mul_of_nonneg_left hφ hscale) hpower
 
 end JinWishart
-

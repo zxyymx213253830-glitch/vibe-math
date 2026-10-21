@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "seconds": 4.1862356999999975,
+  "stdout": "{\"verified_files\": 388, \"manifest_sha256\": \"94fbf98ba10be250f20062a38c3880ef7a4500c4ed399d1ca4095093abb6e6aa\", \"main_source_sha256\": \"235caf0020792f4cf9a395536615f1d39ed7791423b50cece48a164861811c08\", \"scope\": \"Final facade formatting synchronized; no Linux compilation\"}\n",
+  "stderr": "wsl: 检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。\r\n"
+}

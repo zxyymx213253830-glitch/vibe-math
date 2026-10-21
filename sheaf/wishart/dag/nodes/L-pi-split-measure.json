@@ -1,0 +1,24 @@
+{
+  "id": "L-pi-split-measure",
+  "kind": "statement",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteComplexGaussianPolynomialLog",
+  "declaration": "JinWishart.planarGaussianSplit_measurePreserving",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-section-negative-log"
+  ],
+  "proof": [
+    {
+      "text": "Finite product Gaussian induction with explicit leading-coefficient null set; coordinate split and product-section bound, or monomial Gaussian moments.",
+      "uses": [
+        "L-section-negative-log"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/continuation-20261021/acceptance-finite.json",
+    "source_sha256": "a96ce662237c4c8540de8554328a7e0e0cb2ab78e8c5642ca90de3b5080124ac"
+  }
+}

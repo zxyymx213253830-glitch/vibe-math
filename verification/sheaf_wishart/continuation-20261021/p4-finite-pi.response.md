@@ -1,0 +1,82 @@
+# P4 Adversarial Review: Concrete Gaps & Hypotheses
+
+## 1. `stdGaussian_pi_mvPolynomial_ne_zero_ae` — Leading-Coefficient Exception Unhandled in AE Claim
+
+**Gap:** The induction step applies `ih q.leadingCoeff hr` where `hr : q.leadingCoeff ≠ 0`. This is valid. However, the conclusion claims AE non-vanishing for **all** `P ≠ 0`, including those whose leading coefficient (under `finSuccEquiv`) vanishes on a measure-zero set of the base. The proof correctly handles this via `hae`, but there is a **hidden hypothesis**: it assumes `q.leadingCoeff` faithfully represents the zero locus structure of `P`. This holds by `finSuccEquiv` being an algebra isomorphism, but the proof never states that `MvPolynomial.eval (Fin.cons w.2 w.1) P = 0 ↔ (Polynomial.map (MvPolynomial.eval w.1) q).eval w.2 = 0` is used at the `hpair` filter step. The `simpa only [heval]` at the end patches this, but the intermediate `hmap` reasoning relies on `Polynomial.leadingCoeff_map_of_leadingCoeff_ne_zero _ hy` where `hy` is from `hae`—this is only valid **on the complement of a null set**. The `ae_prod_iff_ae_ae` application then lifts this correctly. **No fatal gap**, but the proof silently uses that `hy` holds AE to justify `hmap ≠ 0` AE, which is sound.
+
+**Verdict:** Not a gap upon close inspection, but the `have hmap` line should explicitly note it holds `∀ᵐ y` not pointwise.
+
+---
+
+## 2. `stdGaussian_pi_mvPolynomial_negativeLog_integrable` — Fubini Order / Section Integrability
+
+**Concrete Gap:** The call to `integrable_polynomial_section_negativeLog` supplies `(ae_of_all _ (fun _ => Polynomial.natDegree_map_le))` as the degree-bound witness. Per pinned API, `Polynomial.natDegree_map_le` holds everywhere—this is correct. However, the **section integrability helper** requires joint measurability (`hm`) and coefficient-L1 (`hcoeff`). The proof supplies `hm` via continuity (correct) and `hcoeff` via the IH congruence. But `hcoeff` is established as:
+
+```lean
+have hcoeff := (ih q.leadingCoeff).congr heq.symm
+```
+
+where `heq` is an AE equality under `Measure.pi (fun _ : Fin n => stdGaussian ℂ)`. The `integrable_polynomial_section_negativeLog` helper needs the coefficient function to be L1 with respect to the **base measure of the product space over which sections are taken**. Here the product split is `(Fin n → ℂ) × ℂ`, base = `Fin n → ℂ`. This matches. **However**, the helper's contract requires that the coefficient-L1 hypothesis is about `fun y => complexNegativeLog (Polynomial.map (MvPolynomial.eval y) q).leadingCoeff`, but `ih q.leadingCoeff` gives integrability of `fun y => complexNegativeLog (MvPolynomial.eval y q.leadingCoeff)`. The `heq` bridge is AE equality, and `.congr heq.symm` transfers integrability. This is sound **only if** the measure on `Fin n → ℂ` is the same in both. It is (both use `Measure.pi (fun _ : Fin n => stdGaussian ℂ)`). 
+
+**Verdict:** No gap. The Fubini order (integrate out the last coordinate `w.2` first via section helper, then base `w.1`) matches the `planarGaussianSplit` transport direction.
+
+---
+
+## 3. `n = 0` Base Case — `complexNegativeLog` Totalization
+
+**Unstated Hypothesis:** In the `zero` case of `negativeLog_integrable`, after `rw [hc]` and `simp [MvPolynomial.eval_C]`, the goal becomes `Integrable (fun _ : Fin 0 → ℂ => complexNegativeLog c)` for `c : ℂ`. The proof concludes `exact integrable_const _`. This requires `Fin 0 → ℂ` to carry a measure under which constant functions are integrable. `Measure.pi` over an empty type is the Dirac mass at the unique empty function (a probability measure), so constants are integrable. **This is correct** but relies on Mathlib's `Measure.pi` definition handling `isEmpty` types as unit mass—this is standard but unstated.
+
+**Verdict:** Sound, no gap.
+
+---
+
+## 4. `P = 0` Branch — Totalized Log
+
+In `negativeLog_integrable`, the `by_cases hP : P = 0` branch does `subst P; simp [complexNegativeLog]`. This relies on `Real.log 0 = 0` totalization making `complexNegativeLog 0 = 0` (or at least bounded/constant). If `complexNegativeLog` is defined as `max 0 (-Real.log ‖·‖)` or similar, then at `0` it yields `max 0 (-0) = 0` given `Real.log 0 = 0`. The `simp` presumably discharges this. **Correct given the stated totalization convention.**
+
+---
+
+## 5. `stdGaussian_pi_mvPolynomial_log_integrable` — Pointwise Bound
+
+**Statement/Proof Mismatch Risk:** The final `filter_upwards [] with x` block proves:
+
+```
+|Real.log ‖eval x P‖| ≤ ‖eval x P‖ + max 0 (-Real.log ‖eval x P‖)
+```
+
+The RHS is `‖P(x)‖ + complexNegativeLog(P(x))` (up to definition unfolding). The `.mono'` call requires an AE pointwise bound of `|log ‖P‖|` by a sum of two integrable functions. The proof establishes this **everywhere** (not just AE) via the `by_cases hz` split. At `hz : eval x P = 0`, `simp [hz]` must resolve `|Real.log 0| ≤ 0 + max 0 (-Real.log 0)`, i.e., `0 ≤ 0` under the totalization. This works.
+
+**However**, the upper bound `Real.log_le_sub_one_of_pos` gives `log ‖P‖ ≤ ‖P‖ - 1 ≤ ‖P‖`, and the lower bound uses `-log ‖P‖ ≤ max 0 (-log ‖P‖)`. The `abs_le.mpr ⟨by linarith, by linarith⟩` must combine these. The upper direction: `log ‖P‖ ≤ ‖P‖ ≤ ‖P‖ + max 0 (-log ‖P‖)`. The lower direction: `-(‖P‖ + max 0 (-log ‖P‖)) ≤ log ‖P‖`. When `log ‖P‖ ≥ 0`, this is `-‖P‖ - max(...) ≤ 0 ≤ log ‖P‖`; when `log ‖P‖ < 0`, need `-‖P‖ - (-log ‖P‖) ≤ log ‖P‖`, i.e., `-‖P‖ ≤ 0`. Both hold. **Linarily dischargable.**
+
+**Verdict:** No gap. The bound is valid everywhere under the totalization.
+
+---
+
+## 6. `integrable_stdGaussian_pi_mvPolynomial_eval` — Monomial L1 via Product
+
+**Potential Gap:** The proof rewrites `MvPolynomial.eval` as a finite sum over monomials, then shows each monomial is integrable via `Integrable.fintype_prod` over `i : Fin n` of `z ↦ z^(d i)`. Each factor uses `integrable_stdGaussian_complex_polynomial_eval ((Polynomial.X : Polynomial ℂ)^d i)`. This cites that all moments of a planar Gaussian exist (polynomials are integrable). **Correct for finite `n` and finite multi-index `d`.** The `Fintype` instance on `Fin n` is essential; this holds for all concrete `n : ℕ`. No uniform-in-`n` bound is claimed or needed.
+
+**Verdict:** No gap.
+
+---
+
+## 7. Measure-Preserving Split — Normalization
+
+**Human-Review Limitation (as flagged):** The `planarGaussianSplit_measurePreserving` theorem chains `measurePreserving_piFinSuccAbove` with `measurePreserving_swap`. The pinned API confirms `measurePreserving_piFinSuccAbove` accepts arbitrary sigma-finite factor measures. `stdGaussian ℂ` (variance 1 per real coordinate, i.e., variance 2 as a complex variable) is sigma-finite (it is a probability measure). The swap is measure-preserving for product measures. **This is correct.** However, the comment warns this is NOT proper CN(1) transport—the normalization (variance 1 per real dim vs. variance 1/2 per complex dim for CN(1)) is intentionally different. The proofs do not depend on any specific variance value beyond sigma-finiteness and moment existence, so this is not a logical gap, but it is a **semantic limitation**: results do not transfer to CN(1) without rescaling.
+
+---
+
+## Summary of Concrete Findings
+
+| Item | Status |
+|------|--------|
+| Leading-coefficient AE fiber reasoning | Sound (AE lift via `ae_prod_iff_ae_ae` is correct) |
+| Fubini order / section helper contract | Matches; base/product orientation consistent |
+| `n = 0` empty-product measure | Sound (unit mass on empty function space) |
+| `P = 0` totalization branch | Sound under `Real.log 0 = 0` convention |
+| Pointwise log bound for `.mono'` | Valid everywhere, not just AE |
+| Monomial L1 via finite product | Correct for each finite `n` |
+| Measure-preserving split normalization | Logically sound; semantically not CN(1) |
+| Degree-drop `natDegree_map_le` | Correctly handled per pinned API |
+
+**No blocking gaps found.** The source is internally consistent for its stated scope (finite `n`, deterministic holomorphic `MvPolynomial`, planar stdGaussian with variance-1-per-real-coordinate, totalized `Real.log 0 = 0`). The human-review flags in the header are appropriately scoped to normalization semantics and product transport conventions, not logical defects.

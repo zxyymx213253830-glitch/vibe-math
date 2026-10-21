@@ -1,0 +1,8 @@
+{
+  "archive_sha256": "a8fecc8088b40d12eaa3725d4e1f16befaaf9d5cfe4068cb691025aeaf01d55e",
+  "manifest_sha256": "9406fb1024cd14fac59fc50b430e56b01c06e80ae82b63cdda5c7d6350ccbac3",
+  "archive_bytes": 2734080,
+  "archive_seconds": 2.5770072999998774,
+  "linux_directory": "/root/wishart-sheaf-work-20261021-1031",
+  "scope": "Source/DAG/locks only; Linux kernel and model workflow NOT_RUN"
+}

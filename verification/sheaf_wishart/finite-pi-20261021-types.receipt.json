@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T10:43:07.241509+00:00",
+  "ended_utc": "2026-10-21T10:43:31.385520+00:00",
+  "module": "SheafFinitePiTargets",
+  "source": "verification/sheaf_wishart/continuation-20261021/SheafFinitePiTargets.lean",
+  "source_sha256_before": "5300b3f798132585cdcc3bd34a9b24f172718823edc22c1ef5125827360293a8",
+  "source_sha256": "5300b3f798132585cdcc3bd34a9b24f172718823edc22c1ef5125827360293a8",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/finite-pi-20261021-types.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

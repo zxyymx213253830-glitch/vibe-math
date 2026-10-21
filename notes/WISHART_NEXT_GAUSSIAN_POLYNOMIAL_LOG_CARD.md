@@ -1,3 +1,5 @@
+2026-10-21 状态覆盖：以下为历史路线卡。平面stdGaussian乘积下全有限N多项式负部/绝对对数L1已验收（571绑定项）；properCN1乘积缩放及其后伪行列式谱积比较仍开放。不要把下文旧的小球界/一元/有限N缺口当成当前未完成项。详见WISHART_FINITE_GAUSSIAN_POLYNOMIAL_LOG.md。
+
 # 下一张卡：高斯非零多项式的对数可积性 — OPEN
 
 2026-10-20 10:13这一小时已闭合：noiseless-surjective行Gram偏移和一/二阶逆迹修正；

@@ -1,0 +1,31 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteComplexGaussianPolynomialLog.lean:75:8: error: Type mismatch: After simplification, term
+  hf
+ has type
+  @Filter.Eventually ℂ
+    (fun z => Polynomial.eval z (Polynomial.map (MvPolynomial.eval y) ((MvPolynomial.finSuccEquiv ℂ n) P)) ≠ 0)
+    (ae (stdGaussian ℂ))
+but is expected to have type
+  @Filter.Eventually ℂ
+    (fun y_1 =>
+      (y, y_1) ∉
+        (fun w => Polynomial.eval w.2 (Polynomial.map (MvPolynomial.eval w.1) ((MvPolynomial.finSuccEquiv ℂ n) P))) ⁻¹'
+          {0})
+    (ae (stdGaussian ℂ))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteComplexGaussianPolynomialLog.lean:144:19: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [npowRec, pow_succ, ih]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'JinWishart.planarGaussianSplit_measurePreserving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.planarGaussianSplit_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_pi_mvPolynomial_ne_zero_ae' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_pi_mvPolynomial_negativeLog_integrable' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_stdGaussian_pi_mvPolynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_pi_mvPolynomial_log_integrable' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
