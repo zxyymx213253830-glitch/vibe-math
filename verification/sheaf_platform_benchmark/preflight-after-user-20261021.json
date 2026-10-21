@@ -1,0 +1,11 @@
+{
+  "recorded_utc": "2026-10-21T09:46:14.934609+00:00",
+  "wsl_engine": "3.0.3.0",
+  "kernel": "6.18.54.1-1",
+  "distro_registered": false,
+  "ubuntu_install_exit_code": 0,
+  "installer_requests_reboot": true,
+  "linux_benchmark": "NOT_RUN",
+  "required_user_action": "Save work and restart Windows, then resume this comparison.",
+  "reboot_initiated_by_agent": false
+}

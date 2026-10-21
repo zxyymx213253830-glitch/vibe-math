@@ -64,3 +64,7 @@ This baseline does not measure the complete native Windows acceptance adapter.
 Research hour remains closed; heartbeat remains PAUSED. The prior seven bivariate
 declarations are still pending final audit/native acceptance, unchanged by this
 benchmark. No mathematics claims or frozen publication artifacts were updated.
+
+## Follow-up after user installation
+
+2026-10-21: WSL engine now reports version3.0.3.0, kernel6.18.54.1-1. No distribution is registered yet. VirtualMachinePlatform reports installed; WSL status still warns the runtime cannot start. Running `wsl.exe --install --distribution Ubuntu --no-launch` returned exit0 with the explicit message that changes do not take effect until a system restart. Receipt: `verification/sheaf_platform_benchmark/install-after-user-20261021.json`. User reboot is required; no restart was initiated by the agent. Linux benchmark remains NOT_RUN, and no speedup ratio is claimed.

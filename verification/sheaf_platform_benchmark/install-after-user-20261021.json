@@ -1,0 +1,12 @@
+{
+  "command": [
+    "wsl.exe",
+    "--install",
+    "--distribution",
+    "Ubuntu",
+    "--no-launch"
+  ],
+  "exit_code": 0,
+  "seconds": 0.05680659999779891,
+  "output": "请求的操作成功。直到重新启动系统前更改将不会生效。 \r\n"
+}
