@@ -1,0 +1,19 @@
+{
+  "id": "L-bivariate-eval-sum",
+  "kind": "statement",
+  "target": false,
+  "statement": "Nested polynomial evaluation equals its finite coefficient sum.",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+  "declaration": "JinWishart.complexBivariateEval_eq_sum",
+  "proof": [
+    {
+      "text": "Nested polynomial evaluation equals its finite coefficient sum.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "open"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GaussianPolynomialSectionLog.lean": {
+      "sha256": "082873e5c39937eb3cfe5246e5e4b524267df50165bdb5701e89a7491b3a9927",
+      "supplied": "Full source"
+    },
+    "BivariateGaussianPolynomialLog.lean": {
+      "sha256": "1eede5b4f6151e0098e851fe047eeacb35bcccfb02ad2e8f4176e7321701e544",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "3b9897edd07c7d63a2273913a98c7f9e919ea5dbe7e2d3fdbe43eafae254c700"
+}

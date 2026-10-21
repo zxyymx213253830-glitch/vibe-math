@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-10-20T16:09:18.609214+00:00",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianPolynomialSectionLog.lean",
+  "statements": {
+    "JinWishart.integrable_polynomial_section_negativeLog": "{α : Type*} [MeasurableSpace α] (μ : Measure α) [IsProbabilityMeasure μ] (P : α → Polynomial ℂ) (hEval : Measurable (fun w : α × ℂ => (P w.1).eval w.2)) (hCoeff : Integrable (fun a => complexNegativeLog (P a).leadingCoeff) μ) (D : ℕ) (hDegree : ∀ᵐ a ∂μ, (P a).natDegree ≤ D) : Integrable (fun w : α × ℂ => complexNegativeLog ((P w.1).eval w.2)) (μ.prod (stdGaussian ℂ)) ∧ (∫ w : α × ℂ, complexNegativeLog ((P w.1).eval w.2) ∂μ.prod (stdGaussian ℂ)) ≤ (∫ a, complexNegativeLog (P a).leadingCoeff ∂μ) + (D : ℝ)/4"
+  },
+  "locked_before_checks": true
+}

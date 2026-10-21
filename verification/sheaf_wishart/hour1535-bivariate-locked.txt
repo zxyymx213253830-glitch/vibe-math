@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BivariateGaussianPolynomialLog.lean:17:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'JinWishart.stdGaussian_complex_polynomial_eval_ne_zero_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexBivariateEval_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.continuous_complexBivariateEval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_bivariate_polynomial_negativeLog' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_stdGaussian_bivariate_polynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_bivariate_polynomial_log_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]

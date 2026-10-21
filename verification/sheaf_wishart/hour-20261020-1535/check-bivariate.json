@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "1eede5b4f6151e0098e851fe047eeacb35bcccfb02ad2e8f4176e7321701e544",
+  "target_lock_sha256": "91dd81fb471763c615d1df632150cb9f6255f07fe942f4d59d87907add09eac8",
+  "leaf": {
+    "started_utc": "2026-10-20T16:19:40.837404+00:00",
+    "ended_utc": "2026-10-20T16:19:50.582489+00:00",
+    "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/BivariateGaussianPolynomialLog.lean",
+    "source_sha256_before": "1eede5b4f6151e0098e851fe047eeacb35bcccfb02ad2e8f4176e7321701e544",
+    "source_sha256": "1eede5b4f6151e0098e851fe047eeacb35bcccfb02ad2e8f4176e7321701e544",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/hour1535-bivariate-locked.txt",
+    "log_exists": true,
+    "log_sha256": "a6b448e8334ada6fbc34add5938e5d9332145e70b22c8eed9fb2530c8358ef49",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-20T16:19:50.599847+00:00",
+    "ended_utc": "2026-10-20T16:20:01.966016+00:00",
+    "module": "SheafBivariateLogTargets",
+    "source": "verification/sheaf_wishart/hour-20261020-1535/SheafBivariateLogTargets.lean",
+    "source_sha256_before": "4c36a1928f3e69a72907a6c0a5ef8b4039c147f1e135155136ac543523fd623f",
+    "source_sha256": "4c36a1928f3e69a72907a6c0a5ef8b4039c147f1e135155136ac543523fd623f",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/hour1535-bivariate-types-locked.txt",
+    "log_exists": true,
+    "log_sha256": "d42c654e73a028d8184837a5588955fb87752fa7a35d2f3b98a27f36f85c3b30",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

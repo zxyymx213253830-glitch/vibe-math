@@ -1,0 +1,15 @@
+{
+  "closed_utc": "2026-10-21T01:30:00.604407+00:00",
+  "hard_deadline_utc": "2026-10-20T16:35:52+00:00",
+  "reason": "Deadline passed; archival only. No new mathematics, Lean checks, audit, model calls or acceptance.",
+  "accepted_bound_items": 558,
+  "pending_new_declarations": 7,
+  "pending_modules": [
+    "GaussianPolynomialSectionLog",
+    "BivariateGaussianPolynomialLog"
+  ],
+  "pending_evidence": "Leaf/type checks, facade56 and Qoder P4 receipts exist before deadline; final audit binding and native acceptance NOT completed.",
+  "automation_status": "PAUSED",
+  "full_lake_build": "NOT_RUN",
+  "linux_migration": "NOT_RUN"
+}

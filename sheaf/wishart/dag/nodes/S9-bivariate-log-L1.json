@@ -1,0 +1,25 @@
+{
+  "id": "S9-bivariate-log-L1",
+  "kind": "target",
+  "target": true,
+  "statement": "Bivariate totalized real log norm is L1 under two independent planarGaussians, not arbitrary finiteN.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "S8-bivariate-negative-log",
+    "L-bivariate-eval-L1"
+  ],
+  "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+  "declaration": "JinWishart.stdGaussian_bivariate_polynomial_log_integrable",
+  "proof": [
+    {
+      "text": "Bivariate totalized real log norm is L1 under two independent planarGaussians, not arbitrary finiteN.",
+      "uses": [
+        "S8-bivariate-negative-log",
+        "L-bivariate-eval-L1"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "open"
+  }
+}

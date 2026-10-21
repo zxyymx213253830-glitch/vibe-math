@@ -146,3 +146,9 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianRootNegativeLog.lean -text whitespace=cr-at-eol
 /experiments/complex_root_negative_log_control.py -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianPolynomialLog.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianPolynomialSectionLog.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/BivariateGaussianPolynomialLog.lean -text whitespace=cr-at-eol
+
+/experiments/bivariate_gaussian_log_control.py -text whitespace=cr-at-eol

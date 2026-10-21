@@ -1,0 +1,23 @@
+{
+  "id": "L-section-negative-log",
+  "kind": "statement",
+  "target": false,
+  "statement": "Conditional coefficient-logL1 + jointmeasurability + AE degreebound => productnegativeLog L1/explicitbound.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "S5-polynomial-neglog"
+  ],
+  "module": "JinWishartFormalization.GaussianPolynomialSectionLog",
+  "declaration": "JinWishart.integrable_polynomial_section_negativeLog",
+  "proof": [
+    {
+      "text": "Conditional coefficient-logL1 + jointmeasurability + AE degreebound => productnegativeLog L1/explicitbound.",
+      "uses": [
+        "S5-polynomial-neglog"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "open"
+  }
+}

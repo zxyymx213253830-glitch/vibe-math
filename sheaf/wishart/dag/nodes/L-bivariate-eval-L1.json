@@ -1,0 +1,25 @@
+{
+  "id": "L-bivariate-eval-L1",
+  "kind": "statement",
+  "target": false,
+  "statement": "Bivariate evaluation L1 by independent Gaussian productmoments.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-bivariate-eval-sum",
+    "L-polynomial-eval-L1"
+  ],
+  "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+  "declaration": "JinWishart.integrable_stdGaussian_bivariate_polynomial_eval",
+  "proof": [
+    {
+      "text": "Bivariate evaluation L1 by independent Gaussian productmoments.",
+      "uses": [
+        "L-bivariate-eval-sum",
+        "L-polynomial-eval-L1"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "open"
+  }
+}

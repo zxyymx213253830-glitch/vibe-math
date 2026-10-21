@@ -1,0 +1,23 @@
+{
+  "id": "L-planar-polynomial-null",
+  "kind": "statement",
+  "target": false,
+  "statement": "Nonzero univariate polynomial is nonzero AE under actual planarGaussian.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-planar-density"
+  ],
+  "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+  "declaration": "JinWishart.stdGaussian_complex_polynomial_eval_ne_zero_ae",
+  "proof": [
+    {
+      "text": "Nonzero univariate polynomial is nonzero AE under actual planarGaussian.",
+      "uses": [
+        "L-planar-density"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "open"
+  }
+}

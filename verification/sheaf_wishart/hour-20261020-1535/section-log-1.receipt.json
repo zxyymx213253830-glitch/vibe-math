@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-10-20T16:09:18.674396+00:00",
+  "ended_utc": "2026-10-20T16:09:27.528562+00:00",
+  "module": "JinWishartFormalization.GaussianPolynomialSectionLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianPolynomialSectionLog.lean",
+  "source_sha256_before": "082873e5c39937eb3cfe5246e5e4b524267df50165bdb5701e89a7491b3a9927",
+  "source_sha256": "082873e5c39937eb3cfe5246e5e4b524267df50165bdb5701e89a7491b3a9927",
+  "gated_helper_exit_code": 0,
+  "log_sha256": "877a190f89e989867af91077a9f122b7cc1a097fe9598355a50deb059f76f89a"
+}

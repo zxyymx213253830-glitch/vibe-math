@@ -1,0 +1,60 @@
+{
+  "seed": 2026102022,
+  "samples": 200000,
+  "source_sha256": "91d4baf00692a400040c37d9d217851ead386c76434340173c37fd49ba14012c",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "az",
+      "passed": true,
+      "empirical": 0.3061689977070943,
+      "bound": 0.5,
+      "se": 0.001278501918743457
+    },
+    {
+      "name": "az+1",
+      "passed": true,
+      "empirical": 0.11130183891226093,
+      "bound": 0.5,
+      "se": 0.000687494782920556
+    },
+    {
+      "name": "(a2+1)z2+a",
+      "passed": true,
+      "empirical": 0.09389847982759372,
+      "bound": 1.0,
+      "se": 0.0006673024970550773
+    },
+    {
+      "name": "a2z3",
+      "passed": true,
+      "empirical": 0.7804739989279682,
+      "bound": 1.25,
+      "se": 0.0032866715665587883
+    },
+    {
+      "name": "constant",
+      "passed": true,
+      "empirical": 0.0,
+      "bound": 0.0,
+      "se": 0.0
+    },
+    {
+      "name": "az+1-factorization-pointwise",
+      "passed": true
+    },
+    {
+      "name": "known-Rayleigh-product-log",
+      "passed": true,
+      "empirical": 0.11396300564211129,
+      "reference": 0.11593151565841242,
+      "se": 0.0020295789065292173
+    },
+    {
+      "name": "degree-drop-fiber-control",
+      "passed": true,
+      "meaning": "At a=0, az+1 has degree0; formal leadingCoeff bridge must be AE, not pointwise"
+    }
+  ],
+  "interpretation": "Reproducible controls including known Rayleigh log mean; not polynomial log-integrability proof"
+}

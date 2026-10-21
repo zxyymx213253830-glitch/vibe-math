@@ -1,0 +1,37 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BivariateGaussianPolynomialLog.lean:17:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BivariateGaussianPolynomialLog.lean:30:11: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BivariateGaussianPolynomialLog.lean:61:34: error: Type mismatch: After simplification, term
+  hs.right
+ has type
+  @LE.le ℝ Real.instLE
+    (∫ (w : ℂ × ℂ),
+      complexNegativeLog
+        (Polynomial.eval w.2 (Polynomial.map (Polynomial.evalRingHom w.1) P)) ∂(stdGaussian ℂ).prod (stdGaussian ℂ))
+    (∫ (a : ℂ), complexNegativeLog (Polynomial.eval a P.leadingCoeff) ∂stdGaussian ℂ + ↑P.natDegree / 4)
+but is expected to have type
+  @LE.le ℝ Real.instLE
+    (∫ (w : ℂ × ℂ), complexNegativeLog (complexBivariateEval P w) ∂(stdGaussian ℂ).prod (stdGaussian ℂ))
+    (∫ (a : ℂ), complexNegativeLog (Polynomial.eval a P.leadingCoeff) ∂stdGaussian ℂ + ↑P.natDegree / 4)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BivariateGaussianPolynomialLog.lean:70:11: error: `simp` made no progress
+'JinWishart.stdGaussian_complex_polynomial_eval_ne_zero_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexBivariateEval_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.continuous_complexBivariateEval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_bivariate_polynomial_negativeLog' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_stdGaussian_bivariate_polynomial_eval' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.stdGaussian_bivariate_polynomial_log_integrable' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

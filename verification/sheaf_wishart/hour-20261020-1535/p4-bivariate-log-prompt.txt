@@ -1,0 +1,166 @@
+P4 final-source adversarial review, no toolcalls/rewrite, only concrete mathematical gaps. Seven declarations have real kernelchecks standard3 axioms; independent literal typecheck running. Productlaw stdGaussian(C) x stdGaussian(C), each complex coordinate has TWO real varianceONE components. Not properCN1, not arbitrary numbervariables. Nested Polynomial(Polynomial C), map evalRingHom a givespolynomial in secondvariable. ActualleadingCoeff canchange on fibers where outerleadingCoeff.evala=0: code uses hP!=0 =>nonzero polynomialleadingCoeff, finite roots => AE nonzero under planarGaussian. heq leadingCoeff_map onlyAE with this hypothesis; NOT a pointwise degreeidentity. CoefficientnegativeLog L1 then supplied to the conditional section helper, so BIVARIATE result is unconditional for anydeterministicbivariateP. ForP0, totalized Real.log0=0 handledexplicitly. Negativepart bound is negativeLog norm leading-leading coefficient +outerleading-polynomialdegree/4 +outerdegree/4. Joint measurability via finitecoeffsum; Fubini onlyafter slice L1 and integrable bound on innernorm integral. Positivepart from coefficientL1 * independent Gaussian monomialL1, then lognorm absoluteL1 by normeval+negativepart. No measurable randomroots. No generalmultivariate or singular Wishart unconditional offset claimed. API signatures actually pinned: Splits.eval_eq_prod_roots/natDegree_eq_card_roots have NO nonzero assumption; Real.log_pow allrealx,natn including0. NullSingletonClass withDensity fromvolume instance. Previouslya reviewer invented those API hypotheses; don't repeatunverifiedones. [需人工审查] product/Gaussian/modelinterpretation remains. Numeric8fixedseedcontrols incldegree-drop fiber onlycontrols. Fullfinalsources follow.
+
+FULL SOURCE GaussianPolynomialSectionLog.lean
+import JinWishartFormalization.ComplexGaussianPolynomialLog
+import Mathlib.MeasureTheory.Integral.Prod
+
+/-! Parameterized one-variable polynomial negative-log sections.
+The coefficient log-L1 assumption is EXPLICIT. This is not the unconditional
+multivariate polynomial theorem. No measurable choice of roots is used.
+Codex. [需人工审查] Product measurability, Fubini/Tonelli and Gaussian normalization.
+-/
+open MeasureTheory ProbabilityTheory Filter
+namespace JinWishart
+noncomputable section
+
+theorem integrable_polynomial_section_negativeLog
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsProbabilityMeasure μ]
+    (P : α → Polynomial ℂ)
+    (hEval : Measurable (fun w : α × ℂ => (P w.1).eval w.2))
+    (hCoeff : Integrable (fun a => complexNegativeLog (P a).leadingCoeff) μ)
+    (D : ℕ) (hDegree : ∀ᵐ a ∂μ, (P a).natDegree ≤ D) :
+    Integrable (fun w : α × ℂ => complexNegativeLog ((P w.1).eval w.2))
+      (μ.prod (stdGaussian ℂ)) ∧
+    (∫ w : α × ℂ, complexNegativeLog ((P w.1).eval w.2) ∂μ.prod (stdGaussian ℂ)) ≤
+      (∫ a, complexNegativeLog (P a).leadingCoeff ∂μ) + (D : ℝ)/4 := by
+  let g : α × ℂ → ℝ := fun w => complexNegativeLog ((P w.1).eval w.2)
+  have hgm : AEStronglyMeasurable g (μ.prod (stdGaussian ℂ)) :=
+    (measurable_const.max (hEval.norm.log.neg)).aestronglyMeasurable
+  have hdom : Integrable (fun a => complexNegativeLog (P a).leadingCoeff+(D : ℝ)/4) μ :=
+    hCoeff.add (integrable_const _)
+  have hpoint (a : α) (ha : (P a).natDegree ≤ D) :
+      (∫ z : ℂ, g (a,z) ∂stdGaussian ℂ) ≤
+        complexNegativeLog (P a).leadingCoeff+(D : ℝ)/4 := by
+    apply (stdGaussian_complex_polynomial_negativeLog (P a)).2.trans
+    exact add_le_add le_rfl (div_le_div_of_nonneg_right (by exact_mod_cast ha) (by norm_num))
+  have hn (a : α) : (∫ z : ℂ, ‖g (a,z)‖ ∂stdGaussian ℂ) =
+      ∫ z : ℂ, g (a,z) ∂stdGaussian ℂ := by
+    apply integral_congr_ae
+    filter_upwards [] with z
+    exact Real.norm_of_nonneg (le_max_left _ _)
+  have hinner : Integrable (fun a => ∫ z : ℂ, ‖g (a,z)‖ ∂stdGaussian ℂ) μ := by
+    apply hdom.mono' hgm.norm.integral_prod_right'
+    filter_upwards [hDegree] with a ha
+    rw [Real.norm_eq_abs,abs_of_nonneg (integral_nonneg (fun z => norm_nonneg _)),hn]
+    exact hpoint a ha
+  have hi : Integrable g (μ.prod (stdGaussian ℂ)) := by
+    apply (integrable_prod_iff hgm).mpr
+    exact ⟨ae_of_all _ (fun a => (stdGaussian_complex_polynomial_negativeLog (P a)).1),hinner⟩
+  refine ⟨hi, ?_⟩
+  change (∫ w, g w ∂μ.prod (stdGaussian ℂ)) ≤ _
+  rw [integral_prod g hi]
+  calc
+    _ ≤ ∫ a, complexNegativeLog (P a).leadingCoeff+(D : ℝ)/4 ∂μ :=
+      integral_mono_ae hi.integral_prod_left hdom (hDegree.mono (fun a ha => hpoint a ha))
+    _ = _ := by rw [integral_add hCoeff (integrable_const _)]; simp
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_polynomial_section_negativeLog
+
+FULL SOURCE BivariateGaussianPolynomialLog.lean
+import JinWishartFormalization.GaussianPolynomialSectionLog
+
+/-! Two independent planar Gaussians, each with two variance-one real coordinates.
+The polynomial is nested Polynomial(Polynomial C). Real.log0=0 throughout.
+Leading coefficients may vanish on fibers; only an AE identification is used.
+Codex. [需人工审查] Gaussian null sets, product measure, Fubini and model interpretation.
+-/
+open MeasureTheory ProbabilityTheory Filter
+namespace JinWishart
+noncomputable section
+
+def complexBivariateEval (P : Polynomial (Polynomial ℂ)) (w : ℂ × ℂ) : ℂ :=
+  (P.map (Polynomial.evalRingHom w.1)).eval w.2
+
+theorem stdGaussian_complex_polynomial_eval_ne_zero_ae (P : Polynomial ℂ) (hP : P≠0) :
+    ∀ᵐ z ∂stdGaussian ℂ, P.eval z ≠ 0 := by
+  haveI : NullSingletonClass (stdGaussian ℂ) := by
+    rw [stdGaussian_complex_eq_radialDensity]
+    infer_instance
+  have hfin : Set.Finite {z : ℂ | P.eval z=0} :=
+    Polynomial.finite_setOfPred_isRoot hP
+  simpa only [ae_iff,not_not] using hfin.measure_zero (stdGaussian ℂ)
+
+theorem complexBivariateEval_eq_sum (P : Polynomial (Polynomial ℂ)) (w : ℂ × ℂ) :
+    complexBivariateEval P w = ∑ k ∈ P.support, (P.coeff k).eval w.1 * w.2^k := by
+  simp [complexBivariateEval,Polynomial.eval_map,Polynomial.eval₂_eq_sum,Polynomial.sum_def]
+
+theorem continuous_complexBivariateEval (P : Polynomial (Polynomial ℂ)) :
+    Continuous (complexBivariateEval P) := by
+  change Continuous (fun w : ℂ × ℂ => complexBivariateEval P w)
+  simp_rw [complexBivariateEval_eq_sum]
+  apply continuous_finsetSum
+  intro k _
+  fun_prop
+
+theorem stdGaussian_bivariate_polynomial_negativeLog (P : Polynomial (Polynomial ℂ)) :
+    Integrable (fun w : ℂ × ℂ => complexNegativeLog (complexBivariateEval P w))
+      ((stdGaussian ℂ).prod (stdGaussian ℂ)) ∧
+    (∫ w : ℂ × ℂ, complexNegativeLog (complexBivariateEval P w)
+      ∂(stdGaussian ℂ).prod (stdGaussian ℂ)) ≤
+      complexNegativeLog P.leadingCoeff.leadingCoeff+
+        (P.leadingCoeff.natDegree : ℝ)/4+(P.natDegree : ℝ)/4 := by
+  classical
+  by_cases hP : P=0
+  · subst P
+    simp [complexBivariateEval,complexNegativeLog]
+  have hlead : P.leadingCoeff ≠ 0 := Polynomial.leadingCoeff_ne_zero.mpr hP
+  have hae := stdGaussian_complex_polynomial_eval_ne_zero_ae P.leadingCoeff hlead
+  have heq : (fun a : ℂ => complexNegativeLog (P.map (Polynomial.evalRingHom a)).leadingCoeff)
+      =ᵐ[stdGaussian ℂ] (fun a => complexNegativeLog (P.leadingCoeff.eval a)) := by
+    filter_upwards [hae] with a ha
+    rw [Polynomial.leadingCoeff_map_of_leadingCoeff_ne_zero _ ha]
+    rfl
+  have hcoeff := ((stdGaussian_complex_polynomial_negativeLog P.leadingCoeff).1).congr heq.symm
+  have hs := integrable_polynomial_section_negativeLog (stdGaussian ℂ)
+    (fun a => P.map (Polynomial.evalRingHom a)) (continuous_complexBivariateEval P).measurable
+    hcoeff P.natDegree (ae_of_all _ (fun _a => Polynomial.natDegree_map_le))
+  refine ⟨hs.1, ?_⟩
+  have heqi := integral_congr_ae heq
+  calc
+    _ ≤ (∫ a : ℂ, complexNegativeLog (P.leadingCoeff.eval a) ∂stdGaussian ℂ)+
+        (P.natDegree : ℝ)/4 := by simpa only [heqi,complexBivariateEval] using hs.2
+    _ ≤ (complexNegativeLog P.leadingCoeff.leadingCoeff+(P.leadingCoeff.natDegree : ℝ)/4)+
+        (P.natDegree : ℝ)/4 :=
+      add_le_add (stdGaussian_complex_polynomial_negativeLog P.leadingCoeff).2 le_rfl
+    _ = _ := by ring
+
+theorem integrable_stdGaussian_bivariate_polynomial_eval (P : Polynomial (Polynomial ℂ)) :
+    Integrable (complexBivariateEval P) ((stdGaussian ℂ).prod (stdGaussian ℂ)) := by
+  classical
+  change Integrable (fun w : ℂ × ℂ => complexBivariateEval P w) _
+  simp_rw [complexBivariateEval_eq_sum]
+  apply integrable_finsetSum
+  intro k _
+  have hk : Integrable (fun z : ℂ => z^k) (stdGaussian ℂ) := by
+    simpa using integrable_stdGaussian_complex_polynomial_eval ((Polynomial.X : Polynomial ℂ)^k)
+  exact (integrable_stdGaussian_complex_polynomial_eval (P.coeff k)).mul_prod hk
+
+theorem stdGaussian_bivariate_polynomial_log_integrable (P : Polynomial (Polynomial ℂ)) :
+    Integrable (fun w : ℂ × ℂ => Real.log ‖complexBivariateEval P w‖)
+      ((stdGaussian ℂ).prod (stdGaussian ℂ)) := by
+  have hf := (integrable_stdGaussian_bivariate_polynomial_eval P).norm
+  have hn := (stdGaussian_bivariate_polynomial_negativeLog P).1
+  apply (hf.add hn).mono'
+    (continuous_complexBivariateEval P).norm.measurable.log.aestronglyMeasurable
+  filter_upwards [] with w
+  rw [Real.norm_eq_abs]
+  change |Real.log ‖complexBivariateEval P w‖| ≤
+    ‖complexBivariateEval P w‖+max 0 (-Real.log ‖complexBivariateEval P w‖)
+  by_cases hz : complexBivariateEval P w=0
+  · simp [hz]
+  have hu := Real.log_le_sub_one_of_pos (norm_pos_iff.mpr hz)
+  have h1 := le_max_left (0 : ℝ) (-Real.log ‖complexBivariateEval P w‖)
+  have h2 := le_max_right (0 : ℝ) (-Real.log ‖complexBivariateEval P w‖)
+  have hnorm := norm_nonneg (complexBivariateEval P w)
+  exact abs_le.mpr ⟨by linarith,by linarith⟩
+
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_complex_polynomial_eval_ne_zero_ae
+#print axioms JinWishart.complexBivariateEval_eq_sum
+#print axioms JinWishart.continuous_complexBivariateEval
+#print axioms JinWishart.stdGaussian_bivariate_polynomial_negativeLog
+#print axioms JinWishart.integrable_stdGaussian_bivariate_polynomial_eval
+#print axioms JinWishart.stdGaussian_bivariate_polynomial_log_integrable

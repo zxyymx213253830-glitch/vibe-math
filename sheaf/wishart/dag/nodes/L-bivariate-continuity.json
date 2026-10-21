@@ -1,0 +1,23 @@
+{
+  "id": "L-bivariate-continuity",
+  "kind": "statement",
+  "target": false,
+  "statement": "Joint bivariate polynomial evaluation is continuous.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-bivariate-eval-sum"
+  ],
+  "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+  "declaration": "JinWishart.continuous_complexBivariateEval",
+  "proof": [
+    {
+      "text": "Joint bivariate polynomial evaluation is continuous.",
+      "uses": [
+        "L-bivariate-eval-sum"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "open"
+  }
+}

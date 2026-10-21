@@ -1,0 +1,27 @@
+{
+  "id": "S8-bivariate-negative-log",
+  "kind": "target",
+  "target": true,
+  "statement": "Unconditional deterministic BIVARIATE planarGaussian polynomial negativeLog L1 and leading-leading/degree bound.",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-section-negative-log",
+    "L-planar-polynomial-null",
+    "L-bivariate-continuity"
+  ],
+  "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+  "declaration": "JinWishart.stdGaussian_bivariate_polynomial_negativeLog",
+  "proof": [
+    {
+      "text": "Unconditional deterministic BIVARIATE planarGaussian polynomial negativeLog L1 and leading-leading/degree bound.",
+      "uses": [
+        "L-section-negative-log",
+        "L-planar-polynomial-null",
+        "L-bivariate-continuity"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "open"
+  }
+}

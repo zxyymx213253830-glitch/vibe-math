@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-10-20T16:12:43.797750+00:00",
+  "ended_utc": "2026-10-20T16:14:24.124306+00:00",
+  "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/BivariateGaussianPolynomialLog.lean",
+  "source_sha256_before": "be38b7a323fc7e6b4582d9c0958f0970e6d826ff5b47faae2de3d55ed777e931",
+  "source_sha256": "be38b7a323fc7e6b4582d9c0958f0970e6d826ff5b47faae2de3d55ed777e931",
+  "gated_helper_exit_code": 1,
+  "log_sha256": "64ebc2f5ff11671c792f21be9f85bf2ed3e9e2d237798e70a24767922851132c"
+}

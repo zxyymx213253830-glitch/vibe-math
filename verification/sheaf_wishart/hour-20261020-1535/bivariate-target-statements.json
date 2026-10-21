@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-20T16:12:43.218355+00:00",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/BivariateGaussianPolynomialLog.lean",
+  "statements": {
+    "JinWishart.stdGaussian_complex_polynomial_eval_ne_zero_ae": "(P : Polynomial ℂ) (hP : P≠0) : ∀ᵐ z ∂stdGaussian ℂ, P.eval z ≠ 0",
+    "JinWishart.complexBivariateEval_eq_sum": "(P : Polynomial (Polynomial ℂ)) (w : ℂ × ℂ) : complexBivariateEval P w = ∑ k ∈ P.support, (P.coeff k).eval w.1 * w.2^k",
+    "JinWishart.continuous_complexBivariateEval": "(P : Polynomial (Polynomial ℂ)) : Continuous (complexBivariateEval P)",
+    "JinWishart.stdGaussian_bivariate_polynomial_negativeLog": "(P : Polynomial (Polynomial ℂ)) : Integrable (fun w : ℂ × ℂ => complexNegativeLog (complexBivariateEval P w)) ((stdGaussian ℂ).prod (stdGaussian ℂ)) ∧ (∫ w : ℂ × ℂ, complexNegativeLog (complexBivariateEval P w) ∂(stdGaussian ℂ).prod (stdGaussian ℂ)) ≤ complexNegativeLog P.leadingCoeff.leadingCoeff+ (P.leadingCoeff.natDegree : ℝ)/4+(P.natDegree : ℝ)/4",
+    "JinWishart.integrable_stdGaussian_bivariate_polynomial_eval": "(P : Polynomial (Polynomial ℂ)) : Integrable (complexBivariateEval P) ((stdGaussian ℂ).prod (stdGaussian ℂ))",
+    "JinWishart.stdGaussian_bivariate_polynomial_log_integrable": "(P : Polynomial (Polynomial ℂ)) : Integrable (fun w : ℂ × ℂ => Real.log ‖complexBivariateEval P w‖) ((stdGaussian ℂ).prod (stdGaussian ℂ))"
+  },
+  "locked_before_checks": true
+}
