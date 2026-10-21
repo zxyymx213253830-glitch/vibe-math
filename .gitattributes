@@ -176,3 +176,7 @@ theory/jin_wishart_formalization/JinWishartFormalization/PositiveSpectrumLogInte
 experiments/positive_spectrum_log_control.py -text whitespace=cr-at-eol
 
 notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
+
+/experiments/compression_pseudodet_bridge_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_NEXT_PSEUDODET_CARD.md -text whitespace=cr-at-eol

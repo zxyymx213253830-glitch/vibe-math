@@ -30,7 +30,7 @@ summary=dict(started_utc=claim['started_utc'],hard_deadline_utc=claim['hard_dead
  baseline_items=571,final_items=audit['total_declarations'],new_printed_declarations=14,proof_author='Codex',
  review_partner='Qoder Qwen3.8-Max',review_calls=calls,model_review_is_human_review=False,
  facade=a.read(R/'verification/sheaf_wishart/facade-61.receipt.json'),audit_sha256=sha(R/'verification/central_mixed_moments/audit.json'),
- source_commit='8594ffd',open_nodes=['L-rectangular-cauchy-binet','L-gram-minor-coefficient','L-gram-rank-spectral-coefficient','S17-general-singular-offset'],
+ source_commit='8594ffd',next_route_commit='6fc51b8',open_nodes=['L-rectangular-cauchy-binet','L-gram-minor-coefficient','L-gram-rank-spectral-coefficient','S17-general-singular-offset'],
  linux='409 exact source files,48 DAG nodes; source/index only; Linux Lean NOT_RUN',full_build='NOT_RUN',
  frozen=frozen,automation_status='PAUSED',locks_present=[],human_review='REQUIRED measure/Fubini/variance/model',
  next_card='notes/WISHART_NEXT_PSEUDODET_CARD.md')

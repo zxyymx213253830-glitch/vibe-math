@@ -1,0 +1,104 @@
+{
+  "started_utc": "2026-10-21T12:01:41+00:00",
+  "hard_deadline_utc": "2026-10-21T13:01:41+00:00",
+  "archived_utc": "2026-10-21T13:01:55.413006+00:00",
+  "baseline_items": 571,
+  "final_items": 585,
+  "new_printed_declarations": 14,
+  "proof_author": "Codex",
+  "review_partner": "Qoder Qwen3.8-Max",
+  "review_calls": [
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p1-cn1.receipt.json",
+      "exit_code": 0,
+      "seconds": 65.72255470000073,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p1-next-spectrum.receipt.json",
+      "exit_code": 0,
+      "seconds": 22.864829099999042,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p4-next-bridge.receipt.json",
+      "exit_code": 0,
+      "seconds": 25.215745400000742,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p4-proper-actual-2.receipt.json",
+      "exit_code": 0,
+      "seconds": 27.659757200000968,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p4-proper-actual-3.receipt.json",
+      "exit_code": 0,
+      "seconds": 17.71482020000076,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p4-proper-actual.receipt.json",
+      "exit_code": 124,
+      "seconds": 90.31350360000033,
+      "requested_model": "Qwen3.8-Max"
+    },
+    {
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p4-spectrum.receipt.json",
+      "exit_code": 0,
+      "seconds": 20.189494500000364,
+      "requested_model": "Qwen3.8-Max"
+    }
+  ],
+  "model_review_is_human_review": false,
+  "facade": {
+    "started_utc": "2026-10-21T12:46:49.081821+00:00",
+    "ended_utc": "2026-10-21T12:46:58.348687+00:00",
+    "module": "JinWishartFormalization",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
+    "source_sha256_before": "e7649357a5aec09e8e83e846c43f0487726976a7b618ad6153b05f9b03fc7500",
+    "source_sha256": "e7649357a5aec09e8e83e846c43f0487726976a7b618ad6153b05f9b03fc7500",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/facade-61.txt",
+    "log_exists": true,
+    "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false,
+    "gated_helper_exit_code": 0
+  },
+  "audit_sha256": "7254c1f343759beb9c72388f18ff28814d84f2a08e0fac6c15f5a77302f8dc91",
+  "source_commit": "8594ffd",
+  "next_route_commit": "6fc51b8",
+  "open_nodes": [
+    "L-rectangular-cauchy-binet",
+    "L-gram-minor-coefficient",
+    "L-gram-rank-spectral-coefficient",
+    "S17-general-singular-offset"
+  ],
+  "linux": "409 exact source files,48 DAG nodes; source/index only; Linux Lean NOT_RUN",
+  "full_build": "NOT_RUN",
+  "frozen": {
+    "theory/wishart_paper/main.tex": {
+      "sha256": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+      "unchanged": true
+    },
+    "output/pdf/wishart_formalization.pdf": {
+      "sha256": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+      "unchanged": true
+    },
+    "output/publication/wishart_arxiv_upload.zip": {
+      "sha256": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+      "unchanged": true
+    },
+    "output/publication/wishart_formalization_code.zip": {
+      "sha256": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b",
+      "unchanged": true
+    }
+  },
+  "automation_status": "PAUSED",
+  "locks_present": [],
+  "human_review": "REQUIRED measure/Fubini/variance/model",
+  "next_card": "notes/WISHART_NEXT_PSEUDODET_CARD.md"
+}
