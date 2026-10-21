@@ -1,0 +1,50 @@
+{
+  "status": "PASS exact committed/working/audit source bytes",
+  "head": "a7db47245b9ad558275d6eeecfef316eafb9ce4e",
+  "items": [
+    {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramRankSpectralCoefficient.lean",
+      "committed_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+      "working_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+      "audit_sha256": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589"
+    },
+    {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean",
+      "committed_sha256": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+      "working_sha256": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+      "audit_sha256": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af"
+    },
+    {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/AveragedCauchyBinet.lean",
+      "committed_sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+      "working_sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+      "audit_sha256": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58"
+    },
+    {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramMinorCoefficientBound.lean",
+      "committed_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787",
+      "working_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787",
+      "audit_sha256": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787"
+    },
+    {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramMinorLogDomination.lean",
+      "committed_sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+      "working_sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696",
+      "audit_sha256": "5f8fb33bf494f6f497b9e4dbe7410c84418577d9bab1c68d9472657d37aad696"
+    },
+    {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularPositiveLog.lean",
+      "committed_sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8",
+      "working_sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8",
+      "audit_sha256": "dda35e6180ea3bfc11282efe987862d82c3b760f9f3c4115280126e735ef43d8"
+    },
+    {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/ExpectedLogDetDerivative.lean",
+      "committed_sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634",
+      "working_sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634",
+      "audit_sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634"
+    }
+  ],
+  "scope": "Archive integrity only; not another compiler run",
+  "collected_utc": "2026-10-21T17:16:33.538712+00:00"
+}
