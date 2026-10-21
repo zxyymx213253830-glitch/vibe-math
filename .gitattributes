@@ -152,3 +152,7 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/BivariateGaussianPolynomialLog.lean -text whitespace=cr-at-eol
 
 /experiments/bivariate_gaussian_log_control.py -text whitespace=cr-at-eol
+
+/experiments/sheaf_platform_benchmark.py -text whitespace=cr-at-eol
+
+/experiments/compare_sheaf_platform_results.py -text whitespace=cr-at-eol

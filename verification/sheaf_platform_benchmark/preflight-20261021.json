@@ -1,0 +1,36 @@
+{
+  "recorded_utc": "2026-10-21T01:35:01.803187+00:00",
+  "linux_status": "NOT_RUN",
+  "blocker": "WSL is not installed; current process not administrator. Both install invocations exited1. User action requested.",
+  "attempts": [
+    {
+      "command": [
+        "wsl.exe",
+        "--status"
+      ],
+      "exit_code": 50
+    },
+    {
+      "command": [
+        "wsl.exe",
+        "--install",
+        "--distribution",
+        "Ubuntu",
+        "--no-launch",
+        "--web-download"
+      ],
+      "exit_code": 1
+    },
+    {
+      "command": [
+        "wsl.exe",
+        "--install"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "lean_compile": "NOT_RUN",
+  "model_calls": 0,
+  "research_hour": "CLOSED",
+  "automation_status": "PAUSED"
+}
