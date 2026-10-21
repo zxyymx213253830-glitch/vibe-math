@@ -1,0 +1,6 @@
+{
+  "JinWishart.positiveSpectrumLog_le_self": "{x : ℝ} (hx : 0≤x) : positiveSpectrumLog x ≤ x",
+  "JinWishart.abs_positiveSpectrumLog_le_trace_add_abs_sum": "{ι : Type*} [Fintype ι] (f : ι → ℝ) (hn : ∀ i, 0≤f i) (i : ι) : |positiveSpectrumLog (f i)| ≤ (∑ j, f j)+|∑ j, positiveSpectrumLog (f j)|",
+  "JinWishart.integrable_positiveSpectrumLog_of_sum": "{α ι : Type*} [MeasurableSpace α] [Fintype ι] (μ : Measure α) (f : ι → α → ℝ) (hm : ∀ i, Measurable (f i)) (hf : ∀ i, Integrable (f i) μ) (hn : ∀ i, ∀ᵐ a ∂μ, 0≤f i a) (hSum : Integrable (fun a => ∑ i, positiveSpectrumLog (f i a)) μ) (i : ι) : Integrable (fun a => positiveSpectrumLog (f i a)) μ",
+  "JinWishart.actualCorrelatedMatrixLogDet_offset_of_sum_log": "{m p n : ℕ} (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) (hSum : Integrable (fun z => ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian (ComplexSample (m := m) (n := p)))) : Tendsto (fun r : ℝ => (∫ z, actualCorrelatedMatrixLogDet B M r z ∂stdGaussian _)- ((min m (Matrix.fromRows B M).rank):ℝ)*Real.log r) atTop (𝓝 (∫ z, (∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) ∂stdGaussian _))"
+}

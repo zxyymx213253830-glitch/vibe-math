@@ -162,3 +162,17 @@
 /theory/jin_wishart_formalization/JinWishartFormalization/FiniteComplexGaussianPolynomialLog.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_FINITE_GAUSSIAN_POLYNOMIAL_LOG.md -text whitespace=cr-at-eol
+
+/experiments/proper_complex_log_transport_control.py -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ProperComplexGaussianPolynomialLog.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualComplexPolynomialLog.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_PROPER_COMPLEX_POLYNOMIAL_LOG.md -text whitespace=cr-at-eol
+
+theory/jin_wishart_formalization/JinWishartFormalization/PositiveSpectrumLogIntegrability.lean -text
+
+experiments/positive_spectrum_log_control.py -text
+
+notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text

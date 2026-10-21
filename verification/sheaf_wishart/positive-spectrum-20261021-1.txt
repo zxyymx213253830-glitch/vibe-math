@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveSpectrumLogIntegrability.lean:15:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveSpectrumLogIntegrability.lean:17:35: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveSpectrumLogIntegrability.lean:49:2: error: Type mismatch: After simplification, term
+  abs_positiveSpectrumLog_le_trace_add_abs_sum (fun j => f j a) hna i
+ has type
+  @LE.le ℝ Real.instLE |positiveSpectrumLog (f i a)| (∑ j, f j a + |∑ j, positiveSpectrumLog (f j a)|)
+but is expected to have type
+  @LE.le ℝ Real.instLE |positiveSpectrumLog (f i a)|
+    (((fun a => ∑ i, f i a) + fun a => |∑ i, positiveSpectrumLog (f i a)|) a)
+'JinWishart.positiveSpectrumLog_le_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.abs_positiveSpectrumLog_le_trace_add_abs_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_positiveSpectrumLog_of_sum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_offset_of_sum_log' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

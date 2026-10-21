@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "PositiveSpectrumLogIntegrability.lean": {
+      "sha256": "449742fb796a74dca6ffed9f7727c94de04f52a7fd55de24228edc76d9df6949",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "6be1f4a4486f6dccea99b73a67d304a2658c82724913afd4b7cb1481a4bb00de"
+}

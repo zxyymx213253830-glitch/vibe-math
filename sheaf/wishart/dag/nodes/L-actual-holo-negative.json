@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-holo-negative",
+  "kind": "statement",
+  "target": false,
+  "module": "JinWishartFormalization.ActualComplexPolynomialLog",
+  "declaration": "JinWishart.integrable_actualComplexMatrix_holomorphic_negativeLog",
+  "stmt_deps": [],
+  "proof_deps": [
+    "S12-proper-negative-log"
+  ],
+  "proof": [
+    {
+      "text": "Fixed index/scalar coordinate transport, then physical holomorphic matrix-entry evaluation; no pseudoDet comparison.",
+      "uses": [
+        "S12-proper-negative-log"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261021-1201/acceptance-actual.json",
+    "source_sha256": "641ae284f4e0c1abf034f07714fc2a25084c000859168703e53a8c448a0f8406"
+  }
+}

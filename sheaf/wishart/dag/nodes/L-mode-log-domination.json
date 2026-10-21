@@ -1,0 +1,24 @@
+{
+  "id": "L-mode-log-domination",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PositiveSpectrumLogIntegrability",
+  "declaration": "JinWishart.abs_positiveSpectrumLog_le_trace_add_abs_sum",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-positive-log-upper"
+  ],
+  "proof": [
+    {
+      "text": "Explicit aggregate-log L1 and nonnegative integrable spectrum; conditional only.",
+      "uses": [
+        "L-positive-log-upper"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261021-1201/acceptance-spectrum.json",
+    "source_sha256": "449742fb796a74dca6ffed9f7727c94de04f52a7fd55de24228edc76d9df6949"
+  }
+}

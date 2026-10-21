@@ -1,0 +1,131 @@
+{
+  "seed": 2026102124,
+  "samples": 200000,
+  "status": "PASS 23 controls",
+  "source_sha256": "1d47823efeb1d748f9cf74f7824bf317a4659c108445d7f159bcb2912d4b1e39",
+  "interpretation": "Reproducible scaling/model controls, not general proof.",
+  "rows": [
+    {
+      "case": "proper-product-1",
+      "status": "PASS",
+      "mean_log": -0.28949445340375707,
+      "exact_mean_log": -0.28860783245076643
+    },
+    {
+      "case": "proper-affine-1",
+      "status": "PASS",
+      "negative_mean": 0.39908519741078124,
+      "exact_negative_mean": 0.3982997996485267
+    },
+    {
+      "case": "polynomial-scaling-identity-1",
+      "status": "PASS"
+    },
+    {
+      "case": "proper-product-2",
+      "status": "PASS",
+      "mean_log": -0.578582820929981,
+      "exact_mean_log": -0.5772156649015329
+    },
+    {
+      "case": "proper-affine-2",
+      "status": "PASS",
+      "negative_mean": 0.22240765312190747,
+      "exact_negative_mean": 0.2219210395588742
+    },
+    {
+      "case": "polynomial-scaling-identity-2",
+      "status": "PASS"
+    },
+    {
+      "case": "proper-product-3",
+      "status": "PASS",
+      "mean_log": -0.8691196691361561,
+      "exact_mean_log": -0.8658234973522994
+    },
+    {
+      "case": "proper-affine-3",
+      "status": "PASS",
+      "negative_mean": 0.15535771843486473,
+      "exact_negative_mean": 0.15374556079100488
+    },
+    {
+      "case": "polynomial-scaling-identity-3",
+      "status": "PASS"
+    },
+    {
+      "case": "proper-product-4",
+      "status": "PASS",
+      "mean_log": -1.1583252077664639,
+      "exact_mean_log": -1.1544313298030657
+    },
+    {
+      "case": "proper-affine-4",
+      "status": "PASS",
+      "negative_mean": 0.11692964463583923,
+      "exact_negative_mean": 0.11760196911269022
+    },
+    {
+      "case": "polynomial-scaling-identity-4",
+      "status": "PASS"
+    },
+    {
+      "case": "proper-product-5",
+      "status": "PASS",
+      "mean_log": -1.4395584795680503,
+      "exact_mean_log": -1.443039162253832
+    },
+    {
+      "case": "proper-affine-5",
+      "status": "PASS",
+      "negative_mean": 0.09402954290756596,
+      "exact_negative_mean": 0.09521414832566277
+    },
+    {
+      "case": "polynomial-scaling-identity-5",
+      "status": "PASS"
+    },
+    {
+      "case": "proper-product-6",
+      "status": "PASS",
+      "mean_log": -1.724353099024579,
+      "exact_mean_log": -1.7316469947045987
+    },
+    {
+      "case": "proper-affine-6",
+      "status": "PASS",
+      "negative_mean": 0.08117200866517195,
+      "exact_negative_mean": 0.0799857978947821
+    },
+    {
+      "case": "polynomial-scaling-identity-6",
+      "status": "PASS"
+    },
+    {
+      "case": "physical-square-compression-1",
+      "status": "PASS",
+      "mean_log_abs_det": -0.286502537757722,
+      "known_bartlett_value": -0.28860783245076643
+    },
+    {
+      "case": "physical-square-compression-2",
+      "status": "PASS",
+      "mean_log_abs_det": -0.07725981470542333,
+      "known_bartlett_value": -0.07721566490153287
+    },
+    {
+      "case": "physical-square-compression-3",
+      "status": "PASS",
+      "mean_log_abs_det": 0.38582771203181526,
+      "known_bartlett_value": 0.3841765026477007
+    },
+    {
+      "case": "empty-product-and-totalized-zero",
+      "status": "PASS"
+    },
+    {
+      "case": "missing-sqrt2-negative-control",
+      "status": "PASS"
+    }
+  ]
+}

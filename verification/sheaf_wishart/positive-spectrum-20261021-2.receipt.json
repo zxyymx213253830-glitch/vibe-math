@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T12:41:16.594905+00:00",
+  "ended_utc": "2026-10-21T12:41:25.438486+00:00",
+  "module": "JinWishartFormalization.PositiveSpectrumLogIntegrability",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveSpectrumLogIntegrability.lean",
+  "source_sha256_before": "449742fb796a74dca6ffed9f7727c94de04f52a7fd55de24228edc76d9df6949",
+  "source_sha256": "449742fb796a74dca6ffed9f7727c94de04f52a7fd55de24228edc76d9df6949",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/positive-spectrum-20261021-2.txt",
+  "log_exists": true,
+  "log_sha256": "56afd27ddb1d860678654bfe65b4b654a43824f66fe32c501618e93183e67d8d",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T12:06:46.063499+00:00",
+  "ended_utc": "2026-10-21T12:07:08.941325+00:00",
+  "module": "JinWishartFormalization.ProperComplexGaussianPolynomialLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ProperComplexGaussianPolynomialLog.lean",
+  "source_sha256_before": "9efae7f7f23592f8cda6223ce8c276644eb8dc191db4cc03f8bb9172b12f26fa",
+  "source_sha256": "9efae7f7f23592f8cda6223ce8c276644eb8dc191db4cc03f8bb9172b12f26fa",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/proper-log-20261021-1.txt",
+  "log_exists": true,
+  "log_sha256": "991f4c6b9f7d1b24288dd2a90c4e2b7ca0abe79fe3038afcda8d238b8bdd0db1",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

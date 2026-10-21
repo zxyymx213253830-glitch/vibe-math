@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/hour-20261021-1201/locks-spectrum.json",
+  "check": "verification/sheaf_wishart/hour-20261021-1201/check-spectrum.json",
+  "review": {
+    "request": "verification/sheaf_wishart/hour-20261021-1201/spectrum-review-request.json",
+    "prompt": "verification/sheaf_wishart/hour-20261021-1201/p4-spectrum-prompt.txt",
+    "receipt": "verification/sheaf_wishart/hour-20261021-1201/p4-spectrum.receipt.json",
+    "raw": "verification/sheaf_wishart/hour-20261021-1201/p4-spectrum.raw.json",
+    "snapshot": "verification/sheaf_wishart/hour-20261021-1201/spectrum-snapshot",
+    "resolution": "notes/WISHART_POSITIVE_SPECTRUM_LOG.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-61.receipt.json"
+}

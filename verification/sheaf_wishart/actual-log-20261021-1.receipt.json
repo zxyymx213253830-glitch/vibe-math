@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T12:09:06.418599+00:00",
+  "ended_utc": "2026-10-21T12:09:15.321107+00:00",
+  "module": "JinWishartFormalization.ActualComplexPolynomialLog",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualComplexPolynomialLog.lean",
+  "source_sha256_before": "d001eb82974488a4ac047fd8484fe099b4193ca3f0786d4c27d70f88b6e53998",
+  "source_sha256": "d001eb82974488a4ac047fd8484fe099b4193ca3f0786d4c27d70f88b6e53998",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/actual-log-20261021-1.txt",
+  "log_exists": true,
+  "log_sha256": "292a90f5cac9bdb396d5cc11f1823a9b8527b40f3779ef3f356b7db0868479a1",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

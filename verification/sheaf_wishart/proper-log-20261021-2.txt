@@ -1,0 +1,9 @@
+'JinWishart.stdGaussian_fintype_polynomial_negativeLog_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.stdGaussian_fintype_polynomial_log_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.standardComplexPiLaw_eq_planarMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.properComplex_pi_polynomial_negativeLog_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.properComplex_pi_polynomial_log_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]

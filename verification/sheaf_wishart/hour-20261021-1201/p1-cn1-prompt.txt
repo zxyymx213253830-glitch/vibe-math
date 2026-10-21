@@ -1,0 +1,8 @@
+P1 bounded route review. No full proof or tools. Target this hour: transfer accepted ALL finite-N planar stdGaussian(C) polynomial negativeLog/absolute-log L1 to actual proper CN1 product standardComplexPiLaw, then to arbitrary fixed affine physical Gaussian matrix compressed determinants. Current base theorem for every n and ALL P : MvPolynomial(Fin n)C, including0 under Real.log0=0. Need arbitrary finite index type via enumeration before actual matrix entries law. Give minimal route and semantic traps, mark human review. No pseudo tool tags, no invented API hypotheses. Pinned facts:
+stdComplexScalarLaw := (stdGaussian C).map (fun z => (sqrt2)^-1 real-smul z).
+standardComplexPiLaw ι := Measure.pi(fun _=>standardComplexScalarLaw).
+Measure.pi_map_pi maps coordinate maps to product of mapped factors for sigmafinite factors.
+complexMatrixEntries_law m p: (stdGaussian ComplexSample(m,p)).map complexMatrixEntries = standardComplexPiLaw(Fin m×Fin p).
+All polynomial evaluations themselves integrable.
+Suggestion: construct Q=P.bind (fun i=>C(scale)*X i), prove eval Q x = eval P(scale*x); no nonzero premise needed for logL1 of ALL P. Index map via equivFin + polynomial.rename. Then actual compressedDet physical polynomial in entry variables; do NOT use the existing sampleEval polynomial in real coordinate variables as if holomorphic in physical entries.
+Separate next target remains pseudoDet spectral comparison: a fixed nonzero holomorphic q-minor or compression controls negative log of product of q positive singular values. Existing generic rank q=min(m,rank stacked[B;M]) AE; do not assume that spectrum inequality already proved.

@@ -1,0 +1,20 @@
+{
+  "id": "L-positive-log-upper",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PositiveSpectrumLogIntegrability",
+  "declaration": "JinWishart.positiveSpectrumLog_le_self",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Explicit aggregate-log L1 and nonnegative integrable spectrum; conditional only.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261021-1201/acceptance-spectrum.json",
+    "source_sha256": "449742fb796a74dca6ffed9f7727c94de04f52a7fd55de24228edc76d9df6949"
+  }
+}

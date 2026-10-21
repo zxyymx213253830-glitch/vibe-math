@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ProperComplexGaussianPolynomialLog.lean": {
+      "sha256": "ebc9b3b6d0fb021ff000af41c6d3c1ea590a9621bdf7d73f2d28e8d460fc4d3d",
+      "supplied": "Full source"
+    },
+    "ActualComplexPolynomialLog.lean": {
+      "sha256": "641ae284f4e0c1abf034f07714fc2a25084c000859168703e53a8c448a0f8406",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "6ec73e5c3bc6223def04d875854ff337ff556a163726da6474f465355cea9b73"
+}

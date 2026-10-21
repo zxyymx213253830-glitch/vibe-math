@@ -1,0 +1,24 @@
+{
+  "id": "L-physical-compressed-eval",
+  "kind": "statement",
+  "target": false,
+  "module": "JinWishartFormalization.ActualComplexPolynomialLog",
+  "declaration": "JinWishart.entryAffineCompressedDet_eval",
+  "stmt_deps": [],
+  "proof_deps": [
+    "D-CN1-model"
+  ],
+  "proof": [
+    {
+      "text": "Fixed index/scalar coordinate transport, then physical holomorphic matrix-entry evaluation; no pseudoDet comparison.",
+      "uses": [
+        "D-CN1-model"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261021-1201/acceptance-actual.json",
+    "source_sha256": "641ae284f4e0c1abf034f07714fc2a25084c000859168703e53a8c448a0f8406"
+  }
+}

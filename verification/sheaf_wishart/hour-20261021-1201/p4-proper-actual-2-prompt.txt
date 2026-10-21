@@ -1,0 +1,195 @@
+P4 final-source review. Limit answer to500 words. Only concrete mathematical issues; no restatement, no API speculation or tools. If none, say none found and state remaining human-review limitations.
+P4 adversarial FINAL exact-source review. Codex writes proofs; you are Qwen3.8-Max. No tools/pseudo-tags, no independent compile claim. Both sources have passed actual pinned Lean. Targets: ALL fixed holomorphic complex polynomials under proper CN1 product (variance1/2 per REAL coordinate), including0 only via Real.log0=0; actual physical Gaussian matrix entry transport; fixed arbitrary B,M,L,H rectangular/singular/zero and compressed determinant negativeLog/absolute-log L1. No pseudoDet spectral comparison or unconditional offset yet. Audit normalization/index permutation/map direction/determinant multiplication orientation. Measure and model require human review. Base accepted all-finite-N planar Gaussian polynomial negative/absolute-log L1 under Measure.pi(stdGaussian C), NOT an unproved stdGaussian on a raw Pi type. Finite-type transport and polynomial rescaling are explicitly proved below. Existing complexMatrixEntries_law derives proper CN1 from actual real coordinates/sqrt2. Do not confuse old SampleIdx real-coordinate polynomials with new physical-entry holomorphic ring. Numerical23 controls/Bartlett references passed but are not proof. Report only concrete issues, not conjectural API objections already discharged by kernel.
+
+ProperComplexGaussianPolynomialLog.lean
+import JinWishartFormalization.FiniteComplexGaussianPolynomialLog
+import JinWishartFormalization.GaussianMatrixPolynomialLaw
+import Mathlib.Algebra.MvPolynomial.Rename
+
+/-! Polynomial logarithms for the actual proper CN(0,1) product measure.
+The factor (sqrt2)^-1 acts on BOTH real coordinates. All polynomials are fixed
+and holomorphic. Real.log0=0 is totalized, including the identically zero case.
+Codex. [需人工审查] Product/index transport, measurability and physical variance.
+-/
+open MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem stdGaussian_fintype_polynomial_negativeLog_integrable
+    {ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) :
+    Integrable (fun x => complexNegativeLog (MvPolynomial.eval x P))
+      (Measure.pi (fun _ : ι => stdGaussian ℂ)) := by
+  classical
+  let e : ι ≃ Fin (Fintype.card ι) := Fintype.equivFin ι
+  let E := MeasurableEquiv.piCongrLeft (fun _ : Fin (Fintype.card ι) => ℂ) e
+  have hp : MeasurePreserving E (Measure.pi (fun _ : ι => stdGaussian ℂ))
+      (Measure.pi (fun _ : Fin (Fintype.card ι) => stdGaussian ℂ)) :=
+    measurePreserving_piCongrLeft (fun _ : Fin (Fintype.card ι) => stdGaussian ℂ) e
+  have hi := stdGaussian_pi_mvPolynomial_negativeLog_integrable
+    (Fintype.card ι) (MvPolynomial.rename e P)
+  have hb := hp.integrable_comp_of_integrable hi
+  simpa [Function.comp_def,MvPolynomial.eval_rename,E,MeasurableEquiv.coe_piCongrLeft] using hb
+
+theorem stdGaussian_fintype_polynomial_log_integrable
+    {ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) :
+    Integrable (fun x => Real.log ‖MvPolynomial.eval x P‖)
+      (Measure.pi (fun _ : ι => stdGaussian ℂ)) := by
+  classical
+  let e : ι ≃ Fin (Fintype.card ι) := Fintype.equivFin ι
+  let E := MeasurableEquiv.piCongrLeft (fun _ : Fin (Fintype.card ι) => ℂ) e
+  have hp : MeasurePreserving E (Measure.pi (fun _ : ι => stdGaussian ℂ))
+      (Measure.pi (fun _ : Fin (Fintype.card ι) => stdGaussian ℂ)) :=
+    measurePreserving_piCongrLeft (fun _ : Fin (Fintype.card ι) => stdGaussian ℂ) e
+  have hi := stdGaussian_pi_mvPolynomial_log_integrable
+    (Fintype.card ι) (MvPolynomial.rename e P)
+  have hb := hp.integrable_comp_of_integrable hi
+  simpa [Function.comp_def,MvPolynomial.eval_rename,E,MeasurableEquiv.coe_piCongrLeft] using hb
+
+theorem standardComplexPiLaw_eq_planarMap (ι : Type*) [Fintype ι] :
+    standardComplexPiLaw ι =
+      (Measure.pi (fun _ : ι => stdGaussian ℂ)).map
+        (fun z i => (Real.sqrt 2)⁻¹ • z i) := by
+  unfold standardComplexPiLaw standardComplexScalarLaw
+  exact (Measure.pi_map_pi (fun _ => (by fun_prop))).symm
+
+theorem properComplex_pi_polynomial_negativeLog_integrable
+    {ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) :
+    Integrable (fun x => complexNegativeLog (MvPolynomial.eval x P))
+      (standardComplexPiLaw ι) := by
+  let s : ℝ := (Real.sqrt 2)⁻¹
+  let Q : MvPolynomial ι ℂ := MvPolynomial.eval₂ MvPolynomial.C
+    (fun i => MvPolynomial.C (s : ℂ) * MvPolynomial.X i) P
+  have hC (x : ι → ℂ) :
+      (MvPolynomial.eval x).comp (MvPolynomial.C : ℂ →+* MvPolynomial ι ℂ) = RingHom.id ℂ := by
+    ext c
+    simp
+  have heval (x : ι → ℂ) :
+      MvPolynomial.eval x Q = MvPolynomial.eval (fun i => s • x i) P := by
+    simp [Q,MvPolynomial.eval_eval₂,hC,Complex.real_smul]
+  have hscale : Continuous (fun z : ι → ℂ => fun i => s • z i) := by fun_prop
+  rw [standardComplexPiLaw_eq_planarMap]
+  apply (integrable_map_measure
+    (measurable_const.max (MvPolynomial.continuous_eval P).norm.measurable.log.neg).aestronglyMeasurable
+    hscale.measurable.aemeasurable).mpr
+  change Integrable (fun x : ι → ℂ => complexNegativeLog (MvPolynomial.eval (fun i => s • x i) P)) _
+  simpa only [heval] using stdGaussian_fintype_polynomial_negativeLog_integrable Q
+
+theorem properComplex_pi_polynomial_log_integrable
+    {ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) :
+    Integrable (fun x => Real.log ‖MvPolynomial.eval x P‖)
+      (standardComplexPiLaw ι) := by
+  let s : ℝ := (Real.sqrt 2)⁻¹
+  let Q : MvPolynomial ι ℂ := MvPolynomial.eval₂ MvPolynomial.C
+    (fun i => MvPolynomial.C (s : ℂ) * MvPolynomial.X i) P
+  have hC (x : ι → ℂ) :
+      (MvPolynomial.eval x).comp (MvPolynomial.C : ℂ →+* MvPolynomial ι ℂ) = RingHom.id ℂ := by
+    ext c
+    simp
+  have heval (x : ι → ℂ) :
+      MvPolynomial.eval x Q = MvPolynomial.eval (fun i => s • x i) P := by
+    simp [Q,MvPolynomial.eval_eval₂,hC,Complex.real_smul]
+  have hscale : Continuous (fun z : ι → ℂ => fun i => s • z i) := by fun_prop
+  rw [standardComplexPiLaw_eq_planarMap]
+  apply (integrable_map_measure (MvPolynomial.continuous_eval P).norm.measurable.log.aestronglyMeasurable
+    hscale.measurable.aemeasurable).mpr
+  change Integrable (fun x : ι → ℂ => Real.log ‖MvPolynomial.eval (fun i => s • x i) P‖) _
+  simpa only [heval] using stdGaussian_fintype_polynomial_log_integrable Q
+
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_fintype_polynomial_negativeLog_integrable
+#print axioms JinWishart.stdGaussian_fintype_polynomial_log_integrable
+#print axioms JinWishart.standardComplexPiLaw_eq_planarMap
+#print axioms JinWishart.properComplex_pi_polynomial_negativeLog_integrable
+#print axioms JinWishart.properComplex_pi_polynomial_log_integrable
+
+
+ActualComplexPolynomialLog.lean
+import JinWishartFormalization.ProperComplexGaussianPolynomialLog
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+
+/-! Log-L1 for holomorphic polynomials in the actual physical matrix entries.
+Compressed determinants are polynomials in these COMPLEX entries, not in the
+existing real-coordinate SampleIdx ring. Codex proofs. Real.log0=0 throughout.
+[需人工审查] Physical variance, map-integrability and model correspondence.
+-/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem integrable_actualComplexMatrix_holomorphic_negativeLog (m p : ℕ)
+    (P : MvPolynomial (Fin m × Fin p) ℂ) :
+    Integrable (fun z => complexNegativeLog (MvPolynomial.eval (complexMatrixEntries z) P))
+      (stdGaussian (ComplexSample (m := m) (n := p))) := by
+  have h := properComplex_pi_polynomial_negativeLog_integrable P
+  rw [← complexMatrixEntries_law m p] at h
+  exact (integrable_map_measure
+    (measurable_const.max (MvPolynomial.continuous_eval P).norm.measurable.log.neg).aestronglyMeasurable
+    (measurable_complexMatrixEntries m p).aemeasurable).mp h
+
+theorem integrable_actualComplexMatrix_holomorphic_log (m p : ℕ)
+    (P : MvPolynomial (Fin m × Fin p) ℂ) :
+    Integrable (fun z => Real.log ‖MvPolynomial.eval (complexMatrixEntries z) P‖)
+      (stdGaussian (ComplexSample (m := m) (n := p))) := by
+  have h := properComplex_pi_polynomial_log_integrable P
+  rw [← complexMatrixEntries_law m p] at h
+  exact (integrable_map_measure (MvPolynomial.continuous_eval P).norm.measurable.log.aestronglyMeasurable
+    (measurable_complexMatrixEntries m p).aemeasurable).mp h
+
+def physicalEntryPolynomialMatrix (m p : ℕ) : Matrix (Fin m) (Fin p)
+    (MvPolynomial (Fin m × Fin p) ℂ) := fun i j => MvPolynomial.X (i,j)
+
+def entryAffineCompressedDet {m p n q : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (L : Matrix (Fin q) (Fin m) ℂ) (H : Matrix (Fin n) (Fin q) ℂ) :
+    MvPolynomial (Fin m × Fin p) ℂ :=
+  (L.map MvPolynomial.C *
+    (physicalEntryPolynomialMatrix m p * B.map MvPolynomial.C + M.map MvPolynomial.C) *
+    H.map MvPolynomial.C).det
+
+theorem entryAffineCompressedDet_eval {m p n q : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (L : Matrix (Fin q) (Fin m) ℂ) (H : Matrix (Fin n) (Fin q) ℂ)
+    (z : ComplexSample (m := m) (n := p)) :
+    MvPolynomial.eval (complexMatrixEntries z) (entryAffineCompressedDet B M L H) =
+      (L*(complexSampleMatrix z*B+M)*H).det := by
+  let E := MvPolynomial.eval (complexMatrixEntries z)
+  have hc {a b : ℕ} (A : Matrix (Fin a) (Fin b) ℂ) :
+      (A.map (MvPolynomial.C : ℂ →+* MvPolynomial (Fin m × Fin p) ℂ)).map E = A := by
+    ext i j
+    simp [E]
+  have hx : (physicalEntryPolynomialMatrix m p).map E = complexSampleMatrix z := by
+    ext i j
+    simp [E,complexMatrixEntries,physicalEntryPolynomialMatrix]
+  unfold entryAffineCompressedDet
+  rw [RingHom.map_det]
+  change ((L.map MvPolynomial.C *
+    (physicalEntryPolynomialMatrix m p * B.map MvPolynomial.C + M.map MvPolynomial.C) *
+      H.map MvPolynomial.C).map E).det = _
+  rw [Matrix.map_mul,Matrix.map_mul,Matrix.map_add,Matrix.map_mul]
+  simp only [hc,hx]
+  all_goals exact fun x y => map_add E x y
+
+theorem integrable_actualAffineCompressedDet_negativeLog {m p n q : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (L : Matrix (Fin q) (Fin m) ℂ) (H : Matrix (Fin n) (Fin q) ℂ) :
+    Integrable (fun z => complexNegativeLog (L*(complexSampleMatrix z*B+M)*H).det)
+      (stdGaussian (ComplexSample (m := m) (n := p))) := by
+  simpa only [entryAffineCompressedDet_eval] using
+    integrable_actualComplexMatrix_holomorphic_negativeLog m p (entryAffineCompressedDet B M L H)
+
+theorem integrable_actualAffineCompressedDet_log {m p n q : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (L : Matrix (Fin q) (Fin m) ℂ) (H : Matrix (Fin n) (Fin q) ℂ) :
+    Integrable (fun z => Real.log ‖(L*(complexSampleMatrix z*B+M)*H).det‖)
+      (stdGaussian (ComplexSample (m := m) (n := p))) := by
+  simpa only [entryAffineCompressedDet_eval] using
+    integrable_actualComplexMatrix_holomorphic_log m p (entryAffineCompressedDet B M L H)
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_actualComplexMatrix_holomorphic_negativeLog
+#print axioms JinWishart.integrable_actualComplexMatrix_holomorphic_log
+#print axioms JinWishart.entryAffineCompressedDet_eval
+#print axioms JinWishart.integrable_actualAffineCompressedDet_negativeLog
+#print axioms JinWishart.integrable_actualAffineCompressedDet_log

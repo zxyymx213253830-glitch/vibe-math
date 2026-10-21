@@ -1,0 +1,24 @@
+{
+  "id": "S16-offset-aggregate-log",
+  "kind": "target",
+  "target": true,
+  "module": "JinWishartFormalization.PositiveSpectrumLogIntegrability",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_offset_of_sum_log",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mode-log-L1"
+  ],
+  "proof": [
+    {
+      "text": "Explicit aggregate-log L1 and nonnegative integrable spectrum; conditional only.",
+      "uses": [
+        "L-mode-log-L1"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261021-1201/acceptance-spectrum.json",
+    "source_sha256": "449742fb796a74dca6ffed9f7727c94de04f52a7fd55de24228edc76d9df6949"
+  }
+}

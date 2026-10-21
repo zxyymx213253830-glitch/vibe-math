@@ -1,0 +1,7 @@
+{
+  "JinWishart.stdGaussian_fintype_polynomial_negativeLog_integrable": "{ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) : Integrable (fun x => complexNegativeLog (MvPolynomial.eval x P)) (Measure.pi (fun _ : ι => stdGaussian ℂ))",
+  "JinWishart.stdGaussian_fintype_polynomial_log_integrable": "{ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) : Integrable (fun x => Real.log ‖MvPolynomial.eval x P‖) (Measure.pi (fun _ : ι => stdGaussian ℂ))",
+  "JinWishart.standardComplexPiLaw_eq_planarMap": "(ι : Type*) [Fintype ι] : standardComplexPiLaw ι = (Measure.pi (fun _ : ι => stdGaussian ℂ)).map (fun z i => (Real.sqrt 2)⁻¹ • z i)",
+  "JinWishart.properComplex_pi_polynomial_negativeLog_integrable": "{ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) : Integrable (fun x => complexNegativeLog (MvPolynomial.eval x P)) (standardComplexPiLaw ι)",
+  "JinWishart.properComplex_pi_polynomial_log_integrable": "{ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) : Integrable (fun x => Real.log ‖MvPolynomial.eval x P‖) (standardComplexPiLaw ι)"
+}

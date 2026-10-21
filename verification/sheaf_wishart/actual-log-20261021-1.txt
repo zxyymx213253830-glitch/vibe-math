@@ -1,0 +1,48 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualComplexPolynomialLog.lean:37:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul ((i : ?m.11) → (j : ?m.18 i) → MvPolynomial (?m.11 × ?m.18 i) (?m.19 i j))
+    (Matrix (Fin p) (Fin n) (MvPolynomial ?m.26 ℂ)) ?m.47
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualComplexPolynomialLog.lean:52:40: error(lean.invalidField): Invalid field `map`: The environment does not contain `Function.map`, so it is not possible to project the field `map` from an expression
+  fun i j => MvPolynomial.X (i, j)
+of type
+  Fin m → Fin p → MvPolynomial (Fin m × Fin p) ℂ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualComplexPolynomialLog.lean:52:73: error: unsolved goals
+m p n q : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+L : Matrix (Fin q) (Fin m) ℂ
+H : Matrix (Fin n) (Fin q) ℂ
+z : ComplexSample
+E : MvPolynomial (Fin m × Fin p) ℂ →+* ℂ := MvPolynomial.eval (complexMatrixEntries z)
+hc : ∀ {a b : ℕ} (A : Matrix (Fin a) (Fin b) ℂ), (A.map ⇑MvPolynomial.C).map ⇑E = A
+i : Fin m
+j : Fin p
+⊢ sorry () i j = complexSampleMatrix z i j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualComplexPolynomialLog.lean:54:10: warning: This simp argument is unused:
+  E
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [complexMatrixEntries]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualComplexPolynomialLog.lean:54:12: warning: This simp argument is unused:
+  complexMatrixEntries
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.integrable_actualComplexMatrix_holomorphic_negativeLog' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_actualComplexMatrix_holomorphic_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.entryAffineCompressedDet_eval' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualAffineCompressedDet_negativeLog' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_actualAffineCompressedDet_log' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

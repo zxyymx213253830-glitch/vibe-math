@@ -1,0 +1,26 @@
+{
+  "id": "S13-proper-log",
+  "kind": "target",
+  "target": true,
+  "module": "JinWishartFormalization.ProperComplexGaussianPolynomialLog",
+  "declaration": "JinWishart.properComplex_pi_polynomial_log_integrable",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-fintype-planar-log",
+    "L-proper-law"
+  ],
+  "proof": [
+    {
+      "text": "Fixed index/scalar coordinate transport, then physical holomorphic matrix-entry evaluation; no pseudoDet comparison.",
+      "uses": [
+        "L-fintype-planar-log",
+        "L-proper-law"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261021-1201/acceptance-proper.json",
+    "source_sha256": "ebc9b3b6d0fb021ff000af41c6d3c1ea590a9621bdf7d73f2d28e8d460fc4d3d"
+  }
+}

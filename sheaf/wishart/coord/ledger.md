@@ -13,3 +13,6 @@
 - 2026-10-21T10:32:46.012228+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261020-1535/acceptance-section.json; human measure/model review remains REQUIRED.
 - 2026-10-21T10:32:46.401950+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261020-1535/acceptance-bivariate.json; human measure/model review remains REQUIRED.
 - 2026-10-21T10:46:17.166790+00:00 Queue milestone accepted via verification/sheaf_wishart/continuation-20261021/acceptance-finite.json; human measure/model review remains REQUIRED.
+- 2026-10-21T12:39:09.766545+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261021-1201/acceptance-proper.json; human measure/model review remains REQUIRED.
+- 2026-10-21T12:39:10.749294+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261021-1201/acceptance-actual.json; human measure/model review remains REQUIRED.
+- 2026-10-21T12:47:27.602261+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261021-1201/acceptance-spectrum.json; human measure/model review remains REQUIRED.
