@@ -143,7 +143,7 @@ def refresh():
     text += "".join(f"| {r['id']} | {r['stage']} | {r['distance']} | {r['kind']} |\n" for r in rows)
     outside = sorted(set(g.live) - set(g.dist))
     text += "\nDeferred/outside target closure: " + (", ".join(outside) or "none") + ".\n"
-    text += "These nodes are not proved or deleted.\n"
+    text += "Outside target closure does not determine proof status; consult each node's verification evidence.\n"
     (coord / "queue.md").write_text(text, encoding="utf-8")
     (coord / "queue.tsv").write_text("# id\tstage\tdistance\tkind\n" + "".join(
         f"{r['id']}\t{r['stage']}\t{r['distance']}\t{r['kind']}\n" for r in rows), encoding="utf-8")

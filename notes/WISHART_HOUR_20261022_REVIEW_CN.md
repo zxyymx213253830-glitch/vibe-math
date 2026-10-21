@@ -37,3 +37,18 @@
 [需人工审查] 重点核对proper CN1的实坐标方差归一化、固定最大秩见证的解释、两个不同多项式环分别承担的L1与零测集任务、AE秩与AE非零事件的合并、积分支配、既有极限交换和新增的积分号下求导。源码中已经保留这些标记；本轮机检不替代人对模型对应关系的判断。
 
 下一轮优先做人工审查反馈、原论文T1/G2/T3覆盖映射及完整构建验证。通用代数引理若要贡献mathlib，需要先做上游等价结果检索，再泛化标量域/有限指标类型、补符合上游规范的测试与文档；本轮没有宣称数学新颖性或上游已接收。
+
+## 人工审查定位表
+
+| 环节 | 精确入口 | 审查重点 |
+|---|---|---|
+| 实际复高斯乘积律 | GaussianMatrixPolynomialLaw.lean:53，complexMatrixEntries_law | 同一实际2mp实高斯源、除sqrt2、每复坐标总二阶矩1 |
+| 零集定理 | ComplexGramSimpleSpectrum.lean:505，sampleEval_ne_zero_ae | 非零复系数多项式在实坐标高斯源上的AE非零与平移语义 |
+| 固定见证 | ActualSingularPositiveLog.lean:20 | 先对固定B,M选定Z0、f、g，再积分；没有随机可测选择器 |
+| 平均恒等式 | AveragedCauchyBinet.lean:39 | 全函数索引的阶乘重数、复共轭、空指标 |
+| 系数和谱 | GramRankSpectralCoefficient.lean:67 | 系数的次数必须是实际矩阵秩，不能在低秩事件随意替换 |
+| 对数支配 | GramMinorLogDomination.lean:25 | 小特征值会给负对数，不能误读为max(0,log)；AE非零前提不能丢 |
+| 绝对可积性与偏移 | ActualSingularPositiveLog.lean:57及94 | AE秩事件与非零子式事件合并，固定majorant可积，再调用既有极限定理 |
+| 积分求导 | ExpectedLogDetDerivative.lean:11及36 | 任意测度版本的L1支配、正尺度邻域、逐项积分与点态谱分解 |
+
+SHEAF队列显示“闭包外”不等于未证明。例如L-actual-mode-positive-log已验收，只是当前偏移目标直接使用总谱对数定理，不必引用这个独立接口。本轮修正了队列说明文字，避免把这种已验收节点一概标为未证明；编译与验收判定逻辑未改。
