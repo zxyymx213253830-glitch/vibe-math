@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ExpectedLogDetDerivative.lean": {
+      "sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "1877a0fa691bdde5b6c8810cdde7aeb5302417fc1d3f2d1113497112cc33a052",
+  "external_api_excerpt": {
+    "source": "theory\\jin_wishart_formalization\\.lake\\packages\\mathlib\\Mathlib\\Analysis\\Calculus\\ParametricIntegral.lean",
+    "sha256": "fbf38d8b4279c08881c14bd03d94fda4254340a83288b6073c5b34a33f8a4677"
+  }
+}

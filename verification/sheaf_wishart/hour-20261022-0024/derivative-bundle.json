@@ -1,0 +1,10 @@
+{
+  "checker": "SheafDerivativeTargets.lean",
+  "types_tag": "derivative-types-20261022-locked",
+  "modules": [
+    {"tag": "expected-derivative", "module": "ExpectedLogDetDerivative", "nodes": [
+      ["L-integral-positive-scale-log-derivative", "integral_log_one_add_mul_hasDerivAt", []],
+      ["S19-actual-expected-logdet-derivative", "actualCorrelated_expected_logdet_hasDerivAt", ["L-integral-positive-scale-log-derivative"]]
+    ]}
+  ]
+}

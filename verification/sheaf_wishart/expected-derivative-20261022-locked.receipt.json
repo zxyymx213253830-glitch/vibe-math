@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-21T17:06:07.616658+00:00",
+  "ended_utc": "2026-10-21T17:06:19.140783+00:00",
+  "module": "JinWishartFormalization.ExpectedLogDetDerivative",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ExpectedLogDetDerivative.lean",
+  "source_sha256_before": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634",
+  "source_sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/expected-derivative-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "9d51af5e61b3fea1d3569f991ae8edef9b4d73b7f62ceac73a780d81bfcb3ab0",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

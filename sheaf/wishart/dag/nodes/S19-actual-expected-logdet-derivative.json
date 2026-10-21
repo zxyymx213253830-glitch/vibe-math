@@ -1,0 +1,24 @@
+{
+  "id": "S19-actual-expected-logdet-derivative",
+  "kind": "target",
+  "target": true,
+  "module": "JinWishartFormalization.ExpectedLogDetDerivative",
+  "declaration": "JinWishart.actualCorrelated_expected_logdet_hasDerivAt",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-integral-positive-scale-log-derivative"
+  ],
+  "proof": [
+    {
+      "text": "Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.",
+      "uses": [
+        "L-integral-positive-scale-log-derivative"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/hour-20261022-0024/acceptance-expected-derivative.json",
+    "source_sha256": "047ee62268bd5d218f176bafd2cc66fd4e9becdec13235509e9484c9e2bb4634"
+  }
+}

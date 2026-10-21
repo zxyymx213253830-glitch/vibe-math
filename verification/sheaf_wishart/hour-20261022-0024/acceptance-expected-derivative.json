@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/hour-20261022-0024/locks-expected-derivative.json",
+  "check": "verification/sheaf_wishart/hour-20261022-0024/check-expected-derivative.json",
+  "review": {
+    "request": "verification/sheaf_wishart/hour-20261022-0024/derivative-exactapi-review-request.json",
+    "prompt": "verification/sheaf_wishart/hour-20261022-0024/p4-derivative-exactapi-prompt.txt",
+    "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-derivative-exactapi.receipt.json",
+    "raw": "verification/sheaf_wishart/hour-20261022-0024/p4-derivative-exactapi.raw.json",
+    "snapshot": "verification/sheaf_wishart/hour-20261022-0024/derivative-exactapi-snapshot",
+    "resolution": "notes/WISHART_EXPECTED_LOGDET_DERIVATIVE.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-64.receipt.json"
+}

@@ -21,7 +21,7 @@ for card in config['modules']:
  a.write(lp,dict(created_utc=a.now(),module=mod,source=a.rel(src),statements=a.statements(src),definition_dependencies=deps,type_check_source=a.rel(checker),type_check_source_sha256=a.sha(checker),locked_local_definitions={}))
  a.validate_locks(a.rel(lp));locks.append((tag,src,mod,lp))
  for ident,decl,ds in card['nodes']:
-  a.write(a.PROJECT/'dag/nodes'/(ident+'.json'),dict(id=ident,kind='target' if ident.startswith('S17') else 'lemma',target=ident.startswith('S17'),module=mod,declaration='JinWishart.'+decl,stmt_deps=[],proof_deps=ds,proof=[dict(text='Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.',uses=ds)],verification=dict(status='checked_pending_review')))
+  a.write(a.PROJECT/'dag/nodes'/(ident+'.json'),dict(id=ident,kind='target' if ident.startswith('S') else 'lemma',target=ident.startswith('S'),module=mod,declaration='JinWishart.'+decl,stmt_deps=[],proof_deps=ds,proof=[dict(text='Locked final-source proof; precise target type checked separately. Human measure/model review required when stochastic.',uses=ds)],verification=dict(status='checked_pending_review')))
 with a.exclusive(a.PROJECT/'coord/operation.lock','codex-hour-bundle-locked'):
  results=[]
  for tag,src,mod,lp in locks:

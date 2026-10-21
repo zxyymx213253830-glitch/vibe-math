@@ -1,3 +1,4 @@
+import JinWishartFormalization.ExpectedLogDetDerivative
 import JinWishartFormalization.AveragedCauchyBinet
 import JinWishartFormalization.GramMinorCoefficientBound
 import JinWishartFormalization.GramMinorLogDomination

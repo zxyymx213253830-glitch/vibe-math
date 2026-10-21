@@ -1,0 +1,2 @@
+'JinWishart.integral_log_one_add_mul_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
