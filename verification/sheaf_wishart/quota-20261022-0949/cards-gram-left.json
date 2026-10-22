@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "gram-left-GramMinimumLeftComparison",
+    "module": "GramMinimumLeftComparison",
+    "nodes": [
+      [
+        "L-gram-left-matrixLeft_composition",
+        "matrixLeft_composition",
+        []
+      ],
+      [
+        "L-gram-left-gramSmallestValue_mul_left_upper",
+        "gramSmallestValue_mul_left_upper",
+        [
+          "L-gram-left-matrixLeft_composition"
+        ]
+      ],
+      [
+        "L-gram-left-gramSmallestValue_mul_left_lower",
+        "gramSmallestValue_mul_left_lower",
+        [
+          "L-gram-left-gramSmallestValue_mul_left_upper"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "renewed_utc": "2026-10-22T06:57:43.711892+00:00",
+  "old_claim": {
+    "token": "d4b78a7c1a0449debe4e04635d41d232",
+    "started_utc": "2026-10-22T01:52:20.638430+00:00",
+    "technical_lease_utc": "2026-10-22T03:52:20.638430+00:00",
+    "authorization": "User: continue useful research until current ordinary Codex quota is unavailable.",
+    "no_user_hard_deadline": true,
+    "single_coordinator": true
+  },
+  "old_state_deadline": "2026-10-22T03:52:20.638430+00:00",
+  "new_technical_lease": "2026-10-22T08:57:43.711892+00:00",
+  "observation": {
+    "observed_utc": "2026-10-22T06:54:29+00:00",
+    "ordinaryUsageAllowed": true,
+    "primary_used_percent": 1,
+    "weekly_used_percent": 74,
+    "no_reset_credit_used": true,
+    "interruption_note": "Prior observed primary100 still ordinarytrue at03:22; intervening exhaustion not asserted without evidence. Current window naturally differs; no coupon or purchase."
+  },
+  "idle_operation_and_compute_locks": true
+}

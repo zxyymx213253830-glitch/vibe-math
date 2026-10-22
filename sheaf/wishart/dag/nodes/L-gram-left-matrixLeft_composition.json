@@ -1,0 +1,20 @@
+{
+  "id": "L-gram-left-matrixLeft_composition",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramMinimumLeftComparison",
+  "declaration": "JinWishart.matrixLeft_composition",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-gram-left-GramMinimumLeftComparison.json",
+    "source_sha256": "0f7e56523ac4ad7f8329d7f4cda29858ae7316e06c2307f1d1f26fd5562caed9"
+  }
+}

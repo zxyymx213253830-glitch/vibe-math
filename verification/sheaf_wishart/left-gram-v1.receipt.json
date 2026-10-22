@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T06:58:18.518653+00:00",
+  "ended_utc": "2026-10-22T07:00:05.223313+00:00",
+  "module": "JinWishartFormalization.GramMinimumLeftComparison",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramMinimumLeftComparison.lean",
+  "source_sha256_before": "0f7e56523ac4ad7f8329d7f4cda29858ae7316e06c2307f1d1f26fd5562caed9",
+  "source_sha256": "0f7e56523ac4ad7f8329d7f4cda29858ae7316e06c2307f1d1f26fd5562caed9",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/left-gram-v1.txt",
+  "log_exists": true,
+  "log_sha256": "0c6cba20aacd7e9f6149cf67a90a72883c1443c33d3d7df3a5fe2709996081e6",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

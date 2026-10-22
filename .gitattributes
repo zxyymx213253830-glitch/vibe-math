@@ -308,3 +308,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.stderr.txt -text whitespace=cr-at-eol
 
 /notes/WISHART_SINGULAR_INVERSE_ROUTE_REVIEW.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GramMinimumLeftComparison.lean -text whitespace=cr-at-eol
+
+/experiments/gram_left_factor_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_GRAM_LEFT_COMPARISON.md -text whitespace=cr-at-eol

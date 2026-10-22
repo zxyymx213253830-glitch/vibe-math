@@ -1,3 +1,4 @@
+import JinWishartFormalization.GramMinimumLeftComparison
 import JinWishartFormalization.MeanSquareSecondMomentContinuity
 import JinWishartFormalization.ActualSingularLogDetVarianceLimit
 import JinWishartFormalization.FiniteSpectrumOffsetL2

@@ -1,0 +1,234 @@
+{
+  "status": "PASS deterministic controls only",
+  "seed": 2026102213,
+  "checks": 33,
+  "source_sha256": "57f756d7776d7cc298532af74bc1a59c2142ee0a8b45edc5f9602b2f191d173b",
+  "cases": [
+    {
+      "m": 0,
+      "n": 1,
+      "zero_A": false,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 0,
+      "n": 1,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 0,
+      "n": 2,
+      "zero_A": false,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 0,
+      "n": 2,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 0,
+      "n": 3,
+      "zero_A": false,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 0,
+      "n": 3,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 0,
+      "n": 4,
+      "zero_A": false,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 0,
+      "n": 4,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "zero_A": false,
+      "column_min": 0.15686408792618894,
+      "transformed_column_min": 0.15686408792618894
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "zero_A": false,
+      "column_min": -1.3877787807814457e-17,
+      "transformed_column_min": -1.3877787807814457e-17
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "zero_A": false,
+      "column_min": -1.2905879132955457e-16,
+      "transformed_column_min": -1.2905879132955457e-16
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 1,
+      "n": 4,
+      "zero_A": false,
+      "column_min": 2.5645531350344428e-17,
+      "transformed_column_min": 2.5645531350344428e-17
+    },
+    {
+      "m": 1,
+      "n": 4,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "zero_A": false,
+      "column_min": 0.17774971397240927,
+      "transformed_column_min": 0.4808846772333215
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "zero_A": false,
+      "column_min": 0.3086415585912392,
+      "transformed_column_min": 0.8634273288730232
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "zero_A": false,
+      "column_min": -7.372707948992673e-17,
+      "transformed_column_min": 2.251800775650799e-15
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "zero_A": false,
+      "column_min": -1.2029654199466653e-16,
+      "transformed_column_min": -1.7837853390372596e-16
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "zero_A": false,
+      "column_min": 2.547237291256528,
+      "transformed_column_min": 24.543856909431568
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "zero_A": false,
+      "column_min": 0.5918687953473942,
+      "transformed_column_min": 2.9045138788294373
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "zero_A": false,
+      "column_min": 0.13438974426849448,
+      "transformed_column_min": 0.08019832409414901
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "zero_A": false,
+      "column_min": -2.6646961474808137e-15,
+      "transformed_column_min": -1.0790197542089468e-15
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "zero_A": true,
+      "column_min": 0.0,
+      "transformed_column_min": 0.0
+    }
+  ],
+  "known_reference": "scalar T=1/2,A=1: transformed minimum1/4, inverse control4",
+  "scope": "ordinary COLUMN minimum, may be zero; no singular inverse-threshold proof"
+}

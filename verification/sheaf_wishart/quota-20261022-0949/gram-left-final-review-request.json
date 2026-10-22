@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "GramMinimumLeftComparison.lean": {
+      "sha256": "0f7e56523ac4ad7f8329d7f4cda29858ae7316e06c2307f1d1f26fd5562caed9",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "dfaadb029d15ce05e179cd62696dc1e1d14b717dfc18a8269c6353fe45cae0be"
+}
