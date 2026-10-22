@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "canonical-fin-shear-CanonicalFinShear",
+    "module": "CanonicalFinShear",
+    "nodes": [
+      [
+        "L-canonical-fin-shear-canonical_fin_shear_inverse",
+        "canonical_fin_shear_inverse",
+        []
+      ],
+      [
+        "L-canonical-fin-shear-canonical_fin_shear_opNorm_le",
+        "canonical_fin_shear_opNorm_le",
+        [
+          "L-canonical-fin-shear-canonical_fin_shear_inverse"
+        ]
+      ],
+      [
+        "L-canonical-fin-shear-canonical_fin_shear_control_le",
+        "canonical_fin_shear_control_le",
+        [
+          "L-canonical-fin-shear-canonical_fin_shear_opNorm_le"
+        ]
+      ]
+    ]
+  }
+]

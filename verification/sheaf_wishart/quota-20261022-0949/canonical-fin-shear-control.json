@@ -1,0 +1,14 @@
+{
+  "seed": 2026102229,
+  "cases": 20,
+  "checks": 203,
+  "status": "PASS",
+  "source_sha256": "fc934db431f73964e1ebb44a26f776cd5e0221228b12ff144debcd1f716777d6",
+  "scope": "Controls only, not a general Fin shear proof",
+  "known_controls": [
+    "empty determinant1/operator norm0",
+    "scalar shear exact singular value",
+    "zero shear identity",
+    "negative uniform norm1 control"
+  ]
+}

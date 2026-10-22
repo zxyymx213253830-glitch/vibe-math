@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CanonicalFinShear.lean": {
+      "sha256": "4d7f311875f7eb87ca4414f49560b03674a35a754fea4f897e7f17a47d535991",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "824fd5d51a49862324909b2d2e550f068d3607538199842adec735b544bb1609"
+}

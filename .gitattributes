@@ -424,3 +424,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/canonical_fin_transport_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CANONICAL_FIN_TRANSPORT.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CanonicalFinShear.lean -text whitespace=cr-at-eol
+
+/experiments/canonical_fin_shear_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CANONICAL_FIN_SHEAR.md -text whitespace=cr-at-eol

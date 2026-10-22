@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:42:35.858839+00:00",
+  "ended_utc": "2026-10-22T19:42:49.431841+00:00",
+  "module": "JinWishartFormalization.CanonicalFinShear",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalFinShear.lean",
+  "source_sha256_before": "b1b5406f29c0120824979e907ce29d553ca37d54773ae1c543f8ec9eeff9fcb2",
+  "source_sha256": "b1b5406f29c0120824979e907ce29d553ca37d54773ae1c543f8ec9eeff9fcb2",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-canonical-fin-shear-v1.txt",
+  "log_exists": true,
+  "log_sha256": "2e5a4716036b961ca75284a6e9477815976ccdb09c1d2a868155d20dd180a9fe",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

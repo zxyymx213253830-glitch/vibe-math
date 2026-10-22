@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-fin-shear-canonical_fin_shear_control_le",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.CanonicalFinShear",
+  "declaration": "JinWishart.canonical_fin_shear_control_le",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-fin-shear-canonical_fin_shear_opNorm_le"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-fin-shear-canonical_fin_shear_opNorm_le"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-fin-shear-CanonicalFinShear.json",
+    "source_sha256": "4d7f311875f7eb87ca4414f49560b03674a35a754fea4f897e7f17a47d535991"
+  }
+}
