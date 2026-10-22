@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:46:56.937957+00:00",
+  "ended_utc": "2026-10-22T12:47:05.882356+00:00",
+  "module": "SheafFullRankPositiveTransportTargetsV2",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFullRankPositiveTransportTargetsV2.lean",
+  "source_sha256_before": "4197d1c58dff8bad9d35509f0d3da180b952fb214090560beeb5030b6a988d6d",
+  "source_sha256": "4197d1c58dff8bad9d35509f0d3da180b952fb214090560beeb5030b6a988d6d",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/full-rank-positive-transport-v2-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "4bb9d1f8e899f16e34dbfc5885ba54938b4c49d167a6e88ed07301c1e3566b31",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

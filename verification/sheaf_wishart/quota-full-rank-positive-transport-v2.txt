@@ -1,0 +1,2 @@
+'JinWishart.full_column_rank_positive_coordinate_mul_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.full_row_rank_positive_coordinate_mul_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

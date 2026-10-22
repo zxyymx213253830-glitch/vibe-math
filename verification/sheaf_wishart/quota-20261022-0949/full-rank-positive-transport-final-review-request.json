@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "FullRankPositiveCoordinateTransport.lean": {
+      "sha256": "3f1a104446803ddf187f0fcd614650294b733e5177bafb995a6117c9056538ad",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "e24c13af16a0bfc139b9a0e284125d9e45e72ec7c705a657aebeb74a3f2b76ce"
+}

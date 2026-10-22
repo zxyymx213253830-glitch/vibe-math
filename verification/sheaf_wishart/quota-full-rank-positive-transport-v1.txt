@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FullRankPositiveCoordinateTransport.lean:32:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 1
+  b - c ≤ 0
+  a ≥ 0
+  a - b ≥ 0
+  a - c ≥ 1
+where
+ a := ↑(Fintype.card (Fin n))
+ b := ↑(A * T).rank
+ c := ↑↑(Fin.cast ⋯ (Fin.last (Fintype.card (Fin n) - 1)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FullRankPositiveCoordinateTransport.lean:31:40: warning: This simp argument is unused:
+  Fintype.card_fin
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smallestEigenvalue₀Index]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.full_column_rank_positive_coordinate_mul_bounds' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.full_row_rank_positive_coordinate_mul_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

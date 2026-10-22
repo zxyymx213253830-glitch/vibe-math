@@ -1,0 +1,18 @@
+{
+  "id": "L-full-rank-positive-transport-full_column_rank_positive_coordinate_mul_bounds",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FullRankPositiveCoordinateTransport",
+  "declaration": "JinWishart.full_column_rank_positive_coordinate_mul_bounds",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

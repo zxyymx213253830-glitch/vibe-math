@@ -1,0 +1,10 @@
+{
+  "status": "REJECTED",
+  "cause": "Expected checker omitted open JinWishart, unresolved identifiers; proof source and P4 unchanged",
+  "retired_nodes": {
+    "sheaf\\wishart\\dag\\nodes\\L-full-rank-positive-transport-full_column_rank_positive_coordinate_mul_bounds.json": "e163bcf4da8ea47505024151c75a06491bdc42176929b23a34105b95834ae4a2",
+    "sheaf\\wishart\\dag\\nodes\\L-full-rank-positive-transport-full_row_rank_positive_coordinate_mul_bounds.json": "0ac1fb394c4740dd7d0472448c698885a1b1955bcedb411b5031ac1a4edd6693"
+  },
+  "checker_v1_preserved": true,
+  "audit_unchanged": true
+}

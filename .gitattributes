@@ -396,3 +396,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/rectangular_gaussian_frame_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CANONICAL_GAUSSIAN_BLOCK_LAW.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FullRankPositiveCoordinateTransport.lean -text whitespace=cr-at-eol
+
+/experiments/full_rank_positive_transport_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_FULL_RANK_POSITIVE_TRANSPORT.md -text whitespace=cr-at-eol

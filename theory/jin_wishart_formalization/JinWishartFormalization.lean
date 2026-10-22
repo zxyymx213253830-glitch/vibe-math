@@ -1,3 +1,4 @@
+import JinWishartFormalization.FullRankPositiveCoordinateTransport
 import JinWishartFormalization.GaussianRectangularFrameLaw
 import JinWishartFormalization.GaussianDisjointMatrixBlockLaw
 import JinWishartFormalization.ActualCanonicalNoiseBlockLaw

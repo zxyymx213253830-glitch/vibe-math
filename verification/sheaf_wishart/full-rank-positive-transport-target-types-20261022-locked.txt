@@ -1,0 +1,17 @@
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:14:6: error(lean.unknownIdentifier): Unknown identifier `matrixColumnControl`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:16:6: error(lean.unknownIdentifier): Unknown identifier `matrixColumnControl`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:11:7: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:12:7: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:13:5: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:14:29: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:15:5: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:16:31: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:24:6: error(lean.unknownIdentifier): Unknown identifier `matrixColumnControl`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:26:6: error(lean.unknownIdentifier): Unknown identifier `matrixColumnControl`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:21:7: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:22:7: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:23:5: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:24:30: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:25:5: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:26:34: error(lean.unknownIdentifier): Unknown identifier `complexGram_posSemidef`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullRankPositiveTransportTargets.lean:30:0: error: SHEAF positive-coordinate transport type differs: JinWishart.full_column_rank_positive_coordinate_mul_bounds

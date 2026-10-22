@@ -10,5 +10,5 @@
     "resolution": "notes/WISHART_SINGULAR_LOG_VARIANCE.md"
   },
   "audit": "verification/central_mixed_moments/audit.json",
-  "facade_receipt": "verification/sheaf_wishart/facade-85.receipt.json"
+  "facade_receipt": "verification/sheaf_wishart/facade-86.receipt.json"
 }

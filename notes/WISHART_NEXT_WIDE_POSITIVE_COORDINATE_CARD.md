@@ -1,3 +1,5 @@
+712更新：本卡旧wide固定坐标已于700关闭；抽象共同核正规形704、矩形Gaussian投影/任意固定均值块product law710、满小侧秩正坐标双边比较712也已完成。转 notes/WISHART_NEXT_CANONICAL_FIN_SHEAR_TRANSPORT_CARD.md，勿按以下历史OPEN描述重复工作。当前技术租约13:57UTC，仅空闲且额度可用时可续，非用户期限。
+
 # Next substantive card after696: wide positive-coordinate bridge / normal form
 
 The wide coordinate section below was CLOSED at700/facade81 by

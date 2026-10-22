@@ -1,0 +1,61 @@
+import JinWishartFormalization.ActualCanonicalNoiseBlockLaw
+import JinWishartFormalization.WidePositiveCoordinate
+import JinWishartFormalization.GramMinimumLeftComparison
+
+/-! Quantitative transport of the actual positive-rank boundary coordinate
+under an invertible column factor, when the small side has full rank.
+Codex. Rank-deficient interior positive coordinates are not asserted here.
+[需人工审查] Subsequent AE model/Fin reindexing and inverse-moment transport. -/
+open Matrix
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem full_column_rank_positive_coordinate_mul_bounds {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (T : Matrix (Fin n) (Fin n) ℂ)
+    (hn : 0<n) (hT : IsUnit T.det) (hr : A.rank=n)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=n) :
+    0<(complexGram_posSemidef A).1.eigenvalues₀ i ∧
+    0<(complexGram_posSemidef (A*T)).1.eigenvalues₀ i ∧
+    (complexGram_posSemidef (A*T)).1.eigenvalues₀ i ≤
+      matrixColumnControl T*(complexGram_posSemidef A).1.eigenvalues₀ i ∧
+    (complexGram_posSemidef A).1.eigenvalues₀ i ≤
+      matrixColumnControl T⁻¹*(complexGram_posSemidef (A*T)).1.eigenvalues₀ i := by
+  have hrT : (A*T).rank=n := (Matrix.rank_mul_eq_left_of_isUnit_det T A hT).trans hr
+  have hp := antitone_min_positive_at_count _ (complexGram_posSemidef A).1.eigenvalues₀_antitone
+    i ((gram_positive_modes_card_eq_rank A).trans (hr.trans hi.symm))
+  have hpT := antitone_min_positive_at_count _ (complexGram_posSemidef (A*T)).1.eigenvalues₀_antitone
+    i ((gram_positive_modes_card_eq_rank (A*T)).trans (hrT.trans hi.symm))
+  have he : i=smallestEigenvalue₀Index hn := by
+    have hj : (smallestEigenvalue₀Index hn).val+1=n := by
+      simp [smallestEigenvalue₀Index,Fintype.card_fin]
+      omega
+    apply Fin.ext
+    omega
+  refine ⟨hp.1,hpT.1,?_,?_⟩
+  · simpa only [gramSmallestValue,← he] using gramSmallestValue_mul_column_upper A T hn hT
+  · simpa only [gramSmallestValue,← he] using gramSmallestValue_mul_column_lower A T hn hT
+
+theorem full_row_rank_positive_coordinate_mul_bounds {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (T : Matrix (Fin n) (Fin n) ℂ)
+    (hm : 0<m) (hT : IsUnit T.det) (hr : A.rank=m)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=m) :
+    0<(complexGram_posSemidef A).1.eigenvalues₀ i ∧
+    0<(complexGram_posSemidef (A*T)).1.eigenvalues₀ i ∧
+    (complexGram_posSemidef (A*T)).1.eigenvalues₀ i ≤
+      matrixColumnControl Tᴴ*(complexGram_posSemidef A).1.eigenvalues₀ i ∧
+    (complexGram_posSemidef A).1.eigenvalues₀ i ≤
+      matrixColumnControl (Tᴴ)⁻¹*(complexGram_posSemidef (A*T)).1.eigenvalues₀ i := by
+  have hrT : (A*T).rank=m := (Matrix.rank_mul_eq_left_of_isUnit_det T A hT).trans hr
+  have he := gram_full_row_rank_coordinate_eq_rowMinimum A hm i hi hr
+  have heT := gram_full_row_rank_coordinate_eq_rowMinimum (A*T) hm i hi hrT
+  have hTU : IsUnit Tᴴ.det := by simpa only [Matrix.det_conjTranspose] using hT.star
+  have hu := gramSmallestValue_mul_left_upper Aᴴ Tᴴ hm
+  have hl := gramSmallestValue_mul_left_lower Aᴴ Tᴴ hm hTU
+  rw [← Matrix.conjTranspose_mul,← he.2,← heT.2] at hu hl
+  exact ⟨he.1,heT.1,hu,hl⟩
+
+end
+end JinWishart
+#print axioms JinWishart.full_column_rank_positive_coordinate_mul_bounds
+#print axioms JinWishart.full_row_rank_positive_coordinate_mul_bounds
