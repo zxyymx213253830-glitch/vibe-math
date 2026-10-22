@@ -1,0 +1,39 @@
+[
+  {
+    "tag": "canonical-matrix-model-CompressedJointKernelInjectivity",
+    "module": "CompressedJointKernelInjectivity",
+    "nodes": [
+      [
+        "L-canonical-matrix-model-correlated_fixed_compression_joint_injective",
+        "correlated_fixed_compression_joint_injective",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "canonical-matrix-model-JointKernelCanonicalMatrix",
+    "module": "JointKernelCanonicalMatrix",
+    "nodes": [
+      [
+        "L-canonical-matrix-model-exists_joint_kernel_canonical_matrix",
+        "exists_joint_kernel_canonical_matrix",
+        [
+          "L-canonical-matrix-model-correlated_fixed_compression_joint_injective"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "canonical-matrix-model-CanonicalSumNoiseBlockLaw",
+    "module": "CanonicalSumNoiseBlockLaw",
+    "nodes": [
+      [
+        "L-canonical-matrix-model-actual_sum_isometric_noise_block_law",
+        "actual_sum_isometric_noise_block_law",
+        [
+          "L-canonical-matrix-model-exists_joint_kernel_canonical_matrix"
+        ]
+      ]
+    ]
+  }
+]

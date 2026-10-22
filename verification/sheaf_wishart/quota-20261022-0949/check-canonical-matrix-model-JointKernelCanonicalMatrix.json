@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "f752de0a89d7ced0773386d8817b5c719e0975a6a7661a910832e6178e5b1f9a",
+  "target_lock_sha256": "b080ae0ba19c1e26ea9f65c6352c16e10c5b925ba0c5accba28badc7539bd4f3",
+  "leaf": {
+    "started_utc": "2026-10-22T19:17:16.881967+00:00",
+    "ended_utc": "2026-10-22T19:17:30.669816+00:00",
+    "module": "JinWishartFormalization.JointKernelCanonicalMatrix",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/JointKernelCanonicalMatrix.lean",
+    "source_sha256_before": "f752de0a89d7ced0773386d8817b5c719e0975a6a7661a910832e6178e5b1f9a",
+    "source_sha256": "f752de0a89d7ced0773386d8817b5c719e0975a6a7661a910832e6178e5b1f9a",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/canonical-matrix-model-JointKernelCanonicalMatrix-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "18084fa526002a3479ffeba3a0aa56313c6a39b89c25c2066228780a6aff70d2",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T19:17:41.772866+00:00",
+    "ended_utc": "2026-10-22T19:18:11.315085+00:00",
+    "module": "SheafCanonicalMatrixModelTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCanonicalMatrixModelTargets.lean",
+    "source_sha256_before": "10d6da553eaefd2035464bb2ba6ccc84d3ddf43e03e70e235f48104bfcdfd54c",
+    "source_sha256": "10d6da553eaefd2035464bb2ba6ccc84d3ddf43e03e70e235f48104bfcdfd54c",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/canonical-matrix-model-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "b23518fd8b7816ca3fe08ef3197c75872c3b559626c1bb4f7147a1ffe081f610",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

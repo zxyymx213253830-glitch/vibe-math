@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\JointKernelCanonicalMatrix.lean:64:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f.toLinearMap (split w).1
+in the target expression
+  (f (split w).1).ofLp i = ((toEuclideanLin (U.fromCols 0)) w).ofLp i
+
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hjoint : Function.Injective ⇑((toEuclideanLin B).prod (toEuclideanLin M))
+b c a : ℕ
+e : (EuclideanSpace ℂ (Fin b) × EuclideanSpace ℂ (Fin c)) ≃ₗ[ℂ] EuclideanSpace ℂ (Fin n)
+f : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p)
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+g : EuclideanSpace ℂ (Fin c) ≃ₗ[ℂ] EuclideanSpace ℂ (Fin c)
+hb : b = finrank ℂ ↥(toEuclideanLin B).range
+hc : c = finrank ℂ ↥(toEuclideanLin B).ker
+hbc : b + c = finrank ℂ (EuclideanSpace ℂ (Fin n))
+hac : a + c = finrank ℂ (EuclideanSpace ℂ (Fin m))
+hB : ∀ (u : EuclideanSpace ℂ (Fin b)) (v : EuclideanSpace ℂ (Fin c)), (toEuclideanLin B) (e (u, v)) = f u
+hM :
+  ∀ (u : EuclideanSpace ℂ (Fin b)) (v : EuclideanSpace ℂ (Fin c)),
+    V ((toEuclideanLin M) (e (u, v))) =
+      V ((toEuclideanLin M) (e (u, 0))) + WithLp.toLp 2 ((fun x => 0) ⊕ᵥ fun j => (g v).ofLp j)
+split : EuclideanSpace ℂ (Fin b ⊕ Fin c) ≃ₗ[ℂ] EuclideanSpace ℂ (Fin b) × EuclideanSpace ℂ (Fin c) := canonicalSplit b c
+T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ := toEuclideanLin.symm ↑(split ≪≫ₗ e)
+U : Matrix (Fin p) (Fin b) ℂ := toEuclideanLin.symm f.toLinearMap
+N : Matrix (Fin c) (Fin c) ℂ := toEuclideanLin.symm ↑g
+hT : toEuclideanLin T = ↑(split ≪≫ₗ e)
+hU : toEuclideanLin U = f.toLinearMap
+hN : toEuclideanLin N = ↑g
+D : Matrix (Fin a ⊕ Fin c) (Fin b ⊕ Fin c) ℂ := toEuclideanLin.symm (↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T))
+hD : toEuclideanLin D = ↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T)
+w : EuclideanSpace ℂ (Fin b ⊕ Fin c)
+i : Fin p
+hmul : (toEuclideanLin (B * T)) w = (toEuclideanLin B) ((toEuclideanLin T) w)
+hpointU : f.toLinearMap (split w).1 = (toEuclideanLin U) (split w).1
+⊢ (f (split w).1).ofLp i = ((toEuclideanLin (U.fromCols 0)) w).ofLp i
+'JinWishart.exists_joint_kernel_canonical_matrix' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

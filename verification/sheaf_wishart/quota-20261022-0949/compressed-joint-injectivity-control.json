@@ -1,0 +1,14 @@
+{
+  "seed": 2026102226,
+  "cases": 20,
+  "checks": 120,
+  "status": "PASS",
+  "source_sha256": "bbe720ff3ef897e6450c1c91c64bab9175ae3176f0d20b838def50e9c4eb0be9",
+  "scope": "Exact reconstruction/rank/kernel controls, not a general proof",
+  "known_controls": [
+    "zero-dimensional map",
+    "zero factor/common kernel",
+    "rank-sized full column rank",
+    "extra zero column negative"
+  ]
+}

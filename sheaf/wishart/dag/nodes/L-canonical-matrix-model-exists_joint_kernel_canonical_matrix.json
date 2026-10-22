@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-matrix-model-exists_joint_kernel_canonical_matrix",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.JointKernelCanonicalMatrix",
+  "declaration": "JinWishart.exists_joint_kernel_canonical_matrix",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-matrix-model-correlated_fixed_compression_joint_injective"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-matrix-model-correlated_fixed_compression_joint_injective"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-matrix-model-JointKernelCanonicalMatrix.json",
+    "source_sha256": "f752de0a89d7ced0773386d8817b5c719e0975a6a7661a910832e6178e5b1f9a"
+  }
+}

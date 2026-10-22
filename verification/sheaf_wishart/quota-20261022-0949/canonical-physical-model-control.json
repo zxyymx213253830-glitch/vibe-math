@@ -1,0 +1,13 @@
+{
+  "seed": 2026102227,
+  "cases": 22,
+  "checks": 82,
+  "status": "PASS",
+  "source_sha256": "17d4228f0c17a9272ab3cb1ae8fce3b14125f4e9d9fdd219f4777e813731fb81",
+  "scope": "Exact physical-sample block identity controls only, not a law/inverse-moment proof",
+  "known_controls": [
+    "zero sample equals deterministic mean",
+    "noiseless/empty blocks",
+    "scalar physical sample"
+  ]
+}

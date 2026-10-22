@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-matrix-model-actual_sum_isometric_noise_block_law",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.CanonicalSumNoiseBlockLaw",
+  "declaration": "JinWishart.actual_sum_isometric_noise_block_law",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-matrix-model-exists_joint_kernel_canonical_matrix"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-matrix-model-exists_joint_kernel_canonical_matrix"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-matrix-model-CanonicalSumNoiseBlockLaw.json",
+    "source_sha256": "b09a1a4e8590255742429bdd5a1304cfed8631e7cfd4f973b2085a53a3dd7983"
+  }
+}

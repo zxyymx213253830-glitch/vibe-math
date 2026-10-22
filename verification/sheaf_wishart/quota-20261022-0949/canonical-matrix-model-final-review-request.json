@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "CompressedJointKernelInjectivity.lean": {
+      "sha256": "d7b4e703bc4ba8818dc5e8429342d02c433f1b86177b33a224626f3cb8a75d64",
+      "supplied": "Full source"
+    },
+    "JointKernelCanonicalMatrix.lean": {
+      "sha256": "f752de0a89d7ced0773386d8817b5c719e0975a6a7661a910832e6178e5b1f9a",
+      "supplied": "Full source"
+    },
+    "CanonicalSumNoiseBlockLaw.lean": {
+      "sha256": "b09a1a4e8590255742429bdd5a1304cfed8631e7cfd4f973b2085a53a3dd7983",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "5612fed212c6d57b3f7138f50ab0a9336105456100935e0205841a88c8ccbe89"
+}

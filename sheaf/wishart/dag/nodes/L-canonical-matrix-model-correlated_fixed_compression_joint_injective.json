@@ -1,0 +1,20 @@
+{
+  "id": "L-canonical-matrix-model-correlated_fixed_compression_joint_injective",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CompressedJointKernelInjectivity",
+  "declaration": "JinWishart.correlated_fixed_compression_joint_injective",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-matrix-model-CompressedJointKernelInjectivity.json",
+    "source_sha256": "d7b4e703bc4ba8818dc5e8429342d02c433f1b86177b33a224626f3cb8a75d64"
+  }
+}

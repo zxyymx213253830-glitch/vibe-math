@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:08:38.334836+00:00",
+  "ended_utc": "2026-10-22T19:10:45.630849+00:00",
+  "module": "JinWishartFormalization.CompressedJointKernelInjectivity",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CompressedJointKernelInjectivity.lean",
+  "source_sha256_before": "d7b4e703bc4ba8818dc5e8429342d02c433f1b86177b33a224626f3cb8a75d64",
+  "source_sha256": "d7b4e703bc4ba8818dc5e8429342d02c433f1b86177b33a224626f3cb8a75d64",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-compressed-joint-kernel-v1.txt",
+  "log_exists": true,
+  "log_sha256": "bbc8b1f947d2e1fee7d093995a76dd34c3d710cf9f0331048b639f06832602cb",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

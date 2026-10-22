@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:15:41.143553+00:00",
+  "ended_utc": "2026-10-22T19:15:53.309625+00:00",
+  "module": "JinWishartFormalization.CanonicalSumNoiseBlockLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalSumNoiseBlockLaw.lean",
+  "source_sha256_before": "b09a1a4e8590255742429bdd5a1304cfed8631e7cfd4f973b2085a53a3dd7983",
+  "source_sha256": "b09a1a4e8590255742429bdd5a1304cfed8631e7cfd4f973b2085a53a3dd7983",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-canonical-sum-noise-block-v1.txt",
+  "log_exists": true,
+  "log_sha256": "e2b7036188c288dd7cb657b1f9253da4239e24ef1dedc193de64fef1c9d494a2",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

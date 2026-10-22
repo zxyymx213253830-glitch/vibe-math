@@ -402,3 +402,13 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/full_rank_positive_transport_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_FULL_RANK_POSITIVE_TRANSPORT.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CompressedJointKernelInjectivity.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/JointKernelCanonicalMatrix.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CanonicalSumNoiseBlockLaw.lean -text whitespace=cr-at-eol
+
+/experiments/compressed_joint_injectivity_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CANONICAL_MATRIX_MODEL.md -text whitespace=cr-at-eol
