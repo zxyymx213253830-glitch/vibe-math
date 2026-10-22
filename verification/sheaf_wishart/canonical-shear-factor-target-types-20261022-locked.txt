@@ -1,0 +1,7 @@
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCanonicalShearFactorTargets.lean:8:13: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SHEAF_TARGET_TYPES_EQ PASS

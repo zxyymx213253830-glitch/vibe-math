@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "canonical-shear-factor-CanonicalShearFactorMoments",
+    "module": "CanonicalShearFactorMoments",
+    "nodes": [
+      [
+        "L-canonical-shear-factor-integrable_actual_canonical_shear_factor",
+        "integrable_actual_canonical_shear_factor",
+        []
+      ]
+    ]
+  }
+]

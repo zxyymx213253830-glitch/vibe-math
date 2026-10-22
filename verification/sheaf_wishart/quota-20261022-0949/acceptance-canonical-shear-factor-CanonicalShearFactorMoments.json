@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-canonical-shear-factor-CanonicalShearFactorMoments.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-canonical-shear-factor-CanonicalShearFactorMoments.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/canonical-shear-factor-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-shear-factor-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-shear-factor-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-shear-factor-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/canonical-shear-factor-final-snapshot",
+    "resolution": "notes/WISHART_CANONICAL_SHEAR_FACTOR_MOMENTS.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-92.receipt.json"
+}

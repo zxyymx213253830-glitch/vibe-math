@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CanonicalShearFactorMoments.lean": {
+      "sha256": "714641490df4296ca217d0b30ececdd00a89e671af213f7aba003b27d913be96",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ffd5f4d8bcaf4fcadf26bfcab5422eef29fcbf657c7feeb6ab92f41fda366a55"
+}

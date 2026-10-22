@@ -436,3 +436,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/canonical_fin_block_comparison_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CANONICAL_FIN_BLOCK_COMPARISON.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CanonicalShearFactorMoments.lean -text whitespace=cr-at-eol
+
+/experiments/canonical_shear_factor_moment_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CANONICAL_SHEAR_FACTOR_MOMENTS.md -text whitespace=cr-at-eol

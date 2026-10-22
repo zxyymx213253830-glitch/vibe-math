@@ -1,0 +1,13 @@
+{
+ "name":"canonical-shear-factor",
+ "review":"canonical-shear-factor-final",
+ "resolution":"notes/WISHART_CANONICAL_SHEAR_FACTOR_MOMENTS.md",
+ "facade":"facade-92",
+ "total":727,
+ "new_count":1,
+ "control_script":"experiments/canonical_shear_factor_moment_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/canonical-shear-factor-moment-control.json",
+ "seed":2026102231,
+ "commit":"Prove every nonnegative real moment of actual Gaussian shear factors is finite",
+ "scope":"2026-10-22续跑第二十八里程碑：727绑定项（725定理实例+2构造），auditPASS/facade92真实exit0，65接受记录全验证。本轮117打印声明/47模块非117概率突破。新1声明/1模块：实际properCN1 c-by-b高斯Z、任意固定复均值M及固定c-by-c Q（可奇异/零/空维），全部实q>=0的(1+||Q(Z+M)||op)^q真实可积，复用Fernique有限Lp并构造固定实线性到同一复operator空间。21例591控制含标量Gamma闭式校准和有限矩形sanity，非用采样证明；1字面类型和完整最终源码真实Qoder P4绑定。常数Lp的stdGaussian概率实例、restrictScalars并不改变operator值域/范数及Gaussian实例疑问按精确定义裁决；失败v1保留不接受。随机剪切因子所有阶矩输入闭合，实际AE块谱/独立乘积积分及一般singularB逆矩阈值仍OPEN。19:52普通额度true primary59 weekly9，未用重置券；lease21:08非用户截止。人审测度/Fubini/极限/方差/模型仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

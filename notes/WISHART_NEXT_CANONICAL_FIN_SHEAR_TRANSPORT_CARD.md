@@ -1,9 +1,30 @@
 # Next open card: Fin spectral/shear transport of the actual canonical model
 
-Current717: common-kernel compression and joint injectivity, explicit fixed
+Current726: common-kernel compression and joint injectivity, explicit fixed
 Sum-indexed canonical matrices, actual Sum-row Gaussian block law, and the
 literal physical sample identity/law are closed. Do not redo these, the old
 wide IID threshold, or generic Gaussian/projection/independence constructions.
+
+New720/723/726 close steps1-3 below: exact row-isometry Gram preservation,
+Fin square column detunit and positive-coordinate bounds, explicit Fin shear
+inverse/norm/control, Fin diagonal Gram charpoly, and q=min(lambdaPlusA,
+lambdaPlusN) two-sided comparison with L=(1+||K||op)^2. These deterministic
+results explicitly assume full small-side rank for the coordinate comparison
+and positive minimum witnesses for BOTH blocks for q. Empty/rank-zero block
+cases are not covered by inventing witnesses. Do not reprove these steps.
+Latest auditPASS/facade91 exit0,64 accepted records, commit07a429a.
+
+Current next work: actual proper-CN1 matrix factor Q*(Z+M) has all nonnegative
+real moments of 1+its Euclidean operator norm. Source CanonicalShearFactorMoments
+v1 is in the shared gate; inspect its real receipt before any edit/recheck.
+New seed2026102231 controls21cases591 calibrate scalar moments by exact Gamma
+radial integrals plus finite rectangular sanity; not an integrability proof.
+After that, use the accepted joint A/H product law directly for sufficiency
+where appropriate: independence can factor the positive product, without
+unnecessary Holder exponent loss. Necessity still needs a positive-probability
+bounded-H event (or an equivalent positive finite inverse-factor integral).
+First connect physical717 plus fixed column720 plus Fin block726 on the SAME
+2mp source with existing AE generic rank. Do not claim this assembly is closed.
 
 Accepted assets:
 - CompressedJointKernelInjectivity supplies injectivity of (BC,MC) from a
@@ -23,7 +44,7 @@ Accepted assets:
   give block positive-spectrum membership/min witness, explicit inverse shear,
   and both Euclidean operator norm bounds1+||K||. Reuse them.
 
-Next exact route:
+Original exact route (steps1-3 now closed as described above):
 1. Reindex the Sum column coordinates to Fin n using b+c=n, and row
    coordinates to Fin m using a+c=m. Transport the column linear equivalence
    to a square Fin matrix; prove its determinant is a unit using an explicit

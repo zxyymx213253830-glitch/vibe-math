@@ -1,3 +1,4 @@
+import JinWishartFormalization.CanonicalShearFactorMoments
 import JinWishartFormalization.CanonicalFinBlockComparison
 import JinWishartFormalization.CanonicalFinShear
 import JinWishartFormalization.CanonicalFinGramTransport

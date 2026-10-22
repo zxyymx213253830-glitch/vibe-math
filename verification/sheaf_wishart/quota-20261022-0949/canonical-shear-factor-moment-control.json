@@ -1,0 +1,12 @@
+{
+  "seed": 2026102231,
+  "cases": 21,
+  "checks": 591,
+  "status": "PASS",
+  "source_sha256": "8a583a9f0db0edc88c112310dac65cdf29b52d24ea7cd831add74af1222db192",
+  "scope": "Closed scalar moment calibration plus finite sample sanity only; not a proof of general integrability",
+  "known_controls": [
+    "properCN1 radial Gamma moments",
+    "zero/empty shear factor1"
+  ]
+}

@@ -1,0 +1,15 @@
+# Actual Gaussian shear-factor moments
+
+`integrable_actual_canonical_shear_factor` proves, for every fixed c-by-c complex Q and c-by-b complex M, every real q>=0, and the actual proper-CN1 c-by-b sample Z encoded by 2cb independent standard real coordinates, that (1+||Q*(Z+M)||op)^q is integrable. Zero/singular Q and empty dimensions are allowed. The operator norm is that of the rectangular Euclidean continuous linear map. Taking Q=N inverse is permitted for a fixed matrix, but the theorem does not assert N invertible or replace a random inverse by a fixed factor.
+
+The proof constructs the real-linear raw sample map and the fixed matrix-to-operator linear map, uses the existing Gaussian Fernique all-finite-Lp result, adds the fixed mean, then uses the real norm function and the nonnegative outer-norm identity. This establishes an actual all-orders finite-moment input to the shear comparison, not an inverse-eigenvalue threshold.
+
+Controls: seed2026102231, 21 cases/591 checks. Scalar central moments are calibrated by the exact proper-CN1 radial density 2r exp(-r^2) and Gamma moments, including q=0,1,2,4,7 and zero/scaled Q. Rectangular shifted samples are only finite sanity controls and are not evidence of all-orders integrability by themselves. Final v2 plus one literal target type pass the shared serial Lean gate with standard three axioms. Failed v1 remains archived; its issues were matrix addition reduction and an over-deep ext tactic, not an accepted result.
+
+## Qoder P4 resolution
+
+The real final-source Qwen3.8-Max review self-corrects its initial outer-norm concern: 1+||K|| is nonnegative and the proof explicitly invokes Real.norm_of_nonneg. Its remaining finite-measure concern is a checked dependency: the theorem fixes stdGaussian on a finite-dimensional real Euclidean space, with the existing probability-measure instance. memLp_const explicitly requires and receives that inferred finite-measure instance; this is not a theorem over an arbitrary infinite measure.
+
+The scalar restriction concern misidentifies the codomain. F is complex-linear from complex matrices INTO the normed space of complex continuous operators. F.restrictScalars real retains this exact same operator-valued codomain and exact same norm; it regards F as real-linear. It does not replace each complex operator by a differently normed real operator. Thus L and F M inhabit the same space, and hL.add uses one normed-space instance.
+
+The IsGaussian/Fernique concern is an explicitly imported and typechecked mathlib instance for this stdGaussian measure. ComplexSample is the stated finite Euclidean real space, with its existing Borel structure. The result does not assume an arbitrary measure or an unproved informal Gaussian identification. [需人工审查] Physical variance/model interpretation and subsequent product integration/threshold assembly remain required. Scoped P4 is not human review or independent compilation. General singular B inverse threshold OPEN; frozen publications unchanged; full Lake/mathlib and independent Linux kernel NOT_RUN.

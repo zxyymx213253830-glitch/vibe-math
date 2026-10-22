@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:54:21.094949+00:00",
+  "ended_utc": "2026-10-22T19:54:35.807661+00:00",
+  "module": "JinWishartFormalization.CanonicalShearFactorMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalShearFactorMoments.lean",
+  "source_sha256_before": "714641490df4296ca217d0b30ececdd00a89e671af213f7aba003b27d913be96",
+  "source_sha256": "714641490df4296ca217d0b30ececdd00a89e671af213f7aba003b27d913be96",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-canonical-shear-factor-v2.txt",
+  "log_exists": true,
+  "log_sha256": "96879dcb3443b2dc9a59933a7484a83cb75cb369924b9608e92161e9f7d4ed0a",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

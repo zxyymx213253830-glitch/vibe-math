@@ -1,0 +1,20 @@
+{
+  "id": "L-canonical-shear-factor-integrable_actual_canonical_shear_factor",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.CanonicalShearFactorMoments",
+  "declaration": "JinWishart.integrable_actual_canonical_shear_factor",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-shear-factor-CanonicalShearFactorMoments.json",
+    "source_sha256": "714641490df4296ca217d0b30ececdd00a89e671af213f7aba003b27d913be96"
+  }
+}
