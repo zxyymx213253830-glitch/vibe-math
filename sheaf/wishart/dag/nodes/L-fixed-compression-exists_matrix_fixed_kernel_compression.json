@@ -1,0 +1,24 @@
+{
+  "id": "L-fixed-compression-exists_matrix_fixed_kernel_compression",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FixedKernelCompression",
+  "declaration": "JinWishart.exists_matrix_fixed_kernel_compression",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-fixed-compression-exists_linear_isometric_kernel_compression"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-fixed-compression-exists_linear_isometric_kernel_compression"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-fixed-compression-FixedKernelCompression.json",
+    "source_sha256": "013af35c027604ebf1d58bf1c854967550c96c3afc7a9c9c9ab2d1002d58062f"
+  }
+}

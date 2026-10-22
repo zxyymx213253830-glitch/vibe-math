@@ -1,0 +1,69 @@
+{
+  "status": "PASS controls only",
+  "seed": 2026102214,
+  "checks": 51,
+  "cases": [
+    {
+      "p": 0,
+      "m": 0,
+      "n": 0,
+      "fixed_joint_rank": 0
+    },
+    {
+      "p": 0,
+      "m": 2,
+      "n": 3,
+      "fixed_joint_rank": 1
+    },
+    {
+      "p": 2,
+      "m": 0,
+      "n": 3,
+      "fixed_joint_rank": 1
+    },
+    {
+      "p": 2,
+      "m": 2,
+      "n": 3,
+      "fixed_joint_rank": 2
+    },
+    {
+      "p": 2,
+      "m": 2,
+      "n": 3,
+      "fixed_joint_rank": 1
+    },
+    {
+      "p": 1,
+      "m": 1,
+      "n": 3,
+      "fixed_joint_rank": 2
+    },
+    {
+      "p": 2,
+      "m": 1,
+      "n": 2,
+      "fixed_joint_rank": 2
+    },
+    {
+      "p": 2,
+      "m": 2,
+      "n": 4,
+      "fixed_joint_rank": 3
+    },
+    {
+      "p": 0,
+      "m": 3,
+      "n": 4,
+      "fixed_joint_rank": 2
+    },
+    {
+      "p": 3,
+      "m": 0,
+      "n": 4,
+      "fixed_joint_rank": 2
+    }
+  ],
+  "source_sha256": "e7afdb7786469862e518bb73d4a9e4588517d34312cebd8bd62b74278c1f8a3d",
+  "scope": "Fixed compression before noise; no general inverse-moment proof"
+}

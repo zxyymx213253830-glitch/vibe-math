@@ -1,0 +1,33 @@
+[
+  {
+    "tag": "fixed-compression-FixedKernelCompression",
+    "module": "FixedKernelCompression",
+    "nodes": [
+      [
+        "L-fixed-compression-exists_linear_isometric_kernel_compression",
+        "exists_linear_isometric_kernel_compression",
+        []
+      ],
+      [
+        "L-fixed-compression-exists_matrix_fixed_kernel_compression",
+        "exists_matrix_fixed_kernel_compression",
+        [
+          "L-fixed-compression-exists_linear_isometric_kernel_compression"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "fixed-compression-CorrelatedFixedKernelCompression",
+    "module": "CorrelatedFixedKernelCompression",
+    "nodes": [
+      [
+        "L-fixed-compression-exists_correlated_fixed_kernel_compression",
+        "exists_correlated_fixed_kernel_compression",
+        [
+          "L-fixed-compression-exists_matrix_fixed_kernel_compression"
+        ]
+      ]
+    ]
+  }
+]

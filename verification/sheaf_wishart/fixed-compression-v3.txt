@@ -1,0 +1,2 @@
+'JinWishart.exists_linear_isometric_kernel_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_matrix_fixed_kernel_compression' depends on axioms: [propext, Classical.choice, Quot.sound]

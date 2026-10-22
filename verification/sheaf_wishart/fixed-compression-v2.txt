@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FixedKernelCompression.lean:58:4: error: Type mismatch: After simplification, term
+  rank_eq_finrank_range_toLin A (EuclideanSpace.basisFun ι ℂ).toBasis (EuclideanSpace.basisFun (Fin n) ℂ).toBasis
+ has type
+  @Eq ℕ A.rank
+    (finrank ℂ ↥((toLin (EuclideanSpace.basisFun (Fin n) ℂ).toBasis (EuclideanSpace.basisFun ι ℂ).toBasis) A).range)
+but is expected to have type
+  @Eq ℕ A.rank
+    (finrank ℂ ↥((toLin (EuclideanSpace.basisFun (Fin n) ℂ).toBasis (EuclideanSpace.basisFun ι ℂ).toBasis) A).range)
+'JinWishart.exists_linear_isometric_kernel_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_matrix_fixed_kernel_compression' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

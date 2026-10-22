@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T07:19:06.961313+00:00",
+  "ended_utc": "2026-10-22T07:19:17.921531+00:00",
+  "module": "JinWishartFormalization.FixedKernelCompression",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FixedKernelCompression.lean",
+  "source_sha256_before": "013af35c027604ebf1d58bf1c854967550c96c3afc7a9c9c9ab2d1002d58062f",
+  "source_sha256": "013af35c027604ebf1d58bf1c854967550c96c3afc7a9c9c9ab2d1002d58062f",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/fixed-compression-FixedKernelCompression-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "26e2452773895eea9316a2186e7939173cee49186e18626e416143adf0688c15",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

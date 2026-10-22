@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T07:19:27.016961+00:00",
+  "ended_utc": "2026-10-22T07:19:56.346279+00:00",
+  "module": "SheafFixedCompressionTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFixedCompressionTargets.lean",
+  "source_sha256_before": "325f73c9bf7686bb9e955a4fd712d02d74dcab4c051c3a59e9c6764e09bed104",
+  "source_sha256": "325f73c9bf7686bb9e955a4fd712d02d74dcab4c051c3a59e9c6764e09bed104",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/fixed-compression-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

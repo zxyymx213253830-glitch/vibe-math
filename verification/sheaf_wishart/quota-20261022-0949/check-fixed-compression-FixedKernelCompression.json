@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "013af35c027604ebf1d58bf1c854967550c96c3afc7a9c9c9ab2d1002d58062f",
+  "target_lock_sha256": "d0ac3d041fbe6dc96c4837b9df8bb1f5a79b393b99eda73aac6c0f799036c6e1",
+  "leaf": {
+    "started_utc": "2026-10-22T07:19:06.961313+00:00",
+    "ended_utc": "2026-10-22T07:19:17.921531+00:00",
+    "module": "JinWishartFormalization.FixedKernelCompression",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/FixedKernelCompression.lean",
+    "source_sha256_before": "013af35c027604ebf1d58bf1c854967550c96c3afc7a9c9c9ab2d1002d58062f",
+    "source_sha256": "013af35c027604ebf1d58bf1c854967550c96c3afc7a9c9c9ab2d1002d58062f",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/fixed-compression-FixedKernelCompression-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "26e2452773895eea9316a2186e7939173cee49186e18626e416143adf0688c15",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T07:19:27.016961+00:00",
+    "ended_utc": "2026-10-22T07:19:56.346279+00:00",
+    "module": "SheafFixedCompressionTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFixedCompressionTargets.lean",
+    "source_sha256_before": "325f73c9bf7686bb9e955a4fd712d02d74dcab4c051c3a59e9c6764e09bed104",
+    "source_sha256": "325f73c9bf7686bb9e955a4fd712d02d74dcab4c051c3a59e9c6764e09bed104",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/fixed-compression-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

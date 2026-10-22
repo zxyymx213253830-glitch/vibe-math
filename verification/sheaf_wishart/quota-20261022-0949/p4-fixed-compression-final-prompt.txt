@@ -1,0 +1,120 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE FixedKernelCompression.lean
+import JinWishartFormalization.GramMinimumLeftComparison
+import Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional
+
+/-! Fixed orthonormal compression onto the complement of a linear kernel.
+Includes rank zero. Deterministic Codex proofs, no Gaussian-law claims.
+[需人工审查] Subsequent nonzero-spectrum and actual-law transport. -/
+open Matrix Module
+namespace JinWishart
+noncomputable section
+
+theorem exists_linear_isometric_kernel_compression
+    {E F : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+    [FiniteDimensional ℂ E] [NormedAddCommGroup F] [InnerProductSpace ℂ F]
+    [FiniteDimensional ℂ F] (T : E →ₗ[ℂ] F) :
+    ∃ (r : ℕ) (f : EuclideanSpace ℂ (Fin r) →ₗᵢ[ℂ] E),
+      r=finrank ℂ T.range ∧ (T.comp f.toLinearMap).comp f.adjoint=T := by
+  let K := T.kerᗮ
+  let r := finrank ℂ K
+  let e : EuclideanSpace ℂ (Fin r) ≃ₗᵢ[ℂ] K :=
+    (stdOrthonormalBasis ℂ K).repr.symm
+  let f : EuclideanSpace ℂ (Fin r) →ₗᵢ[ℂ] E := K.subtypeₗᵢ.comp e.toLinearIsometry
+  have hRange : f.toLinearMap.range=K := by
+    ext x
+    constructor
+    · rintro ⟨u,rfl⟩
+      exact (e u).property
+    · intro hx
+      obtain ⟨u,hu⟩ := e.surjective ⟨x,hx⟩
+      exact ⟨u,congrArg Subtype.val hu⟩
+  refine ⟨r,f,?_,?_⟩
+  · change finrank ℂ T.kerᗮ=finrank ℂ T.range
+    rw [T.orthogonal_ker,T.finrank_range_adjoint]
+  · ext x
+    have horth : x-f (f.adjoint x) ∈ f.toLinearMap.rangeᗮ := by
+      rw [LinearMap.orthogonal_range]
+      change f.adjoint (x-f (f.adjoint x))=0
+      rw [map_sub]
+      have h := congrArg (fun L => L (f.adjoint x)) f.adjoint_comp_self'
+      exact sub_eq_zero.mpr h.symm
+    have hk : x-f (f.adjoint x) ∈ T.ker := by
+      simpa only [hRange,K,Submodule.orthogonal_orthogonal] using horth
+    have ht : T x-T (f (f.adjoint x))=0 := by
+      simpa only [LinearMap.mem_ker,map_sub] using hk
+    exact (sub_eq_zero.mp ht).symm
+
+theorem exists_matrix_fixed_kernel_compression {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {n : ℕ} (A : Matrix ι (Fin n) ℂ) :
+    ∃ (r : ℕ) (C : Matrix (Fin n) (Fin r) ℂ),
+      r=A.rank ∧ Cᴴ*C=1 ∧ A*C*Cᴴ=A := by
+  obtain ⟨r,f,hr,hf⟩ := exists_linear_isometric_kernel_compression A.toEuclideanLin
+  let C : Matrix (Fin n) (Fin r) ℂ := Matrix.toEuclideanLin.symm f.toLinearMap
+  have hC : C.toEuclideanLin=f.toLinearMap := Matrix.toEuclideanLin.apply_symm_apply _
+  have hCadj : Cᴴ.toEuclideanLin=f.adjoint := by
+    rw [Matrix.toEuclideanLin_conjTranspose_eq_adjoint,hC]
+  refine ⟨r,C,?_,?_,?_⟩
+  · apply hr.trans
+    symm
+    convert! A.rank_eq_finrank_range_toLin (EuclideanSpace.basisFun ι ℂ).toBasis
+      (EuclideanSpace.basisFun (Fin n) ℂ).toBasis using 1
+  · apply Matrix.toEuclideanLin.injective
+    have h := f.adjoint_comp_self'
+    rw [← hCadj,← hC] at h
+    simpa only [Matrix.toEuclideanLin,Matrix.toLpLin_mul_same,Matrix.toLpLin_one] using h
+  · apply Matrix.toEuclideanLin.injective
+    rw [← hCadj,← hC] at hf
+    simpa only [Matrix.toEuclideanLin,Matrix.toLpLin_mul_same] using hf
+
+end
+end JinWishart
+#print axioms JinWishart.exists_linear_isometric_kernel_compression
+#print axioms JinWishart.exists_matrix_fixed_kernel_compression
+
+SOURCE CorrelatedFixedKernelCompression.lean
+import JinWishartFormalization.FixedKernelCompression
+import Mathlib.Data.Matrix.ColumnRowPartitioned
+
+/-! One fixed rank-sized isometric compression for every noise matrix Z.
+Deterministic Codex proof; no Gaussian distribution or inverse moment claim.
+[需人工审查] Subsequent positive-spectrum/law correspondence. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem exists_correlated_fixed_kernel_compression {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    ∃ (r : ℕ) (C : Matrix (Fin n) (Fin r) ℂ),
+      r=(Matrix.fromRows B M).rank ∧ Cᴴ*C=1 ∧ B*C*Cᴴ=B ∧ M*C*Cᴴ=M ∧
+      ∀ Z : Matrix (Fin m) (Fin p) ℂ,
+        (Z*B+M)*C*Cᴴ=Z*B+M ∧
+        ((Z*B+M)*C)*((Z*B+M)*C)ᴴ=(Z*B+M)*(Z*B+M)ᴴ := by
+  obtain ⟨r,C,hr,hiso,hA⟩ := exists_matrix_fixed_kernel_compression (Matrix.fromRows B M)
+  have hB : B*C*Cᴴ=B := by
+    ext i j
+    have h := congrFun (congrFun hA (Sum.inl i)) j
+    simpa only [Matrix.fromRows_mul,Matrix.fromRows_apply_inl] using h
+  have hM : M*C*Cᴴ=M := by
+    ext i j
+    have h := congrFun (congrFun hA (Sum.inr i)) j
+    simpa only [Matrix.fromRows_mul,Matrix.fromRows_apply_inr] using h
+  refine ⟨r,C,hr,hiso,hB,hM,?_⟩
+  intro Z
+  have hX : (Z*B+M)*C*Cᴴ=Z*B+M := by
+    calc
+      _ = (Z*B)*C*Cᴴ+M*C*Cᴴ := by rw [Matrix.add_mul,Matrix.add_mul]
+      _ = Z*(B*C*Cᴴ)+M*C*Cᴴ := by simp only [Matrix.mul_assoc]
+      _ = Z*B+M := by rw [hB,hM]
+  refine ⟨hX,?_⟩
+  calc
+    _ = (Z*B+M)*C*Cᴴ*(Z*B+M)ᴴ := by
+      rw [Matrix.conjTranspose_mul]
+      simp only [Matrix.mul_assoc]
+    _ = (Z*B+M)*(Z*B+M)ᴴ := by rw [hX]
+
+end
+end JinWishart
+#print axioms JinWishart.exists_correlated_fixed_kernel_compression

@@ -46,3 +46,5 @@
 - 2026-10-22T03:11:00.938524+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-variance-limit-MeanSquareSecondMomentContinuity.json; human measure/model review remains REQUIRED.
 - 2026-10-22T03:11:04.996504+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-variance-limit-ActualSingularLogDetVarianceLimit.json; human measure/model review remains REQUIRED.
 - 2026-10-22T07:06:24.378845+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-gram-left-GramMinimumLeftComparison.json; human measure/model review remains REQUIRED.
+- 2026-10-22T07:22:47.463335+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-fixed-compression-FixedKernelCompression.json; human measure/model review remains REQUIRED.
+- 2026-10-22T07:22:54.485956+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-fixed-compression-CorrelatedFixedKernelCompression.json; human measure/model review remains REQUIRED.
