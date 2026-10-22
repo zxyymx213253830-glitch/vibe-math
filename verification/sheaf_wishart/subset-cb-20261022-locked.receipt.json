@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T01:59:52.488599+00:00",
+  "ended_utc": "2026-10-22T02:00:00.000036+00:00",
+  "module": "JinWishartFormalization.SubsetCauchyBinet",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SubsetCauchyBinet.lean",
+  "source_sha256_before": "e3ac1de896c47817747212e6febc0b3baeef8848c31ef8fb62f0aeb4884bda88",
+  "source_sha256": "e3ac1de896c47817747212e6febc0b3baeef8848c31ef8fb62f0aeb4884bda88",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/subset-cb-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f3db22f25a65ace587272d2531ca1a7566315dea020cd9332b0b0bea03ee5fb7",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

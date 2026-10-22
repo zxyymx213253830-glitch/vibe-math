@@ -1,0 +1,42 @@
+{
+  "created_utc": "2026-10-22T01:59:44.555369+00:00",
+  "module": "JinWishartFormalization.GramAllMinorCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramAllMinorCoefficient.lean",
+  "statements": {
+    "JinWishart.gram_principal_minor_eq_enumerated_gram": "{m n q : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) (T : {T : Finset (Fin n) // T.card = q}) : ((complexGram X).submatrix (Subtype.val : T.val → Fin n) Subtype.val).det = (complexGram (X.submatrix id (fun j => (cardinalSubsetEnumeration T j).val))).det",
+    "JinWishart.gram_polynomial_coefficient_eq_sum_squared_minors": "{m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) (q : ℕ) : (((1+(Polynomial.X : ℂ[X]) • (complexGram X).map Polynomial.C).det).coeff q) = ∑ T : {T : Finset (Fin n) // T.card = q}, ∑ S : {S : Finset (Fin m) // S.card = q}, star ((X.submatrix (fun i => (cardinalSubsetEnumeration S i).val) (fun j => (cardinalSubsetEnumeration T j).val)).det) * (X.submatrix (fun i => (cardinalSubsetEnumeration S i).val) (fun j => (cardinalSubsetEnumeration T j).val)).det",
+    "JinWishart.gram_polynomial_coefficient_re_eq_sum_normSq_minors": "{m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ) (q : ℕ) : ((((1+(Polynomial.X : ℂ[X]) • (complexGram X).map Polynomial.C).det).coeff q)).re = ∑ T : {T : Finset (Fin n) // T.card = q}, ∑ S : {S : Finset (Fin m) // S.card = q}, Complex.normSq ((X.submatrix (fun i => (cardinalSubsetEnumeration S i).val) (fun j => (cardinalSubsetEnumeration T j).val)).det)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/SubsetCauchyBinet.lean": "e3ac1de896c47817747212e6febc0b3baeef8848c31ef8fb62f0aeb4884bda88",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/SubsetCauchyBinet.olean": "efc6a8e4b2f48e1c0eaf9e977f5fb424f76c0b41d849fa91b7dd924fda658cd5",
+    "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSubsetFunctionSum.lean": "26eba35fb677407613ff5f0d9a5d9d5a44130c4a673e7a102764404ee6f5aafc",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FiniteSubsetFunctionSum.olean": "02698cb460afe3ed15bb5ca7bd4b4efb52f9754c8afe467b92f9b182c991938b",
+    "theory/jin_wishart_formalization/JinWishartFormalization/AveragedCauchyBinet.lean": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/AveragedCauchyBinet.olean": "379a7576f6af841963d9f5ea7ac7daca75fc417c96cc02c6f4a4b54d42bd572e",
+    "theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/RectangularDeterminantExpansion.olean": "c0fa651f0fd2c240e7d42d25aeb7035aefda0e4dd10ff0b78d8700aaf51ec35f",
+    "theory/jin_wishart_formalization/JinWishartFormalization/MatrixRankCompression.lean": "bf33b3a2b64307d3207338fb977f6da44efa2fad9d198ed10dbdd4560f26211f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/MatrixRankCompression.olean": "d75e37728a1528cefe3988117fb80fdff5ea2c7fd8acd5ee683674dade3335c9",
+    "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/WishartProbability.olean": "5d5dad561c507df7943f399fb4f93cf17fa45106ca408c8b38959cb856817aaa",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GramMinorCoefficientBound.lean": "fd129a05c28cdeca1ba880c38549451900c76c1d302de9d16e8079c5030de787",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramMinorCoefficientBound.olean": "44f1c948ee9c0db24e8e86e7474d8b9e01f47b3edeaa07c0b1c7b8f51bb14626",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GramRankSpectralCoefficient.lean": "ad4bf566129519894063c24fe7d272ffc5dd9b7f1bae0343282247c8268d3589",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramRankSpectralCoefficient.olean": "cfc4367fefec9420a975c785d34d77b7c7758193ffbd017978d288483670ff0a",
+    "theory/jin_wishart_formalization/JinWishartFormalization/HermitianSpectralLogDet.lean": "dd20a5edc505618069756c5fa4e84374764c62091ca328e960f784e19491708d",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianSpectralLogDet.olean": "b4bc47d6e595ae9f1316a8658b168052294997c74e59303f7d081145c1bd5c3c",
+    "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumLogDetGrowth.lean": "59226ecd38b4fb1a42e059c072c9366b9275f52d1bdd18963b4252dcd717736e",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FiniteSpectrumLogDetGrowth.olean": "4feb34a00c1182731152c7f111212984c1546e7aa8164107143c9c8e030e37c0",
+    "theory/jin_wishart_formalization/JinWishartFormalization/LogMomentIntegrability.lean": "95b0e15c9244d02cfd9af67b0a0fede5ced3a87b54b378cb73289640613bdb58",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LogMomentIntegrability.olean": "539ff450f2ccbe5d6eb9637e7680ec0545c146b586890eaf91f29282a2912c11",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GramAllMinorCoefficient.lean": "cfc037a2242639adf01cbe13ee6bca6271895460a841991ba0a39766fa2e787a",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafSubsetTargets.lean",
+  "type_check_source_sha256": "88e7912b550f90268f6e8a3f1d9de683089945e457b15f5e126bc2c4adc90816",
+  "locked_local_definitions": {
+    "policy": "Full self source bytes included in definition_dependencies."
+  }
+}

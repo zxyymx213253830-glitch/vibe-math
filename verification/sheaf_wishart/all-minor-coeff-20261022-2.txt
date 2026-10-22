@@ -1,0 +1,7 @@
+'JinWishart.gram_principal_minor_eq_enumerated_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_polynomial_coefficient_eq_sum_squared_minors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gram_polynomial_coefficient_re_eq_sum_normSq_minors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

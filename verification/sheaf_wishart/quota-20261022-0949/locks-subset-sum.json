@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-22T01:59:44.491504+00:00",
+  "module": "JinWishartFormalization.FiniteSubsetFunctionSum",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSubsetFunctionSum.lean",
+  "statements": {
+    "JinWishart.permutation_injective_image_fiber_equiv": "{q m : ℕ} (S : {S : Finset (Fin m) // S.card = q}) : Nonempty ((Equiv.Perm (Fin q)) ≃ {f : {f : Fin q → Fin m // Injective f} // injectiveFunctionImage f = S})",
+    "JinWishart.sum_functions_eq_factorial_sum_cardinal_subsets": "{q m : ℕ} (w : (Fin q → Fin m) → ℂ) (hz : ∀ f, ¬ Injective f → w f = 0) (hp : ∀ f (σ : Equiv.Perm (Fin q)), w (fun i => f (σ i)) = w f) : (∑ f : Fin q → Fin m, w f) = (q.factorial : ℂ) * ∑ S : {S : Finset (Fin m) // S.card = q}, w (fun i => (cardinalSubsetEnumeration S i).val)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/AveragedCauchyBinet.lean": "f4999707e1e556b3f031711d886f58261c712744713a47176daf02c111116c58",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/AveragedCauchyBinet.olean": "379a7576f6af841963d9f5ea7ac7daca75fc417c96cc02c6f4a4b54d42bd572e",
+    "theory/jin_wishart_formalization/JinWishartFormalization/RectangularDeterminantExpansion.lean": "e62b923c6079a991718c4c29e29c8e3081f4e6a4b00a54e70c24e726e92155af",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/RectangularDeterminantExpansion.olean": "c0fa651f0fd2c240e7d42d25aeb7035aefda0e4dd10ff0b78d8700aaf51ec35f",
+    "theory/jin_wishart_formalization/JinWishartFormalization/MatrixRankCompression.lean": "bf33b3a2b64307d3207338fb977f6da44efa2fad9d198ed10dbdd4560f26211f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/MatrixRankCompression.olean": "d75e37728a1528cefe3988117fb80fdff5ea2c7fd8acd5ee683674dade3335c9",
+    "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/WishartProbability.olean": "5d5dad561c507df7943f399fb4f93cf17fa45106ca408c8b38959cb856817aaa",
+    "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSubsetFunctionSum.lean": "26eba35fb677407613ff5f0d9a5d9d5a44130c4a673e7a102764404ee6f5aafc",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafSubsetTargets.lean",
+  "type_check_source_sha256": "88e7912b550f90268f6e8a3f1d9de683089945e457b15f5e126bc2c4adc90816",
+  "locked_local_definitions": {
+    "policy": "Full self source bytes included in definition_dependencies."
+  }
+}

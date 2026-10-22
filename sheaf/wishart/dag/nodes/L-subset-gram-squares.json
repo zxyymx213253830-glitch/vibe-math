@@ -1,0 +1,24 @@
+{
+  "id": "L-subset-gram-squares",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.SubsetCauchyBinet",
+  "declaration": "JinWishart.gram_det_sum_squared_cardinal_minors",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-rectangular-cauchy-binet"
+  ],
+  "proof": [
+    {
+      "text": "Exact final-source finite algebra; literal theorem type and full definition hashes locked. Includes empty shapes and q>m.",
+      "uses": [
+        "L-rectangular-cauchy-binet"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-subset-cb.json",
+    "source_sha256": "e3ac1de896c47817747212e6febc0b3baeef8848c31ef8fb62f0aeb4884bda88"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T01:54:36.433785+00:00",
+  "ended_utc": "2026-10-22T01:56:39.023199+00:00",
+  "module": "JinWishartFormalization.FiniteSubsetFunctionSum",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSubsetFunctionSum.lean",
+  "source_sha256_before": "01eeb29f5bbf4bf0f58cb293ee9558a53cad4e02e4bc7bd7c8b89b3b3dc53852",
+  "source_sha256": "01eeb29f5bbf4bf0f58cb293ee9558a53cad4e02e4bc7bd7c8b89b3b3dc53852",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/subset-sum-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "27d91427ecaca37e8c8ac7769113ad866617ea6cba4efb324ae4f63c98e38a82",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

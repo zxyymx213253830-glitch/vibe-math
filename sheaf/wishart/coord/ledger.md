@@ -26,3 +26,7 @@
 - 2026-10-21T17:00:21.691371+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261022-0024/acceptance-actual-singular.json; human measure/model review remains REQUIRED.
 - 2026-10-21T17:09:19.066309+00:00 Queue milestone accepted via verification/sheaf_wishart/hour-20261022-0024/acceptance-expected-derivative.json; human measure/model review remains REQUIRED.
 - 2026-10-21T17:25:01.160594+00:00 Fixed hour CLOSED610/auditPASS/facade64;25new declarations, own claim released, heartbeatPAUSED. No further mathematics/check/model work after17:24:50UTC.
+- 2026-10-22T01:52:20.640698+00:00 New quota authorization; old fixed hour remains CLOSED. Baseline610/auditPASS/facade64; next exact subset Cauchy-Binet.
+- 2026-10-22T02:02:25.783798+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-subset-sum.json; human measure/model review remains REQUIRED.
+- 2026-10-22T02:02:27.542897+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-subset-cb.json; human measure/model review remains REQUIRED.
+- 2026-10-22T02:02:29.466163+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-all-minor-coeff.json; human measure/model review remains REQUIRED.

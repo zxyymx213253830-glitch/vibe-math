@@ -1,0 +1,20 @@
+{
+  "id": "L-minor-product-invariant",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.SubsetCauchyBinet",
+  "declaration": "JinWishart.rectangular_minor_product_permutation_invariant",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Exact final-source finite algebra; literal theorem type and full definition hashes locked. Includes empty shapes and q>m.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-subset-cb.json",
+    "source_sha256": "e3ac1de896c47817747212e6febc0b3baeef8848c31ef8fb62f0aeb4884bda88"
+  }
+}

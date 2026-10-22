@@ -1,22 +1,26 @@
 {
   "id": "L-rectangular-cauchy-binet",
-  "kind": "statement",
+  "kind": "lemma",
   "target": false,
-  "statement": "For complex A q-by-m and B m-by-q, det(AB)=sum over q-subsets I of m det(A[:,I])*det(B[I,:]); includes q=0 and q>m.",
+  "module": "JinWishartFormalization.SubsetCauchyBinet",
+  "declaration": "JinWishart.det_mul_rectangular_sum_cardinal_subsets",
   "stmt_deps": [],
-  "proof_deps": [],
+  "proof_deps": [
+    "L-subset-weight-grouping",
+    "L-minor-product-invariant"
+  ],
   "proof": [
     {
-      "text": "Expand determinant multilinearly in rows or columns; duplicate intermediate indices vanish by alternatingness.",
-      "uses": []
-    },
-    {
-      "text": "Group injective intermediate-index functions by image subset, keeping permutation signs and empty case.",
-      "uses": []
+      "text": "Exact final-source finite algebra; literal theorem type and full definition hashes locked. Includes empty shapes and q>m.",
+      "uses": [
+        "L-subset-weight-grouping",
+        "L-minor-product-invariant"
+      ]
     }
   ],
   "verification": {
-    "status": "open_not_formalized",
-    "evidence": "notes/WISHART_NEXT_PSEUDODET_CARD.md"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-subset-cb.json",
+    "source_sha256": "e3ac1de896c47817747212e6febc0b3baeef8848c31ef8fb62f0aeb4884bda88"
   }
 }

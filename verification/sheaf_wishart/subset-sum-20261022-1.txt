@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSubsetFunctionSum.lean:74:25: error: Function expected at
+  hf
+but this term has type
+  f ∈ univ
+
+Note: Expected a function because this term is being applied to the argument
+  (hz f h)
+'JinWishart.permutation_injective_image_fiber_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_functions_eq_factorial_sum_cardinal_subsets' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

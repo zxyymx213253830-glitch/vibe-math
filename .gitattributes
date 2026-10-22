@@ -208,3 +208,13 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/singular_factor_offset_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_SINGULAR_LOGDET_OFFSET.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteSubsetFunctionSum.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/SubsetCauchyBinet.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GramAllMinorCoefficient.lean -text whitespace=cr-at-eol
+
+/experiments/subset_cauchy_binet_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_EXACT_SUBSET_CAUCHY_BINET.md -text whitespace=cr-at-eol

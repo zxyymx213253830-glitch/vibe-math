@@ -1,0 +1,2 @@
+'JinWishart.permutation_injective_image_fiber_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.sum_functions_eq_factorial_sum_cardinal_subsets' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:00:00.007799+00:00",
+  "ended_utc": "2026-10-22T02:00:07.778171+00:00",
+  "module": "JinWishartFormalization.GramAllMinorCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramAllMinorCoefficient.lean",
+  "source_sha256_before": "cfc037a2242639adf01cbe13ee6bca6271895460a841991ba0a39766fa2e787a",
+  "source_sha256": "cfc037a2242639adf01cbe13ee6bca6271895460a841991ba0a39766fa2e787a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/all-minor-coeff-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "20b4d7f8c091ae27b0022b7577a2678d2a9f26876fc9956d8250be970a84280f",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

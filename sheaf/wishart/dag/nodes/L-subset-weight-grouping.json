@@ -1,0 +1,24 @@
+{
+  "id": "L-subset-weight-grouping",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteSubsetFunctionSum",
+  "declaration": "JinWishart.sum_functions_eq_factorial_sum_cardinal_subsets",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-subset-fiber-equivalence"
+  ],
+  "proof": [
+    {
+      "text": "Exact final-source finite algebra; literal theorem type and full definition hashes locked. Includes empty shapes and q>m.",
+      "uses": [
+        "L-subset-fiber-equivalence"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-subset-sum.json",
+    "source_sha256": "26eba35fb677407613ff5f0d9a5d9d5a44130c4a673e7a102764404ee6f5aafc"
+  }
+}

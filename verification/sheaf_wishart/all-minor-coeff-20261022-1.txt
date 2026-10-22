@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramAllMinorCoefficient.lean:29:48: error: unsolved goals
+m n : ℕ
+X : Matrix (Fin m) (Fin n) ℂ
+q : ℕ
+⊢ ∀ (x : Finset (Fin n)), #x = q ↔ ?m.114 x
+'JinWishart.gram_principal_minor_eq_enumerated_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_polynomial_coefficient_eq_sum_squared_minors' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gram_polynomial_coefficient_re_eq_sum_normSq_minors' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

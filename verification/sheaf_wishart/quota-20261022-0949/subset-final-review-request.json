@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "FiniteSubsetFunctionSum.lean": {
+      "sha256": "26eba35fb677407613ff5f0d9a5d9d5a44130c4a673e7a102764404ee6f5aafc",
+      "supplied": "Full source"
+    },
+    "SubsetCauchyBinet.lean": {
+      "sha256": "e3ac1de896c47817747212e6febc0b3baeef8848c31ef8fb62f0aeb4884bda88",
+      "supplied": "Full source"
+    },
+    "GramAllMinorCoefficient.lean": {
+      "sha256": "cfc037a2242639adf01cbe13ee6bca6271895460a841991ba0a39766fa2e787a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "81eb3b3de8293c6fa9ff2dcdded28f66c6fe8945570fe0e4bec4f26a1b40c72a"
+}

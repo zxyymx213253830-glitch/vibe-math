@@ -1,0 +1,20 @@
+{
+  "id": "L-enumerated-principal-gram",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramAllMinorCoefficient",
+  "declaration": "JinWishart.gram_principal_minor_eq_enumerated_gram",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Exact final-source finite algebra; literal theorem type and full definition hashes locked. Includes empty shapes and q>m.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-all-minor-coeff.json",
+    "source_sha256": "cfc037a2242639adf01cbe13ee6bca6271895460a841991ba0a39766fa2e787a"
+  }
+}
