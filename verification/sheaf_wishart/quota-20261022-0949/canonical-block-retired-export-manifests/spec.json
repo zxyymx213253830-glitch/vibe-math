@@ -1,0 +1,2114 @@
+{
+  "library": ".tools/publication-revision-20261016/fresh-project-library",
+  "targets": [
+    {
+      "module": "JinWishartFormalization.CentralWishartDeterminantBias",
+      "count": 7,
+      "log": "verification/central_mixed_moments/bias-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartSharedPivot",
+      "count": 3,
+      "log": "verification/central_mixed_moments/pivot-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianDisjointPrincipalLaw",
+      "count": 4,
+      "log": "verification/central_mixed_moments/disjoint-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartSharedPrefix",
+      "count": 3,
+      "log": "verification/central_mixed_moments/prefix-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartOverlappingSelectors",
+      "count": 2,
+      "log": "verification/central_mixed_moments/embedded-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteSharedColumnCoordinates",
+      "count": 5,
+      "log": "verification/central_mixed_moments/coordinates-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteMinorOverlapModel",
+      "count": 2,
+      "log": "verification/central_mixed_moments/venn-3.txt",
+      "kernel_exit_code_recorded": 0,
+      "witnesses": [
+        "finiteMinorOverlapModel"
+      ]
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartMixedMinorMoments",
+      "count": 3,
+      "log": "verification/central_mixed_moments/mixed-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartShiftedSecondMoment",
+      "count": 6,
+      "log": "verification/central_mixed_moments/second-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartMinimumBridge",
+      "count": 7,
+      "log": "verification/central_mixed_moments/minimum-bridge-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.RectangularWishartTwoExtraRows",
+      "count": 9,
+      "log": "verification/central_mixed_moments/two-extra-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteSubsetPairGrouping",
+      "count": 6,
+      "log": "verification/central_mixed_moments/group-5.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.TwoExtraRowsGroupedPolynomial",
+      "count": 4,
+      "log": "verification/central_mixed_moments/grouped-poly-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianPhaseMoments",
+      "count": 5,
+      "log": "verification/central_mixed_moments/phase-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianMonomialMoments",
+      "count": 7,
+      "log": "verification/central_mixed_moments/monomial-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianPolynomialMoments",
+      "count": 6,
+      "log": "verification/central_mixed_moments/polynomial-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianMatrixPolynomialLaw",
+      "count": 7,
+      "log": "verification/central_mixed_moments/matrix-poly-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramDeterminantPolynomial",
+      "count": 4,
+      "log": "verification/central_mixed_moments/gram-poly-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartPolynomialIntegral",
+      "count": 5,
+      "log": "verification/central_mixed_moments/poly-integral-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralRectangularMinimumPolynomial",
+      "count": 8,
+      "log": "verification/central_mixed_moments/general-minimum-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralGramPolynomialMoments",
+      "count": 5,
+      "log": "verification/central_mixed_moments/noncentral-poly-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumPolynomialSpecializations",
+      "count": 3,
+      "log": "verification/central_mixed_moments/specialize-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianMomentFunctional",
+      "count": 1,
+      "witnesses": [
+        "complexGaussianMomentLinear"
+      ],
+      "log": "verification/central_mixed_moments/functional-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumUnivariatePolynomial",
+      "count": 3,
+      "log": "verification/central_mixed_moments/univariate-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumPolynomialDegree",
+      "count": 9,
+      "log": "verification/central_mixed_moments/degree-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumPolynomialNormalization",
+      "count": 3,
+      "log": "verification/central_mixed_moments/normalization-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumRealPolynomial",
+      "count": 7,
+      "log": "verification/central_mixed_moments/real-poly-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumRightTail",
+      "count": 4,
+      "log": "verification/central_mixed_moments/right-tail-6.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LeaveOneOutGramResidual",
+      "count": 6,
+      "log": "verification/central_mixed_moments/residual-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramMinimumResidualUpper",
+      "count": 3,
+      "log": "verification/central_mixed_moments/residual-upper-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramMinimumRayleigh",
+      "count": 2,
+      "log": "verification/central_mixed_moments/gram-rayleigh-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramMinimumResidualLower",
+      "count": 2,
+      "log": "verification/central_mixed_moments/residual-lower-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramComplexProjection",
+      "count": 3,
+      "log": "verification/central_mixed_moments/complex-projection-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianResidualEnergy",
+      "count": 5,
+      "log": "verification/central_mixed_moments/gaussian-residual-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianLeaveOneOutLaw",
+      "count": 4,
+      "log": "verification/central_mixed_moments/leave-one-law-5.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianLeaveOneOutEvents",
+      "count": 5,
+      "log": "verification/central_mixed_moments/leave-one-events-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumGammaSandwich",
+      "count": 4,
+      "log": "verification/central_mixed_moments/gamma-sandwich-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GammaHardEdgeBounds",
+      "count": 3,
+      "log": "verification/central_mixed_moments/gamma-bounds-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumHardEdgeBounds",
+      "count": 3,
+      "log": "verification/central_mixed_moments/hard-edge-bounds-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumDiversity",
+      "count": 2,
+      "log": "verification/central_mixed_moments/diversity-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumAllShapesDiversity",
+      "count": 4,
+      "log": "verification/central_mixed_moments/diversity-all-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumScaledDiversity",
+      "count": 5,
+      "log": "verification/central_mixed_moments/diversity-scaled-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianShiftKernelBounds",
+      "count": 3,
+      "log": "verification/central_mixed_moments/shift-kernel-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianShiftMeasureComparison",
+      "count": 3,
+      "log": "verification/central_mixed_moments/shift-measure-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralMinimumComparison",
+      "count": 3,
+      "log": "verification/central_mixed_moments/noncentral-comparison-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralMinimumDiversity",
+      "count": 5,
+      "log": "verification/central_mixed_moments/noncentral-diversity-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralMinimumCovarianceDiversity",
+      "count": 6,
+      "log": "verification/central_mixed_moments/noncentral-covariance-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralMinimumModeOutage",
+      "count": 3,
+      "log": "verification/central_mixed_moments/noncentral-outage-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralInverseMinimumTail",
+      "count": 4,
+      "log": "verification/central_mixed_moments/inverse-tail-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ProbabilityTailIntegrability",
+      "count": 5,
+      "log": "verification/central_mixed_moments/tail-integrability-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.PowerTailIntegrability",
+      "count": 3,
+      "log": "verification/central_mixed_moments/power-tail-integrability-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ProbabilityTailFirstMoment",
+      "count": 3,
+      "log": "verification/central_mixed_moments/tail-first-moment-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralInverseMinimumFirstMoment",
+      "count": 5,
+      "log": "verification/central_mixed_moments/inverse-first-moment-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ProbabilityTailNaturalMoments",
+      "count": 6,
+      "log": "verification/central_mixed_moments/weighted-tail-6.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralInverseMinimumMoments",
+      "count": 4,
+      "log": "verification/central_mixed_moments/inverse-natural-moments-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ProbabilityTailRealMoments",
+      "count": 5,
+      "log": "verification/central_mixed_moments/real-tail-moments-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralInverseMinimumRealMoments",
+      "count": 4,
+      "log": "verification/central_mixed_moments/inverse-real-moments-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramMinimumColumnComparison",
+      "count": 7,
+      "log": "verification/central_mixed_moments/column-comparison-5.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedColumnMinimum",
+      "count": 6,
+      "log": "verification/central_mixed_moments/correlated-minimum-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedColumnInverseMoments",
+      "count": 5,
+      "log": "verification/central_mixed_moments/correlated-inverse-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.AnalyticPositivePowerLimit",
+      "count": 2,
+      "log": "verification/central_mixed_moments/analytic-power-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumSharpOrder",
+      "count": 6,
+      "log": "verification/central_mixed_moments/sharp-order-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.AnalyticPowerTaylorCoefficient",
+      "count": 3,
+      "log": "verification/central_mixed_moments/analytic-taylor-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumHardEdgeCoefficient",
+      "count": 3,
+      "log": "verification/central_mixed_moments/hard-edge-coefficient-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ExponentialPolynomialTaylor",
+      "count": 3,
+      "log": "verification/central_mixed_moments/exp-polynomial-taylor-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumFiniteHardEdgeCoefficient",
+      "count": 3,
+      "log": "verification/central_mixed_moments/finite-hard-edge-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.MeasureFromPositivePrimitive",
+      "count": 2,
+      "log": "verification/central_mixed_moments/positive-primitive-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumActualDensity",
+      "count": 6,
+      "log": "verification/central_mixed_moments/actual-minimum-density-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumPDF",
+      "count": 4,
+      "log": "verification/central_mixed_moments/minimum-pdf-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.AnalyticVanishingPowerLimit",
+      "count": 1,
+      "log": "verification/central_mixed_moments/vanishing-power-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralMinimumDensityHardEdge",
+      "count": 1,
+      "log": "verification/central_mixed_moments/density-hard-edge-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralWishartMomentFactorials",
+      "count": 3,
+      "log": "verification/central_mixed_moments/moment-factorials-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralComplementMinorPolynomial",
+      "count": 3,
+      "log": "verification/central_mixed_moments/complement-polynomial-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteChooseTruncation",
+      "count": 1,
+      "log": "verification/central_mixed_moments/choose-truncation-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralComplementLowCoefficients",
+      "count": 2,
+      "log": "verification/central_mixed_moments/complement-low-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralComplementCubic",
+      "count": 5,
+      "log": "verification/central_mixed_moments/complement-cubic-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CentralTwoSurplusSharpCoefficient",
+      "count": 5,
+      "log": "verification/central_mixed_moments/two-surplus-sharp-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LogMomentIntegrability",
+      "count": 3,
+      "log": "verification/central_mixed_moments/log-moment-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianGramLogMoments",
+      "count": 6,
+      "log": "verification/central_mixed_moments/gram-log-moments-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteSpectrumLogDetGrowth",
+      "count": 3,
+      "log": "verification/central_mixed_moments/finite-logdet-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralGramLogDetGrowth",
+      "count": 3,
+      "log": "verification/central_mixed_moments/noncentral-logdet-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.HermitianSpectralLogDet",
+      "count": 4,
+      "log": "verification/central_mixed_moments/hermitian-logdet-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualGramLogDet",
+      "count": 6,
+      "log": "verification/central_mixed_moments/actual-logdet-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LogDetErrorBounds",
+      "count": 5,
+      "log": "verification/central_mixed_moments/logdet-error-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LogDetOffsetIdentity",
+      "count": 2,
+      "log": "verification/central_mixed_moments/logdet-offset-identity-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualLogDetError",
+      "count": 4,
+      "log": "verification/central_mixed_moments/actual-logdet-error-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FatouIntegralDivergence",
+      "count": 1,
+      "log": "verification/central_mixed_moments/fatou-divergence-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LogErrorDivergence",
+      "count": 1,
+      "log": "verification/central_mixed_moments/log-error-divergence-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualSquareLogDetError",
+      "count": 3,
+      "log": "verification/central_mixed_moments/square-logdet-error-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramLogDetTranspose",
+      "count": 3,
+      "log": "verification/central_mixed_moments/gram-logdet-transpose-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.WideGaussianLogDet",
+      "count": 6,
+      "log": "verification/central_mixed_moments/wide-logdet-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LogMeanBound",
+      "count": 3,
+      "log": "verification/central_mixed_moments/log-mean-bound-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualLogDetMeanBound",
+      "count": 6,
+      "log": "verification/central_mixed_moments/actual-logdet-mean-bound-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LogDetLowScale",
+      "count": 3,
+      "log": "verification/central_mixed_moments/logdet-low-scale-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianSquaredNormShift",
+      "count": 1,
+      "log": "verification/central_mixed_moments/gaussian-squared-shift-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualGaussianTraceMean",
+      "count": 5,
+      "log": "verification/central_mixed_moments/trace-mean-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LogDetLowScaleSecondOrder",
+      "count": 4,
+      "log": "verification/central_mixed_moments/logdet-second-order-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualLogDetLowScaleCurvature",
+      "count": 3,
+      "log": "verification/central_mixed_moments/actual-logdet-curvature-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.HermitianSquaredTrace",
+      "count": 1,
+      "log": "verification/central_mixed_moments/hermitian-squared-trace-5.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralLogDetCurvatureCoefficient",
+      "count": 4,
+      "log": "verification/central_mixed_moments/finite-curvature-coefficient-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianWickMoments",
+      "count": 10,
+      "log": "verification/central_mixed_moments/wick-moments-6.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianShiftedFourthMoment",
+      "count": 1,
+      "log": "verification/central_mixed_moments/shifted-wick-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralGramEntryContraction",
+      "count": 1,
+      "log": "verification/central_mixed_moments/gram-entry-contraction-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoncentralGramSecondMomentClosed",
+      "count": 4,
+      "log": "verification/central_mixed_moments/gram-second-moment-7.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianTotalEnergyMoment",
+      "count": 2,
+      "log": "verification/central_mixed_moments/total-energy-moment-5.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualGaussianTraceVariance",
+      "count": 4,
+      "log": "verification/central_mixed_moments/trace-variance-5.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramMean",
+      "count": 5,
+      "log": "verification/central_mixed_moments/correlated-gram-mean-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianWeightedFourthMoment",
+      "count": 1,
+      "log": "verification/central_mixed_moments/weighted-wick-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianWeightedShiftedMoment",
+      "count": 8,
+      "log": "verification/central_mixed_moments/weighted-shifted-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGaussianFourthMoment",
+      "count": 10,
+      "log": "verification/central_mixed_moments/correlated-fourth-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramEntryCovariance",
+      "count": 5,
+      "log": "verification/central_mixed_moments/correlated-entry-product-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramTraceAlgebra",
+      "count": 3,
+      "log": "verification/central_mixed_moments/correlated-trace-algebra-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramTraceMoments",
+      "count": 11,
+      "log": "verification/central_mixed_moments/correlated-trace-moments-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedLogDetLowScale",
+      "count": 12,
+      "log": "verification/central_mixed_moments/correlated-logdet-low-5.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGramClosedSecondMoment",
+      "count": 2,
+      "log": "verification/central_mixed_moments/correlated-closed-second-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NonnegativeSpectrumPrelog",
+      "count": 4,
+      "log": "verification/central_mixed_moments/zero-spectrum-prelog-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedLogDetPrelog",
+      "count": 1,
+      "log": "verification/central_mixed_moments/correlated-zero-prelog-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedLogDetExpectedRank",
+      "count": 3,
+      "log": "verification/central_mixed_moments/correlated-expected-rank-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedRankUpperBound",
+      "count": 3,
+      "log": "verification/central_mixed_moments/rank-upper-0705-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedRankWitness",
+      "count": 2,
+      "log": "verification/central_mixed_moments/rank-witness-0705-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.MatrixRankCompression",
+      "count": 1,
+      "log": "verification/central_mixed_moments/rank-compression-0705-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedGaussianGenericRank",
+      "count": 4,
+      "log": "verification/central_mixed_moments/gaussian-generic-rank-0705-4.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedLogDetGenericRank",
+      "count": 3,
+      "log": "verification/central_mixed_moments/logdet-generic-rank-0705-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedMinimumZeroAtom",
+      "count": 5,
+      "log": "verification/central_mixed_moments/minimum-zero-atom-0705-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedNoiselessSpectralFloor",
+      "count": 4,
+      "log": "verification/central_mixed_moments/noiseless-floor-0705-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedNoiselessInverseMoments",
+      "count": 2,
+      "log": "verification/central_mixed_moments/noiseless-inverse-0705-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoiselessRowLogDetError",
+      "count": 4,
+      "log": "verification/central_mixed_moments/noiseless-row-error-1013-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.BoundedOffsetExpectation",
+      "count": 3,
+      "log": "verification/central_mixed_moments/bounded-offset-1013-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedNoiselessLogDetOffset",
+      "count": 4,
+      "log": "verification/central_mixed_moments/noiseless-offset-1013-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.HermitianInverseTrace",
+      "count": 1,
+      "log": "verification\\central_mixed_moments/hermitian-inverse-trace-1013-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.LogOneAddTaylorBounds",
+      "count": 2,
+      "log": "verification\\central_mixed_moments/log-taylor-1013-3.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedRowInverseTrace",
+      "count": 5,
+      "log": "verification\\central_mixed_moments/correlated-row-inverse-trace-1013-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoiselessRowFirstCorrection",
+      "count": 3,
+      "log": "verification\\central_mixed_moments/noiseless-first-correction-1013-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedNoiselessFirstCorrection",
+      "count": 2,
+      "log": "verification\\central_mixed_moments/actual-noiseless-first-1013-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NoiselessRowSecondCorrection",
+      "count": 3,
+      "log": "verification\\central_mixed_moments/noiseless-second-correction-1013-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedNoiselessSecondCorrection",
+      "count": 2,
+      "log": "verification\\central_mixed_moments/actual-noiseless-second-1013-1.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NonnegativeSpectrumOffset",
+      "count": 2,
+      "log": "verification\\central_mixed_moments/zero-mode-offset-1013-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedConditionalOffset",
+      "count": 1,
+      "log": "verification\\central_mixed_moments/conditional-offset-1013-2.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ScalarUniformSmallBall",
+      "count": 2,
+      "log": "verification/sheaf_wishart/pilot-20261020T151023Z-3886ff-leaf.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ProbabilityNegativeLogBounds",
+      "count": 2,
+      "log": "verification/sheaf_wishart/hour1535-core-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ScalarUniformNegativeLog",
+      "count": 1,
+      "log": "verification/sheaf_wishart/hour1535-scalar-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianRootNegativeLog",
+      "count": 2,
+      "log": "verification/sheaf_wishart/hour1535-root-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianPolynomialLog",
+      "count": 4,
+      "log": "verification/sheaf_wishart/hour1535-polynomial-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianPolynomialSectionLog",
+      "count": 1,
+      "log": "verification/sheaf_wishart/hour1535-section-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.BivariateGaussianPolynomialLog",
+      "count": 6,
+      "log": "verification/sheaf_wishart/hour1535-bivariate-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteComplexGaussianPolynomialLog",
+      "count": 6,
+      "log": "verification/sheaf_wishart/finite-pi-20261021-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ProperComplexGaussianPolynomialLog",
+      "count": 5,
+      "log": "verification/sheaf_wishart/proper-log-20261021-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualComplexPolynomialLog",
+      "count": 5,
+      "log": "verification/sheaf_wishart/actual-log-20261021-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.PositiveSpectrumLogIntegrability",
+      "count": 4,
+      "log": "verification/sheaf_wishart/positive-spectrum-20261021-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramRankSpectralCoefficient",
+      "count": 5,
+      "log": "verification/sheaf_wishart/gram-minor-spectral-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.RectangularDeterminantExpansion",
+      "count": 5,
+      "log": "verification/sheaf_wishart/gram-minor-minor-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.AveragedCauchyBinet",
+      "count": 4,
+      "log": "verification/sheaf_wishart/average-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramMinorCoefficientBound",
+      "count": 2,
+      "log": "verification/sheaf_wishart/coefficient-bound-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramMinorLogDomination",
+      "count": 2,
+      "log": "verification/sheaf_wishart/log-domination-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualSingularPositiveLog",
+      "count": 5,
+      "log": "verification/sheaf_wishart/actual-singular-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ExpectedLogDetDerivative",
+      "count": 2,
+      "log": "verification/sheaf_wishart/expected-derivative-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteSubsetFunctionSum",
+      "count": 2,
+      "log": "verification/sheaf_wishart/subset-sum-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.SubsetCauchyBinet",
+      "count": 3,
+      "log": "verification/sheaf_wishart/subset-cb-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramAllMinorCoefficient",
+      "count": 3,
+      "log": "verification/sheaf_wishart/all-minor-coeff-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ExpectedLogDetCurvature",
+      "count": 5,
+      "log": "verification/sheaf_wishart/curvature-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ExpectedLogDetStrictConcavity",
+      "count": 8,
+      "log": "verification/sheaf_wishart/strict-concavity-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.RegularizedSpectrumRankLimit",
+      "count": 6,
+      "log": "verification/sheaf_wishart/rank-limit-RegularizedSpectrumRankLimit-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.NegativeLogNaturalMomentBounds",
+      "count": 2,
+      "log": "verification/sheaf_wishart/log-moment-v2-NegativeLogNaturalMomentBounds-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianRootLogMoments",
+      "count": 3,
+      "log": "verification/sheaf_wishart/log-moment-v2-ComplexGaussianRootLogMoments-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ComplexGaussianPolynomialLogSquare",
+      "count": 3,
+      "log": "verification/sheaf_wishart/log-moment-v2-ComplexGaussianPolynomialLogSquare-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GaussianPolynomialSectionLogSquare",
+      "count": 1,
+      "log": "verification/sheaf_wishart/finite-log-square-GaussianPolynomialSectionLogSquare-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteGaussianPolynomialLogSquare",
+      "count": 4,
+      "log": "verification/sheaf_wishart/finite-log-square-FiniteGaussianPolynomialLogSquare-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ProperGaussianPolynomialLogSquare",
+      "count": 2,
+      "log": "verification/sheaf_wishart/finite-log-square-ProperGaussianPolynomialLogSquare-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualComplexPolynomialLogSquare",
+      "count": 2,
+      "log": "verification/sheaf_wishart/finite-log-square-ActualComplexPolynomialLogSquare-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualSingularPositiveLogSquare",
+      "count": 3,
+      "log": "verification/sheaf_wishart/singular-log-square-ActualSingularPositiveLogSquare-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FiniteSpectrumOffsetL2",
+      "count": 3,
+      "log": "verification/sheaf_wishart/offset-l2-FiniteSpectrumOffsetL2-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualSingularOffsetL2",
+      "count": 1,
+      "log": "verification/sheaf_wishart/offset-l2-ActualSingularOffsetL2-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.MeanSquareSecondMomentContinuity",
+      "count": 2,
+      "log": "verification/sheaf_wishart/variance-limit-MeanSquareSecondMomentContinuity-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualSingularLogDetVarianceLimit",
+      "count": 2,
+      "log": "verification/sheaf_wishart/variance-limit-ActualSingularLogDetVarianceLimit-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramMinimumLeftComparison",
+      "count": 3,
+      "log": "verification/sheaf_wishart/gram-left-GramMinimumLeftComparison-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FixedKernelCompression",
+      "count": 2,
+      "log": "verification/sheaf_wishart/fixed-compression-FixedKernelCompression-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CorrelatedFixedKernelCompression",
+      "count": 1,
+      "log": "verification/sheaf_wishart/fixed-compression-CorrelatedFixedKernelCompression-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FinitePositiveMinimum",
+      "count": 2,
+      "log": "verification/sheaf_wishart/positive-minimum-FinitePositiveMinimum-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.FixedRankPositiveMinimum",
+      "count": 2,
+      "log": "verification/sheaf_wishart/positive-minimum-FixedRankPositiveMinimum-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.GramPositiveSpectrumTransport",
+      "count": 4,
+      "log": "verification/sheaf_wishart/positive-transport-v2-GramPositiveSpectrumTransport-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.ActualCompressedPositiveMinimum",
+      "count": 1,
+      "log": "verification/sheaf_wishart/positive-transport-v2-ActualCompressedPositiveMinimum-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CanonicalBlockSpectrum",
+      "count": 6,
+      "log": "verification/sheaf_wishart/canonical-block-CanonicalBlockSpectrum-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    },
+    {
+      "module": "JinWishartFormalization.CanonicalBlockShear",
+      "count": 3,
+      "log": "verification/sheaf_wishart/canonical-block-CanonicalBlockShear-20261022-locked.txt",
+      "kernel_exit_code_recorded": 0
+    }
+  ],
+  "controls": [
+    {
+      "script": "experiments/central_mixed_minor_control.py",
+      "result": "verification/central_mixed_moments/control.json",
+      "seed": 2026101901
+    },
+    {
+      "script": "experiments/central_two_extra_rows_control.py",
+      "result": "verification/central_mixed_moments/two-extra-control.json",
+      "seed": 2026101902
+    },
+    {
+      "script": "experiments/central_subset_pair_group_control.py",
+      "result": "verification/central_mixed_moments/group-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/complex_gaussian_monomial_control.py",
+      "result": "verification/central_mixed_moments/complex-monomial-control.json",
+      "seed": 2026101904
+    },
+    {
+      "script": "experiments/complex_polynomial_moment_control.py",
+      "result": "verification/central_mixed_moments/polynomial-control.json",
+      "seed": 2026101905
+    },
+    {
+      "script": "experiments/noncentral_polynomial_moment_control.py",
+      "result": "verification/central_mixed_moments/noncentral-polynomial-control.json",
+      "seed": 2026101906
+    },
+    {
+      "script": "experiments/central_minimum_degree_control.py",
+      "result": "verification/central_mixed_moments/degree-control.json",
+      "seed": 2026101907
+    },
+    {
+      "script": "experiments/central_minimum_tail_control.py",
+      "result": "verification/central_mixed_moments/tail-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/central_minimum_residual_control.py",
+      "result": "verification/central_mixed_moments/residual-control.json",
+      "seed": 2026101908
+    },
+    {
+      "script": "experiments/gamma_hard_edge_bounds_control.py",
+      "result": "verification/central_mixed_moments/gamma-hard-edge-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/central_minimum_diversity_control.py",
+      "result": "verification/central_mixed_moments/diversity-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/gaussian_shift_comparison_control.py",
+      "result": "verification/central_mixed_moments/shift-comparison-control.json",
+      "seed": 2026101909
+    },
+    {
+      "script": "experiments/noncentral_covariance_control.py",
+      "result": "verification/central_mixed_moments/noncentral-covariance-control.json",
+      "seed": 2026101910
+    },
+    {
+      "script": "experiments/inverse_minimum_moment_control.py",
+      "result": "verification/central_mixed_moments/inverse-moment-control.json",
+      "seed": 2026101913
+    },
+    {
+      "script": "experiments/inverse_minimum_real_moment_control.py",
+      "result": "verification/central_mixed_moments/inverse-real-moment-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/correlated_minimum_comparison_control.py",
+      "result": "verification/central_mixed_moments/correlated-minimum-control.json",
+      "seed": 2026101914
+    },
+    {
+      "script": "experiments/central_minimum_hard_edge_coefficient_control.py",
+      "result": "verification/central_mixed_moments/hard-edge-coefficient-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/central_minimum_density_control.py",
+      "result": "verification/central_mixed_moments/minimum-density-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/central_minimum_density_edge_control.py",
+      "result": "verification/central_mixed_moments/density-edge-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/wishart_factorial_split_control.py",
+      "result": "verification/central_mixed_moments/factorial-split-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/finite_choose_truncation_control.py",
+      "result": "verification/central_mixed_moments/choose-truncation-control.json",
+      "seed": 2026101920
+    },
+    {
+      "script": "experiments/wishart_logdet_prelog_control.py",
+      "result": "verification/central_mixed_moments/logdet-prelog-control.json",
+      "seed": 2026101921
+    },
+    {
+      "script": "experiments/wishart_logdet_error_control.py",
+      "result": "verification/central_mixed_moments/logdet-error-control.json",
+      "seed": 2026101922
+    },
+    {
+      "script": "experiments/logdet_square_correction_control.py",
+      "result": "verification/central_mixed_moments/logdet-square-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/wide_gram_logdet_control.py",
+      "result": "verification/central_mixed_moments/wide-logdet-control.json",
+      "seed": 2026101924
+    },
+    {
+      "script": "experiments/logdet_mean_bound_control.py",
+      "result": "verification/central_mixed_moments/logdet-mean-bound-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/logdet_low_scale_control.py",
+      "result": "verification/central_mixed_moments/logdet-low-scale-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/logdet_second_order_control.py",
+      "result": "verification/central_mixed_moments/logdet-second-order-control.json",
+      "seed": 2026101925
+    },
+    {
+      "script": "experiments/noncentral_trace_factorial_control.py",
+      "result": "verification/central_mixed_moments/noncentral-trace-factorial-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/correlated_gaussian_trace_control.py",
+      "result": "verification/central_mixed_moments/correlated-trace-control.json",
+      "seed": 2026101926
+    },
+    {
+      "script": "experiments/complex_linear_wick_control.py",
+      "result": "verification/central_mixed_moments/linear-wick-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/correlated_gaussian_four_entry_control.py",
+      "result": "verification/central_mixed_moments/correlated-four-entry-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/correlated_logdet_low_scale_control.py",
+      "result": "verification/central_mixed_moments/correlated-logdet-low-control.json",
+      "seed": 2026102001
+    },
+    {
+      "script": "experiments/zero_spectrum_prelog_control.py",
+      "result": "verification/central_mixed_moments/zero-spectrum-prelog-control.json",
+      "seed": 2026102002
+    },
+    {
+      "script": "experiments/correlated_generic_rank_witness_control.py",
+      "result": "verification/central_mixed_moments/correlated-generic-rank-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/hermitian_rank_modes_control.py",
+      "result": "verification/central_mixed_moments/hermitian-rank-modes-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/correlated_rank_compression_control.py",
+      "result": "verification/central_mixed_moments/correlated-rank-compression-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/correlated_rank_zero_mode_control.py",
+      "result": "verification/central_mixed_moments/correlated-rank-zero-mode-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/correlated_noiseless_floor_control.py",
+      "result": "verification/central_mixed_moments/correlated-noiseless-floor-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/noiseless_row_logdet_offset_preflight.py",
+      "result": "verification/central_mixed_moments/noiseless-row-offset-preflight.json",
+      "seed": 202610200705
+    },
+    {
+      "script": "experiments/noiseless_offset_correction_control.py",
+      "result": "verification/central_mixed_moments/noiseless-offset-correction-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/mixed_noiseless_offset_preflight.py",
+      "result": "verification\\central_mixed_moments/mixed-noiseless-offset-preflight.json",
+      "seed": 202610201013
+    },
+    {
+      "script": "experiments/scalar_uniform_smallball_control.py",
+      "result": "verification\\central_mixed_moments/scalar-uniform-smallball-control.json",
+      "seed": null
+    },
+    {
+      "script": "experiments/complex_root_negative_log_control.py",
+      "result": "verification/sheaf_wishart/hour-20261020-1535/root-negative-log-control.json",
+      "seed": 2026102021
+    },
+    {
+      "script": "experiments/bivariate_gaussian_log_control.py",
+      "result": "verification/sheaf_wishart/hour-20261020-1535/bivariate-control.json",
+      "seed": 2026102022
+    },
+    {
+      "script": "experiments/finite_gaussian_polynomial_log_control.py",
+      "result": "verification/sheaf_wishart/continuation-20261021/finite-gaussian-log-control.json",
+      "seed": 2026102123
+    },
+    {
+      "script": "experiments/proper_complex_log_transport_control.py",
+      "result": "verification/sheaf_wishart/hour-20261021-1201/proper-log-control.json",
+      "seed": 2026102124
+    },
+    {
+      "script": "experiments/positive_spectrum_log_control.py",
+      "result": "verification/sheaf_wishart/hour-20261021-1201/positive-spectrum-control.json",
+      "seed": 2026102125
+    },
+    {
+      "script": "experiments/compression_pseudodet_bridge_control.py",
+      "result": "verification/sheaf_wishart/hour-20261021-1201/compression-bridge-control-3.json",
+      "seed": 2026102126
+    },
+    {
+      "script": "experiments/averaged_cauchy_binet_control.py",
+      "result": "verification/sheaf_wishart/hour-20261022-0024/averaged-cauchy-binet-control.json",
+      "seed": 2026102201
+    },
+    {
+      "script": "experiments/singular_factor_offset_control.py",
+      "result": "verification/sheaf_wishart/hour-20261022-0024/singular-factor-offset-control.json",
+      "seed": 2026102202
+    },
+    {
+      "script": "experiments/logdet_derivative_control.py",
+      "result": "verification/sheaf_wishart/hour-20261022-0024/logdet-derivative-control.json",
+      "seed": 2026102203
+    },
+    {
+      "script": "experiments/subset_cauchy_binet_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/subset-control.json",
+      "seed": 2026102204
+    },
+    {
+      "script": "experiments/logdet_curvature_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/curvature-control.json",
+      "seed": 2026102205
+    },
+    {
+      "script": "experiments/regularized_rank_limit_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/regularized-rank-control.json",
+      "seed": 2026102206
+    },
+    {
+      "script": "experiments/gaussian_polynomial_log_square_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/log-square-control.json",
+      "seed": 2026102207
+    },
+    {
+      "script": "experiments/proper_polynomial_log_square_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/proper-log-square-control.json",
+      "seed": 2026102208
+    },
+    {
+      "script": "experiments/singular_log_variance_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/singular-log-variance-control.json",
+      "seed": 2026102209
+    },
+    {
+      "script": "experiments/singular_log_variance_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/singular-log-variance-control.json",
+      "seed": 2026102209
+    },
+    {
+      "script": "experiments/logdet_variance_limit_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/variance-limit-control.json",
+      "seed": 2026102210
+    },
+    {
+      "script": "experiments/gram_left_factor_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/gram-left-control.json",
+      "seed": 2026102213
+    },
+    {
+      "script": "experiments/fixed_kernel_compression_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/fixed-compression-control.json",
+      "seed": 2026102214
+    },
+    {
+      "script": "experiments/fixed_rank_positive_minimum_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/positive-minimum-control.json",
+      "seed": 2026102215
+    },
+    {
+      "script": "experiments/positive_gram_transport_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/positive-transport-control.json",
+      "seed": 2026102216
+    },
+    {
+      "script": "experiments/canonical_block_spectrum_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/canonical-block-control.json",
+      "seed": 2026102217
+    }
+  ],
+  "reviews": [
+    {
+      "request": "verification/central_mixed_moments/bias-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-bias-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-bias.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-bias.raw.json",
+      "snapshot": "verification/central_mixed_moments/bias-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/pivot-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-pivot-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-pivot.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-pivot.raw.json",
+      "snapshot": "verification/central_mixed_moments/pivot-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/joint-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-joint-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-joint.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-joint.raw.json",
+      "snapshot": "verification/central_mixed_moments/joint-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/two-extra-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-two-extra-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-two-extra.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-two-extra.raw.json",
+      "snapshot": "verification/central_mixed_moments/two-extra-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/grouped-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-grouped-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-grouped.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-grouped.raw.json",
+      "snapshot": "verification/central_mixed_moments/grouped-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/gaussian-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-gaussian-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-gaussian.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-gaussian.raw.json",
+      "snapshot": "verification/central_mixed_moments/gaussian-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/matrix-polynomial-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-matrix-polynomial-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-matrix-polynomial.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-matrix-polynomial.raw.json",
+      "snapshot": "verification/central_mixed_moments/matrix-polynomial-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/general-minimum-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-general-minimum-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-general-minimum.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-general-minimum.raw.json",
+      "snapshot": "verification/central_mixed_moments/general-minimum-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/noncentral-poly-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-noncentral-poly-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-noncentral-poly.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-noncentral-poly.raw.json",
+      "snapshot": "verification/central_mixed_moments/noncentral-poly-review-snapshot",
+      "allow_changed_sources": [
+        "CentralMinimumPolynomialSpecializations.lean"
+      ]
+    },
+    {
+      "request": "verification/central_mixed_moments/univariate-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-univariate-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-univariate.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-univariate.raw.json",
+      "snapshot": "verification/central_mixed_moments/univariate-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/degree-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-degree-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-degree.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-degree.raw.json",
+      "snapshot": "verification/central_mixed_moments/degree-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/normalization-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-normalization-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-normalization.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-normalization.raw.json",
+      "snapshot": "verification/central_mixed_moments/normalization-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/right-tail-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-right-tail-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-right-tail.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-right-tail.raw.json",
+      "snapshot": "verification/central_mixed_moments/right-tail-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/residual-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-residual-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-residual.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-residual.raw.json",
+      "snapshot": "verification/central_mixed_moments/residual-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/gaussian-residual-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-gaussian-residual-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-gaussian-residual.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-gaussian-residual.raw.json",
+      "snapshot": "verification/central_mixed_moments/gaussian-residual-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/gamma-sandwich-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-gamma-sandwich-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-gamma-sandwich.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-gamma-sandwich.raw.json",
+      "snapshot": "verification/central_mixed_moments/gamma-sandwich-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/hard-edge-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-hard-edge-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-hard-edge.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-hard-edge.raw.json",
+      "snapshot": "verification/central_mixed_moments/hard-edge-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/diversity-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-diversity-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-diversity.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-diversity.raw.json",
+      "snapshot": "verification/central_mixed_moments/diversity-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/scaled-diversity-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-scaled-diversity-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-scaled-diversity.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-scaled-diversity.raw.json",
+      "snapshot": "verification/central_mixed_moments/scaled-diversity-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/shift-kernel-measure-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-shift-kernel-measure-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-shift-kernel-measure.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-shift-kernel-measure.raw.json",
+      "snapshot": "verification/central_mixed_moments/shift-kernel-measure-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/noncentral-diversity-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-noncentral-diversity-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-noncentral-diversity.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-noncentral-diversity.raw.json",
+      "snapshot": "verification/central_mixed_moments/noncentral-diversity-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/noncentral-covariance-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-noncentral-covariance-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-noncentral-covariance.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-noncentral-covariance.raw.json",
+      "snapshot": "verification/central_mixed_moments/noncentral-covariance-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/minimum-outage-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-minimum-outage-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-minimum-outage.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-minimum-outage.raw.json",
+      "snapshot": "verification/central_mixed_moments/minimum-outage-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/inverse-tail-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-inverse-tail-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-inverse-tail.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-inverse-tail.raw.json",
+      "snapshot": "verification/central_mixed_moments/inverse-tail-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/tail-moment-framework-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-tail-moment-framework-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-tail-moment-framework.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-tail-moment-framework.raw.json",
+      "snapshot": "verification/central_mixed_moments/tail-moment-framework-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/inverse-first-moment-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-inverse-first-moment-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-inverse-first-moment.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-inverse-first-moment.raw.json",
+      "snapshot": "verification/central_mixed_moments/inverse-first-moment-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/inverse-natural-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-inverse-natural-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-inverse-natural.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-inverse-natural.raw.json",
+      "snapshot": "verification/central_mixed_moments/inverse-natural-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/inverse-real-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-inverse-real-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-inverse-real.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-inverse-real.raw.json",
+      "snapshot": "verification/central_mixed_moments/inverse-real-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/correlated-column-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-correlated-column-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-correlated-column.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-correlated-column.raw.json",
+      "snapshot": "verification/central_mixed_moments/correlated-column-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/correlated-inverse-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-correlated-inverse-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-correlated-inverse.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-correlated-inverse.raw.json",
+      "snapshot": "verification/central_mixed_moments/correlated-inverse-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/sharp-analytic-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-sharp-analytic-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-sharp-analytic.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-sharp-analytic.raw.json",
+      "snapshot": "verification/central_mixed_moments/sharp-analytic-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/sharp-actual-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-sharp-actual-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-sharp-actual.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-sharp-actual.raw.json",
+      "snapshot": "verification/central_mixed_moments/sharp-actual-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/minimum-density-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-minimum-density-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-minimum-density.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-minimum-density.raw.json",
+      "snapshot": "verification/central_mixed_moments/minimum-density-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/density-edge-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-density-edge-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-density-edge.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-density-edge.raw.json",
+      "snapshot": "verification/central_mixed_moments/density-edge-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/two-surplus-sharp-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-two-surplus-sharp-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-two-surplus-sharp.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-two-surplus-sharp.raw.json",
+      "snapshot": "verification/central_mixed_moments/two-surplus-sharp-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/logdet-generic-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-logdet-generic-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-logdet-generic.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-logdet-generic.raw.json",
+      "snapshot": "verification/central_mixed_moments/logdet-generic-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/logdet-actual-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-logdet-actual-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-logdet-actual.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-logdet-actual.raw.json",
+      "snapshot": "verification/central_mixed_moments/logdet-actual-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/logdet-error-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-logdet-error-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-logdet-error.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-logdet-error.raw.json",
+      "snapshot": "verification/central_mixed_moments/logdet-error-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/square-logdet-error-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-square-logdet-error-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-square-logdet-error.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-square-logdet-error.raw.json",
+      "snapshot": "verification/central_mixed_moments/square-logdet-error-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/wide-logdet-final-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-wide-logdet-final-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-wide-logdet-final.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-wide-logdet-final.raw.json",
+      "snapshot": "verification/central_mixed_moments/wide-logdet-final-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/logdet-mean-bound-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-logdet-mean-bound-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-logdet-mean-bound.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-logdet-mean-bound.raw.json",
+      "snapshot": "verification/central_mixed_moments/logdet-mean-bound-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/logdet-low-scale-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-logdet-low-scale-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-logdet-low-scale.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-logdet-low-scale.raw.json",
+      "snapshot": "verification/central_mixed_moments/logdet-low-scale-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/gaussian-squared-shift-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-gaussian-squared-shift-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-gaussian-squared-shift.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-gaussian-squared-shift.raw.json",
+      "snapshot": "verification/central_mixed_moments/gaussian-squared-shift-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/trace-mean-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-trace-mean-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-trace-mean.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-trace-mean.raw.json",
+      "snapshot": "verification/central_mixed_moments/trace-mean-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/logdet-curvature-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-logdet-curvature-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-logdet-curvature.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-logdet-curvature.raw.json",
+      "snapshot": "verification/central_mixed_moments/logdet-curvature-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/finite-curvature-final-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-finite-curvature-final-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-finite-curvature-final.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-finite-curvature-final.raw.json",
+      "snapshot": "verification/central_mixed_moments/finite-curvature-final-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/wick-final-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-wick-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-wick.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-wick.raw.json",
+      "snapshot": "verification/central_mixed_moments/wick-final-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/second-moment-closed-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-second-moment-closed-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-second-moment-closed.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-second-moment-closed.raw.json",
+      "snapshot": "verification/central_mixed_moments/second-moment-closed-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/trace-variance-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-trace-variance-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-trace-variance.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-trace-variance.raw.json",
+      "snapshot": "verification/central_mixed_moments/trace-variance-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/correlated-gram-mean-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-correlated-gram-mean-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-correlated-gram-mean.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-correlated-gram-mean.raw.json",
+      "snapshot": "verification/central_mixed_moments/correlated-gram-mean-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/weighted-wick-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-weighted-wick-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-weighted-wick.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-weighted-wick.raw.json",
+      "snapshot": "verification/central_mixed_moments/weighted-wick-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/weighted-shifted-final-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-weighted-shifted-final-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-weighted-shifted-final.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-weighted-shifted-final.raw.json",
+      "snapshot": "verification/central_mixed_moments/weighted-shifted-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/correlated-fourth-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-correlated-fourth-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-correlated-fourth.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-correlated-fourth.raw.json",
+      "snapshot": "verification/central_mixed_moments/correlated-fourth-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/correlated-entry-product-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-correlated-entry-product-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-correlated-entry-product.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-correlated-entry-product.raw.json",
+      "snapshot": "verification/central_mixed_moments/correlated-entry-product-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/correlated-trace-moments-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-correlated-trace-moments-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-correlated-trace-moments.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-correlated-trace-moments.raw.json",
+      "snapshot": "verification/central_mixed_moments/correlated-trace-moments-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/correlated-logdet-low-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-correlated-logdet-low-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-correlated-logdet-low.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-correlated-logdet-low.raw.json",
+      "snapshot": "verification/central_mixed_moments/correlated-logdet-low-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/zero-spectrum-prelog-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-zero-spectrum-prelog-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-zero-spectrum-prelog.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-zero-spectrum-prelog.raw.json",
+      "snapshot": "verification/central_mixed_moments/zero-spectrum-prelog-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/correlated-expected-rank-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-correlated-expected-rank-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-correlated-expected-rank.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-correlated-expected-rank.raw.json",
+      "snapshot": "verification/central_mixed_moments/correlated-expected-rank-review-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/rank-algebra-0705-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-rank-algebra-0705-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-rank-algebra-0705.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-rank-algebra-0705.raw.json",
+      "snapshot": "verification/central_mixed_moments/rank-algebra-0705-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/rank-compression-0705-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-rank-compression-0705-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-rank-compression-0705.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-rank-compression-0705.raw.json",
+      "snapshot": "verification/central_mixed_moments/rank-compression-0705-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/gaussian-rank-0705-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-gaussian-rank-0705-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-gaussian-rank-0705.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-gaussian-rank-0705.raw.json",
+      "snapshot": "verification/central_mixed_moments/gaussian-rank-0705-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/logdet-generic-rank-0705-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-logdet-generic-rank-0705-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-logdet-generic-rank-0705.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-logdet-generic-rank-0705.raw.json",
+      "snapshot": "verification/central_mixed_moments/logdet-generic-rank-0705-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/minimum-zero-atom-0705-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-minimum-zero-atom-0705-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-minimum-zero-atom-0705.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-minimum-zero-atom-0705.raw.json",
+      "snapshot": "verification/central_mixed_moments/minimum-zero-atom-0705-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/noiseless-floor-inverse-0705-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-noiseless-floor-inverse-0705-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-noiseless-floor-inverse-0705.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-noiseless-floor-inverse-0705.raw.json",
+      "snapshot": "verification/central_mixed_moments/noiseless-floor-inverse-0705-snapshot"
+    },
+    {
+      "request": "verification\\central_mixed_moments/noiseless-error-1013-review-request.json",
+      "prompt": "verification\\central_mixed_moments/p4-noiseless-error-1013-prompt.txt",
+      "receipt": "verification\\central_mixed_moments/p4-noiseless-error-1013.receipt.json",
+      "raw": "verification\\central_mixed_moments/p4-noiseless-error-1013.raw.json",
+      "snapshot": "verification\\central_mixed_moments/noiseless-error-1013-snapshot"
+    },
+    {
+      "request": "verification\\central_mixed_moments/bounded-offset-1013-review-request.json",
+      "prompt": "verification\\central_mixed_moments/p4-bounded-offset-1013-prompt.txt",
+      "receipt": "verification\\central_mixed_moments/p4-bounded-offset-1013.receipt.json",
+      "raw": "verification\\central_mixed_moments/p4-bounded-offset-1013.raw.json",
+      "snapshot": "verification\\central_mixed_moments/bounded-offset-1013-snapshot"
+    },
+    {
+      "request": "verification\\central_mixed_moments/noiseless-offset-1013-review-request.json",
+      "prompt": "verification\\central_mixed_moments/p4-noiseless-offset-1013-prompt.txt",
+      "receipt": "verification\\central_mixed_moments/p4-noiseless-offset-1013.receipt.json",
+      "raw": "verification\\central_mixed_moments/p4-noiseless-offset-1013.raw.json",
+      "snapshot": "verification\\central_mixed_moments/noiseless-offset-1013-snapshot"
+    },
+    {
+      "request": "verification\\central_mixed_moments/inverse-taylor-1013-review-request.json",
+      "prompt": "verification\\central_mixed_moments/p4-inverse-taylor-1013-prompt.txt",
+      "receipt": "verification\\central_mixed_moments/p4-inverse-taylor-1013.receipt.json",
+      "raw": "verification\\central_mixed_moments/p4-inverse-taylor-1013.raw.json",
+      "snapshot": "verification\\central_mixed_moments/inverse-taylor-1013-snapshot"
+    },
+    {
+      "request": "verification\\central_mixed_moments/row-inverse-1013-review-request.json",
+      "prompt": "verification\\central_mixed_moments/p4-row-inverse-1013-prompt.txt",
+      "receipt": "verification\\central_mixed_moments/p4-row-inverse-1013.receipt.json",
+      "raw": "verification\\central_mixed_moments/p4-row-inverse-1013.raw.json",
+      "snapshot": "verification\\central_mixed_moments/row-inverse-1013-snapshot"
+    },
+    {
+      "request": "verification\\central_mixed_moments/first-correction-1013-review-request.json",
+      "prompt": "verification\\central_mixed_moments/p4-first-correction-1013-prompt.txt",
+      "receipt": "verification\\central_mixed_moments/p4-first-correction-1013.receipt.json",
+      "raw": "verification\\central_mixed_moments/p4-first-correction-1013.raw.json",
+      "snapshot": "verification\\central_mixed_moments/first-correction-1013-snapshot"
+    },
+    {
+      "request": "verification\\central_mixed_moments/second-correction-1013-review-request.json",
+      "prompt": "verification\\central_mixed_moments/p4-second-correction-1013-prompt.txt",
+      "receipt": "verification\\central_mixed_moments/p4-second-correction-1013.receipt.json",
+      "raw": "verification\\central_mixed_moments/p4-second-correction-1013.raw.json",
+      "snapshot": "verification\\central_mixed_moments/second-correction-1013-snapshot"
+    },
+    {
+      "request": "verification\\central_mixed_moments/zero-mode-offset-1013-review-request.json",
+      "prompt": "verification\\central_mixed_moments/p4-zero-mode-offset-1013-prompt.txt",
+      "receipt": "verification\\central_mixed_moments/p4-zero-mode-offset-1013.receipt.json",
+      "raw": "verification\\central_mixed_moments/p4-zero-mode-offset-1013.raw.json",
+      "snapshot": "verification\\central_mixed_moments/zero-mode-offset-1013-snapshot"
+    },
+    {
+      "request": "verification/central_mixed_moments/sheaf-smallball-20261020-review-request.json",
+      "prompt": "verification/central_mixed_moments/p4-sheaf-smallball-20261020-prompt.txt",
+      "receipt": "verification/central_mixed_moments/p4-sheaf-smallball-20261020.receipt.json",
+      "raw": "verification/central_mixed_moments/p4-sheaf-smallball-20261020.raw.json",
+      "snapshot": "verification/central_mixed_moments/sheaf-smallball-20261020-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261020-1535/negative-log-review-request.json",
+      "prompt": "verification/sheaf_wishart/hour-20261020-1535/p4-negative-log-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261020-1535/p4-negative-log.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261020-1535/p4-negative-log.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261020-1535/negative-log-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261020-1535/polynomial-log-review-request.json",
+      "prompt": "verification/sheaf_wishart/hour-20261020-1535/p4-polynomial-log-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261020-1535/p4-polynomial-log.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261020-1535/p4-polynomial-log.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261020-1535/polynomial-log-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261020-1535/bivariate-log-review-request.json",
+      "prompt": "verification/sheaf_wishart/hour-20261020-1535/p4-bivariate-log-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261020-1535/p4-bivariate-log.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261020-1535/p4-bivariate-log.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261020-1535/bivariate-log-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/continuation-20261021/finite-pi-review-request.json",
+      "prompt": "verification/sheaf_wishart/continuation-20261021/p4-finite-pi-prompt.txt",
+      "receipt": "verification/sheaf_wishart/continuation-20261021/p4-finite-pi.receipt.json",
+      "raw": "verification/sheaf_wishart/continuation-20261021/p4-finite-pi.raw.json",
+      "snapshot": "verification/sheaf_wishart/continuation-20261021/finite-pi-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261021-1201/proper-actual-review-request-3.json",
+      "prompt": "verification/sheaf_wishart/hour-20261021-1201/p4-proper-actual-3-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p4-proper-actual-3.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261021-1201/p4-proper-actual-3.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261021-1201/proper-actual-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261021-1201/spectrum-review-request.json",
+      "prompt": "verification/sheaf_wishart/hour-20261021-1201/p4-spectrum-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261021-1201/p4-spectrum.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261021-1201/p4-spectrum.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261021-1201/spectrum-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261022-0024/gram-minor-review-request.json",
+      "prompt": "verification/sheaf_wishart/hour-20261022-0024/p4-gram-minor-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-gram-minor.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261022-0024/p4-gram-minor.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261022-0024/gram-minor-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261022-0024/average-bound-review-request.json",
+      "prompt": "verification/sheaf_wishart/hour-20261022-0024/p4-average-bound-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-average-bound.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261022-0024/p4-average-bound.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261022-0024/average-bound-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261022-0024/actual-singular-corrected-review-request.json",
+      "prompt": "verification/sheaf_wishart/hour-20261022-0024/p4-actual-singular-corrected-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-actual-singular-corrected.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261022-0024/p4-actual-singular-corrected.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261022-0024/actual-singular-corrected-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/hour-20261022-0024/derivative-exactapi-review-request.json",
+      "prompt": "verification/sheaf_wishart/hour-20261022-0024/p4-derivative-exactapi-prompt.txt",
+      "receipt": "verification/sheaf_wishart/hour-20261022-0024/p4-derivative-exactapi.receipt.json",
+      "raw": "verification/sheaf_wishart/hour-20261022-0024/p4-derivative-exactapi.raw.json",
+      "snapshot": "verification/sheaf_wishart/hour-20261022-0024/derivative-exactapi-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/subset-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-subset-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-subset-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-subset-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/subset-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/curvature-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-curvature-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-curvature-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-curvature-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/curvature-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/rank-limit-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-rank-limit-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-rank-limit-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-rank-limit-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/rank-limit-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/log-moment-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-log-moment-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-log-moment-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-log-moment-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/log-moment-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/finite-log-square-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-log-square-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-log-square-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-log-square-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/finite-log-square-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/singular-log-square-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-singular-log-square-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-singular-log-square-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-singular-log-square-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/singular-log-square-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/offset-l2-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-offset-l2-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-offset-l2-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-offset-l2-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/offset-l2-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/variance-limit-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-variance-limit-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-variance-limit-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-variance-limit-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/variance-limit-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/gram-left-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-gram-left-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-gram-left-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-gram-left-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/gram-left-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/fixed-compression-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-fixed-compression-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-fixed-compression-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-fixed-compression-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/fixed-compression-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/positive-minimum-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-minimum-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-minimum-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-minimum-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/positive-minimum-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/positive-transport-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-transport-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-transport-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-transport-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/positive-transport-final-snapshot"
+    },
+    {
+      "request": "verification/sheaf_wishart/quota-20261022-0949/canonical-block-final-review-request.json",
+      "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-block-final-prompt.txt",
+      "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-block-final.receipt.json",
+      "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-block-final.raw.json",
+      "snapshot": "verification/sheaf_wishart/quota-20261022-0949/canonical-block-final-snapshot"
+    }
+  ],
+  "scope": "ACTUAL central complex Wishart: determinant power bias; arbitrary finite principal-minor PAIR moments for all integer nonnegative powers; actual disjoint block joint law and shared-column recursion. Finite Venn reindexing is constructed, not assumed. Entire (n+2)-by-n actual minimum closed finite polynomial tail, all-real CDF and scalar covariance vI. 51 theorem/instance declarations plus one explicit finite witness construction. Codex proof bodies. Qoder delivered scoped critical feedback (some false alarms resolved); finite-Venn/mixed review request and Claude request timed out, not approvals. No original general T1 determinant equality, no general d>2 minimum integral, no noncentral G2. Human measure/variance/model review remains required. Frozen publication unchanged. Exact generic subset-pair cardinality grouping and equality of 4^n-subset two-extra-row polynomial with three bounded cardinality sums now proved. Current count61 theorem/instance declarations plus1 explicit witness. Grouped P4 high-severity truncated-subtraction objection is false: (t-c)-a=t-(c+a) for all naturals, with c+a=S.card; the algebraic candidate equality does not assert an actual wide-Wishart moment. Actual scalar variance-one CN phase invariance, exact mixed monomial moments and integrability, finite independent product moments and exact MvPolynomial factorial functional added:79 theorem/instance plus1 witness=80. Scalar Qoder P4 delivered only API concern resolved by actual final checks; polynomial Qoder response only emitted a nonexecuted tool-call fragment, NOT valid review. General d>2 min law NOT proved. New actual5x2 numerical polynomial control is not proof. Subsequent24 declarations close actual source matrix independence, explicit shifted Gram polynomial evaluation/integrability, and entire arbitrary central (d+n)-by-n minimum strict tail/all-real CDF/covariance vI by a finite factorial coefficient functional. No probability integral remains in expression. Total103 theorem/instance plus1 witness=104. Older scope statements that general d>2 remains open are historical and superseded by this checkpoint. Original general paper T1 determinant identity and noncentral G2 remain OPEN; arbitrary-polynomial support expression is not a claim of efficient closed determinant evaluation. New Qoder matrix-polynomial P4 delivered no concrete problem, not human/independent compiler review. General-minimum Qoder P4 delivered: alleged circularity and square/rectangular reduction are false and resolved against explicit factorial definition and cone density translation. No claimed blanket no-issues review. Arbitrary deterministic-mean Gram determinant power moments now exact finite factorial formula, including canonical complexNoncentralWishart integral; NOT a noncentral minimum CDF. General central formula specializes exactly to prior d=0,1,2 CDF polynomials for x>=0,n>0. New8 items make111 theorem/instance plus1 witness=112. Noncentral P4 exact final source covered; specialization review covers earlier proof script with identical statement but later explicit Nat.zero_add rewrite fixed in specialize-4, so not an exact final proof-body review for those3. Last5 items: actual factorial moment functional is a linear map (explicit constructed witness), maps univariate polynomial coefficients compatibly with evaluation; fixed univariate polynomial in x gives entire general central CDF coefficient function. Total115 theorem/instance+2 constructions=117. New linear/univariate5 items NOT in independent P4 snapshot; review pending. Degree bound/general original determinant identity NOT proved. Final linear/univariate5 items now have exact-source Qoder P4 delivered with no concrete defect; standing human interpretation still required, no independent compile. Earlier pending review text superseded by this final receipt. Resumed under renewed user authorization2026-10-19: generic coefficientwise integration degree bound, exact degree n*d and monicity of fixed raw minimum polynomial, zero-value normalizing factorial mass and normalized Q(0)=1 now proved. Twelve new statements, total127 theorem/instance+2 witnesses=129. Degree P4 delivered, no blocking issues; normalization P4 pending real response. No general hard-edge or original candidate identity inferred. Normalization P4 has delivered. Its finiteness warning is resolved directly: hi has both sides ENNReal.ofReal of real numbers (always finite), rewritten via toReal_ofReal under explicit nonnegativity. No arbitrary ENNReal injection claim is used. Eleven more declarations give real coefficient polynomial (real-part applied linearly, not as ring map), exact monicity/degree, and actual general central minimum RIGHT-tail ratio limit1/M, covariance vI limit1/(M*v^(d*n)). Total138 theorem/instance+2 witnesses=140. General LEFT-tail hard-edge/T4 not proved. New right-tail P4 pending receipt. Final real/right-tail11 exact-source Qoder P4 delivered no concrete mathematical issue; no independent compilation/human approval. Normalization pending text superseded by real receipt. Left-tail diversity route under evaluation, not proved. General leave-one-out deterministic residual bounds closed for arbitrary complex rectangular matrices, including singular and one-column cases: minGram<=D_j everyj, existsj D_j<=ncols*minGram. Unit-eigenvector and residual test-vector constructions; no rank premise. Thirteen new items make151 theorem/instance+2 witnesses=153. Gaussian residual marginal/union bound/diversity exponent are NEXT obligations, NOT proved by these deterministic lemmas. Residual P4 pending real response. Residual final P4 has delivered on all four checked deterministic sources; human semantics not implied. Gaussian marginal/event/probability bridge still pending. Actual Gaussian leave-one-out Gamma marginals and AE rank/model correspondence now proved; full CDF Gamma lower/union upper sandwich for N>=2, dof>=N, any real threshold. No residual independence premise. Twenty-one new items make172 theorem/instance+2 witnesses=174. First-column P48 delivered, new marginal/event/sandwich13 P4 pending; general exact left-tail coefficient/log exponent not yet proved. Final marginal/event/sandwich13 P4 delivered with speculative API/rank warnings; resolved against exact ae_map_iff requiring AEMeasurable plus measurable predicate (NOT bimeasurability), rank-free deterministic lemmas, and imported unconditional variance-one Gamma source law. No pending response or unreported assumed rank. Six checked declarations now give explicit Gamma CDF power bounds, actual central minimum power sandwich and Theta(x^(d+1)) at zero from the right for N>=2, m=d+N. Total180 items. Sharp left-tail coefficient NOT derived. Hard-edge P4 pending real receipt. Hard-edge6 exact-source Qoder P4 delivered. Its measure.real type objection is false (Measure.real is Set->Real defined as toReal); stdGaussian probability and minimum measurability are proved upstream. N prefactor is finite union bound while N*x comes from deterministic residual inclusion, not duplicate variance scaling. No independent residual premise. Local constants explicitly restricted0<x<=1; Gamma integral inequalities separately globalx>=0. Human model audit remains required. Eleven checked declarations now prove log F(x)/log x ->m-N+1 for ALL m>=N>0 actual CENTRAL complex Gaussian Gram minima, scalar branch uses actual Gamma law. Covariance vI v>0 and high-SNR threshold b/r, b>0 give log outage/log r ->-(d+1). Total191 items. No sharp prefactor or noncentral minimum theorem. Log P4 delivered false swapped-squeeze alarm: after division by negative log x, C is the LOWER correction and c UPPER, as code already does. Exact all-shapes/scaled9 source P4 pending. Final all-shapes/scaled9 Qoder P4 delivered; false final log-r sign objection resolved: first log quotient factor already proved on r>1; final multiplication identity only cancels log(b/r), which is nonzero on r>b and is valid even log r=0. Both CDF definitions explicitly use total N=n+1 at definition time, not only after cases. Physical theorems all require v>0. Scalar Gamma(rate1) actual variance1/2 real coordinate encoding established upstream; no finiteness side-condition hidden in definitional Measure.real. Fourteen new declarations close arbitrary FIXED deterministic-mean NONCENTRAL actual minimum diversity for ALL m>=N>0 (scalar included): local two positive power bounds, log CDF/log x ->m-N+1, highSNR threshold b/r ->negative exponent. Total203 theorem/instance+2 explicit witnesses=205. Core actual global Gaussian measure comparison to law(Z/2),law(2Z), no target density assumption or residual independence. Constants explicitly depend on norm encoded mean and real dimension. NOT exact leading coefficient, noncentral explicit CDF/spectral density G2, original general T4 prefactor, nor growing-mean/SNR uniformity. Two exact-source final P4 responses delivered, false upper norm-exponent claim resolved: h2 actually bounds normx^2 by2norm(x-y)^2+2normy^2, unlike reviewer misreading. Human review remains required. Six more declarations (total211) extend arbitrary fixed-mean noncentral minimum log/highSNR exponent to positive scalar covariance vI, noise sqrt(v)Z with mean M FIXED. Exact law identity uses standard mean M/sqrt(v), argument x/v. Generic positive threshold-rescaling log lemma provided. Final covariance6 P4 pending. New fixedseed200000 per shape3,2 covariance values with independent ncx2 trace controls PASS, numerical not proof. Final covariance6 Qoder exact-source P4 delivered no concrete issue. Its informal description of ComplexSample as complex entries is inaccurate: actual source is Euclidean real2mN, encoding maps it to CN. Proof handles real/complex scalar explicitly. Three new minor monotone-transform corollaries (total214) connect natural-log WORST-MODE log(1+r*lambda_min) outage to CDF and highSNR exponent. NOT full MIMO logdet capacity, not a headline probability advance. Outage3 P4 pending. Final worst-mode outage3 exact-source Qoder P4 delivered no concrete bug. Physical positiveR and natural units documented; total definitions allowing other rates do not claim positive-rate diversity there. hl is used through positivity to establish1+r*l>0, despite reviewer saying unused. Total214 audit-bound items, final facade17 exit0. New self-contained research note/coverage tracker updated; frozen manuscript/PDF/packages unchanged. Four checked declarations now prove actual noncentral minimum positive AE (all m>=N>0), reciprocal nonstrict tail equals CDF(1/r), log-tail exponent and explicit c/r^k,C/r^k bounds r>=4. Total218 items. Zero inverse convention explicitly discharged by AE fullrank, not silently assumed. Inverse-moment criterion is NOT proved. Final reciprocal4 P4 pending. Final reciprocal4 exact-source Qoder P4 delivered no concrete defect. Its final wording that human concerns handled is NOT adopted: human measure/model audit remains REQUIRED. It also says positivity implies measurability; actual measurability comes from globally measurable minimum composed with measurable inverse, not positivity alone. Tail zero-set equality checked AE. Full218 bundle PASS; facade18 exit0. Inverse-moment threshold remains next. Renewed user continuation2026-10-19 after natural quota reset. Sixteen new checked declarations close actual arbitrary fixedmean NONCENTRAL FIRST inverse-minimum moment integrable iffm>N, all m>=N>0. Square nonnegative ENNReal integral isTOP, not real Bochner infinity. Generic real probability-tail layercake integrability equivalence and exact two-sided power integral comparison support it. Total232 theorem/instance+2 constructions=234. All-natural inverse moments pending. Two final firstmoment P4 requests pending real responses; human Fubini/model review REQUIRED. Final firstmoment11+actual5 exact-source Qoder P4 delivered. Claimed nonexistent measureReal_le_one is false: locked Measure/Typeclasses/Probability.lean44 defines it. Probability instance explicitly scoped, measure_ne_top is actual checked proof, not circular. Standard axioms propext/Classical.choice/Quot.sound (not reviewer funext list). No human-review waiver adopted. First moment q=1 uses weight1, not2t; P1 off-by-one rejected. Full234 bundle/facade19 PASS. Weighted all-natural extension not yet accepted. Ten new checked declarations close ALL nonnegative INTEGER inverse minimum moments for arbitrary fixedmean noncentral m>=N>0: integrable iff q<m-N+1, includingq0. Critical andhigher nonnegative ENNReal integralTOP. Fixed positive scalar covariancevI preserves criterion whileMfixed. Generic weighted layercake with weight(q+1)t^q explicitly integratesmomentq+1; no offbyone. Total242 theorem/instance+2 constructions=244. No realfractional exponent criterion or exactmomentvalue yet. Final natural10 P4 pending; humanreview REQUIRED. Final natural10 P4 delivered. Its alleged required mean nondegeneracy/norm lower bound is invented: all constants strictlypositive for EVERY M, including0. No Mprime!=0 premise added. Reviewer scales inverse eigenvalue bysqrtv incorrectly in prose; checked source uses v^-q. Exact-source10 reviewed; no human approval. Full244 bundle andfacade20 PASS. Nine new checked declarations extend inverse minimum moment threshold to EVERY POSITIVE REALp (fractional included), iff p<m-N+1, arbitraryfixedmean noncentral m>=N>0 andfixedpositive scalarcovariance. Critical/above nonnegative ENNReal integralTOP. Generic realweightedlayercake handles singularweightnear0 via rpowintegrabilityp>0, not boundedconstant. Total251 theorem/instance+2 constructions=253. Final real9 P4 pending realresponse. No exactmomentvalue, general nonscalarcorrelation orfullG2 asserted. Final real9 P4 delivered. Covariance prefactor warning is false: Gram eigenvalue scalesa^2, notamplitudea (reviewer confuses singular value), so inverse momentv^-p correct. Zero-mean positivity and strict rpow critical boundary resolved against exact checked statements. No uniform bound overallM asserted, no human-review waiver. Full253 bundle/facade21 PASS. Next nonscalar correlated covariance control passed, NOT proved. Eighteen new checked declarations give fixed invertible COLUMN covariance factor B for physical ZB+M, normalized meanMBinv, pointwise rank-free min comparisons and actual CDF sandwich, same diversity m-N+1 and ALL positiveREAL inverse minimum moments iff p<m-N+1. Critical/higher nonnegativeENNReal integralTOP. No singularB, growingconditionnumber uniformity, exactnoncentralCDF/G2 or originalgeneralT1 claimed. Total269 theorem/instance+2constructions=271. Two final exact-source Qoder P4 delivered, not humanreview. Frozenpublication unchanged/fullLakeNOT_RUN. Twenty new checked statements close general CENTRAL sharp hard-edge ratio limit with strictlypositive FINITE factorial-functional coefficient. Analyticcontinuation separatefrompiecewiseCDF, exactorderk=d+1 andderivativevanishing, Taylorcoefficientderivative/k!, Leibnizfiniteconvolution removeseveryderivative/probabilityintegral. Earlier sharpcoefficient-open language superseded ONLY for thisfiniteexpression. Simplerclassicfactorialidentity/originalgeneralT4prefactor stillOPEN, no noncentralsharpprefactor/G2 asserted. Total289 theorem/instance+2constructions=291, facade23exit0; finalgeneric8+actual12 exactsourceQoderP4 delivered, scopegapexplicitnotmisreported. HumanreviewREQUIRED; frozenpublicationUNCHANGED/fullLakeNOT_RUN. Twelve checked declarations derive ACTUAL generalCENTRAL minimum ONEdimensional marginaldensity exp(-Nx)/M*(N*P-Pderivative) supportedx>0 fromindependentlyprovedCDF, viafiniteintervalFTC/measureext. Nonnegativity fromactualCDFmonotonicity, mass1, HasPDF andcanonicalRNpdfAEequality proved. NOT jointG2/noncentraldensity/classicalprefactoridentity. Total301 theorem/instance+2constructions=303; facade24exit0. Final12sourceQoderP4delivered, nothumanreview. Frozenpublicationunchanged/fullLakeNOT_RUN. Two checked statements now give actualcentral1DanalyticPDFcore h(x)/x^d ->(d+1)*a, a exactfinitefactorialfunctionalCDFcoefficient. GenericvanishingTaylorlemma includesd0. This pointwisecore limit doesNOTapplytoarbitraryAEversionsofcanonicalRNpdf withoutchoosingrepresentative. Total303 theorem/instance+2constructions=305, facade25realexit0, final2P4delivered. HumanreviewREQUIRED/frozenpublicationunchanged. Renewed explicit continuation2026-10-19: 19 new declarations identify the already actual two-surplus polynomial with the finite complement polynomial and compute all-N low coefficients. Actual CENTRAL (N+2)-by-N CDF/x^3 ->N(N+1)(N+2)/36, chosen analytic density-core/x^2 ->N(N+1)(N+2)/12 for every N>0. Generic factorial/binomial/reindexing helpers are not independent probability breakthroughs. Total322 theorem/instance+2 constructions=324. Final exact6-source Qoder P4 delivered no concrete issue within algebraic scope; inherited human review REQUIRED. Facade26 real exit0. General-d simplified coefficient identity, noncentral sharp coefficient/G2 and original general paper identities remain OPEN; frozen publication unchanged. Actual arbitrary fixed-mean Gaussian FULL matrix logdet statistic now proved integrable for rho>=0, unshifted logdet Gram absolutely integrable for m>=N>0, expected offset Elogdet(I+rhoGram)-Nlogrho -> ElogdetGram, and expected prelog N. Includes square case via inverse HALF moment, not false finite FIRST inverse moment. No coding/mutual information derivation or growing mean uniformity. 25 new printed declarations; 347 theorem/instance+2 constructions=349 items. Facade27 actualexit0. Final6source QoderP4 two real responses delivered: generic domination alarm misreads log(f+1/rho)<=f+1/rho-1<=f; actual integrability/import concerns resolved against exact unconditional source-space stdGaussian statements. No blanket no-issues or human approval. See WISHART_LOGDET_EXPECTATION.md. Full build NOT_RUN/frozen manuscript unchanged. New actual full-logdet offset error Delta identity as E sum log(1+1/(rho lambda_i)), explicit nonnegative bound rho^-p/p *sum E lambda_i^-p for0<p<=1,p<m-N+1; m>N firstorder rhoDelta ->sum E inverse eigenvalues. Square firstorder finite coefficient NOT claimed. Individual-eigenvalue inverse p only SUFFICIENCY from inverse MINIMUM criterion, no same-IFF claim. 11new items ->358 theorem/instance+2 constructions=360. Facade28 actualexit0. Final3source real QoderP4 delivered; ring-check request discharged by actual exit0/axioms, identity-coercion demand rejected because stdGaussian is REAL two-coordinate source and /sqrt2 is required for unit complex variance. Exact source pushforward assets reread; human modelreview still REQUIRED. Original objections/resolutions retained. See WISHART_LOGDET_ERROR.md; fullbuildNOT_RUN/frozenpublicationunchanged. Actual SQUARE arbitraryfixedmean full-logdet rhoDelta tends realatTop(+infinity), despite Delta->0. Generic Fatou/filter divergence uses infinite NONNEGATIVE inversefirst integral, eventual INTEGRABLE real errors; no fake divergent Bochner expectation. Minimum error is a nonnegative lower bound for full spectral error. No exact log(rho)/rho coefficient asserted. 5new printed declarations ->363 theorem/instance+2constructions=365. Facade29 realexit0. Final3-source realQoderP4 delivered; inversecriterion conditional critical alarm resolved against actual signature requiring n<=m, producing iff n<m. HumanreviewREQUIRED/fullbuildNOT_RUN/frozenpublicationunchanged. Full-logdet expectedprelog extended to min(m,N) for BOTH positive dimensions, arbitrary fixedmean; wide offset Elogdet(XX^H) and its absolute integrability, no logdet singular X^H X offset. Existing actual source transpose realisometry, no invented adjointmaplaw. 9new declarations ->372 theorem/instance+2constructions=374 items; facade30 actualexit0. First wideP4 onlyunexecutedtooltags NOTvalidreview. Finalselfcontained2-source P4 realresponse delivered; wrongGramorder/dimension, falseintegral_map_equiv precondition and cast alarms resolved against exact source/signatures/kernel checks. HumanreviewREQUIRED/notindependentcompile. WISHART_WIDE_LOGDET.md records scopes and falsealarms. FullbuildNOT_RUN/frozenpublicationunchanged. Actual full-logdet finite-scale upperbound E C<=k log(1+rho*T/k), positivek=min(m,N),rho>=0, T=ACTUAL finite expectedtrace (closed mN+Frobeniusmean NOT proved/assumed). Also actual low-scale E C/rho->T at0right for ALL m,N including0, no rank/inversemoment assumption. Logtangent derived directly; individual integrability before sums. 12new printed items ->384theorem/instance+2constructions=386, facade31/32 actualexit0. Final bound2-source andlow1-source QoderP4 realresponses delivered. False zero-division undefined alarm resolved by realdivision totaldefinition, actualhelper r>=0/signatures/prints checked; nohuman orindependentcompile approval. WISHART_LOGDET_MEAN_BOUND.md packet. FullbuildNOT_RUN/frozenpublicationUNCHANGED. New one generic standardREALGaussian squared-norm deterministic shift expectation helper, not complete complexGram trace mean. 385theorem/instance+2constructions=387 items; facade33 actualexit0. Finalsource P4 realresponse delivered no concrete proof issue, its alleged axiom list funext/choice is incorrect metadata; actual print exactly propext/Classical.choice/Quot.sound retained. Next exact expectedtrace card pinned assets, not proof of closedmean. Humanreview/fullbuild/frozenpublication unchanged. Fixed arbitrary rectangular/singular/zero B and fixed M: actual complex affine rank(ZB+M)=min(m,rankB+rank(M restricted kerB)) AE, equivalently min(m,rank stacked[B;M]); actual expected full-logdet/logrho tends this deterministic rank. Thirteen new declarations include universal rank-nullity/witness/compression helpers, not thirteen probability breakthroughs. 502 theorem/instance+2 constructions=504 items. Final exact-source Qoder P4 delivered, false API/domain/zero-centre alarms explicitly resolved in WISHART_GENERIC_RANK.md, inherited human review REQUIRED. No growing-parameter uniformity, logdet offset or singular inverse-moment threshold asserted. Fullbuild NOT_RUN/frozenpublicationUNCHANGED. Five further checked declarations give the exact minimum COLUMN Gram zero-atom for n>0: probability1 iff min(m,rank stacked[B;M])<n, else0. Fullrank/strictpositivity and deterministic spectral/rank bridges included. Total507 theorem/instance+2 constructions=509 items. The n=0 minimum is intentionally excluded. Final source Qoder P4 delivered; Measure.real is toReal of same measure, NOT a different real sample space; false inherited-precondition alarms resolved against exact checked source. Human measure/model review remains REQUIRED. Six further declarations prove: if fixed M restricted to kerB surjects onto m-dimensional output (m>0 for minima), fixed C satisfies BC=0,MC=I, hence EVERY noise Z has rowGram minimum >=delta>0 and actual Gaussian ROW inverse minimum all real p>=0 moments integrable. This is ROW Gram XX^H, not singular COLUMN Gram X^H X. Total513 theorem/instance+2 constructions=515. Exact35 controls plus scalar200000-seed next-offset preflight; general row offset remains OPEN. Final2-source real Qoder P4 delivered/resolved: max enlarging denominator weakens floor, no false m<=p assumption. Humanreview REQUIRED/fullbuildNOT_RUN/frozenpublicationUNCHANGED. Eleven new checked declarations recover actual ROW logdet absolute integrability from C(1) minus a bounded measurable error, and expected offset with 0<=Delta<=m/(rho delta) under M restricted kerB surjective (m>0). Arbitrary fixed rectangular/singular/zero B; source remains m-by-p. No Gaussian transpose law, column singular determinant offset or parameter-uniform bound asserted. Total524 theorem/instance+2 constructions=526. Three exact-source real Qoder P4 responses retain and resolve false Gram direction/API/total-log/type-space/pointwise alarms; not human review. First inverse-trace correction remains OPEN at this checkpoint. Humanreview REQUIRED; fullbuild NOT_RUN; frozenpublication unchanged. Thirteen further checked declarations bridge ordinary Hermitian inverse powers to ordered spectral trace, actual ROW inverse-trace all natural powers L1 in the noiseless-surjective regime, and expected first correction rho Delta -> EtrW^-1 with 0<=EtrW^-1-rhoDelta<=m/(2 rho delta^2). Total537 theorem/instance+2constructions=539. Three further exact-source P4 real responses, false eigenvalue-reindexing/interior/Prop-packaging/Gram/vacuity warnings explicitly resolved; not human review. Second correction not yet counted. Fullbuild NOT_RUN; frozenpublication unchanged. Five further checked declarations close actual second correction in SAME fixed noiseless-surjective regime: 0<=rho^2 Delta-rho EtrW^-1+(EtrW^-2)/2<=m/(3rho delta^3), hence rho^2Delta-rhoEtrW^-1 -> -(EtrW^-2)/2, finite. Total542 theorem/instance+2constructions=544. Final2-source real Qoder P4 delivered, false native-index/row-Gram/zero-function/silent-rewrite/uniform-integrability alarms retained/resolved. No claim of nontrivial novelty beyond combining standard calculus with proven structural floor. General singular-factor offset beyond noiseless-surjective remains OPEN. Humanreview REQUIRED/fullbuild NOT_RUN/frozenpublication unchanged. Three further checked declarations handle zero modes in expected offsets under EXPLICIT absolute-positive-log moment premises: scalar arbitrary finite measure restriction, finite spectrum, and actual fixedB/M generic-rank conditional offset. Total545 theorem/instance+2constructions=547. Does NOT prove those moments for arbitrary singular Gaussian factors, so general unconditional pseudo-logdet offset staysOPEN. New mixed-block200000 fixedseed23 controls and scalaruniform58 controls are not proofs. Final2-source realQoderP4 delivered; false imported-signature/index/Gram doubts resolved against exact pinned APIs. New general-rank route P1 TIMED_OUT at90seconds, not a valid review. Humanreview/fullbuild/frozenpublication boundaries unchanged. 2026-10-20 SHEAF bounded Windows pilot: scalar mean-uniform actual CN1 minimum CDF(x)<=x for x>=0 and planar stdGaussian ball probability<=R^2/2, two final-source reviewed/checked declarations, total549 (547 theorem/instance+2 constructions). General Gaussian polynomial negative-log moments remain OPEN. Local independent locked target-type check, not upstream comparator. Human measure/variance/model review REQUIRED; frozen publication unchanged/full build NOT_RUN. 2026-10-20 SHEAF hour first milestone: generic linear small-ball bound implies integrable totalized negativeLog and integral<=C; actual arbitraryfixed scalar CN1 mean gives uniform negativeLog expectation<=1. Three new declarations, total552 (550 theorem/instance+2constructions). General multivariate Gaussian polynomial log moment remains OPEN. Root/product21 controls only, not proof. Qoder finalsource warnings resolved explicitly, human review REQUIRED. SHEAF same-hour univariate milestone: planar stdGaussian(C) root-uniform negativeLog(norm)<=1/4; deterministic one-variable polynomial negative-part expectation<=negativeLog(norm leadingCoeff)+degree/4, polynomial eval L1 and totalized real-log norm L1. Six new declarations, total558 (556 theorem/instance+2constructions), all literal targettypes checked. Not arbitrary multivariate/unconditional singular Wishart offset. Qoder zero-polynomial/log_pow API alarms are false against pinned source and explicitly resolved. Human review REQUIRED. 2026-10-21 user-renewed acceptance: conditional section negativeLog and unconditional TWO-variable nested-polynomial negative-part/absolute-log L1, all under independent planar stdGaussian(C) product. Zero polynomial only totalized Real.log0=0. General finite-N, proper-CN1 transport and arbitrary singular offset remain OPEN. Pre-deadline real leaf/type/facade56 receipts unchanged; final model review resolved after renewal; no Linux compiler evidence claimed. 2026-10-21 finite-N milestone: ALL n, ALL deterministic MvPolynomial Fin n C have true negativeLog L1, evaluation L1 and absolute-totalized-real-log L1 under finite product planar stdGaussian C; nonzero polynomials have AE nonzero evaluation. Six new printed declarations, split transport and induction; physical complex second moment2. No properCN1 transport, arbitrary singular Wishart pseudoDet/offset bridge or uniform coefficient/dimension bound. Independent literal type check, exact-final Qoder P4, facade58 realexit0. Human measure/model review still required; full Lake NOT_RUN. 2026-10-21 fixedhour: properCN1 ALL finite-index holomorphic polynomials negativeLog/absolute-log L1 and actual physical compressed determinant det(L(ZB+M)H) L1 for all fixed rectangular/singular/zero parameters. Totalized log0 only, no automatic nonzero compression claim. No pseudoDet spectral comparison or unconditional singular offset yet. Final Qoder follow-up variance contradiction explicitly resolved against exact definitions.10literal types/standard3axioms/facade60 exit0. Four deterministic/conditional aggregate-positive-log declarations added: integrable nonnegative trace plus aggregate-log L1 implies each mode log L1. Actual correlated offset still assumes aggregate L1 explicitly; arbitrary singular pseudoDet bridge remains OPEN. 585 bound items (583 theorem/instance+2 constructions), facade61 realexit0. Qoder cancellation alarm resolved by exact upper/lower bounds, not ignored. Humanreview REQUIRED; Linux kernel NOT_RUN. 2026-10-22 ten deterministic finite-algebra declarations: Gram determinant polynomial rank coefficient is positive nonzero-eigenvalue product and its log is positive-spectrum log sum; rank-sized injective coordinate minor exists via raw rectangular all-functions expansion. No subset Cauchy-Binet or new unconditional singular offset yet. Qoder log_prod positivity alarm resolved against exact nonzero-factor API.595 total bound items; human model review REQUIRED. 2026-10-22 thirteen further declarations: permutation-averaged rectangular Cauchy-Binet with explicit factorial; selected-minor Gram-coefficient/log domination; ACTUAL all-shape fixed arbitrary rectangular/singular/zero B,M aggregate positive-spectrum log L1, individual positive-mode log L1 and UNCONDITIONAL expected generic-rank full-logdet offset with r=min(m,rank stacked[B;M]). Constant is finite expected positive-spectrum log sum, not closed evaluated and not singular full-Gram determinant log. No inverse-moment threshold/rate/parameter-uniformity/channelcoding. Full subset-grouped Cauchy-Binet remains OPEN but is not needed for this route.608 bound items (606 theorem/instance+2constructions). Final-source Qoder exact-definition response false q0/sign/mean alarms explicitly resolved in WISHART_SINGULAR_LOGDET_OFFSET.md; no blanket approval. Humanreview REQUIRED/fullLake and LinuxkernelNOT_RUN/frozenpublication unchanged. Two further printed declarations: arbitrary-measure measurable nonnegative L1 f has derivative-under-integral log(1+rho f) at every rho>0, with integrable f/(1+rho f). Actual fixed arbitraryfactor full-logdet expectation derivative is SUM E eigenvalue/(1+rho eigenvalue), all finite shapes and no rank/inverse premise. No derivative at0/concavity/coding theorem claimed.610 bound items (608 theorem/instance+2constructions). Exact-API finalsource Qoder P4 conditional AE-decomposition alarm resolved against actual pointwise spectral signature; human derivative/integral/model review REQUIRED. 2026-10-22 quota continuation: eight further printed finite-algebra declarations in3modules; fixed-cardinality image fibers/permutation-invariant function-sum grouping, exact subset rectangular Cauchy-Binet and Gram squares, exact ALL row/column squared-minor polynomial coefficient. All natural shapes incl0 andq>m; overC, factorial cancellation characteristic0. Earlier historical OPEN subset/all-minor cards are now superseded by verified identities; not a new probability law.618 total bounditems (616 theorem/instance+2constructions); local enumeration/image definitions source-locked but not counted as extra theorem breakthroughs. Real final-source Qoder P4 false finite-equivalence/API/empty-case concerns explicitly resolved in notes/WISHART_EXACT_SUBSET_CAUCHY_BINET.md. Human inherited measure/model review REQUIRED; fullLake and independentLinuxkernel NOT_RUN, frozen publications unchanged. Further13 printed declarations/2modules: arbitrary-measure measurable nonnegativeL1 f suffices for integrable squared resolvent and derivative-under-integral resolvent formula onpositive scale; actual arbitraryfixed rectangular/singular/zeroB,M full-logdet second derivative equals negativeSUM expected squared resolvents. ActualF is concave onIoi0, strictly concave IFF min(m,rank stacked[B;M])>0; rank0 givesF=0 forrho>=0. All finite shapes; no inverse/fullrank/squareL1 premise added to scalar theorem; no new channelcoding or scaled-derivative-limit theorem.631 total bounditems (629theorem/instance+2constructions), not631 probability breakthroughs. Final-source Qoder P4 false index/neighborhood/AE-measurability warnings preserved and resolved; human differentiation/measure/model review REQUIRED. Frozenpublications unchanged/fullLake and Linuxindependentkernel NOT_RUN. 2026-10-22额度续跑第三里程碑：637绑定项（635 theorem/instance+2构造），auditPASS/facade67真实exit0。本次6打印声明/1模块证明rho F'(rho)和-rho²F''(rho)在高尺度均趋于R=min(m,rank stacked[B;M])，固定任意矩形/奇异/零B,M及全有限维数；通用有限测度下正整数谱分式幂积分趋于正模态指示积分，不要求一阶或逆矩。不是直接对渐近式求导；无速率/参数一致性/编码定理。43项20万样本闭式对照、6独立字面类型、最终源码Qoder P4及误报裁决绑定。累计本次新增27声明/6模块，非27概率突破。[需人工审查]DCT/AE/求导依赖/方差/模型，冻结四发表产物不变，fullLake及Linux独立内核NOT_RUN。继续当前普通额度授权、单协调器、旧固定小时关闭。 2026-10-22额度续跑第四里程碑：645绑定项（643 theorem/instance+2构造），auditPASS/facade68真实exit0。新增8声明/3模块：线性小球界推出全部正整数负对数矩界C*k!；平面stdGaussian(C)、复二阶矩2下移位根统一E(negativeLog)^k<=k!/(2*2^k)，特别平方<=1/4；一元复多项式负对数平方L1及2leadNegLog²+degree²/2界。尚不是一般有限多变量/properCN1平方可积或奇异模型有限方差。28项20万样本/闭式与积分对照，8个独立字面目标v2通过；v1核对器名称遮蔽失败日志和节点已归档且排除接受，无证明源改动。最终源码Qoder P4及Real.log0/负数/方差/根分解误报裁决绑定。[需人工审查]layercake/Gamma/方差/根重数/模型。冻结发表产物未改/fullLake及Linux独立内核NOT_RUN；当前额度续跑继续，旧固定小时关闭。 2026-10-22额度续跑第五里程碑：654绑定项（652 theorem/instance+2构造），auditPASS/facade69真实exit0。新增9声明/4模块，有限个独立平面高斯变量的任意固定全纯复多项式负对数平方与完整log范数平方真L1；已完成有限索引和properCN1缩放、实际矩阵条目及任意固定压缩行列式的log平方L1。含零多项式/零维，Real.log0=0；不是扩展实对数。参数截面以显式首项系数平方L1和固定度界完成Fubini，无可测根选择；变量数单归纳足够。一般奇异因子正谱总log平方/有限方差桥尚待证明。10项新增20万样本proper闭式对照、9独立字面目标、最终源码Qoder P4及Fubini方向/方差/错误p秩上界等误报裁决已绑定。[需人工审查]测度/Fubini/AE/方差/物理模型，冻结投稿产物未改/fullLake及Linux独立内核NOT_RUN。当前额度授权继续、单协调器，旧固定小时关闭。 2026-10-22额度续跑第六里程碑：657绑定项（655 theorem/instance+2构造），auditPASS/facade70真实exit0。新增3声明/1模块：实际任意固定矩形/奇异/零B,M的正谱对数和S平方真L1、每个正谱log平方真L1，及(S-ES)²真L1和中心二阶矩恒等式。S保留0<lambda<1时的负log，不是max(log,0)。方差有限但未闭式求值，无CLT/误差率/参数一致性；高尺度随机偏移L2收敛仍待证明。35项20万样本Gamma/奇异rank2/零与确定性对照、3独立字面目标、最终源码Qoder P4及零模态/概率归一化/实谱误报裁决绑定。[需人工审查]AE固定子式/秩/平方支配/方差/模型。冻结四产物不变/fullLake及Linux独立内核NOT_RUN。当前普通额度授权继续，旧固定小时关闭、单协调器。 2026-10-22额度续跑第七里程碑：661绑定项（659 theorem/instance+2构造），auditPASS/facade71真实exit0。新增4声明/2模块，实际固定任意矩形/奇异/零B,M下随机C_r-Rlogr在同一物理样本上均方趋于正谱log和S；E[(C_r-Rlogr-S)²]->0，且r>=1时误差平方真L1。通用任意测度/有限非负谱定理以各谱平方和正谱log平方L1为前提，非有限测度也可；无逆矩/满秩/谱隙/速率/参数一致性/CLT。C_r自身方差收敛尚需进一步论证。四独立字面目标、已有35项20万样本/独立积分对照、最终源码Qoder P4及实计数/滤子/负实对数误报裁决绑定。[需人工审查]DCT/AE秩/方差/模型。冻结发表产物不变/fullLake和Linux独立内核NOT_RUN；当前额度授权继续、单协调器、旧固定小时关闭。 2026-10-22额度续跑第八里程碑：665绑定项（663 theorem/instance+2构造），auditPASS/facade72真实exit0。本轮累计55新打印声明/18模块，非55概率突破。新4声明/2模块由L2误差和Holder显式界推出偏移二阶矩收敛，并证明实际固定任意矩形/奇异/零B,M下Var(C_r)->Var(S)，S为非零谱log和；C_r及其偏移在r>=1均属L2，极限方差有限但未一般闭式求值。含零维/秩0，无逆矩/满秩/谱隙/速率/参数一致性/CLT。33项20万样本Gamma/奇异rank2/零及有限离散Cauchy对照，4独立字面目标、最终源码Qoder P4真实返回未发现数学阻塞，API疑问已核验。[需人工审查]Holder/均方-矩/AE/方差/模型；冻结发表产物不变/fullLake及Linux独立内核NOT_RUN。当前普通额度授权继续、单协调器、旧固定小时关闭。 2026-10-22续跑第九里程碑：668绑定项（666 theorem/instance+2构造），auditPASS/facade73真实exit0。本次3声明/1模块是确定性矩形复合和普通列Gram最小值左因子双边控制；上界无需T可逆，反向用T逆，A无需满秩且m可0,n>0。不是最小正谱定理或一般奇异逆矩阈值，后者仍OPEN。canonical tall分支可用既有右比较，wide分支对共轭转置用本左比较，避免先建一般minmax；固定核压缩/非零谱/law仍待做。本轮累计58打印声明/19模块，非58概率突破；33项固定种子矩形/零秩及标量闭式控制，3独立字面目标、最终源码Qoder P4绑定。当前ordinarytrue，主窗口自然更新未用重置券；同一空闲协调器技术租约续至08:57UTC，旧小时关闭。人审模型/谱输运仍需；冻结四发表产物未改/fullLake及Linux独立内核NOT_RUN。 2026-10-22续跑第十里程碑：671绑定项（669 theorem/instance+2构造），auditPASS/facade74真实exit0。本次3声明/2模块完成有限维映射ker正交补的等距压缩、任意有限行矩阵rank大小C的C^H C=I与A C C^H=A，并为固定任意B,M构造同一个r=rank stacked[B;M]的C，对每个矩阵Z恢复ZB+M且精确保持行Gram。包含rank0/零维，r未必等于实际通用秩min(m,r)，不声称压缩噪声iid或一般最小正谱逆矩阈值。该固定共同核构造缺口已关闭；非零根旧资产需接最小正值，canonical谱/law/独立与积分桥仍OPEN。本轮累计61打印声明/21模块，不是61概率突破。51项固定种子精确投影/QR/恢复/正谱及已知对角控制、3独立字面目标、完整最终源码Qoder P4绑定。初版SymPy结构相等和Lean伴随重写/表示类型失败记录保留，未接受失败版本。当前普通额度授权继续、单协调器、技术租约08:57UTC；人审后续谱/law/测度/模型仍需，冻结四发表产物未改/fullLake和Linux独立内核NOT_RUN。 2026-10-22续跑第十一里程碑：675绑定项（673 theorem/instance+2构造），auditPASS/facade75真实exit0。新增4声明/2模块：有限降序实谱正项前缀及最小正项、Gram正模态Nat计数=rank、实际固定B,M且R=min(m,rank stacked[B;M])>0时存在固定指标R-1，可测且AE严格正并不大于任何正特征值。R=0排除；秩降低的零概率样本不宣称全样本最小正值。没有一般逆矩阈值/全局随机秩选择器/CDF/速率。462条有限精确序列2746控制，含重复/零/负项及降序必要性负对照，4独立字面目标、完整最终源码Qoder P4绑定。只1条新实际模型存在定理，本轮累计65打印声明/23模块不是65概率突破。跨压缩尺寸的最小正值等同仍需接既有非零根与roots_charpoly_eq_eigenvalues0资产，canonical谱/law/独立和积分桥OPEN。普通额度继续、单协调器、技术租约08:57UTC；人审仍需，冻结四发表产物未改/fullLake及Linux独立内核NOT_RUN。 2026-10-22续跑第十二里程碑：680绑定项（678 theorem/instance+2构造），auditPASS/facade76真实exit0。新增5声明/2模块：复用旧非零根重数，把Hermitian实根接有序坐标，证明共轭转置非零根成员、同行Gram不同列数矩阵的正谱成员及给定最小正坐标相同；实际固定B,M且R>0时有一个固定等距C和固定可测i,j，在同一原始2mp实高斯源上原/压缩最小正坐标AE严格正且相等。s=rank stacked[B;M]未必=R，p/源不变，不声称ZBC iid或一般逆矩阈值。302项100形状精确多项式/正谱/零根负对照、5字面目标、最终源码Qoder P4绑定；SymPy规范化及Lean反身/依赖改写失败记录保留。跨压缩尺寸桥已关闭，canonical块构造/谱最小值/Gaussian投影law独立/逆矩输运仍OPEN。本轮70打印声明/25模块非70概率突破。当前普通额度授权继续、单协调器、技术租约08:57UTC；人审仍需，冻结四发表产物未改/fullLake及Linux独立内核NOT_RUN。 2026-10-22续跑第十三里程碑：688绑定项（686 theorem/instance+2构造），auditPASS/facade77真实exit0。新增8声明/2模块：任意矩形/奇异/零/空A,N的块对角Gram、charpoly乘积和根多重集合拼接，真实谱成员等价；显式提供两块及整体最小正值见证时整体等于两者min，未给rank0块捏造正值见证。显式N*K=H下DSminus=E、E*Splus=D、双边逆成立，未声称剪切范数界/Gaussian正规形或独立law/一般奇异逆矩阈值。650项162形状控制及8字面类型、最终源码真实Qoder P4绑定；P4自撤回误报及剩余card依赖观察逐项裁决，P1的跨空间交集/额外GramSchmidt/宽维障碍误报拒绝并保留原响应。先前81剪切控制复用不当证明。本轮78打印声明/27模块非78概率突破。继续一般奇异逆矩路线：Sum-Fin谱/定量剪切范数及固定正规形Gaussian law仍OPEN。当前普通额度true，单协调器/技术租约08:57UTC，人审仍需；冻结发表产物未改/fullLake及Linux独立内核NOT_RUN。"
+}

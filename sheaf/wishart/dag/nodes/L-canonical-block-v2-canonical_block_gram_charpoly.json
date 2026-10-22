@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-block-v2-canonical_block_gram_charpoly",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CanonicalBlockSpectrum",
+  "declaration": "JinWishart.canonical_block_gram_charpoly",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-block-v2-canonical_block_gram"
+  ],
+  "proof": [
+    {
+      "text": "Exact unchanged source; independent eight public type checks and scoped P4 unchanged. Private helper remains checked transitively, not a public target.",
+      "uses": [
+        "L-canonical-block-v2-canonical_block_gram"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-v2-CanonicalBlockSpectrum.json",
+    "source_sha256": "249236d56ab1aab48a46ab0906878a0897bb99cdd3d118260ce51cbda1428b58"
+  }
+}

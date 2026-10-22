@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-22T08:15:42.541976+00:00",
+  "reason": "Global current acceptance verifier scans acceptance-*.json recursively, including archive folders. Retired files are data, not live pointers; preserve bytes with retired prefix.",
+  "files": [
+    {
+      "old": "acceptance-canonical-block-CanonicalBlockSpectrum.json",
+      "new": "retired-acceptance-canonical-block-CanonicalBlockSpectrum.json",
+      "sha256": "bbe4f16d93afcec4a55ff759df6f61deb3fd1d79d345e678a03d71ca95a723a0"
+    },
+    {
+      "old": "acceptance-canonical-block-CanonicalBlockShear.json",
+      "new": "retired-acceptance-canonical-block-CanonicalBlockShear.json",
+      "sha256": "66e0545833520a9d520fc20af34a05d4a70944455ac786de46fe3aa85fca5607"
+    }
+  ]
+}

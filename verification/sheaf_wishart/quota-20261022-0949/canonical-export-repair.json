@@ -1,0 +1,31 @@
+{
+  "repaired_utc": "2026-10-22T08:13:43.565729+00:00",
+  "retained_files": {
+    "sheaf/wishart/dag/nodes/L-canonical-block-realRoot.json": "7194dd0b9a04e27eb30c6f5579509df14d0e81200ffe98b88375d4c21a742827",
+    "sheaf/wishart/dag/nodes/L-canonical-block-canonical_block_gram.json": "23934c26b885a360c3252ea4a2aa8e0ceebb55c0a7dce9b3ac483757f0f5037c",
+    "sheaf/wishart/dag/nodes/L-canonical-block-canonical_block_gram_charpoly.json": "990aa17f09e6b82c448c7861501ca1d911c82cee7cdf4875799e34ad3387f342",
+    "sheaf/wishart/dag/nodes/L-canonical-block-canonical_block_gram_roots.json": "31194acb20d1fe18350c073b67fa7d9ba719dffeff021d169563e8083dd2d1a6",
+    "sheaf/wishart/dag/nodes/L-canonical-block-canonical_block_eigenvalue_mem_iff.json": "ac44d704696793e8d0f810643eb1051f5b108a3e53f2a23b0ce21e95efb0903e",
+    "sheaf/wishart/dag/nodes/L-canonical-block-canonical_block_min_positive.json": "6d21398665e30a94116ae3a6ad5b8c6c21a0ab1e178e1ae1df8d9b767d9142d9",
+    "sheaf/wishart/dag/nodes/L-canonical-block-canonical_block_shear_cancel.json": "d237fabf827c76158b6683a850ff2858414754d7a2035a7168bc05bec1771151",
+    "sheaf/wishart/dag/nodes/L-canonical-block-canonical_block_shear_restore.json": "9370f203cdaaead5c0995b8382bca00f7c7a4fd89e351d6240dcca2f86da146b",
+    "sheaf/wishart/dag/nodes/L-canonical-block-canonical_block_shear_two_sided_inverse.json": "61cc519f3e1b83130f0b0b90b1b65da3c81607cdcbcbf9f11f3db7b6de14b90b",
+    "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-CanonicalBlockSpectrum.json": "bbe4f16d93afcec4a55ff759df6f61deb3fd1d79d345e678a03d71ca95a723a0",
+    "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-CanonicalBlockShear.json": "66e0545833520a9d520fc20af34a05d4a70944455ac786de46fe3aa85fca5607",
+    "verification/central_mixed_moments/spec.json": "461f8bef479b3326c2bc9de186e7b9f55fb838517be26303e80ecefa288e1f3b",
+    "verification/sheaf_wishart/quota-20261022-0949/canonical-block-release.json": "360f7fcafc2f0bf3731dea178c039845197891c170ec1b95a70dba67325c725b"
+  },
+  "unchanged_proof_hashes": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalBlockSpectrum.lean": "249236d56ab1aab48a46ab0906878a0897bb99cdd3d118260ce51cbda1428b58",
+    "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalBlockShear.lean": "f9dbca56eb44196455f7e64c2b0da9a227e1fafc68131c1f68453afe731d05c3"
+  },
+  "retired_nodes": 9,
+  "public_targets": 8,
+  "private_helper": "realRoot",
+  "cause": "Target parser includes private theorem command but auditor correctly counts public theorem declarations only.",
+  "audit_failure": "Initial audit refused count6 against five public CanonicalBlockSpectrum declarations; no failed audit accepted.",
+  "kernel_and_type_receipts_reused_unchanged": true,
+  "review_source_unchanged": true,
+  "audit_implementation_unchanged": true,
+  "source_final_reviewed": true
+}

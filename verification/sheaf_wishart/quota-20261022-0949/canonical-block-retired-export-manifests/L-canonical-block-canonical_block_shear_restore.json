@@ -1,0 +1,22 @@
+{
+  "id": "L-canonical-block-canonical_block_shear_restore",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CanonicalBlockShear",
+  "declaration": "JinWishart.canonical_block_shear_restore",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-block-canonical_block_shear_cancel"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-block-canonical_block_shear_cancel"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

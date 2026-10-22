@@ -1,0 +1,75 @@
+[
+  {
+    "tag": "canonical-block-CanonicalBlockSpectrum",
+    "module": "CanonicalBlockSpectrum",
+    "nodes": [
+      [
+        "L-canonical-block-realRoot",
+        "realRoot",
+        []
+      ],
+      [
+        "L-canonical-block-canonical_block_gram",
+        "canonical_block_gram",
+        [
+          "L-canonical-block-realRoot"
+        ]
+      ],
+      [
+        "L-canonical-block-canonical_block_gram_charpoly",
+        "canonical_block_gram_charpoly",
+        [
+          "L-canonical-block-canonical_block_gram"
+        ]
+      ],
+      [
+        "L-canonical-block-canonical_block_gram_roots",
+        "canonical_block_gram_roots",
+        [
+          "L-canonical-block-canonical_block_gram_charpoly"
+        ]
+      ],
+      [
+        "L-canonical-block-canonical_block_eigenvalue_mem_iff",
+        "canonical_block_eigenvalue_mem_iff",
+        [
+          "L-canonical-block-canonical_block_gram_roots"
+        ]
+      ],
+      [
+        "L-canonical-block-canonical_block_min_positive",
+        "canonical_block_min_positive",
+        [
+          "L-canonical-block-canonical_block_eigenvalue_mem_iff"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "canonical-block-CanonicalBlockShear",
+    "module": "CanonicalBlockShear",
+    "nodes": [
+      [
+        "L-canonical-block-canonical_block_shear_cancel",
+        "canonical_block_shear_cancel",
+        [
+          "L-canonical-block-canonical_block_min_positive"
+        ]
+      ],
+      [
+        "L-canonical-block-canonical_block_shear_restore",
+        "canonical_block_shear_restore",
+        [
+          "L-canonical-block-canonical_block_shear_cancel"
+        ]
+      ],
+      [
+        "L-canonical-block-canonical_block_shear_two_sided_inverse",
+        "canonical_block_shear_two_sided_inverse",
+        [
+          "L-canonical-block-canonical_block_shear_restore"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "id": "L-canonical-block-canonical_block_gram_charpoly",
+  "kind": "lemma",
+  "target": false,
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-block-canonical_block_gram"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-block-canonical_block_gram"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "superseded_export_manifest_error",
+    "reason": "Private helper mistakenly exported by parser; no proof/source/type check failed. Eight public exports relocked in v2; all old manifests retained."
+  },
+  "superseded_declaration": "JinWishart.canonical_block_gram_charpoly",
+  "superseded_module": "JinWishartFormalization.CanonicalBlockSpectrum"
+}

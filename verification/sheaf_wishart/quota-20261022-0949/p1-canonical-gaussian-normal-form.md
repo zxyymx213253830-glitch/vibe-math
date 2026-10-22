@@ -1,0 +1,13 @@
+P1 route differentiation, not proof writing. You are a complex Gaussian finite-dimensional linear algebra specialist. Output <=700 words, precise hidden assumptions and three genuinely different routes, minimal key lemmas and failure modes. Do not invent Lean APIs or cite uncertain literature. Mark any uncertain reference [unverified]; references optional. No tools. All later proof bodies will be Codex, this call is route planning only.
+
+Already kernel-checked: fixed arbitrary B:p-by-n,M:m-by-n admit a fixed n-by-s isometry C, s=rank stacked[B;M], recovering both B and M and preserving XX^H for EVERY Z. On the same properCN1 Gaussian source Z:m-by-p, original/compressed smallest-positive Gram coordinates coincide AE if R=min(m,s)>0. We may now replace (B,M) by the s-column pair with joint kernel0, so rank stacked[B;M]=s. b=rank B, c=rank(M restricted kerB), s=b+c. Focus b>0 and 0<c<m; c=0, b=0, c=m are separate branches. s can exceed m. ProperCN1 has E|entry|²=1; mathlib planar stdGaussian(C) instead has E|entry|²=2. Never mix them.
+
+Precise proposed deterministic normal form: find FIXED invertible s-by-s T, p-by-b U with U^H U=I_b, unitary m-by-m V, invertible c-by-c N, and fixed means muA:(m-c)-by-b, muH:c-by-b such that B T=[U,0] and V M T=[[muA,0],[muH,N]]. Then for EVERY Z,
+
+ V (Z B+M) T = [[W_top+muA,0],[W_bottom+muH,N]], W=V Z U.
+
+Proposed law: W is iid properCN1 m-by-b; top a=m-c and bottom c row blocks are independent. All parameter transformations fixed, no uniformity. Suggest kerB orthogonal complement ->range B linear equivalence, inverse, then orthonormal bases (NO assumed preexisting full SVD API). Check the existence claim itself and which exact linear/algebraic and real-Gaussian covariance lemmas are needed. Is an extra hypothesis on M or dimensions actually required?
+
+For spectral comparison we ALREADY have ordinary least-column-Gram upper/lower bounds under fixed invertible RIGHT or LEFT factors. Since the compressed model is full rank min(m,s) AE, tall m>=s uses right comparison and wide m<s uses adjoint and left comparison. Thus do not propose full arbitrary-index singular-value minmax as a prerequisite. Canonical D=[[A,0],[H,N]] has DS=diag(A,N), S=[[I,0],[-N^-1H,I]]. Remaining tasks include block-spectrum minimum, shear norm, Gaussian law/independence, and transferring known fixed-mean iid inverse threshold via Holder or bounded independent H. The general singular inverse threshold is NOT YET proved.
+
+List three routes for the exact normal-form+law (e.g. orthogonal kernel/range construction, Gram whitening with complements, matrix-distribution pushforward), annotate algebra/symbolic/kernel vs human measure review. Identify the smallest defensible next lemma; no complete proof, no blanket approval.

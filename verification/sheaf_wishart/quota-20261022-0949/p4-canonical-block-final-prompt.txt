@@ -1,0 +1,134 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE CanonicalBlockSpectrum.lean
+import JinWishartFormalization.GramPositiveSpectrumTransport
+import Mathlib.Data.Matrix.Block
+
+/-! Exact Gram spectrum of a rectangular diagonal block. No invertibility,
+rank, Gaussian-law or inverse-moment assertion. Empty blocks are allowed;
+minimum statements explicitly supply positive minimum witnesses. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+variable {a b c d : ℕ}
+
+private theorem realRoot {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (G : Matrix ι ι ℂ) (hG : G.IsHermitian) (x : ℝ) :
+    (x : ℂ) ∈ G.charpoly.roots ↔
+      ∃ i : Fin (Fintype.card ι), hG.eigenvalues₀ i = x := by
+  classical
+  rw [hG.roots_charpoly_eq_eigenvalues₀]
+  constructor
+  · intro h
+    obtain ⟨i, _, hi⟩ := Multiset.mem_map.mp h
+    refine ⟨i, ?_⟩
+    change (hG.eigenvalues₀ i : ℂ) = (x : ℂ) at hi
+    exact_mod_cast hi
+  · rintro ⟨i, hi⟩
+    refine Multiset.mem_map.mpr ⟨i, by simp, ?_⟩
+    change (hG.eigenvalues₀ i : ℂ) = (x : ℂ)
+    exact congrArg (fun y : ℝ => (y : ℂ)) hi
+
+theorem canonical_block_gram (A : Matrix (Fin a) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin d) ℂ) :
+    (fromBlocks A 0 0 N)ᴴ * fromBlocks A 0 0 N =
+      fromBlocks (Aᴴ * A) 0 0 (Nᴴ * N) := by
+  simp [fromBlocks_conjTranspose, fromBlocks_multiply]
+
+theorem canonical_block_gram_charpoly (A : Matrix (Fin a) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin d) ℂ) :
+    ((fromBlocks A 0 0 N)ᴴ * fromBlocks A 0 0 N).charpoly =
+      (Aᴴ * A).charpoly * (Nᴴ * N).charpoly := by
+  rw [canonical_block_gram, charpoly_fromBlocks_zero₁₂]
+
+theorem canonical_block_gram_roots (A : Matrix (Fin a) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin d) ℂ) :
+    ((fromBlocks A 0 0 N)ᴴ * fromBlocks A 0 0 N).charpoly.roots =
+      (Aᴴ * A).charpoly.roots + (Nᴴ * N).charpoly.roots := by
+  rw [canonical_block_gram_charpoly,
+    Polynomial.roots_mul (mul_ne_zero (charpoly_monic _).ne_zero (charpoly_monic _).ne_zero)]
+
+theorem canonical_block_eigenvalue_mem_iff (A : Matrix (Fin a) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin d) ℂ) (x : ℝ) :
+    (∃ i, (isHermitian_conjTranspose_mul_self (fromBlocks A 0 0 N)).eigenvalues₀ i = x) ↔
+      (∃ j, (isHermitian_conjTranspose_mul_self A).eigenvalues₀ j = x) ∨
+      (∃ k, (isHermitian_conjTranspose_mul_self N).eigenvalues₀ k = x) := by
+  rw [← realRoot _ (isHermitian_conjTranspose_mul_self _) x,
+    canonical_block_gram_roots, Multiset.mem_add,
+    realRoot _ (isHermitian_conjTranspose_mul_self A) x,
+    realRoot _ (isHermitian_conjTranspose_mul_self N) x]
+
+theorem canonical_block_min_positive (A : Matrix (Fin a) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin d) ℂ)
+    (i : Fin (Fintype.card (Fin b ⊕ Fin d)))
+    (j : Fin (Fintype.card (Fin b))) (k : Fin (Fintype.card (Fin d)))
+    (hi : 0 < (isHermitian_conjTranspose_mul_self (fromBlocks A 0 0 N)).eigenvalues₀ i)
+    (hj : 0 < (isHermitian_conjTranspose_mul_self A).eigenvalues₀ j)
+    (hk : 0 < (isHermitian_conjTranspose_mul_self N).eigenvalues₀ k)
+    (hminE : ∀ l, 0 < (isHermitian_conjTranspose_mul_self (fromBlocks A 0 0 N)).eigenvalues₀ l →
+      (isHermitian_conjTranspose_mul_self (fromBlocks A 0 0 N)).eigenvalues₀ i ≤
+        (isHermitian_conjTranspose_mul_self (fromBlocks A 0 0 N)).eigenvalues₀ l)
+    (hminA : ∀ l, 0 < (isHermitian_conjTranspose_mul_self A).eigenvalues₀ l →
+      (isHermitian_conjTranspose_mul_self A).eigenvalues₀ j ≤
+        (isHermitian_conjTranspose_mul_self A).eigenvalues₀ l)
+    (hminN : ∀ l, 0 < (isHermitian_conjTranspose_mul_self N).eigenvalues₀ l →
+      (isHermitian_conjTranspose_mul_self N).eigenvalues₀ k ≤
+        (isHermitian_conjTranspose_mul_self N).eigenvalues₀ l) :
+    (isHermitian_conjTranspose_mul_self (fromBlocks A 0 0 N)).eigenvalues₀ i =
+      min ((isHermitian_conjTranspose_mul_self A).eigenvalues₀ j)
+        ((isHermitian_conjTranspose_mul_self N).eigenvalues₀ k) := by
+  apply le_antisymm
+  · apply le_min
+    · obtain ⟨l, hl⟩ := (canonical_block_eigenvalue_mem_iff A N _).mpr (Or.inl ⟨j, rfl⟩)
+      have h := hminE l (by rw [hl]; exact hj)
+      simpa only [hl] using h
+    · obtain ⟨l, hl⟩ := (canonical_block_eigenvalue_mem_iff A N _).mpr (Or.inr ⟨k, rfl⟩)
+      have h := hminE l (by rw [hl]; exact hk)
+      simpa only [hl] using h
+  · obtain ha | hn := (canonical_block_eigenvalue_mem_iff A N _).mp ⟨i, rfl⟩
+    · obtain ⟨l, hl⟩ := ha
+      exact le_trans (min_le_left _ _) (by simpa only [hl] using hminA l (by rw [hl]; exact hi))
+    · obtain ⟨l, hl⟩ := hn
+      exact le_trans (min_le_right _ _) (by simpa only [hl] using hminN l (by rw [hl]; exact hi))
+
+end
+end JinWishart
+#print axioms JinWishart.canonical_block_gram
+#print axioms JinWishart.canonical_block_gram_charpoly
+#print axioms JinWishart.canonical_block_gram_roots
+#print axioms JinWishart.canonical_block_eigenvalue_mem_iff
+#print axioms JinWishart.canonical_block_min_positive
+
+SOURCE CanonicalBlockShear.lean
+import JinWishartFormalization.CanonicalBlockSpectrum
+
+/-! Deterministic block shear identities. The solve condition N*K=H is
+explicit; no inverse is silently totalized. No norm or probability claim. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+variable {a b c : ℕ}
+
+theorem canonical_block_shear_cancel (A : Matrix (Fin a) (Fin b) ℂ)
+    (H K : Matrix (Fin c) (Fin b) ℂ) (N : Matrix (Fin c) (Fin c) ℂ)
+    (hK : N * K = H) :
+    fromBlocks A 0 H N * fromBlocks 1 0 (-K) 1 = fromBlocks A 0 0 N := by
+  simp [fromBlocks_multiply, hK]
+
+theorem canonical_block_shear_restore (A : Matrix (Fin a) (Fin b) ℂ)
+    (H K : Matrix (Fin c) (Fin b) ℂ) (N : Matrix (Fin c) (Fin c) ℂ)
+    (hK : N * K = H) :
+    fromBlocks A 0 0 N * fromBlocks 1 0 K 1 = fromBlocks A 0 H N := by
+  simp [fromBlocks_multiply, hK]
+
+theorem canonical_block_shear_two_sided_inverse (K : Matrix (Fin c) (Fin b) ℂ) :
+    fromBlocks 1 0 (-K) 1 * fromBlocks 1 0 K 1 = (1 : Matrix (Fin b ⊕ Fin c) (Fin b ⊕ Fin c) ℂ) ∧
+    fromBlocks 1 0 K 1 * fromBlocks 1 0 (-K) 1 = (1 : Matrix (Fin b ⊕ Fin c) (Fin b ⊕ Fin c) ℂ) := by
+  constructor <;> simp [fromBlocks_multiply, fromBlocks_one]
+
+end
+end JinWishart
+#print axioms JinWishart.canonical_block_shear_cancel
+#print axioms JinWishart.canonical_block_shear_restore
+#print axioms JinWishart.canonical_block_shear_two_sided_inverse

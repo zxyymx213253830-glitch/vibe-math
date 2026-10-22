@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T08:08:36.821987+00:00",
+  "ended_utc": "2026-10-22T08:08:47.935910+00:00",
+  "module": "JinWishartFormalization.CanonicalBlockShear",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalBlockShear.lean",
+  "source_sha256_before": "f9dbca56eb44196455f7e64c2b0da9a227e1fafc68131c1f68453afe731d05c3",
+  "source_sha256": "f9dbca56eb44196455f7e64c2b0da9a227e1fafc68131c1f68453afe731d05c3",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-block-CanonicalBlockShear-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "d09fdbc889866e41c2ea73480acf5de3796620d0e0c93e413cf6500cdb5611df",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

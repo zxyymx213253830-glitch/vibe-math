@@ -1,0 +1,22 @@
+{
+  "id": "L-canonical-block-canonical_block_gram_roots",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CanonicalBlockSpectrum",
+  "declaration": "JinWishart.canonical_block_gram_roots",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-block-canonical_block_gram_charpoly"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-block-canonical_block_gram_charpoly"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "CanonicalBlockSpectrum.lean": {
+      "sha256": "249236d56ab1aab48a46ab0906878a0897bb99cdd3d118260ce51cbda1428b58",
+      "supplied": "Full source"
+    },
+    "CanonicalBlockShear.lean": {
+      "sha256": "f9dbca56eb44196455f7e64c2b0da9a227e1fafc68131c1f68453afe731d05c3",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7531c439e36cbb8009e0341ebaf171358424a7bf215e4f61d2436db303b5bfbc"
+}

@@ -52,3 +52,7 @@
 - 2026-10-22T07:35:19.703846+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-minimum-FixedRankPositiveMinimum.json; human measure/model review remains REQUIRED.
 - 2026-10-22T07:55:27.189295+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-transport-v2-GramPositiveSpectrumTransport.json; human measure/model review remains REQUIRED.
 - 2026-10-22T07:55:34.420250+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-transport-v2-ActualCompressedPositiveMinimum.json; human measure/model review remains REQUIRED.
+- 2026-10-22T08:14:44.270581+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-v2-CanonicalBlockSpectrum.json; human measure/model review remains REQUIRED.
+- 2026-10-22T08:14:49.789386+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-v2-CanonicalBlockShear.json; human measure/model review remains REQUIRED.
+- 2026-10-22T08:15:48.679477+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-v2-CanonicalBlockSpectrum.json; human measure/model review remains REQUIRED.
+- 2026-10-22T08:15:54.848234+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-v2-CanonicalBlockShear.json; human measure/model review remains REQUIRED.

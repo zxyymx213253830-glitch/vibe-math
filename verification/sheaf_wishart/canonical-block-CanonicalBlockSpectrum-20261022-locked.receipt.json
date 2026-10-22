@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T08:08:25.304178+00:00",
+  "ended_utc": "2026-10-22T08:08:36.744054+00:00",
+  "module": "JinWishartFormalization.CanonicalBlockSpectrum",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalBlockSpectrum.lean",
+  "source_sha256_before": "249236d56ab1aab48a46ab0906878a0897bb99cdd3d118260ce51cbda1428b58",
+  "source_sha256": "249236d56ab1aab48a46ab0906878a0897bb99cdd3d118260ce51cbda1428b58",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-block-CanonicalBlockSpectrum-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "e03f66c9e21a348b08c06af2fc6155e0ced44ebe7371de74373f2939c2801137",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

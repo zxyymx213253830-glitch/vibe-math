@@ -1,0 +1,1 @@
+Unaccepted control implementation v1: SymPy charpoly factor sorting raised TypeError on unsimplified conjugate complex products. Normalize each Gram entry before charpoly. No output JSON and no evidence accepted.

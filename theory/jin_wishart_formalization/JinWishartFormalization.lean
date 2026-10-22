@@ -1,3 +1,5 @@
+import JinWishartFormalization.CanonicalBlockSpectrum
+import JinWishartFormalization.CanonicalBlockShear
 import JinWishartFormalization.GramPositiveSpectrumTransport
 import JinWishartFormalization.ActualCompressedPositiveMinimum
 import JinWishartFormalization.FinitePositiveMinimum

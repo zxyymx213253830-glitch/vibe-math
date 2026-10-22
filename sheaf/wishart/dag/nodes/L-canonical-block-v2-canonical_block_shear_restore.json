@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-block-v2-canonical_block_shear_restore",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CanonicalBlockShear",
+  "declaration": "JinWishart.canonical_block_shear_restore",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-block-v2-canonical_block_shear_cancel"
+  ],
+  "proof": [
+    {
+      "text": "Exact unchanged source; independent eight public type checks and scoped P4 unchanged. Private helper remains checked transitively, not a public target.",
+      "uses": [
+        "L-canonical-block-v2-canonical_block_shear_cancel"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-v2-CanonicalBlockShear.json",
+    "source_sha256": "f9dbca56eb44196455f7e64c2b0da9a227e1fafc68131c1f68453afe731d05c3"
+  }
+}

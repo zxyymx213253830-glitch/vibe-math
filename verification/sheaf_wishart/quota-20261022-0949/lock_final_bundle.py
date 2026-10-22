@@ -1,7 +1,7 @@
 """Reusable immutable final-bundle gate; ordinary quota run ownership required."""
 from pathlib import Path
 from datetime import datetime,timezone
-import sys,argparse
+import sys,argparse,re
 R=Path(__file__).resolve().parents[3];run=Path(__file__).parent
 sys.path.insert(0,str(R/'sheaf/wishart/tools'))
 import sheaf as a
@@ -20,7 +20,13 @@ for name in args.modules:
     seen.add(d);deps[a.rel(p)]=a.sha(p);o=a.LIBRARY/Path(d.replace('.','/')+'.olean');deps[a.rel(o)]=a.sha(o);visit(p)
  visit(src);deps[a.rel(src)]=a.sha(src)
  for p in [a.LEAN/'lean-toolchain',a.LEAN/'lake-manifest.json']:deps[a.rel(p)]=a.sha(p)
- statements=a.statements(src)
+ # Only explicit public exports are queue targets. Private helper bodies remain
+ # source-hash locked and transitively kernel checked, not invented public names.
+ body=src.read_text(encoding='utf-8');all_statements=a.statements(src)
+ public=['JinWishart.'+n for n in re.findall(r'^theorem\s+(\w+)',body,re.M)]
+ printed=re.findall(r'^#print axioms (\S+)',body,re.M)
+ assert public==printed and public, 'Public declarations must exactly match explicit axiom witnesses'
+ statements={n:all_statements[n] for n in public}
  a.write(lp,dict(created_utc=a.now(),module=mod,source=a.rel(src),statements=statements,definition_dependencies=deps,type_check_source=a.rel(checker),type_check_source_sha256=a.sha(checker),locked_local_definitions={}))
  a.validate_locks(a.rel(lp));locks.append((tag,src,mod,lp));nodes=[]
  for index,decl in enumerate(statements):
