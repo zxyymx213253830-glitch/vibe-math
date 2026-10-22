@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T08:36:41.322389+00:00",
+  "ended_utc": "2026-10-22T08:37:05.180271+00:00",
+  "module": "JinWishartFormalization.WideRowInverseMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/WideRowInverseMoments.lean",
+  "source_sha256_before": "e47ff4ff8cab26c478f80dfcb7d742e73605d3041104f03cdb32a2a49a81a203",
+  "source_sha256": "e47ff4ff8cab26c478f80dfcb7d742e73605d3041104f03cdb32a2a49a81a203",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/wide-row-inverse-WideRowInverseMoments-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "9a07a640e13b983eb68aacf817c93855104462d678cdda1f83cea09c952983f7",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

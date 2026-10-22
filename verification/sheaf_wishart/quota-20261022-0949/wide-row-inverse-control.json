@@ -1,0 +1,161 @@
+{
+  "status": "PASS controls only; not an inverse-moment theorem",
+  "seed": 2026102220,
+  "checks": 42,
+  "check_labels": [
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "exact-forced-zero-roots-versus-small-side",
+    "adjoint-column-Gram-is-original-row-Gram",
+    "known-central-one-row-gamma-fractional-inverse-moment",
+    "known-central-one-row-gamma-fractional-inverse-moment",
+    "known-central-one-row-gamma-fractional-inverse-moment",
+    "known-central-one-row-gamma-fractional-inverse-moment",
+    "known-critical-local-log-divergence-reference",
+    "negative-control-wide-ordinary-column-minimum-is-zero"
+  ],
+  "cases": [
+    {
+      "m": 1,
+      "n": 1,
+      "shifted": false,
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "shifted": true,
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "shifted": false,
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "shifted": true,
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "shifted": false,
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "shifted": true,
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "n": 4,
+      "shifted": false,
+      "rank": 1
+    },
+    {
+      "m": 1,
+      "n": 4,
+      "shifted": true,
+      "rank": 1
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "shifted": false,
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "shifted": true,
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "shifted": false,
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "shifted": true,
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "shifted": false,
+      "rank": 2
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "shifted": true,
+      "rank": 2
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "shifted": false,
+      "rank": 3
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "shifted": true,
+      "rank": 3
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "shifted": false,
+      "rank": 3
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "shifted": true,
+      "rank": 3
+    }
+  ],
+  "source_sha256": "bbd4393290aa3064d3d445b7a3087bbaf382c51fb8ad6644196ec78b3e4e4bf1",
+  "seconds": 0.16425879999587778
+}

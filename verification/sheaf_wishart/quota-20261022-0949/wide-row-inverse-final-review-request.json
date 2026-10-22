@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "WideRowInverseMoments.lean": {
+      "sha256": "e47ff4ff8cab26c478f80dfcb7d742e73605d3041104f03cdb32a2a49a81a203",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "263a4bb0c205dd95b1b44c7b41925fed94d43b6427b80127b3b1c868016d1fc9"
+}

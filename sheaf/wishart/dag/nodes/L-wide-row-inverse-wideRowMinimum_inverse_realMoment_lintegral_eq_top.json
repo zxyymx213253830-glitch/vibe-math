@@ -1,0 +1,24 @@
+{
+  "id": "L-wide-row-inverse-wideRowMinimum_inverse_realMoment_lintegral_eq_top",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.WideRowInverseMoments",
+  "declaration": "JinWishart.wideRowMinimum_inverse_realMoment_lintegral_eq_top",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-wide-row-inverse-wideRowMinimum_inverse_realMoment_integrable_iff"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-wide-row-inverse-wideRowMinimum_inverse_realMoment_integrable_iff"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-wide-row-inverse-WideRowInverseMoments.json",
+    "source_sha256": "e47ff4ff8cab26c478f80dfcb7d742e73605d3041104f03cdb32a2a49a81a203"
+  }
+}

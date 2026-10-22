@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "wide-row-inverse-WideRowInverseMoments",
+    "module": "WideRowInverseMoments",
+    "nodes": [
+      [
+        "L-wide-row-inverse-wideRowMinimum_inverse_realMoment_integrable_iff",
+        "wideRowMinimum_inverse_realMoment_integrable_iff",
+        []
+      ],
+      [
+        "L-wide-row-inverse-wideRowMinimum_inverse_realMoment_lintegral_eq_top",
+        "wideRowMinimum_inverse_realMoment_lintegral_eq_top",
+        [
+          "L-wide-row-inverse-wideRowMinimum_inverse_realMoment_integrable_iff"
+        ]
+      ]
+    ]
+  }
+]
