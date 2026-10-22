@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "86a556eaf9245488044571c9999ba6ec1112f4162d737c91f66728cdba0d7ec1",
+  "target_lock_sha256": "d3c98e7eb5e481e8ecb3abd9b78800766fca171055fedb1ad8a44fdf1b10511b",
+  "leaf": {
+    "started_utc": "2026-10-22T19:22:44.143912+00:00",
+    "ended_utc": "2026-10-22T19:22:58.266971+00:00",
+    "module": "JinWishartFormalization.CanonicalPhysicalModel",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalPhysicalModel.lean",
+    "source_sha256_before": "86a556eaf9245488044571c9999ba6ec1112f4162d737c91f66728cdba0d7ec1",
+    "source_sha256": "86a556eaf9245488044571c9999ba6ec1112f4162d737c91f66728cdba0d7ec1",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/canonical-physical-model-CanonicalPhysicalModel-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "f8c998967092e92511bc583f2f8563d371cf02df0010769ac5f970d217479550",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T19:22:58.268685+00:00",
+    "ended_utc": "2026-10-22T19:23:12.222078+00:00",
+    "module": "SheafCanonicalPhysicalModelTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCanonicalPhysicalModelTargets.lean",
+    "source_sha256_before": "f9a24b67c0c3617bf11467b0a00fa7882a24f68bb5c3d2148bd6b96547e62047",
+    "source_sha256": "f9a24b67c0c3617bf11467b0a00fa7882a24f68bb5c3d2148bd6b96547e62047",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/canonical-physical-model-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "e4ee69d823366bf04afc4c15de19547e8f71848f241e7c48b92aed11c738f8a7",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -71,3 +71,4 @@
 - 2026-10-22T19:21:12.908704+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-matrix-model-CompressedJointKernelInjectivity.json; human measure/model review remains REQUIRED.
 - 2026-10-22T19:21:22.465194+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-matrix-model-JointKernelCanonicalMatrix.json; human measure/model review remains REQUIRED.
 - 2026-10-22T19:21:32.795846+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-matrix-model-CanonicalSumNoiseBlockLaw.json; human measure/model review remains REQUIRED.
+- 2026-10-22T19:26:47.706947+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-physical-model-CanonicalPhysicalModel.json; human measure/model review remains REQUIRED.

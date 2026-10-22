@@ -1,3 +1,4 @@
+import JinWishartFormalization.CanonicalPhysicalModel
 import JinWishartFormalization.CompressedJointKernelInjectivity
 import JinWishartFormalization.JointKernelCanonicalMatrix
 import JinWishartFormalization.CanonicalSumNoiseBlockLaw

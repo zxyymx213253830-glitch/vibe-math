@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:21:46.974741+00:00",
+  "ended_utc": "2026-10-22T19:21:59.946399+00:00",
+  "module": "JinWishartFormalization.CanonicalPhysicalModel",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalPhysicalModel.lean",
+  "source_sha256_before": "86a556eaf9245488044571c9999ba6ec1112f4162d737c91f66728cdba0d7ec1",
+  "source_sha256": "86a556eaf9245488044571c9999ba6ec1112f4162d737c91f66728cdba0d7ec1",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-canonical-physical-model-v1.txt",
+  "log_exists": true,
+  "log_sha256": "f8c998967092e92511bc583f2f8563d371cf02df0010769ac5f970d217479550",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

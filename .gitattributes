@@ -412,3 +412,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/compressed_joint_injectivity_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CANONICAL_MATRIX_MODEL.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CanonicalPhysicalModel.lean -text whitespace=cr-at-eol
+
+/experiments/canonical_physical_model_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CANONICAL_PHYSICAL_MODEL.md -text whitespace=cr-at-eol

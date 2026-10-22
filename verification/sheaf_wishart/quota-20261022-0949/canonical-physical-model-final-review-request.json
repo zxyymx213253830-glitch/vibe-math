@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CanonicalPhysicalModel.lean": {
+      "sha256": "86a556eaf9245488044571c9999ba6ec1112f4162d737c91f66728cdba0d7ec1",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "d295e97cb9a1d6de3f7ee2c2a118b07034a881afc2f30e48c4679a26eba71382"
+}

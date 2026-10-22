@@ -1,0 +1,20 @@
+{
+  "id": "L-canonical-physical-model-canonical_physical_sample_block_identity",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CanonicalPhysicalModel",
+  "declaration": "JinWishart.canonical_physical_sample_block_identity",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-physical-model-CanonicalPhysicalModel.json",
+    "source_sha256": "86a556eaf9245488044571c9999ba6ec1112f4162d737c91f66728cdba0d7ec1"
+  }
+}

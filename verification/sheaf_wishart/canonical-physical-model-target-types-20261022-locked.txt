@@ -1,0 +1,31 @@
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCanonicalPhysicalModelTargets.lean:12:5: warning: Variable name `hBT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hBT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCanonicalPhysicalModelTargets.lean:13:5: warning: Variable name `hMean` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMean
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCanonicalPhysicalModelTargets.lean:25:36: warning: Variable name `hU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCanonicalPhysicalModelTargets.lean:26:5: warning: Variable name `hBT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hBT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCanonicalPhysicalModelTargets.lean:27:5: warning: Variable name `hMean` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMean
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SHEAF_TARGET_TYPES_EQ PASS

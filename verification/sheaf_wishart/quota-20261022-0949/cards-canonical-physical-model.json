@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "canonical-physical-model-CanonicalPhysicalModel",
+    "module": "CanonicalPhysicalModel",
+    "nodes": [
+      [
+        "L-canonical-physical-model-canonical_physical_sample_block_identity",
+        "canonical_physical_sample_block_identity",
+        []
+      ],
+      [
+        "L-canonical-physical-model-canonical_physical_sample_block_law",
+        "canonical_physical_sample_block_law",
+        [
+          "L-canonical-physical-model-canonical_physical_sample_block_identity"
+        ]
+      ]
+    ]
+  }
+]

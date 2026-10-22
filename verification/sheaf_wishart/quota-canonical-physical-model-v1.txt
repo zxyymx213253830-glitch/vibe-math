@@ -1,0 +1,2 @@
+'JinWishart.canonical_physical_sample_block_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.canonical_physical_sample_block_law' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,93 @@
+import JinWishartFormalization.CanonicalSumNoiseBlockLaw
+
+/-! Exact fixed canonical blocks of the physical sample (ZB+M)T, and their
+actual joint shifted proper-Gaussian law. Codex. Nonunitary column T is used
+only in the pointwise identity; whitening uses fixed U and V.
+[需人工审查] Actual-model coordinate and measure interpretation. -/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+def canonicalSumRowAction {m a c : ℕ} {ι : Type*}
+    (V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c))
+    (X : Matrix (Fin m) ι ℂ) : Matrix (Fin a ⊕ Fin c) ι ℂ :=
+  fun i j => V (WithLp.toLp 2 (fun k => X k j)) i
+
+private theorem matrixSingleColumn {ι κ : Type*} [Fintype ι] [Fintype κ] [DecidableEq κ]
+    (X : Matrix ι κ ℂ) (j : κ) :
+    X.toEuclideanLin (EuclideanSpace.single j 1)=WithLp.toLp 2 (fun i => X i j) := by
+  change WithLp.toLp 2 (X*ᵥ Pi.single j 1)=_
+  rw [Matrix.mulVec_single_one]
+  rfl
+
+theorem canonical_physical_sample_block_identity {m p n b a c : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ) (U : Matrix (Fin p) (Fin b) ℂ)
+    (V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c))
+    (A : Matrix (Fin a) (Fin b) ℂ) (H : Matrix (Fin c) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin c) ℂ)
+    (hBT : B*T=fromCols U 0)
+    (hMean : (fromBlocks A 0 H N).toEuclideanLin=
+      V.toLinearEquiv.toLinearMap.comp (M*T).toEuclideanLin)
+    (Z : Matrix (Fin m) (Fin p) ℂ) :
+    canonicalSumRowAction V ((Z*B+M)*T)=
+      fromBlocks
+        (fun i j => V (complexMatrixColumn (Z*U) j) (Sum.inl i)+A i j) 0
+        (fun i j => V (complexMatrixColumn (Z*U) j) (Sum.inr i)+H i j) N := by
+  have hphys : (Z*B+M)*T=fromCols (Z*U) 0+M*T := by
+    rw [Matrix.add_mul,Matrix.mul_assoc,hBT,Matrix.mul_fromCols,Matrix.mul_zero]
+  have hMeanCol (j : Fin b ⊕ Fin c) :
+      V (WithLp.toLp 2 (fun k => (M*T) k j))=
+        WithLp.toLp 2 (fun i => fromBlocks A 0 H N i j) := by
+    have h := congrArg (fun L => L (EuclideanSpace.single j 1)) hMean
+    change (fromBlocks A 0 H N).toEuclideanLin (EuclideanSpace.single j 1)=
+      V ((M*T).toEuclideanLin (EuclideanSpace.single j 1)) at h
+    rw [matrixSingleColumn,matrixSingleColumn] at h
+    exact h.symm
+  rw [hphys]
+  have hp (i : Fin a ⊕ Fin c) (j : Fin b ⊕ Fin c) :
+      canonicalSumRowAction V (fromCols (Z*U) 0+M*T) i j=
+        V (WithLp.toLp 2 (fun k => fromCols (Z*U) 0 k j)) i+fromBlocks A 0 H N i j := by
+    change V ((WithLp.toLp 2 (fun k => fromCols (Z*U) 0 k j))+
+      WithLp.toLp 2 (fun k => (M*T) k j)) i=_
+    rw [map_add,hMeanCol]
+    rfl
+  ext i j
+  rw [hp]
+  rcases i with i | i <;> rcases j with j | j
+  · rfl
+  · change V (0 : EuclideanSpace ℂ (Fin m)) (Sum.inl i)+0=0
+    simp
+  · rfl
+  · change V (0 : EuclideanSpace ℂ (Fin m)) (Sum.inr i)+N i j=N i j
+    simp
+
+theorem canonical_physical_sample_block_law {m p n b a c : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ) (U : Matrix (Fin p) (Fin b) ℂ)
+    (V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c))
+    (A : Matrix (Fin a) (Fin b) ℂ) (H : Matrix (Fin c) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin c) ℂ) (hU : Uᴴ*U=1)
+    (hBT : B*T=fromCols U 0)
+    (hMean : (fromBlocks A 0 H N).toEuclideanLin=
+      V.toLinearEquiv.toLinearMap.comp (M*T).toEuclideanLin) :
+    (stdGaussian (ComplexSample (m := m) (n := p))).map (fun z =>
+      ((canonicalSumRowAction V ((complexSampleMatrix z*B+M)*T)).toBlocks₁₁,
+       (canonicalSumRowAction V ((complexSampleMatrix z*B+M)*T)).toBlocks₂₁))=
+      (complexGaussianMatrixLaw A).prod (complexGaussianMatrixLaw H) := by
+  have he : (fun z : ComplexSample (m := m) (n := p) =>
+      ((canonicalSumRowAction V ((complexSampleMatrix z*B+M)*T)).toBlocks₁₁,
+       (canonicalSumRowAction V ((complexSampleMatrix z*B+M)*T)).toBlocks₂₁))=
+      (fun z =>
+        ((fun i j => V (complexMatrixColumn (complexSampleMatrix z*U) j) (Sum.inl i)+A i j),
+         (fun i j => V (complexMatrixColumn (complexSampleMatrix z*U) j) (Sum.inr i)+H i j))) := by
+    funext z
+    rw [canonical_physical_sample_block_identity B M T U V A H N hBT hMean]
+    rfl
+  rw [he]
+  exact actual_sum_isometric_noise_block_law U hU V A H
+
+end
+end JinWishart
+#print axioms JinWishart.canonical_physical_sample_block_identity
+#print axioms JinWishart.canonical_physical_sample_block_law
