@@ -1,0 +1,105 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetCurvature.lean:19:4: error: Tactic `apply` failed: could not unify the conclusion of `(le_div_iff₀ hr).mp`
+  ?m.162 * r ≤ ?m.163
+with the goal
+  u ≤ 2 / r * (1 + x * u)
+
+Note: The full type of `(le_div_iff₀ hr).mp` is
+  ?m.162 ≤ ?m.163 / r → ?m.162 * r ≤ ?m.163
+
+u r x : ℝ
+hu : 0 ≤ u
+hr : 0 < r
+hx : r / 2 < x
+hx0 : 0 < x
+hd : 0 < 1 + x * u
+hq : 0 ≤ u / (1 + x * u)
+⊢ u ≤ 2 / r * (1 + x * u)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetCurvature.lean:44:26: error: unsolved goals
+case e'_8
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hm : Measurable f
+hf : Integrable f μ
+hn : ∀ᵐ (a : α) ∂μ, 0 ≤ f a
+r : ℝ
+hr : 0 < r
+a : α
+ha : 0 ≤ f a
+x : ℝ
+hx : x ∈ Ioi (r / 2)
+hx0 : 0 < x
+hd : 1 + x * f a ≠ 0
+⊢ (fun x => f a * (1 + f a * x)⁻¹) = (fun x => f a) / fun x => 1 + f a * x
+
+case e'_9
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hm : Measurable f
+hf : Integrable f μ
+hn : ∀ᵐ (a : α) ∂μ, 0 ≤ f a
+r : ℝ
+hr : 0 < r
+a : α
+ha : 0 ≤ f a
+x : ℝ
+hx : x ∈ Ioi (r / 2)
+hx0 : 0 < x
+hd : 1 + x * f a ≠ 0
+⊢ -(f a ^ 2 * (1 + f a * x)⁻¹ ^ 2) = -(f a ^ 2 * (1 + f a * x * 2 + f a ^ 2 * x ^ 2)⁻¹)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetCurvature.lean:51:14: warning: This simp argument is unused:
+  div_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pow_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetCurvature.lean:65:2: error: Type mismatch: After simplification, term
+  HasDerivAt.sum fun i x => hi i
+ has type
+  HasDerivAt
+    (∑ x, fun x_1 =>
+      ∫ (a : ComplexSample),
+        actualCorrelatedEigenvalue B M x a / (1 + x_1 * actualCorrelatedEigenvalue B M x a) ∂stdGaussian ComplexSample)
+    (-∑ x,
+        ∫ (a : ComplexSample),
+          (actualCorrelatedEigenvalue B M x a / (1 + r * actualCorrelatedEigenvalue B M x a)) ^
+            2 ∂stdGaussian ComplexSample)
+    r
+but is expected to have type
+  HasDerivAt
+    (fun x =>
+      ∑ x_1,
+        ∫ (z : ComplexSample),
+          actualCorrelatedEigenvalue B M x_1 z /
+            (1 + x * actualCorrelatedEigenvalue B M x_1 z) ∂stdGaussian ComplexSample)
+    (-∑ x,
+        ∫ (z : ComplexSample),
+          (actualCorrelatedEigenvalue B M x z / (1 + r * actualCorrelatedEigenvalue B M x z)) ^
+            2 ∂stdGaussian ComplexSample)
+    r
+'JinWishart.nonnegative_resolvent_square_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_resolvent_hasDerivAt' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_resolvent_hasDerivAt' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_second_deriv' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

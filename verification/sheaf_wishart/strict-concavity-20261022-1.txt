@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetStrictConcavity.lean:62:6: error: linarith failed to find a contradiction
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hR : 0 < min m (B.fromRows M).rank
+r : ℝ
+hr : 0 < r
+K : ComplexSample → ℝ :=
+  fun z => ∑ i, (actualCorrelatedEigenvalue B M i z / (1 + r * actualCorrelatedEigenvalue B M i z)) ^ 2
+hi :
+  ∀ (i : Fin (Fintype.card (Fin n))),
+    Integrable (fun a => (actualCorrelatedEigenvalue B M i a / (1 + r * actualCorrelatedEigenvalue B M i a)) ^ 2)
+      (stdGaussian ComplexSample)
+hK : Integrable K (stdGaussian ComplexSample)
+hKn : ∀ (z : ComplexSample), 0 ≤ K z
+hKp : ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample, 0 < K z
+hz : ∫ (z : ComplexSample), K z ∂stdGaussian ComplexSample = 0
+hae : K =ᵐ[stdGaussian ComplexSample] 0
+z : ComplexSample
+hpz : 0 < K z
+hzz : K z = 0 z
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetStrictConcavity.lean:92:10: error(lean.unknownIdentifier): Unknown constant `neg_neg.mpr`
+'JinWishart.gram_resolvent_square_sum_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_eigenvalues_zero_of_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_curvature_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_second_deriv_nonpos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_concave' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_strictConcave' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_zero_of_generic_rank_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:09:10.287305+00:00",
+  "ended_utc": "2026-10-22T02:09:20.036392+00:00",
+  "module": "JinWishartFormalization.ExpectedLogDetCurvature",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ExpectedLogDetCurvature.lean",
+  "source_sha256_before": "9b6e166275d304fdd5fa01d2b45663afb3fac2f1ffa5b7428c4ac3d1868a68cf",
+  "source_sha256": "9b6e166275d304fdd5fa01d2b45663afb3fac2f1ffa5b7428c4ac3d1868a68cf",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/curvature-20261022-3.txt",
+  "log_exists": true,
+  "log_sha256": "db9b980bdab5ab70dad4803094c1916889159a9a8613fc5cb1c3c148133040ea",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

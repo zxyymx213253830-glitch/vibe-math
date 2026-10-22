@@ -1,3 +1,5 @@
+import JinWishartFormalization.ExpectedLogDetCurvature
+import JinWishartFormalization.ExpectedLogDetStrictConcavity
 import JinWishartFormalization.FiniteSubsetFunctionSum
 import JinWishartFormalization.SubsetCauchyBinet
 import JinWishartFormalization.GramAllMinorCoefficient

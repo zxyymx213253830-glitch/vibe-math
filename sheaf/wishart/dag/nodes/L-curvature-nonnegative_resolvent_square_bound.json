@@ -1,0 +1,20 @@
+{
+  "id": "L-curvature-nonnegative_resolvent_square_bound",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ExpectedLogDetCurvature",
+  "declaration": "JinWishart.nonnegative_resolvent_square_bound",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Full source and literal independent expected type locked. Includes zero shapes; stochastic inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-curvature.json",
+    "source_sha256": "9b6e166275d304fdd5fa01d2b45663afb3fac2f1ffa5b7428c4ac3d1868a68cf"
+  }
+}

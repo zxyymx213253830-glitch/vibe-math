@@ -1,0 +1,24 @@
+{
+  "id": "L-curvature-actualCorrelated_expected_resolvent_hasDerivAt",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ExpectedLogDetCurvature",
+  "declaration": "JinWishart.actualCorrelated_expected_resolvent_hasDerivAt",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-curvature-integral_resolvent_hasDerivAt"
+  ],
+  "proof": [
+    {
+      "text": "Full source and literal independent expected type locked. Includes zero shapes; stochastic inherited measure/model review required.",
+      "uses": [
+        "L-curvature-integral_resolvent_hasDerivAt"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-curvature.json",
+    "source_sha256": "9b6e166275d304fdd5fa01d2b45663afb3fac2f1ffa5b7428c4ac3d1868a68cf"
+  }
+}

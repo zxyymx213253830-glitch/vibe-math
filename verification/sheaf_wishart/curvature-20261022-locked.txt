@@ -1,0 +1,7 @@
+'JinWishart.nonnegative_resolvent_square_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_resolvent_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_resolvent_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_deriv_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_second_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]

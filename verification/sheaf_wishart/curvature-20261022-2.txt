@@ -1,0 +1,85 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetCurvature.lean:45:26: error: unsolved goals
+case e'_8
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hm : Measurable f
+hf : Integrable f μ
+hn : ∀ᵐ (a : α) ∂μ, 0 ≤ f a
+r : ℝ
+hr : 0 < r
+a : α
+ha : 0 ≤ f a
+x : ℝ
+hx : x ∈ Ioi (r / 2)
+hx0 : 0 < x
+hd : 1 + x * f a ≠ 0
+⊢ (fun x => f a * (1 + f a * x)⁻¹) = fun y => f a * (1 + f a * id y)⁻¹
+
+case e'_9
+α : Type u_1
+inst✝ : MeasurableSpace α
+μ : Measure α
+f : α → ℝ
+hm : Measurable f
+hf : Integrable f μ
+hn : ∀ᵐ (a : α) ∂μ, 0 ≤ f a
+r : ℝ
+hr : 0 < r
+a : α
+ha : 0 ≤ f a
+x : ℝ
+hx : x ∈ Ioi (r / 2)
+hx0 : 0 < x
+hd : 1 + x * f a ≠ 0
+⊢ -f a ^ 2 =
+    -(f a ^ 2 * (1 + f a * id x * 2 + f a ^ 2 * id x ^ 2)⁻¹) -
+        f a ^ 3 * x * (1 + f a * id x * 2 + f a ^ 2 * id x ^ 2)⁻¹ * 2 -
+      f a ^ 4 * x ^ 2 * (1 + f a * id x * 2 + f a ^ 2 * id x ^ 2)⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExpectedLogDetCurvature.lean:66:2: error: Type mismatch: After simplification, term
+  HasDerivAt.sum fun i x => hi i
+ has type
+  HasDerivAt
+    (∑ x, fun x_1 =>
+      ∫ (a : ComplexSample),
+        actualCorrelatedEigenvalue B M x a / (1 + x_1 * actualCorrelatedEigenvalue B M x a) ∂stdGaussian ComplexSample)
+    (-∑ x,
+        ∫ (a : ComplexSample),
+          (actualCorrelatedEigenvalue B M x a / (1 + r * actualCorrelatedEigenvalue B M x a)) ^
+            2 ∂stdGaussian ComplexSample)
+    r
+but is expected to have type
+  HasDerivAt
+    (fun x =>
+      ∑ x_1,
+        ∫ (z : ComplexSample),
+          actualCorrelatedEigenvalue B M x_1 z /
+            (1 + x * actualCorrelatedEigenvalue B M x_1 z) ∂stdGaussian ComplexSample)
+    (-∑ x,
+        ∫ (z : ComplexSample),
+          (actualCorrelatedEigenvalue B M x z / (1 + r * actualCorrelatedEigenvalue B M x z)) ^
+            2 ∂stdGaussian ComplexSample)
+    r
+'JinWishart.nonnegative_resolvent_square_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integral_resolvent_hasDerivAt' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_resolvent_hasDerivAt' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_second_deriv' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

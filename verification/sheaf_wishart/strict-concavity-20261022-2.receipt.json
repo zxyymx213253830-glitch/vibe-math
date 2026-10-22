@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:10:58.149541+00:00",
+  "ended_utc": "2026-10-22T02:11:07.589131+00:00",
+  "module": "JinWishartFormalization.ExpectedLogDetStrictConcavity",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ExpectedLogDetStrictConcavity.lean",
+  "source_sha256_before": "ba761bb8cb0f3c6bdfe07b09fcd3f919705b4300cfe6117cf23cb1316b116891",
+  "source_sha256": "ba761bb8cb0f3c6bdfe07b09fcd3f919705b4300cfe6117cf23cb1316b116891",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/strict-concavity-20261022-2.txt",
+  "log_exists": true,
+  "log_sha256": "eee9e1984769227f4cdcc17bdebc95a0d1dc725bcc119fd1a88e105e5464a87b",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -30,3 +30,5 @@
 - 2026-10-22T02:02:25.783798+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-subset-sum.json; human measure/model review remains REQUIRED.
 - 2026-10-22T02:02:27.542897+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-subset-cb.json; human measure/model review remains REQUIRED.
 - 2026-10-22T02:02:29.466163+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-all-minor-coeff.json; human measure/model review remains REQUIRED.
+- 2026-10-22T02:16:10.341768+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-curvature.json; human measure/model review remains REQUIRED.
+- 2026-10-22T02:16:13.063418+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-strict-concavity.json; human measure/model review remains REQUIRED.

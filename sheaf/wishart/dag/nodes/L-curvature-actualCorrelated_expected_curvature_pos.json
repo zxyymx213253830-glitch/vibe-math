@@ -1,0 +1,24 @@
+{
+  "id": "L-curvature-actualCorrelated_expected_curvature_pos",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ExpectedLogDetStrictConcavity",
+  "declaration": "JinWishart.actualCorrelated_expected_curvature_pos",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-curvature-gram_eigenvalues_zero_of_rank_zero"
+  ],
+  "proof": [
+    {
+      "text": "Full source and literal independent expected type locked. Includes zero shapes; stochastic inherited measure/model review required.",
+      "uses": [
+        "L-curvature-gram_eigenvalues_zero_of_rank_zero"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-strict-concavity.json",
+    "source_sha256": "9d28b5f303a541e302d980bfcfc4be4b454d17889d246da3a650cfff0335b83b"
+  }
+}

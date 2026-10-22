@@ -1,0 +1,14 @@
+'JinWishart.gram_resolvent_square_sum_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_eigenvalues_zero_of_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_curvature_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_second_deriv_nonpos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_concave' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_strictConcave' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_zero_of_generic_rank_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_expected_logdet_strictConcave_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

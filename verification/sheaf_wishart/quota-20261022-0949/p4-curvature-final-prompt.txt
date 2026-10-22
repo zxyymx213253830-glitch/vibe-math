@@ -1,0 +1,241 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE ExpectedLogDetCurvature.lean
+import JinWishartFormalization.ExpectedLogDetDerivative
+import Mathlib.Analysis.Convex.Deriv
+
+/-! Positive-scale curvature under a first-moment hypothesis only.
+Codex. [需人工审查] Differentiation under the integral and actual model mapping.
+No inverse moments, fullrank or finite measure premise in the scalar theorem. -/
+open Matrix MeasureTheory ProbabilityTheory Filter Set
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem nonnegative_resolvent_square_bound (u r x : ℝ) (hu : 0≤u) (hr : 0<r)
+    (hx : r/2<x) : (u/(1+x*u))^2 ≤ (2/r)*u := by
+  have hx0 : 0<x := by linarith
+  have hd : 0<1+x*u := by positivity
+  have hq : 0≤u/(1+x*u) := div_nonneg hu hd.le
+  have hsmall : u/(1+x*u) ≤ 2/r := by
+    apply (div_le_iff₀ hd).2
+    rw [div_mul_eq_mul_div]
+    apply (le_div_iff₀ hr).2
+    nlinarith [mul_nonneg (show 0≤2*x-r by linarith) hu]
+  have hlarge : u/(1+x*u) ≤ u := by
+    apply (div_le_iff₀ hd).2
+    nlinarith [mul_nonneg hu (mul_nonneg hx0.le hu)]
+  simpa only [pow_two] using mul_le_mul hsmall hlarge hq (by positivity : 0≤2/r)
+
+theorem integral_resolvent_hasDerivAt {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (f : α→ℝ) (hm : Measurable f) (hf : Integrable f μ)
+    (hn : ∀ᵐ a ∂μ,0≤f a) (r : ℝ) (hr : 0<r) :
+    Integrable (fun a => (f a/(1+r*f a))^2) μ ∧
+    HasDerivAt (fun x : ℝ => ∫ a,f a/(1+x*f a) ∂μ)
+      (-(∫ a,(f a/(1+r*f a))^2 ∂μ)) r := by
+  have h := hasDerivAt_integral_of_dominated_loc_of_deriv_le
+    (s := Ioi (r/2)) (F := fun x a => f a/(1+x*f a))
+    (F' := fun x a => -(f a/(1+x*f a))^2)
+    (bound := fun a => (2/r)*f a) (by apply Ioi_mem_nhds; linarith)
+    (Filter.Eventually.of_forall (fun x => (hm.div (measurable_const.add (measurable_const.mul hm))).aestronglyMeasurable))
+    (integral_log_one_add_mul_hasDerivAt μ f hm hf hn r hr).1
+    (((hm.div (measurable_const.add (measurable_const.mul hm))).pow_const 2).neg.aestronglyMeasurable)
+    (by
+      filter_upwards [hn] with a ha
+      intro x hx
+      rw [Real.norm_eq_abs,abs_neg,abs_of_nonneg (sq_nonneg _)]
+      exact nonnegative_resolvent_square_bound (f a) r x ha hr hx)
+    (hf.const_mul (2/r)) (by
+      filter_upwards [hn] with a ha
+      intro x hx
+      have hx0 : 0<x := by change r/2<x at hx; linarith
+      have hd : 1+x*f a≠0 := (by positivity : 0<1+x*f a).ne'
+      convert (hasDerivAt_const x (f a)).fun_div
+        (((hasDerivAt_id x).mul_const (f a)).const_add 1) hd using 1
+      · rfl
+      · simp only [id_eq,zero_mul,zero_sub,div_pow]
+        ring)
+  exact ⟨by simpa using h.1.neg,by simpa only [integral_neg] using h.2⟩
+
+theorem actualCorrelated_expected_resolvent_hasDerivAt {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (r : ℝ) (hr : 0<r) :
+    HasDerivAt (fun x : ℝ => ∑ i,∫ z,
+      actualCorrelatedEigenvalue B M i z/(1+x*actualCorrelatedEigenvalue B M i z) ∂stdGaussian _)
+      (-(∑ i,∫ z,(actualCorrelatedEigenvalue B M i z/(1+r*actualCorrelatedEigenvalue B M i z))^2 ∂stdGaussian _)) r := by
+  classical
+  have hi (i : Fin (Fintype.card (Fin n))) :=
+    (integral_resolvent_hasDerivAt (stdGaussian _) (actualCorrelatedEigenvalue B M i)
+      (measurable_actualCorrelatedEigenvalue B M i) (integrable_actualCorrelatedEigenvalue B M i)
+      (ae_of_all _ (actualCorrelatedEigenvalue_nonneg B M i)) r hr).2
+  convert HasDerivAt.sum (u := Finset.univ) (fun i _ => hi i) using 1
+  · funext x
+    simp only [Finset.sum_apply]
+  · simp only [Finset.sum_neg_distrib]
+
+theorem actualCorrelated_expected_logdet_deriv_hasDerivAt {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (r : ℝ) (hr : 0<r) :
+    HasDerivAt (deriv (fun x : ℝ => ∫ z,actualCorrelatedMatrixLogDet B M x z ∂stdGaussian _))
+      (-(∑ i,∫ z,(actualCorrelatedEigenvalue B M i z/(1+r*actualCorrelatedEigenvalue B M i z))^2 ∂stdGaussian _)) r := by
+  have he : deriv (fun x : ℝ => ∫ z,actualCorrelatedMatrixLogDet B M x z ∂stdGaussian _) =ᶠ[𝓝 r]
+      (fun x : ℝ => ∑ i,∫ z,actualCorrelatedEigenvalue B M i z/(1+x*actualCorrelatedEigenvalue B M i z) ∂stdGaussian _) := by
+    filter_upwards [Ioi_mem_nhds hr] with x hx
+    exact (actualCorrelated_expected_logdet_hasDerivAt B M x hx).deriv
+  exact (actualCorrelated_expected_resolvent_hasDerivAt B M r hr).congr_of_eventuallyEq he
+
+theorem actualCorrelated_expected_logdet_second_deriv {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (r : ℝ) (hr : 0<r) :
+    (deriv^[2] (fun x : ℝ => ∫ z,actualCorrelatedMatrixLogDet B M x z ∂stdGaussian _)) r =
+      -(∑ i,∫ z,(actualCorrelatedEigenvalue B M i z/(1+r*actualCorrelatedEigenvalue B M i z))^2 ∂stdGaussian _) := by
+  exact (actualCorrelated_expected_logdet_deriv_hasDerivAt B M r hr).deriv
+
+end
+end JinWishart
+#print axioms JinWishart.nonnegative_resolvent_square_bound
+#print axioms JinWishart.integral_resolvent_hasDerivAt
+#print axioms JinWishart.actualCorrelated_expected_resolvent_hasDerivAt
+#print axioms JinWishart.actualCorrelated_expected_logdet_deriv_hasDerivAt
+#print axioms JinWishart.actualCorrelated_expected_logdet_second_deriv
+
+SOURCE ExpectedLogDetStrictConcavity.lean
+import JinWishartFormalization.ExpectedLogDetCurvature
+import JinWishartFormalization.CorrelatedLogDetGenericRank
+
+/-! Strict concavity is controlled exactly by the fixed model's generic rank.
+Codex. [需人工审查] Inherited AE rank, positive integration and model conventions.
+All finite shapes, arbitrary fixed complex B,M; no fullrank or inverse moments. -/
+open Matrix MeasureTheory ProbabilityTheory Filter Set
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem gram_resolvent_square_sum_pos {m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ)
+    (r : ℝ) (hr : 0<r) (hX : 0<X.rank) :
+    0<∑ i,((complexGram_posSemidef X).1.eigenvalues₀ i /
+      (1+r*(complexGram_posSemidef X).1.eigenvalues₀ i))^2 := by
+  classical
+  have hc : 0<∑ i, if 0<(complexGram_posSemidef X).1.eigenvalues₀ i then (1:ℝ) else 0 := by
+    rw [gram_positive_modes_eq_rank]
+    exact_mod_cast hX
+  obtain ⟨i,hi,hpos⟩ := (Finset.sum_pos_iff_of_nonneg (fun j _ => by positivity)).mp hc
+  have hp : 0<(complexGram_posSemidef X).1.eigenvalues₀ i := by
+    by_contra h
+    simp [h] at hpos
+  apply (Finset.sum_pos_iff_of_nonneg (fun j _ => sq_nonneg _)).2
+  exact ⟨i,hi,sq_pos_of_pos (div_pos hp (by positivity))⟩
+
+theorem gram_eigenvalues_zero_of_rank_zero {m n : ℕ} (X : Matrix (Fin m) (Fin n) ℂ)
+    (hX : X.rank=0) (i : Fin (Fintype.card (Fin n))) :
+    (complexGram_posSemidef X).1.eigenvalues₀ i=0 := by
+  classical
+  have hc : (∑ j,if 0<(complexGram_posSemidef X).1.eigenvalues₀ j then (1:ℝ) else 0)=0 := by
+    rw [gram_positive_modes_eq_rank,hX,Nat.cast_zero]
+  have hi := (Finset.sum_eq_zero_iff_of_nonneg (fun j _ => by positivity)).mp hc i (Finset.mem_univ i)
+  by_contra h
+  have hp : 0<(complexGram_posSemidef X).1.eigenvalues₀ i :=
+    lt_of_le_of_ne (complexGram_eigenvalues₀_nonneg X i) (Ne.symm h)
+  simp [hp] at hi
+
+theorem actualCorrelated_expected_curvature_pos {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hR : 0<min m (Matrix.fromRows B M).rank) (r : ℝ) (hr : 0<r) :
+    0<∑ i,∫ z,(actualCorrelatedEigenvalue B M i z/(1+r*actualCorrelatedEigenvalue B M i z))^2 ∂stdGaussian _ := by
+  classical
+  let K := fun z : ComplexSample (m := m) (n := p) =>
+    ∑ i,(actualCorrelatedEigenvalue B M i z/(1+r*actualCorrelatedEigenvalue B M i z))^2
+  have hi (i : Fin (Fintype.card (Fin n))) :=
+    (integral_resolvent_hasDerivAt (stdGaussian _) (actualCorrelatedEigenvalue B M i)
+      (measurable_actualCorrelatedEigenvalue B M i) (integrable_actualCorrelatedEigenvalue B M i)
+      (ae_of_all _ (actualCorrelatedEigenvalue_nonneg B M i)) r hr).1
+  have hK : Integrable K (stdGaussian _) := integrable_finsetSum Finset.univ (fun i _ => hi i)
+  have hKn : ∀ z,0≤K z := fun z => Finset.sum_nonneg (fun i _ => sq_nonneg _)
+  have hKp : ∀ᵐ z ∂stdGaussian _,0<K z := by
+    rw [matrix_fromRows_rank_eq] at hR
+    filter_upwards [actualCorrelatedRank_eq_generic_ae B M] with z hz
+    apply gram_resolvent_square_sum_pos (complexSampleMatrix z*B+M) r hr
+    omega
+  have hpos : 0<∫ z,K z ∂stdGaussian _ := by
+    have hne : (∫ z,K z ∂stdGaussian _)≠0 := by
+      intro hz
+      have hae := (integral_eq_zero_iff_of_nonneg_ae (ae_of_all _ hKn) hK).mp hz
+      obtain ⟨z,hpz,hzz⟩ := (hKp.and hae).exists
+      change K z=(0:ℝ) at hzz
+      linarith
+    exact lt_of_le_of_ne (integral_nonneg hKn) (Ne.symm hne)
+  simpa only [K,integral_finsetSum _ (fun i _ => hi i)] using hpos
+
+theorem actualCorrelated_expected_logdet_second_deriv_nonpos {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (r : ℝ) (hr : 0<r) :
+    (deriv^[2] (fun x : ℝ => ∫ z,actualCorrelatedMatrixLogDet B M x z ∂stdGaussian _)) r ≤ 0 := by
+  rw [actualCorrelated_expected_logdet_second_deriv B M r hr]
+  exact neg_nonpos.mpr (Finset.sum_nonneg (fun i _ => integral_nonneg (fun z => sq_nonneg _)))
+
+theorem actualCorrelated_expected_logdet_concave {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    ConcaveOn ℝ (Ioi 0) (fun x : ℝ => ∫ z,actualCorrelatedMatrixLogDet B M x z ∂stdGaussian _) := by
+  apply concaveOn_of_deriv2_nonpos' (convex_Ioi 0)
+  · intro r hr
+    exact (actualCorrelated_expected_logdet_hasDerivAt B M r hr).differentiableAt.differentiableWithinAt
+  · intro r hr
+    exact (actualCorrelated_expected_logdet_deriv_hasDerivAt B M r hr).differentiableAt.differentiableWithinAt
+  · exact fun r hr => actualCorrelated_expected_logdet_second_deriv_nonpos B M r hr
+
+theorem actualCorrelated_expected_logdet_strictConcave {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hR : 0<min m (Matrix.fromRows B M).rank) :
+    StrictConcaveOn ℝ (Ioi 0) (fun x : ℝ => ∫ z,actualCorrelatedMatrixLogDet B M x z ∂stdGaussian _) := by
+  apply strictConcaveOn_of_deriv2_neg' (convex_Ioi 0)
+  · intro r hr
+    exact (actualCorrelated_expected_logdet_hasDerivAt B M r hr).continuousAt.continuousWithinAt
+  · intro r hr
+    rw [actualCorrelated_expected_logdet_second_deriv B M r hr]
+    exact neg_lt_zero.mpr (actualCorrelated_expected_curvature_pos B M hR r hr)
+
+theorem actualCorrelated_expected_logdet_zero_of_generic_rank_zero {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hR : min m (Matrix.fromRows B M).rank=0) (r : ℝ) (hr : 0≤r) :
+    (∫ z,actualCorrelatedMatrixLogDet B M r z ∂stdGaussian _)=0 := by
+  classical
+  calc
+    _ = ∫ _z : ComplexSample (m := m) (n := p),(0:ℝ) ∂stdGaussian _ := by
+      apply integral_congr_ae
+      rw [matrix_fromRows_rank_eq] at hR
+      filter_upwards [actualCorrelatedRank_eq_generic_ae B M] with z hz
+      have hX : (complexSampleMatrix z*B+M).rank=0 := by omega
+      rw [actualCorrelatedMatrixLogDet_eq_spectral B M r hr z]
+      have he (i : Fin (Fintype.card (Fin n))) : actualCorrelatedEigenvalue B M i z=0 :=
+        gram_eigenvalues_zero_of_rank_zero _ hX i
+      simp [finiteSpectrumLogDet,he]
+    _ = _ := by simp
+
+theorem actualCorrelated_expected_logdet_strictConcave_iff {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    StrictConcaveOn ℝ (Ioi 0) (fun x : ℝ => ∫ z,actualCorrelatedMatrixLogDet B M x z ∂stdGaussian _) ↔
+      0<min m (Matrix.fromRows B M).rank := by
+  constructor
+  · intro hs
+    by_contra h
+    have hR : min m (Matrix.fromRows B M).rank=0 := Nat.eq_zero_of_not_pos h
+    have h1 := actualCorrelated_expected_logdet_zero_of_generic_rank_zero B M hR 1 (by norm_num)
+    have h2 := actualCorrelated_expected_logdet_zero_of_generic_rank_zero B M hR 2 (by norm_num)
+    have h3 := actualCorrelated_expected_logdet_zero_of_generic_rank_zero B M hR (3/2) (by norm_num)
+    have hs' := hs.2
+    have hh := hs' (x := 1) (by norm_num) (y := 2) (by norm_num) (by norm_num)
+      (a := (1/2:ℝ)) (b := (1/2:ℝ)) (by norm_num) (by norm_num) (by norm_num)
+    norm_num [smul_eq_mul,h1,h2,h3] at hh
+  · exact actualCorrelated_expected_logdet_strictConcave B M
+
+end
+end JinWishart
+#print axioms JinWishart.gram_resolvent_square_sum_pos
+#print axioms JinWishart.gram_eigenvalues_zero_of_rank_zero
+#print axioms JinWishart.actualCorrelated_expected_curvature_pos
+#print axioms JinWishart.actualCorrelated_expected_logdet_second_deriv_nonpos
+#print axioms JinWishart.actualCorrelated_expected_logdet_concave
+#print axioms JinWishart.actualCorrelated_expected_logdet_strictConcave
+#print axioms JinWishart.actualCorrelated_expected_logdet_zero_of_generic_rank_zero
+#print axioms JinWishart.actualCorrelated_expected_logdet_strictConcave_iff

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ExpectedLogDetCurvature.lean": {
+      "sha256": "9b6e166275d304fdd5fa01d2b45663afb3fac2f1ffa5b7428c4ac3d1868a68cf",
+      "supplied": "Full source"
+    },
+    "ExpectedLogDetStrictConcavity.lean": {
+      "sha256": "9d28b5f303a541e302d980bfcfc4be4b454d17889d246da3a650cfff0335b83b",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "36fb029cdb373b77f6093b74af5614cd6705fe5739d6ecd1716f9377787d4853"
+}
