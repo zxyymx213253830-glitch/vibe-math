@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProperGaussianAdjointLaw.lean:45:61: error: unsolved goals
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+z : Fin m × Fin n → ℂ
+i : Fin m
+j : Fin n
+⊢ ((fun X => X.map ⇑(starRingEnd ℂ)) ∘ fun z i j => z (i, j) + M i j) z i j =
+    (starRingEnd ℂ) (z (i, j)) + (starRingEnd ℂ) (M i j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProperGaussianAdjointLaw.lean:48:10: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.standardComplexScalarLaw_map_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.standardComplexPiLaw_map_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_conjugate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_conjTranspose' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

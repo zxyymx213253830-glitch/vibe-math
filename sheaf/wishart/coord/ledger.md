@@ -57,3 +57,4 @@
 - 2026-10-22T08:15:48.679477+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-v2-CanonicalBlockSpectrum.json; human measure/model review remains REQUIRED.
 - 2026-10-22T08:15:54.848234+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-block-v2-CanonicalBlockShear.json; human measure/model review remains REQUIRED.
 - 2026-10-22T08:23:42.220300+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-shear-norm-CanonicalShearNorm.json; human measure/model review remains REQUIRED.
+- 2026-10-22T08:33:35.979486+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-proper-gaussian-adjoint-ProperGaussianAdjointLaw.json; human measure/model review remains REQUIRED.

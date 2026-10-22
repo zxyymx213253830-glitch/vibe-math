@@ -1,0 +1,20 @@
+{
+  "id": "L-proper-gaussian-adjoint-standardComplexScalarLaw_map_conj",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ProperGaussianAdjointLaw",
+  "declaration": "JinWishart.standardComplexScalarLaw_map_conj",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-proper-gaussian-adjoint-ProperGaussianAdjointLaw.json",
+    "source_sha256": "1cf02819fd282a65a4807ce0c0c07d538e0da8447b0e41e0aa97a3034517627d"
+  }
+}

@@ -352,3 +352,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/canonical_shear_norm_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CANONICAL_SHEAR_NORM.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ProperGaussianAdjointLaw.lean -text whitespace=cr-at-eol
+
+/experiments/proper_gaussian_adjoint_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_PROPER_GAUSSIAN_ADJOINT_LAW.md -text whitespace=cr-at-eol

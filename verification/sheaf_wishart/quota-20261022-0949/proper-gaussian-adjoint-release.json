@@ -1,0 +1,13 @@
+{
+ "name":"proper-gaussian-adjoint",
+ "review":"proper-gaussian-adjoint-final",
+ "resolution":"notes/WISHART_PROPER_GAUSSIAN_ADJOINT_LAW.md",
+ "facade":"facade-79",
+ "total":694,
+ "new_count":4,
+ "control_script":"experiments/proper_gaussian_adjoint_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/proper-gaussian-adjoint-control-v2.json",
+ "seed":2026102219,
+ "commit":"Transport full fixed-mean proper complex Gaussian law under adjoint",
+ "scope":"2026-10-22续跑第十五里程碑：694绑定项（692 theorem/instance+2构造），auditPASS/facade79真实exit0。新增4声明/1模块：properCN1标量及有限乘积共轭不变，任意固定m-by-n均值M实际全矩阵law经共轭/共轭转置分别到conjM/M^H均值的相应模型，含零维；固定非实M不能保持不变。复用旧坐标product law与transpose实等距，不重建密度或假设Gaussian独立。65项16形状精确坐标/方差/均值控制v2，4字面类型和完整最终源码真实Qoder P4绑定；v1-v3透明度/缺域类型/函数组合失败保留，v4真实exit0。P4 conjLIE/transpose等距/erw/空Fin疑问用锁定定义精确裁决。一般奇异最小正谱逆矩阈值仍OPEN，下一实质可把旧tall IID逆矩阈值经此law及正谱转置桥输运至wide最小正值，或推进固定正规形Gaussian投影独立law。本轮84打印声明/29模块非84概率突破。当前普通额度继续可用，单协调器技术租约08:57UTC非用户截止；人审仍需，冻结发表产物未改/fullLake及Linux独立内核NOT_RUN。"
+}

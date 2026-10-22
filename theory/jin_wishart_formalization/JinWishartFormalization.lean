@@ -1,3 +1,4 @@
+import JinWishartFormalization.ProperGaussianAdjointLaw
 import JinWishartFormalization.CanonicalShearNorm
 import JinWishartFormalization.CanonicalBlockSpectrum
 import JinWishartFormalization.CanonicalBlockShear

@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-proper-gaussian-adjoint-ProperGaussianAdjointLaw.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-proper-gaussian-adjoint-ProperGaussianAdjointLaw.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/proper-gaussian-adjoint-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-proper-gaussian-adjoint-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-proper-gaussian-adjoint-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-proper-gaussian-adjoint-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/proper-gaussian-adjoint-final-snapshot",
+    "resolution": "notes/WISHART_PROPER_GAUSSIAN_ADJOINT_LAW.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-79.receipt.json"
+}

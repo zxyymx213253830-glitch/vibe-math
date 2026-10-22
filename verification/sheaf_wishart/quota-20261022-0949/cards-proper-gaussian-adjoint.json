@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "proper-gaussian-adjoint-ProperGaussianAdjointLaw",
+    "module": "ProperGaussianAdjointLaw",
+    "nodes": [
+      [
+        "L-proper-gaussian-adjoint-standardComplexScalarLaw_map_conj",
+        "standardComplexScalarLaw_map_conj",
+        []
+      ],
+      [
+        "L-proper-gaussian-adjoint-standardComplexPiLaw_map_conj",
+        "standardComplexPiLaw_map_conj",
+        [
+          "L-proper-gaussian-adjoint-standardComplexScalarLaw_map_conj"
+        ]
+      ],
+      [
+        "L-proper-gaussian-adjoint-complexGaussianMatrixLaw_conjugate",
+        "complexGaussianMatrixLaw_conjugate",
+        [
+          "L-proper-gaussian-adjoint-standardComplexPiLaw_map_conj"
+        ]
+      ],
+      [
+        "L-proper-gaussian-adjoint-complexGaussianMatrixLaw_conjTranspose",
+        "complexGaussianMatrixLaw_conjTranspose",
+        [
+          "L-proper-gaussian-adjoint-complexGaussianMatrixLaw_conjugate"
+        ]
+      ]
+    ]
+  }
+]

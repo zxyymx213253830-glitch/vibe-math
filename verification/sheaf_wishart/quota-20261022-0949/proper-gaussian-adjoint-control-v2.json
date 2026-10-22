@@ -1,0 +1,156 @@
+{
+  "status": "PASS exact controls only; not a general measure-law proof",
+  "seed": 2026102219,
+  "checks": 65,
+  "cases": [
+    {
+      "m": 0,
+      "n": 0,
+      "real_dimension": 0
+    },
+    {
+      "m": 0,
+      "n": 1,
+      "real_dimension": 0
+    },
+    {
+      "m": 0,
+      "n": 2,
+      "real_dimension": 0
+    },
+    {
+      "m": 0,
+      "n": 3,
+      "real_dimension": 0
+    },
+    {
+      "m": 1,
+      "n": 0,
+      "real_dimension": 0
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "real_dimension": 2
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "real_dimension": 4
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "real_dimension": 6
+    },
+    {
+      "m": 2,
+      "n": 0,
+      "real_dimension": 0
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "real_dimension": 4
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "real_dimension": 8
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "real_dimension": 12
+    },
+    {
+      "m": 3,
+      "n": 0,
+      "real_dimension": 0
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "real_dimension": 6
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "real_dimension": 12
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "real_dimension": 18
+    }
+  ],
+  "check_labels": [
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "empty-law-singleton-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "empty-law-singleton-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "empty-law-singleton-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "empty-law-singleton-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "empty-law-singleton-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "empty-law-singleton-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "empty-law-singleton-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "signed-coordinate-orthogonal-bijection",
+    "actual-properCN1-encoded-adjoint",
+    "fixed-mean-must-adjoint",
+    "known-proper-variance-one-reference",
+    "negative-control-untransformed-mean"
+  ],
+  "source_sha256": "20a13a38c9362050814b440a020a32876a9012beea3654b4ea2baaf023cf3fad",
+  "seconds": 0.041956800007028505
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T08:29:31.953105+00:00",
+  "ended_utc": "2026-10-22T08:29:41.353116+00:00",
+  "module": "JinWishartFormalization.ProperGaussianAdjointLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ProperGaussianAdjointLaw.lean",
+  "source_sha256_before": "9638c1933d921d4deedeaec2d6eb8d2bf3d4862648a8bcb62b69a7957aff9993",
+  "source_sha256": "9638c1933d921d4deedeaec2d6eb8d2bf3d4862648a8bcb62b69a7957aff9993",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-proper-gaussian-adjoint-v3.txt",
+  "log_exists": true,
+  "log_sha256": "2c217c5c0d91bd66126596ffd69ad8aec5319c249792e5783a33feda77c9a068",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

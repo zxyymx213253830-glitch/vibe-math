@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ProperGaussianAdjointLaw.lean": {
+      "sha256": "1cf02819fd282a65a4807ce0c0c07d538e0da8447b0e41e0aa97a3034517627d",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "25628aa3e4f044df3a2c9d498e4f3304f1f5bf91ec87911f17b76bde29a574ee"
+}

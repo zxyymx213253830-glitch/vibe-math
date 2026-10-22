@@ -1,0 +1,28 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProperGaussianAdjointLaw.lean:21:10: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ProperGaussianAdjointLaw.lean:40:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map ?m.38 (Measure.map ?m.39 ?m.37)
+in the target expression
+  Measure.map (fun X => X.map star)
+      (Measure.map (fun z i j => z (i, j) + M i j) (standardComplexPiLaw (Fin m × Fin n))) =
+    complexGaussianMatrixLaw (M.map star)
+
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+⊢ Measure.map (fun X => X.map star)
+      (Measure.map (fun z i j => z (i, j) + M i j) (standardComplexPiLaw (Fin m × Fin n))) =
+    complexGaussianMatrixLaw (M.map star)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    M i
+'JinWishart.standardComplexScalarLaw_map_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.standardComplexPiLaw_map_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_conjugate' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_conjTranspose' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

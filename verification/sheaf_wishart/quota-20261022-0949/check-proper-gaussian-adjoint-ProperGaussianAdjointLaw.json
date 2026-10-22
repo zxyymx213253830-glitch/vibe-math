@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "1cf02819fd282a65a4807ce0c0c07d538e0da8447b0e41e0aa97a3034517627d",
+  "target_lock_sha256": "fc95fc2742b256ec4dc0b619d778183feb445443b805fd48cf2a9221413f2922",
+  "leaf": {
+    "started_utc": "2026-10-22T08:30:44.284178+00:00",
+    "ended_utc": "2026-10-22T08:30:53.809946+00:00",
+    "module": "JinWishartFormalization.ProperGaussianAdjointLaw",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ProperGaussianAdjointLaw.lean",
+    "source_sha256_before": "1cf02819fd282a65a4807ce0c0c07d538e0da8447b0e41e0aa97a3034517627d",
+    "source_sha256": "1cf02819fd282a65a4807ce0c0c07d538e0da8447b0e41e0aa97a3034517627d",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/proper-gaussian-adjoint-ProperGaussianAdjointLaw-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "d9005e5eac678db0e315cf3280d8fd7242448ff3d3b1481b0df33ebf7d2725ff",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T08:30:53.811273+00:00",
+    "ended_utc": "2026-10-22T08:31:04.754838+00:00",
+    "module": "SheafProperGaussianAdjointTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafProperGaussianAdjointTargets.lean",
+    "source_sha256_before": "0ef637b5fae2f37051136b4c95030ba8f26a9cbab6a47f8b5ac032d21fb322c5",
+    "source_sha256": "0ef637b5fae2f37051136b4c95030ba8f26a9cbab6a47f8b5ac032d21fb322c5",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/proper-gaussian-adjoint-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}
