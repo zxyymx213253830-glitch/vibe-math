@@ -1,5 +1,5 @@
 # State
 
-2026-10-22续跑第三十里程碑：730绑定项（728定理实例+2构造），auditPASS/facade94真实exit0，67接受记录全验证。本轮120打印声明/49模块非120概率突破。新1通用分析声明：产品概率mu.prodnu、可测f(x,y)/g(x)、正实有限K(y)且K^p可积及AE两边g<=Kf/f<=Kg下，f逆p矩可积iff g逆p矩可积。充分性用独立乘积积分，必要性由Fubini选择一固定可积且满足比较的截面，无额外有界H事件/Holder指数损失。19例42精确尾积分及非独立反控制，1字面类型和完整最终源码真实Qoder P4绑定；P4方向/截面疑问同响应已自撤回，swap由已证measure-preserving依赖闭合；v1/v2命名空间失败保留不接受。实际canonical块/最小值常数截断与IID阈值、一般singularB最终拼接仍OPEN。未用重置券，lease21:08非用户截止；人审测度/Fubini/极限/方差/模型仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。
+2026-10-22续跑第三十一里程碑：731绑定项（729定理实例+2构造），auditPASS/facade95真实exit0，68接受记录全验证。本轮121打印声明/50模块非121概率突破。新1确定性声明：任意矩形/秩亏/零A及H、固定N detunit，任意兼容Fin重索引的[[A,0],[H,N]]秩精确rankA+c，含空维；通过ker diag(A,N)与ker A线性等价、rank-nullity及已证显式剪切，未假定A满小侧秩。64例193精确秩/负控制、1字面类型及完整最终源码真实Qoder P4绑定；N逆API/右乘秩方向/定义疑问按pinned精确签名裁决，v1 composition简化失败保留不接受。该秩缺口闭合；下一canonical产品高斯逆矩阈值与原模型压缩拼接，一般singularB最终阈值仍OPEN。普通额度继续，未用重置券；lease21:08非用户截止。人审测度/Fubini/极限/方差/模型仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。
 
 Outside target closure does not mean unproved; consult exact node evidence. One current coordinator, technical lease only; heartbeat ACTIVE; no parallel/background Lean worker. Human review REQUIRED; fullLake and Linux independent kernel NOT_RUN; frozen publications unchanged.

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T20:11:43.982292+00:00",
+  "ended_utc": "2026-10-22T20:11:57.522444+00:00",
+  "module": "SheafCanonicalBlockRankTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCanonicalBlockRankTargets.lean",
+  "source_sha256_before": "3a2a5a9b4ed8c2e1eef669561910d0832d28eeedb77b76119561b6d500e318d1",
+  "source_sha256": "3a2a5a9b4ed8c2e1eef669561910d0832d28eeedb77b76119561b6d500e318d1",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-block-rank-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "57ae816ae498bd56832cd6e4cbfc653fde24f3a045d992632446d35d7bd0f0d1",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

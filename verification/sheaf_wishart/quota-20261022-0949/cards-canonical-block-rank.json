@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "canonical-block-rank-CanonicalBlockRank",
+    "module": "CanonicalBlockRank",
+    "nodes": [
+      [
+        "L-canonical-block-rank-canonical_fin_block_rank",
+        "canonical_fin_block_rank",
+        []
+      ]
+    ]
+  }
+]

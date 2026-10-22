@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T20:10:20.111334+00:00",
+  "ended_utc": "2026-10-22T20:10:34.321117+00:00",
+  "module": "JinWishartFormalization.CanonicalBlockRank",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalBlockRank.lean",
+  "source_sha256_before": "0c7a2b92dd85e1e86b0265917ed80c7749091ba9ae8300b54ab4c9cdc22229f3",
+  "source_sha256": "0c7a2b92dd85e1e86b0265917ed80c7749091ba9ae8300b54ab4c9cdc22229f3",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-canonical-block-rank-v1.txt",
+  "log_exists": true,
+  "log_sha256": "bc3dbf50b13e3caf5dc7cc8dc238ec028cd8d943b78c0bc409bdeefefbc36347",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "f2318a0547cbe4a213921d7bd165ee9db8a4f814fb338c28bcfdc40ef446ae28",
+  "target_lock_sha256": "4c913e213dcda11caf9df13d5f87b8159d54468edb818bb194d8eac80890f703",
+  "leaf": {
+    "started_utc": "2026-10-22T20:11:32.771620+00:00",
+    "ended_utc": "2026-10-22T20:11:43.979323+00:00",
+    "module": "JinWishartFormalization.CanonicalBlockRank",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalBlockRank.lean",
+    "source_sha256_before": "f2318a0547cbe4a213921d7bd165ee9db8a4f814fb338c28bcfdc40ef446ae28",
+    "source_sha256": "f2318a0547cbe4a213921d7bd165ee9db8a4f814fb338c28bcfdc40ef446ae28",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/canonical-block-rank-CanonicalBlockRank-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "925495419739489cce0bfdb3015637f608fe5be589f3457008ef605981efc5c4",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T20:11:43.982292+00:00",
+    "ended_utc": "2026-10-22T20:11:57.522444+00:00",
+    "module": "SheafCanonicalBlockRankTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCanonicalBlockRankTargets.lean",
+    "source_sha256_before": "3a2a5a9b4ed8c2e1eef669561910d0832d28eeedb77b76119561b6d500e318d1",
+    "source_sha256": "3a2a5a9b4ed8c2e1eef669561910d0832d28eeedb77b76119561b6d500e318d1",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/canonical-block-rank-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "57ae816ae498bd56832cd6e4cbfc653fde24f3a045d992632446d35d7bd0f0d1",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

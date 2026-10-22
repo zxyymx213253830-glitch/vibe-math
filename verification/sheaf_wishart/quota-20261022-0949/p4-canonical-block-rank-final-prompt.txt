@@ -1,0 +1,75 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE CanonicalBlockRank.lean
+import JinWishartFormalization.SeparableInverseMomentTransport
+
+/-! Exact canonical block rank, with arbitrary deficient A and invertible fixed N.
+Deterministic finite linear algebra; no AE/inverse-moment assertion. -/
+open Matrix Module
+namespace JinWishart
+noncomputable section
+
+private def diagonalKernelEquiv {a b c : ℕ} (A : Matrix (Fin a) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin c) ℂ) (hN : IsUnit N.det) :
+    (fromBlocks A 0 0 N).mulVecLin.ker ≃ₗ[ℂ] A.mulVecLin.ker where
+  toFun x := ⟨fun j => x.val (Sum.inl j),by
+    change A*ᵥ(fun j => x.val (Sum.inl j))=0
+    have hx : fromBlocks A 0 0 N*ᵥx.val=0 := x.property
+    ext i
+    simpa [Matrix.fromBlocks_mulVec,Function.comp_def] using congrFun hx (Sum.inl i)⟩
+  invFun x := ⟨Sum.elim x.val 0,by
+    change fromBlocks A 0 0 N*ᵥSum.elim x.val 0=0
+    have hx : A*ᵥx.val=0 := x.property
+    ext i
+    cases i <;> simp [Matrix.fromBlocks_mulVec,hx]⟩
+  left_inv x := by
+    apply Subtype.ext
+    funext i
+    cases i with
+    | inl j => rfl
+    | inr j =>
+      have hinj := Matrix.mulVec_injective_iff_isUnit.mpr ((Matrix.isUnit_iff_isUnit_det N).mpr hN)
+      have hx : fromBlocks A 0 0 N*ᵥx.val=0 := x.property
+      have hz : N*ᵥ(fun k => x.val (Sum.inr k))=N*ᵥ0 := by
+        ext k
+        simpa [Matrix.fromBlocks_mulVec,Function.comp_def] using congrFun hx (Sum.inr k)
+      exact (congrFun (hinj hz) j).symm
+  right_inv x := by apply Subtype.ext;rfl
+  map_add' x y := by apply Subtype.ext;rfl
+  map_smul' a x := by apply Subtype.ext;rfl
+
+private theorem diagonalRank {a b c : ℕ} (A : Matrix (Fin a) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin c) ℂ) (hN : IsUnit N.det) :
+    (fromBlocks A 0 0 N).rank=A.rank+c := by
+  have hk := (diagonalKernelEquiv A N hN).finrank_eq
+  have hE := (fromBlocks A 0 0 N).mulVecLin.finrank_range_add_finrank_ker
+  have hA := A.mulVecLin.finrank_range_add_finrank_ker
+  change (fromBlocks A 0 0 N).rank+finrank ℂ (fromBlocks A 0 0 N).mulVecLin.ker=_ at hE
+  change A.rank+finrank ℂ A.mulVecLin.ker=_ at hA
+  rw [hk] at hE
+  simp only [Module.finrank_pi,Fintype.card_sum,Fintype.card_fin] at hE hA
+  omega
+
+theorem canonical_fin_block_rank {a b c m n : ℕ}
+    (er : (Fin a ⊕ Fin c) ≃ Fin m) (ec : (Fin b ⊕ Fin c) ≃ Fin n)
+    (A : Matrix (Fin a) (Fin b) ℂ) (H : Matrix (Fin c) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin c) ℂ) (hN : IsUnit N.det) :
+    (canonicalFinBlock er ec A H N).rank=A.rank+c := by
+  let K := N⁻¹*H
+  have hK : N*K=H := by
+    dsimp [K]
+    rw [← Matrix.mul_assoc,Matrix.mul_nonsing_inv _ hN,Matrix.one_mul]
+  have hS : IsUnit (fromBlocks (1 : Matrix (Fin b) (Fin b) ℂ) 0 (-K) 1).det :=
+    Matrix.isUnit_det_of_left_inverse (canonical_block_shear_two_sided_inverse K).2
+  change (Matrix.reindex er ec (fromBlocks A 0 H N)).rank=_
+  rw [Matrix.rank_reindex]
+  calc
+    _=(fromBlocks A 0 H N*fromBlocks 1 0 (-K) 1).rank :=
+      (Matrix.rank_mul_eq_left_of_isUnit_det _ _ hS).symm
+    _=(fromBlocks A 0 0 N).rank := congrArg Matrix.rank (canonical_block_shear_cancel A H K N hK)
+    _=A.rank+c := diagonalRank A N hN
+
+end
+end JinWishart
+#print axioms JinWishart.canonical_fin_block_rank

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CanonicalBlockRank.lean": {
+      "sha256": "f2318a0547cbe4a213921d7bd165ee9db8a4f814fb338c28bcfdc40ef446ae28",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "6059eb605b94ca8278aaa1506e0065a999cb88c244346c7054946804ee5682a0"
+}

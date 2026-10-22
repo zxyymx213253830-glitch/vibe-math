@@ -1,0 +1,14 @@
+{
+  "seed": 2026102234,
+  "cases": 64,
+  "checks": 193,
+  "status": "PASS",
+  "source_sha256": "7a0930270760b3bb92a0a475ddf41fe95807b73109540cfb28db37291ac792c5",
+  "scope": "Exact finite rank controls, not a general rank proof",
+  "known_controls": [
+    "rank-one/zero outer-product A",
+    "invertible triangular N",
+    "empty dimensions",
+    "singular N negative control"
+  ]
+}

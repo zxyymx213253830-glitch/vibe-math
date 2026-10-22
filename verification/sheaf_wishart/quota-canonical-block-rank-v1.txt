@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalBlockRank.lean:16:4: error: Type mismatch: After simplification, term
+  congrFun hx (Sum.inl i)
+ has type
+  @Eq ℂ ((A *ᵥ ↑x ∘ Sum.inl) i) 0
+but is expected to have type
+  @Eq ℂ ((A *ᵥ fun j => ↑x (Sum.inl j)) i) 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalBlockRank.lean:32:8: error: Type mismatch: After simplification, term
+  congrFun hx (Sum.inr k)
+ has type
+  @Eq ℂ ((N *ᵥ ↑x ∘ Sum.inr) k) 0
+but is expected to have type
+  @Eq ℂ ((N *ᵥ fun k => ↑x (Sum.inr k)) k) 0
+'JinWishart.canonical_fin_block_rank' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
