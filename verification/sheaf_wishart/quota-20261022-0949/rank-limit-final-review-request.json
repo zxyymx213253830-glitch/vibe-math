@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "RegularizedSpectrumRankLimit.lean": {
+      "sha256": "dd81a14e18e41f5e5ca94d1310b93d76191af2f04a2c718fce7fca58c64d519d",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a446c5df7b4ef4381b9f73224880ad3692f2f26152d70bf1c570a60dcf4d81b1"
+}

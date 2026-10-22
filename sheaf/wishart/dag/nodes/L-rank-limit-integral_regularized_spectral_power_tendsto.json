@@ -1,0 +1,24 @@
+{
+  "id": "L-rank-limit-integral_regularized_spectral_power_tendsto",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.RegularizedSpectrumRankLimit",
+  "declaration": "JinWishart.integral_regularized_spectral_power_tendsto",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-rank-limit-regularized_spectral_power_tendsto"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-rank-limit-regularized_spectral_power_tendsto"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-rank-limit-RegularizedSpectrumRankLimit.json",
+    "source_sha256": "dd81a14e18e41f5e5ca94d1310b93d76191af2f04a2c718fce7fca58c64d519d"
+  }
+}

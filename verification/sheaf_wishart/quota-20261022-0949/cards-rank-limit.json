@@ -1,0 +1,48 @@
+[
+  {
+    "tag": "rank-limit-RegularizedSpectrumRankLimit",
+    "module": "RegularizedSpectrumRankLimit",
+    "nodes": [
+      [
+        "L-rank-limit-regularized_spectral_power_bound",
+        "regularized_spectral_power_bound",
+        []
+      ],
+      [
+        "L-rank-limit-regularized_spectral_power_tendsto",
+        "regularized_spectral_power_tendsto",
+        [
+          "L-rank-limit-regularized_spectral_power_bound"
+        ]
+      ],
+      [
+        "L-rank-limit-integral_regularized_spectral_power_tendsto",
+        "integral_regularized_spectral_power_tendsto",
+        [
+          "L-rank-limit-regularized_spectral_power_tendsto"
+        ]
+      ],
+      [
+        "L-rank-limit-actualCorrelated_regularized_spectral_power_rank_limit",
+        "actualCorrelated_regularized_spectral_power_rank_limit",
+        [
+          "L-rank-limit-integral_regularized_spectral_power_tendsto"
+        ]
+      ],
+      [
+        "L-rank-limit-actualCorrelated_scaled_expected_logdet_deriv_rank_limit",
+        "actualCorrelated_scaled_expected_logdet_deriv_rank_limit",
+        [
+          "L-rank-limit-actualCorrelated_regularized_spectral_power_rank_limit"
+        ]
+      ],
+      [
+        "L-rank-limit-actualCorrelated_scaled_expected_logdet_curvature_rank_limit",
+        "actualCorrelated_scaled_expected_logdet_curvature_rank_limit",
+        [
+          "L-rank-limit-actualCorrelated_scaled_expected_logdet_deriv_rank_limit"
+        ]
+      ]
+    ]
+  }
+]

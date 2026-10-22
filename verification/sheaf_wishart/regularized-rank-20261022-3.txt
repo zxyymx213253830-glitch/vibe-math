@@ -1,0 +1,28 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RegularizedSpectrumRankLimit.lean:20:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RegularizedSpectrumRankLimit.lean:24:6: error: Type mismatch: After simplification, term
+  Tendsto.div tendsto_const_nhds hden (LT.lt.ne' hp)
+ has type
+  @Tendsto ℝ ℝ ((fun x => u) / fun r => r⁻¹ + u) atTop (𝓝 1)
+but is expected to have type
+  @Tendsto ℝ ℝ (fun r => u / (r⁻¹ + u)) atTop (𝓝 1)
+'JinWishart.regularized_spectral_power_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.regularized_spectral_power_tendsto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_regularized_spectral_power_tendsto' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_regularized_spectral_power_rank_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_scaled_expected_logdet_deriv_rank_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_scaled_expected_logdet_curvature_rank_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

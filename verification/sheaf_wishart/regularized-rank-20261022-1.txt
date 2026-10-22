@@ -1,0 +1,54 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RegularizedSpectrumRankLimit.lean:20:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RegularizedSpectrumRankLimit.lean:23:12: error: Type mismatch: After simplification, term
+  LT.lt.ne' hp
+ has type
+  ¬u = 0
+but is expected to have type
+  ¬0 + ?m.125 = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RegularizedSpectrumRankLimit.lean:24:11: error: invalid 'by' tactic, expected type has not been provided
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RegularizedSpectrumRankLimit.lean:25:4: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RegularizedSpectrumRankLimit.lean:103:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a / ?b) ^ ?n
+in the target expression
+  (fun a => (r * actualCorrelatedEigenvalue B M i a / (1 + r * actualCorrelatedEigenvalue B M i a)) ^ 2) z =
+    (fun a => r ^ 2 * (actualCorrelatedEigenvalue B M i a / (1 + r * actualCorrelatedEigenvalue B M i a)) ^ 2) z
+
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+ht :
+  Tendsto
+    (fun r =>
+      ∑ i,
+        ∫ (z : ComplexSample),
+          (r * actualCorrelatedEigenvalue B M i z / (1 + r * actualCorrelatedEigenvalue B M i z)) ^
+            2 ∂stdGaussian ComplexSample)
+    atTop (𝓝 ↑(min m (B.fromRows M).rank))
+r : ℝ
+hr : 0 < r
+i : Fin (Fintype.card (Fin n))
+hi : i ∈ Finset.univ
+z : ComplexSample
+⊢ (fun a => (r * actualCorrelatedEigenvalue B M i a / (1 + r * actualCorrelatedEigenvalue B M i a)) ^ 2) z =
+    (fun a => r ^ 2 * (actualCorrelatedEigenvalue B M i a / (1 + r * actualCorrelatedEigenvalue B M i a)) ^ 2) z
+'JinWishart.regularized_spectral_power_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.regularized_spectral_power_tendsto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_regularized_spectral_power_tendsto' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_regularized_spectral_power_rank_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_scaled_expected_logdet_deriv_rank_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelated_scaled_expected_logdet_curvature_rank_limit' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

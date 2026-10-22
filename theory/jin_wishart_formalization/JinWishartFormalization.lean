@@ -1,3 +1,4 @@
+import JinWishartFormalization.RegularizedSpectrumRankLimit
 import JinWishartFormalization.ExpectedLogDetCurvature
 import JinWishartFormalization.ExpectedLogDetStrictConcavity
 import JinWishartFormalization.FiniteSubsetFunctionSum

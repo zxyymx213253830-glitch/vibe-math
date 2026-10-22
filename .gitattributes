@@ -226,3 +226,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/logdet_curvature_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_EXPECTED_LOGDET_CURVATURE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/RegularizedSpectrumRankLimit.lean -text whitespace=cr-at-eol
+
+/experiments/regularized_rank_limit_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_SCALED_DERIVATIVE_RANK_LIMIT.md -text whitespace=cr-at-eol

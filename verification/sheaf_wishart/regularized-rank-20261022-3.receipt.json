@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:19:12.836956+00:00",
+  "ended_utc": "2026-10-22T02:19:22.338470+00:00",
+  "module": "JinWishartFormalization.RegularizedSpectrumRankLimit",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RegularizedSpectrumRankLimit.lean",
+  "source_sha256_before": "cd31d71999c5e7c21020dfe66be48d98272d3b1a1789f1e716b60e3df3901e77",
+  "source_sha256": "cd31d71999c5e7c21020dfe66be48d98272d3b1a1789f1e716b60e3df3901e77",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/regularized-rank-20261022-3.txt",
+  "log_exists": true,
+  "log_sha256": "47816adb2401156d54dcdf5d051432ad96707501dd38b372bca62995fbc36d21",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
