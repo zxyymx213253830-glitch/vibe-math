@@ -1,5 +1,7 @@
 # 2026-10-22 后续检查点
 
+08:39UTC更新：**696项**（694定理/实例+2构造），audit PASS，facade80真实exit0，48接受记录全部验证。688后新增8声明/3模块：两剪切显式Euclidean算子范数界；带任意固定均值properCN1矩阵的共轭及共轭转置全law，均值相应为conjM/M^H；实际wide IID行Gram最小值逆矩可积iff p<n-m+1及临界/更高非负ENNReal TOP。一般奇异B阈值和原列Gram固定最小正坐标桥仍OPEN。新范数106项/adjoint65项/wide42项控制均非证明；全部完整最终源码Qoder P4和字面类型绑定。本轮86打印声明/30模块，非86概率突破。详见WISHART_CANONICAL_SHEAR_NORM.md、WISHART_PROPER_GAUSSIAN_ADJOINT_LAW.md、WISHART_WIDE_ROW_INVERSE_MOMENTS.md；下一精确卡WISHART_NEXT_WIDE_POSITIVE_COORDINATE_CARD.md。当前无活动Lean/下一源码，人审/冻结发表边界不变。
+
 08:15UTC更新：**688项**（686定理/实例+2构造），audit PASS，facade77真实exit0。新增8声明/2模块完成块对角Gram/charpoly/根多重集合与给定正值见证下的最小值min公式，以及显式N*K=H下剪切消去/恢复/双边逆。本轮78打印声明/27模块，并非78概率突破。650项162形状新控制、8字面目标与完整最终源码Qoder P4绑定。首轮审计检出私有辅助引理误计公开项，未接受；保留失败清单及9旧节点，v2仅修清单/退役重复归属，证明/P4/编译字节均未改。一般奇异逆矩阈值、剪切范数和Gaussian正规形/law仍OPEN。详见WISHART_CANONICAL_BLOCK_SPECTRUM.md。
 
 07:54UTC更新：**680项**（678定理/实例+2构造），audit PASS，facade76真实exit0。已补上跨尺寸正谱桥，并证明固定共同核压缩前后的两个可测最小正坐标在**同一个原始高斯源**上AE严格正且相同。源宽p没有变，压缩并未被误称为白化。新增5声明/2模块（4个确定性工具、1个实际耦合存在定理），本轮70声明/25模块。302项100形状控制，5独立字面目标v2及完整最终源码Qoder P4绑定；v1期望类型的蕴含/iff分组错误被独立核对检出，失败锁/节点快照保留且不接受，最终证明体未改。一般逆矩阈值仍OPEN，下一步canonical块谱及分布。详见WISHART_POSITIVE_SPECTRUM_TRANSPORT.md及WISHART_NEXT_CANONICAL_BLOCK_CARD.md。
