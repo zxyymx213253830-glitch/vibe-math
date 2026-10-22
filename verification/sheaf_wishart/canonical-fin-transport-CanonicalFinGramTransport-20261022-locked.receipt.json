@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:35:56.907421+00:00",
+  "ended_utc": "2026-10-22T19:36:09.255115+00:00",
+  "module": "JinWishartFormalization.CanonicalFinGramTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalFinGramTransport.lean",
+  "source_sha256_before": "1d41bf46d8d34992343de7da0d705c49159e6acffb5e95ee0583697e14365a72",
+  "source_sha256": "1d41bf46d8d34992343de7da0d705c49159e6acffb5e95ee0583697e14365a72",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-fin-transport-CanonicalFinGramTransport-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "9156332df100a7a105199ac69c3585209edbaeb2d7c2ffcb79e12d0bd5f6e0bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

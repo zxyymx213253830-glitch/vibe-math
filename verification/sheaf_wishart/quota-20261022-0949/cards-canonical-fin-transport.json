@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "canonical-fin-transport-CanonicalFinGramTransport",
+    "module": "CanonicalFinGramTransport",
+    "nodes": [
+      [
+        "L-canonical-fin-transport-canonicalSumRowAction_gram",
+        "canonicalSumRowAction_gram",
+        []
+      ],
+      [
+        "L-canonical-fin-transport-canonical_reindexed_column_det_isUnit",
+        "canonical_reindexed_column_det_isUnit",
+        [
+          "L-canonical-fin-transport-canonicalSumRowAction_gram"
+        ]
+      ],
+      [
+        "L-canonical-fin-transport-canonical_fin_positive_coordinate_bounds",
+        "canonical_fin_positive_coordinate_bounds",
+        [
+          "L-canonical-fin-transport-canonical_reindexed_column_det_isUnit"
+        ]
+      ]
+    ]
+  }
+]

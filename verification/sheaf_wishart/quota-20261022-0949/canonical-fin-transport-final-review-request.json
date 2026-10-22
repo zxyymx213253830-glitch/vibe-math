@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CanonicalFinGramTransport.lean": {
+      "sha256": "1d41bf46d8d34992343de7da0d705c49159e6acffb5e95ee0583697e14365a72",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9f8b75e1429532f43ba1989acbe0e1f643627ac1dfd77239129e289598e59ffa"
+}

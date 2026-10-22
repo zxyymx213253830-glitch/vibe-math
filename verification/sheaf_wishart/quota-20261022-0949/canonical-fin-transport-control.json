@@ -1,0 +1,14 @@
+{
+  "seed": 2026102228,
+  "cases": 27,
+  "checks": 233,
+  "status": "PASS",
+  "source_sha256": "975c2873077cf7dcc2aa98a7a8b52e2a64e44190935f9f2ef7ae069d5440eb2e",
+  "scope": "Coordinate/norm/spectral controls only, not general transport proof",
+  "known_controls": [
+    "empty determinant1",
+    "permutation isometry",
+    "calibrated full-small-side rank",
+    "Gram under fixed complex isometry"
+  ]
+}

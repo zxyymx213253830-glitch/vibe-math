@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-canonical-fin-transport-CanonicalFinGramTransport.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-canonical-fin-transport-CanonicalFinGramTransport.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/canonical-fin-transport-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-fin-transport-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-fin-transport-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-fin-transport-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/canonical-fin-transport-final-snapshot",
+    "resolution": "notes/WISHART_CANONICAL_FIN_TRANSPORT.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-89.receipt.json"
+}

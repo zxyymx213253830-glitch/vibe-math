@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalFinGramTransport.lean:27:2: error: 'change' tactic failed, pattern
+  ∑ j, T i (e.symm j) * w.ofLp j = ∑ k, T i k * w.ofLp (e k)
+is not definitionally equal to target
+  ((toEuclideanLin (T.submatrix id ⇑e.symm)) w).ofLp i =
+    ((toEuclideanLin T ∘ₗ ↑(LinearIsometryEquiv.piLpCongrLeft 2 ℂ ℂ e).symm.toLinearEquiv) w).ofLp i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalFinGramTransport.lean:38:8: error(lean.unknownIdentifier): Unknown constant `Matrix.isUnit_iff_isUnit_det.mp`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalFinGramTransport.lean:39:2: error: No goals to be solved
+'JinWishart.canonicalSumRowAction_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.canonical_reindexed_column_det_isUnit' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

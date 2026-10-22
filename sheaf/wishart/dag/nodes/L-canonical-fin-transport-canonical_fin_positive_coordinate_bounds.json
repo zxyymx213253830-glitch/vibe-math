@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-fin-transport-canonical_fin_positive_coordinate_bounds",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.CanonicalFinGramTransport",
+  "declaration": "JinWishart.canonical_fin_positive_coordinate_bounds",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-fin-transport-canonical_reindexed_column_det_isUnit"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-fin-transport-canonical_reindexed_column_det_isUnit"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-fin-transport-CanonicalFinGramTransport.json",
+    "source_sha256": "1d41bf46d8d34992343de7da0d705c49159e6acffb5e95ee0583697e14365a72"
+  }
+}

@@ -1,0 +1,112 @@
+import JinWishartFormalization.CanonicalPhysicalModel
+
+/-! Exact Gram preservation under the canonical Sum row isometry, and a
+unit determinant for the Fin square representation of the bijective column
+map. Codex. No assertion that the column map is isometric.
+[需人工审查] Subsequent positive-spectrum/shear and inverse-moment transport. -/
+open Matrix
+open scoped BigOperators ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem canonicalSumRowAction_gram {m a c : ℕ} {ι : Type*}
+    (V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c))
+    (X : Matrix (Fin m) ι ℂ) :
+    (canonicalSumRowAction V X)ᴴ*(canonicalSumRowAction V X)=Xᴴ*X := by
+  ext j k
+  have h := V.inner_map_map (WithLp.toLp 2 (fun i => X i j))
+    (WithLp.toLp 2 (fun i => X i k))
+  simpa only [Matrix.mul_apply,Matrix.conjTranspose_apply,canonicalSumRowAction,
+    PiLp.inner_apply,RCLike.inner_apply,Complex.inner,RCLike.star_def,mul_comm] using h
+
+private theorem reindexedColumnLin {n b c : ℕ}
+    (T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ) (e : (Fin b ⊕ Fin c) ≃ Fin n) :
+    (T.submatrix id e.symm).toEuclideanLin=T.toEuclideanLin.comp
+      (LinearIsometryEquiv.piLpCongrLeft 2 ℂ ℂ e).symm.toLinearEquiv.toLinearMap := by
+  ext w i
+  have hvec : (LinearIsometryEquiv.piLpCongrLeft 2 ℂ ℂ e).symm.toLinearEquiv.toLinearMap w=
+      WithLp.toLp 2 (fun k => w (e k)) := by
+    ext k
+    change (LinearIsometryEquiv.piLpCongrLeft 2 ℂ ℂ e).symm w k=w (e k)
+    rw [LinearIsometryEquiv.piLpCongrLeft_symm]
+    rfl
+  change (T.submatrix id e.symm).toEuclideanLin w i=
+    T.toEuclideanLin ((LinearIsometryEquiv.piLpCongrLeft 2 ℂ ℂ e).symm.toLinearEquiv.toLinearMap w) i
+  rw [hvec]
+  change (∑ j : Fin n,T i (e.symm j)*w j)=
+    ∑ k : Fin b ⊕ Fin c,T i k*w (e k)
+  exact Fintype.sum_equiv e.symm _ _ (by intro j; simp)
+
+theorem canonical_reindexed_column_det_isUnit {n b c : ℕ}
+    (T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ)
+    (hT : Function.Bijective T.toEuclideanLin) (e : (Fin b ⊕ Fin c) ≃ Fin n) :
+    IsUnit (T.submatrix id e.symm).det := by
+  have hFin : Function.Injective (T.submatrix id e.symm).toEuclideanLin := by
+    rw [reindexedColumnLin]
+    exact hT.1.comp (LinearIsometryEquiv.piLpCongrLeft 2 ℂ ℂ e).symm.injective
+  apply (Matrix.isUnit_iff_isUnit_det _).mp
+  apply Matrix.mulVec_injective_iff_isUnit.mp
+  intro x y hxy
+  have hxy' : (T.submatrix id e.symm).toEuclideanLin (WithLp.toLp 2 x)=
+      (T.submatrix id e.symm).toEuclideanLin (WithLp.toLp 2 y) :=
+    congrArg (WithLp.toLp 2) hxy
+  exact congrArg (fun z : EuclideanSpace ℂ (Fin n) => (⇑z)) (hFin hxy')
+
+def canonicalFiniteGramCoordinate {m n b c a d : ℕ}
+    (V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin d))
+    (X : Matrix (Fin m) (Fin n) ℂ) (T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ)
+    (e : (Fin b ⊕ Fin c) ≃ Fin n) (i : Fin (Fintype.card (Fin n))) : ℝ :=
+  (Matrix.isHermitian_conjTranspose_mul_self
+    (canonicalSumRowAction V (X*(T.submatrix id e.symm)))).eigenvalues₀ i
+
+private theorem eigenvalueCongr {n : ℕ} {A B : Matrix (Fin n) (Fin n) ℂ}
+    (hA : A.IsHermitian) (hB : B.IsHermitian) (h : A=B) :
+    hA.eigenvalues₀=hB.eigenvalues₀ := by
+  subst B
+  rfl
+
+theorem canonical_fin_positive_coordinate_bounds {m n b c a d : ℕ}
+    (V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin d))
+    (X : Matrix (Fin m) (Fin n) ℂ) (T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ)
+    (hT : Function.Bijective T.toEuclideanLin) (e : (Fin b ⊕ Fin c) ≃ Fin n)
+    (hm : 0<m) (hn : 0<n) (hr : X.rank=min m n)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m n) :
+    let F := T.submatrix id e.symm
+    0<(complexGram_posSemidef X).1.eigenvalues₀ i ∧
+    0<canonicalFiniteGramCoordinate V X T e i ∧
+    canonicalFiniteGramCoordinate V X T e i ≤
+      max (matrixColumnControl F) (matrixColumnControl Fᴴ)*
+        (complexGram_posSemidef X).1.eigenvalues₀ i ∧
+    (complexGram_posSemidef X).1.eigenvalues₀ i ≤
+      max (matrixColumnControl F⁻¹) (matrixColumnControl (Fᴴ)⁻¹)*
+        canonicalFiniteGramCoordinate V X T e i := by
+  dsimp only
+  let F := T.submatrix id e.symm
+  have hFunit : IsUnit F.det := canonical_reindexed_column_det_isUnit T hT e
+  have he : canonicalFiniteGramCoordinate V X T e i=
+      (complexGram_posSemidef (X*F)).1.eigenvalues₀ i := by
+    unfold canonicalFiniteGramCoordinate
+    exact congrFun (eigenvalueCongr (Matrix.isHermitian_conjTranspose_mul_self _)
+      (complexGram_posSemidef (X*F)).isHermitian (canonicalSumRowAction_gram V (X*F))) i
+  rw [he]
+  by_cases hnm : n≤m
+  · have hmin : min m n=n := Nat.min_eq_right hnm
+    obtain ⟨hX,hF,hu,hl⟩ := full_column_rank_positive_coordinate_mul_bounds X F hn hFunit
+      (hr.trans hmin) i (hi.trans hmin)
+    refine ⟨hX,hF,hu.trans ?_,hl.trans ?_⟩
+    · exact mul_le_mul_of_nonneg_right (le_max_left _ _) hX.le
+    · exact mul_le_mul_of_nonneg_right (le_max_left _ _) hF.le
+  · have hmn : m≤n := by omega
+    have hmin : min m n=m := Nat.min_eq_left hmn
+    obtain ⟨hX,hF,hu,hl⟩ := full_row_rank_positive_coordinate_mul_bounds X F hm hFunit
+      (hr.trans hmin) i (hi.trans hmin)
+    refine ⟨hX,hF,hu.trans ?_,hl.trans ?_⟩
+    · exact mul_le_mul_of_nonneg_right (le_max_right _ _) hX.le
+    · exact mul_le_mul_of_nonneg_right (le_max_right _ _) hF.le
+
+end
+end JinWishart
+#print axioms JinWishart.canonicalSumRowAction_gram
+#print axioms JinWishart.canonical_reindexed_column_det_isUnit
+
+#print axioms JinWishart.canonical_fin_positive_coordinate_bounds

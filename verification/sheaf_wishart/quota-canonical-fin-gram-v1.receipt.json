@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:31:48.379107+00:00",
+  "ended_utc": "2026-10-22T19:31:59.791905+00:00",
+  "module": "JinWishartFormalization.CanonicalFinGramTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalFinGramTransport.lean",
+  "source_sha256_before": "483b85a03f8d70f6ea9a10b2d38c53323f402317882a5c6d8ad328d6b3f8525b",
+  "source_sha256": "483b85a03f8d70f6ea9a10b2d38c53323f402317882a5c6d8ad328d6b3f8525b",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-canonical-fin-gram-v1.txt",
+  "log_exists": true,
+  "log_sha256": "86dd2fa9acea23502ae9acddb45ac47c9b842f635eb74cd82900ae650dcf7d98",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
