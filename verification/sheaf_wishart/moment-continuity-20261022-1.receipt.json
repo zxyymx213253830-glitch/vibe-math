@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T03:04:02.967374+00:00",
+  "ended_utc": "2026-10-22T03:04:10.745898+00:00",
+  "module": "JinWishartFormalization.MeanSquareSecondMomentContinuity",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MeanSquareSecondMomentContinuity.lean",
+  "source_sha256_before": "5eeac7ea5520f1b11540422c081136e335b0db308bf51c71b86984fee1e06595",
+  "source_sha256": "5eeac7ea5520f1b11540422c081136e335b0db308bf51c71b86984fee1e06595",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/moment-continuity-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "1a03329159005e8c1fe36046f3b0a48734e43db84734a6a3459ff06c377a0476",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

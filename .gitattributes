@@ -266,3 +266,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularOffsetL2.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_SINGULAR_OFFSET_MEAN_SQUARE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/MeanSquareSecondMomentContinuity.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularLogDetVarianceLimit.lean -text whitespace=cr-at-eol
+
+/experiments/logdet_variance_limit_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_SINGULAR_LOGDET_VARIANCE_LIMIT.md -text whitespace=cr-at-eol

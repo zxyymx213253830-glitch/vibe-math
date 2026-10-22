@@ -1,0 +1,40 @@
+[
+  {
+    "tag": "variance-limit-MeanSquareSecondMomentContinuity",
+    "module": "MeanSquareSecondMomentContinuity",
+    "nodes": [
+      [
+        "L-variance-limit-integral_square_difference_bound",
+        "integral_square_difference_bound",
+        []
+      ],
+      [
+        "L-variance-limit-integral_square_tendsto_of_mean_square",
+        "integral_square_tendsto_of_mean_square",
+        [
+          "L-variance-limit-integral_square_difference_bound"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "variance-limit-ActualSingularLogDetVarianceLimit",
+    "module": "ActualSingularLogDetVarianceLimit",
+    "nodes": [
+      [
+        "L-variance-limit-actualCorrelatedMatrixLogDet_offset_second_moment",
+        "actualCorrelatedMatrixLogDet_offset_second_moment",
+        [
+          "L-variance-limit-integral_square_tendsto_of_mean_square"
+        ]
+      ],
+      [
+        "L-variance-limit-actualCorrelatedMatrixLogDet_variance_tendsto",
+        "actualCorrelatedMatrixLogDet_variance_tendsto",
+        [
+          "L-variance-limit-actualCorrelatedMatrixLogDet_offset_second_moment"
+        ]
+      ]
+    ]
+  }
+]

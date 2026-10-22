@@ -1,0 +1,4 @@
+'JinWishart.actualCorrelatedMatrixLogDet_offset_second_moment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_variance_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]

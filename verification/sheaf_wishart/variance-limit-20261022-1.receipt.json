@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T03:06:05.409642+00:00",
+  "ended_utc": "2026-10-22T03:06:14.623692+00:00",
+  "module": "JinWishartFormalization.ActualSingularLogDetVarianceLimit",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularLogDetVarianceLimit.lean",
+  "source_sha256_before": "be4f86d8b3b84b405d9227b03eac357d09b5fe37fa351af8e6f28a6181e9af82",
+  "source_sha256": "be4f86d8b3b84b405d9227b03eac357d09b5fe37fa351af8e6f28a6181e9af82",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/variance-limit-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "9026533ecdb59ef6c30aa850e129d79eb29a9546c52aece38d09e8fa184a70dd",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

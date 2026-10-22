@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-10-22T03:08:09.744385+00:00",
+  "module": "JinWishartFormalization.MeanSquareSecondMomentContinuity",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MeanSquareSecondMomentContinuity.lean",
+  "statements": {
+    "JinWishart.integral_square_difference_bound": "{α : Type*} [MeasurableSpace α] (μ : Measure α) (u v : α→ℝ) (hu : MemLp u 2 μ) (hv : MemLp v 2 μ) : |(∫ a,(u a)^2 ∂μ)-(∫ a,(v a)^2 ∂μ)|≤ (∫ a,(u a-v a)^2 ∂μ)+2*Real.sqrt (∫ a,(u a-v a)^2 ∂μ)*Real.sqrt (∫ a,(v a)^2 ∂μ)",
+    "JinWishart.integral_square_tendsto_of_mean_square": "{α : Type*} [MeasurableSpace α] (μ : Measure α) (u : ℝ→α→ℝ) (v : α→ℝ) (hu : ∀ r : ℝ,1≤r → MemLp (u r) 2 μ) (hv : MemLp v 2 μ) (hlim : Tendsto (fun r : ℝ=>∫ a,(u r a-v a)^2 ∂μ) atTop (𝓝 0)) : Tendsto (fun r : ℝ=>∫ a,(u r a)^2 ∂μ) atTop (𝓝 (∫ a,(v a)^2 ∂μ))"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/MeanSquareSecondMomentContinuity.lean": "1ff6b3fcc5a6a4d53c45cb9200ea3b1fe2dce828609e6810838e58583a07ef77",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafVarianceLimitTargets.lean",
+  "type_check_source_sha256": "1c309fbc9846c6670b0b32af9ca879c1e85fd60ff427ebb280238fced1ba206c",
+  "locked_local_definitions": {}
+}

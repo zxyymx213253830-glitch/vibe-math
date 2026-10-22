@@ -1,0 +1,154 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE MeanSquareSecondMomentContinuity.lean
+import Mathlib.MeasureTheory.Function.L2Space
+import Mathlib.MeasureTheory.Integral.Bochner.Basic
+
+/-! Elementary second-moment continuity from mean-square convergence.
+This packages existing Holder/Cauchy-Schwarz, not new integration theory.
+Codex. [需人工审查] Integrability and limit interpretation. -/
+open MeasureTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem integral_square_difference_bound {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (u v : α→ℝ) (hu : MemLp u 2 μ) (hv : MemLp v 2 μ) :
+    |(∫ a,(u a)^2 ∂μ)-(∫ a,(v a)^2 ∂μ)|≤
+      (∫ a,(u a-v a)^2 ∂μ)+2*Real.sqrt (∫ a,(u a-v a)^2 ∂μ)*Real.sqrt (∫ a,(v a)^2 ∂μ) := by
+  let e := fun a=>u a-v a
+  have he : MemLp e 2 μ := hu.sub hv
+  have hcross : Integrable (fun a=>e a*v a) μ := he.integrable_mul hv
+  have hholder : (∫ a,‖e a‖*‖v a‖ ∂μ)≤Real.sqrt (∫ a,(e a)^2 ∂μ)*Real.sqrt (∫ a,(v a)^2 ∂μ) := by
+    have h := integral_mul_norm_le_Lp_mul_Lq Real.HolderConjugate.two_two
+      (by simpa using he : MemLp e (ENNReal.ofReal (2:ℝ)) μ)
+      (by simpa using hv : MemLp v (ENNReal.ofReal (2:ℝ)) μ)
+    simpa [Real.rpow_two,Real.sqrt_eq_rpow,Real.norm_eq_abs] using h
+  have hb : |∫ a,e a*v a ∂μ|≤Real.sqrt (∫ a,(e a)^2 ∂μ)*Real.sqrt (∫ a,(v a)^2 ∂μ) := by
+    calc
+      _ ≤ ∫ a,‖e a*v a‖ ∂μ := by simpa only [Real.norm_eq_abs] using norm_integral_le_integral_norm (fun a=>e a*v a)
+      _ = ∫ a,‖e a‖*‖v a‖ ∂μ := integral_congr_ae (ae_of_all _ (fun a=>norm_mul _ _))
+      _ ≤ _ := hholder
+  have hid : (∫ a,(u a)^2 ∂μ)-(∫ a,(v a)^2 ∂μ)=
+      (∫ a,(e a)^2 ∂μ)+2*(∫ a,e a*v a ∂μ) := by
+    rw [← integral_sub hu.integrable_sq hv.integrable_sq]
+    calc
+      _ = ∫ a,(e a)^2+2*(e a*v a) ∂μ := by
+        apply integral_congr_ae
+        exact ae_of_all _ (fun a=>by dsimp only [e]; ring)
+      _ = _ := by rw [integral_add he.integrable_sq (hcross.const_mul 2),integral_const_mul]
+  rw [hid]
+  have hn : 0≤∫ a,(e a)^2 ∂μ := integral_nonneg (fun a=>sq_nonneg _)
+  calc
+    _ ≤ |∫ a,(e a)^2 ∂μ|+|2*(∫ a,e a*v a ∂μ)| := abs_add_le _ _
+    _ = (∫ a,(e a)^2 ∂μ)+2*|∫ a,e a*v a ∂μ| := by rw [abs_of_nonneg hn,abs_mul]; norm_num
+    _ ≤ _ := by nlinarith only [hb]
+
+theorem integral_square_tendsto_of_mean_square {α : Type*} [MeasurableSpace α]
+    (μ : Measure α) (u : ℝ→α→ℝ) (v : α→ℝ)
+    (hu : ∀ r : ℝ,1≤r → MemLp (u r) 2 μ) (hv : MemLp v 2 μ)
+    (hlim : Tendsto (fun r : ℝ=>∫ a,(u r a-v a)^2 ∂μ) atTop (𝓝 0)) :
+    Tendsto (fun r : ℝ=>∫ a,(u r a)^2 ∂μ) atTop (𝓝 (∫ a,(v a)^2 ∂μ)) := by
+  have hb : Tendsto (fun r : ℝ=>(∫ a,(u r a-v a)^2 ∂μ)+
+      2*Real.sqrt (∫ a,(u r a-v a)^2 ∂μ)*Real.sqrt (∫ a,(v a)^2 ∂μ)) atTop (𝓝 0) := by
+    simpa using hlim.add ((hlim.sqrt.const_mul 2).mul_const (Real.sqrt (∫ a,(v a)^2 ∂μ)))
+  have hs : Tendsto (fun r : ℝ=>|(∫ a,(u r a)^2 ∂μ)-(∫ a,(v a)^2 ∂μ)|) atTop (𝓝 0) := by
+    apply squeeze_zero' (Eventually.of_forall (fun r=>abs_nonneg _)) ?_ hb
+    filter_upwards [eventually_ge_atTop (1:ℝ)] with r hr
+    exact integral_square_difference_bound μ (u r) v (hu r hr) hv
+  exact tendsto_iff_norm_sub_tendsto_zero.mpr (by simpa only [Real.norm_eq_abs] using hs)
+
+end
+end JinWishart
+#print axioms JinWishart.integral_square_difference_bound
+#print axioms JinWishart.integral_square_tendsto_of_mean_square
+
+SOURCE ActualSingularLogDetVarianceLimit.lean
+import JinWishartFormalization.ActualSingularOffsetL2
+import JinWishartFormalization.MeanSquareSecondMomentContinuity
+import Mathlib.Probability.Moments.Variance
+
+/-! Actual full-logdet variance converges to the finite positive-spectrum log variance.
+Fixed arbitrary B,M, including singular/zero factors and all finite shapes.
+Codex. [需人工审查] L2/moment transport, centering and physical model. -/
+open Matrix MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem actualCorrelatedMatrixLogDet_offset_second_moment {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    let R : ℝ := (min m (Matrix.fromRows B M).rank : ℕ)
+    let S := fun z : ComplexSample (m := m) (n := p)=>∑ i,positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)
+    (∀ r : ℝ,1≤r → MemLp (fun z=>actualCorrelatedMatrixLogDet B M r z-R*Real.log r) 2 (stdGaussian _)) ∧
+    Tendsto (fun r : ℝ=>∫ z,(actualCorrelatedMatrixLogDet B M r z-R*Real.log r)^2 ∂stdGaussian _)
+      atTop (𝓝 (∫ z,(S z)^2 ∂stdGaussian _)) := by
+  classical
+  intro R S
+  have hS := integrable_actualCorrelated_positive_log_sum B M
+  have hQ := integrable_actualCorrelated_positive_log_sum_sq B M
+  change Integrable S (stdGaussian _) at hS
+  change Integrable (fun z=>(S z)^2) (stdGaussian _) at hQ
+  have hSM : MemLp S 2 (stdGaussian _) := (memLp_two_iff_integrable_sq hS.aestronglyMeasurable).2 hQ
+  have hL := actualCorrelatedMatrixLogDet_offset_mean_square B M
+  have hU (r : ℝ) (hr : 1≤r) : MemLp
+      (fun z=>actualCorrelatedMatrixLogDet B M r z-R*Real.log r) 2 (stdGaussian _) := by
+    have hC := (integrable_actualCorrelatedMatrixLogDet B M r (zero_le_one.trans hr)).sub (integrable_const (R*Real.log r))
+    have hE : MemLp (fun z=>actualCorrelatedMatrixLogDet B M r z-R*Real.log r-S z) 2 (stdGaussian _) :=
+      (memLp_two_iff_integrable_sq (hC.sub hS).aestronglyMeasurable).2 (hL.1 r hr)
+    convert hE.add hSM using 1
+    funext z
+    dsimp only [Pi.add_apply]
+    ring
+  exact ⟨hU,integral_square_tendsto_of_mean_square (stdGaussian _)
+    (fun r z=>actualCorrelatedMatrixLogDet B M r z-R*Real.log r) S hU hSM hL.2⟩
+
+theorem actualCorrelatedMatrixLogDet_variance_tendsto {m p n : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ) :
+    let S := fun z : ComplexSample (m := m) (n := p)=>∑ i,positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)
+    (∀ r : ℝ,1≤r → MemLp (actualCorrelatedMatrixLogDet B M r) 2 (stdGaussian _)) ∧
+    Tendsto (fun r : ℝ=>ProbabilityTheory.variance (actualCorrelatedMatrixLogDet B M r) (stdGaussian _))
+      atTop (𝓝 (ProbabilityTheory.variance S (stdGaussian _))) := by
+  classical
+  intro S
+  let R : ℝ := (min m (Matrix.fromRows B M).rank : ℕ)
+  let U := fun r z=>actualCorrelatedMatrixLogDet B M r z-R*Real.log r
+  have hU := actualCorrelatedMatrixLogDet_offset_second_moment B M
+  have hS := integrable_actualCorrelated_positive_log_sum B M
+  have hQ := integrable_actualCorrelated_positive_log_sum_sq B M
+  change Integrable S (stdGaussian _) at hS
+  change Integrable (fun z=>(S z)^2) (stdGaussian _) at hQ
+  have hSM : MemLp S 2 (stdGaussian _) := (memLp_two_iff_integrable_sq hS.aestronglyMeasurable).2 hQ
+  have hC (r : ℝ) (hr : 1≤r) : MemLp (actualCorrelatedMatrixLogDet B M r) 2 (stdGaussian _) := by
+    have h := (hU.1 r hr).add (memLp_const (R*Real.log r))
+    convert h using 1
+    funext z
+    dsimp only [Pi.add_apply]
+    ring
+  refine ⟨hC,?_⟩
+  have hmean : Tendsto (fun r : ℝ=>∫ z,U r z ∂stdGaussian _) atTop (𝓝 (∫ z,S z ∂stdGaussian _)) := by
+    apply (actualCorrelatedMatrixLogDet_offset_generic_rank B M).congr'
+    filter_upwards [eventually_ge_atTop (1:ℝ)] with r hr
+    dsimp only [U]
+    rw [integral_sub (integrable_actualCorrelatedMatrixLogDet B M r (zero_le_one.trans hr)) (integrable_const _)]
+    simp [R]
+  have ht := hU.2.sub (hmean.pow 2)
+  have hVS : ProbabilityTheory.variance S (stdGaussian _) =
+      (∫ z,(S z)^2 ∂stdGaussian _)-(∫ z,S z ∂stdGaussian _)^2 := by
+    simpa only [Pi.pow_apply] using ProbabilityTheory.variance_eq_sub hSM
+  rw [← hVS] at ht
+  apply ht.congr'
+  filter_upwards [eventually_ge_atTop (1:ℝ)] with r hr
+  have hVU : ProbabilityTheory.variance (U r) (stdGaussian _) =
+      (∫ z,(U r z)^2 ∂stdGaussian _)-(∫ z,U r z ∂stdGaussian _)^2 := by
+    simpa only [Pi.pow_apply] using ProbabilityTheory.variance_eq_sub (hU.1 r hr)
+  calc
+    _ = ProbabilityTheory.variance (U r) (stdGaussian _) := hVU.symm
+    _ = _ := ProbabilityTheory.variance_sub_const
+      (integrable_actualCorrelatedMatrixLogDet B M r (zero_le_one.trans hr)).aestronglyMeasurable (R*Real.log r)
+
+end
+end JinWishart
+#print axioms JinWishart.actualCorrelatedMatrixLogDet_offset_second_moment
+#print axioms JinWishart.actualCorrelatedMatrixLogDet_variance_tendsto

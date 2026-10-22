@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "MeanSquareSecondMomentContinuity.lean": {
+      "sha256": "1ff6b3fcc5a6a4d53c45cb9200ea3b1fe2dce828609e6810838e58583a07ef77",
+      "supplied": "Full source"
+    },
+    "ActualSingularLogDetVarianceLimit.lean": {
+      "sha256": "e04aafa376f1ab19725dd715fd6dc9ac4165a5e338d94feb3ae0e9264a3d8ed0",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "49bcf727ae3d903738fa128c8b6a1daa513f21333815ccaee13c4a3786981a9b"
+}

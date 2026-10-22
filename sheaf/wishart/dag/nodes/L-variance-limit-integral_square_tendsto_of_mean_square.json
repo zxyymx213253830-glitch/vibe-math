@@ -1,0 +1,24 @@
+{
+  "id": "L-variance-limit-integral_square_tendsto_of_mean_square",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MeanSquareSecondMomentContinuity",
+  "declaration": "JinWishart.integral_square_tendsto_of_mean_square",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-variance-limit-integral_square_difference_bound"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-variance-limit-integral_square_difference_bound"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-variance-limit-MeanSquareSecondMomentContinuity.json",
+    "source_sha256": "1ff6b3fcc5a6a4d53c45cb9200ea3b1fe2dce828609e6810838e58583a07ef77"
+  }
+}

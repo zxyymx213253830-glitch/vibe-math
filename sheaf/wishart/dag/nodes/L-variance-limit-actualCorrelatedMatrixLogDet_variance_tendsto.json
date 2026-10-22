@@ -1,0 +1,24 @@
+{
+  "id": "L-variance-limit-actualCorrelatedMatrixLogDet_variance_tendsto",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualSingularLogDetVarianceLimit",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_variance_tendsto",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-variance-limit-actualCorrelatedMatrixLogDet_offset_second_moment"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-variance-limit-actualCorrelatedMatrixLogDet_offset_second_moment"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-variance-limit-ActualSingularLogDetVarianceLimit.json",
+    "source_sha256": "e04aafa376f1ab19725dd715fd6dc9ac4165a5e338d94feb3ae0e9264a3d8ed0"
+  }
+}

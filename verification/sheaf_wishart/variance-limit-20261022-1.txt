@@ -1,0 +1,48 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularLogDetVarianceLimit.lean:33:23: error(lean.invalidField): Invalid field `congr`: The environment does not contain `WithTop.LT.congr`, so it is not possible to project the field `congr` from an expression
+  MemLp.add hE hSM
+of type
+  WithTop.LT
+    (eLpNorm ((fun z => actualCorrelatedMatrixLogDet B M r z - R * Real.log r - S z) + S) 2 (stdGaussian ComplexSample))
+    ⊤
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularLogDetVarianceLimit.lean:34:4: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularLogDetVarianceLimit.lean:56:12: error(lean.invalidField): Invalid field `congr`: The environment does not contain `WithTop.LT.congr`, so it is not possible to project the field `congr` from an expression
+  h
+of type
+  WithTop.LT
+    (eLpNorm
+      ((fun z => actualCorrelatedMatrixLogDet B M r z - ↑(min m (B.fromRows M).rank) * Real.log r) + fun x =>
+        R * Real.log r)
+      2 (stdGaussian ComplexSample))
+    ⊤
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularLogDetVarianceLimit.lean:57:4: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularLogDetVarianceLimit.lean:59:99: error: unsolved goals
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+S : ComplexSample → ℝ := fun z => ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)
+R : ℝ := ↑(min m (B.fromRows M).rank)
+U : ℝ → ComplexSample → ℝ := fun r z => actualCorrelatedMatrixLogDet B M r z - R * Real.log r
+hU :
+  have R := ↑(min m (B.fromRows M).rank);
+  have S := fun z => ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z);
+  (∀ (r : ℝ),
+      1 ≤ r → MemLp (fun z => actualCorrelatedMatrixLogDet B M r z - R * Real.log r) 2 (stdGaussian ComplexSample)) ∧
+    Tendsto
+      (fun r =>
+        ∫ (z : ComplexSample), (actualCorrelatedMatrixLogDet B M r z - R * Real.log r) ^ 2 ∂stdGaussian ComplexSample)
+      atTop (𝓝 (∫ (z : ComplexSample), S z ^ 2 ∂stdGaussian ComplexSample))
+hS : Integrable S (stdGaussian ComplexSample)
+hQ : Integrable (fun z => S z ^ 2) (stdGaussian ComplexSample)
+hSM : MemLp S 2 (stdGaussian ComplexSample)
+hC : ∀ (r : ℝ), 1 ≤ r → MemLp (actualCorrelatedMatrixLogDet B M r) 2 (stdGaussian ComplexSample)
+r : ℝ
+hr : 1 ≤ r
+⊢ min ↑m ↑(B.fromRows M).rank = R ∨ r = 0 ∨ r = 1 ∨ r = -1
+'JinWishart.actualCorrelatedMatrixLogDet_offset_second_moment' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCorrelatedMatrixLogDet_variance_tendsto' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
