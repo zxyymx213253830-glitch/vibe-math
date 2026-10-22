@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-22T08:54:48.887458+00:00",
+  "items": 700,
+  "acceptance_records_current": 49,
+  "facade": "facade-81",
+  "research_commit": "d115000",
+  "next_preflight_commit": "3e74106",
+  "ordinaryUsageAllowed": true,
+  "quota_observed_utc": "2026-10-22T08:53:47Z",
+  "primary_rounded_used": 100,
+  "weekly_used": 90,
+  "no_exhaustion_claim": true,
+  "no_active_lean": true,
+  "next_source_started": false,
+  "next_card": "notes/WISHART_NEXT_WIDE_POSITIVE_COORDINATE_CARD.md",
+  "human_review": "REQUIRED",
+  "full_lake_build": "NOT_RUN",
+  "linux_independent_kernel": "NOT_RUN"
+}
