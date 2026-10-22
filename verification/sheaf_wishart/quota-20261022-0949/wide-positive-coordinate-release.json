@@ -1,0 +1,13 @@
+{
+ "name":"wide-positive-coordinate",
+ "review":"wide-positive-coordinate-final",
+ "resolution":"notes/WISHART_WIDE_POSITIVE_COORDINATE.md",
+ "facade":"facade-81",
+ "total":700,
+ "new_count":4,
+ "control_script":"experiments/wide_positive_coordinate_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/wide-positive-coordinate-control.json",
+ "seed":2026102221,
+ "commit":"Identify fixed wide positive Gram coordinate and transport its sharp inverse moments",
+ "scope":"2026-10-22续跑第十七里程碑：700绑定项（698 theorem/instance+2构造），auditPASS/facade81真实exit0。新增4声明/1模块：满行秩m>0下列Gram固定有序指标i.val+1=m严格正且等于行Gram最小值；实际fixedM properCN1 IID且0<m<=n的同一原始2mn实高斯源上AE等同，逆p矩可积iff0<p<n-m+1及临界/更高非负ENNReal TOP。复用旧正谱/计数/AE通用秩和wide row阈值，不重做可测selector或尾证明，不把wide最后列零坐标当最小正值。313项110 rank/剪切/零维/重根控制、4字面类型及完整最终源码真实Qoder P4绑定；v1-v2依赖改写/错命名空间/ComplexOrder/AE范围简化失败保留，v3真实exit0；P4倒置Gram维度和冗余维度前提误报按精确签名裁决。此前下一卡wide坐标桥已关闭；一般奇异B阈值/固定canonical正规形/矩形Gaussian投影独立law仍OPEN。本轮90打印声明/31模块非90概率突破。普通额度实际可用时继续，单协调器技术租约10:40UTC附近非用户截止；人审仍需，冻结发表产物未改/fullLake及Linux独立内核NOT_RUN。"
+}

@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "7be29ac58d306efe4fe75805e7404db971b80bda7829342bc4aaece2759f3392",
+  "target_lock_sha256": "bc9d22b396af6971633d6fbb403a18b25778dfb360bb8f09cbf13c642959bb50",
+  "leaf": {
+    "started_utc": "2026-10-22T08:47:45.710185+00:00",
+    "ended_utc": "2026-10-22T08:47:55.229728+00:00",
+    "module": "JinWishartFormalization.WidePositiveCoordinate",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/WidePositiveCoordinate.lean",
+    "source_sha256_before": "7be29ac58d306efe4fe75805e7404db971b80bda7829342bc4aaece2759f3392",
+    "source_sha256": "7be29ac58d306efe4fe75805e7404db971b80bda7829342bc4aaece2759f3392",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/wide-positive-coordinate-WidePositiveCoordinate-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "3c2fc90aebf2ac80a1777bc08080ef47d9d43ba6c04bbada0e8ad6a84d8d1717",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T08:47:55.255946+00:00",
+    "ended_utc": "2026-10-22T08:50:16.856151+00:00",
+    "module": "SheafWidePositiveCoordinateTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafWidePositiveCoordinateTargets.lean",
+    "source_sha256_before": "b788a1fd81d11bc4c491896bf3c02bc2521cc86f76779e493a6f216c958f7521",
+    "source_sha256": "b788a1fd81d11bc4c491896bf3c02bc2521cc86f76779e493a6f216c958f7521",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/wide-positive-coordinate-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "e0f9c9290210d9974712a9fae6187cca9aa066de9af7b67747d5e204ccafe236",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

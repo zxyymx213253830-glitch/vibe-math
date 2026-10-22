@@ -1,0 +1,20 @@
+{
+  "id": "L-wide-positive-coordinate-gram_full_row_rank_coordinate_eq_rowMinimum",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.WidePositiveCoordinate",
+  "declaration": "JinWishart.gram_full_row_rank_coordinate_eq_rowMinimum",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-wide-positive-coordinate-WidePositiveCoordinate.json",
+    "source_sha256": "7be29ac58d306efe4fe75805e7404db971b80bda7829342bc4aaece2759f3392"
+  }
+}

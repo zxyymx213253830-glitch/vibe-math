@@ -1,5 +1,5 @@
 # State
 
-2026-10-22续跑第十六里程碑：696绑定项（694 theorem/instance+2构造），auditPASS/facade80真实exit0。新增2声明/1模块：实际固定均值properCN1 IID m-by-n，0<m<=n，行Gram最小值ell=gramSmallestValue(X^H)的所有正实p逆矩可积iff p<n-m+1；临界/更高非负ENNReal下积分TOP，不称Bochner实积分无穷。复用旧tall逆矩阈值及新均值M^H共轭转置law，首轮叶子检查exit0，42项矩形/单行Gamma闭式/零列最小值负对照、2字面类型及最终源码真实Qoder P4绑定。P4维度/矛盾误报同响应自撤回，测度注记保留。此处是行Gram，未完成原列Gram固定最小正坐标桥，未关闭一般奇异B逆矩阈值或canonical分布独立law。本轮86打印声明/30模块非86概率突破。当前普通额度授权继续，单协调器/技术租约08:57UTC非用户截止；人审仍需，冻结发表产物未改/fullLake及Linux独立内核NOT_RUN。
+2026-10-22续跑第十七里程碑：700绑定项（698 theorem/instance+2构造），auditPASS/facade81真实exit0。新增4声明/1模块：满行秩m>0下列Gram固定有序指标i.val+1=m严格正且等于行Gram最小值；实际fixedM properCN1 IID且0<m<=n的同一原始2mn实高斯源上AE等同，逆p矩可积iff0<p<n-m+1及临界/更高非负ENNReal TOP。复用旧正谱/计数/AE通用秩和wide row阈值，不重做可测selector或尾证明，不把wide最后列零坐标当最小正值。313项110 rank/剪切/零维/重根控制、4字面类型及完整最终源码真实Qoder P4绑定；v1-v2依赖改写/错命名空间/ComplexOrder/AE范围简化失败保留，v3真实exit0；P4倒置Gram维度和冗余维度前提误报按精确签名裁决。此前下一卡wide坐标桥已关闭；一般奇异B阈值/固定canonical正规形/矩形Gaussian投影独立law仍OPEN。本轮90打印声明/31模块非90概率突破。普通额度实际可用时继续，单协调器技术租约10:40UTC附近非用户截止；人审仍需，冻结发表产物未改/fullLake及Linux独立内核NOT_RUN。
 
 Outside target closure does not mean unproved; consult exact node evidence. One current coordinator, technical lease only; heartbeat ACTIVE; no parallel/background Lean worker. Human review REQUIRED; fullLake and Linux independent kernel NOT_RUN; frozen publications unchanged.

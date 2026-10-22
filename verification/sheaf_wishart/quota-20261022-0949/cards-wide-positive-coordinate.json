@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "wide-positive-coordinate-WidePositiveCoordinate",
+    "module": "WidePositiveCoordinate",
+    "nodes": [
+      [
+        "L-wide-positive-coordinate-gram_full_row_rank_coordinate_eq_rowMinimum",
+        "gram_full_row_rank_coordinate_eq_rowMinimum",
+        []
+      ],
+      [
+        "L-wide-positive-coordinate-actualWide_fixed_positive_coordinate_ae",
+        "actualWide_fixed_positive_coordinate_ae",
+        [
+          "L-wide-positive-coordinate-gram_full_row_rank_coordinate_eq_rowMinimum"
+        ]
+      ],
+      [
+        "L-wide-positive-coordinate-actualWide_fixed_positive_inverse_realMoment_integrable_iff",
+        "actualWide_fixed_positive_inverse_realMoment_integrable_iff",
+        [
+          "L-wide-positive-coordinate-actualWide_fixed_positive_coordinate_ae"
+        ]
+      ],
+      [
+        "L-wide-positive-coordinate-actualWide_fixed_positive_inverse_realMoment_lintegral_eq_top",
+        "actualWide_fixed_positive_inverse_realMoment_lintegral_eq_top",
+        [
+          "L-wide-positive-coordinate-actualWide_fixed_positive_inverse_realMoment_integrable_iff"
+        ]
+      ]
+    ]
+  }
+]

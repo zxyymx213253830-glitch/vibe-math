@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T08:46:02.596952+00:00",
+  "ended_utc": "2026-10-22T08:46:20.382603+00:00",
+  "module": "JinWishartFormalization.WidePositiveCoordinate",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/WidePositiveCoordinate.lean",
+  "source_sha256_before": "6ec4eaeada9576f9af31910fc7c9704ed3e755a2efb1cd85a3067edb6280998f",
+  "source_sha256": "6ec4eaeada9576f9af31910fc7c9704ed3e755a2efb1cd85a3067edb6280998f",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-wide-positive-coordinate-v2.txt",
+  "log_exists": true,
+  "log_sha256": "6cc2f4d90a87c02856c5dda6a7cf8b2ee4df658fd7fac8f8c49d4b33163d3a17",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,3 +1,4 @@
+import JinWishartFormalization.WidePositiveCoordinate
 import JinWishartFormalization.WideRowInverseMoments
 import JinWishartFormalization.ProperGaussianAdjointLaw
 import JinWishartFormalization.CanonicalShearNorm

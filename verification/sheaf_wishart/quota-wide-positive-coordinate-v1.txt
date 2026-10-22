@@ -1,0 +1,82 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:27:9: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => {i | 0 < ⋯.eigenvalues₀ i}.card = _a
+Error: Application type mismatch: The argument
+  X
+has type
+  Matrix (Fin m) (Fin n) ℂ
+but is expected to have type
+  Matrix (Fin _a) (Fin n) ℂ
+in the application
+  complexGram X
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+m n : ℕ
+X : Matrix (Fin m) (Fin n) ℂ
+hm : 0 < m
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = m
+hr : X.rank = m
+hcount : {i | 0 < ⋯.eigenvalues₀ i}.card = m
+⊢ 0 < ⋯.eigenvalues₀ i ∧ ⋯.eigenvalues₀ i = gramSmallestValue Xᴴ hm
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    complexGram X i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:49:21: error(lean.unknownIdentifier): Unknown constant `Submodule.finrank_bot`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:51:62: error: Application type mismatch: The argument
+  hz
+has type
+  (complexSampleMatrix z + M).rank = min m (n + Module.finrank ℂ ↥(M.mulVecLin.domRestrict (mulVecLin 1).ker).range)
+but is expected to have type
+  (complexSampleMatrix z + M).rank = m
+in the application
+  gram_full_row_rank_coordinate_eq_rowMinimum (complexSampleMatrix z + M) hm i hi hz
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:48:61: warning: This simp argument is unused:
+  Matrix.mulVecLin_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_one, Matrix.rank_one, Fintype.card_fin, LinearMap.ker_id, Submodule.finrank_bot,
+    Nat.add_zero, Nat.min_eq_left hmn] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:49:4: warning: This simp argument is unused:
+  LinearMap.ker_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_one, Matrix.rank_one, Fintype.card_fin, Matrix.mulVecLin_one, Submodule.finrank_bot,
+    Nat.add_zero, Nat.min_eq_left hmn] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:49:43: warning: This simp argument is unused:
+  Nat.add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_one, Matrix.rank_one, Fintype.card_fin, Matrix.mulVecLin_one, LinearMap.ker_id,
+    Submodule.finrank_bot, Nat.min_eq_left hmn] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:49:56: warning: This simp argument is unused:
+  Nat.min_eq_left hmn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_one, Matrix.rank_one, Fintype.card_fin, Matrix.mulVecLin_one, LinearMap.ker_id,
+    Submodule.finrank_bot, Nat.add_zero] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.gram_full_row_rank_coordinate_eq_rowMinimum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualWide_fixed_positive_coordinate_ae' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualWide_fixed_positive_inverse_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualWide_fixed_positive_inverse_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

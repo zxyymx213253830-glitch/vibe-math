@@ -1,0 +1,11 @@
+{
+ "event":"Premature dependent preparation before the running final type checker completed",
+ "acceptance_attempt":"prepare_final_acceptance refused missing cards-wide-positive-coordinate.json before mutation",
+ "facade_attempt":"check_entry refused existing operation.lock before calling collaborative_check or Lean",
+ "same_owner_final_checker_was_running":true,
+ "overlapping_lean_started":false,
+ "source_edited_while_active":false,
+ "live_lock_removed":false,
+ "resolution":"Waited for existing checker real exit0/SHEAF_TARGET_TYPES_EQ PASS and LOCKED_FINAL_BUNDLE_PASS, then prepared acceptance and started facade sequentially.",
+ "reason":"Coordinator issued dependent calls before checking completion; guards worked; this is not a mathematical or Lean source failure. Failed attempts are retained here rather than presented as successful checks."
+}

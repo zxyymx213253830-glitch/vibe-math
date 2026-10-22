@@ -1,0 +1,984 @@
+{
+  "status": "PASS controls only; no general spectral or AE proof",
+  "seed": 2026102221,
+  "checks": 313,
+  "cases": [
+    {
+      "m": 0,
+      "n": 0,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 0,
+      "n": 0,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 0,
+      "n": 1,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 0,
+      "n": 1,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 0,
+      "n": 2,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 0,
+      "n": 2,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 0,
+      "n": 3,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 0,
+      "n": 3,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 0,
+      "n": 4,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 0,
+      "n": 4,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 0,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 0,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 1,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 2,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 3,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 4,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 4,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 1,
+      "n": 4,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 1,
+      "n": 4,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 0,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 0,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 3,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 2,
+      "n": 4,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 0,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 0,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 1,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "rank": 3,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 3,
+      "rank": 3,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "rank": 3,
+      "shear": false
+    },
+    {
+      "m": 3,
+      "n": 4,
+      "rank": 3,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 0,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 0,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 1,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 1,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 1,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 1,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 2,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "rank": 3,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "rank": 3,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 0,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 0,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 1,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 1,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 2,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 2,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 3,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 3,
+      "shear": true
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 4,
+      "shear": false
+    },
+    {
+      "m": 4,
+      "n": 4,
+      "rank": 4,
+      "shear": true
+    }
+  ],
+  "check_labels": [
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "empty-dimensions-no-positive-witness",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "rank-deficiency-excludes-strict-row-minimum",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "exact-rank-adjoint-and-prescribed-positive-count",
+    "ordered-positive-prefix-matches-two-Grams",
+    "full-row-rank-fixed-index-m-minus-one",
+    "negative-control-last-column-coordinate"
+  ],
+  "source_sha256": "3118e0700c1e1ea580cf9795ddf2e4f31f8f4b78a27386b9a00afc4415c7b224",
+  "seconds": 0.11614080000435933
+}

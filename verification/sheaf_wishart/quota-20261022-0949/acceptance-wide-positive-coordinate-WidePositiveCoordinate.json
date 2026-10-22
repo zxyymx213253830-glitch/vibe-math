@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-wide-positive-coordinate-WidePositiveCoordinate.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-wide-positive-coordinate-WidePositiveCoordinate.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/wide-positive-coordinate-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-wide-positive-coordinate-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-wide-positive-coordinate-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-wide-positive-coordinate-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/wide-positive-coordinate-final-snapshot",
+    "resolution": "notes/WISHART_WIDE_POSITIVE_COORDINATE.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-81.receipt.json"
+}

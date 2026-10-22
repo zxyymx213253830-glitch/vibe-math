@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T08:47:55.255946+00:00",
+  "ended_utc": "2026-10-22T08:50:16.856151+00:00",
+  "module": "SheafWidePositiveCoordinateTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafWidePositiveCoordinateTargets.lean",
+  "source_sha256_before": "b788a1fd81d11bc4c491896bf3c02bc2521cc86f76779e493a6f216c958f7521",
+  "source_sha256": "b788a1fd81d11bc4c491896bf3c02bc2521cc86f76779e493a6f216c958f7521",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/wide-positive-coordinate-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "e0f9c9290210d9974712a9fae6187cca9aa066de9af7b67747d5e204ccafe236",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

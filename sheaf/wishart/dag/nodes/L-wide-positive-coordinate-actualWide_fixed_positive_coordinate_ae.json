@@ -1,0 +1,24 @@
+{
+  "id": "L-wide-positive-coordinate-actualWide_fixed_positive_coordinate_ae",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.WidePositiveCoordinate",
+  "declaration": "JinWishart.actualWide_fixed_positive_coordinate_ae",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-wide-positive-coordinate-gram_full_row_rank_coordinate_eq_rowMinimum"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-wide-positive-coordinate-gram_full_row_rank_coordinate_eq_rowMinimum"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-wide-positive-coordinate-WidePositiveCoordinate.json",
+    "source_sha256": "7be29ac58d306efe4fe75805e7404db971b80bda7829342bc4aaece2759f3392"
+  }
+}

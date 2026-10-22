@@ -1,0 +1,59 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:33:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:24:77: error: unsolved goals
+m n : ℕ
+X : Matrix (Fin m) (Fin n) ℂ
+hm : 0 < m
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = m
+hr : X.rank = m
+hcount : {i | 0 < ⋯.eigenvalues₀ i}.card = ↑i + 1
+hmin :
+  0 < ⋯.eigenvalues₀ i ∧ ∀ (j : Fin (Fintype.card (Fin n))), 0 < ⋯.eigenvalues₀ j → ⋯.eigenvalues₀ i ≤ ⋯.eigenvalues₀ j
+j : Fin (Fintype.card (Fin m)) := smallestEigenvalue₀Index hm
+hj : ↑j + 1 = m
+⊢ 0 < ⋯.eigenvalues₀ i ∧ ⋯.eigenvalues₀ i = gramSmallestValue Xᴴ hm
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:51:62: error: Application type mismatch: The argument
+  hz
+has type
+  (complexSampleMatrix z + M).rank = min m (n + Module.finrank ℂ ↥(M.mulVecLin.domRestrict (mulVecLin 1).ker).range)
+but is expected to have type
+  (complexSampleMatrix z + M).rank = m
+in the application
+  gram_full_row_rank_coordinate_eq_rowMinimum (complexSampleMatrix z + M) hm i hi hz
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:49:8: warning: This simp argument is unused:
+  hker
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearMap.range_domRestrict, Nat.min_eq_left hmn] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:49:13: warning: This simp argument is unused:
+  LinearMap.range_domRestrict
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hker, Nat.min_eq_left hmn] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WidePositiveCoordinate.lean:49:41: warning: This simp argument is unused:
+  Nat.min_eq_left hmn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hker, LinearMap.range_domRestrict] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.gram_full_row_rank_coordinate_eq_rowMinimum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualWide_fixed_positive_coordinate_ae' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualWide_fixed_positive_inverse_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualWide_fixed_positive_inverse_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

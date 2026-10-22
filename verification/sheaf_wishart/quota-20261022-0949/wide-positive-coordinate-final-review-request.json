@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "WidePositiveCoordinate.lean": {
+      "sha256": "7be29ac58d306efe4fe75805e7404db971b80bda7829342bc4aaece2759f3392",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7e37de8c029d1e5d39592375b52c8a352c037121392397cac73b9a320ab16ad2"
+}
