@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "2d8210fab7d60d932b112194a3888a7a4bc0fd8e91e2421180dd2eec01e98c8e",
+  "target_lock_sha256": "b47f2368810cad2022216575cd6b7a756feb61c2359a8c7a3b32ce0d868abd79",
+  "leaf": {
+    "started_utc": "2026-10-22T02:58:45.399815+00:00",
+    "ended_utc": "2026-10-22T02:58:54.280488+00:00",
+    "module": "JinWishartFormalization.ActualSingularOffsetL2",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularOffsetL2.lean",
+    "source_sha256_before": "2d8210fab7d60d932b112194a3888a7a4bc0fd8e91e2421180dd2eec01e98c8e",
+    "source_sha256": "2d8210fab7d60d932b112194a3888a7a4bc0fd8e91e2421180dd2eec01e98c8e",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/offset-l2-ActualSingularOffsetL2-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "0eef905b390f69001d897a06de6dffb8c8aaaf7aa028c799ff39b4860eb9dd13",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T02:58:54.282227+00:00",
+    "ended_utc": "2026-10-22T02:59:04.899517+00:00",
+    "module": "SheafOffsetL2Targets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafOffsetL2Targets.lean",
+    "source_sha256_before": "8cf385d808d44f1a56ebbf0560daa4d142b35425ea62a9456693dd3242d2f590",
+    "source_sha256": "8cf385d808d44f1a56ebbf0560daa4d142b35425ea62a9456693dd3242d2f590",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/offset-l2-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

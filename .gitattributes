@@ -260,3 +260,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/singular_log_variance_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_SINGULAR_LOG_VARIANCE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumOffsetL2.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularOffsetL2.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_SINGULAR_OFFSET_MEAN_SQUARE.md -text whitespace=cr-at-eol

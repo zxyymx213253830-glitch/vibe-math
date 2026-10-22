@@ -1,0 +1,40 @@
+[
+  {
+    "tag": "offset-l2-FiniteSpectrumOffsetL2",
+    "module": "FiniteSpectrumOffsetL2",
+    "nodes": [
+      [
+        "L-offset-l2-positiveModeOffsetError_nonneg_le",
+        "positiveModeOffsetError_nonneg_le",
+        []
+      ],
+      [
+        "L-offset-l2-positiveModeOffsetError_tendsto",
+        "positiveModeOffsetError_tendsto",
+        [
+          "L-offset-l2-positiveModeOffsetError_nonneg_le"
+        ]
+      ],
+      [
+        "L-offset-l2-integral_finiteSpectrumOffsetError_sq_tendsto",
+        "integral_finiteSpectrumOffsetError_sq_tendsto",
+        [
+          "L-offset-l2-positiveModeOffsetError_tendsto"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "offset-l2-ActualSingularOffsetL2",
+    "module": "ActualSingularOffsetL2",
+    "nodes": [
+      [
+        "L-offset-l2-actualCorrelatedMatrixLogDet_offset_mean_square",
+        "actualCorrelatedMatrixLogDet_offset_mean_square",
+        [
+          "L-offset-l2-integral_finiteSpectrumOffsetError_sq_tendsto"
+        ]
+      ]
+    ]
+  }
+]

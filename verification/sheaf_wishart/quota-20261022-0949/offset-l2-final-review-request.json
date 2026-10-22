@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "FiniteSpectrumOffsetL2.lean": {
+      "sha256": "ebb4e02865f3092ffdb5a56909e7c18a6dd0309809e9d7bbe9219f2796bac67f",
+      "supplied": "Full source"
+    },
+    "ActualSingularOffsetL2.lean": {
+      "sha256": "2d8210fab7d60d932b112194a3888a7a4bc0fd8e91e2421180dd2eec01e98c8e",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9d76e56495d9c628efa6798c155346672cf3c7dbbcbf10c7247a36eb8acd236d"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "L-offset-l2-integral_finiteSpectrumOffsetError_sq_tendsto",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteSpectrumOffsetL2",
+  "declaration": "JinWishart.integral_finiteSpectrumOffsetError_sq_tendsto",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-offset-l2-positiveModeOffsetError_tendsto"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-offset-l2-positiveModeOffsetError_tendsto"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-offset-l2-FiniteSpectrumOffsetL2.json",
+    "source_sha256": "ebb4e02865f3092ffdb5a56909e7c18a6dd0309809e9d7bbe9219f2796bac67f"
+  }
+}

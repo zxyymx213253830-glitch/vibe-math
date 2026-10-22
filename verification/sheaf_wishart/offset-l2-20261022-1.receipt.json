@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:55:11.020595+00:00",
+  "ended_utc": "2026-10-22T02:55:21.673022+00:00",
+  "module": "JinWishartFormalization.FiniteSpectrumOffsetL2",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumOffsetL2.lean",
+  "source_sha256_before": "8959b78f1e83a02c50b6db2ffea3295e8bf50aa2ef68e8453d00799880b6816e",
+  "source_sha256": "8959b78f1e83a02c50b6db2ffea3295e8bf50aa2ef68e8453d00799880b6816e",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/offset-l2-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "0015a0656ca841d718fc50cd77e15e408a8ae7683814ae2d42460f9679be7b1d",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

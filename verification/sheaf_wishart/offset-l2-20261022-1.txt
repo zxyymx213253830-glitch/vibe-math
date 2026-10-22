@@ -1,0 +1,106 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:23:38: error: not a positivity goal
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:27:59: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:45:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:45:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:50:4: error: Type mismatch: After simplification, term
+  tendsto_const_nhds
+ has type
+  True
+but is expected to have type
+  Tendsto (positiveModeOffsetError 0) atTop (𝓝 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:68:16: error: don't know how to synthesize implicit argument
+  @Measurable.ite α ℝ (fun x => 1) (fun x => 0) inst✝¹ Real.measurableSpace (fun a => ?m.388 < f i a) ?m.372
+    (measurableSet_lt measurable_const (hm i)) measurable_const measurable_const
+context:
+α : Type u_1
+ι : Type u_2
+inst✝¹ : MeasurableSpace α
+inst✝ : Fintype ι
+μ : Measure α
+f : ι → α → ℝ
+hm : ∀ (i : ι), Measurable (f i)
+hn : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 ≤ f i a
+hf : ∀ (i : ι), Integrable (fun a => f i a ^ 2) μ
+hlog : ∀ (i : ι), Integrable (fun a => positiveSpectrumLog (f i a) ^ 2) μ
+bound : α → ℝ := ⋯
+hbound : Integrable bound μ
+r : ℝ
+i : ι
+hi : i ∈ Finset.univ
+⊢ DecidablePred fun a => ?m.388 < f i a
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:68:16: error: don't know how to synthesize implicit argument `p`
+  @Measurable.ite α ℝ (fun x => 1) (fun x => 0) inst✝¹ Real.measurableSpace (fun a => ?m.388 < f i a) ?m.372
+    (measurableSet_lt measurable_const (hm i)) measurable_const measurable_const
+context:
+α : Type u_1
+ι : Type u_2
+inst✝¹ : MeasurableSpace α
+inst✝ : Fintype ι
+μ : Measure α
+f : ι → α → ℝ
+hm : ∀ (i : ι), Measurable (f i)
+hn : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 ≤ f i a
+hf : ∀ (i : ι), Integrable (fun a => f i a ^ 2) μ
+hlog : ∀ (i : ι), Integrable (fun a => positiveSpectrumLog (f i a) ^ 2) μ
+bound : α → ℝ := ⋯
+hbound : Integrable bound μ
+r : ℝ
+i : ι
+hi : i ∈ Finset.univ
+⊢ α → Prop
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:68:32: error: don't know how to synthesize implicit argument `f`
+  @measurableSet_lt ℝ α PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.measurableSpace
+    BorelSpace.opensMeasurable inst✝¹ Real.linearOrder instSecondCountableTopologyReal HasSolidNorm.orderClosedTopology
+    (fun x => ?m.388) (f i) measurable_const (hm i)
+context:
+α : Type u_1
+ι : Type u_2
+inst✝¹ : MeasurableSpace α
+inst✝ : Fintype ι
+μ : Measure α
+f : ι → α → ℝ
+hm : ∀ (i : ι), Measurable (f i)
+hn : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 ≤ f i a
+hf : ∀ (i : ι), Integrable (fun a => f i a ^ 2) μ
+hlog : ∀ (i : ι), Integrable (fun a => positiveSpectrumLog (f i a) ^ 2) μ
+bound : α → ℝ := ⋯
+hbound : Integrable bound μ
+r : ℝ
+i : ι
+hi : i ∈ Finset.univ
+⊢ α → ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:68:49: error: don't know how to synthesize implicit argument `a`
+  @measurable_const ℝ α Real.measurableSpace inst✝¹ ?m.388
+context:
+α : Type u_1
+ι : Type u_2
+inst✝¹ : MeasurableSpace α
+inst✝ : Fintype ι
+μ : Measure α
+f : ι → α → ℝ
+hm : ∀ (i : ι), Measurable (f i)
+hn : ∀ (i : ι), ∀ᵐ (a : α) ∂μ, 0 ≤ f i a
+hf : ∀ (i : ι), Integrable (fun a => f i a ^ 2) μ
+hlog : ∀ (i : ι), Integrable (fun a => positiveSpectrumLog (f i a) ^ 2) μ
+bound : α → ℝ := ⋯
+hbound : Integrable bound μ
+r : ℝ
+i : ι
+hi : i ∈ Finset.univ
+⊢ ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetL2.lean:68:9: error: failed to infer `have` declaration type
+'JinWishart.positiveModeOffsetError_nonneg_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.positiveModeOffsetError_tendsto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integral_finiteSpectrumOffsetError_sq_tendsto' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

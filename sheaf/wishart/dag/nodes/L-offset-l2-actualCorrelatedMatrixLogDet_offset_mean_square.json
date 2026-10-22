@@ -1,0 +1,24 @@
+{
+  "id": "L-offset-l2-actualCorrelatedMatrixLogDet_offset_mean_square",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualSingularOffsetL2",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_offset_mean_square",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-offset-l2-integral_finiteSpectrumOffsetError_sq_tendsto"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-offset-l2-integral_finiteSpectrumOffsetError_sq_tendsto"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-offset-l2-ActualSingularOffsetL2.json",
+    "source_sha256": "2d8210fab7d60d932b112194a3888a7a4bc0fd8e91e2421180dd2eec01e98c8e"
+  }
+}

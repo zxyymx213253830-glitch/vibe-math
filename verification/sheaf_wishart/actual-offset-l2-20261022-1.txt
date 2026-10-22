@@ -1,0 +1,41 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularOffsetL2.lean:37:54: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∑ i ∈ ?s, ?f i) * ?a
+in the target expression
+  ∑ x, Real.log (1 + r * actualCorrelatedEigenvalue B M x z) -
+        ∑ x, (if 0 < actualCorrelatedEigenvalue B M x z then 1 else 0) * Real.log r -
+      ∑ x, positiveSpectrumLog (actualCorrelatedEigenvalue B M x z) =
+    actualCorrelatedMatrixLogDet B M r z - R * Real.log r - S z
+
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+R : ℝ := ↑(min m (B.fromRows M).rank)
+S : ComplexSample → ℝ := fun z => ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)
+ht :
+  (∀ (r : ℝ),
+      1 ≤ r →
+        Integrable (fun a => (∑ i, positiveModeOffsetError (actualCorrelatedEigenvalue B M i a) r) ^ 2)
+          (stdGaussian ComplexSample)) ∧
+    Tendsto
+      (fun r =>
+        ∫ (a : ComplexSample),
+          (∑ i, positiveModeOffsetError (actualCorrelatedEigenvalue B M i a) r) ^ 2 ∂stdGaussian ComplexSample)
+      atTop (𝓝 0)
+r : ℝ
+hr : 1 ≤ r
+z : ComplexSample
+hz :
+  (complexSampleMatrix z * B + M).rank =
+    min m (B.rank + Module.finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range)
+hc : (∑ i, if 0 < actualCorrelatedEigenvalue B M i z then 1 else 0) = ↑(complexSampleMatrix z * B + M).rank
+hR : ↑(complexSampleMatrix z * B + M).rank = R
+hcount : (∑ i, if 0 < actualCorrelatedEigenvalue B M i z then 1 else 0) = R
+hC : ∑ i, Real.log (1 + r * actualCorrelatedEigenvalue B M i z) = actualCorrelatedMatrixLogDet B M r z
+⊢ ∑ x, Real.log (1 + r * actualCorrelatedEigenvalue B M x z) -
+        ∑ x, (if 0 < actualCorrelatedEigenvalue B M x z then 1 else 0) * Real.log r -
+      ∑ x, positiveSpectrumLog (actualCorrelatedEigenvalue B M x z) =
+    actualCorrelatedMatrixLogDet B M r z - R * Real.log r - S z
+'JinWishart.actualCorrelatedMatrixLogDet_offset_mean_square' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

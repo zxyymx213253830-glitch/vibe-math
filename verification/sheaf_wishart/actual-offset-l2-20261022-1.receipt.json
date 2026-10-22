@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:57:00.354540+00:00",
+  "ended_utc": "2026-10-22T02:57:09.528325+00:00",
+  "module": "JinWishartFormalization.ActualSingularOffsetL2",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularOffsetL2.lean",
+  "source_sha256_before": "30ead28e498c1de966c841a7d40d3b678c426ec64f9e5015100139cc6ab183c7",
+  "source_sha256": "30ead28e498c1de966c841a7d40d3b678c426ec64f9e5015100139cc6ab183c7",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/actual-offset-l2-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "12a4b17bbab51faeea6a8185485496d94a6c2c037e8a584c6f9817ccfd9cc925",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
