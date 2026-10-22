@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "joint-kernel-canonical-JointKernelCanonicalNormalization",
+    "module": "JointKernelCanonicalNormalization",
+    "nodes": [
+      [
+        "L-joint-kernel-canonical-exists_joint_kernel_canonical_normalization",
+        "exists_joint_kernel_canonical_normalization",
+        []
+      ]
+    ]
+  }
+]

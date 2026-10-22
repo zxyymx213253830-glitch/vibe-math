@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:19:52.225997+00:00",
+  "ended_utc": "2026-10-22T12:20:04.757688+00:00",
+  "module": "SheafJointKernelCanonicalTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafJointKernelCanonicalTargets.lean",
+  "source_sha256_before": "e9049b5f26872d477008b0d594da983606e79b8c6ee28e88833c8482de429988",
+  "source_sha256": "e9049b5f26872d477008b0d594da983606e79b8c6ee28e88833c8482de429988",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/joint-kernel-canonical-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "5549de1d99117b07db36bc10acc9ba58a3a347ab8b6951f6a3e4ceea501fc270",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,5 @@
+{
+  "status": "REJECTED",
+  "error": "SymPy structural equality in known energy check without simplification",
+  "accepted": false
+}

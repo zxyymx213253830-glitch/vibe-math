@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\JointKernelCanonicalNormalization.lean:42:20: error: Application type mismatch: The argument
+  V
+has type
+  G ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin (finrank ℂ (EuclideanSpace ℂ (Fin c))))
+but is expected to have type
+  G ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+in the application
+  Exists.intro V
+'JinWishart.exists_joint_kernel_canonical_normalization' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

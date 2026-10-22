@@ -1,0 +1,1 @@
+'JinWishart.exists_joint_kernel_canonical_normalization' depends on axioms: [propext, Classical.choice, Quot.sound]

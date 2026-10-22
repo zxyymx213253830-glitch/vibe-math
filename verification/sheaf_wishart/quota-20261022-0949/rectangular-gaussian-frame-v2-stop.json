@@ -1,0 +1,6 @@
+{
+  "status": "STOPPED_OWN_PROCESS",
+  "pid": 34628,
+  "reason": "Avoid repeated expression swell: simplify fixed rational unitary entries and cache covariance before controls",
+  "accepted": false
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "JointKernelCanonicalNormalization.lean": {
+      "sha256": "51611e2121014981559c3d66b6aa6edd076c006e79b239dc5030f357a4f87ee6",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "264df073527e6a0020b0dd93255ede2440d4a3c97627b68b46f4b2af1610ab77"
+}

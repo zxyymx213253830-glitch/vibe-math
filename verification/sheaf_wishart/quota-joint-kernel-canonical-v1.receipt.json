@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:16:43.113270+00:00",
+  "ended_utc": "2026-10-22T12:16:55.326732+00:00",
+  "module": "JinWishartFormalization.JointKernelCanonicalNormalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/JointKernelCanonicalNormalization.lean",
+  "source_sha256_before": "fcbac5f03e110cec85ccf95ceab1f43b503430ade35e73a850b2d5d5d1a59f1e",
+  "source_sha256": "fcbac5f03e110cec85ccf95ceab1f43b503430ade35e73a850b2d5d5d1a59f1e",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-joint-kernel-canonical-v1.txt",
+  "log_exists": true,
+  "log_sha256": "adcff072b065095a7d383f06d0faeea9c65863c4ebfe581c01b05cef344b9878",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

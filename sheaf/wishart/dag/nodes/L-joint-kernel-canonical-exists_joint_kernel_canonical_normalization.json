@@ -1,0 +1,20 @@
+{
+  "id": "L-joint-kernel-canonical-exists_joint_kernel_canonical_normalization",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.JointKernelCanonicalNormalization",
+  "declaration": "JinWishart.exists_joint_kernel_canonical_normalization",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-joint-kernel-canonical-JointKernelCanonicalNormalization.json",
+    "source_sha256": "51611e2121014981559c3d66b6aa6edd076c006e79b239dc5030f357a4f87ee6"
+  }
+}
