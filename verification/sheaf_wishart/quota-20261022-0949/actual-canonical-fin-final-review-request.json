@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualCanonicalFinBridge.lean": {
+      "sha256": "5d4068e1ea95dc043f03f021f80eb55772480b9c957f215b1b4d0a9b99bce292",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7b43e8e32322dad491ebdefbda934704a8f504b0d80b5145650f6ac957a881b5"
+}

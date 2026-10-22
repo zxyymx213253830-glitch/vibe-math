@@ -1,0 +1,20 @@
+{
+  "id": "L-actual-canonical-fin-canonical_physical_fin_gram",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualCanonicalFinBridge",
+  "declaration": "JinWishart.canonical_physical_fin_gram",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-canonical-fin-ActualCanonicalFinBridge.json",
+    "source_sha256": "5d4068e1ea95dc043f03f021f80eb55772480b9c957f215b1b4d0a9b99bce292"
+  }
+}

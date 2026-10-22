@@ -1,5 +1,5 @@
 # State
 
-2026-10-22续跑第二十八里程碑：727绑定项（725定理实例+2构造），auditPASS/facade92真实exit0，65接受记录全验证。本轮117打印声明/47模块非117概率突破。新1声明/1模块：实际properCN1 c-by-b高斯Z、任意固定复均值M及固定c-by-c Q（可奇异/零/空维），全部实q>=0的(1+||Q(Z+M)||op)^q真实可积，复用Fernique有限Lp并构造固定实线性到同一复operator空间。21例591控制含标量Gamma闭式校准和有限矩形sanity，非用采样证明；1字面类型和完整最终源码真实Qoder P4绑定。常数Lp的stdGaussian概率实例、restrictScalars并不改变operator值域/范数及Gaussian实例疑问按精确定义裁决；失败v1保留不接受。随机剪切因子所有阶矩输入闭合，实际AE块谱/独立乘积积分及一般singularB逆矩阈值仍OPEN。19:52普通额度true primary59 weekly9，未用重置券；lease21:08非用户截止。人审测度/Fubini/极限/方差/模型仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。
+2026-10-22续跑第二十九里程碑：729绑定项（727定理实例+2构造），auditPASS/facade93真实exit0，66接受记录全验证。本轮119打印声明/48模块非119概率突破。新2声明/1模块：显式固定正规形方程下每个物理Z的Fin样本Gram精确等于((ZB+M)F)^H((ZB+M)F)；再加列T双射、rank stacked[B;M]=n和双维正，原始同一2mp高斯源固定i+1=min(m,n)的原/正规形正谱坐标AE严格正且双边固定C范数比较。未假设非酉T保Gaussian；此比较不需U等距/N可逆，块联合law另有明确前提。27例130耦合控制、2字面类型与完整最终源码真实Qoder P4绑定；Prop证明无关性、X尺寸、Fin索引和全列双射重索引被误当删列疑问按精确签名裁决，源首轮真实exit0。下一独立乘积下逆矩可积性输运，一般singularB阈值仍OPEN。19:59普通true primary67 weekly10，未用重置券，lease21:08非用户截止。人审测度/Fubini/极限/方差/模型仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。
 
 Outside target closure does not mean unproved; consult exact node evidence. One current coordinator, technical lease only; heartbeat ACTIVE; no parallel/background Lean worker. Human review REQUIRED; fullLake and Linux independent kernel NOT_RUN; frozen publications unchanged.

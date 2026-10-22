@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "actual-canonical-fin-ActualCanonicalFinBridge",
+    "module": "ActualCanonicalFinBridge",
+    "nodes": [
+      [
+        "L-actual-canonical-fin-canonical_physical_fin_gram",
+        "canonical_physical_fin_gram",
+        []
+      ],
+      [
+        "L-actual-canonical-fin-actual_canonical_fin_positive_bounds_ae",
+        "actual_canonical_fin_positive_bounds_ae",
+        [
+          "L-actual-canonical-fin-canonical_physical_fin_gram"
+        ]
+      ]
+    ]
+  }
+]

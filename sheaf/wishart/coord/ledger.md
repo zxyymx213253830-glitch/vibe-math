@@ -76,3 +76,4 @@
 - 2026-10-22T19:45:23.785715+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-fin-shear-CanonicalFinShear.json; human measure/model review remains REQUIRED.
 - 2026-10-22T19:51:36.877908+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-fin-block-CanonicalFinBlockComparison.json; human measure/model review remains REQUIRED.
 - 2026-10-22T19:57:15.198889+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-shear-factor-CanonicalShearFactorMoments.json; human measure/model review remains REQUIRED.
+- 2026-10-22T20:02:31.292601+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-canonical-fin-ActualCanonicalFinBridge.json; human measure/model review remains REQUIRED.

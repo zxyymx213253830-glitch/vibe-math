@@ -1,0 +1,16 @@
+{
+  "started_utc": "2026-10-22T20:01:49.473405+00:00",
+  "ended_utc": "2026-10-22T20:02:02.773847+00:00",
+  "module": "JinWishartFormalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization.lean",
+  "source_sha256_before": "6b2c4ace56638a20cda769646c5b8011867f24af3576a33bb42519e792d25d18",
+  "source_sha256": "6b2c4ace56638a20cda769646c5b8011867f24af3576a33bb42519e792d25d18",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/facade-93.txt",
+  "log_exists": true,
+  "log_sha256": "e345f8a3612ed06a1c3c49ade2cfb8ecbe9f17dc58767324d4c98e499bf6d164",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false,
+  "gated_helper_exit_code": 0
+}

@@ -1,0 +1,15 @@
+{
+  "seed": 2026102232,
+  "cases": 27,
+  "checks": 130,
+  "status": "PASS",
+  "source_sha256": "3f60bb24429d08238c3e24f77d18ea2e65a430be1e2dd6b083871a7752795277",
+  "scope": "Coupled deterministic physical normalization controls, not a proof of AE attainment",
+  "known_controls": [
+    "fixed row reflection isometry",
+    "BT=[U,0]",
+    "M restricted to kernel B identity N",
+    "full stacked rank",
+    "empty dimensions"
+  ]
+}

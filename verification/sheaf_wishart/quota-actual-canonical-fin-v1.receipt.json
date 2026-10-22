@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:58:43.793303+00:00",
+  "ended_utc": "2026-10-22T19:58:55.507306+00:00",
+  "module": "JinWishartFormalization.ActualCanonicalFinBridge",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCanonicalFinBridge.lean",
+  "source_sha256_before": "5d4068e1ea95dc043f03f021f80eb55772480b9c957f215b1b4d0a9b99bce292",
+  "source_sha256": "5d4068e1ea95dc043f03f021f80eb55772480b9c957f215b1b4d0a9b99bce292",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-actual-canonical-fin-v1.txt",
+  "log_exists": true,
+  "log_sha256": "93e462b6ca0b50a05df583fddba0e7aa0f5c39bcb8d7df564602d2d3af6b973b",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

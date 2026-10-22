@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-canonical-fin-actual_canonical_fin_positive_bounds_ae",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualCanonicalFinBridge",
+  "declaration": "JinWishart.actual_canonical_fin_positive_bounds_ae",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-actual-canonical-fin-canonical_physical_fin_gram"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-actual-canonical-fin-canonical_physical_fin_gram"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-canonical-fin-ActualCanonicalFinBridge.json",
+    "source_sha256": "5d4068e1ea95dc043f03f021f80eb55772480b9c957f215b1b4d0a9b99bce292"
+  }
+}
