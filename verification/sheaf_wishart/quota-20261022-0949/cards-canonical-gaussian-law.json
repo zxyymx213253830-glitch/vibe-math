@@ -1,0 +1,60 @@
+[
+  {
+    "tag": "canonical-gaussian-law-GaussianRectangularFrameLaw",
+    "module": "GaussianRectangularFrameLaw",
+    "nodes": [
+      [
+        "L-canonical-gaussian-law-stdGaussian_complex_isometry_adjoint_law",
+        "stdGaussian_complex_isometry_adjoint_law",
+        []
+      ],
+      [
+        "L-canonical-gaussian-law-complexGaussianMatrixLaw_rectangular_column_projection",
+        "complexGaussianMatrixLaw_rectangular_column_projection",
+        [
+          "L-canonical-gaussian-law-stdGaussian_complex_isometry_adjoint_law"
+        ]
+      ],
+      [
+        "L-canonical-gaussian-law-complexGaussianMatrixLaw_right_isometric_projection",
+        "complexGaussianMatrixLaw_right_isometric_projection",
+        [
+          "L-canonical-gaussian-law-complexGaussianMatrixLaw_rectangular_column_projection"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "canonical-gaussian-law-GaussianDisjointMatrixBlockLaw",
+    "module": "GaussianDisjointMatrixBlockLaw",
+    "nodes": [
+      [
+        "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_columns",
+        "complexGaussianMatrixLaw_disjoint_columns",
+        [
+          "L-canonical-gaussian-law-complexGaussianMatrixLaw_right_isometric_projection"
+        ]
+      ],
+      [
+        "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_rows",
+        "complexGaussianMatrixLaw_disjoint_rows",
+        [
+          "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_columns"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "canonical-gaussian-law-ActualCanonicalNoiseBlockLaw",
+    "module": "ActualCanonicalNoiseBlockLaw",
+    "nodes": [
+      [
+        "L-canonical-gaussian-law-actual_isometric_noise_disjoint_row_blocks",
+        "actual_isometric_noise_disjoint_row_blocks",
+        [
+          "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_rows"
+        ]
+      ]
+    ]
+  }
+]

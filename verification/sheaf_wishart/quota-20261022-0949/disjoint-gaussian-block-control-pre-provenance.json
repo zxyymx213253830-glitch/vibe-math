@@ -1,0 +1,13 @@
+{
+  "seed": 2026102224,
+  "cases": 62,
+  "checks": 408,
+  "status": "PASS",
+  "scope": "Exact shifted mean/covariance selectors only, not Gaussian independence proof",
+  "known_controls": [
+    "empty blocks",
+    "permuted partitions",
+    "proper CN1 variance half",
+    "overlap negative"
+  ]
+}

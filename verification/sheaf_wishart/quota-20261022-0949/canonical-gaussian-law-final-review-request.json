@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "GaussianRectangularFrameLaw.lean": {
+      "sha256": "58be410c674867f7f647c26e7685f66b66b2ca73307c06eecad16eda97804903",
+      "supplied": "Full source"
+    },
+    "GaussianDisjointMatrixBlockLaw.lean": {
+      "sha256": "da5e76b354a5f1a93b430216e484723263a02a11459540c07730cdc55f62c632",
+      "supplied": "Full source"
+    },
+    "ActualCanonicalNoiseBlockLaw.lean": {
+      "sha256": "7401d4e241501ea82ff360c0795049256250ce23583830105a18e339c844e2be",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "3946c23f0346c57f0171f1100e1fd37129efe6609c50c555d2f8dc0ecfd5d929"
+}

@@ -1,0 +1,124 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:26:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  inner ?m.136 ((ContinuousLinearMap.adjoint ?A) ?y) ?x
+in the target expression
+  inner ℝ ((LinearMap.adjoint R.toLinearMap) x) y = inner ℝ ((LinearMap.adjoint U.toLinearMap) x) y
+
+ι : Type u_1
+κ : Type u_2
+inst✝¹ : Fintype ι
+inst✝ : Fintype κ
+U : EuclideanSpace ℂ ι →ₗᵢ[ℂ] EuclideanSpace ℂ κ
+R : EuclideanSpace ℂ ι →ₗᵢ[ℝ] EuclideanSpace ℂ κ :=
+  let __LinearMap := ↑ℝ U.toLinearMap;
+  { toLinearMap := __LinearMap, norm_map' := ⋯ }
+x : EuclideanSpace ℂ κ
+y : EuclideanSpace ℂ ι
+⊢ inner ℝ ((LinearMap.adjoint R.toLinearMap) x) y = inner ℝ ((LinearMap.adjoint U.toLinearMap) x) y
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:31:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ContinuousLinearMap.adjoint (ContinuousLinearMap.adjoint ?A)
+in the target expression
+  ‖(ContinuousLinearMap.adjoint ?m.175) t‖ = ‖t‖
+
+ι : Type u_1
+κ : Type u_2
+inst✝¹ : Fintype ι
+inst✝ : Fintype κ
+U : EuclideanSpace ℂ ι →ₗᵢ[ℂ] EuclideanSpace ℂ κ
+R : EuclideanSpace ℂ ι →ₗᵢ[ℝ] EuclideanSpace ℂ κ :=
+  let __LinearMap := ↑ℝ U.toLinearMap;
+  { toLinearMap := __LinearMap, norm_map' := ⋯ }
+he : ⇑(LinearMap.adjoint R.toLinearMap) = ⇑(LinearMap.adjoint U.toLinearMap)
+t : ?m.151
+⊢ ‖(ContinuousLinearMap.adjoint ?m.175) t‖ = ‖t‖
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:30:52: error: Application type mismatch: The argument
+  LinearMap.adjoint R.toLinearMap
+has type
+  EuclideanSpace ℂ κ →ₗ[ℝ] EuclideanSpace ℂ ι
+but is expected to have type
+  ?m.150 →L[ℝ] ?m.151
+in the application
+  stdGaussian_map_adjoint_norm_preserving (LinearMap.adjoint R.toLinearMap)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:54:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map (?m.160 ∘ ⇑(matrixGaussianCoordinates m n)) ?m.159
+in the target expression
+  Measure.map ((fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) ∘ ⇑(matrixGaussianCoordinates m n))
+      (stdGaussian ComplexSample) =
+    Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin m × Fin n)))
+
+m n : ℕ
+he : (fun z => complexSampleMatrix z + 0) = (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) ∘ ⇑(matrixGaussianCoordinates m n)
+⊢ Measure.map ((fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) ∘ ⇑(matrixGaussianCoordinates m n))
+      (stdGaussian ComplexSample) =
+    Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin m × Fin n)))
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) ∘ ⇑(matrixGaussianCoordinates m n)
+  has type
+    ComplexSample → (i : Fin m) → (j : Fin n) → (fun x => ℂ) (i, j)
+  but is expected to have type
+    ComplexSample → Matrix (Fin m) (Fin n) ℂ
+  in the application
+    Measure.map ((fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) ∘ ⇑(matrixGaussianCoordinates m n))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:81:4: error: Tactic `apply` failed: could not unify the conclusion of `Finset.sum_congr rfl`
+  Finset.sum ?m.59 ?m.56 = Finset.sum ?m.59 ?m.57
+with the goal
+  ∑ y_1, ∑ x_1, inner ℂ (((columnLiftLinear U n) x).ofLp (y_1, x_1)) (((columnLiftLinear U n) y).ofLp (y_1, x_1)) =
+    ∑ x_1, ∑ y_1, inner ℂ (x.ofLp (x_1, y_1)) (y.ofLp (x_1, y_1))
+
+Note: The full type of `Finset.sum_congr rfl` is
+  (∀ x ∈ ?m.59, ?m.56 x = ?m.57 x) → Finset.sum ?m.59 ?m.56 = Finset.sum ?m.59 ?m.57
+
+p b : ℕ
+U : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p)
+n : ℕ
+x y : EuclideanSpace ℂ (Fin b × Fin n)
+⊢ ∑ y_1, ∑ x_1, inner ℂ (((columnLiftLinear U n) x).ofLp (y_1, x_1)) (((columnLiftLinear U n) y).ofLp (y_1, x_1)) =
+    ∑ x_1, ∑ y_1, inner ℂ (x.ofLp (x_1, y_1)) (y.ofLp (x_1, y_1))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:93:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  inner ?m.70 ?x ((ContinuousLinearMap.adjoint ?A) ?y)
+in the target expression
+  inner ℂ y ((LinearMap.adjoint (columnLift U n).toLinearMap) x) =
+    inner ℂ y
+      (WithLp.toLp 2 fun ij => ((LinearMap.adjoint U.toLinearMap) (WithLp.toLp 2 fun k => x.ofLp (k, ij.2))).ofLp ij.1)
+
+p b n : ℕ
+U : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p)
+x : EuclideanSpace ℂ (Fin p × Fin n)
+y : EuclideanSpace ℂ (Fin b × Fin n)
+⊢ inner ℂ y ((LinearMap.adjoint (columnLift U n).toLinearMap) x) =
+    inner ℂ y
+      (WithLp.toLp 2 fun ij => ((LinearMap.adjoint U.toLinearMap) (WithLp.toLp 2 fun k => x.ofLp (k, ij.2))).ofLp ij.1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:107:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map ?m.52 (Measure.map ?m.53 ?m.51)
+in the target expression
+  Measure.map (fun A i j => ((LinearMap.adjoint U.toLinearMap) (complexMatrixColumn A j)).ofLp i)
+      (Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin p × Fin n)))) =
+    Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin b × Fin n)))
+
+p b n : ℕ
+U : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p)
+⊢ Measure.map (fun A i j => ((LinearMap.adjoint U.toLinearMap) (complexMatrixColumn A j)).ofLp i)
+      (Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin p × Fin n)))) =
+    Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin b × Fin n)))
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin p × Fin n)))
+  has type
+    @Measure ((i : Fin p) → (j : Fin n) → (fun x => ℂ) (i, j)) MeasurableSpace.pi
+  but is expected to have type
+    @Measure (Matrix (Fin p) (Fin n) ℂ) instMeasurableSpace
+  in the application
+    Measure.map (fun A i j => ((LinearMap.adjoint U.toLinearMap) (complexMatrixColumn A j)).ofLp i)
+      (Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin p × Fin n))))
+'JinWishart.stdGaussian_complex_isometry_adjoint_law' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_rectangular_column_projection' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

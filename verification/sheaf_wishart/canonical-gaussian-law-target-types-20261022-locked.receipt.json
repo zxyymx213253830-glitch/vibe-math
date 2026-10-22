@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:38:23.356471+00:00",
+  "ended_utc": "2026-10-22T12:38:41.941693+00:00",
+  "module": "SheafCanonicalGaussianLawTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCanonicalGaussianLawTargets.lean",
+  "source_sha256_before": "64fd9b471fc3f64c37d8419fda83c8214ac4e3bc5e3084f60491002cf868274e",
+  "source_sha256": "64fd9b471fc3f64c37d8419fda83c8214ac4e3bc5e3084f60491002cf868274e",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-gaussian-law-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "36846fffb19496eeb91ccee03f5a037c2f54fbc4a7f9b80a7f5c233f3399c863",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -386,3 +386,13 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/JointKernelCanonicalNormalization.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_JOINT_KERNEL_CANONICAL_NORMALIZATION.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianRectangularFrameLaw.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianDisjointMatrixBlockLaw.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualCanonicalNoiseBlockLaw.lean -text whitespace=cr-at-eol
+
+/experiments/rectangular_gaussian_frame_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CANONICAL_GAUSSIAN_BLOCK_LAW.md -text whitespace=cr-at-eol

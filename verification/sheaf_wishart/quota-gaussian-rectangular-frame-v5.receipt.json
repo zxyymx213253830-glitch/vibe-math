@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:30:17.753504+00:00",
+  "ended_utc": "2026-10-22T12:30:38.200764+00:00",
+  "module": "JinWishartFormalization.GaussianRectangularFrameLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRectangularFrameLaw.lean",
+  "source_sha256_before": "5930eb5fa6cd4b057158ff92805f3d83d14cc561e0c16d0cb3cf3ae93690c8a6",
+  "source_sha256": "5930eb5fa6cd4b057158ff92805f3d83d14cc561e0c16d0cb3cf3ae93690c8a6",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-gaussian-rectangular-frame-v5.txt",
+  "log_exists": true,
+  "log_sha256": "974928ce07722bb6d7bb398ac42ed13824f8ecc51d57de474db54eac40750d28",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

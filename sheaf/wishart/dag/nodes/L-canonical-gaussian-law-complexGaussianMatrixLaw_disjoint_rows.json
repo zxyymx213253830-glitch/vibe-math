@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_rows",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GaussianDisjointMatrixBlockLaw",
+  "declaration": "JinWishart.complexGaussianMatrixLaw_disjoint_rows",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_columns"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_columns"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-gaussian-law-GaussianDisjointMatrixBlockLaw.json",
+    "source_sha256": "da5e76b354a5f1a93b430216e484723263a02a11459540c07730cdc55f62c632"
+  }
+}

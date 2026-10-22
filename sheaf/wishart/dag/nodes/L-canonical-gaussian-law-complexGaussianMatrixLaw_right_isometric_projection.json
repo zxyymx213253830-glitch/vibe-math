@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-gaussian-law-complexGaussianMatrixLaw_right_isometric_projection",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GaussianRectangularFrameLaw",
+  "declaration": "JinWishart.complexGaussianMatrixLaw_right_isometric_projection",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-gaussian-law-complexGaussianMatrixLaw_rectangular_column_projection"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-gaussian-law-complexGaussianMatrixLaw_rectangular_column_projection"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-gaussian-law-GaussianRectangularFrameLaw.json",
+    "source_sha256": "58be410c674867f7f647c26e7685f66b66b2ca73307c06eecad16eda97804903"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "seed": 2026102223,
+  "cases": 60,
+  "checks": 662,
+  "conjugation_negative_cases": 24,
+  "known_controls": [
+    "identity/empty shapes",
+    "U^HU=I",
+    "CN1 component variance 1/2",
+    "E Frobenius energy=mb"
+  ],
+  "scope": "Exact finite covariance and pointwise controls only; no general Gaussian or independence proof",
+  "status": "PASS"
+}

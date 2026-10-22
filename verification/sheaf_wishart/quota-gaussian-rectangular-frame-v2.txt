@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:28:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  inner ℝ ?x ?y
+in the target expression
+  inner ℝ x (U y) = inner ℝ ((LinearMap.adjoint U.toLinearMap) x) y
+
+ι : Type u_1
+κ : Type u_2
+inst✝¹ : Fintype ι
+inst✝ : Fintype κ
+U : EuclideanSpace ℂ ι →ₗᵢ[ℂ] EuclideanSpace ℂ κ
+R : EuclideanSpace ℂ ι →ₗᵢ[ℝ] EuclideanSpace ℂ κ :=
+  let __LinearMap := ↑ℝ U.toLinearMap;
+  { toLinearMap := __LinearMap, norm_map' := ⋯ }
+x : EuclideanSpace ℂ κ
+y : EuclideanSpace ℂ ι
+⊢ inner ℝ x (U y) = inner ℝ ((LinearMap.adjoint U.toLinearMap) x) y
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:46:60: error: unsolved goals
+m n : ℕ
+he : (fun z => complexSampleMatrix z + 0) = (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) ∘ ⇑(matrixGaussianCoordinates m n)
+⊢ Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin m × Fin n))) =
+    Measure.map (fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) (stdGaussian (EuclideanSpace ℂ (Fin m × Fin n)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:121:17: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (LinearMap.adjoint (columnLift ?U ?m.407).toLinearMap) ?x
+in the target expression
+  ((↑√2)⁻¹ • (LinearMap.adjoint U.toLinearMap) (WithLp.toLp 2 fun k => x.ofLp (k, j))).ofLp i =
+    ((fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) ∘ ⇑(LinearMap.adjoint (columnLift U n).toLinearMap)) x i j
+
+p b n : ℕ
+U : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p)
+x : EuclideanSpace ℂ (Fin p × Fin n)
+i : Fin b
+j : Fin n
+⊢ ((↑√2)⁻¹ • (LinearMap.adjoint U.toLinearMap) (WithLp.toLp 2 fun k => x.ofLp (k, j))).ofLp i =
+    ((fun x i j => ((↑√2)⁻¹ • x).ofLp (i, j)) ∘ ⇑(LinearMap.adjoint (columnLift U n).toLinearMap)) x i j
+'JinWishart.stdGaussian_complex_isometry_adjoint_law' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_rectangular_column_projection' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

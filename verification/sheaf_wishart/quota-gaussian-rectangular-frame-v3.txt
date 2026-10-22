@@ -1,0 +1,20 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:29:79: error: unsolved goals
+ι : Type u_1
+κ : Type u_2
+inst✝¹ : Fintype ι
+inst✝ : Fintype κ
+U : EuclideanSpace ℂ ι →ₗᵢ[ℂ] EuclideanSpace ℂ κ
+R : EuclideanSpace ℂ ι →ₗᵢ[ℝ] EuclideanSpace ℂ κ :=
+  let __LinearMap := ↑ℝ U.toLinearMap;
+  { toLinearMap := __LinearMap, norm_map' := ⋯ }
+x : EuclideanSpace ℂ κ
+y : EuclideanSpace ℂ ι
+⊢ (inner ℂ x (U y)).re = (inner ℂ x (U.toLinearMap y)).re
+'JinWishart.stdGaussian_complex_isometry_adjoint_law' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_rectangular_column_projection' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:169:72: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (800000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:139:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (800000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'JinWishart.stdGaussian_complex_isometry_adjoint_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_rectangular_column_projection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_right_isometric_projection' does not depend on any axioms

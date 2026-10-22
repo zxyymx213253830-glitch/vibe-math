@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:36:26.090919+00:00",
+  "ended_utc": "2026-10-22T12:36:35.111102+00:00",
+  "module": "JinWishartFormalization.ActualCanonicalNoiseBlockLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCanonicalNoiseBlockLaw.lean",
+  "source_sha256_before": "fd82aabb29838a5cd135abc541413c97b07ad8e2e74916cb07dc565469260c1e",
+  "source_sha256": "fd82aabb29838a5cd135abc541413c97b07ad8e2e74916cb07dc565469260c1e",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-actual-canonical-noise-block-v1.txt",
+  "log_exists": true,
+  "log_sha256": "812344268bd1839afd73e230a8bc0625c9c105825d64adb7b82b0519c9f376e9",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

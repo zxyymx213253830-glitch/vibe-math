@@ -1,0 +1,2 @@
+'JinWishart.complexGaussianMatrixLaw_disjoint_columns' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_disjoint_rows' depends on axioms: [propext, Classical.choice, Quot.sound]

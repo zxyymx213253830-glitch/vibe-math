@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-canonical-gaussian-law-GaussianDisjointMatrixBlockLaw.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-canonical-gaussian-law-GaussianDisjointMatrixBlockLaw.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/canonical-gaussian-law-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-gaussian-law-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-gaussian-law-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-canonical-gaussian-law-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/canonical-gaussian-law-final-snapshot",
+    "resolution": "notes/WISHART_CANONICAL_GAUSSIAN_BLOCK_LAW.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-85.receipt.json"
+}

@@ -1,0 +1,37 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalNoiseBlockLaw.lean:50:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map (((P ∘ S) ∘ F) ∘ g) ?m.552
+in the target expression
+  Measure.map ((P ∘ S ∘ F) ∘ g) (stdGaussian ComplexSample) =
+    (complexGaussianMatrixLaw (M.submatrix e id)).prod (complexGaussianMatrixLaw (M.submatrix f id))
+
+m p b a c : ℕ
+U : Matrix (Fin p) (Fin b) ℂ
+hU : Uᴴ * U = 1
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m)
+M : Matrix (Fin m) (Fin b) ℂ
+e : Fin a → Fin m
+f : Fin c → Fin m
+h : Function.Injective (e ⊕ᵥ f)
+F : Matrix (Fin m) (Fin p) ℂ → Matrix (Fin m) (Fin b) ℂ := fun Z => unitaryActColumns V (Z * U)
+P : Matrix (Fin m) (Fin b) ℂ → Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ :=
+  fun A => (A.submatrix e id, A.submatrix f id)
+S : Matrix (Fin m) (Fin b) ℂ → Matrix (Fin m) (Fin b) ℂ := fun A => A + M
+g : ComplexSample → Matrix (Fin m) (Fin p) ℂ := fun z => complexSampleMatrix z + 0
+hmul : Measurable fun Z => Z * U
+hF : Measurable F
+hP : Measurable P
+hS : Measurable S
+hg : Measurable g
+hlaw : Measure.map F (complexGaussianMatrixLaw 0) = complexGaussianMatrixLaw 0
+hshift : Measure.map S (complexGaussianMatrixLaw 0) = complexGaussianMatrixLaw M
+he :
+  (fun z =>
+      ((unitaryActColumns V (complexSampleMatrix z * U) + M).submatrix e id,
+        (unitaryActColumns V (complexSampleMatrix z * U) + M).submatrix f id)) =
+    (P ∘ S ∘ F) ∘ g
+⊢ Measure.map ((P ∘ S ∘ F) ∘ g) (stdGaussian ComplexSample) =
+    (complexGaussianMatrixLaw (M.submatrix e id)).prod (complexGaussianMatrixLaw (M.submatrix f id))
+'JinWishart.actual_isometric_noise_disjoint_row_blocks' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,5 +1,6 @@
 """Exact proper-CN1 rectangular frame controls; not a distributional proof."""
 from pathlib import Path
+import hashlib
 import json, random, sys
 import sympy as s
 SEED=2026102223
@@ -51,7 +52,7 @@ for m,p,b in [(m,p,b) for m in range(4) for p in range(5) for b in range(p+1)]:
         if not eq(w,wrong):conjugation_negative+=1
 check(cases==60,'shape count')
 check(conjugation_negative>0,'pointwise conjugation error detected')
-result=dict(seed=SEED,cases=cases,checks=checks,conjugation_negative_cases=conjugation_negative,
+result=dict(source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),seed=SEED,cases=cases,checks=checks,conjugation_negative_cases=conjugation_negative,
     known_controls=['identity/empty shapes','U^HU=I','CN1 component variance 1/2','E Frobenius energy=mb'],
     scope='Exact finite covariance and pointwise controls only; no general Gaussian or independence proof',status='PASS')
 if len(sys.argv)>1:Path(sys.argv[1]).write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')

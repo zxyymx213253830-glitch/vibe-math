@@ -1,0 +1,321 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE GaussianRectangularFrameLaw.lean
+import JinWishartFormalization.JointKernelCanonicalNormalization
+import JinWishartFormalization.ProperGaussianAdjointLaw
+import JinWishartFormalization.GaussianOrthogonalProjectionLaw
+
+/-! Full proper-CN1 matrix law under a fixed rectangular isometric projection.
+Codex. A complex isometry is realified before using the existing coisometry
+Gaussian law. Source variance scaling remains explicit.
+[需人工审查] Coordinate and actual-law transport; future block independence. -/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped BigOperators
+namespace JinWishart
+noncomputable section
+
+private theorem euclideanRealInner {ι : Type*} [Fintype ι]
+    (x y : EuclideanSpace ℂ ι) : inner ℝ x y=(inner ℂ x y).re := by
+  simp only [PiLp.inner_apply]
+  change (∑ i,inner ℝ (x i) (y i))=Complex.reCLM (∑ i,inner ℂ (x i) (y i))
+  rw [map_sum]
+  rfl
+
+theorem stdGaussian_complex_isometry_adjoint_law
+    {ι κ : Type*} [Fintype ι] [Fintype κ]
+    (U : EuclideanSpace ℂ ι →ₗᵢ[ℂ] EuclideanSpace ℂ κ) :
+    (stdGaussian (EuclideanSpace ℂ κ)).map U.adjoint =
+      stdGaussian (EuclideanSpace ℂ ι) := by
+  let R : EuclideanSpace ℂ ι →ₗᵢ[ℝ] EuclideanSpace ℂ κ :=
+    { toLinearMap := U.toLinearMap.restrictScalars ℝ
+      norm_map' := U.norm_map }
+  have he : (R.adjoint : EuclideanSpace ℂ κ → EuclideanSpace ℂ ι)=U.adjoint := by
+    funext x
+    apply ext_inner_right ℝ
+    intro y
+    rw [LinearMap.adjoint_inner_left]
+    change inner ℝ x (U y)=inner ℝ (U.adjoint x) y
+    rw [euclideanRealInner,euclideanRealInner,
+      LinearMap.adjoint_inner_left]
+    rfl
+  let A := R.toLinearMap.toContinuousLinearMap
+  have h := stdGaussian_map_adjoint_norm_preserving A.adjoint (fun t => by
+    rw [ContinuousLinearMap.adjoint_adjoint]
+    exact R.norm_map t)
+  change (stdGaussian (EuclideanSpace ℂ κ)).map R.adjoint = _ at h
+  simpa only [he] using h
+
+private def matrixGaussianCoordinates (m n : ℕ) :
+    ComplexSample (m := m) (n := n) ≃ₗᵢ[ℝ] EuclideanSpace ℂ (Fin m × Fin n) :=
+  (LinearIsometryEquiv.piLpCongrLeft 2 ℝ ℝ
+    (Equiv.sigmaEquivProd (Fin m × Fin n) (Fin 2)).symm).trans
+      (Pi.orthonormalBasis (fun _ : Fin m × Fin n => Complex.orthonormalBasisOneI)).repr.symm
+
+private theorem matrixLawCoordinates (m n : ℕ) :
+    complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)=
+      (stdGaussian (EuclideanSpace ℂ (Fin m × Fin n))).map
+        (fun x i j => (((Real.sqrt 2 : ℂ)⁻¹) • x) (i,j)) := by
+  unfold complexGaussianMatrixLaw
+  have he : (fun z : ComplexSample (m := m) (n := n) => complexSampleMatrix z+0)=
+      (fun (x : EuclideanSpace ℂ (Fin m × Fin n)) i j =>
+        (((Real.sqrt 2 : ℂ)⁻¹) • x) (i,j)) ∘ matrixGaussianCoordinates m n := by
+    funext z
+    ext i j
+    change ((z ((i,j),0) : ℂ)+Complex.I*z ((i,j),1))/(Real.sqrt 2 : ℂ)+0 =
+      (Real.sqrt 2 : ℂ)⁻¹*((z ((i,j),0) : ℂ)+z ((i,j),1)*Complex.I)
+    ring
+  erw [he,← Measure.map_map (by fun_prop) (matrixGaussianCoordinates m n).continuous.measurable,
+    stdGaussian_map]
+  rfl
+
+private def columnLiftLinear {p b : ℕ}
+    (U : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p)) (n : ℕ) :
+    EuclideanSpace ℂ (Fin b × Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin p × Fin n) where
+  toFun x := WithLp.toLp 2 (fun ij => U (WithLp.toLp 2 (fun k => x (k,ij.2))) ij.1)
+  map_add' x y := by
+    ext i
+    change U (WithLp.toLp 2 (fun k => x (k,i.2)+y (k,i.2))) i.1 = _
+    change U (WithLp.toLp 2 (fun k => x (k,i.2))+
+      WithLp.toLp 2 (fun k => y (k,i.2))) i.1 = _
+    rw [map_add]
+    rfl
+  map_smul' c x := by
+    ext i
+    change U (c • WithLp.toLp 2 (fun k => x (k,i.2))) i.1 = _
+    rw [map_smul]
+    rfl
+
+private def columnLift {p b : ℕ}
+    (U : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p)) (n : ℕ) :
+    EuclideanSpace ℂ (Fin b × Fin n) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p × Fin n) :=
+  (columnLiftLinear U n).isometryOfInner (by
+    intro x y
+    simp only [PiLp.inner_apply,Fintype.sum_prod_type]
+    conv_lhs => rw [Finset.sum_comm]
+    conv_rhs => rw [Finset.sum_comm]
+    apply Finset.sum_congr rfl
+    intro j hj
+    exact U.inner_map_map (WithLp.toLp 2 (fun i => x (i,j)))
+      (WithLp.toLp 2 (fun i => y (i,j))))
+
+private theorem columnLift_adjoint {p b n : ℕ}
+    (U : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p))
+    (x : EuclideanSpace ℂ (Fin p × Fin n)) :
+    (columnLift U n).adjoint x=WithLp.toLp 2
+      (fun ij => U.adjoint (WithLp.toLp 2 (fun k => x (k,ij.2))) ij.1) := by
+  apply ext_inner_left ℂ
+  intro y
+  rw [LinearMap.adjoint_inner_right]
+  simp only [PiLp.inner_apply,Fintype.sum_prod_type]
+  conv_lhs => rw [Finset.sum_comm]
+  conv_rhs => rw [Finset.sum_comm]
+  apply Finset.sum_congr rfl
+  intro j hj
+  exact (U.toLinearMap.adjoint_inner_right (WithLp.toLp 2 (fun i => y (i,j)))
+    (WithLp.toLp 2 (fun i => x (i,j)))).symm
+
+theorem complexGaussianMatrixLaw_rectangular_column_projection {p b n : ℕ}
+    (U : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p)) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin p) (Fin n) ℂ)).map
+      (fun A i j => U.adjoint (complexMatrixColumn A j) i)=
+        complexGaussianMatrixLaw (0 : Matrix (Fin b) (Fin n) ℂ) := by
+  erw [matrixLawCoordinates p n,matrixLawCoordinates b n,
+    Measure.map_map (by unfold complexMatrixColumn; fun_prop) (by fun_prop)]
+  have he : (fun (A : Matrix (Fin p) (Fin n) ℂ) i j =>
+      U.adjoint (complexMatrixColumn A j) i) ∘
+      (fun (x : EuclideanSpace ℂ (Fin p × Fin n)) i j =>
+        (((Real.sqrt 2 : ℂ)⁻¹) • x) (i,j)) =
+      (fun (x : EuclideanSpace ℂ (Fin b × Fin n)) i j =>
+        (((Real.sqrt 2 : ℂ)⁻¹) • x) (i,j)) ∘ (columnLift U n).adjoint := by
+    funext x
+    ext i j
+    change U.adjoint ((Real.sqrt 2 : ℂ)⁻¹ • WithLp.toLp 2 (fun k => x (k,j))) i = _
+    rw [map_smul]
+    change (((Real.sqrt 2 : ℂ)⁻¹) • U.adjoint (WithLp.toLp 2 (fun k => x (k,j)))) i =
+      ((((Real.sqrt 2 : ℂ)⁻¹) • (columnLift U n).adjoint x) (i,j))
+    rw [columnLift_adjoint]
+    rfl
+  erw [he,← Measure.map_map (by fun_prop) (by fun_prop),
+    stdGaussian_complex_isometry_adjoint_law]
+
+theorem complexGaussianMatrixLaw_right_isometric_projection {m p b : ℕ}
+    (U : Matrix (Fin p) (Fin b) ℂ) (hU : Uᴴ*U=1) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin p) ℂ)).map
+      (fun Z => Z*U)=complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin b) ℂ) := by
+  have hi : U.toEuclideanLin.adjoint.comp U.toEuclideanLin=LinearMap.id := by
+    rw [← Matrix.toEuclideanLin_conjTranspose_eq_adjoint]
+    have h := congrArg Matrix.toEuclideanLin hU
+    simpa only [Matrix.toEuclideanLin,Matrix.toLpLin_mul_same,Matrix.toLpLin_one] using h
+  let f := U.toEuclideanLin.isometryOfInner (by
+    intro y z
+    calc
+      inner ℂ (U.toEuclideanLin y) (U.toEuclideanLin z)=
+          inner ℂ y (U.toEuclideanLin.adjoint (U.toEuclideanLin z)) :=
+        (U.toEuclideanLin.adjoint_inner_right y (U.toEuclideanLin z)).symm
+      _ = inner ℂ y z := congrArg (inner ℂ y) (LinearMap.congr_fun hi z))
+  have hp := complexGaussianMatrixLaw_rectangular_column_projection (n := m) f
+  have he : (fun (A : Matrix (Fin p) (Fin m) ℂ) i j =>
+      f.adjoint (complexMatrixColumn A j) i)=(fun A => Uᴴ*A) := by
+    funext A
+    ext i j
+    change U.toEuclideanLin.adjoint (WithLp.toLp 2 (fun k => A k j)) i=(Uᴴ*A) i j
+    rw [← Matrix.toEuclideanLin_conjTranspose_eq_adjoint]
+    rfl
+  rw [he] at hp
+  have heq : (fun Z : Matrix (Fin m) (Fin p) ℂ => Z*U)=
+      Matrix.conjTranspose ∘ (fun A => Uᴴ*A) ∘ Matrix.conjTranspose := by
+    funext Z
+    simp only [Function.comp_def,Matrix.conjTranspose_mul,Matrix.conjTranspose_conjTranspose]
+  have ha : Measurable (Matrix.conjTranspose : Matrix (Fin m) (Fin p) ℂ →
+      Matrix (Fin p) (Fin m) ℂ) := by fun_prop
+  have hb : Measurable (fun A : Matrix (Fin p) (Fin m) ℂ => Uᴴ*A) :=
+    (continuous_const.matrix_mul continuous_id).measurable
+  have hc : Measurable (Matrix.conjTranspose : Matrix (Fin b) (Fin m) ℂ →
+      Matrix (Fin m) (Fin b) ℂ) := by fun_prop
+  rw [heq,← Measure.map_map hc (hb.comp ha),
+    ← Measure.map_map hb ha,
+    complexGaussianMatrixLaw_conjTranspose,Matrix.conjTranspose_zero]
+  erw [hp,complexGaussianMatrixLaw_conjTranspose,Matrix.conjTranspose_zero]
+
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_complex_isometry_adjoint_law
+#print axioms JinWishart.complexGaussianMatrixLaw_rectangular_column_projection
+
+#print axioms JinWishart.complexGaussianMatrixLaw_right_isometric_projection
+
+SOURCE GaussianDisjointMatrixBlockLaw.lean
+import JinWishartFormalization.GaussianRectangularFrameLaw
+import JinWishartFormalization.GaussianDisjointPrincipalLaw
+
+/-! Full shifted-matrix block product laws for arbitrary fixed disjoint
+selectors. Reuses the existing raw Gaussian disjoint-column law and adjoint
+law. Codex. [需人工审查] Product pushforwards and proper variance convention. -/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem complexGaussianMatrixLaw_disjoint_columns {m n k l : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (e : Fin k → Fin n) (f : Fin l → Fin n)
+    (h : Function.Injective (Sum.elim e f)) :
+    (complexGaussianMatrixLaw M).map (fun A => (A.submatrix id e,A.submatrix id f))=
+      (complexGaussianMatrixLaw (M.submatrix id e)).prod
+        (complexGaussianMatrixLaw (M.submatrix id f)) := by
+  let Fe := fun z : ComplexSample (m := m) (n := k) =>
+    complexSampleMatrix z+M.submatrix id e
+  let Ff := fun z : ComplexSample (m := m) (n := l) =>
+    complexSampleMatrix z+M.submatrix id f
+  have hFe : Measurable Fe := measurable_shiftedComplexSampleMatrix _
+  have hFf : Measurable Ff := measurable_shiftedComplexSampleMatrix _
+  have hS : Measurable (fun z : ComplexSample (m := m) (n := n) =>
+      (sampleColumnSelection e z,sampleColumnSelection f z)) :=
+    (measurable_sampleColumnSelection e).prodMk (measurable_sampleColumnSelection f)
+  have hs := congrArg (fun μ => μ.map (Prod.map Fe Ff))
+    (stdGaussian_disjoint_columnSelections (m := m) e f h)
+  rw [Measure.map_map (hFe.prodMap hFf) hS,
+    ← Measure.map_prod_map _ _ hFe hFf] at hs
+  have he : Prod.map Fe Ff ∘ (fun z : ComplexSample (m := m) (n := n) =>
+      (sampleColumnSelection e z,sampleColumnSelection f z)) =
+      (fun A : Matrix (Fin m) (Fin n) ℂ => (A.submatrix id e,A.submatrix id f)) ∘
+        (fun z => complexSampleMatrix z+M) := by
+    funext z
+    apply Prod.ext <;> ext i j <;> rfl
+  have hG : Measurable (fun A : Matrix (Fin m) (Fin n) ℂ =>
+      (A.submatrix id e,A.submatrix id f)) := by fun_prop
+  rw [he,← Measure.map_map hG (measurable_shiftedComplexSampleMatrix M)] at hs
+  exact hs
+
+theorem complexGaussianMatrixLaw_disjoint_rows {m n a c : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (e : Fin a → Fin m) (f : Fin c → Fin m)
+    (h : Function.Injective (Sum.elim e f)) :
+    (complexGaussianMatrixLaw M).map (fun A => (A.submatrix e id,A.submatrix f id))=
+      (complexGaussianMatrixLaw (M.submatrix e id)).prod
+        (complexGaussianMatrixLaw (M.submatrix f id)) := by
+  let C := fun A : Matrix (Fin n) (Fin m) ℂ => (A.submatrix id e,A.submatrix id f)
+  let Q := Prod.map
+    (Matrix.conjTranspose : Matrix (Fin n) (Fin a) ℂ → Matrix (Fin a) (Fin n) ℂ)
+    (Matrix.conjTranspose : Matrix (Fin n) (Fin c) ℂ → Matrix (Fin c) (Fin n) ℂ)
+  have hC : Measurable C := by unfold C; fun_prop
+  have hQ : Measurable Q := (by fun_prop : Measurable
+      (Matrix.conjTranspose : Matrix (Fin n) (Fin a) ℂ → _)).prodMap
+        (by fun_prop : Measurable (Matrix.conjTranspose : Matrix (Fin n) (Fin c) ℂ → _))
+  have hs := congrArg (fun μ => μ.map Q)
+    (complexGaussianMatrixLaw_disjoint_columns Mᴴ e f h)
+  rw [Measure.map_map hQ hC,
+    ← Measure.map_prod_map _ _ (by fun_prop) (by fun_prop)] at hs
+  have he : Q ∘ C =
+      (fun A : Matrix (Fin m) (Fin n) ℂ => (A.submatrix e id,A.submatrix f id)) ∘
+        Matrix.conjTranspose := by
+    funext A
+    apply Prod.ext <;> ext i j <;> rfl
+  have hG : Measurable (fun A : Matrix (Fin m) (Fin n) ℂ =>
+      (A.submatrix e id,A.submatrix f id)) := by fun_prop
+  rw [he,← Measure.map_map hG (by fun_prop),complexGaussianMatrixLaw_conjTranspose,
+    complexGaussianMatrixLaw_conjTranspose,complexGaussianMatrixLaw_conjTranspose] at hs
+  simpa only [Matrix.conjTranspose_conjTranspose,Matrix.conjTranspose_submatrix] using hs
+
+end
+end JinWishart
+#print axioms JinWishart.complexGaussianMatrixLaw_disjoint_columns
+#print axioms JinWishart.complexGaussianMatrixLaw_disjoint_rows
+
+SOURCE ActualCanonicalNoiseBlockLaw.lean
+import JinWishartFormalization.GaussianDisjointMatrixBlockLaw
+
+/-! Actual same-source proper-CN1 law of fixed isometric noise coordinates
+and arbitrary disjoint row blocks with a fixed mean. Codex.
+[需人工审查] Pushforward composition and application to canonical models. -/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem actual_isometric_noise_disjoint_row_blocks {m p b a c : ℕ}
+    (U : Matrix (Fin p) (Fin b) ℂ) (hU : Uᴴ*U=1)
+    (V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin m))
+    (M : Matrix (Fin m) (Fin b) ℂ) (e : Fin a → Fin m) (f : Fin c → Fin m)
+    (h : Function.Injective (Sum.elim e f)) :
+    (stdGaussian (ComplexSample (m := m) (n := p))).map
+      (fun z => ((unitaryActColumns V (complexSampleMatrix z*U)+M).submatrix e id,
+        (unitaryActColumns V (complexSampleMatrix z*U)+M).submatrix f id))=
+      (complexGaussianMatrixLaw (M.submatrix e id)).prod
+        (complexGaussianMatrixLaw (M.submatrix f id)) := by
+  let F := fun Z : Matrix (Fin m) (Fin p) ℂ => unitaryActColumns V (Z*U)
+  let P := fun A : Matrix (Fin m) (Fin b) ℂ => (A.submatrix e id,A.submatrix f id)
+  let S := fun A : Matrix (Fin m) (Fin b) ℂ => A+M
+  let g := fun z : ComplexSample (m := m) (n := p) => complexSampleMatrix z+0
+  have hmul : Measurable (fun Z : Matrix (Fin m) (Fin p) ℂ => Z*U) :=
+    (continuous_id.matrix_mul continuous_const).measurable
+  have hF : Measurable F := (measurable_unitaryActColumns V).comp hmul
+  have hP : Measurable P := by unfold P; fun_prop
+  have hS : Measurable S := by unfold S; fun_prop
+  have hg : Measurable g := measurable_shiftedComplexSampleMatrix _
+  have hlaw : (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin p) ℂ)).map F=
+      complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin b) ℂ) := by
+    change (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin p) ℂ)).map
+      (unitaryActColumns V ∘ (fun Z => Z*U)) = _
+    rw [← Measure.map_map (measurable_unitaryActColumns V) hmul,
+      complexGaussianMatrixLaw_right_isometric_projection U hU,
+      complexGaussianMatrixLaw_unitary_invariant]
+  have hshift : (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin b) ℂ)).map S=
+      complexGaussianMatrixLaw M := by
+    unfold complexGaussianMatrixLaw
+    rw [Measure.map_map hS (measurable_shiftedComplexSampleMatrix _)]
+    congr 1
+    funext z
+    simp only [Function.comp_def,S,add_zero]
+  have he : (fun z : ComplexSample (m := m) (n := p) =>
+      ((unitaryActColumns V (complexSampleMatrix z*U)+M).submatrix e id,
+        (unitaryActColumns V (complexSampleMatrix z*U)+M).submatrix f id)) =
+      (P ∘ S ∘ F) ∘ g := by
+    funext z
+    simp only [Function.comp_def,P,S,F,g,add_zero]
+  erw [he,← Measure.map_map (hP.comp (hS.comp hF)) hg]
+  change (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin p) ℂ)).map (P ∘ S ∘ F)=_
+  erw [← Measure.map_map (hP.comp hS) hF,hlaw,
+    ← Measure.map_map hP hS,hshift]
+  exact complexGaussianMatrixLaw_disjoint_rows M e f h
+
+end
+end JinWishart
+#print axioms JinWishart.actual_isometric_noise_disjoint_row_blocks

@@ -1,0 +1,25 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianRectangularFrameLaw.lean:174:69: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map (fun A => Uᴴ * A) (complexGaussianMatrixLaw 0)
+in the target expression
+  Measure.map conjTranspose (Measure.map (fun A => Uᴴ * A) (complexGaussianMatrixLaw 0)) = complexGaussianMatrixLaw 0
+
+m p b : ℕ
+U : Matrix (Fin p) (Fin b) ℂ
+hU : Uᴴ * U = 1
+hi : LinearMap.adjoint (toEuclideanLin U) ∘ₗ toEuclideanLin U = LinearMap.id
+f : EuclideanSpace ℂ (Fin b) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin p) := (toEuclideanLin U).isometryOfInner ⋯
+hp : Measure.map (fun A => Uᴴ * A) (complexGaussianMatrixLaw 0) = complexGaussianMatrixLaw 0
+he : (fun A i j => ((LinearMap.adjoint f.toLinearMap) (complexMatrixColumn A j)).ofLp i) = fun A => Uᴴ * A
+heq : (fun Z => Z * U) = conjTranspose ∘ (fun A => Uᴴ * A) ∘ conjTranspose
+ha : Measurable conjTranspose
+hb : Measurable fun A => Uᴴ * A
+hc : Measurable conjTranspose
+⊢ Measure.map conjTranspose (Measure.map (fun A => Uᴴ * A) (complexGaussianMatrixLaw 0)) = complexGaussianMatrixLaw 0
+'JinWishart.stdGaussian_complex_isometry_adjoint_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_rectangular_column_projection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexGaussianMatrixLaw_right_isometric_projection' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

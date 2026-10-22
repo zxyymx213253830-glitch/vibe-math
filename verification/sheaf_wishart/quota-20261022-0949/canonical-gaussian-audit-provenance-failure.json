@@ -1,0 +1,6 @@
+{
+  "status": "REJECTED",
+  "error": "KeyError source_sha256 in newly added control JSONs",
+  "proof_sources_unchanged": true,
+  "repair": "Add source provenance to control scripts and rerun changed controls; no audit weakening"
+}

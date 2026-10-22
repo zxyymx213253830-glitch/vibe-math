@@ -1,0 +1,14 @@
+{
+  "source_sha256": "41b7e7ec96150938a0456387298fcd66bd7645b5a3eeea0334696edb1da92a24",
+  "seed": 2026102225,
+  "cases": 48,
+  "checks": 232,
+  "status": "PASS",
+  "scope": "Controls only; full-rank premise and ordinary-column-zero distinction enforced",
+  "known_controls": [
+    "scalar exact scaling",
+    "wide last-column zero",
+    "row/column positive match",
+    "rank-zero excluded"
+  ]
+}

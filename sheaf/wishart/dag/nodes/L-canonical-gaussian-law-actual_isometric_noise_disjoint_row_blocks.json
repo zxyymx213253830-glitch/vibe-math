@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-gaussian-law-actual_isometric_noise_disjoint_row_blocks",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualCanonicalNoiseBlockLaw",
+  "declaration": "JinWishart.actual_isometric_noise_disjoint_row_blocks",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_rows"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-gaussian-law-complexGaussianMatrixLaw_disjoint_rows"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-gaussian-law-ActualCanonicalNoiseBlockLaw.json",
+    "source_sha256": "7401d4e241501ea82ff360c0795049256250ce23583830105a18e339c844e2be"
+  }
+}

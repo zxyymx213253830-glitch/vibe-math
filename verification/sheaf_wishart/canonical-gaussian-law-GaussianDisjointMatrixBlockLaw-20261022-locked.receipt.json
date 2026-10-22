@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:38:04.557271+00:00",
+  "ended_utc": "2026-10-22T12:38:14.212777+00:00",
+  "module": "JinWishartFormalization.GaussianDisjointMatrixBlockLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianDisjointMatrixBlockLaw.lean",
+  "source_sha256_before": "da5e76b354a5f1a93b430216e484723263a02a11459540c07730cdc55f62c632",
+  "source_sha256": "da5e76b354a5f1a93b430216e484723263a02a11459540c07730cdc55f62c632",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-gaussian-law-GaussianDisjointMatrixBlockLaw-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "e6353974058c3b47c93a4a846491661c7c655173b79b72ae287eb05fc7893f92",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
