@@ -1,0 +1,22 @@
+{
+  "id": "L-positive-transport-gram_nonzero_root_mem_iff_conjTranspose",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramPositiveSpectrumTransport",
+  "declaration": "JinWishart.gram_nonzero_root_mem_iff_conjTranspose",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-positive-transport-hermitian_real_root_iff_ordered_eigenvalue"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-positive-transport-hermitian_real_root_iff_ordered_eigenvalue"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T07:43:01.015707+00:00",
+  "ended_utc": "2026-10-22T07:43:12.093775+00:00",
+  "module": "JinWishartFormalization.GramPositiveSpectrumTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramPositiveSpectrumTransport.lean",
+  "source_sha256_before": "a5412e27436de55131be87e805ad6f51f57cfb8c4e0b21bbc4c3979e0a2c1157",
+  "source_sha256": "a5412e27436de55131be87e805ad6f51f57cfb8c4e0b21bbc4c3979e0a2c1157",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/gram-positive-transport-v1.txt",
+  "log_exists": true,
+  "log_sha256": "d0240b1ed041cd3fb5f7e7a73da12d0559ad3e0ebf18b67b106f61397479f00e",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,14 @@
+{
+  "retired_utc": "2026-10-22T07:52:25.582025+00:00",
+  "nodes": {
+    "L-positive-transport-exists_actual_fixed_compression_min_positive_ae.json": "a1483123572313ad3c2c5b295f02b3e8b1189f993b73b69213710db4091e66b3",
+    "L-positive-transport-gram_min_positive_eq_of_rowGram_eq.json": "f49763fec1d1ac82ef8e092fa35ddb65e5ac20fe41f8c6a8eb01ea753f4bc392",
+    "L-positive-transport-gram_nonzero_root_mem_iff_conjTranspose.json": "9564ab59f10146059b006b9ba0ac3a8a2a64babd2637ba21fc25378f522802cf",
+    "L-positive-transport-gram_positive_eigenvalue_mem_iff_of_rowGram_eq.json": "4f82d757b7922702417dd9652c18e59707b05925e3e2577c0e3f2befd5e34e94",
+    "L-positive-transport-hermitian_real_root_iff_ordered_eigenvalue.json": "1a99ca507d9f1da1069227acd07e88e572c43f7a230a07fd1853ec391ebbe48e"
+  },
+  "failed_checker": "SheafPositiveTransportTargets.lean",
+  "failure": "unparenthesized implication/iff changed expected proposition grouping",
+  "proof_source_changed": false,
+  "old_lock_and_logs_preserved": true
+}

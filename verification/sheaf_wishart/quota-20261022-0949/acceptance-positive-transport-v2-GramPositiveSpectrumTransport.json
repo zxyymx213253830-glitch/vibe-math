@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-positive-transport-v2-GramPositiveSpectrumTransport.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-positive-transport-v2-GramPositiveSpectrumTransport.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/positive-transport-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-transport-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-transport-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-transport-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/positive-transport-final-snapshot",
+    "resolution": "notes/WISHART_POSITIVE_SPECTRUM_TRANSPORT.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-76.receipt.json"
+}

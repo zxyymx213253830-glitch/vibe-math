@@ -1,0 +1,22 @@
+{
+  "id": "L-positive-transport-exists_actual_fixed_compression_min_positive_ae",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualCompressedPositiveMinimum",
+  "declaration": "JinWishart.exists_actual_fixed_compression_min_positive_ae",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-positive-transport-gram_min_positive_eq_of_rowGram_eq"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-positive-transport-gram_min_positive_eq_of_rowGram_eq"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

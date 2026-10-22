@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T07:47:48.041011+00:00",
+  "ended_utc": "2026-10-22T07:47:58.612436+00:00",
+  "module": "JinWishartFormalization.ActualCompressedPositiveMinimum",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCompressedPositiveMinimum.lean",
+  "source_sha256_before": "c36f9fe5f8f548686300c01f2568656d3a5ba9a2308a207bc4a1c04a1be5a5a6",
+  "source_sha256": "c36f9fe5f8f548686300c01f2568656d3a5ba9a2308a207bc4a1c04a1be5a5a6",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/actual-positive-compression-v2.txt",
+  "log_exists": true,
+  "log_sha256": "9da5e1fd60b269c5d33a51ef1c72e8a80757e3c62b256c5a99090774d272b32c",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

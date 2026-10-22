@@ -1,0 +1,63 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCompressedPositiveMinimum.lean:44:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a =>
+    0 < ⋯.eigenvalues₀ j ∧
+      ∀ (j_1 : Fin (Fintype.card (Fin r))), 0 < ⋯.eigenvalues₀ j_1 → ⋯.eigenvalues₀ j ≤ ⋯.eigenvalues₀ j_1
+Error: Application type mismatch: The argument
+  actualCorrelatedEigenvalue._proof_1 (B * C) (M * C) z
+has type
+  (complexGram (complexSampleMatrix z * (B * C) + M * C)).IsHermitian
+but is expected to have type
+  (complexGram _a).IsHermitian
+in the application
+  ⋯.eigenvalues₀
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hR : 0 < min m (B.fromRows M).rank
+r : ℕ
+C : Matrix (Fin n) (Fin r) ℂ
+hr : r = (B.fromRows M).rank
+hiso : Cᴴ * C = 1
+hB : B * C * Cᴴ = B
+hM : M * C * Cᴴ = M
+hZ :
+  ∀ (Z : Matrix (Fin m) (Fin p) ℂ),
+    (Z * B + M) * C * Cᴴ = Z * B + M ∧ (Z * B + M) * C * ((Z * B + M) * C)ᴴ = (Z * B + M) * (Z * B + M)ᴴ
+hstack : (B * C).fromRows (M * C) = B.fromRows M * C
+hrecover : B.fromRows M * C * Cᴴ = B.fromRows M
+hRank : ((B * C).fromRows (M * C)).rank = (B.fromRows M).rank
+hRc : 0 < min m ((B * C).fromRows (M * C)).rank
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m (B.fromRows M).rank
+hmi : Measurable (actualCorrelatedEigenvalue B M i)
+hxi :
+  ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample,
+    0 < actualCorrelatedEigenvalue B M i z ∧
+      ∀ (j : Fin (Fintype.card (Fin n))),
+        0 < actualCorrelatedEigenvalue B M j z → actualCorrelatedEigenvalue B M i z ≤ actualCorrelatedEigenvalue B M j z
+j : Fin (Fintype.card (Fin r))
+hj : ↑j + 1 = min m ((B * C).fromRows (M * C)).rank
+hmj : Measurable (actualCorrelatedEigenvalue (B * C) (M * C) j)
+hyj :
+  ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample,
+    0 < actualCorrelatedEigenvalue (B * C) (M * C) j z ∧
+      ∀ (j_1 : Fin (Fintype.card (Fin r))),
+        0 < actualCorrelatedEigenvalue (B * C) (M * C) j_1 z →
+          actualCorrelatedEigenvalue (B * C) (M * C) j z ≤ actualCorrelatedEigenvalue (B * C) (M * C) j_1 z
+z : ComplexSample
+hx :
+  0 < ⋯.eigenvalues₀ i ∧ ∀ (j : Fin (Fintype.card (Fin n))), 0 < ⋯.eigenvalues₀ j → ⋯.eigenvalues₀ i ≤ ⋯.eigenvalues₀ j
+hy :
+  0 < ⋯.eigenvalues₀ j ∧
+    ∀ (j_1 : Fin (Fintype.card (Fin r))), 0 < ⋯.eigenvalues₀ j_1 → ⋯.eigenvalues₀ j ≤ ⋯.eigenvalues₀ j_1
+hs : complexSampleMatrix z * (B * C) + M * C = (complexSampleMatrix z * B + M) * C
+⊢ 0 < ⋯.eigenvalues₀ i ∧ 0 < ⋯.eigenvalues₀ j ∧ ⋯.eigenvalues₀ i = ⋯.eigenvalues₀ j
+'JinWishart.exists_actual_fixed_compression_min_positive_ae' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -330,3 +330,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/fixed_rank_positive_minimum_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_FIXED_RANK_POSITIVE_MINIMUM.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GramPositiveSpectrumTransport.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualCompressedPositiveMinimum.lean -text whitespace=cr-at-eol
+
+/experiments/positive_gram_transport_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_POSITIVE_SPECTRUM_TRANSPORT.md -text whitespace=cr-at-eol

@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GramPositiveSpectrumTransport.lean": {
+      "sha256": "df3017323daf07790f2312fd44ce96c9150f1ec3cca4633e3059e2c2445564e4",
+      "supplied": "Full source"
+    },
+    "ActualCompressedPositiveMinimum.lean": {
+      "sha256": "c36f9fe5f8f548686300c01f2568656d3a5ba9a2308a207bc4a1c04a1be5a5a6",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "f825e8982a8e530cee7fc40382221c1634f1abb799aa5a781722ddfd5b76dddf"
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "tag": "positive-transport-v2-GramPositiveSpectrumTransport",
+    "module": "GramPositiveSpectrumTransport",
+    "nodes": [
+      [
+        "L-positive-transport-v2-hermitian_real_root_iff_ordered_eigenvalue",
+        "hermitian_real_root_iff_ordered_eigenvalue",
+        []
+      ],
+      [
+        "L-positive-transport-v2-gram_nonzero_root_mem_iff_conjTranspose",
+        "gram_nonzero_root_mem_iff_conjTranspose",
+        [
+          "L-positive-transport-v2-hermitian_real_root_iff_ordered_eigenvalue"
+        ]
+      ],
+      [
+        "L-positive-transport-v2-gram_positive_eigenvalue_mem_iff_of_rowGram_eq",
+        "gram_positive_eigenvalue_mem_iff_of_rowGram_eq",
+        [
+          "L-positive-transport-v2-gram_nonzero_root_mem_iff_conjTranspose"
+        ]
+      ],
+      [
+        "L-positive-transport-v2-gram_min_positive_eq_of_rowGram_eq",
+        "gram_min_positive_eq_of_rowGram_eq",
+        [
+          "L-positive-transport-v2-gram_positive_eigenvalue_mem_iff_of_rowGram_eq"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "positive-transport-v2-ActualCompressedPositiveMinimum",
+    "module": "ActualCompressedPositiveMinimum",
+    "nodes": [
+      [
+        "L-positive-transport-v2-exists_actual_fixed_compression_min_positive_ae",
+        "exists_actual_fixed_compression_min_positive_ae",
+        [
+          "L-positive-transport-v2-gram_min_positive_eq_of_rowGram_eq"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,3 +1,5 @@
+import JinWishartFormalization.GramPositiveSpectrumTransport
+import JinWishartFormalization.ActualCompressedPositiveMinimum
 import JinWishartFormalization.FinitePositiveMinimum
 import JinWishartFormalization.FixedRankPositiveMinimum
 import JinWishartFormalization.FixedKernelCompression

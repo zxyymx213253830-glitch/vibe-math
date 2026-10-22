@@ -1,0 +1,4 @@
+'JinWishart.hermitian_real_root_iff_ordered_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_nonzero_root_mem_iff_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_positive_eigenvalue_mem_iff_of_rowGram_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gram_min_positive_eq_of_rowGram_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

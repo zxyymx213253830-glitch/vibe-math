@@ -1,0 +1,24 @@
+{
+  "id": "L-positive-transport-v2-gram_positive_eigenvalue_mem_iff_of_rowGram_eq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramPositiveSpectrumTransport",
+  "declaration": "JinWishart.gram_positive_eigenvalue_mem_iff_of_rowGram_eq",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-positive-transport-v2-gram_nonzero_root_mem_iff_conjTranspose"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-positive-transport-v2-gram_nonzero_root_mem_iff_conjTranspose"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-transport-v2-GramPositiveSpectrumTransport.json",
+    "source_sha256": "df3017323daf07790f2312fd44ce96c9150f1ec3cca4633e3059e2c2445564e4"
+  }
+}

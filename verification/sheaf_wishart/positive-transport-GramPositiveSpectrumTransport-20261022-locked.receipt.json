@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T07:49:47.865939+00:00",
+  "ended_utc": "2026-10-22T07:49:58.937436+00:00",
+  "module": "JinWishartFormalization.GramPositiveSpectrumTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramPositiveSpectrumTransport.lean",
+  "source_sha256_before": "df3017323daf07790f2312fd44ce96c9150f1ec3cca4633e3059e2c2445564e4",
+  "source_sha256": "df3017323daf07790f2312fd44ce96c9150f1ec3cca4633e3059e2c2445564e4",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/positive-transport-GramPositiveSpectrumTransport-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f60fe338cafd305fb99edf846a2bb15b80de778268bbd91d707bc9d8edb48e97",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
