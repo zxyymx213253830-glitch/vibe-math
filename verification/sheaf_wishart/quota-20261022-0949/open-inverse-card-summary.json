@@ -1,0 +1,25 @@
+{
+  "archived_utc": "2026-10-22T03:20:51.246827+00:00",
+  "status": "OPEN research card; no added Lean acceptance",
+  "accepted_items": 665,
+  "new_accepted_printed_declarations": 55,
+  "new_accepted_modules": 18,
+  "accepted_control_checks": 403,
+  "exploratory_checks": 93,
+  "files": {
+    "experiments/singular_positive_minimum_preflight.py": "ac537aa4ed5b02e92ccbd8dbca249dc9de460f7bda4f87c79a17c0affc71e061",
+    "verification/sheaf_wishart/quota-20261022-0949/singular-positive-minimum-preflight.json": "2fe04e4d02a7abf5a2247b6f60595fa4fee6a021764d0e240940521591ee70ce",
+    "experiments/singular_block_shear_control.py": "a583734de0017a48ed95c1fa9a3149a05ef5630809a4f62f094dd5e761a91ac7",
+    "verification/sheaf_wishart/quota-20261022-0949/singular-block-shear-control.json": "e4e61dfbb493b6c2e21da249a8e7c8b13dc7be2cd2cee2d66655e47190f27928",
+    "verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.md": "abf46df50763557f433f340bcb1440e6ac1e09045e6b38251f5edc2b51716223",
+    "verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.raw.json": "a5b47546014c355400d9a046f817d4c5c6994ec8f77edaffae87bdca08a447a2",
+    "verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.receipt.json": "1d2add6951fe34e81213f36cf85be774a722e73923718911b1318c35569606c0",
+    "verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.response.md": "a95ea9ffdd7dfc64d88082b89c8e92ae4d8b129385fa4b59cc5ddcfda2d9c542",
+    "verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "notes/WISHART_NEXT_SINGULAR_POSITIVE_INVERSE_CARD.md": "499a6a1c54e9cc0702ac4b65dbb1b385f701f7aeae2648963e2bf713e99ee7e0",
+    "notes/WISHART_QUOTA_20261022_REVIEW_CN.md": "3637cf34d32eb156597c44d4671aacd01eb043fc0db0e306fdfb6afcf53140b6"
+  },
+  "human_review": "REQUIRED",
+  "full_lake_build": "NOT_RUN",
+  "linux_independent_kernel": "NOT_RUN"
+}

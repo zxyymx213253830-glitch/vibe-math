@@ -1,3 +1,5 @@
+2026-10-22 当前665项/auditPASS/facade72真实exit0。本轮55打印声明/18模块，精确全子式公式、期望曲率/严格凹、缩放导数极限、有限高斯多项式log平方可积、实际任意固定奇异因子正谱log有限方差、随机均方偏移和full-logdet方差极限已闭合。详见WISHART_QUOTA_20261022_REVIEW_CN.md。最小正谱一般奇异逆矩阈值新增9例40万样本预检/12已知控制和20例81项分块剪切控制，仍OPEN、未计665，不以采样代替证明；Qoder P1指数/边界误报已保留并裁决。当前用户额度授权继续、单协调器、旧小时关闭。人审仍需，冻结发表产物未改/fullLake及Linux独立内核NOT_RUN。
+
 2026-10-22 当前610审计绑定项（608 theorem/instance+2构造），auditPASS/facade64真实exit0。本小时从585新增25个打印声明、7模块：任意固定矩形/奇异/零B,M的总正谱对数绝对可积与通用秩full-logdet期望偏移已闭合；另证明每个正尺度处期望full-logdet导数等于各谱分式期望之和。没有满秩/逆矩前提，没有常数闭式/参数一致性/一般奇异逆矩阈值/编码定理。25字面目标比较、最终源码Qoder P4及误报裁决已绑定。Linux原生439文件/71DAG节点逐哈希一致，仅索引、未独立内核编译。[需人工审查]测度/Fubini/求导/方差/模型仍需；冻结产物未改/fullLakeNOT_RUN，heartbeatPAUSED。详见WISHART_HOUR_20261022_REVIEW_CN.md。
 
 2026-10-22 固定小时当前608绑定项（606 theorem/instance+2构造），auditPASS/facade63真实exit0。本小时23个新打印声明、6个源码模块；已补上任意固定矩形/奇异/零B,M的总正谱对数真L1，并证明期望full-logdet减通用秩r乘log(rho)趋于有限正谱对数期望，r=min(m,rank stacked[B;M])。带阶乘的平均Cauchy-Binet、非零坐标子式及Gram秩系数完成这一桥。常数未闭式求值；没有误差率/参数一致性/一般奇异逆矩阈值/编码定理。完整子集归组Cauchy-Binet仍未证明且本路线不依赖它。23个字面类型比较、最终源码Qoder P4及误报裁决均已绑定；[需人工审查]测度/Fubini/方差/模型仍需，冻结产物未改/fullLake与Linux内核NOT_RUN。详见WISHART_SINGULAR_LOGDET_OFFSET.md。

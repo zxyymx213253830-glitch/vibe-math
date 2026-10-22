@@ -1,0 +1,20 @@
+{
+  "archived_utc": "2026-10-22T06:55:11.457484+00:00",
+  "status": "OPEN route only; no general threshold proof",
+  "accepted_items": 665,
+  "files": {
+    "verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.md": "a6befe7df0caf682ebbd6a284833334fe262218cfb89780a603482373442d2be",
+    "verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.raw.json": "74d12964ecb60df18c0419d6776fc421bd1461532cc5e5fc8bd96e0e5986daff",
+    "verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.receipt.json": "4021fb8d16d03a1c7a3b7aded4f453f4777b179b0bbe242c0653a3635cbcf779",
+    "verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.response.md": "0a3d21dafdc9206975da3789aeb834342c9ba6e1db0883b0db7c07fee255dac5",
+    "verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "notes/WISHART_SINGULAR_INVERSE_ROUTE_REVIEW.md": "37b7c7cdfd1950ee1b4b88838ffed55d9a66b41aa3c75acb6ca7c7954a03ffe7"
+  },
+  "retained_archive_faults": [
+    "Archive attempt1: KeyError modules; early summaries use new_source_modules. No Lean acceptance affected.",
+    "Archive attempt2: failed duplicate control-count assertion; 35-control experiment reused by two milestones. Unique seven experiments total403. No Lean acceptance affected.",
+    "Premature route-review launch after failed archive found no prompt and made NO model call. Later single real route-P4 exit0 preserved."
+  ],
+  "review": "Qoder route P4 only; not final Lean-source acceptance",
+  "human_review": "REQUIRED"
+}

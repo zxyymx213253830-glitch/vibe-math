@@ -1,3 +1,5 @@
+2026-10-22当前入口：665项/auditPASS/facade72真实exit0。本轮55声明/18模块的说明见notes/WISHART_QUOTA_20261022_REVIEW_CN.md。历史队列节点可能已完成，请以接受证据为准；下一张研究卡WISHART_NEXT_SINGULAR_POSITIVE_INVERSE_CARD.md仍OPEN，尚无待编译证明。用户当前授权至普通额度实际不可用，单协调器，无第二后台研究循环。Linux独立内核/fullLake未运行、发表包未更新。
+
 # 在本项目使用 SHEAF
 
 已经完成 Windows 适配和首个小目标的试跑。最方便的用法是在当前 Codex 对话里说：

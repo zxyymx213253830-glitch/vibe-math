@@ -1,0 +1,267 @@
+{
+  "status": "PASS known controls; CANDIDATE OPEN, NOT general proof",
+  "seed": 2026102211,
+  "source_sha256": "ac537aa4ed5b02e92ccbd8dbca249dc9de460f7bda4f87c79a17c0affc71e061",
+  "samples_per_case": 400000,
+  "checks": 12,
+  "known_controls": [
+    "known-Gamma2-CDF-0.01",
+    "known-Gamma2-CDF-0.02",
+    "known-Gamma2-CDF-0.04",
+    "known-Gamma2-CDF-0.08",
+    "known-Gamma2-CDF-0.01",
+    "known-Gamma2-CDF-0.02",
+    "known-Gamma2-CDF-0.04",
+    "known-Gamma2-CDF-0.08",
+    "known-noiseless-floor-2-1-2",
+    "known-noiseless-floor-3-0-1",
+    "noisy-source-rank-is-not-total-rank-control",
+    "structural-zero-column-minimum-warning-control"
+  ],
+  "cases": [
+    {
+      "m": 2,
+      "b": 1,
+      "c": 0,
+      "shift": 0.0,
+      "generic_rank": 1,
+      "candidate_exponent_NOT_PROVED": 2,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        4.75e-05,
+        0.0002125,
+        0.0008125,
+        0.0030925
+      ],
+      "local_log_slopes_HEURISTIC": [
+        2.161463422694116,
+        1.9349049717781153,
+        1.9283338770605534
+      ],
+      "min_observed": 0.0017625236158772361,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    },
+    {
+      "m": 1,
+      "b": 2,
+      "c": 0,
+      "shift": 0.0,
+      "generic_rank": 1,
+      "candidate_exponent_NOT_PROVED": 2,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        6e-05,
+        0.0001875,
+        0.0007525,
+        0.00293
+      ],
+      "local_log_slopes_HEURISTIC": [
+        1.6438561897747248,
+        2.004800986263821,
+        1.961137177662546
+      ],
+      "min_observed": 0.00011183012639437754,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    },
+    {
+      "m": 2,
+      "b": 1,
+      "c": 1,
+      "shift": 0.0,
+      "generic_rank": 2,
+      "candidate_exponent_NOT_PROVED": 1,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        0.01431,
+        0.0286875,
+        0.0562725,
+        0.1095025
+      ],
+      "local_log_slopes_HEURISTIC": [
+        1.0033985764618651,
+        0.9720078104347498,
+        0.9604618436195567
+      ],
+      "min_observed": 1.2556178475236668e-06,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    },
+    {
+      "m": 2,
+      "b": 2,
+      "c": 1,
+      "shift": 0.0,
+      "generic_rank": 2,
+      "candidate_exponent_NOT_PROVED": 2,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        0.0001025,
+        0.0003475,
+        0.0014675,
+        0.0056825
+      ],
+      "local_log_slopes_HEURISTIC": [
+        1.7613890681054238,
+        2.078275620386545,
+        1.9531652757077957
+      ],
+      "min_observed": 0.0008979234871664674,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    },
+    {
+      "m": 3,
+      "b": 1,
+      "c": 1,
+      "shift": 0.0,
+      "generic_rank": 2,
+      "candidate_exponent_NOT_PROVED": 2,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        0.000105,
+        0.0004225,
+        0.00176,
+        0.0068725
+      ],
+      "local_log_slopes_HEURISTIC": [
+        2.008562013503424,
+        2.058552182355113,
+        1.965259572875656
+      ],
+      "min_observed": 0.0009620551535784978,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    },
+    {
+      "m": 3,
+      "b": 2,
+      "c": 1,
+      "shift": 0.0,
+      "generic_rank": 3,
+      "candidate_exponent_NOT_PROVED": 1,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        0.02857,
+        0.05658,
+        0.1096025,
+        0.20735
+      ],
+      "local_log_slopes_HEURISTIC": [
+        0.9857911404598807,
+        0.9539166242661219,
+        0.9197873411309492
+      ],
+      "min_observed": 3.651287869670015e-07,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    },
+    {
+      "m": 2,
+      "b": 1,
+      "c": 1,
+      "shift": 0.4,
+      "generic_rank": 2,
+      "candidate_exponent_NOT_PROVED": 1,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        0.0125975,
+        0.0251025,
+        0.050025,
+        0.097465
+      ],
+      "local_log_slopes_HEURISTIC": [
+        0.9946935954379331,
+        0.9948182103854177,
+        0.9622349732267717
+      ],
+      "min_observed": 1.2219620699505872e-06,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    },
+    {
+      "m": 2,
+      "b": 1,
+      "c": 2,
+      "shift": 0.4,
+      "generic_rank": 2,
+      "candidate_exponent_NOT_PROVED": null,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_log_slopes_HEURISTIC": [
+        null,
+        null,
+        null
+      ],
+      "min_observed": 2.250000568694288,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    },
+    {
+      "m": 3,
+      "b": 0,
+      "c": 1,
+      "shift": 0.0,
+      "generic_rank": 1,
+      "candidate_exponent_NOT_PROVED": null,
+      "thresholds": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "sampled_cdf": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_log_slopes_HEURISTIC": [
+        null,
+        null,
+        null
+      ],
+      "min_observed": 2.25,
+      "interpretation": "Exploratory sampled slopes only; no general inverse-moment or tail theorem"
+    }
+  ],
+  "seconds": 2.42054150000331
+}

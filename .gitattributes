@@ -274,3 +274,37 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/logdet_variance_limit_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_SINGULAR_LOGDET_VARIANCE_LIMIT.md -text whitespace=cr-at-eol
+
+/experiments/singular_positive_minimum_preflight.py -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/singular-positive-minimum-preflight.json -text whitespace=cr-at-eol
+
+/experiments/singular_block_shear_control.py -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/singular-block-shear-control.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.md -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.raw.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.response.md -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p1-singular-inverse-threshold.stderr.txt -text whitespace=cr-at-eol
+
+/notes/WISHART_NEXT_SINGULAR_POSITIVE_INVERSE_CARD.md -text whitespace=cr-at-eol
+
+/notes/WISHART_QUOTA_20261022_REVIEW_CN.md -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.md -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.raw.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.response.md -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-open-inverse-block-route.stderr.txt -text whitespace=cr-at-eol
+
+/notes/WISHART_SINGULAR_INVERSE_ROUTE_REVIEW.md -text whitespace=cr-at-eol
