@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "FinitePositiveMinimum.lean": {
+      "sha256": "9ba5ace4d8c8947948938a35849da4a3c3436ecb78655d1bfe8683b5180155f9",
+      "supplied": "Full source"
+    },
+    "FixedRankPositiveMinimum.lean": {
+      "sha256": "67a001ade3cd14c46977c52bea6b155eb93339cc521ce7081fd94c769d3145ef",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "d8935fba28d7cddbe38682a47f05e25d275b637f3fb5e8db7d40e471a5f2c0ba"
+}

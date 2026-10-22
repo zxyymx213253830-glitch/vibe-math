@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FinitePositiveMinimum.lean:45:9: error: Application type mismatch: The argument
+  ↑j
+has type
+  ℕ
+of sort `Type` but is expected to have type
+  Type ?u.41
+of sort `Type (?u.41 + 1)` in the application
+  @InitialSeg ↑j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FinitePositiveMinimum.lean:45:16: error(lean.invalidDottedIdent): Invalid dotted identifier notation: Not supported on type universe
+  Type ?u.40
+'JinWishart.antitone_positive_iff_lt_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.antitone_min_positive_at_count' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

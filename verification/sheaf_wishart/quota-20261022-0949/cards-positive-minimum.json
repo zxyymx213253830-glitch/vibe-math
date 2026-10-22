@@ -1,0 +1,40 @@
+[
+  {
+    "tag": "positive-minimum-FinitePositiveMinimum",
+    "module": "FinitePositiveMinimum",
+    "nodes": [
+      [
+        "L-positive-minimum-antitone_positive_iff_lt_count",
+        "antitone_positive_iff_lt_count",
+        []
+      ],
+      [
+        "L-positive-minimum-antitone_min_positive_at_count",
+        "antitone_min_positive_at_count",
+        [
+          "L-positive-minimum-antitone_positive_iff_lt_count"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "positive-minimum-FixedRankPositiveMinimum",
+    "module": "FixedRankPositiveMinimum",
+    "nodes": [
+      [
+        "L-positive-minimum-gram_positive_modes_card_eq_rank",
+        "gram_positive_modes_card_eq_rank",
+        [
+          "L-positive-minimum-antitone_min_positive_at_count"
+        ]
+      ],
+      [
+        "L-positive-minimum-exists_actualCorrelated_smallest_positive_coordinate",
+        "exists_actualCorrelated_smallest_positive_coordinate",
+        [
+          "L-positive-minimum-gram_positive_modes_card_eq_rank"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,5 +1,7 @@
 # 2026-10-22 后续检查点
 
+07:34UTC更新：**675项**（673定理/实例+2构造），audit PASS，facade75真实exit0。现已证明正通用秩下存在一个固定可测的有序特征值坐标，AE严格正且不大于任何其他正特征值；不是对每个样本重新挑选，也没有把零秩模型纳入最小正值逆矩。462条有限精确序列、2746项控制、4字面目标和最终源码Qoder P4绑定。4声明/2模块中仅1条是新的实际模型存在定理；本轮累计65打印声明/23模块。跨尺寸压缩/转置的最小正值等同性和一般逆矩阈值仍OPEN。详见WISHART_FIXED_RANK_POSITIVE_MINIMUM.md，下一卡WISHART_NEXT_POSITIVE_SPECTRUM_TRANSPORT_CARD.md。
+
 07:21UTC更新：**671项**审计绑定声明（669定理/实例+2构造），audit PASS，facade74真实exit0。新增固定共同核等距压缩：对固定B,M可选同一个rank stacked[B;M]大小的C，对每一个噪声矩阵Z恢复ZB+M并精确保持行Gram。51项精确/数值对照、3个字面目标、两份完整最终源码的Qoder P4已绑定。一般最小正谱逆矩阈值仍OPEN。本轮累计61声明/21模块，包含辅助工具，不能称为61个概率突破。详见WISHART_FIXED_KERNEL_COMPRESSION.md；下一步接最小正值/AE秩和Gaussian分块law。
 
 上一检查点为668项（666定理/实例+2构造），audit PASS，主入口facade73真实exit0。该主入口耗时134秒，打印的非阻塞ring提示与先前成功主入口日志哈希一致；没有把部分输出当成完成证据。

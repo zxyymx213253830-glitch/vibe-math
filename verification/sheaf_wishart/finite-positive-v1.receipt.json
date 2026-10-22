@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T07:28:08.071429+00:00",
+  "ended_utc": "2026-10-22T07:28:17.413859+00:00",
+  "module": "JinWishartFormalization.FinitePositiveMinimum",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FinitePositiveMinimum.lean",
+  "source_sha256_before": "6d42636dc26ee9c10b8dd3be1330c6d423110790ce70ebff2b4a4b38521713a3",
+  "source_sha256": "6d42636dc26ee9c10b8dd3be1330c6d423110790ce70ebff2b4a4b38521713a3",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/finite-positive-v1.txt",
+  "log_exists": true,
+  "log_sha256": "026f2c19c3788d9605e3cfbae77ea556a68d7f9a97fdee7c839c2a253c5ce38d",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

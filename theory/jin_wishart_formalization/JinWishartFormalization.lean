@@ -1,3 +1,5 @@
+import JinWishartFormalization.FinitePositiveMinimum
+import JinWishartFormalization.FixedRankPositiveMinimum
 import JinWishartFormalization.FixedKernelCompression
 import JinWishartFormalization.CorrelatedFixedKernelCompression
 import JinWishartFormalization.GramMinimumLeftComparison

@@ -1,0 +1,24 @@
+{
+  "id": "L-positive-minimum-exists_actualCorrelated_smallest_positive_coordinate",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.FixedRankPositiveMinimum",
+  "declaration": "JinWishart.exists_actualCorrelated_smallest_positive_coordinate",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-positive-minimum-gram_positive_modes_card_eq_rank"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-positive-minimum-gram_positive_modes_card_eq_rank"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-minimum-FixedRankPositiveMinimum.json",
+    "source_sha256": "67a001ade3cd14c46977c52bea6b155eb93339cc521ce7081fd94c769d3145ef"
+  }
+}

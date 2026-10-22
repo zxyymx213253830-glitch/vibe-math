@@ -1,0 +1,24 @@
+{
+  "id": "L-positive-minimum-antitone_min_positive_at_count",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FinitePositiveMinimum",
+  "declaration": "JinWishart.antitone_min_positive_at_count",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-positive-minimum-antitone_positive_iff_lt_count"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-positive-minimum-antitone_positive_iff_lt_count"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-minimum-FinitePositiveMinimum.json",
+    "source_sha256": "9ba5ace4d8c8947948938a35849da4a3c3436ecb78655d1bfe8683b5180155f9"
+  }
+}

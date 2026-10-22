@@ -322,3 +322,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/fixed_kernel_compression_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_FIXED_KERNEL_COMPRESSION.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FinitePositiveMinimum.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FixedRankPositiveMinimum.lean -text whitespace=cr-at-eol
+
+/experiments/fixed_rank_positive_minimum_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_FIXED_RANK_POSITIVE_MINIMUM.md -text whitespace=cr-at-eol

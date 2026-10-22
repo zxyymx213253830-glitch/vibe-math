@@ -1,0 +1,10 @@
+{
+  "status": "PASS exact finite controls, not the general theorem",
+  "seed": 2026102215,
+  "source_sha256": "fedd50621dbbec1061c855b36afd012c109b62655944847711ff4e2cb77054a3",
+  "checks": 2746,
+  "sequences": 462,
+  "rank_zero_cases": 28,
+  "negative_entry_sequences": 252,
+  "scope": "Antitone real sequence positive prefix; no inverse-moment theorem"
+}
