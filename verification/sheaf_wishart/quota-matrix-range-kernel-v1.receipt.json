@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:03:03.782978+00:00",
+  "ended_utc": "2026-10-22T12:03:15.813281+00:00",
+  "module": "JinWishartFormalization.MatrixRangeKernelNormalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MatrixRangeKernelNormalization.lean",
+  "source_sha256_before": "bf6abe1be4e406581f492cdfa7501f5f0ad53f68ddf9a436e756c7d48e6bbd9a",
+  "source_sha256": "bf6abe1be4e406581f492cdfa7501f5f0ad53f68ddf9a436e756c7d48e6bbd9a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-matrix-range-kernel-v1.txt",
+  "log_exists": true,
+  "log_sha256": "e5f69f227b39ab2bdfcc471e1bf9928871e85db1b5e470b4cf3141b39766ec75",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

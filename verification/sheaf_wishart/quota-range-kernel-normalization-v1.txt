@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RangeKernelNormalization.lean:48:38: error: Type mismatch
+  LinearEquiv.ofBijective L hbij
+has type
+  (↥T.range × ↥T.ker) ≃ₗ[ℂ] E
+but is expected to have type
+  ↥T.range × ↥T.ker ≃ₗ[ℂ] E
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RangeKernelNormalization.lean:53:75: error: Application type mismatch: The argument
+  e0
+has type
+  ↥T.range × ↥T.ker ≃ₗ[ℂ] E
+but is expected to have type
+  (↥T.range × ↥T.ker) ≃ₛₗ[?m.772] ?m.758
+in the application
+  (eb.prodCongr ec.toLinearEquiv).trans e0
+'JinWishart.exists_linear_range_kernel_normalization' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

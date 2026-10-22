@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "range-kernel-normalization-RangeKernelNormalization",
+    "module": "RangeKernelNormalization",
+    "nodes": [
+      [
+        "L-range-kernel-normalization-exists_linear_range_kernel_normalization",
+        "exists_linear_range_kernel_normalization",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "range-kernel-normalization-MatrixRangeKernelNormalization",
+    "module": "MatrixRangeKernelNormalization",
+    "nodes": [
+      [
+        "L-range-kernel-normalization-exists_matrix_range_kernel_normalization",
+        "exists_matrix_range_kernel_normalization",
+        [
+          "L-range-kernel-normalization-exists_linear_range_kernel_normalization"
+        ]
+      ]
+    ]
+  }
+]

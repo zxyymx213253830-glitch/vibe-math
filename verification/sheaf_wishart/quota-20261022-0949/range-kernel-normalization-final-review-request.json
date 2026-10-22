@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "RangeKernelNormalization.lean": {
+      "sha256": "cce6687bc5d31c6edd2a682482bbb134220642a326160913c72419d846accc5a",
+      "supplied": "Full source"
+    },
+    "MatrixRangeKernelNormalization.lean": {
+      "sha256": "bf6abe1be4e406581f492cdfa7501f5f0ad53f68ddf9a436e756c7d48e6bbd9a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "99fd5208d7191a650fc3a0568c13b8e0798d04e226f57ce20a73d6600b77993f"
+}

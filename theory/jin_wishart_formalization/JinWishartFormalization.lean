@@ -1,3 +1,5 @@
+import JinWishartFormalization.RangeKernelNormalization
+import JinWishartFormalization.MatrixRangeKernelNormalization
 import JinWishartFormalization.WidePositiveCoordinate
 import JinWishartFormalization.WideRowInverseMoments
 import JinWishartFormalization.ProperGaussianAdjointLaw

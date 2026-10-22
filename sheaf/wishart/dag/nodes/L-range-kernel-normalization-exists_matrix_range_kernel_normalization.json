@@ -1,0 +1,24 @@
+{
+  "id": "L-range-kernel-normalization-exists_matrix_range_kernel_normalization",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.MatrixRangeKernelNormalization",
+  "declaration": "JinWishart.exists_matrix_range_kernel_normalization",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-range-kernel-normalization-exists_linear_range_kernel_normalization"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-range-kernel-normalization-exists_linear_range_kernel_normalization"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-range-kernel-normalization-MatrixRangeKernelNormalization.json",
+    "source_sha256": "bf6abe1be4e406581f492cdfa7501f5f0ad53f68ddf9a436e756c7d48e6bbd9a"
+  }
+}

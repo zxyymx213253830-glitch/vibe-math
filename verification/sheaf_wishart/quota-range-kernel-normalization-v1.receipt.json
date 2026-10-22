@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T11:59:27.959942+00:00",
+  "ended_utc": "2026-10-22T12:01:30.208835+00:00",
+  "module": "JinWishartFormalization.RangeKernelNormalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RangeKernelNormalization.lean",
+  "source_sha256_before": "cb0c60ef430d8e43d1c09abdf99e61991823f04f31d69ac1efd13e545f5771fe",
+  "source_sha256": "cb0c60ef430d8e43d1c09abdf99e61991823f04f31d69ac1efd13e545f5771fe",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-range-kernel-normalization-v1.txt",
+  "log_exists": true,
+  "log_sha256": "c0d6e800bccaa6995d05d4c7d3d55206a995fc919b94ee44e9a93b06128c4874",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
