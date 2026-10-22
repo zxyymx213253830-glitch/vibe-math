@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-shear-norm-canonical_inverse_shear_opNorm_le",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.CanonicalShearNorm",
+  "declaration": "JinWishart.canonical_inverse_shear_opNorm_le",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-shear-norm-canonical_shear_opNorm_le"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-shear-norm-canonical_shear_opNorm_le"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-shear-norm-CanonicalShearNorm.json",
+    "source_sha256": "cb38c05077e07531f29570bdf1d151a6cfdea8c5e26153dc57becb8e7b093969"
+  }
+}

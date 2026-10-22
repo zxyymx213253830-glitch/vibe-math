@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T08:21:26.605941+00:00",
+  "ended_utc": "2026-10-22T08:21:41.144981+00:00",
+  "module": "SheafCanonicalShearNormTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCanonicalShearNormTargets.lean",
+  "source_sha256_before": "868ff50d7dd578af040f79afc617a063d9e5b7aab483c6b1ed26f73e512cfb50",
+  "source_sha256": "868ff50d7dd578af040f79afc617a063d9e5b7aab483c6b1ed26f73e512cfb50",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-shear-norm-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

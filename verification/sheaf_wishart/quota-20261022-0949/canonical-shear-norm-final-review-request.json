@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CanonicalShearNorm.lean": {
+      "sha256": "cb38c05077e07531f29570bdf1d151a6cfdea8c5e26153dc57becb8e7b093969",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a3cc9bca7c66723566fe88397ed3c9de580478d9495d652bd61f10282ceeab99"
+}

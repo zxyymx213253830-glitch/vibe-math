@@ -1,0 +1,2 @@
+'JinWishart.canonical_shear_opNorm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.canonical_inverse_shear_opNorm_le' depends on axioms: [propext, Classical.choice, Quot.sound]

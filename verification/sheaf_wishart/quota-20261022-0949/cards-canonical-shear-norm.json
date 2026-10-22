@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "canonical-shear-norm-CanonicalShearNorm",
+    "module": "CanonicalShearNorm",
+    "nodes": [
+      [
+        "L-canonical-shear-norm-canonical_shear_opNorm_le",
+        "canonical_shear_opNorm_le",
+        []
+      ],
+      [
+        "L-canonical-shear-norm-canonical_inverse_shear_opNorm_le",
+        "canonical_inverse_shear_opNorm_le",
+        [
+          "L-canonical-shear-norm-canonical_shear_opNorm_le"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:27:11: error: don't know how to synthesize implicit argument `m`
+  @fromBlocks (Fin b) ?m.28 (Fin b) (Fin c) ℂ 0 0 K 0
+context:
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+⊢ Type ?u.30
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:27:57: error: don't know how to synthesize implicit argument
+  @OfNat.ofNat (Matrix (Fin c) ?m.28 ℂ) 0 Zero.toOfNat0
+context:
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+⊢ OfNat (Matrix (Fin c) ?m.28 ℂ) 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:27:53: error: don't know how to synthesize implicit argument
+  @OfNat.ofNat (Matrix (Fin b) ?m.28 ℂ) 0 Zero.toOfNat0
+context:
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+⊢ OfNat (Matrix (Fin b) ?m.28 ℂ) 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:27:6: error: failed to infer `let` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:26:21: error: unsolved goals
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+⊢ ‖toEuclideanCLM (fromBlocks 0 0 K 0)‖ ≤ ‖rectCLM K‖
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:46:11: error: don't know how to synthesize implicit argument `m`
+  @fromBlocks (Fin b) ?m.57 (Fin b) (Fin c) ℂ 0 0 K 0
+context:
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+⊢ Type ?u.39
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:46:57: error: don't know how to synthesize implicit argument
+  @OfNat.ofNat (Matrix (Fin c) ?m.57 ℂ) 0 Zero.toOfNat0
+context:
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+⊢ OfNat (Matrix (Fin c) ?m.57 ℂ) 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:46:53: error: don't know how to synthesize implicit argument
+  @OfNat.ofNat (Matrix (Fin b) ?m.57 ℂ) 0 Zero.toOfNat0
+context:
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+⊢ OfNat (Matrix (Fin b) ?m.57 ℂ) 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:46:6: error: failed to infer `let` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:45:63: error: unsolved goals
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+⊢ ‖toEuclideanCLM (fromBlocks 1 0 K 1)‖ ≤ 1 + ‖LinearMap.toContinuousLinearMap (toEuclideanLin K)‖
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:57:23: error(lean.unknownIdentifier): Unknown constant `LinearMap.toContinuousLinearMap_neg`
+'JinWishart.canonical_shear_opNorm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.canonical_inverse_shear_opNorm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

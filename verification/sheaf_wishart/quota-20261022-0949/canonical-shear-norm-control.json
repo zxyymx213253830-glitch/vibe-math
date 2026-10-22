@@ -1,0 +1,292 @@
+{
+  "status": "PASS controls only; no general norm proof",
+  "seed": 2026102218,
+  "checks": 106,
+  "check_labels": [
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "nilpotent-embedding-opnorm",
+    "two-sign-sharp-coarse-bound",
+    "two-sided-inverse",
+    "projection-energy-and-nilpotent-action",
+    "closed-two-by-two-reference",
+    "closed-two-by-two-reference",
+    "closed-two-by-two-reference",
+    "closed-two-by-two-reference",
+    "closed-two-by-two-reference",
+    "negative-control-uniform-unit-bound"
+  ],
+  "cases": [
+    {
+      "b": 0,
+      "c": 0,
+      "opK": 0.0,
+      "opS": 0.0,
+      "opSinv": 0.0
+    },
+    {
+      "b": 0,
+      "c": 1,
+      "opK": 0.0,
+      "opS": 1.0,
+      "opSinv": 1.0
+    },
+    {
+      "b": 0,
+      "c": 2,
+      "opK": 0.0,
+      "opS": 1.0,
+      "opSinv": 1.0
+    },
+    {
+      "b": 0,
+      "c": 3,
+      "opK": 0.0,
+      "opS": 1.0,
+      "opSinv": 1.0
+    },
+    {
+      "b": 0,
+      "c": 4,
+      "opK": 0.0,
+      "opS": 1.0,
+      "opSinv": 1.0
+    },
+    {
+      "b": 1,
+      "c": 0,
+      "opK": 0.0,
+      "opS": 1.0,
+      "opSinv": 1.0
+    },
+    {
+      "b": 1,
+      "c": 1,
+      "opK": 1.4142135623730951,
+      "opS": 1.9318516525781366,
+      "opSinv": 1.9318516525781366
+    },
+    {
+      "b": 1,
+      "c": 2,
+      "opK": 3.605551275463989,
+      "opS": 3.864328450540825,
+      "opSinv": 3.864328450540825
+    },
+    {
+      "b": 1,
+      "c": 3,
+      "opK": 2.23606797749979,
+      "opS": 2.6180339887498945,
+      "opSinv": 2.6180339887498945
+    },
+    {
+      "b": 1,
+      "c": 4,
+      "opK": 5.8309518948453,
+      "opS": 5.997682948907139,
+      "opSinv": 5.997682948907139
+    },
+    {
+      "b": 2,
+      "c": 0,
+      "opK": 0.0,
+      "opS": 1.0,
+      "opSinv": 1.0
+    },
+    {
+      "b": 2,
+      "c": 1,
+      "opK": 3.605551275463989,
+      "opS": 3.8643284505408246,
+      "opSinv": 3.8643284505408246
+    },
+    {
+      "b": 2,
+      "c": 2,
+      "opK": 5.493990551812409,
+      "opS": 5.6703466139856715,
+      "opSinv": 5.6703466139856715
+    },
+    {
+      "b": 2,
+      "c": 3,
+      "opK": 5.179261689942509,
+      "opS": 5.365632990724482,
+      "opSinv": 5.365632990724482
+    },
+    {
+      "b": 2,
+      "c": 4,
+      "opK": 6.357039612863993,
+      "opS": 6.510634474308913,
+      "opSinv": 6.510634474308913
+    },
+    {
+      "b": 3,
+      "c": 0,
+      "opK": 0.0,
+      "opS": 1.0,
+      "opSinv": 1.0
+    },
+    {
+      "b": 3,
+      "c": 1,
+      "opK": 3.3166247903554,
+      "opS": 3.594804068281408,
+      "opSinv": 3.594804068281408
+    },
+    {
+      "b": 3,
+      "c": 2,
+      "opK": 5.962914487572671,
+      "opS": 6.12614916773151,
+      "opSinv": 6.12614916773151
+    },
+    {
+      "b": 3,
+      "c": 3,
+      "opK": 5.188594490003378,
+      "opS": 5.374653012780942,
+      "opSinv": 5.374653012780942
+    },
+    {
+      "b": 3,
+      "c": 4,
+      "opK": 8.364885615036833,
+      "opS": 8.482771613338095,
+      "opSinv": 8.482771613338095
+    },
+    {
+      "b": 4,
+      "c": 0,
+      "opK": 0.0,
+      "opS": 1.0,
+      "opSinv": 1.0
+    },
+    {
+      "b": 4,
+      "c": 1,
+      "opK": 4.47213595499958,
+      "opS": 4.685557720282969,
+      "opSinv": 4.685557720282969
+    },
+    {
+      "b": 4,
+      "c": 2,
+      "opK": 6.189272404326767,
+      "opS": 6.346831341410138,
+      "opSinv": 6.346831341410138
+    },
+    {
+      "b": 4,
+      "c": 3,
+      "opK": 7.658918775182163,
+      "opS": 7.7873324529141055,
+      "opSinv": 7.7873324529141055
+    },
+    {
+      "b": 4,
+      "c": 4,
+      "opK": 8.035025786205448,
+      "opS": 8.157610699465108,
+      "opSinv": 8.157610699465108
+    }
+  ],
+  "source_sha256": "96cd53aba29cb84147ddfb8b4a653fc03326a5010cbac27187aa739f94e5ccd9",
+  "seconds": 0.014384399997652508
+}

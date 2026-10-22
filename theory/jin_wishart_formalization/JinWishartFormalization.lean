@@ -1,3 +1,4 @@
+import JinWishartFormalization.CanonicalShearNorm
 import JinWishartFormalization.CanonicalBlockSpectrum
 import JinWishartFormalization.CanonicalBlockShear
 import JinWishartFormalization.GramPositiveSpectrumTransport

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T08:21:12.634154+00:00",
+  "ended_utc": "2026-10-22T08:21:26.604485+00:00",
+  "module": "JinWishartFormalization.CanonicalShearNorm",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalShearNorm.lean",
+  "source_sha256_before": "cb38c05077e07531f29570bdf1d151a6cfdea8c5e26153dc57becb8e7b093969",
+  "source_sha256": "cb38c05077e07531f29570bdf1d151a6cfdea8c5e26153dc57becb8e7b093969",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-shear-norm-CanonicalShearNorm-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "86e58bc4816be977f8e31340e2fc4c96904b1e3103430fbe87b8b279970ba14b",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

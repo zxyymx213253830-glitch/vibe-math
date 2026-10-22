@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalShearNorm.lean:31:73: error: unsolved goals
+b c : ℕ
+K : Matrix (Fin c) (Fin b) ℂ
+J : Matrix (Fin b ⊕ Fin c) (Fin b ⊕ Fin c) ℂ := fromBlocks 0 0 K 0
+u : EuclideanSpace ℂ (Fin b ⊕ Fin c)
+ul : EuclideanSpace ℂ (Fin b) := WithLp.toLp 2 fun i => u.ofLp (Sum.inl i)
+⊢ ∑ a₂, ‖(K *ᵥ u.ofLp ∘ Sum.inl) a₂‖ ^ 2 = ∑ x, ‖(K *ᵥ fun j => u.ofLp (Sum.inl j)) x‖ ^ 2
+'JinWishart.canonical_shear_opNorm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.canonical_inverse_shear_opNorm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
