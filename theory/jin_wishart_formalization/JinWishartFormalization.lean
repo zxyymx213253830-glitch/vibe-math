@@ -1,3 +1,4 @@
+import JinWishartFormalization.SeparableInverseMomentTransport
 import JinWishartFormalization.ActualCanonicalFinBridge
 import JinWishartFormalization.CanonicalShearFactorMoments
 import JinWishartFormalization.CanonicalFinBlockComparison

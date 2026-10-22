@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T20:05:34.853951+00:00",
+  "ended_utc": "2026-10-22T20:05:47.154248+00:00",
+  "module": "JinWishartFormalization.SeparableInverseMomentTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SeparableInverseMomentTransport.lean",
+  "source_sha256_before": "de76824794c51ec99c6325575a2fe9200210d3985e794a77efa18e81b6ffdb27",
+  "source_sha256": "de76824794c51ec99c6325575a2fe9200210d3985e794a77efa18e81b6ffdb27",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/separable-inverse-SeparableInverseMomentTransport-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "ab6e23472b0ffd7d1e21e23a9700925baa357a5d1d00ebe7402975a9cc88328e",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

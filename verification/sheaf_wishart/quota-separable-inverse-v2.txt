@@ -1,0 +1,5 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SeparableInverseMomentTransport.lean:35:33: error(lean.unknownIdentifier): Unknown identifier `measurePreserving_swap`
+'JinWishart.integrable_inverse_rpow_iff_of_separable_comparison' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

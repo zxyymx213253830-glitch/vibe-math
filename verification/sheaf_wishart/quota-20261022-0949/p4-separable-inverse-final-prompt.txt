@@ -1,0 +1,55 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE SeparableInverseMomentTransport.lean
+import JinWishartFormalization.ActualCanonicalFinBridge
+import Mathlib.MeasureTheory.Integral.Prod
+
+/-! Inverse real-moment transport with a separate random comparison factor.
+Product measure is essential; fixed positive finite sections give necessity.
+[需人工审查] Fubini/AE sections and subsequent application to the physical model. -/
+open MeasureTheory
+namespace JinWishart
+noncomputable section
+
+private theorem inversePowerBound (F G D p : ℝ) (hF : 0<F) (hG : 0<G)
+    (hD : 0<D) (hp : 0<p) (hb : G≤D*F) : F⁻¹^p≤D^p*G⁻¹^p := by
+  have hinv : F⁻¹≤D*G⁻¹ := by
+    have hh : (1 : ℝ)/F≤D/G :=
+      (div_le_div_iff₀ hF hG).mpr (by simpa only [one_mul] using hb)
+    simpa only [one_div,div_eq_mul_inv,one_mul] using hh
+  calc
+    F⁻¹^p≤(D*G⁻¹)^p := Real.rpow_le_rpow (inv_nonneg.mpr hF.le) hinv hp.le
+    _=D^p*G⁻¹^p := Real.mul_rpow hD.le (inv_nonneg.mpr hG.le)
+
+theorem integrable_inverse_rpow_iff_of_separable_comparison
+    {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
+    (μ : Measure α) (ν : Measure β) [IsProbabilityMeasure μ] [IsProbabilityMeasure ν]
+    (f : α × β → ℝ) (g : α → ℝ) (K : β → ℝ)
+    (hf : Measurable f) (hg : Measurable g) (hK : ∀ y,0<K y)
+    (p : ℝ) (hp : 0<p) (hKI : Integrable (fun y => (K y)^p) ν)
+    (hb : ∀ᵐ z ∂μ.prod ν,0<f z ∧ 0<g z.1 ∧
+      g z.1≤K z.2*f z ∧ f z≤K z.2*g z.1) :
+    Integrable (fun z => (f z)⁻¹^p) (μ.prod ν) ↔
+      Integrable (fun x => (g x)⁻¹^p) μ := by
+  constructor
+  · intro hfi
+    have hs : ∀ᵐ y ∂ν,∀ᵐ x ∂μ,
+        0<f (x,y) ∧ 0<g x ∧ g x≤K y*f (x,y) ∧ f (x,y)≤K y*g x :=
+      Measure.ae_ae_of_ae_prod ((Measure.measurePreserving_swap (μ := ν) (ν := μ)).quasiMeasurePreserving.ae hb)
+    obtain ⟨y,hyI,hyb⟩ := (hfi.prod_left_ae.and hs).exists
+    apply (hyI.const_mul ((K y)^p)).mono' (hg.inv.pow_const p).aestronglyMeasurable
+    filter_upwards [hyb] with x hx
+    change |(g x)⁻¹^p|≤(K y)^p*(f (x,y))⁻¹^p
+    rw [abs_of_nonneg (Real.rpow_nonneg (inv_nonneg.mpr hx.2.1.le) p)]
+    exact inversePowerBound (g x) (f (x,y)) (K y) p hx.2.1 hx.1 (hK y) hp hx.2.2.2
+  · intro hgi
+    apply (hgi.mul_prod hKI).mono' (hf.inv.pow_const p).aestronglyMeasurable
+    filter_upwards [hb] with z hz
+    change |(f z)⁻¹^p|≤(g z.1)⁻¹^p*(K z.2)^p
+    rw [abs_of_nonneg (Real.rpow_nonneg (inv_nonneg.mpr hz.1.le) p),mul_comm ((g z.1)⁻¹^p)]
+    exact inversePowerBound (f z) (g z.1) (K z.2) p hz.1 hz.2.1 (hK z.2) hp hz.2.2.1
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_inverse_rpow_iff_of_separable_comparison

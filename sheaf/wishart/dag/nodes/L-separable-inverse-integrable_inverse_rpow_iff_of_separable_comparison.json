@@ -1,0 +1,20 @@
+{
+  "id": "L-separable-inverse-integrable_inverse_rpow_iff_of_separable_comparison",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.SeparableInverseMomentTransport",
+  "declaration": "JinWishart.integrable_inverse_rpow_iff_of_separable_comparison",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-separable-inverse-SeparableInverseMomentTransport.json",
+    "source_sha256": "de76824794c51ec99c6325575a2fe9200210d3985e794a77efa18e81b6ffdb27"
+  }
+}

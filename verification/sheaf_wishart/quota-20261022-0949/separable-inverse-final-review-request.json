@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "SeparableInverseMomentTransport.lean": {
+      "sha256": "de76824794c51ec99c6325575a2fe9200210d3985e794a77efa18e81b6ffdb27",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "1ad36b8c28f81d3e5d5e4d800d74013dbbb25a29d222826e8b7ca3cc6b6e197a"
+}

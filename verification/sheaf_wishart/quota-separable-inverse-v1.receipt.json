@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T20:03:15.073033+00:00",
+  "ended_utc": "2026-10-22T20:03:26.422111+00:00",
+  "module": "JinWishartFormalization.SeparableInverseMomentTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SeparableInverseMomentTransport.lean",
+  "source_sha256_before": "38b7ba4bb9bc70118a47ec9ca5b5befdfe1b46bd6ffe35a5ac5c241c61732e70",
+  "source_sha256": "38b7ba4bb9bc70118a47ec9ca5b5befdfe1b46bd6ffe35a5ac5c241c61732e70",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-separable-inverse-v1.txt",
+  "log_exists": true,
+  "log_sha256": "cb693c22aad0e5cc8aab1204e7992a5dc9ac444f949e5c99450e63f66eebb97a",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

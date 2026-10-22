@@ -1,0 +1,14 @@
+{
+  "seed": 2026102233,
+  "cases": 19,
+  "checks": 42,
+  "status": "PASS",
+  "source_sha256": "cecc4ed4fbbf4a8419b803c37d5a81fb09dc552bbe4b94d8cd5775dc4a4c4aea",
+  "scope": "Closed power-tail and negative-dependence controls only, not a general measure-theory proof",
+  "known_controls": [
+    "independent factorized integral kappa/(kappa-p)",
+    "critical logarithm divergence",
+    "supercritical truncated power divergence",
+    "nonproduct dependence countercontrol"
+  ]
+}

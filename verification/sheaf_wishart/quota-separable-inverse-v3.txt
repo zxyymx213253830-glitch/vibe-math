@@ -1,0 +1,3 @@
+'JinWishart.integrable_inverse_rpow_iff_of_separable_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

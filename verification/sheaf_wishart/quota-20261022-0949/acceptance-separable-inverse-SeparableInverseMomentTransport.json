@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-separable-inverse-SeparableInverseMomentTransport.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-separable-inverse-SeparableInverseMomentTransport.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/separable-inverse-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-separable-inverse-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-separable-inverse-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-separable-inverse-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/separable-inverse-final-snapshot",
+    "resolution": "notes/WISHART_SEPARABLE_INVERSE_TRANSPORT.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-94.receipt.json"
+}
