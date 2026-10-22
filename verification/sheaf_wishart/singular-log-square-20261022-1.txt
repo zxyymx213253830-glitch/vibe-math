@@ -1,0 +1,34 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularPositiveLogSquare.lean:97:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a_1 : ComplexSample),
+    ((fun z => (∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) ^ 2) - fun x =>
+          2 * a * ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i x))
+        a_1 +
+      ?m.519 ∂stdGaussian ComplexSample
+in the target expression
+  ∫ (z : ComplexSample), S z ^ 2 - 2 * a * S z + a ^ 2 ∂stdGaussian ComplexSample =
+    ∫ (z : ComplexSample), S z ^ 2 ∂stdGaussian ComplexSample - a ^ 2
+
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+S : ComplexSample → ℝ := fun z => ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)
+a : ℝ := ∫ (z : ComplexSample), S z ∂stdGaussian ComplexSample
+hS : Integrable (fun z => ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) (stdGaussian ComplexSample)
+hQ :
+  Integrable (fun z => (∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) ^ 2) (stdGaussian ComplexSample)
+hdom :
+  Integrable
+    (((fun z => (∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i z)) ^ 2) - fun x =>
+        2 * a * ∑ i, positiveSpectrumLog (actualCorrelatedEigenvalue B M i x)) +
+      fun x => a ^ 2)
+    (stdGaussian ComplexSample)
+hi : Integrable (fun z => (S z - a) ^ 2) (stdGaussian ComplexSample)
+he : (fun z => (S z - a) ^ 2) = fun z => S z ^ 2 - 2 * a * S z + a ^ 2
+⊢ ∫ (z : ComplexSample), S z ^ 2 - 2 * a * S z + a ^ 2 ∂stdGaussian ComplexSample =
+    ∫ (z : ComplexSample), S z ^ 2 ∂stdGaussian ComplexSample - a ^ 2
+'JinWishart.integrable_actualCorrelated_positive_log_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.integrable_actualCorrelated_positive_log_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCorrelated_positive_log_sum_centered_second_moment' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -254,3 +254,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/proper_polynomial_log_square_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_FINITE_GAUSSIAN_LOG_SQUARE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularPositiveLogSquare.lean -text whitespace=cr-at-eol
+
+/experiments/singular_log_variance_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_SINGULAR_LOG_VARIANCE.md -text whitespace=cr-at-eol

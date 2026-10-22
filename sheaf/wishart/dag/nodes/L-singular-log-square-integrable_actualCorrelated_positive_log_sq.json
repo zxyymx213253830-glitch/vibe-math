@@ -1,0 +1,24 @@
+{
+  "id": "L-singular-log-square-integrable_actualCorrelated_positive_log_sq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualSingularPositiveLogSquare",
+  "declaration": "JinWishart.integrable_actualCorrelated_positive_log_sq",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-singular-log-square-integrable_actualCorrelated_positive_log_sum_sq"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-singular-log-square-integrable_actualCorrelated_positive_log_sum_sq"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-singular-log-square-ActualSingularPositiveLogSquare.json",
+    "source_sha256": "849e1878fcd590cc2e8aff7caf7e27a2390d6b16c6abcae5b3cbf3705c28463f"
+  }
+}

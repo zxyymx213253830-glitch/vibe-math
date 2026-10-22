@@ -40,3 +40,4 @@
 - 2026-10-22T02:46:12.542517+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-log-square-FiniteGaussianPolynomialLogSquare.json; human measure/model review remains REQUIRED.
 - 2026-10-22T02:46:15.764924+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-log-square-ProperGaussianPolynomialLogSquare.json; human measure/model review remains REQUIRED.
 - 2026-10-22T02:46:19.208452+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-log-square-ActualComplexPolynomialLogSquare.json; human measure/model review remains REQUIRED.
+- 2026-10-22T02:53:52.645707+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-singular-log-square-ActualSingularPositiveLogSquare.json; human measure/model review remains REQUIRED.

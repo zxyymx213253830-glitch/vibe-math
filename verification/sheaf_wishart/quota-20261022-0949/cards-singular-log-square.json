@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "singular-log-square-ActualSingularPositiveLogSquare",
+    "module": "ActualSingularPositiveLogSquare",
+    "nodes": [
+      [
+        "L-singular-log-square-integrable_actualCorrelated_positive_log_sum_sq",
+        "integrable_actualCorrelated_positive_log_sum_sq",
+        []
+      ],
+      [
+        "L-singular-log-square-integrable_actualCorrelated_positive_log_sq",
+        "integrable_actualCorrelated_positive_log_sq",
+        [
+          "L-singular-log-square-integrable_actualCorrelated_positive_log_sum_sq"
+        ]
+      ],
+      [
+        "L-singular-log-square-actualCorrelated_positive_log_sum_centered_second_moment",
+        "actualCorrelated_positive_log_sum_centered_second_moment",
+        [
+          "L-singular-log-square-integrable_actualCorrelated_positive_log_sq"
+        ]
+      ]
+    ]
+  }
+]

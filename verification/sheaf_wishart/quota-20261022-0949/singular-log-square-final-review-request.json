@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualSingularPositiveLogSquare.lean": {
+      "sha256": "849e1878fcd590cc2e8aff7caf7e27a2390d6b16c6abcae5b3cbf3705c28463f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "1c2a490b46041821fd2babdab55101c579f952bf3eda7af420add92292b208c9"
+}
