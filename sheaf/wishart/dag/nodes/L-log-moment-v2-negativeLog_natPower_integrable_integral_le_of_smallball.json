@@ -1,0 +1,24 @@
+{
+  "id": "L-log-moment-v2-negativeLog_natPower_integrable_integral_le_of_smallball",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.NegativeLogNaturalMomentBounds",
+  "declaration": "JinWishart.negativeLog_natPower_integrable_integral_le_of_smallball",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-log-moment-v2-integral_natPower_exp_neg_Ioi"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-log-moment-v2-integral_natPower_exp_neg_Ioi"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-log-moment-v2-NegativeLogNaturalMomentBounds.json",
+    "source_sha256": "fefea42452b39cdeb4506c6e2b0b567edec100e08122e3cc99b1036ac7020538"
+  }
+}

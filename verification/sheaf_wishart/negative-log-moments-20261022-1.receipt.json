@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:26:52.788882+00:00",
+  "ended_utc": "2026-10-22T02:27:00.377497+00:00",
+  "module": "JinWishartFormalization.NegativeLogNaturalMomentBounds",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NegativeLogNaturalMomentBounds.lean",
+  "source_sha256_before": "90bfa4efca311f7853f542273e0ca05a202f370de5ed3f78bc7350601313fc55",
+  "source_sha256": "90bfa4efca311f7853f542273e0ca05a202f370de5ed3f78bc7350601313fc55",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/negative-log-moments-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "ed324fdc82388c8b41b190cdd26ce4725c59602f648afe9c414b2ee3bccf321a",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

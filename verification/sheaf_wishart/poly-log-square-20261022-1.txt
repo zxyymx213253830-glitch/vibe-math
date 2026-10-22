@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:20:48: error: Application type mismatch: The argument
+  add_le_add_left ih ?m.58
+has type
+  complexNegativeLog (∏ i ∈ s, f i) + ?m.58 ≤ ∑ i ∈ s, complexNegativeLog (f i) + ?m.58
+but is expected to have type
+  complexNegativeLog (f i) + complexNegativeLog (∏ x ∈ s, f x) ≤
+    complexNegativeLog (f i) + ∑ x ∈ s, complexNegativeLog (f x)
+in the application
+  LE.le.trans (complexNegativeLog_mul_le (f i) (∏ x ∈ s, f x)) (add_le_add_left ih ?m.58)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:24:62: error(lean.unknownIdentifier): Unknown identifier `i`
+
+Note: It is not possible to treat `i` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:25:48: error(lean.unknownIdentifier): Unknown identifier `i`
+
+Note: It is not possible to treat `i` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:29:53: error(lean.unknownIdentifier): Unknown identifier `i`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:25:98: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+roots : ι → ℂ
+hi : ∀ (i : ι), Integrable (fun z => complexNegativeLog (z - roots i) ^ 2) (stdGaussian ℂ)
+hdom : Integrable (fun x => ↑(Fintype.card ι) * ∑ i, complexNegativeLog (x - roots i) ^ 2) (stdGaussian ℂ)
+⊢ Integrable (fun z => complexNegativeLog (∏ i, z - roots sorry) ^ 2) (stdGaussian ℂ) ∧
+    ∫ (z : ℂ), complexNegativeLog (∏ i, z - roots sorry) ^ 2 ∂stdGaussian ℂ ≤ ↑(Fintype.card ι) ^ 2 / 4
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:58:61: error(lean.unknownIdentifier): Unknown identifier `i`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:54:73: error: unsolved goals
+P : Polynomial ℂ
+l : List ℂ := P.roots.toList
+roots : Fin l.length → ℂ := l.get
+⊢ Integrable (fun z => complexNegativeLog (Polynomial.eval z P) ^ 2) (stdGaussian ℂ) ∧
+    ∫ (z : ℂ), complexNegativeLog (Polynomial.eval z P) ^ 2 ∂stdGaussian ℂ ≤
+      2 * complexNegativeLog P.leadingCoeff ^ 2 + ↑P.natDegree ^ 2 / 2
+'JinWishart.complexNegativeLog_finset_prod_le_sum' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:96:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.stdGaussian_complex_finite_rootProduct_negativeLog_sq`
+'JinWishart.stdGaussian_complex_polynomial_negativeLog_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

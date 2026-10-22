@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:33:04.046752+00:00",
+  "ended_utc": "2026-10-22T02:33:13.574163+00:00",
+  "module": "SheafLogMomentTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafLogMomentTargets.lean",
+  "source_sha256_before": "3c0064f13cf1edce73568611142b6d7b5f4a0f5e432d73813ddbd555f170cc28",
+  "source_sha256": "3c0064f13cf1edce73568611142b6d7b5f4a0f5e432d73813ddbd555f170cc28",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/log-moment-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f9b9b96a68536c90f3f620f31f4ef055a091d5aba1eb8987928f714c0a5219e0",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

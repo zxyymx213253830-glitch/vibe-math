@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:34:09.398887+00:00",
+  "ended_utc": "2026-10-22T02:34:17.540669+00:00",
+  "module": "JinWishartFormalization.ComplexGaussianRootLogMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianRootLogMoments.lean",
+  "source_sha256_before": "3dc112f1b60ac940797f418374f8bc4fc44771ba49ddffd94851b0791c314da0",
+  "source_sha256": "3dc112f1b60ac940797f418374f8bc4fc44771ba49ddffd94851b0791c314da0",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/log-moment-v2-ComplexGaussianRootLogMoments-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "3168ded5f07a617148859f8a11d43929dee8fef303c7e1e4aeff3dc779cfb050",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

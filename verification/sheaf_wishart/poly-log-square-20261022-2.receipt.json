@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:30:49.405954+00:00",
+  "ended_utc": "2026-10-22T02:30:58.187171+00:00",
+  "module": "JinWishartFormalization.ComplexGaussianPolynomialLogSquare",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ComplexGaussianPolynomialLogSquare.lean",
+  "source_sha256_before": "595949a82bdb43f90d694458e95d279fb1a3b29119992eb2a8ca6884ea597ca5",
+  "source_sha256": "595949a82bdb43f90d694458e95d279fb1a3b29119992eb2a8ca6884ea597ca5",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/poly-log-square-20261022-2.txt",
+  "log_exists": true,
+  "log_sha256": "ed7e5eef9da4021adaa91293b4a19cbefe2e23bdfecfa2978149cef3600be36b",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

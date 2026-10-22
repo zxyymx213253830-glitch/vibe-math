@@ -1,0 +1,24 @@
+{
+  "id": "L-log-moment-v2-stdGaussian_complex_finite_rootProduct_negativeLog_sq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ComplexGaussianPolynomialLogSquare",
+  "declaration": "JinWishart.stdGaussian_complex_finite_rootProduct_negativeLog_sq",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-log-moment-v2-complexNegativeLog_finset_prod_le_sum"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-log-moment-v2-complexNegativeLog_finset_prod_le_sum"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-log-moment-v2-ComplexGaussianPolynomialLogSquare.json",
+    "source_sha256": "a1442524d67083f26a10a1e6d4e0094f43ed07379f4e8c5e9f26a594e282988b"
+  }
+}

@@ -1,0 +1,174 @@
+[
+  {
+    "id": "L-log-moment-complexNegativeLog_finset_prod_le_sum",
+    "kind": "lemma",
+    "target": false,
+    "module": "JinWishartFormalization.ComplexGaussianPolynomialLogSquare",
+    "declaration": "JinWishart.complexNegativeLog_finset_prod_le_sum",
+    "stmt_deps": [],
+    "proof_deps": [
+      "L-log-moment-stdGaussian_complex_negativeLog_sq_uniform_root"
+    ],
+    "proof": [
+      {
+        "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+        "uses": [
+          "L-log-moment-stdGaussian_complex_negativeLog_sq_uniform_root"
+        ]
+      }
+    ],
+    "verification": {
+      "status": "checked_pending_review"
+    }
+  },
+  {
+    "id": "L-log-moment-integral_natPower_exp_neg_Ioi",
+    "kind": "lemma",
+    "target": false,
+    "module": "JinWishartFormalization.NegativeLogNaturalMomentBounds",
+    "declaration": "JinWishart.integral_natPower_exp_neg_Ioi",
+    "stmt_deps": [],
+    "proof_deps": [],
+    "proof": [
+      {
+        "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+        "uses": []
+      }
+    ],
+    "verification": {
+      "status": "checked_pending_review"
+    }
+  },
+  {
+    "id": "L-log-moment-negativeLog_natPower_integrable_integral_le_of_smallball",
+    "kind": "lemma",
+    "target": false,
+    "module": "JinWishartFormalization.NegativeLogNaturalMomentBounds",
+    "declaration": "JinWishart.negativeLog_natPower_integrable_integral_le_of_smallball",
+    "stmt_deps": [],
+    "proof_deps": [
+      "L-log-moment-integral_natPower_exp_neg_Ioi"
+    ],
+    "proof": [
+      {
+        "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+        "uses": [
+          "L-log-moment-integral_natPower_exp_neg_Ioi"
+        ]
+      }
+    ],
+    "verification": {
+      "status": "checked_pending_review"
+    }
+  },
+  {
+    "id": "L-log-moment-stdGaussian_complex_finite_rootProduct_negativeLog_sq",
+    "kind": "lemma",
+    "target": false,
+    "module": "JinWishartFormalization.ComplexGaussianPolynomialLogSquare",
+    "declaration": "JinWishart.stdGaussian_complex_finite_rootProduct_negativeLog_sq",
+    "stmt_deps": [],
+    "proof_deps": [
+      "L-log-moment-complexNegativeLog_finset_prod_le_sum"
+    ],
+    "proof": [
+      {
+        "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+        "uses": [
+          "L-log-moment-complexNegativeLog_finset_prod_le_sum"
+        ]
+      }
+    ],
+    "verification": {
+      "status": "checked_pending_review"
+    }
+  },
+  {
+    "id": "L-log-moment-stdGaussian_complex_negativeLog_natPower_uniform_root",
+    "kind": "lemma",
+    "target": false,
+    "module": "JinWishartFormalization.ComplexGaussianRootLogMoments",
+    "declaration": "JinWishart.stdGaussian_complex_negativeLog_natPower_uniform_root",
+    "stmt_deps": [],
+    "proof_deps": [
+      "L-log-moment-stdGaussian_complex_squared_distance_smallball"
+    ],
+    "proof": [
+      {
+        "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+        "uses": [
+          "L-log-moment-stdGaussian_complex_squared_distance_smallball"
+        ]
+      }
+    ],
+    "verification": {
+      "status": "checked_pending_review"
+    }
+  },
+  {
+    "id": "L-log-moment-stdGaussian_complex_negativeLog_sq_uniform_root",
+    "kind": "lemma",
+    "target": false,
+    "module": "JinWishartFormalization.ComplexGaussianRootLogMoments",
+    "declaration": "JinWishart.stdGaussian_complex_negativeLog_sq_uniform_root",
+    "stmt_deps": [],
+    "proof_deps": [
+      "L-log-moment-stdGaussian_complex_negativeLog_natPower_uniform_root"
+    ],
+    "proof": [
+      {
+        "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+        "uses": [
+          "L-log-moment-stdGaussian_complex_negativeLog_natPower_uniform_root"
+        ]
+      }
+    ],
+    "verification": {
+      "status": "checked_pending_review"
+    }
+  },
+  {
+    "id": "L-log-moment-stdGaussian_complex_polynomial_negativeLog_sq",
+    "kind": "lemma",
+    "target": true,
+    "module": "JinWishartFormalization.ComplexGaussianPolynomialLogSquare",
+    "declaration": "JinWishart.stdGaussian_complex_polynomial_negativeLog_sq",
+    "stmt_deps": [],
+    "proof_deps": [
+      "L-log-moment-stdGaussian_complex_finite_rootProduct_negativeLog_sq"
+    ],
+    "proof": [
+      {
+        "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+        "uses": [
+          "L-log-moment-stdGaussian_complex_finite_rootProduct_negativeLog_sq"
+        ]
+      }
+    ],
+    "verification": {
+      "status": "checked_pending_review"
+    }
+  },
+  {
+    "id": "L-log-moment-stdGaussian_complex_squared_distance_smallball",
+    "kind": "lemma",
+    "target": false,
+    "module": "JinWishartFormalization.ComplexGaussianRootLogMoments",
+    "declaration": "JinWishart.stdGaussian_complex_squared_distance_smallball",
+    "stmt_deps": [],
+    "proof_deps": [
+      "L-log-moment-negativeLog_natPower_integrable_integral_le_of_smallball"
+    ],
+    "proof": [
+      {
+        "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+        "uses": [
+          "L-log-moment-negativeLog_natPower_integrable_integral_le_of_smallball"
+        ]
+      }
+    ],
+    "verification": {
+      "status": "checked_pending_review"
+    }
+  }
+]

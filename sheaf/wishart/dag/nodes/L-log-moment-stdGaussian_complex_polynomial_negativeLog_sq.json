@@ -1,0 +1,24 @@
+{
+  "id": "L-log-moment-stdGaussian_complex_polynomial_negativeLog_sq",
+  "kind": "lemma",
+  "target": false,
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-log-moment-stdGaussian_complex_finite_rootProduct_negativeLog_sq"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-log-moment-stdGaussian_complex_finite_rootProduct_negativeLog_sq"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "superseded_failed_type_checker",
+    "reason": "Checker proposition Polynomial shadowed actual polynomial type; no proof-source change. Final corrected evidence belongs to L-log-moment-v2 nodes.",
+    "evidence": "verification/sheaf_wishart/log-moment-target-types-20261022-locked.txt"
+  },
+  "superseded_declaration": "JinWishart.stdGaussian_complex_polynomial_negativeLog_sq",
+  "superseded_module": "JinWishartFormalization.ComplexGaussianPolynomialLogSquare"
+}

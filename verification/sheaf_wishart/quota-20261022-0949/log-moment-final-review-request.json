@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "NegativeLogNaturalMomentBounds.lean": {
+      "sha256": "fefea42452b39cdeb4506c6e2b0b567edec100e08122e3cc99b1036ac7020538",
+      "supplied": "Full source"
+    },
+    "ComplexGaussianRootLogMoments.lean": {
+      "sha256": "3dc112f1b60ac940797f418374f8bc4fc44771ba49ddffd94851b0791c314da0",
+      "supplied": "Full source"
+    },
+    "ComplexGaussianPolynomialLogSquare.lean": {
+      "sha256": "a1442524d67083f26a10a1e6d4e0094f43ed07379f4e8c5e9f26a594e282988b",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "6ef954d35b3014a51f8c4c6ab203b908bdee7aefc47f224586e955ab4ce4f857"
+}

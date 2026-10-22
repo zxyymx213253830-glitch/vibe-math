@@ -1,0 +1,20 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianRootLogMoments.lean:15:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianRootLogMoments.lean:54:2: error: Type mismatch: After simplification, term
+  stdGaussian_complex_negativeLog_natPower_uniform_root a 1
+ has type
+  Integrable (fun z => complexNegativeLog (z - a) ^ 2) (stdGaussian ℂ) ∧
+    ∫ (z : ℂ), complexNegativeLog (z - a) ^ 2 ∂stdGaussian ℂ ≤ 2 / (2 * 2 ^ 2)
+but is expected to have type
+  Integrable (fun z => complexNegativeLog (z - a) ^ 2) (stdGaussian ℂ) ∧
+    ∫ (z : ℂ), complexNegativeLog (z - a) ^ 2 ∂stdGaussian ℂ ≤ 4⁻¹
+'JinWishart.stdGaussian_complex_squared_distance_smallball' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_complex_negativeLog_natPower_uniform_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.stdGaussian_complex_negativeLog_sq_uniform_root' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

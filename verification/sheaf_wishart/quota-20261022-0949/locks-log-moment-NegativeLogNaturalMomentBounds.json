@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-22T02:32:38.959955+00:00",
+  "module": "JinWishartFormalization.NegativeLogNaturalMomentBounds",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NegativeLogNaturalMomentBounds.lean",
+  "statements": {
+    "JinWishart.integral_natPower_exp_neg_Ioi": "(q : ℕ) : IntegrableOn (fun t : ℝ => t^q*Real.exp (-t)) (Ioi 0) ∧ (∫ t : ℝ in Ioi 0,t^q*Real.exp (-t)) = (q.factorial : ℝ)",
+    "JinWishart.negativeLog_natPower_integrable_integral_le_of_smallball": "{α : Type*} [MeasurableSpace α] (μ : Measure α) [IsProbabilityMeasure μ] (f : α→ℝ) (hf : Measurable f) (C : ℝ) (hC : 0≤C) (hsmall : ∀ x : ℝ,0<x → μ.real {a | f a≤x}≤C*x) (q : ℕ) : Integrable (fun a => (max 0 (-Real.log (f a)))^(q+1)) μ ∧ (∫ a,(max 0 (-Real.log (f a)))^(q+1) ∂μ) ≤ C*((q+1).factorial : ℝ)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailNaturalMoments.lean": "5c835606e9d1bc66c6bf9308d7a6c2afe6b582aa8f187948cf3e49842fdd64b3",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ProbabilityTailNaturalMoments.olean": "31ca84ae4ce0e9ec8900bb97fe1a897959782e593b828e4cf6ce0fca65e9f13d",
+    "theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailFirstMoment.lean": "a2f616991357478ec7409536280cd4c5c21c9795bc41528fca748a3fe6cccfc9",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ProbabilityTailFirstMoment.olean": "0faa4a444832ea2a397d6360d6ac5f569ef9a57a3ba82df797f5a9429ed0163b",
+    "theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityTailIntegrability.lean": "fd2949f1884f84f5a0ff6cb2e312e2ec452b3908164ac84dd35b1d938b240229",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ProbabilityTailIntegrability.olean": "440709ce4819b32a8514f59ef58fa1446046ecc4bd033474eb0c4f405eba9f45",
+    "theory/jin_wishart_formalization/JinWishartFormalization/PowerTailIntegrability.lean": "d5a209cba5975ca77c81436350c2e8ca623cc239241436fcaf66586103bda267",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/PowerTailIntegrability.olean": "dd384990a66e65b70e43bae4b552701b83042ebb212e438695946dcef0afe2de",
+    "theory/jin_wishart_formalization/JinWishartFormalization/ProbabilityNegativeLogBounds.lean": "bdce05aa5bc4b923fe48317743f7fd60b841a3aba7773527b9c0f66b263cec39",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ProbabilityNegativeLogBounds.olean": "8d0f49c733426fae6aecdd4604376913eec9b0fdb6ecac64f9da941cbc1d9d66",
+    "theory/jin_wishart_formalization/JinWishartFormalization/NegativeLogNaturalMomentBounds.lean": "fefea42452b39cdeb4506c6e2b0b567edec100e08122e3cc99b1036ac7020538",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafLogMomentTargets.lean",
+  "type_check_source_sha256": "3c0064f13cf1edce73568611142b6d7b5f4a0f5e432d73813ddbd555f170cc28",
+  "locked_local_definitions": {}
+}

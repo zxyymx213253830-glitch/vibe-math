@@ -1,0 +1,58 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:32:35: error(lean.unknownIdentifier): Unknown constant `Finset.sq_sum_le_card_mul_sum_sq`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:78:4: error: linarith failed to find a contradiction
+P : Polynomial ℂ
+l : List ℂ := P.roots.toList
+roots : Fin l.length → ℂ := l.get
+hprod : ∀ (z : ℂ), (List.map (fun a => z - a) l).prod = ∏ i, (z - roots i)
+heval : ∀ (z : ℂ), Polynomial.eval z P = P.leadingCoeff * ∏ i, (z - roots i)
+hroot :
+  Integrable (fun z => complexNegativeLog (∏ i, (z - roots i)) ^ 2) (stdGaussian ℂ) ∧
+    ∫ (z : ℂ), complexNegativeLog (∏ i, (z - roots i)) ^ 2 ∂stdGaussian ℂ ≤ ↑P.natDegree ^ 2 / 4
+hD : ↑(Fintype.card (Fin l.length)) = ↑P.natDegree
+hdom :
+  Integrable
+    ((fun x => 2 * complexNegativeLog P.leadingCoeff ^ 2) + fun x => 2 * complexNegativeLog (∏ i, (x - roots i)) ^ 2)
+    (stdGaussian ℂ)
+z : ℂ
+hy : complexNegativeLog (∏ i, (z - roots i)) ≤ ∑ i, complexNegativeLog (z - roots i)
+h :
+  complexNegativeLog (Polynomial.eval z P) ≤ complexNegativeLog P.leadingCoeff + complexNegativeLog (∏ i, (z - roots i))
+hs :
+  max 0 (-Real.log ‖Polynomial.eval z P‖) ^ 2 ≤
+    (complexNegativeLog P.leadingCoeff + complexNegativeLog (∏ i, (z - roots i))) ^ 2
+a✝ :
+  2 * complexNegativeLog P.leadingCoeff ^ 2 + 2 * complexNegativeLog (∏ i, (z - roots i)) ^ 2 <
+    complexNegativeLog (Polynomial.eval z P) ^ 2
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ComplexGaussianPolynomialLogSquare.lean:88:119: error: unsolved goals
+P : Polynomial ℂ
+l : List ℂ := P.roots.toList
+roots : Fin l.length → ℂ := l.get
+hprod : ∀ (z : ℂ), (List.map (fun a => z - a) l).prod = ∏ i, (z - roots i)
+heval : ∀ (z : ℂ), Polynomial.eval z P = P.leadingCoeff * ∏ i, (z - roots i)
+hroot :
+  Integrable (fun z => complexNegativeLog (∏ i, (z - roots i)) ^ 2) (stdGaussian ℂ) ∧
+    ∫ (z : ℂ), complexNegativeLog (∏ i, (z - roots i)) ^ 2 ∂stdGaussian ℂ ≤ ↑P.natDegree ^ 2 / 4
+hD : ↑(Fintype.card (Fin l.length)) = ↑P.natDegree
+hdom :
+  Integrable
+    ((fun x => 2 * complexNegativeLog P.leadingCoeff ^ 2) + fun x => 2 * complexNegativeLog (∏ i, (x - roots i)) ^ 2)
+    (stdGaussian ℂ)
+hb :
+  ∀ (z : ℂ),
+    complexNegativeLog (Polynomial.eval z P) ^ 2 ≤
+      2 * complexNegativeLog P.leadingCoeff ^ 2 + 2 * complexNegativeLog (∏ i, (z - roots i)) ^ 2
+hm : Measurable fun z => complexNegativeLog (Polynomial.eval z P) ^ 2
+hint : Integrable (fun z => complexNegativeLog (Polynomial.eval z P) ^ 2) (stdGaussian ℂ)
+⊢ ∫ (a : ℂ), 2 * complexNegativeLog (∏ i, (a - roots i)) ^ 2 ∂stdGaussian ℂ =
+    2 * ∫ (z : ℂ), complexNegativeLog (∏ i, (z - roots i)) ^ 2 ∂stdGaussian ℂ
+'JinWishart.complexNegativeLog_finset_prod_le_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_complex_finite_rootProduct_negativeLog_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.stdGaussian_complex_polynomial_negativeLog_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

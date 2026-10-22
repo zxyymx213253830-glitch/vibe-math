@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NegativeLogNaturalMomentBounds.lean:45:27: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NegativeLogNaturalMomentBounds.lean:56:29: error: failed to prove positivity/nonnegativity/nonzeroness
+'JinWishart.integral_natPower_exp_neg_Ioi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.negativeLog_natPower_integrable_integral_le_of_smallball' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

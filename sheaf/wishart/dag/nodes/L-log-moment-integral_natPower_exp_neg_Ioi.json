@@ -1,0 +1,20 @@
+{
+  "id": "L-log-moment-integral_natPower_exp_neg_Ioi",
+  "kind": "lemma",
+  "target": false,
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "superseded_failed_type_checker",
+    "reason": "Checker proposition Polynomial shadowed actual polynomial type; no proof-source change. Final corrected evidence belongs to L-log-moment-v2 nodes.",
+    "evidence": "verification/sheaf_wishart/log-moment-target-types-20261022-locked.txt"
+  },
+  "superseded_declaration": "JinWishart.integral_natPower_exp_neg_Ioi",
+  "superseded_module": "JinWishartFormalization.NegativeLogNaturalMomentBounds"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "L-log-moment-v2-stdGaussian_complex_negativeLog_natPower_uniform_root",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ComplexGaussianRootLogMoments",
+  "declaration": "JinWishart.stdGaussian_complex_negativeLog_natPower_uniform_root",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-log-moment-v2-stdGaussian_complex_squared_distance_smallball"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-log-moment-v2-stdGaussian_complex_squared_distance_smallball"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-log-moment-v2-ComplexGaussianRootLogMoments.json",
+    "source_sha256": "3dc112f1b60ac940797f418374f8bc4fc44771ba49ddffd94851b0791c314da0"
+  }
+}

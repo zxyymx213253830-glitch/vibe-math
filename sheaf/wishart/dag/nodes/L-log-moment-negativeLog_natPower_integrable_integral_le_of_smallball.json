@@ -1,0 +1,24 @@
+{
+  "id": "L-log-moment-negativeLog_natPower_integrable_integral_le_of_smallball",
+  "kind": "lemma",
+  "target": false,
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-log-moment-integral_natPower_exp_neg_Ioi"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-log-moment-integral_natPower_exp_neg_Ioi"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "superseded_failed_type_checker",
+    "reason": "Checker proposition Polynomial shadowed actual polynomial type; no proof-source change. Final corrected evidence belongs to L-log-moment-v2 nodes.",
+    "evidence": "verification/sheaf_wishart/log-moment-target-types-20261022-locked.txt"
+  },
+  "superseded_declaration": "JinWishart.negativeLog_natPower_integrable_integral_le_of_smallball",
+  "superseded_module": "JinWishartFormalization.NegativeLogNaturalMomentBounds"
+}

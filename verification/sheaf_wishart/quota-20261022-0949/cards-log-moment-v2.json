@@ -1,0 +1,74 @@
+[
+  {
+    "tag": "log-moment-v2-NegativeLogNaturalMomentBounds",
+    "module": "NegativeLogNaturalMomentBounds",
+    "nodes": [
+      [
+        "L-log-moment-v2-integral_natPower_exp_neg_Ioi",
+        "integral_natPower_exp_neg_Ioi",
+        []
+      ],
+      [
+        "L-log-moment-v2-negativeLog_natPower_integrable_integral_le_of_smallball",
+        "negativeLog_natPower_integrable_integral_le_of_smallball",
+        [
+          "L-log-moment-v2-integral_natPower_exp_neg_Ioi"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "log-moment-v2-ComplexGaussianRootLogMoments",
+    "module": "ComplexGaussianRootLogMoments",
+    "nodes": [
+      [
+        "L-log-moment-v2-stdGaussian_complex_squared_distance_smallball",
+        "stdGaussian_complex_squared_distance_smallball",
+        [
+          "L-log-moment-v2-negativeLog_natPower_integrable_integral_le_of_smallball"
+        ]
+      ],
+      [
+        "L-log-moment-v2-stdGaussian_complex_negativeLog_natPower_uniform_root",
+        "stdGaussian_complex_negativeLog_natPower_uniform_root",
+        [
+          "L-log-moment-v2-stdGaussian_complex_squared_distance_smallball"
+        ]
+      ],
+      [
+        "L-log-moment-v2-stdGaussian_complex_negativeLog_sq_uniform_root",
+        "stdGaussian_complex_negativeLog_sq_uniform_root",
+        [
+          "L-log-moment-v2-stdGaussian_complex_negativeLog_natPower_uniform_root"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "log-moment-v2-ComplexGaussianPolynomialLogSquare",
+    "module": "ComplexGaussianPolynomialLogSquare",
+    "nodes": [
+      [
+        "L-log-moment-v2-complexNegativeLog_finset_prod_le_sum",
+        "complexNegativeLog_finset_prod_le_sum",
+        [
+          "L-log-moment-v2-stdGaussian_complex_negativeLog_sq_uniform_root"
+        ]
+      ],
+      [
+        "L-log-moment-v2-stdGaussian_complex_finite_rootProduct_negativeLog_sq",
+        "stdGaussian_complex_finite_rootProduct_negativeLog_sq",
+        [
+          "L-log-moment-v2-complexNegativeLog_finset_prod_le_sum"
+        ]
+      ],
+      [
+        "L-log-moment-v2-stdGaussian_complex_polynomial_negativeLog_sq",
+        "stdGaussian_complex_polynomial_negativeLog_sq",
+        [
+          "L-log-moment-v2-stdGaussian_complex_finite_rootProduct_negativeLog_sq"
+        ]
+      ]
+    ]
+  }
+]

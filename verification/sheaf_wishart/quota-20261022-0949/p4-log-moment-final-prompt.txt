@@ -1,0 +1,243 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE NegativeLogNaturalMomentBounds.lean
+import JinWishartFormalization.ProbabilityNegativeLogBounds
+import JinWishartFormalization.ProbabilityTailNaturalMoments
+import Mathlib.Analysis.SpecialFunctions.Gamma.Basic
+
+/-! Every positive natural negative-log moment from a linear small-ball bound.
+Codex. [需人工审查] Weighted layercake, Gamma normalization and totalized log0. -/
+open MeasureTheory Set Filter
+namespace JinWishart
+noncomputable section
+
+theorem integral_natPower_exp_neg_Ioi (q : ℕ) :
+    IntegrableOn (fun t : ℝ => t^q*Real.exp (-t)) (Ioi 0) ∧
+      (∫ t : ℝ in Ioi 0,t^q*Real.exp (-t)) = (q.factorial : ℝ) := by
+  have hp : 0<(q : ℝ)+1 := by positivity
+  constructor
+  · simpa [Real.rpow_natCast,mul_comm] using Real.GammaIntegral_convergent hp
+  · have h := Real.Gamma_eq_integral hp
+    rw [Real.Gamma_nat_eq_factorial] at h
+    simpa [Real.rpow_natCast,mul_comm] using h.symm
+
+theorem negativeLog_natPower_integrable_integral_le_of_smallball
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsProbabilityMeasure μ]
+    (f : α→ℝ) (hf : Measurable f) (C : ℝ) (hC : 0≤C)
+    (hsmall : ∀ x : ℝ,0<x → μ.real {a | f a≤x}≤C*x) (q : ℕ) :
+    Integrable (fun a => (max 0 (-Real.log (f a)))^(q+1)) μ ∧
+      (∫ a,(max 0 (-Real.log (f a)))^(q+1) ∂μ) ≤ C*((q+1).factorial : ℝ) := by
+  let Y : α→ℝ := fun a => max 0 (-Real.log (f a))
+  have hYm : Measurable Y := measurable_const.max hf.log.neg
+  have hYn : 0≤ᵐ[μ] Y := ae_of_all _ (fun a => le_max_left _ _)
+  have hw := measurable_weightedProbabilityTail μ Y q
+  have hmajor : IntegrableOn (fun t : ℝ => (((q+1 : ℕ) : ℝ)*C)*(t^q*Real.exp (-t))) (Ioi 0) :=
+    (integral_natPower_exp_neg_Ioi q).1.const_mul _
+  have hb : ∀ t : ℝ,0<t → weightedProbabilityTail μ Y q t ≤
+      (((q+1 : ℕ) : ℝ)*C)*(t^q*Real.exp (-t)) := by
+    intro t ht
+    have h := mul_le_mul_of_nonneg_left (negativeLog_probabilityTail_le μ f C hsmall t ht)
+      (by positivity : 0≤((q+1 : ℕ) : ℝ)*t^q)
+    dsimp only [weightedProbabilityTail]
+    convert h using 1 <;> ring
+  have htail : IntegrableOn (weightedProbabilityTail μ Y q) (Ioi 0) := by
+    apply hmajor.mono' hw.aestronglyMeasurable
+    filter_upwards [ae_restrict_mem measurableSet_Ioi] with t ht
+    have ht0 : 0<t := ht
+    have hnn : 0≤weightedProbabilityTail μ Y q t := by
+      dsimp only [weightedProbabilityTail]
+      exact mul_nonneg (by positivity) (probabilityTail_nonneg μ Y t)
+    rw [Real.norm_eq_abs,abs_of_nonneg hnn]
+    exact hb t ht
+  have hi := (integrable_natPower_iff_weightedProbabilityTail μ Y hYm hYn q).mpr htail
+  refine ⟨hi,?_⟩
+  have heq : (∫ a,Y a^(q+1) ∂μ) = ∫ t in Ioi (0:ℝ),weightedProbabilityTail μ Y q t := by
+    rw [integral_eq_lintegral_of_nonneg_ae (hYn.mono (fun a ha => pow_nonneg ha _))
+      (hYm.pow_const _).aestronglyMeasurable,
+      integral_eq_lintegral_of_nonneg_ae (by
+        filter_upwards [ae_restrict_mem measurableSet_Ioi] with t ht
+        have ht0 : 0<t := ht
+        dsimp only [weightedProbabilityTail]
+        exact mul_nonneg (by positivity) (probabilityTail_nonneg μ Y t)) hw.aestronglyMeasurable]
+    congr 1
+    exact lintegral_natPower_eq_weightedProbabilityTail μ Y hYm hYn q
+  change (∫ a,Y a^(q+1) ∂μ)≤_
+  rw [heq]
+  calc
+    _ ≤ ∫ t in Ioi (0:ℝ),(((q+1 : ℕ) : ℝ)*C)*(t^q*Real.exp (-t)) := by
+      apply integral_mono_ae htail hmajor
+      filter_upwards [ae_restrict_mem measurableSet_Ioi] with t ht
+      exact hb t ht
+    _ = _ := by
+      rw [integral_const_mul,(integral_natPower_exp_neg_Ioi q).2,Nat.factorial_succ,Nat.cast_mul]
+      ring
+
+end
+end JinWishart
+#print axioms JinWishart.integral_natPower_exp_neg_Ioi
+#print axioms JinWishart.negativeLog_natPower_integrable_integral_le_of_smallball
+
+SOURCE ComplexGaussianRootLogMoments.lean
+import JinWishartFormalization.NegativeLogNaturalMomentBounds
+import JinWishartFormalization.ComplexGaussianRootNegativeLog
+
+/-! Root-uniform positive natural negative-log moments for planar stdGaussian(C).
+Its complex second moment is2, not properCN1. Codex.
+[需人工审查] Disk/variance normalization and logarithmic layercake. -/
+open MeasureTheory ProbabilityTheory Set
+namespace JinWishart
+noncomputable section
+
+theorem stdGaussian_complex_squared_distance_smallball (a : ℂ) (x : ℝ) (hx : 0<x) :
+    (stdGaussian ℂ).real {z : ℂ | ‖z-a‖^2≤x}≤(1/2)*x := by
+  have he : {z : ℂ | ‖z-a‖^2≤x}=Metric.closedBall a (Real.sqrt x) := by
+    ext z
+    simp only [Set.mem_setOf_eq,Metric.mem_closedBall,dist_eq_norm]
+    constructor
+    · intro hz
+      apply (sq_le_sq₀ (norm_nonneg (z-a)) (Real.sqrt_nonneg x)).mp
+      simpa only [Real.sq_sqrt hx.le] using hz
+    · intro hz
+      have hs := (sq_le_sq₀ (norm_nonneg (z-a)) (Real.sqrt_nonneg x)).mpr hz
+      simpa only [Real.sq_sqrt hx.le] using hs
+  rw [he]
+  have h := stdGaussian_complex_closedBall_le_radius_sq_half a (Real.sqrt x) (Real.sqrt_nonneg x)
+  rw [Real.sq_sqrt hx.le] at h
+  linarith
+
+theorem stdGaussian_complex_negativeLog_natPower_uniform_root (a : ℂ) (q : ℕ) :
+    Integrable (fun z : ℂ => (complexNegativeLog (z-a))^(q+1)) (stdGaussian ℂ) ∧
+      (∫ z : ℂ,(complexNegativeLog (z-a))^(q+1) ∂stdGaussian ℂ)≤
+        ((q+1).factorial : ℝ)/(2*2^(q+1)) := by
+  have hs := negativeLog_natPower_integrable_integral_le_of_smallball (stdGaussian ℂ)
+    (fun z : ℂ => ‖z-a‖^2) (by fun_prop) (1/2) (by norm_num)
+    (stdGaussian_complex_squared_distance_smallball a) q
+  have heq (z : ℂ) : (complexNegativeLog (z-a))^(q+1) =
+      (max 0 (-Real.log (‖z-a‖^2)))^(q+1)/(2:ℝ)^(q+1) := by
+    have htwice : max 0 (-Real.log (‖z-a‖^2))=2*complexNegativeLog (z-a) := by
+      rw [complexNegativeLog,Real.log_pow,mul_max_of_nonneg _ _ (by norm_num : (0:ℝ)≤2)]
+      simp only [mul_zero,mul_neg,Nat.cast_ofNat]
+    rw [htwice,mul_pow]
+    field_simp
+  refine ⟨(hs.1.div_const _).congr (ae_of_all _ (fun z => (heq z).symm)),?_⟩
+  calc
+    _ = (∫ z : ℂ,(max 0 (-Real.log (‖z-a‖^2)))^(q+1) ∂stdGaussian ℂ)/(2:ℝ)^(q+1) := by
+      rw [← integral_div]
+      exact integral_congr_ae (ae_of_all _ heq)
+    _ ≤ ((1/2)*((q+1).factorial : ℝ))/(2:ℝ)^(q+1) :=
+      div_le_div_of_nonneg_right hs.2 (by positivity)
+    _ = _ := by ring
+
+theorem stdGaussian_complex_negativeLog_sq_uniform_root (a : ℂ) :
+    Integrable (fun z : ℂ => (complexNegativeLog (z-a))^2) (stdGaussian ℂ) ∧
+      (∫ z : ℂ,(complexNegativeLog (z-a))^2 ∂stdGaussian ℂ)≤1/4 := by
+  have h := stdGaussian_complex_negativeLog_natPower_uniform_root a 1
+  norm_num at h ⊢
+  exact h
+
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_complex_squared_distance_smallball
+#print axioms JinWishart.stdGaussian_complex_negativeLog_natPower_uniform_root
+#print axioms JinWishart.stdGaussian_complex_negativeLog_sq_uniform_root
+
+SOURCE ComplexGaussianPolynomialLogSquare.lean
+import JinWishartFormalization.ComplexGaussianRootLogMoments
+import JinWishartFormalization.ComplexGaussianPolynomialLog
+import Mathlib.Algebra.Order.Chebyshev
+import Mathlib.Algebra.BigOperators.Fin
+
+/-! One-variable polynomial negative-log square, with degree/coefficient bound.
+Root multiplicities are retained; no parameterized measurable root choice.
+Codex. [需人工审查] Root factorization, Gaussian normalization and integration. -/
+open MeasureTheory ProbabilityTheory Finset
+namespace JinWishart
+noncomputable section
+
+theorem complexNegativeLog_finset_prod_le_sum {ι : Type*} (s : Finset ι) (f : ι→ℂ) :
+    complexNegativeLog (∏ i∈s,f i)≤∑ i∈s,complexNegativeLog (f i) := by
+  classical
+  induction s using Finset.induction_on with
+  | empty => simp [complexNegativeLog]
+  | @insert i s hi ih =>
+    rw [Finset.prod_insert hi,Finset.sum_insert hi]
+    exact (complexNegativeLog_mul_le _ _).trans (add_le_add le_rfl ih)
+
+theorem stdGaussian_complex_finite_rootProduct_negativeLog_sq {ι : Type*} [Fintype ι]
+    (roots : ι→ℂ) :
+    Integrable (fun z : ℂ => (complexNegativeLog (∏ i,(z-roots i)))^2) (stdGaussian ℂ) ∧
+      (∫ z : ℂ,(complexNegativeLog (∏ i,(z-roots i)))^2 ∂stdGaussian ℂ)≤(Fintype.card ι : ℝ)^2/4 := by
+  classical
+  have hi (i : ι) := (stdGaussian_complex_negativeLog_sq_uniform_root (roots i)).1
+  have hdom := (integrable_finsetSum Finset.univ (fun i _ => hi i)).const_mul (Fintype.card ι : ℝ)
+  have hb (z : ℂ) : (complexNegativeLog (∏ i,(z-roots i)))^2≤
+      (Fintype.card ι : ℝ)*(∑ i,(complexNegativeLog (z-roots i))^2) := by
+    have h := pow_le_pow_left₀ (le_max_left (0:ℝ) _) (complexNegativeLog_finset_prod_le_sum Finset.univ (fun i=>z-roots i)) 2
+    exact h.trans (by simpa using (_root_.sq_sum_le_card_mul_sum_sq (s := Finset.univ)
+      (f := fun i=>complexNegativeLog (z-roots i))))
+  have hm : Measurable (fun z : ℂ => (complexNegativeLog (∏ i,(z-roots i)))^2) := by
+    unfold complexNegativeLog
+    fun_prop
+  have hint := hdom.mono' hm.aestronglyMeasurable (ae_of_all _ (fun z=>by
+    rw [Real.norm_eq_abs,abs_of_nonneg (sq_nonneg _)]
+    exact hb z))
+  refine ⟨hint,?_⟩
+  calc
+    _ ≤ ∫ z : ℂ,(Fintype.card ι : ℝ)*(∑ i,(complexNegativeLog (z-roots i))^2) ∂stdGaussian ℂ :=
+      integral_mono_ae hint hdom (ae_of_all _ hb)
+    _ = (Fintype.card ι : ℝ)*(∑ i,∫ z : ℂ,(complexNegativeLog (z-roots i))^2 ∂stdGaussian ℂ) := by
+      rw [integral_const_mul,integral_finsetSum _ (fun i _=>hi i)]
+    _ ≤ (Fintype.card ι : ℝ)*(∑ _i : ι,(1/4:ℝ)) := by
+      apply mul_le_mul_of_nonneg_left _ (Nat.cast_nonneg _)
+      exact Finset.sum_le_sum (fun i _=>(stdGaussian_complex_negativeLog_sq_uniform_root (roots i)).2)
+    _ = _ := by simp; ring
+
+theorem stdGaussian_complex_polynomial_negativeLog_sq (P : Polynomial ℂ) :
+    Integrable (fun z : ℂ => (complexNegativeLog (P.eval z))^2) (stdGaussian ℂ) ∧
+      (∫ z : ℂ,(complexNegativeLog (P.eval z))^2 ∂stdGaussian ℂ)≤
+        2*(complexNegativeLog P.leadingCoeff)^2+(P.natDegree : ℝ)^2/2 := by
+  classical
+  let l := P.roots.toList
+  let roots : Fin l.length→ℂ := l.get
+  have hprod (z : ℂ) : (l.map (fun a=>z-a)).prod=∏ i,(z-roots i) := by
+    rw [← List.prod_ofFn]
+    congr 1
+    exact (List.ofFn_getElem_eq_map l (fun a=>z-a)).symm
+  have heval (z : ℂ) : P.eval z=P.leadingCoeff*(∏ i,(z-roots i)) := by
+    rw [← hprod]
+    rw [(IsAlgClosed.splits P).eval_eq_prod_roots]
+    simp only [l,Multiset.prod_map_toList]
+  have hroot := stdGaussian_complex_finite_rootProduct_negativeLog_sq roots
+  have hD : (Fintype.card (Fin l.length) : ℝ)=(P.natDegree : ℝ) := by
+    simp only [Fintype.card_fin,l,Multiset.length_toList,(IsAlgClosed.splits P).natDegree_eq_card_roots]
+  rw [hD] at hroot
+  have hdom := (integrable_const (2*(complexNegativeLog P.leadingCoeff)^2) :
+    Integrable (fun _z : ℂ=>2*(complexNegativeLog P.leadingCoeff)^2) (stdGaussian ℂ)).add (hroot.1.const_mul 2)
+  have hb (z : ℂ) : (complexNegativeLog (P.eval z))^2≤
+      2*(complexNegativeLog P.leadingCoeff)^2+2*(complexNegativeLog (∏ i,(z-roots i)))^2 := by
+    have hy := complexNegativeLog_finset_prod_le_sum Finset.univ (fun i=>z-roots i)
+    have h := complexNegativeLog_mul_le P.leadingCoeff (∏ i,(z-roots i))
+    rw [← heval] at h
+    have hs := pow_le_pow_left₀ (le_max_left (0:ℝ) _) h 2
+    change (complexNegativeLog (P.eval z))^2≤_ at hs
+    nlinarith [sq_nonneg (complexNegativeLog P.leadingCoeff-complexNegativeLog (∏ i,(z-roots i)))]
+  have hm : Measurable (fun z : ℂ => (complexNegativeLog (P.eval z))^2) :=
+    (measurable_const.max P.continuous.norm.measurable.log.neg).pow_const 2
+  have hint := hdom.mono' hm.aestronglyMeasurable (ae_of_all _ (fun z=>by
+    rw [Real.norm_eq_abs,abs_of_nonneg (sq_nonneg _)]
+    exact hb z))
+  refine ⟨hint,?_⟩
+  calc
+    _ ≤ ∫ z : ℂ,2*(complexNegativeLog P.leadingCoeff)^2+2*(complexNegativeLog (∏ i,(z-roots i)))^2 ∂stdGaussian ℂ :=
+      integral_mono_ae hint hdom (ae_of_all _ hb)
+    _ = 2*(complexNegativeLog P.leadingCoeff)^2+2*(∫ z : ℂ,(complexNegativeLog (∏ i,(z-roots i)))^2 ∂stdGaussian ℂ) := by
+      rw [integral_add (integrable_const _) (hroot.1.const_mul 2)]
+      simp [integral_const_mul]
+    _ ≤ _ := by nlinarith [hroot.2]
+
+end
+end JinWishart
+#print axioms JinWishart.complexNegativeLog_finset_prod_le_sum
+#print axioms JinWishart.stdGaussian_complex_finite_rootProduct_negativeLog_sq
+#print axioms JinWishart.stdGaussian_complex_polynomial_negativeLog_sq
