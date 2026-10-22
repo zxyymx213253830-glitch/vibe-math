@@ -1,0 +1,20 @@
+{
+  "id": "L-row-subspace-normalization-exists_injective_row_subspace_normalization",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.RowSubspaceNormalization",
+  "declaration": "JinWishart.exists_injective_row_subspace_normalization",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-row-subspace-normalization-RowSubspaceNormalization.json",
+    "source_sha256": "5408c3e11ba98b7889854761e1138ca27d7b3625dfeb81cd472841107413258c"
+  }
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "row-subspace-normalization-RowSubspaceNormalization",
+    "module": "RowSubspaceNormalization",
+    "nodes": [
+      [
+        "L-row-subspace-normalization-exists_injective_row_subspace_normalization",
+        "exists_injective_row_subspace_normalization",
+        []
+      ]
+    ]
+  }
+]

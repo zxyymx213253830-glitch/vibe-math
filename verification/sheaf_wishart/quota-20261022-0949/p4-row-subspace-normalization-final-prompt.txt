@@ -1,0 +1,58 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE RowSubspaceNormalization.lean
+import JinWishartFormalization.MatrixRangeKernelNormalization
+import Mathlib.Analysis.InnerProductSpace.ProdL2
+
+/-! A fixed injective deterministic block can be placed in the final row
+coordinates by a complex isometry, with an invertible remaining block.
+Codex. Includes zero-dimensional spaces. No Gaussian law/independence claim.
+[需人工审查] Subsequent canonical model and variance transport. -/
+open Module
+namespace JinWishart
+noncomputable section
+
+theorem exists_injective_row_subspace_normalization
+    {E F : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+    [FiniteDimensional ℂ E] [NormedAddCommGroup F] [InnerProductSpace ℂ F]
+    [FiniteDimensional ℂ F] (L : E →ₗ[ℂ] F) (hL : Function.Injective L) :
+    ∃ (a r : ℕ) (V : F ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin r))
+      (N : E ≃ₗ[ℂ] EuclideanSpace ℂ (Fin r)),
+      r=finrank ℂ E ∧ a+r=finrank ℂ F ∧
+      ∀ x,V (L x)=WithLp.toLp 2 (Sum.elim (fun _ : Fin a => (0 : ℂ)) (fun j => N x j)) := by
+  let S := L.range
+  let a := finrank ℂ Sᗮ
+  let r := finrank ℂ S
+  let br := stdOrthonormalBasis ℂ S
+  let ba := stdOrthonormalBasis ℂ Sᗮ
+  let W : WithLp 2 (S × Sᗮ) ≃ₗᵢ[ℂ]
+      WithLp 2 (EuclideanSpace ℂ (Fin r) × EuclideanSpace ℂ (Fin a)) :=
+    LinearIsometryEquiv.withLpProdCongr (p := 2) br.repr ba.repr
+  let swap := LinearIsometryEquiv.withLpProdComm 2 ℂ
+    (EuclideanSpace ℂ (Fin r)) (EuclideanSpace ℂ (Fin a))
+  let J : EuclideanSpace ℂ (Fin a ⊕ Fin r) ≃ₗᵢ[ℂ]
+      WithLp 2 (EuclideanSpace ℂ (Fin a) × EuclideanSpace ℂ (Fin r)) :=
+    PiLp.sumPiLpEquivProdLpPiLp (𝕜 := ℂ) 2 (fun _ : Fin a ⊕ Fin r => ℂ)
+  let V := S.orthogonalDecomposition.trans (W.trans (swap.trans J.symm))
+  let N : E ≃ₗ[ℂ] EuclideanSpace ℂ (Fin r) :=
+    (LinearEquiv.ofInjective L hL).trans br.repr.toLinearEquiv
+  refine ⟨a,r,V,N,?_,?_,?_⟩
+  · have h := N.finrank_eq
+    simpa using h.symm
+  · have h := V.toLinearEquiv.finrank_eq
+    simpa using h.symm
+  · intro x
+    have hd : S.orthogonalDecomposition (L x)=
+        WithLp.toLp 2 ((LinearEquiv.ofInjective L hL x : S), (0 : Sᗮ)) := by
+      apply S.orthogonalDecomposition.symm.injective
+      simp [Submodule.orthogonalDecomposition_symm_apply]
+    change J.symm (swap (W (S.orthogonalDecomposition (L x)))) = _
+    rw [hd]
+    change J.symm (WithLp.toLp 2 (ba.repr 0, br.repr (LinearEquiv.ofInjective L hL x))) = _
+    rw [map_zero]
+    rfl
+
+end
+end JinWishart
+#print axioms JinWishart.exists_injective_row_subspace_normalization

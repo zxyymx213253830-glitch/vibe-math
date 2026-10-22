@@ -378,3 +378,7 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/canonical_normal_form_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_RANGE_KERNEL_NORMALIZATION.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/RowSubspaceNormalization.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_ROW_SUBSPACE_NORMALIZATION.md -text whitespace=cr-at-eol

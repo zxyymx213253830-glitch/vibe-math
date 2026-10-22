@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T12:13:52.937233+00:00",
+  "ended_utc": "2026-10-22T12:14:26.976044+00:00",
+  "module": "SheafRowSubspaceNormalizationTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafRowSubspaceNormalizationTargets.lean",
+  "source_sha256_before": "e60761f77af2f00adf38e75e4922e5aeb6bb85120740c0cd8a3c5474e346069c",
+  "source_sha256": "e60761f77af2f00adf38e75e4922e5aeb6bb85120740c0cd8a3c5474e346069c",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/row-subspace-normalization-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "8b6aded0600a8a0d1d086593fd1e5cecf051004ea3148687bd2e0a926a680acc",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

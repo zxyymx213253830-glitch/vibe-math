@@ -1,3 +1,4 @@
+import JinWishartFormalization.RowSubspaceNormalization
 import JinWishartFormalization.RangeKernelNormalization
 import JinWishartFormalization.MatrixRangeKernelNormalization
 import JinWishartFormalization.WidePositiveCoordinate

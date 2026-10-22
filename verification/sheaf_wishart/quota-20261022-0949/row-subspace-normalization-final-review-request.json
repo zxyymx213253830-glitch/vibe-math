@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "RowSubspaceNormalization.lean": {
+      "sha256": "5408c3e11ba98b7889854761e1138ca27d7b3625dfeb81cd472841107413258c",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9f5c51f7da3756c12775b144cd1b98b4d34618b5eec246e3eb9912d3a916f882"
+}
