@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T20:23:28.978316+00:00",
+  "ended_utc": "2026-10-22T20:23:39.533887+00:00",
+  "module": "SheafCanonicalMatrixProductTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCanonicalMatrixProductTargets.lean",
+  "source_sha256_before": "39c6acac8508da4ba0bf7392560af09db4b220210f9630556053211d65381865",
+  "source_sha256": "39c6acac8508da4ba0bf7392560af09db4b220210f9630556053211d65381865",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-matrix-product-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "320cbe231c5046363ae92ac82b3cd74499691f8e4f4cc1bed8a10bd8f55c5bcb",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

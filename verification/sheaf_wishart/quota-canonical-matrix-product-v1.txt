@@ -1,0 +1,45 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalMatrixProductInverse.lean:53:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Integrable (fun x => (fun w => ⋯.eigenvalues₀ i)⁻¹ x ^ p)
+    (Measure.map (Prod.map (fun z => complexSampleMatrix z + MA) fun z => complexSampleMatrix z + MH) ?m.194)
+in the target expression
+  Integrable (fun w => (⋯.eigenvalues₀ i)⁻¹ ^ p)
+      (Measure.map (Prod.map (fun z => complexSampleMatrix z + MA) fun z => complexSampleMatrix z + MH)
+        ((stdGaussian ComplexSample).prod (stdGaussian ComplexSample))) ↔
+    p < ↑(max a b - min a b + 1)
+
+a b c m n : ℕ
+ha : 0 < a
+hb : 0 < b
+hc : 0 < c
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+MA : Matrix (Fin a) (Fin b) ℂ
+MH : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+hN : IsUnit N.det
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+hj : ↑j + 1 = min a b
+k : Fin (Fintype.card (Fin c))
+hk : ↑k + 1 = c
+p : ℝ
+hp : 0 < p
+hF : Measurable fun x => (fun w => ⋯.eigenvalues₀ i)⁻¹ x ^ p
+⊢ Integrable (fun w => (⋯.eigenvalues₀ i)⁻¹ ^ p)
+      (Measure.map (Prod.map (fun z => complexSampleMatrix z + MA) fun z => complexSampleMatrix z + MH)
+        ((stdGaussian ComplexSample).prod (stdGaussian ComplexSample))) ↔
+    p < ↑(max a b - min a b + 1)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    complexGram (canonicalFinBlock er ec w.1 w.2 N) i
+'JinWishart.canonical_matrix_product_inverse_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.canonical_matrix_product_inverse_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

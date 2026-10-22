@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "canonical-matrix-product-CanonicalMatrixProductInverse",
+    "module": "CanonicalMatrixProductInverse",
+    "nodes": [
+      [
+        "L-canonical-matrix-product-canonical_matrix_product_inverse_realMoment_integrable_iff",
+        "canonical_matrix_product_inverse_realMoment_integrable_iff",
+        []
+      ],
+      [
+        "L-canonical-matrix-product-canonical_matrix_product_inverse_realMoment_lintegral_eq_top",
+        "canonical_matrix_product_inverse_realMoment_lintegral_eq_top",
+        [
+          "L-canonical-matrix-product-canonical_matrix_product_inverse_realMoment_integrable_iff"
+        ]
+      ]
+    ]
+  }
+]

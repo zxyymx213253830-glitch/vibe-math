@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-matrix-product-canonical_matrix_product_inverse_realMoment_lintegral_eq_top",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.CanonicalMatrixProductInverse",
+  "declaration": "JinWishart.canonical_matrix_product_inverse_realMoment_lintegral_eq_top",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-matrix-product-canonical_matrix_product_inverse_realMoment_integrable_iff"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-matrix-product-canonical_matrix_product_inverse_realMoment_integrable_iff"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-matrix-product-CanonicalMatrixProductInverse.json",
+    "source_sha256": "f2e95bd8b9f93aa88863f7d186432e43b43497f3eb6702833e141f3fea8c7bbb"
+  }
+}

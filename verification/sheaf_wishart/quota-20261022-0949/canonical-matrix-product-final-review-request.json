@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CanonicalMatrixProductInverse.lean": {
+      "sha256": "f2e95bd8b9f93aa88863f7d186432e43b43497f3eb6702833e141f3fea8c7bbb",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "d65fdc96670a5e085513aa130333caa6bfc7af22220a89acb4d2dd53cd5b6b10"
+}

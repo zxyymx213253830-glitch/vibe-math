@@ -1,0 +1,86 @@
+import JinWishartFormalization.CanonicalProductInverseCriterion
+
+/-! Canonical inverse criterion on matrix product laws, and nonnegative critical divergence.
+Reuses existing block/product/critical-tail controls; no new numerical evidence is claimed.
+[需人工审查] Matrix pushforwards, AE integration and pending physical-model assembly. -/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+
+private theorem measurableCoordinate {a b c m n : ℕ}
+    (er : (Fin a ⊕ Fin c) ≃ Fin m) (ec : (Fin b ⊕ Fin c) ≃ Fin n)
+    (N : Matrix (Fin c) (Fin c) ℂ) (i : Fin (Fintype.card (Fin n))) :
+    Measurable (fun w : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ =>
+      (complexGram_posSemidef (canonicalFinBlock er ec w.1 w.2 N)).1.eigenvalues₀ i) := by
+  let D (w : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ) := canonicalFinBlock er ec w.1 w.2 N
+  have hX (u : Fin m) (v : Fin n) : Measurable (fun w => D w u v) := by
+    dsimp only [D,canonicalFinBlock,Matrix.coe_reindexLinearEquiv,Matrix.reindex_apply,Matrix.submatrix_apply]
+    rcases er.symm u with u|u <;> rcases ec.symm v with v|v <;>
+      simp only [Matrix.fromBlocks_apply₁₁,Matrix.fromBlocks_apply₁₂,
+        Matrix.fromBlocks_apply₂₁,Matrix.fromBlocks_apply₂₂] <;> fun_prop
+  have hG : Measurable (fun w => complexGram (D w)) := by
+    apply Measurable.of_eval
+    intro u
+    apply Measurable.of_eval
+    intro v
+    simp only [complexGram,Matrix.mul_apply,Matrix.conjTranspose_apply]
+    apply Finset.measurable_sum
+    intro l _
+    simpa only [RCLike.star_def,Function.comp_apply,Pi.mul_apply] using!
+      (Complex.continuous_conj.measurable.comp (hX l u)).mul (hX l v)
+  change Measurable ((fun Q : HermitianMatrix n => hermitianEigenvalueVector Q i) ∘
+    fun w => (⟨complexGram (D w),(complexGram_posSemidef (D w)).1⟩ : HermitianMatrix n))
+  exact ((orderedHermitianEigenvalueCoordinatesContinuous n i).measurable).comp
+    (hG.subtype_mk (h := fun w => (complexGram_posSemidef (D w)).1))
+
+theorem canonical_matrix_product_inverse_realMoment_integrable_iff {a b c m n : ℕ}
+    (ha : 0<a) (hb : 0<b) (hc : 0<c)
+    (er : (Fin a ⊕ Fin c) ≃ Fin m) (ec : (Fin b ⊕ Fin c) ≃ Fin n)
+    (MA : Matrix (Fin a) (Fin b) ℂ) (MH : Matrix (Fin c) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin c) ℂ) (hN : IsUnit N.det)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m n)
+    (j : Fin (Fintype.card (Fin b))) (hj : j.val+1=min a b)
+    (k : Fin (Fintype.card (Fin c))) (hk : k.val+1=c) (p : ℝ) (hp : 0<p) :
+    Integrable (fun w : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ =>
+      ((complexGram_posSemidef (canonicalFinBlock er ec w.1 w.2 N)).1.eigenvalues₀ i)⁻¹^p)
+      ((complexGaussianMatrixLaw MA).prod (complexGaussianMatrixLaw MH)) ↔
+      p<((max a b-min a b+1 : ℕ) : ℝ) := by
+  have hF : Measurable (fun w : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ =>
+      ((complexGram_posSemidef (canonicalFinBlock er ec w.1 w.2 N)).1.eigenvalues₀ i)⁻¹^p) :=
+    (measurableCoordinate er ec N i).inv.pow_const p
+  unfold complexGaussianMatrixLaw
+  rw [Measure.map_prod_map _ _ (measurable_shiftedComplexSampleMatrix MA)
+    (measurable_shiftedComplexSampleMatrix MH)]
+  rw [integrable_map_measure hF.aestronglyMeasurable
+    ((measurable_shiftedComplexSampleMatrix MA).prodMap
+      (measurable_shiftedComplexSampleMatrix MH)).aemeasurable]
+  exact canonical_product_inverse_realMoment_integrable_iff ha hb hc er ec MA MH N hN i hi j hj k hk p hp
+
+theorem canonical_matrix_product_inverse_realMoment_lintegral_eq_top {a b c m n : ℕ}
+    (ha : 0<a) (hb : 0<b) (hc : 0<c)
+    (er : (Fin a ⊕ Fin c) ≃ Fin m) (ec : (Fin b ⊕ Fin c) ≃ Fin n)
+    (MA : Matrix (Fin a) (Fin b) ℂ) (MH : Matrix (Fin c) (Fin b) ℂ)
+    (N : Matrix (Fin c) (Fin c) ℂ) (hN : IsUnit N.det)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m n)
+    (j : Fin (Fintype.card (Fin b))) (hj : j.val+1=min a b)
+    (k : Fin (Fintype.card (Fin c))) (hk : k.val+1=c)
+    (p : ℝ) (hp : ((max a b-min a b+1 : ℕ) : ℝ)≤p) :
+    (∫⁻ w : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ,
+      ENNReal.ofReal (((complexGram_posSemidef (canonicalFinBlock er ec w.1 w.2 N)).1.eigenvalues₀ i)⁻¹^p)
+      ∂(complexGaussianMatrixLaw MA).prod (complexGaussianMatrixLaw MH))=⊤ := by
+  have hp0 : 0<p := lt_of_lt_of_le (by positivity : (0 : ℝ)<((max a b-min a b+1 : ℕ) : ℝ)) hp
+  have hF : Measurable (fun w : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ =>
+      ((complexGram_posSemidef (canonicalFinBlock er ec w.1 w.2 N)).1.eigenvalues₀ i)⁻¹^p) :=
+    (measurableCoordinate er ec N i).inv.pow_const p
+  by_contra h
+  have hI := (lintegral_ofReal_ne_top_iff_integrable hF.aestronglyMeasurable
+    (ae_of_all _ (fun w => Real.rpow_nonneg (inv_nonneg.mpr
+      (complexGram_eigenvalues₀_nonneg (canonicalFinBlock er ec w.1 w.2 N) i)) p))).mp h
+  exact (not_lt_of_ge hp) ((canonical_matrix_product_inverse_realMoment_integrable_iff
+    ha hb hc er ec MA MH N hN i hi j hj k hk p hp0).mp hI)
+
+end
+end JinWishart
+#print axioms JinWishart.canonical_matrix_product_inverse_realMoment_integrable_iff
+#print axioms JinWishart.canonical_matrix_product_inverse_realMoment_lintegral_eq_top
