@@ -1,0 +1,1 @@
+'JinWishart.integrable_polynomial_section_negativeLog_sq' depends on axioms: [propext, Classical.choice, Quot.sound]

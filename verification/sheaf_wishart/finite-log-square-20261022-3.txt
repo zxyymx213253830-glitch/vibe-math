@@ -1,0 +1,6 @@
+'JinWishart.stdGaussian_pi_mvPolynomial_negativeLog_sq_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_stdGaussian_pi_mvPolynomial_norm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.real_log_sq_le_nonnegative_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_pi_mvPolynomial_log_sq_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]

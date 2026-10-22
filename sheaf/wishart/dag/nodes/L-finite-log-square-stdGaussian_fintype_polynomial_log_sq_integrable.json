@@ -1,0 +1,24 @@
+{
+  "id": "L-finite-log-square-stdGaussian_fintype_polynomial_log_sq_integrable",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ProperGaussianPolynomialLogSquare",
+  "declaration": "JinWishart.stdGaussian_fintype_polynomial_log_sq_integrable",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-finite-log-square-stdGaussian_pi_mvPolynomial_log_sq_integrable"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-finite-log-square-stdGaussian_pi_mvPolynomial_log_sq_integrable"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-log-square-ProperGaussianPolynomialLogSquare.json",
+    "source_sha256": "d3d7a7b1621eeee6d7f5ee2d315d671381751a1e003399b262b145b620ea1d1f"
+  }
+}

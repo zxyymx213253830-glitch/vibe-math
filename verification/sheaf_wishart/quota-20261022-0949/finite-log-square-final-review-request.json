@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "GaussianPolynomialSectionLogSquare.lean": {
+      "sha256": "ebaf2ac170f31c65b3980ff0671229e59e39bc7cb11e3146de89b6f793a0c0f3",
+      "supplied": "Full source"
+    },
+    "FiniteGaussianPolynomialLogSquare.lean": {
+      "sha256": "774eedbf1a19052bd08ebe2568a4334e231577a1f37e769cb17b3242b8df2a5a",
+      "supplied": "Full source"
+    },
+    "ProperGaussianPolynomialLogSquare.lean": {
+      "sha256": "d3d7a7b1621eeee6d7f5ee2d315d671381751a1e003399b262b145b620ea1d1f",
+      "supplied": "Full source"
+    },
+    "ActualComplexPolynomialLogSquare.lean": {
+      "sha256": "2dab98674212f9cdea6456e9234dbfbb2bf6796b41cc84d14a72fa1c6e3a0fbf",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "515d6b882935e730286d7ccde5dfb7aea020f2a42b24bed7dbd7d7963bdcbe71"
+}

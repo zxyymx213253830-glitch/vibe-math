@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:43:27.228246+00:00",
+  "ended_utc": "2026-10-22T02:43:35.414213+00:00",
+  "module": "JinWishartFormalization.FiniteGaussianPolynomialLogSquare",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteGaussianPolynomialLogSquare.lean",
+  "source_sha256_before": "774eedbf1a19052bd08ebe2568a4334e231577a1f37e769cb17b3242b8df2a5a",
+  "source_sha256": "774eedbf1a19052bd08ebe2568a4334e231577a1f37e769cb17b3242b8df2a5a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/finite-log-square-FiniteGaussianPolynomialLogSquare-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "1f9e395f17d20e05346afc285ae2111f3fad4d6be45f8ccbd1e75428e3095e5e",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

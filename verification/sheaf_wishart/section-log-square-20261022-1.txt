@@ -1,0 +1,2 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianPolynomialSectionLogSquare.lean:14:36: error: unexpected token '=>'; expected term
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianPolynomialSectionLogSquare.lean:53:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.integrable_polynomial_section_negativeLog_sq`

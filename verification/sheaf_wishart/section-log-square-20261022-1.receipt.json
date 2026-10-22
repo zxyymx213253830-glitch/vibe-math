@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:37:51.811937+00:00",
+  "ended_utc": "2026-10-22T02:38:08.225486+00:00",
+  "module": "JinWishartFormalization.GaussianPolynomialSectionLogSquare",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianPolynomialSectionLogSquare.lean",
+  "source_sha256_before": "f27875566051fd5811e9d1f365811d1e9277f92423c283725ad61ba4e91b2834",
+  "source_sha256": "f27875566051fd5811e9d1f365811d1e9277f92423c283725ad61ba4e91b2834",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/section-log-square-20261022-1.txt",
+  "log_exists": true,
+  "log_sha256": "b15340ff03b6b2764701a8f8b58f49040c4db7510d99651ac94f04647aeb784a",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

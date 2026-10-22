@@ -1,0 +1,2 @@
+'JinWishart.stdGaussian_fintype_polynomial_log_sq_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.properComplex_pi_polynomial_log_sq_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]

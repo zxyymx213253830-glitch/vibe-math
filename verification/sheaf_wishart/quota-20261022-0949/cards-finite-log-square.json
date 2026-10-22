@@ -1,0 +1,87 @@
+[
+  {
+    "tag": "finite-log-square-GaussianPolynomialSectionLogSquare",
+    "module": "GaussianPolynomialSectionLogSquare",
+    "nodes": [
+      [
+        "L-finite-log-square-integrable_polynomial_section_negativeLog_sq",
+        "integrable_polynomial_section_negativeLog_sq",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "finite-log-square-FiniteGaussianPolynomialLogSquare",
+    "module": "FiniteGaussianPolynomialLogSquare",
+    "nodes": [
+      [
+        "L-finite-log-square-stdGaussian_pi_mvPolynomial_negativeLog_sq_integrable",
+        "stdGaussian_pi_mvPolynomial_negativeLog_sq_integrable",
+        [
+          "L-finite-log-square-integrable_polynomial_section_negativeLog_sq"
+        ]
+      ],
+      [
+        "L-finite-log-square-integrable_stdGaussian_pi_mvPolynomial_norm_sq",
+        "integrable_stdGaussian_pi_mvPolynomial_norm_sq",
+        [
+          "L-finite-log-square-stdGaussian_pi_mvPolynomial_negativeLog_sq_integrable"
+        ]
+      ],
+      [
+        "L-finite-log-square-real_log_sq_le_nonnegative_square",
+        "real_log_sq_le_nonnegative_square",
+        [
+          "L-finite-log-square-integrable_stdGaussian_pi_mvPolynomial_norm_sq"
+        ]
+      ],
+      [
+        "L-finite-log-square-stdGaussian_pi_mvPolynomial_log_sq_integrable",
+        "stdGaussian_pi_mvPolynomial_log_sq_integrable",
+        [
+          "L-finite-log-square-real_log_sq_le_nonnegative_square"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "finite-log-square-ProperGaussianPolynomialLogSquare",
+    "module": "ProperGaussianPolynomialLogSquare",
+    "nodes": [
+      [
+        "L-finite-log-square-stdGaussian_fintype_polynomial_log_sq_integrable",
+        "stdGaussian_fintype_polynomial_log_sq_integrable",
+        [
+          "L-finite-log-square-stdGaussian_pi_mvPolynomial_log_sq_integrable"
+        ]
+      ],
+      [
+        "L-finite-log-square-properComplex_pi_polynomial_log_sq_integrable",
+        "properComplex_pi_polynomial_log_sq_integrable",
+        [
+          "L-finite-log-square-stdGaussian_fintype_polynomial_log_sq_integrable"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "finite-log-square-ActualComplexPolynomialLogSquare",
+    "module": "ActualComplexPolynomialLogSquare",
+    "nodes": [
+      [
+        "L-finite-log-square-integrable_actualComplexMatrix_holomorphic_log_sq",
+        "integrable_actualComplexMatrix_holomorphic_log_sq",
+        [
+          "L-finite-log-square-properComplex_pi_polynomial_log_sq_integrable"
+        ]
+      ],
+      [
+        "L-finite-log-square-integrable_actualAffineCompressedDet_log_sq",
+        "integrable_actualAffineCompressedDet_log_sq",
+        [
+          "L-finite-log-square-integrable_actualComplexMatrix_holomorphic_log_sq"
+        ]
+      ]
+    ]
+  }
+]

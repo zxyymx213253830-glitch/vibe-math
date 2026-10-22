@@ -1,0 +1,4 @@
+'JinWishart.integrable_actualComplexMatrix_holomorphic_log_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_actualAffineCompressedDet_log_sq' depends on axioms: [propext, Classical.choice, Quot.sound]

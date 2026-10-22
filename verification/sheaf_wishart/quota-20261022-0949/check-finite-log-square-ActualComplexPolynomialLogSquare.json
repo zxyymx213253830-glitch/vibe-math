@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "2dab98674212f9cdea6456e9234dbfbb2bf6796b41cc84d14a72fa1c6e3a0fbf",
+  "target_lock_sha256": "20f88521eff5e339195673e1b0343970d38519f1f642379b5ebc13e2f164f609",
+  "leaf": {
+    "started_utc": "2026-10-22T02:43:44.482328+00:00",
+    "ended_utc": "2026-10-22T02:43:53.013433+00:00",
+    "module": "JinWishartFormalization.ActualComplexPolynomialLogSquare",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualComplexPolynomialLogSquare.lean",
+    "source_sha256_before": "2dab98674212f9cdea6456e9234dbfbb2bf6796b41cc84d14a72fa1c6e3a0fbf",
+    "source_sha256": "2dab98674212f9cdea6456e9234dbfbb2bf6796b41cc84d14a72fa1c6e3a0fbf",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/finite-log-square-ActualComplexPolynomialLogSquare-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "22c13c74574f788192a9ccd7ab00e064d2dfdd1a7b2184cdfc641c40d6b4397b",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T02:43:53.015205+00:00",
+    "ended_utc": "2026-10-22T02:44:03.889322+00:00",
+    "module": "SheafFiniteLogSquareTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFiniteLogSquareTargets.lean",
+    "source_sha256_before": "fa2c1f4f0fba1da3b0297429e08b8f420d1f7d7be205945d852ae70d5aa7ed93",
+    "source_sha256": "fa2c1f4f0fba1da3b0297429e08b8f420d1f7d7be205945d852ae70d5aa7ed93",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/finite-log-square-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

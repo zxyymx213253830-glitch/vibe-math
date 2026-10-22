@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T02:43:44.482328+00:00",
+  "ended_utc": "2026-10-22T02:43:53.013433+00:00",
+  "module": "JinWishartFormalization.ActualComplexPolynomialLogSquare",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualComplexPolynomialLogSquare.lean",
+  "source_sha256_before": "2dab98674212f9cdea6456e9234dbfbb2bf6796b41cc84d14a72fa1c6e3a0fbf",
+  "source_sha256": "2dab98674212f9cdea6456e9234dbfbb2bf6796b41cc84d14a72fa1c6e3a0fbf",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/finite-log-square-ActualComplexPolynomialLogSquare-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "22c13c74574f788192a9ccd7ab00e064d2dfdd1a7b2184cdfc641c40d6b4397b",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

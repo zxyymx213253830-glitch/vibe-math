@@ -1,0 +1,24 @@
+{
+  "id": "L-finite-log-square-integrable_actualComplexMatrix_holomorphic_log_sq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualComplexPolynomialLogSquare",
+  "declaration": "JinWishart.integrable_actualComplexMatrix_holomorphic_log_sq",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-finite-log-square-properComplex_pi_polynomial_log_sq_integrable"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-finite-log-square-properComplex_pi_polynomial_log_sq_integrable"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-log-square-ActualComplexPolynomialLogSquare.json",
+    "source_sha256": "2dab98674212f9cdea6456e9234dbfbb2bf6796b41cc84d14a72fa1c6e3a0fbf"
+  }
+}

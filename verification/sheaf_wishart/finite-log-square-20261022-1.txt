@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteGaussianPolynomialLogSquare.lean:58:2: error: Type mismatch: After simplification, term
+  Integrable.norm (integrable_stdGaussian_pi_mvPolynomial_eval n (P ^ 2))
+ has type
+  Integrable (fun a => ‖(MvPolynomial.eval a) (P ^ 2)‖) (Measure.pi fun x => stdGaussian ℂ)
+but is expected to have type
+  Integrable (fun x => ‖(MvPolynomial.eval x) P‖ ^ 2) (Measure.pi fun x => stdGaussian ℂ)
+'JinWishart.stdGaussian_pi_mvPolynomial_negativeLog_sq_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrable_stdGaussian_pi_mvPolynomial_norm_sq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.real_log_sq_le_nonnegative_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_pi_mvPolynomial_log_sq_integrable' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

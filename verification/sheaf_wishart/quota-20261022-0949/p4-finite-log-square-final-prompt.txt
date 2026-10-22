@@ -1,0 +1,230 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE GaussianPolynomialSectionLogSquare.lean
+import JinWishartFormalization.ComplexGaussianPolynomialLogSquare
+import Mathlib.MeasureTheory.Integral.Prod
+
+/-! Negative-log square for parameterized polynomial sections.
+Coefficient square-L1 and deterministic degree bound are explicit premises.
+No measurable choice of roots. Codex. [需人工审查] Product/Fubini/normalization. -/
+open MeasureTheory ProbabilityTheory Filter
+namespace JinWishart
+noncomputable section
+
+theorem integrable_polynomial_section_negativeLog_sq
+    {α : Type*} [MeasurableSpace α] (μ : Measure α) [IsProbabilityMeasure μ]
+    (P : α → Polynomial ℂ)
+    (hEval : Measurable (fun w : α × ℂ => (P w.1).eval w.2))
+    (hCoeff : Integrable (fun a => (complexNegativeLog (P a).leadingCoeff)^2) μ)
+    (D : ℕ) (hDegree : ∀ᵐ a ∂μ,(P a).natDegree≤D) :
+    Integrable (fun w : α × ℂ => (complexNegativeLog ((P w.1).eval w.2))^2)
+      (μ.prod (stdGaussian ℂ)) ∧
+    (∫ w : α × ℂ,(complexNegativeLog ((P w.1).eval w.2))^2 ∂μ.prod (stdGaussian ℂ))≤
+      2*(∫ a,(complexNegativeLog (P a).leadingCoeff)^2 ∂μ)+(D : ℝ)^2/2 := by
+  let g : α × ℂ → ℝ := fun w => (complexNegativeLog ((P w.1).eval w.2))^2
+  have hgm : AEStronglyMeasurable g (μ.prod (stdGaussian ℂ)) :=
+    ((measurable_const.max hEval.norm.log.neg).pow_const 2).aestronglyMeasurable
+  have hdom : Integrable (fun a=>2*(complexNegativeLog (P a).leadingCoeff)^2+(D : ℝ)^2/2) μ :=
+    (hCoeff.const_mul 2).add (integrable_const _)
+  have hpoint (a : α) (ha : (P a).natDegree≤D) :
+      (∫ z : ℂ,g (a,z) ∂stdGaussian ℂ)≤2*(complexNegativeLog (P a).leadingCoeff)^2+(D : ℝ)^2/2 := by
+    apply (stdGaussian_complex_polynomial_negativeLog_sq (P a)).2.trans
+    apply add_le_add le_rfl
+    apply div_le_div_of_nonneg_right _ (by norm_num)
+    exact pow_le_pow_left₀ (Nat.cast_nonneg _) (by exact_mod_cast ha) 2
+  have hn (a : α) : (∫ z : ℂ,‖g (a,z)‖ ∂stdGaussian ℂ)=∫ z : ℂ,g (a,z) ∂stdGaussian ℂ := by
+    apply integral_congr_ae
+    exact ae_of_all _ (fun z => Real.norm_of_nonneg (sq_nonneg _))
+  have hinner : Integrable (fun a=>∫ z : ℂ,‖g (a,z)‖ ∂stdGaussian ℂ) μ := by
+    apply hdom.mono' hgm.norm.integral_prod_right'
+    filter_upwards [hDegree] with a ha
+    rw [Real.norm_eq_abs,abs_of_nonneg (integral_nonneg (fun z=>norm_nonneg _)),hn]
+    exact hpoint a ha
+  have hi : Integrable g (μ.prod (stdGaussian ℂ)) := by
+    apply (integrable_prod_iff hgm).mpr
+    exact ⟨ae_of_all _ (fun a=>(stdGaussian_complex_polynomial_negativeLog_sq (P a)).1),hinner⟩
+  refine ⟨hi,?_⟩
+  change (∫ w,g w ∂μ.prod (stdGaussian ℂ))≤_
+  rw [integral_prod g hi]
+  calc
+    _ ≤ ∫ a,2*(complexNegativeLog (P a).leadingCoeff)^2+(D : ℝ)^2/2 ∂μ :=
+      integral_mono_ae hi.integral_prod_left hdom (hDegree.mono (fun a ha=>hpoint a ha))
+    _ = _ := by rw [integral_add (hCoeff.const_mul _) (integrable_const _)]; simp [integral_const_mul]
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_polynomial_section_negativeLog_sq
+
+SOURCE FiniteGaussianPolynomialLogSquare.lean
+import JinWishartFormalization.GaussianPolynomialSectionLogSquare
+import JinWishartFormalization.FiniteComplexGaussianPolynomialLog
+
+/-! Finite-dimensional holomorphic Gaussian polynomial log-square integrability.
+Planar stdGaussian(C) secondmoment2. Real.log0=0; includes zero polynomial.
+Codex. [需人工审查] Product splitting, AE leading coefficient and Fubini. -/
+open MeasureTheory ProbabilityTheory Filter
+namespace JinWishart
+noncomputable section
+
+theorem stdGaussian_pi_mvPolynomial_negativeLog_sq_integrable :
+    ∀ n (P : MvPolynomial (Fin n) ℂ),
+      Integrable (fun x=>(complexNegativeLog (MvPolynomial.eval x P))^2)
+        (Measure.pi (fun _ : Fin n=>stdGaussian ℂ)) := by
+  intro n
+  induction n with
+  | zero =>
+    intro P
+    have hc : P=MvPolynomial.C (P.coeff 0) := MvPolynomial.eq_C_of_isEmpty P
+    rw [hc]
+    simp only [MvPolynomial.eval_C]
+    exact integrable_const _
+  | succ n ih =>
+    intro P
+    classical
+    by_cases hP : P=0
+    · subst P
+      simp [complexNegativeLog]
+    let q := MvPolynomial.finSuccEquiv ℂ n P
+    have hq : q≠0 := fun h=>hP ((MvPolynomial.finSuccEquiv ℂ n).injective h)
+    have hae := stdGaussian_pi_mvPolynomial_ne_zero_ae n q.leadingCoeff
+      (Polynomial.leadingCoeff_ne_zero.mpr hq)
+    have heq : (fun y=>(complexNegativeLog (Polynomial.map (MvPolynomial.eval y) q).leadingCoeff)^2)
+        =ᵐ[Measure.pi (fun _ : Fin n=>stdGaussian ℂ)]
+        (fun y=>(complexNegativeLog (MvPolynomial.eval y q.leadingCoeff))^2) := by
+      filter_upwards [hae] with y hy
+      rw [Polynomial.leadingCoeff_map_of_leadingCoeff_ne_zero _ hy]
+    have hcoeff := (ih q.leadingCoeff).congr heq.symm
+    have hcont : Continuous (fun w : (Fin n → ℂ) × ℂ => MvPolynomial.eval (Fin.cons w.2 w.1) P) := by
+      apply (MvPolynomial.continuous_eval P).comp
+      apply continuous_pi
+      intro i
+      refine Fin.cases continuous_snd ?_ i
+      intro j
+      exact (continuous_apply j).comp continuous_fst
+    have heval (w : (Fin n → ℂ) × ℂ) : (Polynomial.map (MvPolynomial.eval w.1) q).eval w.2=
+        MvPolynomial.eval (Fin.cons w.2 w.1) P := (MvPolynomial.eval_eq_eval_mv_eval' w.1 w.2 P).symm
+    have hm : Measurable (fun w : (Fin n → ℂ) × ℂ => (Polynomial.map (MvPolynomial.eval w.1) q).eval w.2) := by
+      simpa only [heval] using hcont.measurable
+    have hs := (integrable_polynomial_section_negativeLog_sq
+      (Measure.pi (fun _ : Fin n=>stdGaussian ℂ)) (fun y=>Polynomial.map (MvPolynomial.eval y) q)
+      hm hcoeff q.natDegree (ae_of_all _ (fun _=>Polynomial.natDegree_map_le))).1
+    have hb := (planarGaussianSplit_measurePreserving n).integrable_comp_of_integrable hs
+    simpa only [Function.comp_def,heval,planarGaussianSplit_cons] using hb
+
+theorem integrable_stdGaussian_pi_mvPolynomial_norm_sq (n : ℕ) (P : MvPolynomial (Fin n) ℂ) :
+    Integrable (fun x=>‖MvPolynomial.eval x P‖^2) (Measure.pi (fun _ : Fin n=>stdGaussian ℂ)) := by
+  apply (integrable_stdGaussian_pi_mvPolynomial_eval n (P^2)).norm.congr
+  exact ae_of_all _ (fun x=>by dsimp only; rw [MvPolynomial.eval_pow,norm_pow])
+
+theorem real_log_sq_le_nonnegative_square (u : ℝ) (hu : 0≤u) :
+    (Real.log u)^2≤2*u^2+2*(max 0 (-Real.log u))^2 := by
+  by_cases hz : u=0
+  · simp [hz]
+  have hp : 0<u := lt_of_le_of_ne hu (Ne.symm hz)
+  have hlog := Real.log_le_sub_one_of_pos hp
+  have h1 := le_max_left (0:ℝ) (-Real.log u)
+  have h2 := le_max_right (0:ℝ) (-Real.log u)
+  have habs : |Real.log u|≤u+max 0 (-Real.log u) := abs_le.mpr ⟨by linarith,by linarith⟩
+  have hs := pow_le_pow_left₀ (abs_nonneg _) habs 2
+  rw [sq_abs] at hs
+  nlinarith [sq_nonneg (u-max 0 (-Real.log u))]
+
+theorem stdGaussian_pi_mvPolynomial_log_sq_integrable (n : ℕ) (P : MvPolynomial (Fin n) ℂ) :
+    Integrable (fun x=>(Real.log ‖MvPolynomial.eval x P‖)^2)
+      (Measure.pi (fun _ : Fin n=>stdGaussian ℂ)) := by
+  have hnorm := integrable_stdGaussian_pi_mvPolynomial_norm_sq n P
+  have hneg := stdGaussian_pi_mvPolynomial_negativeLog_sq_integrable n P
+  apply ((hnorm.const_mul 2).add (hneg.const_mul 2)).mono'
+    ((MvPolynomial.continuous_eval P).norm.measurable.log.pow_const 2).aestronglyMeasurable
+  exact ae_of_all _ (fun x=>by
+    rw [Real.norm_eq_abs,abs_of_nonneg (sq_nonneg _)]
+    exact real_log_sq_le_nonnegative_square _ (norm_nonneg _))
+
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_pi_mvPolynomial_negativeLog_sq_integrable
+#print axioms JinWishart.integrable_stdGaussian_pi_mvPolynomial_norm_sq
+#print axioms JinWishart.real_log_sq_le_nonnegative_square
+#print axioms JinWishart.stdGaussian_pi_mvPolynomial_log_sq_integrable
+
+SOURCE ProperGaussianPolynomialLogSquare.lean
+import JinWishartFormalization.FiniteGaussianPolynomialLogSquare
+import JinWishartFormalization.ProperComplexGaussianPolynomialLog
+
+/-! Log-square under arbitrary finite independent properCN1 coordinates.
+Both real coordinates scale by1/sqrt2. Codex.
+[需人工审查] Index/product transport and physical variance. -/
+open MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem stdGaussian_fintype_polynomial_log_sq_integrable
+    {ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) :
+    Integrable (fun x=>(Real.log ‖MvPolynomial.eval x P‖)^2)
+      (Measure.pi (fun _ : ι=>stdGaussian ℂ)) := by
+  classical
+  let e : ι ≃ Fin (Fintype.card ι) := Fintype.equivFin ι
+  let E := MeasurableEquiv.piCongrLeft (fun _ : Fin (Fintype.card ι)=>ℂ) e
+  have hp : MeasurePreserving E (Measure.pi (fun _ : ι=>stdGaussian ℂ))
+      (Measure.pi (fun _ : Fin (Fintype.card ι)=>stdGaussian ℂ)) :=
+    measurePreserving_piCongrLeft (fun _ : Fin (Fintype.card ι)=>stdGaussian ℂ) e
+  have hi := stdGaussian_pi_mvPolynomial_log_sq_integrable (Fintype.card ι) (MvPolynomial.rename e P)
+  have hb := hp.integrable_comp_of_integrable hi
+  simpa [Function.comp_def,MvPolynomial.eval_rename,E,MeasurableEquiv.coe_piCongrLeft] using hb
+
+theorem properComplex_pi_polynomial_log_sq_integrable
+    {ι : Type*} [Fintype ι] (P : MvPolynomial ι ℂ) :
+    Integrable (fun x=>(Real.log ‖MvPolynomial.eval x P‖)^2) (standardComplexPiLaw ι) := by
+  let s : ℝ := (Real.sqrt 2)⁻¹
+  let Q : MvPolynomial ι ℂ := MvPolynomial.eval₂ MvPolynomial.C
+    (fun i=>MvPolynomial.C (s : ℂ)*MvPolynomial.X i) P
+  have hC (x : ι→ℂ) : (MvPolynomial.eval x).comp (MvPolynomial.C : ℂ→+*MvPolynomial ι ℂ)=RingHom.id ℂ := by
+    ext c
+    simp
+  have heval (x : ι→ℂ) : MvPolynomial.eval x Q=MvPolynomial.eval (fun i=>s • x i) P := by
+    simp [Q,MvPolynomial.eval_eval₂,hC,Complex.real_smul]
+  have hscale : Continuous (fun z : ι→ℂ=>fun i=>s • z i) := by fun_prop
+  rw [standardComplexPiLaw_eq_planarMap]
+  apply (integrable_map_measure ((MvPolynomial.continuous_eval P).norm.measurable.log.pow_const 2).aestronglyMeasurable
+    hscale.measurable.aemeasurable).mpr
+  change Integrable (fun x : ι→ℂ=>(Real.log ‖MvPolynomial.eval (fun i=>s • x i) P‖)^2) _
+  simpa only [heval] using stdGaussian_fintype_polynomial_log_sq_integrable Q
+
+end
+end JinWishart
+#print axioms JinWishart.stdGaussian_fintype_polynomial_log_sq_integrable
+#print axioms JinWishart.properComplex_pi_polynomial_log_sq_integrable
+
+SOURCE ActualComplexPolynomialLogSquare.lean
+import JinWishartFormalization.ProperGaussianPolynomialLogSquare
+import JinWishartFormalization.ActualComplexPolynomialLog
+
+/-! Actual physical holomorphic polynomial/compressed determinant log-square.
+Fixed arbitrary complex factors, including zero/singular cases; Real.log0=0.
+Codex. [需人工审查] Physical law/variance and map integration. -/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem integrable_actualComplexMatrix_holomorphic_log_sq (m p : ℕ)
+    (P : MvPolynomial (Fin m × Fin p) ℂ) :
+    Integrable (fun z=>(Real.log ‖MvPolynomial.eval (complexMatrixEntries z) P‖)^2)
+      (stdGaussian (ComplexSample (m := m) (n := p))) := by
+  have h := properComplex_pi_polynomial_log_sq_integrable P
+  rw [← complexMatrixEntries_law m p] at h
+  exact (integrable_map_measure ((MvPolynomial.continuous_eval P).norm.measurable.log.pow_const 2).aestronglyMeasurable
+    (measurable_complexMatrixEntries m p).aemeasurable).mp h
+
+theorem integrable_actualAffineCompressedDet_log_sq {m p n q : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (L : Matrix (Fin q) (Fin m) ℂ) (H : Matrix (Fin n) (Fin q) ℂ) :
+    Integrable (fun z=>(Real.log ‖(L*(complexSampleMatrix z*B+M)*H).det‖)^2)
+      (stdGaussian (ComplexSample (m := m) (n := p))) := by
+  simpa only [entryAffineCompressedDet_eval] using
+    integrable_actualComplexMatrix_holomorphic_log_sq m p (entryAffineCompressedDet B M L H)
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_actualComplexMatrix_holomorphic_log_sq
+#print axioms JinWishart.integrable_actualAffineCompressedDet_log_sq

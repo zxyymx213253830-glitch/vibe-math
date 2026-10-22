@@ -1,0 +1,24 @@
+{
+  "id": "L-finite-log-square-real_log_sq_le_nonnegative_square",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteGaussianPolynomialLogSquare",
+  "declaration": "JinWishart.real_log_sq_le_nonnegative_square",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-finite-log-square-integrable_stdGaussian_pi_mvPolynomial_norm_sq"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-finite-log-square-integrable_stdGaussian_pi_mvPolynomial_norm_sq"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-log-square-FiniteGaussianPolynomialLogSquare.json",
+    "source_sha256": "774eedbf1a19052bd08ebe2568a4334e231577a1f37e769cb17b3242b8df2a5a"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "PASS reproducible controls; NOT general proof",
+  "seed": 2026102208,
+  "source_sha256": "96359ddae988dc0b18392a332340c8dfc5681ae2610980c39471b4fa6711d4f1",
+  "samples": 200000,
+  "checks": 10,
+  "details": [
+    "proper-product0-log-square",
+    "proper-product1-log-square",
+    "proper-product2-log-square",
+    "proper-product3-log-square",
+    "actual-singular-factor-compressed-minor-log-square",
+    "actual-singular-factor-positive-log-square",
+    "same-source-minor-positive-log-identity",
+    "proper-entry-secondmoment",
+    "planar-law-substitution-negative-control",
+    "empty-determinant-log-square0"
+  ],
+  "seconds": 0.13033149999682792,
+  "scope": "properCN1 productn0..3, actual fixed singularB rank2 compressedminor and Gram positive-log square, known Gamma/deterministic formulas; sourcevariance1"
+}

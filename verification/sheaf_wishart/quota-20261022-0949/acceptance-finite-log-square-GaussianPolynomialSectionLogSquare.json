@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-finite-log-square-GaussianPolynomialSectionLogSquare.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-finite-log-square-GaussianPolynomialSectionLogSquare.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/finite-log-square-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-log-square-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-log-square-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-log-square-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/finite-log-square-final-snapshot",
+    "resolution": "notes/WISHART_FINITE_GAUSSIAN_LOG_SQUARE.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-69.receipt.json"
+}
