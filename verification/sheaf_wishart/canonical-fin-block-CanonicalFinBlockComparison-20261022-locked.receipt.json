@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:49:49.491877+00:00",
+  "ended_utc": "2026-10-22T19:50:03.290199+00:00",
+  "module": "JinWishartFormalization.CanonicalFinBlockComparison",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalFinBlockComparison.lean",
+  "source_sha256_before": "24708b4b820d8ccf94f9f0bbcc5a83775fd33758e59cf06b95cbeb5fda1bfced",
+  "source_sha256": "24708b4b820d8ccf94f9f0bbcc5a83775fd33758e59cf06b95cbeb5fda1bfced",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/canonical-fin-block-CanonicalFinBlockComparison-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "6f82e7676807432db4157f30d44d13f65494b5fda64ef3f61068350c63249b8e",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

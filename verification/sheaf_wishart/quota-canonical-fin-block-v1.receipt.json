@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T19:47:08.943958+00:00",
+  "ended_utc": "2026-10-22T19:47:34.358068+00:00",
+  "module": "JinWishartFormalization.CanonicalFinBlockComparison",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalFinBlockComparison.lean",
+  "source_sha256_before": "aa1739832df17d4748ade996fadfdfafa07d401d90b6de3fdae409a58283f49d",
+  "source_sha256": "aa1739832df17d4748ade996fadfdfafa07d401d90b6de3fdae409a58283f49d",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-canonical-fin-block-v1.txt",
+  "log_exists": true,
+  "log_sha256": "8a42e47d748bcf7056367aebd015f542dab9503a5796cfe2edfa28ec9fe42f84",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

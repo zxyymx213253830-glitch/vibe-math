@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CanonicalFinBlockComparison.lean": {
+      "sha256": "24708b4b820d8ccf94f9f0bbcc5a83775fd33758e59cf06b95cbeb5fda1bfced",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "84c13a3d333748e1e7b392893d217207f2ffb63b953524defcd032e241f46db9"
+}

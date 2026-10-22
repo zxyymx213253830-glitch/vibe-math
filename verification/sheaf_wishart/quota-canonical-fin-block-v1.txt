@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalFinBlockComparison.lean:14:48: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖star ?x‖
+in the target expression
+  max 1 (‖star (toEuclideanCLM S)‖ ^ 2) = max 1 (‖toEuclideanCLM S‖ ^ 2)
+
+n : ℕ
+S : Matrix (Fin n) (Fin n) ℂ
+⊢ max 1 (‖star (toEuclideanCLM S)‖ ^ 2) = max 1 (‖toEuclideanCLM S‖ ^ 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalFinBlockComparison.lean:62:8: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalFinBlockComparison.lean:72:16: error: mod_cast has type
+  (RCLike.ofReal ∘ hG.eigenvalues₀) i = ↑x
+but is expected to have type
+  hG.eigenvalues₀ i = x
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalFinBlockComparison.lean:104:2: error: `dsimp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    complexGram (canonicalFinBlock er ec A H N) i
+'JinWishart.canonical_fin_shear_positive_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.canonical_fin_diagonal_gram_charpoly' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.canonical_fin_block_minimum_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

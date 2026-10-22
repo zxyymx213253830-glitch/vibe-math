@@ -1,0 +1,14 @@
+{
+  "seed": 2026102230,
+  "cases": 48,
+  "checks": 299,
+  "status": "PASS",
+  "source_sha256": "3b443bacbc1b4e68354111cd829fe969fdc06ad948a72f9449685f99bba5ca24",
+  "scope": "Finite controls only; no general inverse-moment threshold proof",
+  "known_controls": [
+    "rectangular identity A positive modes1",
+    "invertible diagonal N",
+    "empty charpoly1",
+    "wide structural zeros excluded by singular-value minimum"
+  ]
+}

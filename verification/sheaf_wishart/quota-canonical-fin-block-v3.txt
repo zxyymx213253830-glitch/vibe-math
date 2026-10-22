@@ -1,0 +1,3 @@
+'JinWishart.canonical_fin_shear_positive_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.canonical_fin_diagonal_gram_charpoly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.canonical_fin_block_minimum_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

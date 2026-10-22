@@ -1,3 +1,4 @@
+import JinWishartFormalization.CanonicalFinBlockComparison
 import JinWishartFormalization.CanonicalFinShear
 import JinWishartFormalization.CanonicalFinGramTransport
 import JinWishartFormalization.CanonicalPhysicalModel

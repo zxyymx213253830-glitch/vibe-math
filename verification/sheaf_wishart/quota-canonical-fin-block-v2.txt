@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalFinBlockComparison.lean:123:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑x ∈ (complexGram A).charpoly.roots
+in the target expression
+  ↑x ∈ (Aᴴ * A).charpoly.roots ∨ ↑x ∈ (Nᴴ * N).charpoly.roots ↔ (∃ l, ⋯.eigenvalues₀ l = x) ∨ ∃ l, ⋯.eigenvalues₀ l = x
+
+a b c m n : ℕ
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+A : Matrix (Fin a) (Fin b) ℂ
+H K : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+hK : N * K = H
+hm : 0 < m
+hn : 0 < n
+hr : (canonicalFinBlock er ec A H N).rank = min m n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+k : Fin (Fintype.card (Fin c))
+hj : 0 < ⋯.eigenvalues₀ j
+hk : 0 < ⋯.eigenvalues₀ k
+hminA : ∀ (l : Fin (Fintype.card (Fin b))), 0 < ⋯.eigenvalues₀ l → ⋯.eigenvalues₀ j ≤ ⋯.eigenvalues₀ l
+hminN : ∀ (l : Fin (Fintype.card (Fin c))), 0 < ⋯.eigenvalues₀ l → ⋯.eigenvalues₀ k ≤ ⋯.eigenvalues₀ l
+D : Matrix (Fin m) (Fin n) ℂ := canonicalFinBlock er ec A H N
+E : Matrix (Fin m) (Fin n) ℂ := canonicalFinBlock er ec A 0 N
+hDE : D * canonicalFinShear ec (-K) = E
+hD : 0 < ⋯.eigenvalues₀ i
+hE : 0 < ⋯.eigenvalues₀ i
+hu : ⋯.eigenvalues₀ i ≤ (1 + ‖LinearMap.toContinuousLinearMap (toEuclideanLin K)‖) ^ 2 * ⋯.eigenvalues₀ i
+hl : ⋯.eigenvalues₀ i ≤ (1 + ‖LinearMap.toContinuousLinearMap (toEuclideanLin K)‖) ^ 2 * ⋯.eigenvalues₀ i
+hrE : E.rank = min m n
+hminE : ∀ (j : Fin (Fintype.card (Fin n))), 0 < ⋯.eigenvalues₀ j → ⋯.eigenvalues₀ i ≤ ⋯.eigenvalues₀ j
+x : ℝ
+⊢ ↑x ∈ (Aᴴ * A).charpoly.roots ∨ ↑x ∈ (Nᴴ * N).charpoly.roots ↔ (∃ l, ⋯.eigenvalues₀ l = x) ∨ ∃ l, ⋯.eigenvalues₀ l = x
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    complexGram A i
+'JinWishart.canonical_fin_shear_positive_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.canonical_fin_diagonal_gram_charpoly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.canonical_fin_block_minimum_bounds' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

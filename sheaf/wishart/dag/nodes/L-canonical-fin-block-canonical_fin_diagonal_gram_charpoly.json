@@ -1,0 +1,24 @@
+{
+  "id": "L-canonical-fin-block-canonical_fin_diagonal_gram_charpoly",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CanonicalFinBlockComparison",
+  "declaration": "JinWishart.canonical_fin_diagonal_gram_charpoly",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-canonical-fin-block-canonical_fin_shear_positive_bounds"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-canonical-fin-block-canonical_fin_shear_positive_bounds"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-fin-block-CanonicalFinBlockComparison.json",
+    "source_sha256": "24708b4b820d8ccf94f9f0bbcc5a83775fd33758e59cf06b95cbeb5fda1bfced"
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "canonical-fin-block-CanonicalFinBlockComparison",
+    "module": "CanonicalFinBlockComparison",
+    "nodes": [
+      [
+        "L-canonical-fin-block-canonical_fin_shear_positive_bounds",
+        "canonical_fin_shear_positive_bounds",
+        []
+      ],
+      [
+        "L-canonical-fin-block-canonical_fin_diagonal_gram_charpoly",
+        "canonical_fin_diagonal_gram_charpoly",
+        [
+          "L-canonical-fin-block-canonical_fin_shear_positive_bounds"
+        ]
+      ],
+      [
+        "L-canonical-fin-block-canonical_fin_block_minimum_bounds",
+        "canonical_fin_block_minimum_bounds",
+        [
+          "L-canonical-fin-block-canonical_fin_diagonal_gram_charpoly"
+        ]
+      ]
+    ]
+  }
+]
