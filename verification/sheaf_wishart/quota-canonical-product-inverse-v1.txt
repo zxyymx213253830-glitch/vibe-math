@@ -1,0 +1,54 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:31:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |(f x)⁻¹ ^ p|
+in the target expression
+  |f⁻¹ x ^ p| ≤ (min (f x) t)⁻¹ ^ p
+
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : α → ℝ
+hf : Measurable f
+hpos : ∀ᵐ (x : α) ∂μ, 0 < f x
+t p : ℝ
+ht : 0 < t
+hp : 0 < p
+h : Integrable (fun x => (min (f x) t)⁻¹ ^ p) μ
+x : α
+hx : 0 < f x
+⊢ |f⁻¹ x ^ p| ≤ (min (f x) t)⁻¹ ^ p
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:38:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |(min (f x) t)⁻¹ ^ p|
+in the target expression
+  |(fun a => min (f a) t)⁻¹ x ^ p| ≤ ((fun x => (f x)⁻¹ ^ p) + fun x => t⁻¹ ^ p) x
+
+α : Type u_1
+inst✝¹ : MeasurableSpace α
+μ : Measure α
+inst✝ : IsProbabilityMeasure μ
+f : α → ℝ
+hf : Measurable f
+hpos : ∀ᵐ (x : α) ∂μ, 0 < f x
+t p : ℝ
+ht : 0 < t
+hp : 0 < p
+h : Integrable (fun x => (f x)⁻¹ ^ p) μ
+x : α
+hx : 0 < f x
+⊢ |(fun a => min (f a) t)⁻¹ x ^ p| ≤ ((fun x => (f x)⁻¹ ^ p) + fun x => t⁻¹ ^ p) x
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:108:6: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:121:4: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:66:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'JinWishart.canonical_product_inverse_realMoment_integrable_iff' does not depend on any axioms

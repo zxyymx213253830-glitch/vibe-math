@@ -1,3 +1,4 @@
+import JinWishartFormalization.CanonicalProductInverseCriterion
 import JinWishartFormalization.CanonicalBlockRank
 import JinWishartFormalization.SeparableInverseMomentTransport
 import JinWishartFormalization.ActualCanonicalFinBridge

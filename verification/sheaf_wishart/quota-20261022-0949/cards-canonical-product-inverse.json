@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "canonical-product-inverse-CanonicalProductInverseCriterion",
+    "module": "CanonicalProductInverseCriterion",
+    "nodes": [
+      [
+        "L-canonical-product-inverse-canonical_product_inverse_realMoment_integrable_iff",
+        "canonical_product_inverse_realMoment_integrable_iff",
+        []
+      ]
+    ]
+  }
+]

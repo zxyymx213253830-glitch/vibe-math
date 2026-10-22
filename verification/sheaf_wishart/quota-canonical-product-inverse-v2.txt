@@ -1,0 +1,64 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:34:4: error: Type mismatch
+  one_div_le_one_div_of_le (lt_min hx ht) (min_le_left (f x) t)
+has type
+  1 / f x ≤ 1 / min (f x) t
+but is expected to have type
+  (f x)⁻¹ ≤ (min (f x) t)⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:113:76: error: `fun_prop` was unable to prove `Measurable fun w =>
+  of ((fun i => (complexSampleMatrix w.1 + MA) i ⊕ᵥ 0 i) ⊕ᵥ fun j => (complexSampleMatrix w.2 + MH) j ⊕ᵥ N j)
+    (Sum.inl u) (Sum.inl v)`
+
+Issues:
+  No theorems found for `Sum.elim` in order to prove `Measurable fun w3w4 => w3w4.1 ⊕ᵥ w3w4.2`
+  No theorems found for `Sum.elim` in order to prove `Measurable fun w =>
+  (fun i => (complexSampleMatrix w.1 + MA) i ⊕ᵥ 0 i) ⊕ᵥ fun j => (complexSampleMatrix w.2 + MH) j ⊕ᵥ N j`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:113:76: error: `fun_prop` was unable to prove `Measurable fun w =>
+  of ((fun i => (complexSampleMatrix w.1 + MA) i ⊕ᵥ 0 i) ⊕ᵥ fun j => (complexSampleMatrix w.2 + MH) j ⊕ᵥ N j)
+    (Sum.inl u) (Sum.inr v)`
+
+Issues:
+  No theorems found for `Sum.elim` in order to prove `Measurable fun w3w4 => w3w4.1 ⊕ᵥ w3w4.2`
+  No theorems found for `Sum.elim` in order to prove `Measurable fun w =>
+  (fun i => (complexSampleMatrix w.1 + MA) i ⊕ᵥ 0 i) ⊕ᵥ fun j => (complexSampleMatrix w.2 + MH) j ⊕ᵥ N j`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:113:76: error: `fun_prop` was unable to prove `Measurable fun w =>
+  of ((fun i => (complexSampleMatrix w.1 + MA) i ⊕ᵥ 0 i) ⊕ᵥ fun j => (complexSampleMatrix w.2 + MH) j ⊕ᵥ N j)
+    (Sum.inr u) (Sum.inl v)`
+
+Issues:
+  No theorems found for `Sum.elim` in order to prove `Measurable fun w3w4 => w3w4.1 ⊕ᵥ w3w4.2`
+  No theorems found for `Sum.elim` in order to prove `Measurable fun w =>
+  (fun i => (complexSampleMatrix w.1 + MA) i ⊕ᵥ 0 i) ⊕ᵥ fun j => (complexSampleMatrix w.2 + MH) j ⊕ᵥ N j`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:113:76: error: `fun_prop` was unable to prove `Measurable fun w =>
+  of ((fun i => (complexSampleMatrix w.1 + MA) i ⊕ᵥ 0 i) ⊕ᵥ fun j => (complexSampleMatrix w.2 + MH) j ⊕ᵥ N j)
+    (Sum.inr u) (Sum.inr v)`
+
+Issues:
+  No theorems found for `Sum.elim` in order to prove `Measurable fun w3w4 => w3w4.1 ⊕ᵥ w3w4.2`
+  No theorems found for `Sum.elim` in order to prove `Measurable fun w =>
+  (fun i => (complexSampleMatrix w.1 + MA) i ⊕ᵥ 0 i) ⊕ᵥ fun j => (complexSampleMatrix w.2 + MH) j ⊕ᵥ N j`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:115:12: warning: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵a̵s̵u̵r̵a̵b̵l̵e̵_̵p̵i̵_̵l̵a̵m̵b̵d̵a̵M̲e̲a̲s̲u̲r̲a̲b̲l̲e̲.̲o̲f̲_̲e̲v̲a̲l̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:117:12: warning: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵a̵s̵u̵r̵a̵b̵l̵e̵_̵p̵i̵_̵l̵a̵m̵b̵d̵a̵M̲e̲a̲s̲u̲r̲a̲b̲l̲e̲.̲o̲f̲_̲e̲v̲a̲l̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:113:34: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fromBlocks, A, H, complexSampleMatrix]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CanonicalProductInverseCriterion.lean:113:51: warning: This simp argument is unused:
+  complexSampleMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fromBlocks, A, H, Matrix.add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.canonical_product_inverse_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

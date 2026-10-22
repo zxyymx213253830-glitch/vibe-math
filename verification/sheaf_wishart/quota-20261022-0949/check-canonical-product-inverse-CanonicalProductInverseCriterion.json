@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "9ccdddb25ed8574440c7d216c13a0138575a010effd9f5fb3f3837c1d4dea66b",
+  "target_lock_sha256": "8389b7431ce3174ec3004837c12786d185ddc586b779f9750371a5eedb056a13",
+  "leaf": {
+    "started_utc": "2026-10-22T20:18:28.965029+00:00",
+    "ended_utc": "2026-10-22T20:18:41.838071+00:00",
+    "module": "JinWishartFormalization.CanonicalProductInverseCriterion",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalProductInverseCriterion.lean",
+    "source_sha256_before": "9ccdddb25ed8574440c7d216c13a0138575a010effd9f5fb3f3837c1d4dea66b",
+    "source_sha256": "9ccdddb25ed8574440c7d216c13a0138575a010effd9f5fb3f3837c1d4dea66b",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/canonical-product-inverse-CanonicalProductInverseCriterion-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "0ebcdbf72afb10f218310d13a5b373a3a881cf0dcaa8545c560d4d28ca9d577d",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-22T20:18:41.839793+00:00",
+    "ended_utc": "2026-10-22T20:18:52.661431+00:00",
+    "module": "SheafCanonicalProductInverseTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCanonicalProductInverseTargets.lean",
+    "source_sha256_before": "7756b493c16b8258904b7228f2adae8bbd4b8eca76316a368724486d0997b34f",
+    "source_sha256": "7756b493c16b8258904b7228f2adae8bbd4b8eca76316a368724486d0997b34f",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/canonical-product-inverse-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "57a6dd7f0620b877bac4d7363aca6f477f937994e69e16f5ee4b11d5cc234209",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

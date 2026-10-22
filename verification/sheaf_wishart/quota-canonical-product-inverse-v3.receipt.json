@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-22T20:17:20.733654+00:00",
+  "ended_utc": "2026-10-22T20:17:32.552158+00:00",
+  "module": "JinWishartFormalization.CanonicalProductInverseCriterion",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CanonicalProductInverseCriterion.lean",
+  "source_sha256_before": "9ccdddb25ed8574440c7d216c13a0138575a010effd9f5fb3f3837c1d4dea66b",
+  "source_sha256": "9ccdddb25ed8574440c7d216c13a0138575a010effd9f5fb3f3837c1d4dea66b",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-canonical-product-inverse-v3.txt",
+  "log_exists": true,
+  "log_sha256": "0ebcdbf72afb10f218310d13a5b373a3a881cf0dcaa8545c560d4d28ca9d577d",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

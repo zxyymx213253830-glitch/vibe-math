@@ -25,7 +25,11 @@ main.write_bytes(''.join('import JinWishartFormalization.'+card['module']+'\n' f
 for card in cards:
  tag=card['tag'];s['targets'].append(dict(module='JinWishartFormalization.'+card['module'],count=len(card['nodes']),log='verification/sheaf_wishart/'+tag+'-20261022-locked.txt',kernel_exit_code_recorded=0))
  a.write(run/('acceptance-'+tag+'.json'),dict(target_lock=a.rel(run/('locks-'+tag+'.json')),check=a.rel(run/('check-'+tag+'.json')),review=rev,audit='verification/central_mixed_moments/audit.json',facade_receipt='verification/sheaf_wishart/'+c['facade']+'.receipt.json'))
-s['controls'].append(dict(script=c['control_script'],result=c['control_result'],seed=c['seed']))
+control=dict(script=c['control_script'],result=c['control_result'],seed=c['seed'])
+if c.get('reuse_control',False):
+ assert control in s['controls'], 'A reused control must already be identically audit-bound'
+else:
+ s['controls'].append(control)
 s['reviews'].append({k:rev[k] for k in ['request','prompt','receipt','raw','snapshot']})
 s['scope']+=' '+c['scope'];a.write(sp,s)
 for p in list((R/'verification/sheaf_wishart').rglob('acceptance-*.json'))+[R/'verification/sheaf_wishart/pilot-acceptance.json']:
