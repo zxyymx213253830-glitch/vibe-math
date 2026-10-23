@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "critical-second-coefficient-PositiveSpectrumSecondFatou",
+    "module": "PositiveSpectrumSecondFatou",
+    "nodes": [
+      [
+        "L-critical-second-coefficient-positiveSpectrum_second_gap_lintegral_tendsto_top",
+        "positiveSpectrum_second_gap_lintegral_tendsto_top",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "critical-second-coefficient-ActualCriticalSecondCoefficient",
+    "module": "ActualCriticalSecondCoefficient",
+    "nodes": [
+      [
+        "L-critical-second-coefficient-actualCorrelatedMatrixLogDet_critical_second_gap_tendsto_atTop",
+        "actualCorrelatedMatrixLogDet_critical_second_gap_tendsto_atTop",
+        [
+          "L-critical-second-coefficient-positiveSpectrum_second_gap_lintegral_tendsto_top"
+        ]
+      ]
+    ]
+  }
+]

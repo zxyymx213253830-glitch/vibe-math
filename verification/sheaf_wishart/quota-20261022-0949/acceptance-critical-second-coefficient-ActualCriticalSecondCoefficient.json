@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-critical-second-coefficient-ActualCriticalSecondCoefficient.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-critical-second-coefficient-ActualCriticalSecondCoefficient.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/critical-second-coefficient-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-critical-second-coefficient-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-critical-second-coefficient-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-critical-second-coefficient-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/critical-second-coefficient-final-snapshot",
+    "resolution": "notes/WISHART_CRITICAL_SECOND_COEFFICIENT.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-110.receipt.json"
+}

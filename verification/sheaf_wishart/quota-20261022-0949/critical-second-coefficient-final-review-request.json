@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "PositiveSpectrumSecondFatou.lean": {
+      "sha256": "dce6be77d18ed973d0ffa6523b97519f5ec4c391bd53a26f741a8a0612ea67fd",
+      "supplied": "Full source"
+    },
+    "ActualCriticalSecondCoefficient.lean": {
+      "sha256": "59bf9ffe70b373ed81ba1c943ec6f294b475aa458f9443c5faef77b9561e3abf",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "b1b50639e137f24f6c03bd2e722c43d6acf9ef3257d5818439262660fbeeadcd"
+}

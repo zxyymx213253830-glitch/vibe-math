@@ -1,0 +1,26 @@
+{
+  "status": "PASS finite calibrated controls; not a Fatou/divergence proof",
+  "seed": 2026102245,
+  "checks": 48,
+  "records": [
+    {
+      "t": 1.0,
+      "second_scaled_gap": 0.42278433509846713
+    },
+    {
+      "t": 10.0,
+      "second_scaled_gap": 1.2191137854906313
+    },
+    {
+      "t": 1000.0,
+      "second_scaled_gap": 3.417825441702414
+    },
+    {
+      "t": 100000.0,
+      "second_scaled_gap": 5.717895797003364
+    }
+  ],
+  "reference": "Gamma(2,1): Elog(1+tX)=1+(1-1/t)exp(1/t)E1(1/t), ElogX=1-EulerGamma, E(1/X)=1",
+  "counter_control": "Deterministic positive mode: scaled second gap tends to1/2; zero modes contribute0",
+  "source_sha256": "31f18d3310c06736be93c67fbb4a778efb5a860abc1e57e78c4dff4dfae4cae2"
+}

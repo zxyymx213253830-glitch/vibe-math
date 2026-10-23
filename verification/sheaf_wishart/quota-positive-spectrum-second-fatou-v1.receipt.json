@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:06:08.902289+00:00",
+  "ended_utc": "2026-10-23T10:08:25.160394+00:00",
+  "module": "JinWishartFormalization.PositiveSpectrumSecondFatou",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveSpectrumSecondFatou.lean",
+  "source_sha256_before": "dce6be77d18ed973d0ffa6523b97519f5ec4c391bd53a26f741a8a0612ea67fd",
+  "source_sha256": "dce6be77d18ed973d0ffa6523b97519f5ec4c391bd53a26f741a8a0612ea67fd",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-positive-spectrum-second-fatou-v1.txt",
+  "log_exists": true,
+  "log_sha256": "980701a8226a80c651d5b4ff9abc414ffd26fb8d969fbc615acf02bf139245fa",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

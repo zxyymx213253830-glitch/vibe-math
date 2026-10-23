@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:08:33.715079+00:00",
+  "ended_utc": "2026-10-23T10:09:29.476038+00:00",
+  "module": "JinWishartFormalization.ActualCriticalSecondCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCriticalSecondCoefficient.lean",
+  "source_sha256_before": "fd4290b86c0b276979888bfe0928ac9de15a97bca72edd172ca05558da34801b",
+  "source_sha256": "fd4290b86c0b276979888bfe0928ac9de15a97bca72edd172ca05558da34801b",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-actual-critical-second-coefficient-v1.txt",
+  "log_exists": true,
+  "log_sha256": "ee84e710d5bac36d1b6cb083882da013397171375759d3199d01b0ce7f7fb50a",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

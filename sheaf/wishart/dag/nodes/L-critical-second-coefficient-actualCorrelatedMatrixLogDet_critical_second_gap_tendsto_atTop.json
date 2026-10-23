@@ -1,0 +1,24 @@
+{
+  "id": "L-critical-second-coefficient-actualCorrelatedMatrixLogDet_critical_second_gap_tendsto_atTop",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualCriticalSecondCoefficient",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_critical_second_gap_tendsto_atTop",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-critical-second-coefficient-positiveSpectrum_second_gap_lintegral_tendsto_top"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-critical-second-coefficient-positiveSpectrum_second_gap_lintegral_tendsto_top"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-critical-second-coefficient-ActualCriticalSecondCoefficient.json",
+    "source_sha256": "59bf9ffe70b373ed81ba1c943ec6f294b475aa458f9443c5faef77b9561e3abf"
+  }
+}

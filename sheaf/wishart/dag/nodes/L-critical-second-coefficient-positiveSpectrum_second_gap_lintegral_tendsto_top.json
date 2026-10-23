@@ -1,0 +1,20 @@
+{
+  "id": "L-critical-second-coefficient-positiveSpectrum_second_gap_lintegral_tendsto_top",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PositiveSpectrumSecondFatou",
+  "declaration": "JinWishart.positiveSpectrum_second_gap_lintegral_tendsto_top",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-critical-second-coefficient-PositiveSpectrumSecondFatou.json",
+    "source_sha256": "dce6be77d18ed973d0ffa6523b97519f5ec4c391bd53a26f741a8a0612ea67fd"
+  }
+}

@@ -548,3 +548,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/critical_first_coefficient_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CRITICAL_FIRST_COEFFICIENT.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/PositiveSpectrumSecondFatou.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualCriticalSecondCoefficient.lean -text whitespace=cr-at-eol
+
+/experiments/critical_second_coefficient_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CRITICAL_SECOND_COEFFICIENT.md -text whitespace=cr-at-eol

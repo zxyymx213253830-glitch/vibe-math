@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCriticalSecondCoefficient.lean:80:45: error: typeclass instance problem is stuck
+  AddLeftMono ?m.612
+
+Note: Lean will not try to resolve this typeclass instance problem because the first, second, and third type arguments to `AddLeftMono` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+'JinWishart.actualCorrelatedMatrixLogDet_critical_second_gap_tendsto_atTop' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
