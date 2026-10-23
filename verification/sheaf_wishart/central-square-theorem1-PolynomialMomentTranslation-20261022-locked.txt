@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:38:63: warning: This simp argument is unused:
+  RingHom.id_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_mul_assoc, mul_smul_comm, smul_smul, map_smul, ← pow_add, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.monic_polynomial_moment_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.shifted_polynomial_moment_det' depends on axioms: [propext, Classical.choice, Quot.sound]

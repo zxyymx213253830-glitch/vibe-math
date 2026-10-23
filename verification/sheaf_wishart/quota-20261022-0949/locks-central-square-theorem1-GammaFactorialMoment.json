@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-23T10:37:08.518406+00:00",
+  "module": "JinWishartFormalization.GammaFactorialMoment",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GammaFactorialMoment.lean",
+  "statements": {
+    "JinWishart.factorialMoment_X_pow": "(k : ℕ) : factorialMomentFunctional ((X : ℂ[X])^k)=(k.factorial : ℂ)",
+    "JinWishart.upperGammaNat_eq_factorialMoment": "(k : ℕ) (x : ℝ) (hx : 0≤x) : upperGammaNat k x=(Real.exp (-x) : ℂ)* factorialMomentFunctional ((X+C (x : ℂ))^k)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/IncompleteGamma.lean": "8218e54945bb43bd233034dda988a20b8ffe1a74e82e13c79e32b458ae6ec378",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/IncompleteGamma.olean": "1ec416113b374bd3a07cab7b6c857cdcd85b04d269c9547b19fc51121a9d1d3c",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GammaFactorialMoment.lean": "02e40819a9fa6e32195fa93e2779bf38d6cb82ab76d22851cae3fc0481affc63",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafCentralSquareTheorem1Targets.lean",
+  "type_check_source_sha256": "bae225c89bb9b36ac9c24c5e244a32036ffd6dbd881b09580cf1b7651dafe09e",
+  "locked_local_definitions": {}
+}

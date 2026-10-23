@@ -1,5 +1,8 @@
 # Critical second coefficient
 
+Closed at763, commit ca4b95e; final evidence and review resolution are in
+WISHART_CRITICAL_SECOND_COEFFICIENT.md. The dated plan below is retained.
+
 Accepted predecessor: 761 declarations, commit 8a54835. First and second finite
 coefficients (757/759) are closed. Do not redo inverse classification 746.
 

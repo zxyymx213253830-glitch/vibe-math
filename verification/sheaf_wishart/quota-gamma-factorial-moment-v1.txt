@@ -1,0 +1,31 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaFactorialMoment.lean:27:11: error: unsolved goals
+case monomial.zero
+a : ℂ
+⊢ factorialMomentFunctional (C a) = a
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaFactorialMoment.lean:23:32: warning: This simp argument is unused:
+  derivative_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_add, eval_add, hp, hq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaFactorialMoment.lean:29:12: warning: This simp argument is unused:
+  derivative_monomial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.factorial_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaFactorialMoment.lean:47:9: error: unsolved goals
+case zero
+x : ℝ
+hx : 0 ≤ x
+⊢ factorialMomentFunctional 1 = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GammaFactorialMoment.lean:50:55: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+k : ℕ
+ih : upperGammaNat k x = ↑(Real.exp (-x)) * factorialMomentFunctional ((X + C ↑x) ^ k)
+⊢ ↑x ^ (↑k + 1) = ↑x ^ (k + 1)
+'JinWishart.factorialMoment_X_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.upperGammaNat_eq_factorialMoment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

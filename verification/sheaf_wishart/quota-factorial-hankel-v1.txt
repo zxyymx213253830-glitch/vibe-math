@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FactorialHankelDeterminant.lean:4:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FactorialHankelDeterminant.lean:17:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, ?f ↑i
+in the target expression
+  ∑ k, (↑i).choose ↑k * (↑j).choose ↑k = (↑i + ↑j).choose ↑j
+
+n : ℕ
+i j : Fin n
+⊢ ∑ k, (↑i).choose ↑k * (↑j).choose ↑k = (↑i + ↑j).choose ↑j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FactorialHankelDeterminant.lean:65:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (↑(OrderDual.toDual i)).choose ↑(OrderDual.toDual j)
+in the target expression
+  ↑(↑i).factorial * ↑((↑i).choose ↑j) = 0
+
+n : ℕ
+i j : Fin n
+hij : OrderDual.toDual j < OrderDual.toDual i
+⊢ ↑(↑i).factorial * ↑((↑i).choose ↑j) = 0
+'JinWishart.binomial_overlap_sum_fin' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.factorialHankel_gram_factorization' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.factorialHankel_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:27:19.593678+00:00",
+  "ended_utc": "2026-10-23T10:27:53.335285+00:00",
+  "module": "JinWishartFormalization.PolynomialMomentTranslation",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PolynomialMomentTranslation.lean",
+  "source_sha256_before": "2b29d7c379a60d93ed80cbeab89d892d84bf35d0be110865a0f6a4b60ab19151",
+  "source_sha256": "2b29d7c379a60d93ed80cbeab89d892d84bf35d0be110865a0f6a4b60ab19151",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-polynomial-moment-translation-v1.txt",
+  "log_exists": true,
+  "log_sha256": "568327ec80c50ea18f1f4f4db17272221670eeeb474e6cfa84e93d7bad22c8c9",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

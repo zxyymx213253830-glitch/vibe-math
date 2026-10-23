@@ -1,0 +1,101 @@
+[
+  {
+    "tag": "central-square-theorem1-FactorialHankelDeterminant",
+    "module": "FactorialHankelDeterminant",
+    "nodes": [
+      [
+        "L-central-square-theorem1-binomial_overlap_sum_fin",
+        "binomial_overlap_sum_fin",
+        []
+      ],
+      [
+        "L-central-square-theorem1-factorialHankel_gram_factorization",
+        "factorialHankel_gram_factorization",
+        [
+          "L-central-square-theorem1-binomial_overlap_sum_fin"
+        ]
+      ],
+      [
+        "L-central-square-theorem1-factorialHankel_det",
+        "factorialHankel_det",
+        [
+          "L-central-square-theorem1-factorialHankel_gram_factorization"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "central-square-theorem1-PolynomialMomentTranslation",
+    "module": "PolynomialMomentTranslation",
+    "nodes": [
+      [
+        "L-central-square-theorem1-monic_polynomial_moment_det",
+        "monic_polynomial_moment_det",
+        [
+          "L-central-square-theorem1-factorialHankel_det"
+        ]
+      ],
+      [
+        "L-central-square-theorem1-shifted_polynomial_moment_det",
+        "shifted_polynomial_moment_det",
+        [
+          "L-central-square-theorem1-monic_polynomial_moment_det"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "central-square-theorem1-GammaFactorialMoment",
+    "module": "GammaFactorialMoment",
+    "nodes": [
+      [
+        "L-central-square-theorem1-factorialMoment_X_pow",
+        "factorialMoment_X_pow",
+        [
+          "L-central-square-theorem1-shifted_polynomial_moment_det"
+        ]
+      ],
+      [
+        "L-central-square-theorem1-upperGammaNat_eq_factorialMoment",
+        "upperGammaNat_eq_factorialMoment",
+        [
+          "L-central-square-theorem1-factorialMoment_X_pow"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "central-square-theorem1-Theorem1CentralSquare",
+    "module": "Theorem1CentralSquare",
+    "nodes": [
+      [
+        "L-central-square-theorem1-upperGammaHankel_det",
+        "upperGammaHankel_det",
+        [
+          "L-central-square-theorem1-upperGammaNat_eq_factorialMoment"
+        ]
+      ],
+      [
+        "L-central-square-theorem1-theorem1CentralSquare_PsiDet",
+        "theorem1CentralSquare_PsiDet",
+        [
+          "L-central-square-theorem1-upperGammaHankel_det"
+        ]
+      ],
+      [
+        "L-central-square-theorem1-theorem1CentralSquare_candidate_eq_expCDF",
+        "theorem1CentralSquare_candidate_eq_expCDF",
+        [
+          "L-central-square-theorem1-theorem1CentralSquare_PsiDet"
+        ]
+      ],
+      [
+        "L-central-square-theorem1-theorem1CentralSquare_candidate_eq_actualCDF",
+        "theorem1CentralSquare_candidate_eq_actualCDF",
+        [
+          "L-central-square-theorem1-theorem1CentralSquare_candidate_eq_expCDF"
+        ]
+      ]
+    ]
+  }
+]

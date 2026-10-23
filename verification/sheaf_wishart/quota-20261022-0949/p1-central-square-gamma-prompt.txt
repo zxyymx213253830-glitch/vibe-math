@@ -1,0 +1,26 @@
+P1 route criticism only, <=500 words, no full proof, no tools, no invented API claims.
+All proof bodies will be Codex; you are Qoder Qwen3.8-Max route reviewer.
+
+Target: connect original central square Theorem1 candidate to the actual CN1
+n-by-n minimum CDF 1-exp(-n*x), n>0,x>=0. Existing actual law is already proved;
+do not redo Gaussian density, spectral law or a joint eigenvalue Jacobian.
+Original candidate Psi_ij(x)=upperGammaNat(2*n-(i+1)-(j+1),x), Fin n indices.
+upperGammaNat(k,x)=k! exp(-x) SUM(a=0..k) x^a/a! is already checked.
+Candidate is 1-||det Psi(x)||/||det Psi(0)|| over complex matrices.
+
+Exact controls seed2026102246:159 checks n0..8 and symbolic n1..4 PASS.
+Reversing both row and column orders gives Hankel moments Hx_ij (i+j).
+Hx=exp(-x)*T(x)*H0*T(x)^T,
+T_ik=choose(i,k)*x^(i-k) if k<=i else0, lower unit triangular.
+H0_ij=(i+j)!, H0=D*P*P^T*D, D_ii=i!, P_ik=choose(i,k).
+Thus det H0=PROD(i!^2)>0 and det Hx=exp(-n*x)*det H0.
+This is finite algebra, not a conjectured density premise. Size0 only algebra.
+
+Pinned local APIs verified: Nat.add_choose_eq (Vandermonde via antidiagonal),
+Nat.choose_symm, Nat.add_choose_mul_factorial_mul_factorial,
+Matrix.det_of_isLowerTriangular, det_mul, det_transpose, upperGammaNat_eq_finite.
+No Pascal-matrix API found in pinned local mathlib, do not assert one exists.
+Questions: identify any actual normalization/index/sign gap in this precise
+route; suggest smallest reusable finite identity for the translation step;
+offer at most two alternative deterministic routes with fewer obligations.
+Do not propose joint spectral density as an unavoidable prerequisite here.

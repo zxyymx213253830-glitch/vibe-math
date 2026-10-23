@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:36:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ∑ i ∈ ?s, ?f i
+in the target expression
+  ∑ x, F ((p i).coeff ↑k • X ^ ↑k * (p j).coeff ↑x • X ^ ↑x) =
+    ∑ i_1, (p i).coeff ↑k * (F (X ^ (↑k + ↑i_1)) * (p j).coeff ↑i_1)
+
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p : Fin n → ℂ[X]
+hd : ∀ (i : Fin n), (p i).natDegree = ↑i
+hm : ∀ (i : Fin n), (p i).Monic
+T : Matrix (Fin n) (Fin n) ℂ := fun i j => (p i).coeff ↑j
+H : Matrix (Fin n) (Fin n) ℂ := fun i j => F (X ^ (↑i + ↑j))
+hp : ∀ (i : Fin n), p i = ∑ k, (p i).coeff ↑k • X ^ ↑k
+hdet : T.det = 1
+i j k : Fin n
+a✝ : k ∈ Finset.univ
+⊢ ∑ x, F ((p i).coeff ↑k • X ^ ↑k * (p j).coeff ↑x • X ^ ↑x) =
+    ∑ i_1, (p i).coeff ↑k * (F (X ^ (↑k + ↑i_1)) * (p j).coeff ↑i_1)
+'JinWishart.monic_polynomial_moment_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.shifted_polynomial_moment_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

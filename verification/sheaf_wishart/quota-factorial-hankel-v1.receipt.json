@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:23:53.166051+00:00",
+  "ended_utc": "2026-10-23T10:24:07.434265+00:00",
+  "module": "JinWishartFormalization.FactorialHankelDeterminant",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FactorialHankelDeterminant.lean",
+  "source_sha256_before": "ef6cef01e3200f9804a816bed81a67912c214a0f9415cb2bbe763e7769091602",
+  "source_sha256": "ef6cef01e3200f9804a816bed81a67912c214a0f9415cb2bbe763e7769091602",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-factorial-hankel-v1.txt",
+  "log_exists": true,
+  "log_sha256": "0d7f8840d8c721aba852b5181040e24009fcb6dc51cb524b8267c75d2d91f04f",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

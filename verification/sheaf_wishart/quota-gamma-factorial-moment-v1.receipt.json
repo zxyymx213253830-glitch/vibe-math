@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:30:20.669665+00:00",
+  "ended_utc": "2026-10-23T10:30:40.069494+00:00",
+  "module": "JinWishartFormalization.GammaFactorialMoment",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GammaFactorialMoment.lean",
+  "source_sha256_before": "a63305a78c3bd5a7a8cf0ab7645877fbdbafefd1cecc559197e20d0fdbb2afee",
+  "source_sha256": "a63305a78c3bd5a7a8cf0ab7645877fbdbafefd1cecc559197e20d0fdbb2afee",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-gamma-factorial-moment-v1.txt",
+  "log_exists": true,
+  "log_sha256": "6a9b787a15139619e0a220299f4511431b478ec791fdadaf61d5b7d4545bb0f7",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

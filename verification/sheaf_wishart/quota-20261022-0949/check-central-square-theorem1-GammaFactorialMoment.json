@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "02e40819a9fa6e32195fa93e2779bf38d6cb82ab76d22851cae3fc0481affc63",
+  "target_lock_sha256": "974e70b5d4b4b8d23f2fc1e4305dfd328fc2f2795cb401d7b46ebc5530b8e9be",
+  "leaf": {
+    "started_utc": "2026-10-23T10:37:29.537678+00:00",
+    "ended_utc": "2026-10-23T10:37:38.536189+00:00",
+    "module": "JinWishartFormalization.GammaFactorialMoment",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/GammaFactorialMoment.lean",
+    "source_sha256_before": "02e40819a9fa6e32195fa93e2779bf38d6cb82ab76d22851cae3fc0481affc63",
+    "source_sha256": "02e40819a9fa6e32195fa93e2779bf38d6cb82ab76d22851cae3fc0481affc63",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/central-square-theorem1-GammaFactorialMoment-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "bdcac76e176b9d7a292c9569df601d93baf54297eb209fe6cc8d258ceffb32b7",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T10:37:49.529896+00:00",
+    "ended_utc": "2026-10-23T10:38:18.178298+00:00",
+    "module": "SheafCentralSquareTheorem1Targets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCentralSquareTheorem1Targets.lean",
+    "source_sha256_before": "bae225c89bb9b36ac9c24c5e244a32036ffd6dbd881b09580cf1b7651dafe09e",
+    "source_sha256": "bae225c89bb9b36ac9c24c5e244a32036ffd6dbd881b09580cf1b7651dafe09e",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/central-square-theorem1-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "d356e9139ebb118750decf13088a66656f89a9ea9280b70fad13a47630651a4a",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

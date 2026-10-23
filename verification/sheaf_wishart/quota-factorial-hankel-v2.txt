@@ -1,0 +1,3 @@
+'JinWishart.binomial_overlap_sum_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.factorialHankel_gram_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.factorialHankel_det' depends on axioms: [propext, Classical.choice, Quot.sound]

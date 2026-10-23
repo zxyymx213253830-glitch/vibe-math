@@ -1,0 +1,46 @@
+{
+  "status": "PASS exact finite controls; not general determinant/probability proof",
+  "seed": 2026102246,
+  "checks": 227,
+  "records": [
+    {
+      "n": 0,
+      "zero_threshold_determinant": 1
+    },
+    {
+      "n": 1,
+      "zero_threshold_determinant": 1
+    },
+    {
+      "n": 2,
+      "zero_threshold_determinant": 1
+    },
+    {
+      "n": 3,
+      "zero_threshold_determinant": 4
+    },
+    {
+      "n": 4,
+      "zero_threshold_determinant": 144
+    },
+    {
+      "n": 5,
+      "zero_threshold_determinant": 82944
+    },
+    {
+      "n": 6,
+      "zero_threshold_determinant": 1194393600
+    },
+    {
+      "n": 7,
+      "zero_threshold_determinant": 619173642240000
+    },
+    {
+      "n": 8,
+      "zero_threshold_determinant": 15728001190723584000000
+    }
+  ],
+  "reference": "Gamma integer finite sum; H0=D Pascal Pascal.T D; unit triangular translation; known Exp(rate1/rate2)",
+  "empty_dimension": "Algebra determinant1 only; no minimum-positive eigenvalue claimed at n0",
+  "source_sha256": "1725aa28b29258f816d4eafa488e4e43643d7fb886482d1f4da8b8cd53ddfbad"
+}

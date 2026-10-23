@@ -1,0 +1,39 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:15:37: error(lean.invalidField): Invalid field `det`: The environment does not contain `Function.det`, so it is not possible to project the field `det` from an expression
+  fun i j => F (p i * p j)
+of type `Fin n → Fin n → ℂ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:16:47: error(lean.invalidField): Invalid field `det`: The environment does not contain `Function.det`, so it is not possible to project the field `det` from an expression
+  fun i j => F (X ^ (↑i + ↑j))
+of type `Fin n → Fin n → ℂ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:36:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ∑ i ∈ ?s, ?f i
+in the target expression
+  ∑ x, F ((p i).coeff ↑x • X ^ ↑x * (p j).coeff ↑k • X ^ ↑k) =
+    ∑ i_1, (∑ k, (p i).coeff ↑k • X ^ ↑k).coeff ↑k * (F (X ^ (↑k + ↑i_1)) * (∑ k, (p j).coeff ↑k • X ^ ↑k).coeff ↑i_1)
+
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p : Fin n → ℂ[X]
+hd : ∀ (i : Fin n), (p i).natDegree = ↑i
+hm : ∀ (i : Fin n), (p i).Monic
+T : Matrix (Fin n) (Fin n) ℂ := fun i j => (p i).coeff ↑j
+H : Matrix (Fin n) (Fin n) ℂ := fun i j => F (X ^ (↑i + ↑j))
+hp : ∀ (i : Fin n), p i = ∑ k, (p i).coeff ↑k • X ^ ↑k
+hdet : T.det = 1
+i j k : Fin n
+a✝ : k ∈ Finset.univ
+⊢ ∑ x, F ((p i).coeff ↑x • X ^ ↑x * (p j).coeff ↑k • X ^ ↑k) =
+    ∑ i_1, (∑ k, (p i).coeff ↑k • X ^ ↑k).coeff ↑k * (F (X ^ (↑k + ↑i_1)) * (∑ k, (p j).coeff ↑k • X ^ ↑k).coeff ↑i_1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:45:51: error(lean.invalidField): Invalid field `det`: The environment does not contain `Function.det`, so it is not possible to project the field `det` from an expression
+  fun i j => F ((X + C x) ^ (↑i + ↑j))
+of type `Fin n → Fin n → ℂ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:46:47: error(lean.invalidField): Invalid field `det`: The environment does not contain `Function.det`, so it is not possible to project the field `det` from an expression
+  fun i j => F (X ^ (↑i + ↑j))
+of type `Fin n → Fin n → ℂ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:50:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [← pow_add]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:55:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.monic_polynomial_moment_det`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PolynomialMomentTranslation.lean:56:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.shifted_polynomial_moment_det`

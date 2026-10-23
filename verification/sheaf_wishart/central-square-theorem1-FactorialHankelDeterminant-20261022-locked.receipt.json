@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:37:09.106668+00:00",
+  "ended_utc": "2026-10-23T10:37:19.765577+00:00",
+  "module": "JinWishartFormalization.FactorialHankelDeterminant",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FactorialHankelDeterminant.lean",
+  "source_sha256_before": "ea9b0e763902878bc26fdabd03691cfb61c193b6def4ef9734b6340823054d81",
+  "source_sha256": "ea9b0e763902878bc26fdabd03691cfb61c193b6def4ef9734b6340823054d81",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/central-square-theorem1-FactorialHankelDeterminant-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "8f6d99bdeb31c48f84c09691ec0f807b62819c10a3ac94554dfceacb41eea2ef",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

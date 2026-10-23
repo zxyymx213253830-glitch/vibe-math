@@ -1,0 +1,24 @@
+{
+  "id": "L-central-square-theorem1-upperGammaHankel_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.Theorem1CentralSquare",
+  "declaration": "JinWishart.upperGammaHankel_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-central-square-theorem1-upperGammaNat_eq_factorialMoment"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-central-square-theorem1-upperGammaNat_eq_factorialMoment"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-square-theorem1-Theorem1CentralSquare.json",
+    "source_sha256": "4ebcc8d5501cc32908255483be4cda8438fea43e31db0284190695adf02b5f67"
+  }
+}

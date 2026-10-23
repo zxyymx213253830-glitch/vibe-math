@@ -1,0 +1,291 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE FactorialHankelDeterminant.lean
+import Mathlib.Data.Nat.Choose.Vandermonde
+import Mathlib.Algebra.BigOperators.NatAntidiagonal
+import Mathlib.LinearAlgebra.Matrix.Block
+import Mathlib.Basic.Complex.Basic
+import Mathlib.Tactic
+
+/-! Deterministic denominator algebra for central square Theorem1.
+Codex. Seed2026102246:159 exact finite controls precede source.
+All sizes including0 for algebra only; no minimum eigenvalue at dimension0. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+theorem binomial_overlap_sum_fin (n : ℕ) (i j : Fin n) :
+    (∑ k : Fin n,i.val.choose k.val*j.val.choose k.val)=(i.val+j.val).choose j.val := by
+  classical
+  rw [Fin.sum_univ_eq_sum_range (fun k : ℕ => i.val.choose k*j.val.choose k) n]
+  have h := Nat.add_choose_eq i.val j.val j.val
+  rw [Finset.Nat.sum_antidiagonal_eq_sum_range_succ_mk] at h
+  have ht : (∑ k ∈ Finset.range (j.val+1),i.val.choose k*j.val.choose k)=
+      ∑ k ∈ Finset.range n,i.val.choose k*j.val.choose k := by
+    apply Finset.sum_subset (Finset.range_mono (by omega))
+    intro k hk hnot
+    have hjk : j.val<k := by simp only [Finset.mem_range] at hnot;omega
+    rw [Nat.choose_eq_zero_of_lt hjk,mul_zero]
+  rw [← ht, h]
+  apply Finset.sum_congr rfl
+  intro k hk
+  rw [Nat.choose_symm (by simpa only [Finset.mem_range_succ_iff] using hk)]
+
+def factorialHankel (n : ℕ) : Matrix (Fin n) (Fin n) ℂ :=
+  fun i j => ((i.val+j.val).factorial : ℂ)
+
+def factorialPascalFactor (n : ℕ) : Matrix (Fin n) (Fin n) ℂ :=
+  fun i j => (i.val.factorial : ℂ)*(i.val.choose j.val : ℂ)
+
+theorem factorialHankel_gram_factorization (n : ℕ) :
+    factorialHankel n=factorialPascalFactor n*(factorialPascalFactor n).transpose := by
+  classical
+  ext i j
+  rw [Matrix.mul_apply]
+  change ((i.val+j.val).factorial : ℂ)=
+    ∑ k : Fin n,(i.val.factorial : ℂ)*(i.val.choose k.val : ℂ)*
+      ((j.val.factorial : ℂ)*(j.val.choose k.val : ℂ))
+  have hs : (∑ k : Fin n,(i.val.choose k.val : ℂ)*(j.val.choose k.val : ℂ))=
+      ((i.val+j.val).choose j.val : ℂ) := by
+    exact_mod_cast binomial_overlap_sum_fin n i j
+  calc
+    _=((i.val+j.val).choose j.val : ℂ)*(i.val.factorial : ℂ)*(j.val.factorial : ℂ) := by
+      exact_mod_cast (Nat.add_choose_mul_factorial_mul_factorial i.val j.val).symm
+    _=(i.val.factorial : ℂ)*(j.val.factorial : ℂ)*
+        (∑ k : Fin n,(i.val.choose k.val : ℂ)*(j.val.choose k.val : ℂ)) := by rw [hs];ring
+    _=_ := by
+      rw [Finset.mul_sum]
+      apply Finset.sum_congr rfl
+      intro k _
+      ring
+
+theorem factorialHankel_det (n : ℕ) :
+    (factorialHankel n).det=∏ i : Fin n,(i.val.factorial : ℂ)^2 := by
+  classical
+  have htri : (factorialPascalFactor n).IsLowerTriangular := by
+    intro i j hij
+    have hij' : i.val<j.val := hij
+    change (i.val.factorial : ℂ)*(i.val.choose j.val : ℂ)=0
+    rw [Nat.choose_eq_zero_of_lt hij',Nat.cast_zero,mul_zero]
+  have hdet : (factorialPascalFactor n).det=∏ i : Fin n,(i.val.factorial : ℂ) := by
+    rw [Matrix.det_of_isLowerTriangular _ htri]
+    simp [factorialPascalFactor]
+  rw [factorialHankel_gram_factorization,Matrix.det_mul,Matrix.det_transpose,hdet]
+  rw [← pow_two,Finset.prod_pow]
+
+end
+end JinWishart
+#print axioms JinWishart.binomial_overlap_sum_fin
+#print axioms JinWishart.factorialHankel_gram_factorization
+#print axioms JinWishart.factorialHankel_det
+
+SOURCE PolynomialMomentTranslation.lean
+import JinWishartFormalization.FactorialHankelDeterminant
+import Mathlib.Algebra.Polynomial.Degree.Support
+import Mathlib.Algebra.Polynomial.Monic
+
+/-! Change of monic polynomial basis preserves a bilinear moment determinant.
+Codex. Original159 factorial controls precede this source; the complex
+extension201 was run after drafting but before its first kernel check.
+This uses transpose, not conjugate transpose; positivity is not assumed. -/
+open Matrix Polynomial
+namespace JinWishart
+noncomputable section
+
+theorem monic_polynomial_moment_det (n : ℕ) (F : ℂ[X] →ₗ[ℂ] ℂ)
+    (p : Fin n → ℂ[X]) (hd : ∀ i,(p i).natDegree=i.val) (hm : ∀ i,(p i).Monic) :
+    Matrix.det (fun i j : Fin n => F (p i*p j))=
+      Matrix.det (fun i j : Fin n => F (X^(i.val+j.val))) := by
+  classical
+  let T : Matrix (Fin n) (Fin n) ℂ := fun i j => (p i).coeff j.val
+  let H : Matrix (Fin n) (Fin n) ℂ := fun i j => F (X^(i.val+j.val))
+  have hp (i : Fin n) : p i=∑ k : Fin n,(p i).coeff k.val • (X : ℂ[X])^k.val := by
+    rw [Fin.sum_univ_eq_sum_range (fun k : ℕ => (p i).coeff k • (X : ℂ[X])^k) n]
+    simpa only [smul_eq_C_mul] using
+      (p i).as_sum_range_C_mul_X_pow' (by rw [hd];exact i.isLt)
+  have hdet : T.det=1 := by
+    rw [← Matrix.det_transpose]
+    exact Matrix.det_matrixOfPolynomials p hd hm
+  have heq : (fun i j : Fin n => F (p i*p j))=T*H*T.transpose := by
+    ext i j
+    rw [Matrix.mul_assoc,Matrix.mul_apply]
+    change F (p i*p j)=∑ k : Fin n,(p i).coeff k.val*
+      (∑ l : Fin n,F (X^(k.val+l.val))*(p j).coeff l.val)
+    conv_lhs => rw [hp i,hp j,Finset.sum_mul]
+    simp only [Finset.mul_sum,map_sum]
+    apply Finset.sum_congr rfl
+    intro k _
+    apply Finset.sum_congr rfl
+    intro l _
+    simp only [smul_mul_assoc,mul_smul_comm,smul_smul,map_smul,RingHom.id_apply,
+      ← pow_add,smul_eq_mul]
+    ring
+  rw [heq,Matrix.det_mul,Matrix.det_mul,Matrix.det_transpose,hdet,one_mul,mul_one]
+
+theorem shifted_polynomial_moment_det (n : ℕ) (F : ℂ[X] →ₗ[ℂ] ℂ) (x : ℂ) :
+    Matrix.det (fun i j : Fin n => F ((X+C x)^(i.val+j.val)))=
+      Matrix.det (fun i j : Fin n => F (X^(i.val+j.val))) := by
+  have hd (i : Fin n) : ((X+C x)^(i.val) : ℂ[X]).natDegree=i.val := by
+    simp
+  have hm (i : Fin n) : ((X+C x)^(i.val) : ℂ[X]).Monic := (monic_X_add_C x).pow _
+  simpa only [← pow_add] using
+    monic_polynomial_moment_det n F (fun i => (X+C x)^i.val) hd hm
+
+end
+end JinWishart
+#print axioms JinWishart.monic_polynomial_moment_det
+#print axioms JinWishart.shifted_polynomial_moment_det
+
+SOURCE GammaFactorialMoment.lean
+import JinWishartFormalization.IncompleteGamma
+import Mathlib.Algebra.Polynomial.Coeff
+import Mathlib.Algebra.Polynomial.Derivative
+
+/-! Finite factorial functional identifies upper integer Gamma moments.
+Codex. Additional exact recurrence controls run before source, seed2026102246.
+No probability density or integral interchange is asserted by this algebra. -/
+open Polynomial
+namespace JinWishart
+noncomputable section
+
+def factorialMomentFunctional : ℂ[X] →ₗ[ℂ] ℂ :=
+  Polynomial.lsum (fun k => (LinearMap.id : ℂ →ₗ[ℂ] ℂ).smulRight (k.factorial : ℂ))
+
+@[simp] private theorem factorialMoment_monomial (k : ℕ) (a : ℂ) :
+    factorialMomentFunctional (monomial k a)=a*(k.factorial : ℂ) := by
+  simp [factorialMomentFunctional,Polynomial.lsum_apply,Polynomial.sum_monomial_index]
+
+@[simp] private theorem factorialMoment_C (a : ℂ) : factorialMomentFunctional (C a)=a := by
+  simpa using factorialMoment_monomial 0 a
+
+@[simp] private theorem factorialMoment_one : factorialMomentFunctional 1=1 := by
+  simpa using factorialMoment_C 1
+
+private theorem factorialMoment_eval_derivative (p : ℂ[X]) :
+    factorialMomentFunctional p=p.eval 0+factorialMomentFunctional p.derivative := by
+  induction p using Polynomial.induction_on' with
+  | add p q hp hq =>
+    simp only [map_add,eval_add,derivative_add,hp,hq]
+    ring
+  | monomial n a =>
+    cases n with
+    | zero => simp
+    | succ n =>
+      simp [derivative_monomial,Nat.factorial_succ]
+      ring
+
+private theorem factorialMoment_shift_succ (k : ℕ) (x : ℂ) :
+    factorialMomentFunctional ((X+C x)^(k+1))=
+      x^(k+1)+(k+1 : ℂ)*factorialMomentFunctional ((X+C x)^k) := by
+  have h := factorialMoment_eval_derivative ((X+C x)^(k+1))
+  simpa only [eval_pow,eval_add,eval_X,eval_C,zero_add,derivative_X_add_C_pow,
+    Nat.add_sub_cancel,← smul_eq_C_mul,map_smul,RingHom.id_apply,smul_eq_mul,Nat.cast_add,Nat.cast_one] using h
+
+theorem factorialMoment_X_pow (k : ℕ) :
+    factorialMomentFunctional ((X : ℂ[X])^k)=(k.factorial : ℂ) := by
+  rw [← monomial_one_right_eq_X_pow,factorialMoment_monomial,one_mul]
+
+theorem upperGammaNat_eq_factorialMoment (k : ℕ) (x : ℝ) (hx : 0≤x) :
+    upperGammaNat k x=(Real.exp (-x) : ℂ)*
+      factorialMomentFunctional ((X+C (x : ℂ))^k) := by
+  induction k with
+  | zero => simp [upperGammaNat_zero,← monomial_zero_left]
+  | succ k ih =>
+    rw [upperGammaNat_succ k hx,ih,factorialMoment_shift_succ]
+    have hp : (x : ℂ)^((k+1 : ℕ) : ℂ)=(x : ℂ)^(k+1) := Complex.cpow_natCast _ _
+    rw [hp]
+    push_cast
+    ring
+
+end
+end JinWishart
+#print axioms JinWishart.factorialMoment_X_pow
+#print axioms JinWishart.upperGammaNat_eq_factorialMoment
+
+SOURCE Theorem1CentralSquare.lean
+import JinWishartFormalization.PolynomialMomentTranslation
+import JinWishartFormalization.GammaFactorialMoment
+import JinWishartFormalization.Theorem1Formula
+import JinWishartFormalization.CentralWishartMinimum
+import Mathlib.Data.Fin.Rev
+
+/-! Original Theorem1 central square candidate equals the actual CN1 minimum
+CDF in every positive size. Codex. Exact controls seed2026102246 precede source.
+No assumed joint density, determinant sign hypothesis or normalization premise.
+[需人工审查] Original paper indexing/model/variance and inherited probability law. -/
+open Matrix MeasureTheory ProbabilityTheory Polynomial
+namespace JinWishart
+noncomputable section
+
+theorem upperGammaHankel_det (n : ℕ) (x : ℝ) (hx : 0≤x) :
+    Matrix.det (fun i j : Fin n => upperGammaNat (i.val+j.val) x)=
+      (Real.exp (-(n : ℝ)*x) : ℂ)*(∏ i : Fin n,(i.val.factorial : ℂ)^2) := by
+  classical
+  have heq : Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val) x)=
+      (Real.exp (-x) : ℂ) • Matrix.of (fun i j : Fin n =>
+        factorialMomentFunctional ((X+C (x : ℂ))^(i.val+j.val))) := by
+    ext i j
+    exact upperGammaNat_eq_factorialMoment _ x hx
+  change (Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val) x)).det=_
+  rw [heq,Matrix.det_smul,Fintype.card_fin]
+  change (Real.exp (-x) : ℂ)^n*Matrix.det (fun i j : Fin n =>
+    factorialMomentFunctional ((X+C (x : ℂ))^(i.val+j.val)))=_
+  rw [shifted_polynomial_moment_det]
+  have h0 : (fun i j : Fin n => factorialMomentFunctional ((X : ℂ[X])^(i.val+j.val)))=
+      factorialHankel n := by
+    ext i j
+    exact factorialMoment_X_pow _
+  rw [h0,factorialHankel_det]
+  have hp : (Real.exp (-x) : ℂ)^n=(Real.exp (-(n : ℝ)*x) : ℂ) := by
+    rw [← Complex.ofReal_pow,← Real.exp_nat_mul]
+    congr 2
+    ring
+  rw [hp]
+
+theorem theorem1CentralSquare_PsiDet (n : ℕ) (x : ℝ) (hx : 0≤x) :
+    (theorem1PsiMatrix n n 0 (le_refl n) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x).det=
+      (Real.exp (-(n : ℝ)*x) : ℂ)*(∏ i : Fin n,(i.val.factorial : ℂ)^2) := by
+  have heq : theorem1PsiMatrix n n 0 (le_refl n) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x=
+      Matrix.reindex (Fin.revPerm : Fin n ≃ Fin n) Fin.revPerm
+        (Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val) x)) := by
+    ext i j
+    simp only [theorem1PsiMatrix,theorem1PsiEntry,Nat.not_lt_zero,↓reduceDIte,
+      Matrix.reindex_apply,Matrix.of_apply,Fin.revPerm_symm,Fin.revPerm_apply]
+    congr 1
+    change n+n-(i.val+1)-(j.val+1)=(n-(i.val+1))+(n-(j.val+1))
+    omega
+  rw [heq,Matrix.det_reindex_self]
+  exact upperGammaHankel_det n x hx
+
+theorem theorem1CentralSquare_candidate_eq_expCDF (n : ℕ) (x : ℝ) (hx : 0≤x) :
+    theorem1CdfCandidate n n 0 (le_refl n) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x=1-Real.exp (-(n : ℝ)*x) := by
+  classical
+  have hD : (∏ i : Fin n,(i.val.factorial : ℂ)^2)≠0 := by
+    apply Finset.prod_ne_zero_iff.mpr
+    intro i _
+    exact pow_ne_zero 2 (by exact_mod_cast Nat.factorial_ne_zero i.val)
+  have hDN := norm_ne_zero_iff.mpr hD
+  rw [theorem1CdfCandidate,theorem1CentralSquare_PsiDet n x hx,
+    theorem1CentralSquare_PsiDet n 0 (by norm_num)]
+  simp only [mul_zero,neg_zero,Real.exp_zero,Complex.ofReal_one,one_mul]
+  rw [norm_mul,Complex.norm_of_nonneg (Real.exp_nonneg _),mul_div_cancel_right₀ _ hDN]
+
+theorem theorem1CentralSquare_candidate_eq_actualCDF (n : ℕ) (hn : 0<n)
+    (x : ℝ) (hx : 0≤x) :
+    theorem1CdfCandidate n n 0 (le_refl n) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x=
+      ((stdGaussian (ComplexSample (m := n) (n := n)))
+        {z | centralSquareSampleMinimum n hn z≤x}).toReal := by
+  rw [theorem1CentralSquare_candidate_eq_expCDF n x hx,
+    actualCentralSquare_minimum_CDF n hn x hx]
+
+end
+end JinWishart
+#print axioms JinWishart.upperGammaHankel_det
+#print axioms JinWishart.theorem1CentralSquare_PsiDet
+#print axioms JinWishart.theorem1CentralSquare_candidate_eq_expCDF
+#print axioms JinWishart.theorem1CentralSquare_candidate_eq_actualCDF

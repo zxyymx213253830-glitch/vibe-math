@@ -1,0 +1,24 @@
+{
+  "id": "L-central-square-theorem1-shifted_polynomial_moment_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PolynomialMomentTranslation",
+  "declaration": "JinWishart.shifted_polynomial_moment_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-central-square-theorem1-monic_polynomial_moment_det"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-central-square-theorem1-monic_polynomial_moment_det"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-square-theorem1-PolynomialMomentTranslation.json",
+    "source_sha256": "bfeca08b78291e993288ab68d5f84787de4c24e4b44b20b849ef64daf98adab4"
+  }
+}

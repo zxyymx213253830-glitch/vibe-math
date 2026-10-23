@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "FactorialHankelDeterminant.lean": {
+      "sha256": "ea9b0e763902878bc26fdabd03691cfb61c193b6def4ef9734b6340823054d81",
+      "supplied": "Full source"
+    },
+    "PolynomialMomentTranslation.lean": {
+      "sha256": "bfeca08b78291e993288ab68d5f84787de4c24e4b44b20b849ef64daf98adab4",
+      "supplied": "Full source"
+    },
+    "GammaFactorialMoment.lean": {
+      "sha256": "02e40819a9fa6e32195fa93e2779bf38d6cb82ab76d22851cae3fc0481affc63",
+      "supplied": "Full source"
+    },
+    "Theorem1CentralSquare.lean": {
+      "sha256": "4ebcc8d5501cc32908255483be4cda8438fea43e31db0284190695adf02b5f67",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "8fa7541a217b306b7bb785865e98e68bb92c19beecfff92e368a7b86b2952278"
+}

@@ -1,0 +1,117 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:24:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?c • ?A).det
+in the target expression
+  det (↑(Real.exp (-x)) • fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))) =
+    ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+heq :
+  (fun i j => upperGammaNat (↑i + ↑j) x) =
+    ↑(Real.exp (-x)) • fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))
+⊢ det (↑(Real.exp (-x)) • fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))) =
+    ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    ↑(Real.exp (-x)) • fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))
+  has type
+    Fin n → Fin n → ℂ
+  but is expected to have type
+    Matrix (Fin n) (Fin n) ℂ
+  in the application
+    det (↑(Real.exp (-x)) • fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:49:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 1
+  c - e ≥ 1
+  2*c - d - e ≥ 2
+  b ≥ 0
+  b - c ≤ -1
+  a ≥ 0
+  a - c ≤ -1
+  a + b - 2*c + d + e ≥ -1
+where
+ a := ↑↑((Equiv.symm Fin.revPerm) i)
+ b := ↑↑((Equiv.symm Fin.revPerm) j)
+ c := ↑n
+ d := ↑↑i
+ e := ↑↑j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:50:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ((reindex ?e ?e) ?A).det
+in the target expression
+  ((reindex Fin.revPerm Fin.revPerm) fun i j => upperGammaNat (↑i + ↑j) x).det =
+    ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+heq :
+  theorem1PsiMatrix n n 0 ⋯ ⋯ (fun j => j.elim0) x =
+    (reindex Fin.revPerm Fin.revPerm) fun i j => upperGammaNat (↑i + ↑j) x
+⊢ ((reindex Fin.revPerm Fin.revPerm) fun i j => upperGammaNat (↑i + ↑j) x).det =
+    ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    fun i j => upperGammaNat (↑i + ↑j) x
+  has type
+    Fin n → Fin n → ℂ
+  but is expected to have type
+    Matrix (Fin n) (Fin n) ℂ
+  in the application
+    (reindex Fin.revPerm Fin.revPerm) fun i j => upperGammaNat (↑i + ↑j) x
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:46:6: warning: This simp argument is unused:
+  Matrix.reindex_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Fin.revPerm_symm,
+    Fin.revPerm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:46:27: warning: This simp argument is unused:
+  Fin.revPerm_symm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Fin.revPerm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:46:44: warning: This simp argument is unused:
+  Fin.revPerm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Fin.revPerm_symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:48:34: warning: This simp argument is unused:
+  Fin.val_rev
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1GammaIndex]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:63:22: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, Real.exp_zero, Complex.ofReal_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.upperGammaHankel_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralSquare_PsiDet' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralSquare_candidate_eq_expCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralSquare_candidate_eq_actualCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

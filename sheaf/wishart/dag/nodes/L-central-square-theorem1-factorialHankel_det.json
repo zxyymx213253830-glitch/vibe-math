@@ -1,0 +1,24 @@
+{
+  "id": "L-central-square-theorem1-factorialHankel_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FactorialHankelDeterminant",
+  "declaration": "JinWishart.factorialHankel_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-central-square-theorem1-factorialHankel_gram_factorization"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-central-square-theorem1-factorialHankel_gram_factorization"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-square-theorem1-FactorialHankelDeterminant.json",
+    "source_sha256": "ea9b0e763902878bc26fdabd03691cfb61c193b6def4ef9734b6340823054d81"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-23T10:37:08.434228+00:00",
+  "module": "JinWishartFormalization.FactorialHankelDeterminant",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FactorialHankelDeterminant.lean",
+  "statements": {
+    "JinWishart.binomial_overlap_sum_fin": "(n : ℕ) (i j : Fin n) : (∑ k : Fin n,i.val.choose k.val*j.val.choose k.val)=(i.val+j.val).choose j.val",
+    "JinWishart.factorialHankel_gram_factorization": "(n : ℕ) : factorialHankel n=factorialPascalFactor n*(factorialPascalFactor n).transpose",
+    "JinWishart.factorialHankel_det": "(n : ℕ) : (factorialHankel n).det=∏ i : Fin n,(i.val.factorial : ℂ)^2"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/FactorialHankelDeterminant.lean": "ea9b0e763902878bc26fdabd03691cfb61c193b6def4ef9734b6340823054d81",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafCentralSquareTheorem1Targets.lean",
+  "type_check_source_sha256": "bae225c89bb9b36ac9c24c5e244a32036ffd6dbd881b09580cf1b7651dafe09e",
+  "locked_local_definitions": {}
+}

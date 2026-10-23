@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "bfeca08b78291e993288ab68d5f84787de4c24e4b44b20b849ef64daf98adab4",
+  "target_lock_sha256": "cf591d058fa2cca4acac939b02a54cafba20409ef2ebd5e7976ff60880610fbe",
+  "leaf": {
+    "started_utc": "2026-10-23T10:37:19.775405+00:00",
+    "ended_utc": "2026-10-23T10:37:29.530810+00:00",
+    "module": "JinWishartFormalization.PolynomialMomentTranslation",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/PolynomialMomentTranslation.lean",
+    "source_sha256_before": "bfeca08b78291e993288ab68d5f84787de4c24e4b44b20b849ef64daf98adab4",
+    "source_sha256": "bfeca08b78291e993288ab68d5f84787de4c24e4b44b20b849ef64daf98adab4",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/central-square-theorem1-PolynomialMomentTranslation-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "0c79597c07e02dfe53a1e4e9f252efbe364fac3a727027498e1a7db1ac117cf2",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T10:37:49.529896+00:00",
+    "ended_utc": "2026-10-23T10:38:18.178298+00:00",
+    "module": "SheafCentralSquareTheorem1Targets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCentralSquareTheorem1Targets.lean",
+    "source_sha256_before": "bae225c89bb9b36ac9c24c5e244a32036ffd6dbd881b09580cf1b7651dafe09e",
+    "source_sha256": "bae225c89bb9b36ac9c24c5e244a32036ffd6dbd881b09580cf1b7651dafe09e",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/central-square-theorem1-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "d356e9139ebb118750decf13088a66656f89a9ea9280b70fad13a47630651a4a",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

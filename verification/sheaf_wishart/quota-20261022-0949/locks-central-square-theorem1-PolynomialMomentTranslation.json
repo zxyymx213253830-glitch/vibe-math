@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-23T10:37:08.494070+00:00",
+  "module": "JinWishartFormalization.PolynomialMomentTranslation",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PolynomialMomentTranslation.lean",
+  "statements": {
+    "JinWishart.monic_polynomial_moment_det": "(n : ℕ) (F : ℂ[X] →ₗ[ℂ] ℂ) (p : Fin n → ℂ[X]) (hd : ∀ i,(p i).natDegree=i.val) (hm : ∀ i,(p i).Monic) : Matrix.det (fun i j : Fin n => F (p i*p j))= Matrix.det (fun i j : Fin n => F (X^(i.val+j.val)))",
+    "JinWishart.shifted_polynomial_moment_det": "(n : ℕ) (F : ℂ[X] →ₗ[ℂ] ℂ) (x : ℂ) : Matrix.det (fun i j : Fin n => F ((X+C x)^(i.val+j.val)))= Matrix.det (fun i j : Fin n => F (X^(i.val+j.val)))"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/FactorialHankelDeterminant.lean": "ea9b0e763902878bc26fdabd03691cfb61c193b6def4ef9734b6340823054d81",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FactorialHankelDeterminant.olean": "5e61d6cd0f526a07cbebd8cc71f99260bf90e3971495c77029b45eca8988ad1b",
+    "theory/jin_wishart_formalization/JinWishartFormalization/PolynomialMomentTranslation.lean": "bfeca08b78291e993288ab68d5f84787de4c24e4b44b20b849ef64daf98adab4",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafCentralSquareTheorem1Targets.lean",
+  "type_check_source_sha256": "bae225c89bb9b36ac9c24c5e244a32036ffd6dbd881b09580cf1b7651dafe09e",
+  "locked_local_definitions": {}
+}

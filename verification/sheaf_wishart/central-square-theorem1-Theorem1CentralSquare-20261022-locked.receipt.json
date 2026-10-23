@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:37:38.595622+00:00",
+  "ended_utc": "2026-10-23T10:37:49.528200+00:00",
+  "module": "JinWishartFormalization.Theorem1CentralSquare",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1CentralSquare.lean",
+  "source_sha256_before": "4ebcc8d5501cc32908255483be4cda8438fea43e31db0284190695adf02b5f67",
+  "source_sha256": "4ebcc8d5501cc32908255483be4cda8438fea43e31db0284190695adf02b5f67",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/central-square-theorem1-Theorem1CentralSquare-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "52472dbf09c99289f0cf94054435764481d5d3ca1e25044b58361e52fa09a727",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

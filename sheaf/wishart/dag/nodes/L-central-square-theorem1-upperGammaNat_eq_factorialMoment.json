@@ -1,0 +1,24 @@
+{
+  "id": "L-central-square-theorem1-upperGammaNat_eq_factorialMoment",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GammaFactorialMoment",
+  "declaration": "JinWishart.upperGammaNat_eq_factorialMoment",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-central-square-theorem1-factorialMoment_X_pow"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-central-square-theorem1-factorialMoment_X_pow"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-square-theorem1-GammaFactorialMoment.json",
+    "source_sha256": "02e40819a9fa6e32195fa93e2779bf38d6cb82ab76d22851cae3fc0481affc63"
+  }
+}

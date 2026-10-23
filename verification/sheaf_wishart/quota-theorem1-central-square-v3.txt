@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:26:2: error: 'change' tactic failed, pattern
+  (↑(Real.exp (-x)) ^ n * det fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))) = ?m.180
+is not definitionally equal to target
+  ↑(Real.exp (-x)) ^ Fintype.card (Fin n) * (of fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))).det =
+    ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:50:27: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Fin.revPerm_symm, Fin.revPerm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:50:60: warning: This simp argument is unused:
+  Fin.revPerm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Matrix.of_apply, Fin.revPerm_symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:68:22: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, Real.exp_zero, Complex.ofReal_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.upperGammaHankel_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralSquare_PsiDet' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralSquare_candidate_eq_expCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralSquare_candidate_eq_actualCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

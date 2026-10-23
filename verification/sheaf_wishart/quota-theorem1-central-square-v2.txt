@@ -1,0 +1,85 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:25:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  det fun i j => ?F ((X + C ?x) ^ (↑i + ↑j))
+in the target expression
+  ↑(Real.exp (-x)) ^ Fintype.card (Fin n) * (of fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))).det =
+    ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+heq :
+  (of fun i j => upperGammaNat (↑i + ↑j) x) =
+    ↑(Real.exp (-x)) • of fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))
+⊢ ↑(Real.exp (-x)) ^ Fintype.card (Fin n) * (of fun i j => factorialMomentFunctional ((X + C ↑x) ^ (↑i + ↑j))).det =
+    ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:50:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 1
+  c - e ≥ 1
+  2*c - d - e ≥ 2
+  b ≥ 0
+  b - c ≤ -1
+  a ≥ 0
+  a - c ≤ -1
+  a + b - 2*c + d + e ≥ -1
+where
+ a := ↑↑(Fin.revPerm i)
+ b := ↑↑(Fin.revPerm j)
+ c := ↑n
+ d := ↑↑i
+ e := ↑↑j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:51:34: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  det fun i j => upperGammaNat (↑i + ↑j) x
+in the target expression
+  (of fun i j => upperGammaNat (↑i + ↑j) x).det = ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+heq :
+  theorem1PsiMatrix n n 0 ⋯ ⋯ (fun j => j.elim0) x =
+    (reindex Fin.revPerm Fin.revPerm) (of fun i j => upperGammaNat (↑i + ↑j) x)
+⊢ (of fun i j => upperGammaNat (↑i + ↑j) x).det = ↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:47:27: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Fin.revPerm_symm, Fin.revPerm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:47:60: warning: This simp argument is unused:
+  Fin.revPerm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Matrix.of_apply, Fin.revPerm_symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:49:34: warning: This simp argument is unused:
+  Fin.val_rev
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1GammaIndex]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralSquare.lean:64:22: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, Real.exp_zero, Complex.ofReal_one, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.upperGammaHankel_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralSquare_PsiDet' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralSquare_candidate_eq_expCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralSquare_candidate_eq_actualCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
