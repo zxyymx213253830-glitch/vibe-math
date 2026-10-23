@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianFiniteSquareMGF.lean:22:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : (i : ?m.240) → ?m.243 i), ∏ i, ?f i (x i) ∂Measure.pi ?μ
+in the target expression
+  (∫ (x : ι → ℝ), ∏ i, rexp (t * (x i + u i) ^ 2 / 2) ∂Measure.pi fun x => gaussianReal 0 1) =
+    (√(1 - t))⁻¹ ^ Fintype.card ι * rexp ((∑ i, u i ^ 2) * t / (2 * (1 - t)))
+
+ι : Type u_1
+inst✝ : Fintype ι
+u : ι → ℝ
+t : ℝ
+ht : t < 1
+hfun : ∀ (x : ι → ℝ), rexp ((t * ∑ i, (x i + u i) ^ 2) / 2) = ∏ i, rexp (t * (x i + u i) ^ 2 / 2)
+⊢ (∫ (x : ι → ℝ), ∏ i, rexp (t * (x i + u i) ^ 2 / 2) ∂Measure.pi fun x => gaussianReal 0 1) =
+    (√(1 - t))⁻¹ ^ Fintype.card ι * rexp ((∑ i, u i ^ 2) * t / (2 * (1 - t)))
+'JinWishart.gaussianPi_integral_exp_shifted_square_sum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gaussianPi_integrable_exp_shifted_square_sum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
