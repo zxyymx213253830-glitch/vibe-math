@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualPositiveSecondCoefficient.lean": {
+      "sha256": "f9fc809e8d66200a1c72ab9a34fbfa5b33bcd27b7ad182751983fa12ab5d4485",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "91b0f52a154eab5b1d25d673c34518f9e3932d9ab613cc7d326bd91e5a1edf38"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "L-positive-second-coefficient-positiveModeOffsetError_second_scaled_tendsto",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualPositiveSecondCoefficient",
+  "declaration": "JinWishart.positiveModeOffsetError_second_scaled_tendsto",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-second-coefficient-ActualPositiveSecondCoefficient.json",
+    "source_sha256": "f9fc809e8d66200a1c72ab9a34fbfa5b33bcd27b7ad182751983fa12ab5d4485"
+  }
+}

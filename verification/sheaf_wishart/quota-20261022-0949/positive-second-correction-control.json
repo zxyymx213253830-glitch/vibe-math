@@ -1,0 +1,58 @@
+{
+  "status": "PASS finite/Gamma controls, not general model or DCT proof",
+  "seed": 2026102243,
+  "checks": 777,
+  "spectrum_cases": 48,
+  "gamma_records": [
+    {
+      "shape": 3,
+      "rho": 1.0,
+      "scaled_positive_gap": 0.12461065393688212,
+      "known_half_inverse_square": 0.25
+    },
+    {
+      "shape": 3,
+      "rho": 10.0,
+      "scaled_positive_gap": 0.21179251313640646,
+      "known_half_inverse_square": 0.25
+    },
+    {
+      "shape": 3,
+      "rho": 1000.0,
+      "scaled_positive_gap": 0.24888840653966807,
+      "known_half_inverse_square": 0.25
+    },
+    {
+      "shape": 3,
+      "rho": 100000.0,
+      "scaled_positive_gap": 0.24998121577558222,
+      "known_half_inverse_square": 0.25
+    },
+    {
+      "shape": 4,
+      "rho": 1.0,
+      "scaled_positive_gap": 0.05733521432412034,
+      "known_half_inverse_square": 0.08333333333333333
+    },
+    {
+      "shape": 4,
+      "rho": 10.0,
+      "scaled_positive_gap": 0.078703222214881,
+      "known_half_inverse_square": 0.08333333333333333
+    },
+    {
+      "shape": 4,
+      "rho": 1000.0,
+      "scaled_positive_gap": 0.08327805221798001,
+      "known_half_inverse_square": 0.08333333333333333
+    },
+    {
+      "shape": 4,
+      "rho": 100000.0,
+      "scaled_positive_gap": 0.08333277780740449,
+      "known_half_inverse_square": 0.08333333333333333
+    }
+  ],
+  "coefficient_sign": "positive gap coefficient EQ/2; logdet second expansion coefficient -EQ/2",
+  "source_sha256": "0d6d7613cbccd9365f5d23fd963dfdc9e59cd32e984105fcb81c9013b6fe6174"
+}

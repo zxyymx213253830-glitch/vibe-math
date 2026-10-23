@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:20:08.554422+00:00",
+  "ended_utc": "2026-10-23T01:20:21.620034+00:00",
+  "module": "JinWishartFormalization.ActualPositiveSecondCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualPositiveSecondCoefficient.lean",
+  "source_sha256_before": "cb4868e6b9e1fa61b661e99f105c1fd645de8aaad1a2637abe57ddb937f7b511",
+  "source_sha256": "cb4868e6b9e1fa61b661e99f105c1fd645de8aaad1a2637abe57ddb937f7b511",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-positive-second-scalar-v1.txt",
+  "log_exists": true,
+  "log_sha256": "f0c9b031a71ffea6b7728d3c55c62be48f0639d103eb1831a83a3d278835e640",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

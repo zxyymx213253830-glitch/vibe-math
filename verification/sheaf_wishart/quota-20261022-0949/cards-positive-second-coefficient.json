@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "positive-second-coefficient-ActualPositiveSecondCoefficient",
+    "module": "ActualPositiveSecondCoefficient",
+    "nodes": [
+      [
+        "L-positive-second-coefficient-positiveModeOffsetError_second_scaled_tendsto",
+        "positiveModeOffsetError_second_scaled_tendsto",
+        []
+      ],
+      [
+        "L-positive-second-coefficient-actualCorrelatedMatrixLogDet_expected_positive_second_coefficient",
+        "actualCorrelatedMatrixLogDet_expected_positive_second_coefficient",
+        [
+          "L-positive-second-coefficient-positiveModeOffsetError_second_scaled_tendsto"
+        ]
+      ]
+    ]
+  }
+]
