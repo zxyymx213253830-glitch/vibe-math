@@ -1,5 +1,7 @@
 # Remaining zero-kernel-image branch
 
+CLOSED at746/beae7bb: rectangular factor743 and the same-source zero-image compression helper are assembled in ActualSingularInverseClassification. All fixed B,M branches and R0 absence are now kernel checked. This historical card must not be rerun; next target WISHART_NEXT_OFFSET_RATE_CARD.md. Human review remains required.
+
 Accepted741: mixed singular branch739 is closed for r=rank stacked[B;M], rankB>0 and 0<r-rankB<m, on the SAME original2mp Gaussian source, threshold |m-r|+1 and critical/higher nonnegative ENNReal TOP. Interfaces741 cover zero-noise totalized constant coordinates and full noiseless image r-rankB=m, with all nonnegative inverse powers for the positive boundary. These are not yet a final exhaustive classification. The constant lemma must only be used as a minimum-positive statement when R>0 and positivity have been established.
 
 The substantive remaining case is r=rankB>0. Compressing as before makes BC full column rank r; M has no additional kernel image. Need a sharp inverse criterion for a fixed rectangular p-by-r full-column-rank noise factor on the original m-by-p source. Existing CorrelatedColumnInverseMoments only treats square invertible factors and must not be misrepresented as covering arbitrary rectangular B.
