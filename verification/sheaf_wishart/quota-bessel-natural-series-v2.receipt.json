@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T11:00:47.492101+00:00",
+  "ended_utc": "2026-10-23T11:00:56.815982+00:00",
+  "module": "JinWishartFormalization.BesselINaturalSeries",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/BesselINaturalSeries.lean",
+  "source_sha256_before": "40e1af611f3046ac03134ccc904fd15bb125cfb495a8538e8e25afc8f245aa7d",
+  "source_sha256": "40e1af611f3046ac03134ccc904fd15bb125cfb495a8538e8e25afc8f245aa7d",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-bessel-natural-series-v2.txt",
+  "log_exists": true,
+  "log_sha256": "5f392f48e70e600817e01f608b9b5d24db1f84c89fd074b3d561aea8bf21b360",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

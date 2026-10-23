@@ -1,0 +1,3 @@
+'JinWishart.modifiedBesselI_nat_eq_factorialSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.modifiedBesselI_nat_ofReal_eq_realSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.nuttallQIntegrand_eq_evenRadialKernel' depends on axioms: [propext, Classical.choice, Quot.sound]

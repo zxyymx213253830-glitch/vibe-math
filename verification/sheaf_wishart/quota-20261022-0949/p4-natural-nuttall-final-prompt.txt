@@ -1,0 +1,239 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE BesselINaturalSeries.lean
+import JinWishartFormalization.BesselI1Series
+import JinWishartFormalization.NoncentralEvenDimensionalPoissonMixture
+
+/-! Natural-order modified Bessel factorial series from the actual definition.
+Codex. Seed2026102249 controls precede source. Reuses the regularized0F1
+definition and integer Gamma coefficients; no assumed angular identity. -/
+namespace JinWishart
+noncomputable section
+
+private theorem modifiedBesselI_nat_regularized (q : ℕ) (z : ℂ) :
+    modifiedBesselI q z=(z/2)^q*
+      Complex.regularizedHGFun 0 {(q : ℂ)+1} (z^2/4) := by
+  simp only [modifiedBesselI,Complex.besselJ_def,Int.cast_natCast,Complex.cpow_natCast]
+  have hz : -((Complex.I*z/2)^2)=z^2/4 := by
+    simp only [div_pow,mul_pow,Complex.I_sq]
+    ring
+  rw [hz]
+  rw [← mul_assoc,← mul_pow]
+  congr 2
+  calc
+    _=-(Complex.I^2*z/2) := by ring
+    _=_ := by rw [Complex.I_sq];ring
+
+private theorem naturalBesselCoefficient (q n : ℕ) :
+    Complex.regularizedHGFunCoeff 0 {(q : ℂ)+1} n=
+      (((n.factorial : ℂ)*((n+q).factorial : ℂ))⁻¹) := by
+  simp only [Complex.regularizedHGFunCoeff,Multiset.map_zero,Multiset.prod_zero,
+    Multiset.map_singleton,Multiset.prod_singleton]
+  have harg : ((q : ℂ)+1)+(n : ℂ)=((n+q : ℕ) : ℂ)+1 := by push_cast;ring
+  rw [harg,Complex.Gamma_nat_eq_factorial]
+  field_simp
+
+theorem modifiedBesselI_nat_eq_factorialSeries (q : ℕ) (z : ℂ) :
+    modifiedBesselI q z=(z/2)^q*∑' n : ℕ,
+      (z^2/4)^n/((n.factorial : ℂ)*((n+q).factorial : ℂ)) := by
+  rw [modifiedBesselI_nat_regularized]
+  have hs : Complex.regularizedHGFun 0 {(q : ℂ)+1} (z^2/4)=
+      ∑' n : ℕ,Complex.regularizedHGFunCoeff 0 {(q : ℂ)+1} n*(z^2/4)^n := by
+    rw [Complex.regularizedHGFun,Complex.regularizedHGFunSeries]
+    change FormalMultilinearSeries.ofScalarsSum
+      (Complex.regularizedHGFunCoeff 0 {(q : ℂ)+1}) (z^2/4)=_
+    rw [FormalMultilinearSeries.ofScalars_sum_eq]
+    simp only [smul_eq_mul]
+  rw [hs]
+  congr 1
+  apply tsum_congr
+  intro n
+  rw [naturalBesselCoefficient]
+  ring
+
+theorem modifiedBesselI_nat_ofReal_eq_realSeries (q : ℕ) (x : ℝ) :
+    (((x/2)^q*∑' n : ℕ,(x^2/4)^n/
+      ((n.factorial : ℝ)*((n+q).factorial : ℝ)) : ℝ) : ℂ)=
+      modifiedBesselI q (x : ℂ) := by
+  rw [Complex.ofReal_mul,Complex.ofReal_tsum,modifiedBesselI_nat_eq_factorialSeries]
+  push_cast
+  rfl
+
+theorem nuttallQIntegrand_eq_evenRadialKernel (q : ℕ) (a r : ℝ) :
+    nuttallQIntegrand (q+1) q a r=(a : ℂ)^q*
+      (noncentralChiEvenRadialKernel q a r : ℂ) := by
+  rw [nuttallQIntegrand,← modifiedBesselI_nat_ofReal_eq_realSeries]
+  unfold noncentralChiEvenRadialKernel
+  push_cast
+  rw [div_pow,mul_pow]
+  have hp : (r : ℂ)^(q+1)*(r : ℂ)^q=(r : ℂ)^(2*q+1) := by rw [← pow_add];congr 1;omega
+  have h2 : (2 : ℂ)^q≠0 := pow_ne_zero _ (by norm_num)
+  field_simp [h2]
+  rw [← hp]
+  ring
+
+end
+end JinWishart
+#print axioms JinWishart.modifiedBesselI_nat_eq_factorialSeries
+#print axioms JinWishart.modifiedBesselI_nat_ofReal_eq_realSeries
+#print axioms JinWishart.nuttallQIntegrand_eq_evenRadialKernel
+
+SOURCE NaturalNuttallNormalization.lean
+import JinWishartFormalization.BesselINaturalSeries
+import JinWishartFormalization.NuttallQBoundary
+import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
+import Mathlib.MeasureTheory.Integral.DominatedConvergence
+
+/-! All-natural-order analytic Nuttall normalization from existing Poisson
+kernel and odd Gaussian moments. Codex, controls seed2026102249 before source.
+[需人工审查] Countable sums/integrals, norm integrability and totalization.
+This does not identify a general shifted Gaussian sample law. -/
+open MeasureTheory Set
+namespace JinWishart
+noncomputable section
+
+private def evenPoissonWeight (a : ℝ) (n : ℕ) : ℝ :=
+  Real.exp (-(a^2/2))*((a^2/2)^n/(n.factorial : ℝ))
+
+private theorem evenTermFactor (q : ℕ) (a : ℝ) (n : ℕ) (r : ℝ) :
+    chiEvenPoissonTerm q a r n=
+      (evenPoissonWeight a n/(2^(n+q)*((n+q).factorial : ℝ)))*
+        (r^(2*(n+q)+1)*Real.exp (-(r^2/2))) := by
+  unfold chiEvenPoissonTerm evenPoissonWeight
+  rw [show 2*n+2*q+1=2*(n+q)+1 by omega]
+  ring
+
+private theorem evenTermIntegral (q : ℕ) (a : ℝ) (n : ℕ) :
+    (∫ r in Ioi (0 : ℝ),chiEvenPoissonTerm q a r n)=evenPoissonWeight a n := by
+  have hf : (fun r : ℝ => chiEvenPoissonTerm q a r n)=
+      fun r => (evenPoissonWeight a n/(2^(n+q)*((n+q).factorial : ℝ)))*
+        (r^(2*(n+q)+1)*Real.exp (-(r^2/2))) := funext (evenTermFactor q a n)
+  rw [hf,integral_const_mul,gaussianOddMoment_general]
+  exact div_mul_cancel₀ _ (by positivity)
+
+private theorem evenTermIntegrable (q : ℕ) (a : ℝ) (n : ℕ) :
+    IntegrableOn (fun r : ℝ => chiEvenPoissonTerm q a r n) (Ioi 0) := by
+  have hbase : IntegrableOn
+      (fun r : ℝ => r^(2*(n+q)+1)*Real.exp (-(r^2/2))) (Ioi 0) := by
+    have h := integrableOn_rpow_mul_exp_neg_mul_sq (b := (1/2 : ℝ))
+      (s := ((2*(n+q)+1 : ℕ) : ℝ)) (by norm_num)
+      (lt_of_lt_of_le (by norm_num : (-1 : ℝ)<0) (Nat.cast_nonneg _))
+    apply (integrableOn_congr_fun (s := Ioi (0 : ℝ)) ?_ measurableSet_Ioi).2 h
+    intro r _
+    change r^(2*(n+q)+1)*Real.exp (-(r^2/2))=
+      r^((2*(n+q)+1 : ℕ) : ℝ)*Real.exp (-(1/2 : ℝ)*r^2)
+    rw [Real.rpow_natCast]
+    congr 1
+    ring
+  have hf : (fun r : ℝ => chiEvenPoissonTerm q a r n)=
+      fun r => (evenPoissonWeight a n/(2^(n+q)*((n+q).factorial : ℝ)))*
+        (r^(2*(n+q)+1)*Real.exp (-(r^2/2))) := funext (evenTermFactor q a n)
+  rw [hf]
+  exact hbase.const_mul _
+
+theorem noncentralChiEvenRadialKernel_integral_eq_one (q : ℕ) (a : ℝ) :
+    (∫ r in Ioi (0 : ℝ),noncentralChiEvenRadialKernel q a r)=1 := by
+  let μ : Measure ℝ := volume.restrict (Ioi (0 : ℝ))
+  have hFint : ∀ n : ℕ,Integrable (fun r : ℝ => chiEvenPoissonTerm q a r n) μ :=
+    fun n => evenTermIntegrable q a n
+  have hnorm (n : ℕ) : (∫ r,‖chiEvenPoissonTerm q a r n‖ ∂μ)=evenPoissonWeight a n := by
+    calc
+      _=(∫ r,chiEvenPoissonTerm q a r n ∂μ) := by
+        apply integral_congr_ae
+        filter_upwards [ae_restrict_mem measurableSet_Ioi] with r hr
+        rw [Real.norm_eq_abs,abs_of_nonneg (by
+          unfold chiEvenPoissonTerm
+          have hr0 : 0<r := hr
+          positivity)]
+      _=_ := evenTermIntegral q a n
+  have hsum_norm : Summable (fun n : ℕ => ∫ r,‖chiEvenPoissonTerm q a r n‖ ∂μ) := by
+    have hs := (Real.summable_pow_div_factorial (a^2/2)).mul_left (Real.exp (-(a^2/2)))
+    exact hs.congr (fun n => (hnorm n).symm)
+  have hsum : (∑' n : ℕ,evenPoissonWeight a n)=1 := by
+    unfold evenPoissonWeight
+    rw [tsum_mul_left]
+    have hexp (x : ℝ) : (∑' n : ℕ,x^n/(n.factorial : ℝ))=Real.exp x := by
+      rw [Real.exp_eq_exp_ℝ,NormedSpace.exp_eq_tsum ℝ]
+      apply tsum_congr
+      intro n
+      simp [div_eq_mul_inv,smul_eq_mul,mul_comm]
+    rw [hexp,← Real.exp_add,neg_add_cancel,Real.exp_zero]
+  change (∫ r,noncentralChiEvenRadialKernel q a r ∂μ)=1
+  calc
+    _=(∫ r,(∑' n : ℕ,chiEvenPoissonTerm q a r n) ∂μ) := by
+      apply integral_congr_ae
+      exact ae_of_all _ (noncentralChiEvenRadialKernel_eq_poissonMixture q a)
+    _=∑' n : ℕ,(∫ r,chiEvenPoissonTerm q a r n ∂μ) :=
+      (integral_tsum_of_summable_integral_norm hFint hsum_norm).symm
+    _=∑' n : ℕ,evenPoissonWeight a n := by
+      apply tsum_congr
+      intro n
+      exact evenTermIntegral q a n
+    _=1 := hsum
+
+theorem integrableOn_noncentralChiEvenRadialKernel (q : ℕ) (a : ℝ) :
+    IntegrableOn (noncentralChiEvenRadialKernel q a) (Ioi 0) := by
+  exact Integrable.of_integral_ne_zero (by rw [noncentralChiEvenRadialKernel_integral_eq_one];norm_num)
+
+theorem nuttallQ_succ_self_zero (q : ℕ) (a : ℝ) :
+    nuttallQ (q+1) q a 0=(a : ℂ)^q := by
+  unfold nuttallQ
+  have hf : nuttallQIntegrand (q+1) q a=
+      fun r : ℝ => (a : ℂ)^q*(noncentralChiEvenRadialKernel q a r : ℂ) :=
+    funext (nuttallQIntegrand_eq_evenRadialKernel q a)
+  rw [hf,integral_const_mul,integral_complex_ofReal,
+    noncentralChiEvenRadialKernel_integral_eq_one,Complex.ofReal_one,mul_one]
+
+end
+end JinWishart
+#print axioms JinWishart.noncentralChiEvenRadialKernel_integral_eq_one
+#print axioms JinWishart.integrableOn_noncentralChiEvenRadialKernel
+#print axioms JinWishart.nuttallQ_succ_self_zero
+
+SOURCE OneColumnNuttallNormalization.lean
+import JinWishartFormalization.NaturalNuttallNormalization
+import JinWishartFormalization.Theorem2SingleColumnAnyRows
+
+/-! Remove the assumed nonzero Nuttall denominator in every positive-row,
+rank-one noncentral formula. Codex; controls seed2026102249 precede source.
+This is formula-side normalization, not the missing general-row actual law.
+[需人工审查] Original paper parameter and variance correspondence. -/
+namespace JinWishart
+noncomputable section
+
+private theorem oneColumnZero (t : ℕ) (ht : 1≤t) (lambda : ℝ) :
+    nuttallQ t (t-1) (Real.sqrt (2*lambda)) 0=
+      (Real.sqrt (2*lambda) : ℂ)^(t-1) := by
+  have h := nuttallQ_succ_self_zero (t-1) (Real.sqrt (2*lambda))
+  have ht' : t-1+1=t := Nat.sub_add_cancel ht
+  rwa [ht'] at h
+
+private theorem oneColumnZero_ne (t : ℕ) (ht : 1≤t) (lambda : ℝ) (hl : 0<lambda) :
+    nuttallQ t (t-1) (Real.sqrt (2*lambda)) 0≠0 := by
+  rw [oneColumnZero t ht lambda]
+  apply pow_ne_zero
+  exact Complex.ofReal_ne_zero.mpr (Real.sqrt_pos.mpr (by positivity)).ne'
+
+theorem theorem1OneColumnCandidate_eq_explicitNormalizedQ
+    (t : ℕ) (ht : 1≤t) (lambda x : ℝ) (hl : 0<lambda) :
+    theorem1CdfCandidate 1 t 1 ht (by omega) (fun _ : Fin 1 => lambda) x=
+      1-‖theorem1OneColumnNuttallQ t lambda x‖/(Real.sqrt (2*lambda))^(t-1) := by
+  rw [theorem1OneColumnCandidate_eq_normalizedNuttallQ t ht lambda x
+    (oneColumnZero_ne t ht lambda hl),oneColumnZero t ht lambda,
+    norm_pow,Complex.norm_of_nonneg (Real.sqrt_nonneg _)]
+
+theorem theorem2OneColumnCandidate_eq_explicitNormalizedQ
+    (t : ℕ) (ht : 1≤t) (lambda x : ℝ) (hl : 0<lambda) :
+    theorem2CdfCandidate 1 t 1 ht (by omega) (fun _ : Fin 1 => lambda) x=
+      ‖(Real.sqrt (2*lambda) : ℂ)^(t-1)-theorem1OneColumnNuttallQ t lambda x‖/
+        (Real.sqrt (2*lambda))^(t-1) := by
+  rw [theorem2OneColumnCandidate_eq_normalizedNuttallQIncrement t ht lambda x
+    (oneColumnZero_ne t ht lambda hl),oneColumnZero t ht lambda,
+    norm_pow,Complex.norm_of_nonneg (Real.sqrt_nonneg _)]
+  rfl
+
+end
+end JinWishart
+#print axioms JinWishart.theorem1OneColumnCandidate_eq_explicitNormalizedQ
+#print axioms JinWishart.theorem2OneColumnCandidate_eq_explicitNormalizedQ

@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "BesselINaturalSeries.lean": {
+      "sha256": "240537ec6bd4f1ecf6991867998b57fdea8e1d37215e4443d6294ed9acba31ee",
+      "supplied": "Full source"
+    },
+    "NaturalNuttallNormalization.lean": {
+      "sha256": "c3931a1d37dcb7451eee36f519d9011f38c6759701aaf5134f4dd993e06b3517",
+      "supplied": "Full source"
+    },
+    "OneColumnNuttallNormalization.lean": {
+      "sha256": "736d98880e62206c577c6d1361dda34d692dd5149f413058c70973b9f52a6ab4",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "aab1c4ed5f3622c3e70814811c920aafcd66695706ecb4066c20656834a37d26"
+}

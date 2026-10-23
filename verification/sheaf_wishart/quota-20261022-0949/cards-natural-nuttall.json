@@ -1,0 +1,74 @@
+[
+  {
+    "tag": "natural-nuttall-BesselINaturalSeries",
+    "module": "BesselINaturalSeries",
+    "nodes": [
+      [
+        "L-natural-nuttall-modifiedBesselI_nat_eq_factorialSeries",
+        "modifiedBesselI_nat_eq_factorialSeries",
+        []
+      ],
+      [
+        "L-natural-nuttall-modifiedBesselI_nat_ofReal_eq_realSeries",
+        "modifiedBesselI_nat_ofReal_eq_realSeries",
+        [
+          "L-natural-nuttall-modifiedBesselI_nat_eq_factorialSeries"
+        ]
+      ],
+      [
+        "L-natural-nuttall-nuttallQIntegrand_eq_evenRadialKernel",
+        "nuttallQIntegrand_eq_evenRadialKernel",
+        [
+          "L-natural-nuttall-modifiedBesselI_nat_ofReal_eq_realSeries"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "natural-nuttall-NaturalNuttallNormalization",
+    "module": "NaturalNuttallNormalization",
+    "nodes": [
+      [
+        "L-natural-nuttall-noncentralChiEvenRadialKernel_integral_eq_one",
+        "noncentralChiEvenRadialKernel_integral_eq_one",
+        [
+          "L-natural-nuttall-nuttallQIntegrand_eq_evenRadialKernel"
+        ]
+      ],
+      [
+        "L-natural-nuttall-integrableOn_noncentralChiEvenRadialKernel",
+        "integrableOn_noncentralChiEvenRadialKernel",
+        [
+          "L-natural-nuttall-noncentralChiEvenRadialKernel_integral_eq_one"
+        ]
+      ],
+      [
+        "L-natural-nuttall-nuttallQ_succ_self_zero",
+        "nuttallQ_succ_self_zero",
+        [
+          "L-natural-nuttall-integrableOn_noncentralChiEvenRadialKernel"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "natural-nuttall-OneColumnNuttallNormalization",
+    "module": "OneColumnNuttallNormalization",
+    "nodes": [
+      [
+        "L-natural-nuttall-theorem1OneColumnCandidate_eq_explicitNormalizedQ",
+        "theorem1OneColumnCandidate_eq_explicitNormalizedQ",
+        [
+          "L-natural-nuttall-nuttallQ_succ_self_zero"
+        ]
+      ],
+      [
+        "L-natural-nuttall-theorem2OneColumnCandidate_eq_explicitNormalizedQ",
+        "theorem2OneColumnCandidate_eq_explicitNormalizedQ",
+        [
+          "L-natural-nuttall-theorem1OneColumnCandidate_eq_explicitNormalizedQ"
+        ]
+      ]
+    ]
+  }
+]

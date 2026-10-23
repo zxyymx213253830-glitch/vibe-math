@@ -1,0 +1,18 @@
+{
+  "completed_utc": "2026-10-23T11:15:00.869283+00:00",
+  "items": 788,
+  "new_printed_declarations": 8,
+  "modules": 3,
+  "facade": "facade-114",
+  "controls": 178,
+  "frozen_hashes": {
+    "theory/wishart_paper/main.tex": "0f48aa2843ae53ab27b439af49adb90718ba72ffbcd9ea0c790c6a359bc41049",
+    "output/pdf/wishart_formalization.pdf": "5a637adfd9945fcc8704c40eeec88bac55b1b61aea232b7cb1374c8ecd558203",
+    "output/publication/wishart_arxiv_upload.zip": "b05b0146640505202369d07da8a5b00b6479102c41451401f1c382e4abc30d9c",
+    "output/publication/wishart_formalization_code.zip": "2f1dfc2b60ac91c96ab15d24bc69a1cfe96da8efd366d10d191232726083c83b"
+  },
+  "human_review": "REQUIRED",
+  "full_lake_build": "NOT_RUN",
+  "linux_independent_kernel": "NOT_RUN",
+  "acceptance_records_current": 99
+}

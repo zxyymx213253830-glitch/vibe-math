@@ -1,0 +1,24 @@
+{
+  "id": "L-natural-nuttall-theorem1OneColumnCandidate_eq_explicitNormalizedQ",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.OneColumnNuttallNormalization",
+  "declaration": "JinWishart.theorem1OneColumnCandidate_eq_explicitNormalizedQ",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-natural-nuttall-nuttallQ_succ_self_zero"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-natural-nuttall-nuttallQ_succ_self_zero"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-OneColumnNuttallNormalization.json",
+    "source_sha256": "736d98880e62206c577c6d1361dda34d692dd5149f413058c70973b9f52a6ab4"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T11:11:16.745579+00:00",
+  "ended_utc": "2026-10-23T11:11:25.075163+00:00",
+  "module": "JinWishartFormalization.NaturalNuttallNormalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NaturalNuttallNormalization.lean",
+  "source_sha256_before": "c3931a1d37dcb7451eee36f519d9011f38c6759701aaf5134f4dd993e06b3517",
+  "source_sha256": "c3931a1d37dcb7451eee36f519d9011f38c6759701aaf5134f4dd993e06b3517",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/natural-nuttall-NaturalNuttallNormalization-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "8c5dbdee0360a7f6ed69ce1f91a41de72b7df0fded83b2c73e100d5a04cb43d1",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

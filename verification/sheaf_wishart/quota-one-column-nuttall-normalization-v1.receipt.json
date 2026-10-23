@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T11:06:05.634081+00:00",
+  "ended_utc": "2026-10-23T11:06:14.605756+00:00",
+  "module": "JinWishartFormalization.OneColumnNuttallNormalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OneColumnNuttallNormalization.lean",
+  "source_sha256_before": "736d98880e62206c577c6d1361dda34d692dd5149f413058c70973b9f52a6ab4",
+  "source_sha256": "736d98880e62206c577c6d1361dda34d692dd5149f413058c70973b9f52a6ab4",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-one-column-nuttall-normalization-v1.txt",
+  "log_exists": true,
+  "log_sha256": "4297fa695db7bcafb3c4d489e4facec630b1c29b1343c937a6f42b9957d9bc34",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

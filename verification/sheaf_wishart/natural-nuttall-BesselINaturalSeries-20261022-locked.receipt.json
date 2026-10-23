@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T11:10:05.524510+00:00",
+  "ended_utc": "2026-10-23T11:11:16.701705+00:00",
+  "module": "JinWishartFormalization.BesselINaturalSeries",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/BesselINaturalSeries.lean",
+  "source_sha256_before": "240537ec6bd4f1ecf6991867998b57fdea8e1d37215e4443d6294ed9acba31ee",
+  "source_sha256": "240537ec6bd4f1ecf6991867998b57fdea8e1d37215e4443d6294ed9acba31ee",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/natural-nuttall-BesselINaturalSeries-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "9262c9476181312d6416974d9009bb3ea3f4201cd99608641031f7672839054a",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

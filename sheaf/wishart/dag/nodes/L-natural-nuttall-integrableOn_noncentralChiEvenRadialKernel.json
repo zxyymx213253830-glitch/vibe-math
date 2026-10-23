@@ -1,0 +1,24 @@
+{
+  "id": "L-natural-nuttall-integrableOn_noncentralChiEvenRadialKernel",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.NaturalNuttallNormalization",
+  "declaration": "JinWishart.integrableOn_noncentralChiEvenRadialKernel",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-natural-nuttall-noncentralChiEvenRadialKernel_integral_eq_one"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-natural-nuttall-noncentralChiEvenRadialKernel_integral_eq_one"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-NaturalNuttallNormalization.json",
+    "source_sha256": "c3931a1d37dcb7451eee36f519d9011f38c6759701aaf5134f4dd993e06b3517"
+  }
+}

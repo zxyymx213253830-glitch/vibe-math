@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T11:04:17.133814+00:00",
+  "ended_utc": "2026-10-23T11:04:27.339301+00:00",
+  "module": "JinWishartFormalization.NaturalNuttallNormalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NaturalNuttallNormalization.lean",
+  "source_sha256_before": "687a4dc949727a5e0e7b2f798ccce926303b711f3da914cf974783d3f528a652",
+  "source_sha256": "687a4dc949727a5e0e7b2f798ccce926303b711f3da914cf974783d3f528a652",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-natural-nuttall-normalization-v1.txt",
+  "log_exists": true,
+  "log_sha256": "5e05fbdc608d08ac347e30962c56543ff48ebe426dbfecd502669873631e9e99",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

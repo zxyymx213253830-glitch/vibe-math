@@ -107,3 +107,6 @@
 - 2026-10-23T10:40:29.218416+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-central-square-theorem1-Theorem1CentralSquare.json; human measure/model review remains REQUIRED.
 - 2026-10-23T10:47:46.463792+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-central-gamma-denominator-CentralGammaDenominator.json; human measure/model review remains REQUIRED.
 - 2026-10-23T10:54:42.278990+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-central-multigamma-CentralMultigammaBridge.json; human measure/model review remains REQUIRED.
+- 2026-10-23T11:14:24.073733+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-BesselINaturalSeries.json; human measure/model review remains REQUIRED.
+- 2026-10-23T11:14:40.084107+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-NaturalNuttallNormalization.json; human measure/model review remains REQUIRED.
+- 2026-10-23T11:14:53.348508+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-OneColumnNuttallNormalization.json; human measure/model review remains REQUIRED.

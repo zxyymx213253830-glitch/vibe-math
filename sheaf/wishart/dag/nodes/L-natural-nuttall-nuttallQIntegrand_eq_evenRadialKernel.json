@@ -1,0 +1,24 @@
+{
+  "id": "L-natural-nuttall-nuttallQIntegrand_eq_evenRadialKernel",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.BesselINaturalSeries",
+  "declaration": "JinWishart.nuttallQIntegrand_eq_evenRadialKernel",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-natural-nuttall-modifiedBesselI_nat_ofReal_eq_realSeries"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-natural-nuttall-modifiedBesselI_nat_ofReal_eq_realSeries"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-BesselINaturalSeries.json",
+    "source_sha256": "240537ec6bd4f1ecf6991867998b57fdea8e1d37215e4443d6294ed9acba31ee"
+  }
+}

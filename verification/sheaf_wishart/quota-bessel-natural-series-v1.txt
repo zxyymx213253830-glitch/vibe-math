@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BesselINaturalSeries.lean:12:56: error: unsolved goals
+case e_a.e_a
+q : ℕ
+z : ℂ
+hz : -(Complex.I * z / 2) ^ 2 = z ^ 2 / 4
+⊢ -(Complex.I * (Complex.I * z / 2)) = z / 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BesselINaturalSeries.lean:20:8: warning: This simp argument is unused:
+  Complex.I_sq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BesselINaturalSeries.lean:56:2: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\BesselINaturalSeries.lean:69:30: error: failed to prove nonzeroness
+'JinWishart.modifiedBesselI_nat_eq_factorialSeries' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.modifiedBesselI_nat_ofReal_eq_realSeries' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.nuttallQIntegrand_eq_evenRadialKernel' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -580,3 +580,13 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/central_multigamma_bridge_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CENTRAL_MULTIGAMMA_BRIDGE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/BesselINaturalSeries.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/NaturalNuttallNormalization.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/OneColumnNuttallNormalization.lean -text whitespace=cr-at-eol
+
+/experiments/general_nuttall_normalization_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_GENERAL_NUTTALL_NORMALIZATION.md -text whitespace=cr-at-eol
