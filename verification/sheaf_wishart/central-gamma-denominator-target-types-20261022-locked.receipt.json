@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:45:21.064979+00:00",
+  "ended_utc": "2026-10-23T10:45:34.952491+00:00",
+  "module": "SheafCentralGammaDenominatorTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCentralGammaDenominatorTargets.lean",
+  "source_sha256_before": "dd7ebafcad1a134fac1924eac3782925d2354e3c0c276b0824a7e5743a94eb14",
+  "source_sha256": "dd7ebafcad1a134fac1924eac3782925d2354e3c0c276b0824a7e5743a94eb14",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/central-gamma-denominator-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

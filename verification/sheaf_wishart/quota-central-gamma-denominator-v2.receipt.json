@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:43:45.401160+00:00",
+  "ended_utc": "2026-10-23T10:43:56.405291+00:00",
+  "module": "JinWishartFormalization.CentralGammaDenominator",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CentralGammaDenominator.lean",
+  "source_sha256_before": "d191ff7916cb678746279b63f11eb39aac7460f58b30aa99944cfd1fbb13d574",
+  "source_sha256": "d191ff7916cb678746279b63f11eb39aac7460f58b30aa99944cfd1fbb13d574",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-central-gamma-denominator-v2.txt",
+  "log_exists": true,
+  "log_sha256": "2e15c89db8f1dc3478b9830ff28a10007dcfce05b1e5eaefcf425c74c3c7630f",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

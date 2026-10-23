@@ -1,0 +1,70 @@
+{
+  "status": "PASS exact finite normalization controls; not general proof",
+  "seed": 2026102247,
+  "checks": 324,
+  "records": [
+    {
+      "s": 0,
+      "t": 0,
+      "determinant": 1
+    },
+    {
+      "s": 1,
+      "t": 1,
+      "determinant": 1
+    },
+    {
+      "s": 2,
+      "t": 2,
+      "determinant": 1
+    },
+    {
+      "s": 8,
+      "t": 8,
+      "determinant": 15728001190723584000000
+    },
+    {
+      "s": 0,
+      "t": 1,
+      "determinant": 1
+    },
+    {
+      "s": 1,
+      "t": 2,
+      "determinant": 1
+    },
+    {
+      "s": 2,
+      "t": 3,
+      "determinant": 2
+    },
+    {
+      "s": 8,
+      "t": 9,
+      "determinant": 634153008009974906880000000
+    },
+    {
+      "s": 0,
+      "t": 8,
+      "determinant": 1
+    },
+    {
+      "s": 1,
+      "t": 9,
+      "determinant": 40320
+    },
+    {
+      "s": 2,
+      "t": 10,
+      "determinant": 14631321600
+    },
+    {
+      "s": 8,
+      "t": 16,
+      "determinant": 90378331112371142262979521568630736335023247731599748366336000000000000000000
+    }
+  ],
+  "reference": "Factorial Gamma moments, monic rising factorials and Vandermonde determinant",
+  "scope": "Central L0 denominator only; no rectangular actual CDF formula claimed",
+  "source_sha256": "27861c37470280a9d9e4ef7d103bd1cbfc4e677ade886ff6a96f235b66c94464"
+}

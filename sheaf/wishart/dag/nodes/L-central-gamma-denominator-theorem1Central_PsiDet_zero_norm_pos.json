@@ -1,0 +1,24 @@
+{
+  "id": "L-central-gamma-denominator-theorem1Central_PsiDet_zero_norm_pos",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.CentralGammaDenominator",
+  "declaration": "JinWishart.theorem1Central_PsiDet_zero_norm_pos",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-central-gamma-denominator-theorem1Central_PsiDet_zero"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-central-gamma-denominator-theorem1Central_PsiDet_zero"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-gamma-denominator-CentralGammaDenominator.json",
+    "source_sha256": "d191ff7916cb678746279b63f11eb39aac7460f58b30aa99944cfd1fbb13d574"
+  }
+}

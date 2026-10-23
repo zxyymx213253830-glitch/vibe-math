@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "central-gamma-denominator-CentralGammaDenominator",
+    "module": "CentralGammaDenominator",
+    "nodes": [
+      [
+        "L-central-gamma-denominator-factorialHankel_offset_det",
+        "factorialHankel_offset_det",
+        []
+      ],
+      [
+        "L-central-gamma-denominator-theorem1Central_PsiDet_zero",
+        "theorem1Central_PsiDet_zero",
+        [
+          "L-central-gamma-denominator-factorialHankel_offset_det"
+        ]
+      ],
+      [
+        "L-central-gamma-denominator-theorem1Central_PsiDet_zero_norm_pos",
+        "theorem1Central_PsiDet_zero_norm_pos",
+        [
+          "L-central-gamma-denominator-theorem1Central_PsiDet_zero"
+        ]
+      ]
+    ]
+  }
+]

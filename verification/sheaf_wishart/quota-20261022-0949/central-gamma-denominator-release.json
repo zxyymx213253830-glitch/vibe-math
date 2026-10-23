@@ -1,0 +1,13 @@
+{
+ "name":"central-gamma-denominator",
+ "review":"central-gamma-denominator-final",
+ "resolution":"notes/WISHART_CENTRAL_GAMMA_DENOMINATOR.md",
+ "facade":"facade-112",
+ "total":777,
+ "new_count":3,
+ "control_script":"experiments/central_gamma_denominator_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/central-gamma-denominator-control.json",
+ "seed":2026102247,
+ "commit":"Normalize the original central rectangular Gamma determinant denominator",
+ "scope":"2026-10-23续跑第四十八里程碑：777绑定项（775定理实例+2构造），auditPASS/facade112真实exit0，95接受记录全验证。本轮167打印声明/77模块非167概率突破。新3声明/1模块：任意n,d阶乘Hankel det[(d+i+j)!]=prod i!*(d+i)!；原Theorem1任意s<=t中心L0的Psi(0)行列式精确规范化及其norm严格正。复用pinned monic rising-factorial/Vandermonde平移不变/连续节点det，未重建谱密度；s0代数det/空积1，不给零维概率解释。324精确控制先于源码非一般证明，3字面类型及完整源码真实Qoder P4绑定；API签名/cast/纯det normPos被误解为概率正则/空维疑问已精确裁决。v1方向/cast/factorial参数失败保留，v2及最终检查标准3公理。此前774全维中心平方原T1候选=实际CDF已闭合；一般中心矩形实际CDF/非中心G2/原T2T3及全T1-4mapping仍OPEN。下一优先把规范化接回论文multigamma常数，或中心单surplus原T1候选桥，先控制/资产复用后源码。普通额度可用未用重置券，lease12:02非用户截止；人审原文/模型/测度仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

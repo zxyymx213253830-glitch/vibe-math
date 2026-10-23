@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "d191ff7916cb678746279b63f11eb39aac7460f58b30aa99944cfd1fbb13d574",
+  "target_lock_sha256": "f52da9ef624b8828597144d623d9ffcc40ee7817269e1161e5a7355c68466a24",
+  "leaf": {
+    "started_utc": "2026-10-23T10:45:09.715553+00:00",
+    "ended_utc": "2026-10-23T10:45:21.061242+00:00",
+    "module": "JinWishartFormalization.CentralGammaDenominator",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CentralGammaDenominator.lean",
+    "source_sha256_before": "d191ff7916cb678746279b63f11eb39aac7460f58b30aa99944cfd1fbb13d574",
+    "source_sha256": "d191ff7916cb678746279b63f11eb39aac7460f58b30aa99944cfd1fbb13d574",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/central-gamma-denominator-CentralGammaDenominator-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "2e15c89db8f1dc3478b9830ff28a10007dcfce05b1e5eaefcf425c74c3c7630f",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T10:45:21.064979+00:00",
+    "ended_utc": "2026-10-23T10:45:34.952491+00:00",
+    "module": "SheafCentralGammaDenominatorTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCentralGammaDenominatorTargets.lean",
+    "source_sha256_before": "dd7ebafcad1a134fac1924eac3782925d2354e3c0c276b0824a7e5743a94eb14",
+    "source_sha256": "dd7ebafcad1a134fac1924eac3782925d2354e3c0c276b0824a7e5743a94eb14",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/central-gamma-denominator-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

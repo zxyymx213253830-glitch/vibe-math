@@ -1,0 +1,20 @@
+{
+  "id": "L-central-gamma-denominator-factorialHankel_offset_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CentralGammaDenominator",
+  "declaration": "JinWishart.factorialHankel_offset_det",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-gamma-denominator-CentralGammaDenominator.json",
+    "source_sha256": "d191ff7916cb678746279b63f11eb39aac7460f58b30aa99944cfd1fbb13d574"
+  }
+}

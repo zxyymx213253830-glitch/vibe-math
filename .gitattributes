@@ -568,3 +568,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/central_square_gamma_determinant_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_THEOREM1_CENTRAL_SQUARE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralGammaDenominator.lean -text whitespace=cr-at-eol
+
+/experiments/central_gamma_denominator_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CENTRAL_GAMMA_DENOMINATOR.md -text whitespace=cr-at-eol

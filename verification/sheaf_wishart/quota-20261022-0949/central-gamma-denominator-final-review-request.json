@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CentralGammaDenominator.lean": {
+      "sha256": "d191ff7916cb678746279b63f11eb39aac7460f58b30aa99944cfd1fbb13d574",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "40a48bee89f6e9d0bea9a19b2d3ee75d18f46c84b925a92e1e40858b5c259ae6"
+}

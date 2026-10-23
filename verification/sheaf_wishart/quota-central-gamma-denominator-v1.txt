@@ -1,0 +1,53 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralGammaDenominator.lean:36:4: error: 'change' tactic failed, pattern
+  E.det = ?m.102
+is not definitionally equal to target
+  (vandermonde v).det = (of fun i j => eval (v i) (ascPochhammer ℂ ↑j)).det
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralGammaDenominator.lean:47:34: error: Application type mismatch: The argument
+  ascPochhammer ℂ ↑i
+has type
+  ℂ[X]
+but is expected to have type
+  ℕ[X]
+in the application
+  eval (d + ↑j + 1) (ascPochhammer ℂ ↑i)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralGammaDenominator.lean:46:54: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+where
+ a := ↑(d + ↑j + ↑i).factorial
+ b := ↑(d + ↑i + ↑j).factorial
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralGammaDenominator.lean:49:13: error: unsolved goals
+case e_a
+n d : ℕ
+v : Fin n → ℂ := fun i => ↑↑i + (↑d + 1)
+E : Matrix (Fin n) (Fin n) ℂ := of fun i j => eval (v i) (ascPochhammer ℂ ↑j)
+hE : E.det = ∏ i, ↑(↑i).factorial
+i j : Fin n
+⊢ ↑(eval (1 + d + ↑j) sorry) = eval (1 + ↑↑j + ↑d) (ascPochhammer ℂ ↑i)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralGammaDenominator.lean:66:27: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Fin.revPerm_symm, Fin.revPerm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralGammaDenominator.lean:66:60: warning: This simp argument is unused:
+  Fin.revPerm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Matrix.of_apply, Fin.revPerm_symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.factorialHankel_offset_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1Central_PsiDet_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1Central_PsiDet_zero_norm_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
