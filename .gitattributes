@@ -502,3 +502,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularInverseClassification.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_SINGULAR_INVERSE_CLASSIFICATION.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumOffsetInverseRate.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularOffsetRate.lean -text whitespace=cr-at-eol
+
+/experiments/positive_offset_inverse_rate_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_OFFSET_INVERSE_RATE.md -text whitespace=cr-at-eol

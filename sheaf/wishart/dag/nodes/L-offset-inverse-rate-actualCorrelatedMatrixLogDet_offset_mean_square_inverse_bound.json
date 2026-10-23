@@ -1,0 +1,24 @@
+{
+  "id": "L-offset-inverse-rate-actualCorrelatedMatrixLogDet_offset_mean_square_inverse_bound",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualSingularOffsetRate",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_offset_mean_square_inverse_bound",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-offset-inverse-rate-finiteSpectrumOffsetError_nonneg_le_min_inverse"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-offset-inverse-rate-finiteSpectrumOffsetError_nonneg_le_min_inverse"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-offset-inverse-rate-ActualSingularOffsetRate.json",
+    "source_sha256": "825b57f2329c1faa6a8d5bf9791336c9b3e2ab1ebd6300bd756f9994b906982a"
+  }
+}

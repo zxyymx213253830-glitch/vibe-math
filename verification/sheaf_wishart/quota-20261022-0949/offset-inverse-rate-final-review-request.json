@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "FiniteSpectrumOffsetInverseRate.lean": {
+      "sha256": "f7448db2a2414e0cdae1ee897b38712c69a6fd4f13fed6ad73df1e454016afe8",
+      "supplied": "Full source"
+    },
+    "ActualSingularOffsetRate.lean": {
+      "sha256": "825b57f2329c1faa6a8d5bf9791336c9b3e2ab1ebd6300bd756f9994b906982a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "f1b91f775191f79659170f3c420d0420833391f352a7e346af65a4980259ac04"
+}

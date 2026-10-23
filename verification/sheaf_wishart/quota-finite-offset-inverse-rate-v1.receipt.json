@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:51:36.900839+00:00",
+  "ended_utc": "2026-10-23T00:51:48.983303+00:00",
+  "module": "JinWishartFormalization.FiniteSpectrumOffsetInverseRate",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumOffsetInverseRate.lean",
+  "source_sha256_before": "fd8a34be96f9a8372cf142357d1c3cba3993ce97fb57ec76398fdeaa71ea9ca7",
+  "source_sha256": "fd8a34be96f9a8372cf142357d1c3cba3993ce97fb57ec76398fdeaa71ea9ca7",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-finite-offset-inverse-rate-v1.txt",
+  "log_exists": true,
+  "log_sha256": "9603622b4f2caa591cb906b667ca072aeba09a7e98e760f31f11dfd2074cd052",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

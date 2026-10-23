@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "f7448db2a2414e0cdae1ee897b38712c69a6fd4f13fed6ad73df1e454016afe8",
+  "target_lock_sha256": "7757602f0706e5ba19dd6d8db953fc2b56bdc34e70aef4df6aa7df96934805d2",
+  "leaf": {
+    "started_utc": "2026-10-23T00:53:43.248843+00:00",
+    "ended_utc": "2026-10-23T00:53:55.519380+00:00",
+    "module": "JinWishartFormalization.FiniteSpectrumOffsetInverseRate",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumOffsetInverseRate.lean",
+    "source_sha256_before": "f7448db2a2414e0cdae1ee897b38712c69a6fd4f13fed6ad73df1e454016afe8",
+    "source_sha256": "f7448db2a2414e0cdae1ee897b38712c69a6fd4f13fed6ad73df1e454016afe8",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/offset-inverse-rate-FiniteSpectrumOffsetInverseRate-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "b8be46714b26d01d38a5d0e5947dca44eebd8b136e2aceaafdd7d92560ffdde7",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T00:54:07.185038+00:00",
+    "ended_utc": "2026-10-23T00:54:19.548423+00:00",
+    "module": "SheafOffsetInverseRateTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafOffsetInverseRateTargets.lean",
+    "source_sha256_before": "2cdb968cef3671a113f7bb50f31225b1c9887d3e7ff495c4bcb8987881be0e57",
+    "source_sha256": "2cdb968cef3671a113f7bb50f31225b1c9887d3e7ff495c4bcb8987881be0e57",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/offset-inverse-rate-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "cd7cfb0ae302e3a49a1c4f31a89d280b4c2e3f2e686f332105e482d1b21d640e",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

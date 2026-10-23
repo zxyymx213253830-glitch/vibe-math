@@ -1,0 +1,3 @@
+'JinWishart.actualCorrelatedMatrixLogDet_offset_mean_square_inverse_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

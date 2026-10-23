@@ -1,0 +1,33 @@
+[
+  {
+    "tag": "offset-inverse-rate-FiniteSpectrumOffsetInverseRate",
+    "module": "FiniteSpectrumOffsetInverseRate",
+    "nodes": [
+      [
+        "L-offset-inverse-rate-positiveModeOffsetError_nonneg_le_inverse",
+        "positiveModeOffsetError_nonneg_le_inverse",
+        []
+      ],
+      [
+        "L-offset-inverse-rate-finiteSpectrumOffsetError_nonneg_le_min_inverse",
+        "finiteSpectrumOffsetError_nonneg_le_min_inverse",
+        [
+          "L-offset-inverse-rate-positiveModeOffsetError_nonneg_le_inverse"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "offset-inverse-rate-ActualSingularOffsetRate",
+    "module": "ActualSingularOffsetRate",
+    "nodes": [
+      [
+        "L-offset-inverse-rate-actualCorrelatedMatrixLogDet_offset_mean_square_inverse_bound",
+        "actualCorrelatedMatrixLogDet_offset_mean_square_inverse_bound",
+        [
+          "L-offset-inverse-rate-finiteSpectrumOffsetError_nonneg_le_min_inverse"
+        ]
+      ]
+    ]
+  }
+]

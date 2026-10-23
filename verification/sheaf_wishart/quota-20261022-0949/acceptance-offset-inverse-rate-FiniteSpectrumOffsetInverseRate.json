@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-offset-inverse-rate-FiniteSpectrumOffsetInverseRate.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-offset-inverse-rate-FiniteSpectrumOffsetInverseRate.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/offset-inverse-rate-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-offset-inverse-rate-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-offset-inverse-rate-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-offset-inverse-rate-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/offset-inverse-rate-final-snapshot",
+    "resolution": "notes/WISHART_OFFSET_INVERSE_RATE.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-104.receipt.json"
+}

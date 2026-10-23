@@ -1,0 +1,58 @@
+{
+  "status": "PASS finite controls only, not general probability proof",
+  "seed": 2026102239,
+  "checks": 807,
+  "spectrum_cases": 72,
+  "gamma_records": [
+    {
+      "shape": 3,
+      "rho": 1.0,
+      "scaled_mse": 0.190308859979501,
+      "known_inverse_square": 0.5
+    },
+    {
+      "shape": 3,
+      "rho": 5.0,
+      "scaled_mse": 0.3460790481567466,
+      "known_inverse_square": 0.5
+    },
+    {
+      "shape": 3,
+      "rho": 100.0,
+      "scaled_mse": 0.47927402196890817,
+      "known_inverse_square": 0.5
+    },
+    {
+      "shape": 3,
+      "rho": 10000.0,
+      "scaled_mse": 0.49956479345101945,
+      "known_inverse_square": 0.5
+    },
+    {
+      "shape": 4,
+      "rho": 1.0,
+      "scaled_mse": 0.09704071098037377,
+      "known_inverse_square": 0.16666666666666666
+    },
+    {
+      "shape": 4,
+      "rho": 5.0,
+      "scaled_mse": 0.14287038132070184,
+      "known_inverse_square": 0.16666666666666666
+    },
+    {
+      "shape": 4,
+      "rho": 100.0,
+      "scaled_mse": 0.16506370737029277,
+      "known_inverse_square": 0.16666666666666666
+    },
+    {
+      "shape": 4,
+      "rho": 10000.0,
+      "scaled_mse": 0.1666500107345879,
+      "known_inverse_square": 0.16666666666666666
+    }
+  ],
+  "critical_shape2": "inverse-square diverges logarithmically near zero; not estimated by cutoff",
+  "source_sha256": "09929dfe91e3bd406129eff455d27f197786965f9835de2933d144012f7407a8"
+}

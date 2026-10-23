@@ -1,0 +1,31 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetInverseRate.lean:17:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetInverseRate.lean:15:68: error: unsolved goals
+x r : ℝ
+hx : 0 ≤ x
+hr : 0 < r
+hp : 0 < x
+ht : 0 < 1 + r⁻¹ * x⁻¹
+he : 1 + r * x = r * x * (1 + r⁻¹ * x⁻¹)
+⊢ (Real.log x + Real.log (1 + r⁻¹ * x⁻¹) - if 0 < x then Real.log x else 0) = Real.log (1 + r⁻¹ * x⁻¹)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetInverseRate.lean:22:32: error: not a positivity goal
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetInverseRate.lean:43:10: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+'JinWishart.positiveModeOffsetError_nonneg_le_inverse' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.finiteSpectrumOffsetError_nonneg_le_min_inverse' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

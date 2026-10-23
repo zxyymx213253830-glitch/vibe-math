@@ -1,0 +1,20 @@
+{
+  "id": "L-offset-inverse-rate-positiveModeOffsetError_nonneg_le_inverse",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteSpectrumOffsetInverseRate",
+  "declaration": "JinWishart.positiveModeOffsetError_nonneg_le_inverse",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-offset-inverse-rate-FiniteSpectrumOffsetInverseRate.json",
+    "source_sha256": "f7448db2a2414e0cdae1ee897b38712c69a6fd4f13fed6ad73df1e454016afe8"
+  }
+}

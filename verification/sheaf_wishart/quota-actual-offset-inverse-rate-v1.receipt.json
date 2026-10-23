@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:53:01.995033+00:00",
+  "ended_utc": "2026-10-23T00:53:12.764649+00:00",
+  "module": "JinWishartFormalization.ActualSingularOffsetRate",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularOffsetRate.lean",
+  "source_sha256_before": "825b57f2329c1faa6a8d5bf9791336c9b3e2ab1ebd6300bd756f9994b906982a",
+  "source_sha256": "825b57f2329c1faa6a8d5bf9791336c9b3e2ab1ebd6300bd756f9994b906982a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-actual-offset-inverse-rate-v1.txt",
+  "log_exists": true,
+  "log_sha256": "edf306628f679c15f3fe864352931a704677bbcae40f496b8dd9d27a2d37a7b8",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

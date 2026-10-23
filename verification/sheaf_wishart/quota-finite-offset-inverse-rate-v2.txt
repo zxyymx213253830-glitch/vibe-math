@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetInverseRate.lean:17:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetInverseRate.lean:19:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSpectrumOffsetInverseRate.lean:46:10: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+'JinWishart.positiveModeOffsetError_nonneg_le_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finiteSpectrumOffsetError_nonneg_le_min_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
