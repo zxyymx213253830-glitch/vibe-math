@@ -1,5 +1,11 @@
 # Next open card: Fin spectral/shear transport of the actual canonical model
 
+Superseded at734 (e008629): Fin/shear/rank and canonical independent-block inverse
+threshold, matrix product-law criterion and critical ENNReal TOP are accepted.
+Continue at WISHART_NEXT_ORIGINAL_CANONICAL_INVERSE_CARD.md; do not restart the
+older work below. All final source/type/review bindings and70 acceptance records
+passed; original arbitrary singular B theorem and edge branches remain OPEN.
+
 Current726: common-kernel compression and joint injectivity, explicit fixed
 Sum-indexed canonical matrices, actual Sum-row Gaussian block law, and the
 literal physical sample identity/law are closed. Do not redo these, the old

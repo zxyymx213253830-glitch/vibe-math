@@ -1,6 +1,6 @@
 # Next original-model inverse transport card
 
-Established by canonical product criterion732 (5fc8975): a,b,c>0, fixed invertible N, arbitrary fixed complex means, independent proper-CN1 blocks A and H, D=[[A,0],[H,N]], and fixed column index i+1=min(a+c,b+c). The inverse real p moment is finite iff p<max(a,b)-min(a,b)+1. CanonicalMatrixProductInverse is currently in final review/type gates: inspect its receipt and acceptance before treating its matrix-product-law criterion or critical ENNReal TOP statement as accepted. The source controls are reused, not new experiments.
+Established by canonical product criterion732 (5fc8975): a,b,c>0, fixed invertible N, arbitrary fixed complex means, independent proper-CN1 blocks A and H, D=[[A,0],[H,N]], and fixed column index i+1=min(a+c,b+c). The inverse real p moment is finite iff p<max(a,b)-min(a,b)+1. CanonicalMatrixProductInverse734 (e008629) is accepted: auditPASS/facade97 realexit0,70 acceptance records validated; its matrix-product-law criterion and critical/higher nonnegative ENNReal TOP statement are closed. The source controls are reused, not new experiments.
 
 This card replaces completed Fin/shear/rank work. Do NOT redo compression, fixed-normal-form existence, rectangular Gaussian projection, disjoint block product law, Fin column transport, canonical rank, Gaussian factor moments or the product-section lemma.
 
