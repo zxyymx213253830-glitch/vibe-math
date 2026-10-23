@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualFullStackInverseCriterion.lean": {
+      "sha256": "71d404fb9766d8d063d308643b6883183f553d6e201eb6f51df03fe0404799f3",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "21fa0d664baa1a9dd3c3dc7c5d11dfb9f90f1e85546c59802acbb95eff57d949"
+}

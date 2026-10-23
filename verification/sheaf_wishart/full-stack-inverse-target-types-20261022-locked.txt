@@ -1,0 +1,73 @@
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:8:5: warning: Variable name `hstack` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hstack
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:8:45: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:9:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:10:5: warning: Variable name `hcm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:11:38: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:12:13: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:18:5: warning: Variable name `hstack` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hstack
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:18:45: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:19:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:20:5: warning: Variable name `hcm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:21:38: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafFullStackInverseTargets.lean:22:13: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SHEAF_TARGET_TYPES_EQ PASS

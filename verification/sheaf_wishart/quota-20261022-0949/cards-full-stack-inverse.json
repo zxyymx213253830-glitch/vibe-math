@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "full-stack-inverse-ActualFullStackInverseCriterion",
+    "module": "ActualFullStackInverseCriterion",
+    "nodes": [
+      [
+        "L-full-stack-inverse-actual_full_stack_inverse_realMoment_integrable_iff",
+        "actual_full_stack_inverse_realMoment_integrable_iff",
+        []
+      ],
+      [
+        "L-full-stack-inverse-actual_full_stack_inverse_realMoment_lintegral_eq_top",
+        "actual_full_stack_inverse_realMoment_lintegral_eq_top",
+        [
+          "L-full-stack-inverse-actual_full_stack_inverse_realMoment_integrable_iff"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "id": "L-full-stack-inverse-actual_full_stack_inverse_realMoment_integrable_iff",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualFullStackInverseCriterion",
+  "declaration": "JinWishart.actual_full_stack_inverse_realMoment_integrable_iff",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-full-stack-inverse-ActualFullStackInverseCriterion.json",
+    "source_sha256": "71d404fb9766d8d063d308643b6883183f553d6e201eb6f51df03fe0404799f3"
+  }
+}

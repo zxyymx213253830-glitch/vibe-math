@@ -1,0 +1,9 @@
+{
+  "status": "PASS exact finite controls, not general proof",
+  "seed": 2026102235,
+  "checks": 1537,
+  "cases": 512,
+  "reference": "m=a+c,n=b+c; |m-n|=|a-b|",
+  "negative_control": "omitting c from n changes the threshold",
+  "source_sha256": "0f8149938d1841bad4c5cc27d7c617c4b7337877cddc4752528d562f10a321af"
+}

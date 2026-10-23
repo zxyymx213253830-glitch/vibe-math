@@ -1,0 +1,62 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualFullStackInverseCriterion.lean:68:13: error: don't know how to synthesize implicit argument `μ`
+  @Measurable.aestronglyMeasurable ComplexSample ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.169 ?m.170
+    (fun x => (actualCorrelatedEigenvalue B M i)⁻¹ x ^ q) Real.measurableSpace PseudoEMetricSpace.pseudoMetrizableSpace
+    instSecondCountableTopologyReal BorelSpace.opensMeasurable
+    (Measurable.pow_const (Measurable.inv (measurable_actualCorrelatedEigenvalue B M i)) q)
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hstack : (B.fromRows M).rank = n
+hb : 0 < B.rank
+hc : 0 < finrank ℂ ↥(toEuclideanLin B).ker
+hcm : finrank ℂ ↥(toEuclideanLin B).ker < m
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+q : ℝ
+hq : ↑(max m n - min m n + 1) ≤ q
+hq0 : 0 < q
+⊢ Measure ComplexSample
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualFullStackInverseCriterion.lean:68:13: error: don't know how to synthesize implicit argument `m₀`
+  @Measurable.aestronglyMeasurable ComplexSample ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (WithLp.measurableSpace 2 ((i : (Fin m × Fin p) × Fin 2) → (fun x => ℝ) i)) ?m.169 ?m.170
+    (fun x => (actualCorrelatedEigenvalue B M i)⁻¹ x ^ q) Real.measurableSpace PseudoEMetricSpace.pseudoMetrizableSpace
+    instSecondCountableTopologyReal BorelSpace.opensMeasurable
+    (Measurable.pow_const (Measurable.inv (measurable_actualCorrelatedEigenvalue B M i)) q)
+context:
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hstack : (B.fromRows M).rank = n
+hb : 0 < B.rank
+hc : 0 < finrank ℂ ↥(toEuclideanLin B).ker
+hcm : finrank ℂ ↥(toEuclideanLin B).ker < m
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+q : ℝ
+hq : ↑(max m n - min m n + 1) ≤ q
+hq0 : 0 < q
+⊢ MeasurableSpace ComplexSample
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualFullStackInverseCriterion.lean:68:7: error: failed to infer `have` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualFullStackInverseCriterion.lean:65:85: error: unsolved goals
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hstack : (B.fromRows M).rank = n
+hb : 0 < B.rank
+hc : 0 < finrank ℂ ↥(toEuclideanLin B).ker
+hcm : finrank ℂ ↥(toEuclideanLin B).ker < m
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+q : ℝ
+hq : ↑(max m n - min m n + 1) ≤ q
+hq0 : 0 < q
+⊢ ∫⁻ (z : ComplexSample), ENNReal.ofReal ((actualCorrelatedEigenvalue B M i z)⁻¹ ^ q) ∂stdGaussian ComplexSample = ⊤
+'JinWishart.actual_full_stack_inverse_realMoment_integrable_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actual_full_stack_inverse_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

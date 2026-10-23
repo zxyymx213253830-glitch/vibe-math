@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:24:12.412861+00:00",
+  "ended_utc": "2026-10-23T00:24:24.055977+00:00",
+  "module": "JinWishartFormalization.ActualFullStackInverseCriterion",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualFullStackInverseCriterion.lean",
+  "source_sha256_before": "7f08f3a41551c8465fa30aac8258d509de082066c24a27985381e4447fd4e54a",
+  "source_sha256": "7f08f3a41551c8465fa30aac8258d509de082066c24a27985381e4447fd4e54a",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-full-stack-inverse-v1.txt",
+  "log_exists": true,
+  "log_sha256": "27ab3809625fc30b943c1f25db5f2b405a69d335f5d258e012de9b6f3f8d8843",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
