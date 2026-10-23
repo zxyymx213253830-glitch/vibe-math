@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "local-mgf-LocalMGFLawUniqueness",
+    "module": "LocalMGFLawUniqueness",
+    "nodes": [
+      [
+        "L-local-mgf-map_eq_of_mgf_eventuallyEq_zero",
+        "map_eq_of_mgf_eventuallyEq_zero",
+        []
+      ]
+    ]
+  }
+]

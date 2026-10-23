@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-local-mgf-LocalMGFLawUniqueness.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-local-mgf-LocalMGFLawUniqueness.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/local-mgf-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-local-mgf-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-local-mgf-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-local-mgf-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/local-mgf-final-snapshot",
+    "resolution": "notes/WISHART_LOCAL_MGF_LAW_UNIQUENESS.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-116.receipt.json"
+}

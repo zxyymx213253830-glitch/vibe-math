@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-23T11:32:11.934400+00:00",
+  "module": "JinWishartFormalization.LocalMGFLawUniqueness",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/LocalMGFLawUniqueness.lean",
+  "statements": {
+    "JinWishart.map_eq_of_mgf_eventuallyEq_zero": "{Ω Ω' : Type*} [MeasurableSpace Ω] [MeasurableSpace Ω'] {μ : Measure Ω} {ν : Measure Ω'} [IsFiniteMeasure μ] [IsFiniteMeasure ν] {X : Ω → ℝ} {Y : Ω' → ℝ} (hX : AEMeasurable X μ) (hY : AEMeasurable Y ν) (h0X : 0 ∈ interior (integrableExpSet X μ)) (h0Y : 0 ∈ interior (integrableExpSet Y ν)) (hmgf : mgf X μ =ᶠ[𝓝 0] mgf Y ν) : μ.map X = ν.map Y"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/LocalMGFLawUniqueness.lean": "9369eeb0f60a2f056fe85184f47061dd3ae3a2550de37e9b05151da61b6ee829",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafLocalMGFTargets.lean",
+  "type_check_source_sha256": "3d100878831f36e5d70dee1c8bc6bb2443605bada2ff7afc6c62993b54729074",
+  "locked_local_definitions": {}
+}

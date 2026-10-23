@@ -1,0 +1,46 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LocalMGFLawUniqueness.lean:42:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  @Tendsto ?m.340 ℂ (fun x => ↑(?m.342 x)) ?m.341 (𝓝 ↑?m.343)
+in the target expression
+  @Tendsto ℕ ℂ (fun n => ↑(xs n)) atTop (𝓝 0)
+
+case left
+Ω : Type u_1
+Ω' : Type u_2
+inst✝³ : MeasurableSpace Ω
+inst✝² : MeasurableSpace Ω'
+μ : Measure Ω
+ν : Measure Ω'
+inst✝¹ : IsFiniteMeasure μ
+inst✝ : IsFiniteMeasure ν
+X : Ω → ℝ
+Y : Ω' → ℝ
+hX : AEMeasurable X μ
+hY : AEMeasurable Y ν
+h0X : 0 ∈ interior (integrableExpSet X μ)
+h0Y : 0 ∈ interior (integrableExpSet Y ν)
+hmgf : mgf X μ =ᶠ[𝓝 0] mgf Y ν
+U : Set ℂ := ⋯
+hAX : AnalyticOnNhd ℂ (complexMGF X μ) U
+hAY : AnalyticOnNhd ℂ (complexMGF Y ν) U
+hU : IsPreconnected U
+xs : ℕ → ℝ
+hx : Tendsto xs atTop (𝓝 0) ∧ ∀ᶠ (n : ℕ) in atTop, xs n ∈ {0}ᶜ
+he : ∀ (n : ℕ), complexMGF X μ ↑(xs n) = complexMGF Y ν ↑(xs n)
+⊢ Tendsto (fun n => ↑(xs n)) atTop (𝓝 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LocalMGFLawUniqueness.lean:48:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\LocalMGFLawUniqueness.lean:49:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'JinWishart.map_eq_of_mgf_eventuallyEq_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

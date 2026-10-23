@@ -112,3 +112,4 @@
 - 2026-10-23T11:14:53.348508+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-OneColumnNuttallNormalization.json; human measure/model review remains REQUIRED.
 - 2026-10-23T11:25:07.905014+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-four-row-actual-OneColumnRadialCDF.json; human measure/model review remains REQUIRED.
 - 2026-10-23T11:25:25.035350+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-four-row-actual-Theorem12FourRowsActualCDF.json; human measure/model review remains REQUIRED.
+- 2026-10-23T11:34:20.272606+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-local-mgf-LocalMGFLawUniqueness.json; human measure/model review remains REQUIRED.

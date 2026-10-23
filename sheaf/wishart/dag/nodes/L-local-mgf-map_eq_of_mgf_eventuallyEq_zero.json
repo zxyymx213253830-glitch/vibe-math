@@ -1,0 +1,20 @@
+{
+  "id": "L-local-mgf-map_eq_of_mgf_eventuallyEq_zero",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.LocalMGFLawUniqueness",
+  "declaration": "JinWishart.map_eq_of_mgf_eventuallyEq_zero",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-local-mgf-LocalMGFLawUniqueness.json",
+    "source_sha256": "9369eeb0f60a2f056fe85184f47061dd3ae3a2550de37e9b05151da61b6ee829"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "LocalMGFLawUniqueness.lean": {
+      "sha256": "9369eeb0f60a2f056fe85184f47061dd3ae3a2550de37e9b05151da61b6ee829",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7dc2914a30eb84eab194c826e13fcd8c7f93c96cd1eead87162bb7d8406216c5"
+}
