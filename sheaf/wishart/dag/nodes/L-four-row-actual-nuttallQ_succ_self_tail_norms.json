@@ -1,0 +1,20 @@
+{
+  "id": "L-four-row-actual-nuttallQ_succ_self_tail_norms",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.OneColumnRadialCDF",
+  "declaration": "JinWishart.nuttallQ_succ_self_tail_norms",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-four-row-actual-OneColumnRadialCDF.json",
+    "source_sha256": "f579b857c8fc8a96ff43da3692885ac4c64e9a538e62ed218f14438a95009c5c"
+  }
+}

@@ -1,0 +1,8 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OneColumnRadialCDF.lean:56:55: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'JinWishart.nuttallQ_succ_self_tail_norms' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem12OneColumnCandidates_eq_radialCDF' depends on axioms: [propext, Classical.choice, Quot.sound]

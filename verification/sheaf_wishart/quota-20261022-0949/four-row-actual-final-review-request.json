@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "OneColumnRadialCDF.lean": {
+      "sha256": "f579b857c8fc8a96ff43da3692885ac4c64e9a538e62ed218f14438a95009c5c",
+      "supplied": "Full source"
+    },
+    "Theorem12FourRowsActualCDF.lean": {
+      "sha256": "03f09c79561b240fbc0d34cea54810a73ec750a8c28bb2816df69bc4d76b83b5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9836a565b0e55c6b1827fdfeeeb504abdf7c16c207d3c40b5ff598714e3ddabf"
+}

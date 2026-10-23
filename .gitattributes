@@ -590,3 +590,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/general_nuttall_normalization_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_GENERAL_NUTTALL_NORMALIZATION.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/OneColumnRadialCDF.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/Theorem12FourRowsActualCDF.lean -text whitespace=cr-at-eol
+
+/experiments/one_column_radial_cdf_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_FOUR_ROW_ACTUAL_T12.md -text whitespace=cr-at-eol

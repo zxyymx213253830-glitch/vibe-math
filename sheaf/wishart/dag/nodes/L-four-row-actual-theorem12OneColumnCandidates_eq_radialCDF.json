@@ -1,0 +1,24 @@
+{
+  "id": "L-four-row-actual-theorem12OneColumnCandidates_eq_radialCDF",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.OneColumnRadialCDF",
+  "declaration": "JinWishart.theorem12OneColumnCandidates_eq_radialCDF",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-four-row-actual-nuttallQ_succ_self_tail_norms"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-four-row-actual-nuttallQ_succ_self_tail_norms"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-four-row-actual-OneColumnRadialCDF.json",
+    "source_sha256": "f579b857c8fc8a96ff43da3692885ac4c64e9a538e62ed218f14438a95009c5c"
+  }
+}

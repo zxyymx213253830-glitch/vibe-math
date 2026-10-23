@@ -1,0 +1,101 @@
+{
+  "status": "PASS calibrated CDF/source controls; not a probability proof",
+  "seed": 2026102250,
+  "checks": 234,
+  "samples_per_actual_case": 200000,
+  "actual_cases": 3,
+  "records": [
+    {
+      "lam": 0.5,
+      "x": 0.0,
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "lam": 0.5,
+      "x": 0.2,
+      "observed": 1.5e-05,
+      "reference": 3.516588594958736e-05
+    },
+    {
+      "lam": 0.5,
+      "x": 1.0,
+      "observed": 0.01255,
+      "reference": 0.012672921093468079
+    },
+    {
+      "lam": 0.5,
+      "x": 5.0,
+      "observed": 0.647525,
+      "reference": 0.6478066716013887
+    },
+    {
+      "lam": 0.5,
+      "x": 15.0,
+      "observed": 0.9992,
+      "reference": 0.9992684621079061
+    },
+    {
+      "lam": 2.0,
+      "x": 0.0,
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "lam": 2.0,
+      "x": 0.2,
+      "observed": 0.0,
+      "reference": 8.324380975226085e-06
+    },
+    {
+      "lam": 2.0,
+      "x": 1.0,
+      "observed": 0.00375,
+      "reference": 0.0037371960656653208
+    },
+    {
+      "lam": 2.0,
+      "x": 5.0,
+      "observed": 0.41245,
+      "reference": 0.4126971414946721
+    },
+    {
+      "lam": 2.0,
+      "x": 15.0,
+      "observed": 0.99309,
+      "reference": 0.9931556474281471
+    },
+    {
+      "lam": 5.0,
+      "x": 0.0,
+      "observed": 0.0,
+      "reference": 0.0
+    },
+    {
+      "lam": 5.0,
+      "x": 0.2,
+      "observed": 0.0,
+      "reference": 4.656823761521258e-07
+    },
+    {
+      "lam": 5.0,
+      "x": 1.0,
+      "observed": 0.00029,
+      "reference": 0.0003149834063869139
+    },
+    {
+      "lam": 5.0,
+      "x": 5.0,
+      "observed": 0.13247,
+      "reference": 0.13140948811745212
+    },
+    {
+      "lam": 5.0,
+      "x": 15.0,
+      "observed": 0.930585,
+      "reference": 0.9307853997765156
+    }
+  ],
+  "reference": "Energy of properCN1 M+Z: noncentral chi-square(df2m,nc2||M||F^2)/2; centered Gamma4 calibration",
+  "source_sha256": "fe8d900691b4b1bcea098c11a05de8051d364d8328bb702f782cd8fdd31f00ad"
+}

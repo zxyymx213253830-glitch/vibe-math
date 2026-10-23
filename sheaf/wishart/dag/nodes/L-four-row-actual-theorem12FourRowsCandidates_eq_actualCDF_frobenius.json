@@ -1,0 +1,24 @@
+{
+  "id": "L-four-row-actual-theorem12FourRowsCandidates_eq_actualCDF_frobenius",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.Theorem12FourRowsActualCDF",
+  "declaration": "JinWishart.theorem12FourRowsCandidates_eq_actualCDF_frobenius",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-four-row-actual-theorem12OneColumnCandidates_eq_radialCDF"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-four-row-actual-theorem12OneColumnCandidates_eq_radialCDF"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-four-row-actual-Theorem12FourRowsActualCDF.json",
+    "source_sha256": "03f09c79561b240fbc0d34cea54810a73ec750a8c28bb2816df69bc4d76b83b5"
+  }
+}

@@ -1,0 +1,13 @@
+{
+ "name":"four-row-actual",
+ "review":"four-row-actual-final",
+ "resolution":"notes/WISHART_FOUR_ROW_ACTUAL_T12.md",
+ "facade":"facade-115",
+ "total":791,
+ "new_count":3,
+ "control_script":"experiments/one_column_radial_cdf_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/one-column-radial-cdf-control.json",
+ "seed":2026102250,
+ "commit":"Identify original T1 and T2 with the actual arbitrary-mean four-row one-column CDF",
+ "scope":"2026-10-23续跑第五十一里程碑：791绑定项（789定理实例+2构造），auditPASS/facade115真实exit0，101接受记录全验证。本轮181打印声明/83模块非181概率突破。新3声明/2模块：任意自然q正a/非负b的Nuttall尾及increment范数=非负radial上/下质量乘a^q；所有正行t的原T1/T2单列候选=同一有限radialCDF（仅公式侧）；复用现有FourRowSampleCoordinates实际law和一般Frobenius编码，4-by-1任意固定非零复均值的原T1/T2候选同时等于同一原始8实Gaussian源实际CDF，lambda=sum||Mi0||平方，a=sqrt(2lambda)，q3精确。实际T1/T2合为一条conjunction声明，不计两次概率突破。234先行校准含三组各200000真实样本/中心Gamma4/方差反控制，非证明；3字面类型与最终2源码真实Qoder P4绑定。Ioi积分域/t0被误纳入/lambda定义/factor2编码及q3维度疑问按精确签名裁决，两个源首检及最终均exit0/标准3公理。11:19普通true primary79 weekly44，两重置券available从未用；lease12:02非用户截止。一般行实际非中心kernel/law、多列G2、一般矩形原T1T2T3/full映射仍OPEN。下一可用mgf近0唯一性+平方移位Gaussian完成平方积分，与已规范化radial核加权积分对照，避免重做逐维sphere图；先精确核对已有资产与Laplace/mgf接口、固定seed控制后源码。人审测度/求和积分/模型/原文仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

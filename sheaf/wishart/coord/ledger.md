@@ -110,3 +110,5 @@
 - 2026-10-23T11:14:24.073733+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-BesselINaturalSeries.json; human measure/model review remains REQUIRED.
 - 2026-10-23T11:14:40.084107+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-NaturalNuttallNormalization.json; human measure/model review remains REQUIRED.
 - 2026-10-23T11:14:53.348508+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-natural-nuttall-OneColumnNuttallNormalization.json; human measure/model review remains REQUIRED.
+- 2026-10-23T11:25:07.905014+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-four-row-actual-OneColumnRadialCDF.json; human measure/model review remains REQUIRED.
+- 2026-10-23T11:25:25.035350+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-four-row-actual-Theorem12FourRowsActualCDF.json; human measure/model review remains REQUIRED.

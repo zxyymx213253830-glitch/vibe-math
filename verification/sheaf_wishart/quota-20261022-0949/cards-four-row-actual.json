@@ -1,0 +1,33 @@
+[
+  {
+    "tag": "four-row-actual-OneColumnRadialCDF",
+    "module": "OneColumnRadialCDF",
+    "nodes": [
+      [
+        "L-four-row-actual-nuttallQ_succ_self_tail_norms",
+        "nuttallQ_succ_self_tail_norms",
+        []
+      ],
+      [
+        "L-four-row-actual-theorem12OneColumnCandidates_eq_radialCDF",
+        "theorem12OneColumnCandidates_eq_radialCDF",
+        [
+          "L-four-row-actual-nuttallQ_succ_self_tail_norms"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "four-row-actual-Theorem12FourRowsActualCDF",
+    "module": "Theorem12FourRowsActualCDF",
+    "nodes": [
+      [
+        "L-four-row-actual-theorem12FourRowsCandidates_eq_actualCDF_frobenius",
+        "theorem12FourRowsCandidates_eq_actualCDF_frobenius",
+        [
+          "L-four-row-actual-theorem12OneColumnCandidates_eq_radialCDF"
+        ]
+      ]
+    ]
+  }
+]

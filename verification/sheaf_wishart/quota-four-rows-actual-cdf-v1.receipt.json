@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T11:19:14.989299+00:00",
+  "ended_utc": "2026-10-23T11:19:23.883746+00:00",
+  "module": "JinWishartFormalization.Theorem12FourRowsActualCDF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem12FourRowsActualCDF.lean",
+  "source_sha256_before": "03f09c79561b240fbc0d34cea54810a73ec750a8c28bb2816df69bc4d76b83b5",
+  "source_sha256": "03f09c79561b240fbc0d34cea54810a73ec750a8c28bb2816df69bc4d76b83b5",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-four-rows-actual-cdf-v1.txt",
+  "log_exists": true,
+  "log_sha256": "01d6d2b4227063435cf7b9616895b2bda0ae47301de75920eaecc74476dbcce2",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

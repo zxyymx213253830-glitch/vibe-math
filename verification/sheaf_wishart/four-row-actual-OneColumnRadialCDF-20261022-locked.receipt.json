@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T11:19:56.835498+00:00",
+  "ended_utc": "2026-10-23T11:20:06.893646+00:00",
+  "module": "JinWishartFormalization.OneColumnRadialCDF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OneColumnRadialCDF.lean",
+  "source_sha256_before": "f579b857c8fc8a96ff43da3692885ac4c64e9a538e62ed218f14438a95009c5c",
+  "source_sha256": "f579b857c8fc8a96ff43da3692885ac4c64e9a538e62ed218f14438a95009c5c",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/four-row-actual-OneColumnRadialCDF-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "671c8af52acbe5daa20a80963f780d4417a6e7ae056d6c94e6a9ad5ebf57501c",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
