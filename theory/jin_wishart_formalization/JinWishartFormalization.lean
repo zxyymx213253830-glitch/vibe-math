@@ -1,3 +1,4 @@
+import JinWishartFormalization.ActualSingularInverseClassification
 import JinWishartFormalization.RectangularFullColumnFrame
 import JinWishartFormalization.RectangularFactorInverseCriterion
 import JinWishartFormalization.ActualSingularInverseEdges

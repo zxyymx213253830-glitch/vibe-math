@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "singular-inverse-classification-ActualSingularInverseClassification",
+    "module": "ActualSingularInverseClassification",
+    "nodes": [
+      [
+        "L-singular-inverse-classification-actual_singular_positive_inverse_realMoment_integrable_iff",
+        "actual_singular_positive_inverse_realMoment_integrable_iff",
+        []
+      ],
+      [
+        "L-singular-inverse-classification-actual_singular_positive_inverse_realMoment_lintegral_eq_top",
+        "actual_singular_positive_inverse_realMoment_lintegral_eq_top",
+        [
+          "L-singular-inverse-classification-actual_singular_positive_inverse_realMoment_integrable_iff"
+        ]
+      ],
+      [
+        "L-singular-inverse-classification-actual_singular_no_positive_spectrum_ae_of_generic_rank_zero",
+        "actual_singular_no_positive_spectrum_ae_of_generic_rank_zero",
+        [
+          "L-singular-inverse-classification-actual_singular_positive_inverse_realMoment_lintegral_eq_top"
+        ]
+      ]
+    ]
+  }
+]

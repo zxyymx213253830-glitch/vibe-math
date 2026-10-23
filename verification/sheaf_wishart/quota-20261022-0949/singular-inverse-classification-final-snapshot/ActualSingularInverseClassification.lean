@@ -1,0 +1,120 @@
+import JinWishartFormalization.RectangularFactorInverseCriterion
+
+/-! Exhaustive fixed-model minimum-positive inverse classification. Codex.
+Controls reused before source: compressed54/379, edges27/198, rectangular18/109,
+finite positive-prefix controls including all-zero spectra. No new experiment.
+[需人工审查] Original properCN1 source, fixed means, AE generic rank/index,
+measure/inverse transport and model/paper interpretation. R=0 is absence of
+positive spectrum, never a totalized inverse moment at a fictional minimum. -/
+open Matrix Module MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+private theorem zeroImageCriterion {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hb : r=B.rank)
+    (hR : 0<min m r) (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m r)
+    (q : ℝ) (hq : 0<q) :
+    Integrable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹^q)
+      (stdGaussian (ComplexSample (m := m) (n := p))) ↔
+      q<((max m r-min m r+1 : ℕ) : ℝ) := by
+  have hR' : 0<min m (Matrix.fromRows B M).rank := by rwa [← hr]
+  obtain ⟨s,C,hs,hiso,hB,hM,i0,j,hi0,hj,hmi,hmj,hAE⟩ :=
+    exists_actual_fixed_compression_min_positive_ae B M hR'
+  have hs' : s=r := hs.trans hr.symm
+  clear hs
+  subst s
+  have he : i=i0 := Fin.ext (by rw [← hr] at hi0;omega)
+  subst i0
+  have hj' : j.val+1=min m r := by simpa only [← hr] using hj
+  have hbr : (B*C).rank=B.rank := by
+    apply le_antisymm (Matrix.rank_mul_le_left _ _)
+    have h := Matrix.rank_mul_le_left (B*C) Cᴴ
+    rwa [hB] at h
+  have hm : 0<m := (lt_min_iff.mp hR).1
+  have hr0 : 0<r := (lt_min_iff.mp hR).2
+  have hcrit := actual_rectangular_factor_inverse_realMoment_integrable_iff
+    (B*C) (M*C) (hbr.trans hb.symm) hm hr0 j hj' q hq
+  have heq : (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹^q)=ᵐ[
+      stdGaussian (ComplexSample (m := m) (n := p))]
+      (fun z => (actualCorrelatedEigenvalue (B*C) (M*C) j z)⁻¹^q) := by
+    filter_upwards [hAE] with z hz
+    exact congrArg (fun t : ℝ => t⁻¹^q) hz.2.2
+  exact (integrable_congr heq).trans hcrit
+
+theorem actual_singular_positive_inverse_realMoment_integrable_iff {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hR : 0<min m r)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m r) (q : ℝ) (hq : 0<q) :
+    Integrable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹^q)
+      (stdGaussian (ComplexSample (m := m) (n := p))) ↔
+      B.rank=0 ∨ r-B.rank=m ∨ q<((max m r-min m r+1 : ℕ) : ℝ) := by
+  by_cases hb : B.rank=0
+  · exact iff_of_true (actual_inverse_realMoment_integrable_of_noise_rank_zero B M hb i q)
+      (Or.inl hb)
+  have hb0 : 0<B.rank := Nat.pos_of_ne_zero hb
+  have hm : 0<m := (lt_min_iff.mp hR).1
+  by_cases hc : r-B.rank=m
+  · exact iff_of_true (actual_positive_boundary_inverse_integrable_of_noiseless_full_image
+      B M hr hm hc i hi q hq.le) (Or.inr (Or.inl hc))
+  have hd := matrix_fromRows_rank_eq B M
+  rw [← hr] at hd
+  have hle : finrank ℂ (LinearMap.range
+      (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)))≤m := by
+    simpa only [Module.finrank_pi,Fintype.card_fin] using
+      (Submodule.finrank_le (M.mulVecLin.domRestrict (LinearMap.ker B.mulVecLin)).range)
+  have hcm : r-B.rank<m := by omega
+  have hcrit : Integrable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹^q)
+      (stdGaussian (ComplexSample (m := m) (n := p))) ↔
+      q<((max m r-min m r+1 : ℕ) : ℝ) := by
+    by_cases hc0 : r-B.rank=0
+    · exact zeroImageCriterion B M hr (by omega) hR i hi q hq
+    · exact actual_compressed_inverse_realMoment_integrable_iff B M hr hb0
+        (Nat.pos_of_ne_zero hc0) hcm i hi q hq
+  simpa only [hb,hc,false_or] using hcrit
+
+theorem actual_singular_positive_inverse_realMoment_lintegral_eq_top {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hR : 0<min m r) (hb : 0<B.rank)
+    (hcm : r-B.rank<m) (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m r)
+    (q : ℝ) (hq : ((max m r-min m r+1 : ℕ) : ℝ)≤q) :
+    (∫⁻ z : ComplexSample (m := m) (n := p),
+      ENNReal.ofReal ((actualCorrelatedEigenvalue B M i z)⁻¹^q) ∂stdGaussian _)=⊤ := by
+  have hq0 : 0<q := lt_of_lt_of_le
+    (by positivity : (0 : ℝ)<((max m r-min m r+1 : ℕ) : ℝ)) hq
+  have hF : Measurable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹^q) :=
+    (measurable_actualCorrelatedEigenvalue B M i).inv.pow_const q
+  by_contra h
+  have hI := (lintegral_ofReal_ne_top_iff_integrable hF.aestronglyMeasurable
+    (ae_of_all _ (fun z => Real.rpow_nonneg (inv_nonneg.mpr
+      (complexGram_eigenvalues₀_nonneg (complexSampleMatrix z*B+M) i)) q))).mp h
+  rcases (actual_singular_positive_inverse_realMoment_integrable_iff B M hr hR i hi q hq0).mp hI
+    with hz|hz|hz
+  · omega
+  · omega
+  · exact not_lt_of_ge hq hz
+
+theorem actual_singular_no_positive_spectrum_ae_of_generic_rank_zero {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hR : min m r=0) :
+    ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := p)),
+      ∀ i : Fin (Fintype.card (Fin n)),¬0<actualCorrelatedEigenvalue B M i z := by
+  classical
+  have hrank := actualCorrelatedRank_eq_generic_ae B M
+  rw [← matrix_fromRows_rank_eq B M,← hr,hR] at hrank
+  filter_upwards [hrank] with z hz
+  have hc := gram_positive_modes_card_eq_rank (complexSampleMatrix z*B+M)
+  rw [hz] at hc
+  have he := Finset.card_eq_zero.mp hc
+  intro i hip
+  have hm : i∈Finset.univ.filter (fun j =>
+      0<(complexGram_posSemidef (complexSampleMatrix z*B+M)).1.eigenvalues₀ j) := by
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,hip⟩
+  rw [he] at hm
+  exact Finset.notMem_empty i hm
+
+end
+end JinWishart
+#print axioms JinWishart.actual_singular_positive_inverse_realMoment_integrable_iff
+#print axioms JinWishart.actual_singular_positive_inverse_realMoment_lintegral_eq_top
+#print axioms JinWishart.actual_singular_no_positive_spectrum_ae_of_generic_rank_zero

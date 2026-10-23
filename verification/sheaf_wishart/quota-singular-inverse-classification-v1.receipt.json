@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:45:59.891244+00:00",
+  "ended_utc": "2026-10-23T00:46:11.879790+00:00",
+  "module": "JinWishartFormalization.ActualSingularInverseClassification",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularInverseClassification.lean",
+  "source_sha256_before": "875cc278ed1a16ac81aae19784c35f73204e43a272bbad854d2bef37065293fb",
+  "source_sha256": "875cc278ed1a16ac81aae19784c35f73204e43a272bbad854d2bef37065293fb",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-singular-inverse-classification-v1.txt",
+  "log_exists": true,
+  "log_sha256": "92631e67fdf823636719125604a4d6d7c5cc3aea01d80ad753142c8636cf4e2d",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

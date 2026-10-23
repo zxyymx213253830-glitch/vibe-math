@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualSingularInverseClassification.lean": {
+      "sha256": "875cc278ed1a16ac81aae19784c35f73204e43a272bbad854d2bef37065293fb",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "1bcda4057720e487b75b16b7987ecf47994287834389a52120e37116a7a65ac1"
+}

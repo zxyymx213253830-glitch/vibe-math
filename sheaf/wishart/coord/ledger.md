@@ -87,3 +87,4 @@
 - 2026-10-23T00:38:40.326716+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-singular-inverse-edges-ActualSingularInverseEdges.json; human measure/model review remains REQUIRED.
 - 2026-10-23T00:44:59.158298+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-rectangular-factor-inverse-RectangularFullColumnFrame.json; human measure/model review remains REQUIRED.
 - 2026-10-23T00:45:07.929356+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-rectangular-factor-inverse-RectangularFactorInverseCriterion.json; human measure/model review remains REQUIRED.
+- 2026-10-23T00:49:03.264203+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-singular-inverse-classification-ActualSingularInverseClassification.json; human measure/model review remains REQUIRED.

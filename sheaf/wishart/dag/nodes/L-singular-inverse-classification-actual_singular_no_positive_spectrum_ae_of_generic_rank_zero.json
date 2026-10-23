@@ -1,0 +1,24 @@
+{
+  "id": "L-singular-inverse-classification-actual_singular_no_positive_spectrum_ae_of_generic_rank_zero",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualSingularInverseClassification",
+  "declaration": "JinWishart.actual_singular_no_positive_spectrum_ae_of_generic_rank_zero",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-singular-inverse-classification-actual_singular_positive_inverse_realMoment_lintegral_eq_top"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-singular-inverse-classification-actual_singular_positive_inverse_realMoment_lintegral_eq_top"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-singular-inverse-classification-ActualSingularInverseClassification.json",
+    "source_sha256": "875cc278ed1a16ac81aae19784c35f73204e43a272bbad854d2bef37065293fb"
+  }
+}

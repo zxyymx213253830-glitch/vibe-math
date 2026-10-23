@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-singular-inverse-classification-ActualSingularInverseClassification.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-singular-inverse-classification-ActualSingularInverseClassification.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/singular-inverse-classification-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-singular-inverse-classification-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-singular-inverse-classification-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-singular-inverse-classification-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/singular-inverse-classification-final-snapshot",
+    "resolution": "notes/WISHART_SINGULAR_INVERSE_CLASSIFICATION.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-103.receipt.json"
+}

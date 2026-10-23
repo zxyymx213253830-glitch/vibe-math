@@ -498,3 +498,7 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/rectangular_factor_inverse_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_RECTANGULAR_FACTOR_INVERSE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularInverseClassification.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_SINGULAR_INVERSE_CLASSIFICATION.md -text whitespace=cr-at-eol

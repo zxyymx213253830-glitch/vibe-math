@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "875cc278ed1a16ac81aae19784c35f73204e43a272bbad854d2bef37065293fb",
+  "target_lock_sha256": "9797565e685951dc5fa915639ceab3b4f01d30c9e1f0f550789b1e49fa324fec",
+  "leaf": {
+    "started_utc": "2026-10-23T00:46:45.696478+00:00",
+    "ended_utc": "2026-10-23T00:46:57.927159+00:00",
+    "module": "JinWishartFormalization.ActualSingularInverseClassification",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularInverseClassification.lean",
+    "source_sha256_before": "875cc278ed1a16ac81aae19784c35f73204e43a272bbad854d2bef37065293fb",
+    "source_sha256": "875cc278ed1a16ac81aae19784c35f73204e43a272bbad854d2bef37065293fb",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/singular-inverse-classification-ActualSingularInverseClassification-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "92631e67fdf823636719125604a4d6d7c5cc3aea01d80ad753142c8636cf4e2d",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T00:46:57.928521+00:00",
+    "ended_utc": "2026-10-23T00:47:10.284377+00:00",
+    "module": "SheafSingularInverseClassificationTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafSingularInverseClassificationTargets.lean",
+    "source_sha256_before": "ad9a268a189b854375f64b5cbdf4657d74f75ec658b2382630137541d9e9da13",
+    "source_sha256": "ad9a268a189b854375f64b5cbdf4657d74f75ec658b2382630137541d9e9da13",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/singular-inverse-classification-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "7ee781e5fe6f99a6695f81f1eec38afdaf67e511c2794fb186158a1d5436bdd2",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}
