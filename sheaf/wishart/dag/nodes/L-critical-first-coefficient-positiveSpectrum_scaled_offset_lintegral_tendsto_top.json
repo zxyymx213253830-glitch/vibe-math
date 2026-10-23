@@ -1,0 +1,20 @@
+{
+  "id": "L-critical-first-coefficient-positiveSpectrum_scaled_offset_lintegral_tendsto_top",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PositiveSpectrumFatouDivergence",
+  "declaration": "JinWishart.positiveSpectrum_scaled_offset_lintegral_tendsto_top",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-critical-first-coefficient-PositiveSpectrumFatouDivergence.json",
+    "source_sha256": "42fef7a9a23d67b21992cd806d9a390eebf1881da416b0efe21c103a949c182f"
+  }
+}

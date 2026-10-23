@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:32:15.888975+00:00",
+  "ended_utc": "2026-10-23T01:32:27.226661+00:00",
+  "module": "JinWishartFormalization.ActualCriticalFirstCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCriticalFirstCoefficient.lean",
+  "source_sha256_before": "1b3351050d4f6a7e4e1eba2b335480ef04bf5d279a0ed039a62cacc2e9268378",
+  "source_sha256": "1b3351050d4f6a7e4e1eba2b335480ef04bf5d279a0ed039a62cacc2e9268378",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/critical-first-coefficient-ActualCriticalFirstCoefficient-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "a87fd97d6915620f2b00ac0ecabf171655c06a4a202ffe8a60589f2d8a420614",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

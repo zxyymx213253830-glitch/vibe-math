@@ -97,3 +97,5 @@
 - 2026-10-23T01:17:58.035077+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-first-coefficient-PositiveModeFirstCoefficient.json; human measure/model review remains REQUIRED.
 - 2026-10-23T01:18:12.790052+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-first-coefficient-ActualPositiveFirstCoefficient.json; human measure/model review remains REQUIRED.
 - 2026-10-23T01:26:40.145595+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-second-coefficient-ActualPositiveSecondCoefficient.json; human measure/model review remains REQUIRED.
+- 2026-10-23T10:02:25.633417+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-critical-first-coefficient-PositiveSpectrumFatouDivergence.json; human measure/model review remains REQUIRED.
+- 2026-10-23T10:02:35.350116+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-critical-first-coefficient-ActualCriticalFirstCoefficient.json; human measure/model review remains REQUIRED.

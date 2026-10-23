@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "PositiveSpectrumFatouDivergence.lean": {
+      "sha256": "42fef7a9a23d67b21992cd806d9a390eebf1881da416b0efe21c103a949c182f",
+      "supplied": "Full source"
+    },
+    "ActualCriticalFirstCoefficient.lean": {
+      "sha256": "1b3351050d4f6a7e4e1eba2b335480ef04bf5d279a0ed039a62cacc2e9268378",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "dfb1b1168e7d66f88812ee86a3c97382e0ce56ddc55ff9dbbade2e54897ce66a"
+}

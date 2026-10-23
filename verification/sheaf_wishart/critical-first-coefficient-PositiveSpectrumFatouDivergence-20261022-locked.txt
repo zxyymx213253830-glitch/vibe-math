@@ -1,0 +1,3 @@
+'JinWishart.positiveSpectrum_scaled_offset_lintegral_tendsto_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

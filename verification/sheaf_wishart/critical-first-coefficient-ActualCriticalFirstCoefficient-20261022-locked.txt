@@ -1,0 +1,3 @@
+'JinWishart.actualCorrelatedMatrixLogDet_critical_scaled_offset_tendsto_atTop' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

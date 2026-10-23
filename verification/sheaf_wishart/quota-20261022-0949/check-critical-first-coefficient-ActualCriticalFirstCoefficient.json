@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "1b3351050d4f6a7e4e1eba2b335480ef04bf5d279a0ed039a62cacc2e9268378",
+  "target_lock_sha256": "75b163cd5803d444b51e08ce01db045c504a33018b6efbc7f65e179a56c1b464",
+  "leaf": {
+    "started_utc": "2026-10-23T01:32:15.888975+00:00",
+    "ended_utc": "2026-10-23T01:32:27.226661+00:00",
+    "module": "JinWishartFormalization.ActualCriticalFirstCoefficient",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCriticalFirstCoefficient.lean",
+    "source_sha256_before": "1b3351050d4f6a7e4e1eba2b335480ef04bf5d279a0ed039a62cacc2e9268378",
+    "source_sha256": "1b3351050d4f6a7e4e1eba2b335480ef04bf5d279a0ed039a62cacc2e9268378",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/critical-first-coefficient-ActualCriticalFirstCoefficient-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "a87fd97d6915620f2b00ac0ecabf171655c06a4a202ffe8a60589f2d8a420614",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T01:32:27.228279+00:00",
+    "ended_utc": "2026-10-23T01:32:40.555164+00:00",
+    "module": "SheafCriticalFirstCoefficientTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCriticalFirstCoefficientTargets.lean",
+    "source_sha256_before": "900c2a3a1e626240184ec623dfcb3ea7ab8043067e64b0bc700d5ac9693bc648",
+    "source_sha256": "900c2a3a1e626240184ec623dfcb3ea7ab8043067e64b0bc700d5ac9693bc648",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/critical-first-coefficient-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "8dd4fb7867f751e314d6f0c86013962178e4dce1a645dd9c4f341b215d55ccef",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:32:27.228279+00:00",
+  "ended_utc": "2026-10-23T01:32:40.555164+00:00",
+  "module": "SheafCriticalFirstCoefficientTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCriticalFirstCoefficientTargets.lean",
+  "source_sha256_before": "900c2a3a1e626240184ec623dfcb3ea7ab8043067e64b0bc700d5ac9693bc648",
+  "source_sha256": "900c2a3a1e626240184ec623dfcb3ea7ab8043067e64b0bc700d5ac9693bc648",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/critical-first-coefficient-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "8dd4fb7867f751e314d6f0c86013962178e4dce1a645dd9c4f341b215d55ccef",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

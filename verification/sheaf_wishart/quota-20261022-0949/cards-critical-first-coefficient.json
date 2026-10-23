@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "critical-first-coefficient-PositiveSpectrumFatouDivergence",
+    "module": "PositiveSpectrumFatouDivergence",
+    "nodes": [
+      [
+        "L-critical-first-coefficient-positiveSpectrum_scaled_offset_lintegral_tendsto_top",
+        "positiveSpectrum_scaled_offset_lintegral_tendsto_top",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "critical-first-coefficient-ActualCriticalFirstCoefficient",
+    "module": "ActualCriticalFirstCoefficient",
+    "nodes": [
+      [
+        "L-critical-first-coefficient-actualCorrelatedMatrixLogDet_critical_scaled_offset_tendsto_atTop",
+        "actualCorrelatedMatrixLogDet_critical_scaled_offset_tendsto_atTop",
+        [
+          "L-critical-first-coefficient-positiveSpectrum_scaled_offset_lintegral_tendsto_top"
+        ]
+      ]
+    ]
+  }
+]

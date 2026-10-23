@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:29:41.456818+00:00",
+  "ended_utc": "2026-10-23T01:29:52.062624+00:00",
+  "module": "JinWishartFormalization.PositiveSpectrumFatouDivergence",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveSpectrumFatouDivergence.lean",
+  "source_sha256_before": "42fef7a9a23d67b21992cd806d9a390eebf1881da416b0efe21c103a949c182f",
+  "source_sha256": "42fef7a9a23d67b21992cd806d9a390eebf1881da416b0efe21c103a949c182f",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-positive-spectrum-fatou-v1.txt",
+  "log_exists": true,
+  "log_sha256": "e9d257dd846a318be4de8ca2a8f47c6267134b590df3a201b6b3f619b21ff2a1",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,43 @@
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCriticalFirstCoefficientTargets.lean:9:5: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCriticalFirstCoefficientTargets.lean:9:33: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCriticalFirstCoefficientTargets.lean:10:5: warning: Variable name `hInv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hInv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCriticalFirstCoefficientTargets.lean:15:5: warning: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCriticalFirstCoefficientTargets.lean:15:41: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCriticalFirstCoefficientTargets.lean:15:52: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCriticalFirstCoefficientTargets.lean:16:38: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SHEAF_TARGET_TYPES_EQ PASS

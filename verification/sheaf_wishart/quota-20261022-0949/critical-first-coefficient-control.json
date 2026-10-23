@@ -1,0 +1,30 @@
+{
+  "status": "PASS calibrated critical finite controls; not a Fatou/divergence proof",
+  "seed": 2026102244,
+  "checks": 10,
+  "records": [
+    {
+      "rho": 1.0,
+      "scaled_offset": 1.1735630272247268,
+      "minus_logrho": 1.1735630272247268
+    },
+    {
+      "rho": 10.0,
+      "scaled_offset": 2.8927311661593884,
+      "minus_logrho": 0.5901460731653428
+    },
+    {
+      "rho": 1000.0,
+      "scaled_offset": 7.334456244883786,
+      "minus_logrho": 0.4267009659016485
+    },
+    {
+      "rho": 100000.0,
+      "scaled_offset": 11.935771978830514,
+      "minus_logrho": 0.42284651386028543
+    }
+  ],
+  "reference": "Exp1: E log(1+rho X)=exp(1/rho) E1(1/rho); E log X=-EulerGamma",
+  "counter_control": "deterministic lambda=1 scaled offset tends to1",
+  "source_sha256": "90e7f164f308c0d77637eaaa804a281da857c548007ec54ca3b8c9a8a7ab8722"
+}

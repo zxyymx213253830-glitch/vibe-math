@@ -1,0 +1,24 @@
+{
+  "id": "L-critical-first-coefficient-actualCorrelatedMatrixLogDet_critical_scaled_offset_tendsto_atTop",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualCriticalFirstCoefficient",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_critical_scaled_offset_tendsto_atTop",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-critical-first-coefficient-positiveSpectrum_scaled_offset_lintegral_tendsto_top"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-critical-first-coefficient-positiveSpectrum_scaled_offset_lintegral_tendsto_top"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-critical-first-coefficient-ActualCriticalFirstCoefficient.json",
+    "source_sha256": "1b3351050d4f6a7e4e1eba2b335480ef04bf5d279a0ed039a62cacc2e9268378"
+  }
+}
