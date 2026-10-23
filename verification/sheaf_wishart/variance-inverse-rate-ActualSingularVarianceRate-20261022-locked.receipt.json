@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:59:15.909892+00:00",
+  "ended_utc": "2026-10-23T00:59:27.734991+00:00",
+  "module": "JinWishartFormalization.ActualSingularVarianceRate",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularVarianceRate.lean",
+  "source_sha256_before": "8992f1dcd95651291e469b08fdd52a1af237603c9bfbd91b45ee5aa9d309cd5f",
+  "source_sha256": "8992f1dcd95651291e469b08fdd52a1af237603c9bfbd91b45ee5aa9d309cd5f",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/variance-inverse-rate-ActualSingularVarianceRate-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "effad1fe78c953ab91b71b7f9be7bed1a4137cbab09e7feb2ba07def03e21c38",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

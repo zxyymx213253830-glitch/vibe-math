@@ -1,0 +1,20 @@
+{
+  "id": "L-variance-inverse-rate-variance_difference_le_mean_square",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.VarianceMeanSquareBound",
+  "declaration": "JinWishart.variance_difference_le_mean_square",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-variance-inverse-rate-VarianceMeanSquareBound.json",
+    "source_sha256": "fb41c3e28127156446c228891e188f196291dfcbe50f2d4340ee82ce70f7621b"
+  }
+}

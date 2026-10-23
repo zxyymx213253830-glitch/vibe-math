@@ -510,3 +510,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/positive_offset_inverse_rate_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_OFFSET_INVERSE_RATE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/VarianceMeanSquareBound.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularVarianceRate.lean -text whitespace=cr-at-eol
+
+/experiments/variance_offset_rate_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_VARIANCE_INVERSE_RATE.md -text whitespace=cr-at-eol

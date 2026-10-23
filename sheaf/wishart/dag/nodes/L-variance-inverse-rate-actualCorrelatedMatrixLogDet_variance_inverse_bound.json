@@ -1,0 +1,24 @@
+{
+  "id": "L-variance-inverse-rate-actualCorrelatedMatrixLogDet_variance_inverse_bound",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualSingularVarianceRate",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_variance_inverse_bound",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-variance-inverse-rate-variance_difference_le_mean_square"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-variance-inverse-rate-variance_difference_le_mean_square"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-variance-inverse-rate-ActualSingularVarianceRate.json",
+    "source_sha256": "8992f1dcd95651291e469b08fdd52a1af237603c9bfbd91b45ee5aa9d309cd5f"
+  }
+}

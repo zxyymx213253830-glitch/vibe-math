@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:59:27.737095+00:00",
+  "ended_utc": "2026-10-23T00:59:40.367493+00:00",
+  "module": "SheafVarianceInverseRateTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafVarianceInverseRateTargets.lean",
+  "source_sha256_before": "397c4a467660e2bb8aac58c257f2b0ff716d25d3c2401584e5f2f8f291b0bc14",
+  "source_sha256": "397c4a467660e2bb8aac58c257f2b0ff716d25d3c2401584e5f2f8f291b0bc14",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/variance-inverse-rate-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "7afc95911d5c062e0d1bf26d2454a27225c50bc69e81fec7560fb9052e0578a3",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

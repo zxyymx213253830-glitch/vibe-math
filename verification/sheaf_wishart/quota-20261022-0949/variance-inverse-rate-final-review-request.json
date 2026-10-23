@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "VarianceMeanSquareBound.lean": {
+      "sha256": "fb41c3e28127156446c228891e188f196291dfcbe50f2d4340ee82ce70f7621b",
+      "supplied": "Full source"
+    },
+    "ActualSingularVarianceRate.lean": {
+      "sha256": "8992f1dcd95651291e469b08fdd52a1af237603c9bfbd91b45ee5aa9d309cd5f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "497270d4c0327ec996af87a2e211819bdb5e0fafe84e6a95094afa78bee47539"
+}

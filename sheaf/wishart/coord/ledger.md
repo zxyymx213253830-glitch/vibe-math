@@ -90,3 +90,5 @@
 - 2026-10-23T00:49:03.264203+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-singular-inverse-classification-ActualSingularInverseClassification.json; human measure/model review remains REQUIRED.
 - 2026-10-23T00:56:22.564986+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-offset-inverse-rate-FiniteSpectrumOffsetInverseRate.json; human measure/model review remains REQUIRED.
 - 2026-10-23T00:56:34.818014+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-offset-inverse-rate-ActualSingularOffsetRate.json; human measure/model review remains REQUIRED.
+- 2026-10-23T01:01:19.840775+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-variance-inverse-rate-VarianceMeanSquareBound.json; human measure/model review remains REQUIRED.
+- 2026-10-23T01:01:33.605761+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-variance-inverse-rate-ActualSingularVarianceRate.json; human measure/model review remains REQUIRED.

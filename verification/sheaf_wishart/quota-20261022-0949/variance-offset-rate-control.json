@@ -1,0 +1,8 @@
+{
+  "status": "PASS finite controls, not general measure/probability proof",
+  "seed": 2026102240,
+  "checks": 365,
+  "cases": 72,
+  "reference": "two-point +/-1 with u=(1+epsilon)v attains the bound; variance shift invariance",
+  "source_sha256": "a42f48b59106deee363586a6f7a84a21c5019ed22d25c5583d3555caf23bda40"
+}

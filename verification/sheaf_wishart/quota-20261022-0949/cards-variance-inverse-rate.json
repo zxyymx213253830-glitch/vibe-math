@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "variance-inverse-rate-VarianceMeanSquareBound",
+    "module": "VarianceMeanSquareBound",
+    "nodes": [
+      [
+        "L-variance-inverse-rate-variance_difference_le_mean_square",
+        "variance_difference_le_mean_square",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "variance-inverse-rate-ActualSingularVarianceRate",
+    "module": "ActualSingularVarianceRate",
+    "nodes": [
+      [
+        "L-variance-inverse-rate-actualCorrelatedMatrixLogDet_variance_inverse_bound",
+        "actualCorrelatedMatrixLogDet_variance_inverse_bound",
+        [
+          "L-variance-inverse-rate-variance_difference_le_mean_square"
+        ]
+      ]
+    ]
+  }
+]

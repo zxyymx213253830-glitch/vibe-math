@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-23T00:59:04.409390+00:00",
+  "module": "JinWishartFormalization.VarianceMeanSquareBound",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/VarianceMeanSquareBound.lean",
+  "statements": {
+    "JinWishart.variance_difference_le_mean_square": "{α : Type*} [MeasurableSpace α] (μ : Measure α) [IsProbabilityMeasure μ] (u v : α → ℝ) (hu : MemLp u 2 μ) (hv : MemLp v 2 μ) : |variance u μ-variance v μ|≤(∫ a,(u a-v a)^2 ∂μ)+ 2*Real.sqrt (∫ a,(u a-v a)^2 ∂μ)*Real.sqrt (variance v μ)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/MeanSquareSecondMomentContinuity.lean": "1ff6b3fcc5a6a4d53c45cb9200ea3b1fe2dce828609e6810838e58583a07ef77",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/MeanSquareSecondMomentContinuity.olean": "66f5c6abab94bcb28c7b9885f63cebb6c40493cce979960fe3f4be04ee5ba659",
+    "theory/jin_wishart_formalization/JinWishartFormalization/VarianceMeanSquareBound.lean": "fb41c3e28127156446c228891e188f196291dfcbe50f2d4340ee82ce70f7621b",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafVarianceInverseRateTargets.lean",
+  "type_check_source_sha256": "397c4a467660e2bb8aac58c257f2b0ff716d25d3c2401584e5f2f8f291b0bc14",
+  "locked_local_definitions": {}
+}

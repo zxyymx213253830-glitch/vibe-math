@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:57:27.148428+00:00",
+  "ended_utc": "2026-10-23T00:57:37.176838+00:00",
+  "module": "JinWishartFormalization.VarianceMeanSquareBound",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/VarianceMeanSquareBound.lean",
+  "source_sha256_before": "fb41c3e28127156446c228891e188f196291dfcbe50f2d4340ee82ce70f7621b",
+  "source_sha256": "fb41c3e28127156446c228891e188f196291dfcbe50f2d4340ee82ce70f7621b",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-variance-mean-square-bound-v1.txt",
+  "log_exists": true,
+  "log_sha256": "43c1288ce050522ff20bee9604f9748de9412b03221480c3dae27806bdd261bc",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,19 @@
+## VarianceMeanSquareBound.lean
+
+**Mathematical gap (minor): `variance_sub_const` measurability precondition.** The lemma `variance_sub_const` requires the function to be `AEStronglyMeasurable`. In `ActualSingularVarianceRate`, this is correctly supplied via `(integrable_actualCorrelatedMatrixLogDet ...).aestronglyMeasurable`, but in this file's own proof body, `hu.sub (memLp_const _)` produces an `L2` membership, not directly an `AEStronglyMeasurable` witness for the centered function `uc`. The integrability extraction `hu.integrable one_le_two` gives `Integrable u μ`, from which `AEStronglyMeasurable u` follows, and constant subtraction preserves this—but the step is elided. This is a routine inference, not a logical error, but it should be made explicit for Codex hygiene.
+
+**API signature question (non-blocking):** `integral_square_difference_bound` is imported without its statement visible. Its conclusion must yield exactly `|∫ uc² - ∫ vc²| ≤ ∫(uc-vc)² + 2√(∫(uc-vc)²)√(∫ vc²)` under `MemLp` hypotheses on `uc, vc`. If its actual statement requires `IsProbabilityMeasure` or uses a different norm convention, the `rw [hU, hV, hJ] at hh` step could produce a type mismatch. This is an API verification question, not a mathematical gap—the inequality itself is just Cauchy-Schwarz on `L2`.
+
+**No gap:** The centering trick `uc = u - ∫u`, `vc = v - ∫v` correctly satisfies `uc - vc = u - v`, making `hJ` valid. The variance identity `variance e μ = ∫e² - (∫e)²` followed by `nlinarith [sq_nonneg (∫e)]` to get `variance e μ ≤ ∫e²` is sound. The final `nlinarith` closing the bound is arithmetically correct given the nonnegativity of all square-root terms.
+
+---
+
+## ActualSingularVarianceRate.lean
+
+**Mathematical gap: `R * Real.log t` centering assumes `R` is real-valued constant w.r.t. `z`.** The definition `U z := actualCorrelatedMatrixLogDet B M t z - R * Real.log t` treats `R = (min m r : ℕ)` as a deterministic scalar. This is correct—`R` does not depend on the sample `z`—but the `variance_sub_const` application requires that `R * Real.log t` is indeed constant as a function of `z`. The proof supplies `(integrable_... t (zero_le_one.trans ht)).aestronglyMeasurable`, which establishes measurability of the log-det term; the constant subtraction then trivially preserves strong measurability. No actual gap, but the `change` tactic obscuring `variance U μ = variance (actualCorrelatedMatrixLogDet B M t) μ` relies on `variance_sub_const` applying to the specific constant `R * Real.log t`, which is type-correct since `ℝ` is the codomain.
+
+**Potential semantic mismatch: index `i` and eigenvalue selection.** The hypothesis `hi : i.val + 1 = min m r` pins `i` to the smallest nonzero singular index. The moment condition `hMoment` references `((max m r - min m r + 1 : ℕ) : ℝ)`, which is the complementary dimension. The bound `K := ∫((actualCorrelatedEigenvalue B M i z)⁻¹)²` is well-defined only if the `i`-th eigenvalue is almost surely positive. This is guaranteed by the rank condition `hr : r = (fromRows B M).rank` combined with `hR : 0 < min m r`, ensuring the spectrum has at least `min m r` positive values a.s. No gap, but the dependency chain is tight.
+
+**No gap in arithmetic propagation:** The substitution `((n:ℝ)*t⁻¹)² * K` for the MSE bound, the square-root factorization `√(((n:ℝ)*t⁻¹)² * K) = (n:ℝ)*t⁻¹*√K` using `hc : 0 ≤ (n:ℝ)*t⁻¹`, and the final `calc` block are all arithmetically sound given `ht : 1 ≤ t` and `positivity` for `n ≥ 0`.
+
+**Summary:** No blocking mathematical gaps in either file. One minor `AEStronglyMeasurable` inference should be made explicit in `VarianceMeanSquareBound`. The `integral_square_difference_bound` API signature should be confirmed to match the `L2`/probability-measure context, though the underlying inequality is standard.
