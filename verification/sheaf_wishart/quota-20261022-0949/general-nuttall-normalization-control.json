@@ -1,0 +1,8 @@
+{
+  "status": "PASS calibrated finite controls; no general kernel/law proof",
+  "seed": 2026102249,
+  "checks": 178,
+  "reference": "mpmath integer BesselI and SciPy ncx2 radial transform; centered Gamma and q0 Rice calibrations",
+  "scope": "All-order series and analytic normalization target; actual general-row noncentral Gaussian law remains separate",
+  "source_sha256": "10dd8354091708b9b8d236f3da49c5eb5a2eda08c7567fecab425f44737f4b2e"
+}
