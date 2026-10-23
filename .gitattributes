@@ -468,3 +468,7 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CanonicalMatrixProductInverse.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_CANONICAL_MATRIX_PRODUCT_INVERSE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualCanonicalInverseTransport.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_ACTUAL_CANONICAL_INVERSE_TRANSPORT.md -text whitespace=cr-at-eol

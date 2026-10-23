@@ -1,0 +1,91 @@
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:7:5: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:7:16: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:7:27: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:13:5: warning: Variable name `er` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _er
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:13:36: warning: Variable name `ec` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ec
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:14:5: warning: Variable name `hBT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hBT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:14:30: warning: Variable name `hU` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hU
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:15:5: warning: Variable name `hMean` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMean
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:17:5: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:17:48: warning: Variable name `hN` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:18:5: warning: Variable name `hstack` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hstack
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:19:38: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:20:38: warning: Variable name `hj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:21:38: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafActualCanonicalInverseTargets.lean:21:63: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SHEAF_TARGET_TYPES_EQ PASS

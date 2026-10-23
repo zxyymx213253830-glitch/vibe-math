@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualCanonicalInverseTransport.lean": {
+      "sha256": "75ac372dca0309d2a3e25627c4b3f286f9974c03b2b7ac25f87fdefb44574e42",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "606de07c8c2050107c2554ae7c3f147b3f857afb9a9643c2e89da607ab97a493"
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:15:21.912750+00:00",
+  "ended_utc": "2026-10-23T00:17:18.947129+00:00",
+  "module": "JinWishartFormalization.ActualCanonicalInverseTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCanonicalInverseTransport.lean",
+  "source_sha256_before": "f277c746e4b97c17880b58370aaed6188bbefa0aed5817f6b26fad29b46fb675",
+  "source_sha256": "f277c746e4b97c17880b58370aaed6188bbefa0aed5817f6b26fad29b46fb675",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-actual-canonical-inverse-v1.txt",
+  "log_exists": true,
+  "log_sha256": "fb6105ea3563d9e677bb97cd0818bb9330adc821bb27f9bc3f7649f5d157ace7",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

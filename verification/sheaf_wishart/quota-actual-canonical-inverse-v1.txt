@@ -1,0 +1,278 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalInverseTransport.lean:89:28: error: don't know how to synthesize implicit argument `β`
+  @Measurable ComplexSample (EuclideanSpace ℂ (Fin (?m.419 v)))
+    (WithLp.measurableSpace 2 ((i : (Fin (?m.419 v) × Fin p) × Fin 2) → (fun x => ℝ) i))
+    (WithLp.measurableSpace 2 ((i : Fin (?m.419 v)) → (fun x => ℂ) i)) fun z =>
+    complexMatrixColumn (complexSampleMatrix z * U) v
+context:
+m p n b a c : ℕ
+ha : 0 < a
+hb : 0 < b
+hc : 0 < c
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ
+U : Matrix (Fin p) (Fin b) ℂ
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+MA : Matrix (Fin a) (Fin b) ℂ
+MH : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+hBT : B * T = U.fromCols 0
+hU : Uᴴ * U = 1
+hMean : toEuclideanLin (fromBlocks MA 0 MH N) = ↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T)
+hT : Function.Bijective ⇑(toEuclideanLin T)
+hN : IsUnit N.det
+hstack : (B.fromRows M).rank = n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+hj : ↑j + 1 = min a b
+k : Fin (Fintype.card (Fin c))
+hk : ↑k + 1 = c
+q : ℝ
+hq : 0 < q
+μ : Measure ComplexSample := ⋯
+Y : ComplexSample → Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ := ⋯
+G : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ → ℝ := ⋯
+hZ : Measurable complexSampleMatrix
+v : Fin b
+⊢ Type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalInverseTransport.lean:89:28: error: don't know how to synthesize implicit argument `α`
+  @Measurable ComplexSample (EuclideanSpace ℂ (Fin (?m.419 v)))
+    (WithLp.measurableSpace 2 ((i : (Fin (?m.419 v) × Fin p) × Fin 2) → (fun x => ℝ) i))
+    (WithLp.measurableSpace 2 ((i : Fin (?m.419 v)) → (fun x => ℂ) i)) fun z =>
+    complexMatrixColumn (complexSampleMatrix z * U) v
+context:
+m p n b a c : ℕ
+ha : 0 < a
+hb : 0 < b
+hc : 0 < c
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ
+U : Matrix (Fin p) (Fin b) ℂ
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+MA : Matrix (Fin a) (Fin b) ℂ
+MH : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+hBT : B * T = U.fromCols 0
+hU : Uᴴ * U = 1
+hMean : toEuclideanLin (fromBlocks MA 0 MH N) = ↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T)
+hT : Function.Bijective ⇑(toEuclideanLin T)
+hN : IsUnit N.det
+hstack : (B.fromRows M).rank = n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+hj : ↑j + 1 = min a b
+k : Fin (Fintype.card (Fin c))
+hk : ↑k + 1 = c
+q : ℝ
+hq : 0 < q
+μ : Measure ComplexSample := ⋯
+Y : ComplexSample → Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ := ⋯
+G : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ → ℝ := ⋯
+hZ : Measurable complexSampleMatrix
+v : Fin b
+⊢ Type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalInverseTransport.lean:89:49: error: don't know how to synthesize implicit argument `m`
+  @complexMatrixColumn (?m.419 v) b (complexSampleMatrix z * U) v
+context:
+m p n b a c : ℕ
+ha : 0 < a
+hb : 0 < b
+hc : 0 < c
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ
+U : Matrix (Fin p) (Fin b) ℂ
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+MA : Matrix (Fin a) (Fin b) ℂ
+MH : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+hBT : B * T = U.fromCols 0
+hU : Uᴴ * U = 1
+hMean : toEuclideanLin (fromBlocks MA 0 MH N) = ↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T)
+hT : Function.Bijective ⇑(toEuclideanLin T)
+hN : IsUnit N.det
+hstack : (B.fromRows M).rank = n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+hj : ↑j + 1 = min a b
+k : Fin (Fintype.card (Fin c))
+hk : ↑k + 1 = c
+q : ℝ
+hq : 0 < q
+μ : Measure ComplexSample := ⋯
+Y : ComplexSample → Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ := ⋯
+G : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ → ℝ := ⋯
+hZ : Measurable complexSampleMatrix
+v : Fin b
+z : ComplexSample
+⊢ ℕ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalInverseTransport.lean:89:70: error: don't know how to synthesize implicit argument `self`
+  @HMul.hMul (Matrix (Fin (?m.419 v)) (Fin p) ℂ) (Matrix (Fin p) (Fin b) ℂ) (Matrix (Fin (?m.419 v)) (Fin b) ℂ)
+    instHMulOfFintypeOfMulOfAddCommMonoid (complexSampleMatrix z) U
+context:
+m p n b a c : ℕ
+ha : 0 < a
+hb : 0 < b
+hc : 0 < c
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ
+U : Matrix (Fin p) (Fin b) ℂ
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+MA : Matrix (Fin a) (Fin b) ℂ
+MH : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+hBT : B * T = U.fromCols 0
+hU : Uᴴ * U = 1
+hMean : toEuclideanLin (fromBlocks MA 0 MH N) = ↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T)
+hT : Function.Bijective ⇑(toEuclideanLin T)
+hN : IsUnit N.det
+hstack : (B.fromRows M).rank = n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+hj : ↑j + 1 = min a b
+k : Fin (Fintype.card (Fin c))
+hk : ↑k + 1 = c
+q : ℝ
+hq : 0 < q
+μ : Measure ComplexSample := ⋯
+Y : ComplexSample → Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ := ⋯
+G : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ → ℝ := ⋯
+hZ : Measurable complexSampleMatrix
+v : Fin b
+z : ComplexSample
+⊢ HMul (Matrix (Fin (?m.419 v)) (Fin p) ℂ) (Matrix (Fin p) (Fin b) ℂ) (Matrix (Fin (?m.419 v)) (Fin b) ℂ)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalInverseTransport.lean:89:70: error: don't know how to synthesize implicit argument `γ`
+  @HMul.hMul (Matrix (Fin (?m.419 v)) (Fin p) ℂ) (Matrix (Fin p) (Fin b) ℂ) (Matrix (Fin (?m.419 v)) (Fin b) ℂ)
+    instHMulOfFintypeOfMulOfAddCommMonoid (complexSampleMatrix z) U
+context:
+m p n b a c : ℕ
+ha : 0 < a
+hb : 0 < b
+hc : 0 < c
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ
+U : Matrix (Fin p) (Fin b) ℂ
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+MA : Matrix (Fin a) (Fin b) ℂ
+MH : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+hBT : B * T = U.fromCols 0
+hU : Uᴴ * U = 1
+hMean : toEuclideanLin (fromBlocks MA 0 MH N) = ↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T)
+hT : Function.Bijective ⇑(toEuclideanLin T)
+hN : IsUnit N.det
+hstack : (B.fromRows M).rank = n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+hj : ↑j + 1 = min a b
+k : Fin (Fintype.card (Fin c))
+hk : ↑k + 1 = c
+q : ℝ
+hq : 0 < q
+μ : Measure ComplexSample := ⋯
+Y : ComplexSample → Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ := ⋯
+G : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ → ℝ := ⋯
+hZ : Measurable complexSampleMatrix
+v : Fin b
+z : ComplexSample
+⊢ Type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalInverseTransport.lean:89:70: error: don't know how to synthesize implicit argument `α`
+  @HMul.hMul (Matrix (Fin (?m.419 v)) (Fin p) ℂ) (Matrix (Fin p) (Fin b) ℂ) (Matrix (Fin (?m.419 v)) (Fin b) ℂ)
+    instHMulOfFintypeOfMulOfAddCommMonoid (complexSampleMatrix z) U
+context:
+m p n b a c : ℕ
+ha : 0 < a
+hb : 0 < b
+hc : 0 < c
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ
+U : Matrix (Fin p) (Fin b) ℂ
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+MA : Matrix (Fin a) (Fin b) ℂ
+MH : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+hBT : B * T = U.fromCols 0
+hU : Uᴴ * U = 1
+hMean : toEuclideanLin (fromBlocks MA 0 MH N) = ↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T)
+hT : Function.Bijective ⇑(toEuclideanLin T)
+hN : IsUnit N.det
+hstack : (B.fromRows M).rank = n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+hj : ↑j + 1 = min a b
+k : Fin (Fintype.card (Fin c))
+hk : ↑k + 1 = c
+q : ℝ
+hq : 0 < q
+μ : Measure ComplexSample := ⋯
+Y : ComplexSample → Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ := ⋯
+G : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ → ℝ := ⋯
+hZ : Measurable complexSampleMatrix
+v : Fin b
+z : ComplexSample
+⊢ Type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalInverseTransport.lean:89:70: error: don't know how to synthesize implicit argument `m`
+  @complexSampleMatrix (?m.419 v) p z
+context:
+m p n b a c : ℕ
+ha : 0 < a
+hb : 0 < b
+hc : 0 < c
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin b ⊕ Fin c) ℂ
+U : Matrix (Fin p) (Fin b) ℂ
+V : EuclideanSpace ℂ (Fin m) ≃ₗᵢ[ℂ] EuclideanSpace ℂ (Fin a ⊕ Fin c)
+MA : Matrix (Fin a) (Fin b) ℂ
+MH : Matrix (Fin c) (Fin b) ℂ
+N : Matrix (Fin c) (Fin c) ℂ
+er : Fin a ⊕ Fin c ≃ Fin m
+ec : Fin b ⊕ Fin c ≃ Fin n
+hBT : B * T = U.fromCols 0
+hU : Uᴴ * U = 1
+hMean : toEuclideanLin (fromBlocks MA 0 MH N) = ↑V.toLinearEquiv ∘ₗ toEuclideanLin (M * T)
+hT : Function.Bijective ⇑(toEuclideanLin T)
+hN : IsUnit N.det
+hstack : (B.fromRows M).rank = n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+j : Fin (Fintype.card (Fin b))
+hj : ↑j + 1 = min a b
+k : Fin (Fintype.card (Fin c))
+hk : ↑k + 1 = c
+q : ℝ
+hq : 0 < q
+μ : Measure ComplexSample := ⋯
+Y : ComplexSample → Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ := ⋯
+G : Matrix (Fin a) (Fin b) ℂ × Matrix (Fin c) (Fin b) ℂ → ℝ := ⋯
+hZ : Measurable complexSampleMatrix
+v : Fin b
+z : ComplexSample
+⊢ ℕ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCanonicalInverseTransport.lean:89:44: error(lean.inferBinderTypeFailed): Failed to infer type of binder `z`
+'JinWishart.actual_canonical_inverse_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

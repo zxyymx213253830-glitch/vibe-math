@@ -1,0 +1,17 @@
+# Original-source inverse transport with explicit canonical data
+
+Codex proof, real Qoder Qwen3.8-Max P4 on the full final source; this is not human review or an independent compilation. [需人工审查] Source normalization, matrix-law pushforward, AE rank/index selection, domination, and paper interpretation.
+
+`actual_canonical_inverse_realMoment_integrable_iff` assumes a,b,c>0, fixed B,M,T,U,V, fixed canonical means MA,MH and invertible N, all explicit canonical identities, bijective T, U^H U=I and rank stacked[B;M]=n. On the same original 2mp real standard Gaussian source, the fixed positive boundary coordinate i+1=min(m,n) has integrable inverse q moment iff q<max(a,b)-min(a,b)+1, for q>0. No nonunitary Gaussian invariance is assumed. The already proved rectangular frame/row isometry law gives a matrix product pushforward. The already proved original/canonical AE fixed norm bounds give inverse-power domination in both directions.
+
+This still requires explicit normal-form inputs and excludes zero a,b,c. Normal-form existence elimination, common-kernel compression and edge branches remain open. The private AE comparison helper is included in the source hash and kernel check, not counted as an extra public theorem. Existing physical Fin130, block299, factor591 and product42 controls are reused, not rerun or counted as new experiments.
+
+## P4 resolution, retaining the complete original response
+
+1. The reviewer withdrew the alleged index mismatch within the same response. Fin reindexing yields an n-column matrix and the exact boundary index agrees with the imported criterion.
+2. Inspect `actual_canonical_fin_positive_bounds_ae`, lines77-83: positivity of original, positivity of canonical, canonical<=C*original, original<=D*canonical, in that order. The first transferAE call sets F=canonical,G=original and uses the fourth conjunct; the second sets F=original,G=canonical and uses the third. Thus both reciprocal inequalities have the correct orientation. The final literal target checker and source gate verify these exact arguments.
+3. F=T.submatrix id ec.symm is n-by-n, with all columns reindexed bijectively. Matrix inverse is totalized and does not require an Invertible instance to be well typed. The imported comparison proves detunit from hT via `canonical_reindexed_column_det_isUnit`; no inverse property is inferred merely from notation here. The review's claim that bijectivity cannot transfer through a bijective reindexing is false.
+4. `actual_sum_isometric_noise_block_law` explicitly takes only fixed U,hU,V,MA,MH and proves the full product law. The supplied U has orthonormal columns, and V is a surjective complex linear isometry. This accepted dependency handles the covariance/product structure; no additional diagonalization of fixed means is needed, and hMean is used for the physical comparison rather than the noise law.
+5. hq:0<q is an explicit theorem argument before the colon, so the statement is conditional on q>0. It does not implicitly include q=0. No missing case is claimed.
+
+The failed v1 missing type annotation and v2 slow generic fun_prop logs/sources are retained and unaccepted. v3 factors the already measurable matrix map through continuous fixed multiplication and a column map, and passes at the default heartbeat budget. Full Lake/mathlib build and independent Linux kernel remain NOT_RUN; frozen publication artifacts remain unchanged.

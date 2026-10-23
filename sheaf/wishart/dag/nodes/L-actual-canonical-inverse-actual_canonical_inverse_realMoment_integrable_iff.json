@@ -1,0 +1,20 @@
+{
+  "id": "L-actual-canonical-inverse-actual_canonical_inverse_realMoment_integrable_iff",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualCanonicalInverseTransport",
+  "declaration": "JinWishart.actual_canonical_inverse_realMoment_integrable_iff",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-canonical-inverse-ActualCanonicalInverseTransport.json",
+    "source_sha256": "75ac372dca0309d2a3e25627c4b3f286f9974c03b2b7ac25f87fdefb44574e42"
+  }
+}
