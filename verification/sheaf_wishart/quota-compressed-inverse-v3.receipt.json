@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:30:18.649617+00:00",
+  "ended_utc": "2026-10-23T00:30:30.403227+00:00",
+  "module": "JinWishartFormalization.ActualCompressedInverseCriterion",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCompressedInverseCriterion.lean",
+  "source_sha256_before": "6e843b4ebae9a97b6427043148eb8414df1331f0f4290839c8f2b5ab078f8c02",
+  "source_sha256": "6e843b4ebae9a97b6427043148eb8414df1331f0f4290839c8f2b5ab078f8c02",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-compressed-inverse-v3.txt",
+  "log_exists": true,
+  "log_sha256": "8e125da5f91a8b0d3533380962e95f8dc0f76e73463ad368554659f4c584b09c",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "compressed-inverse-ActualCompressedInverseCriterion",
+    "module": "ActualCompressedInverseCriterion",
+    "nodes": [
+      [
+        "L-compressed-inverse-actual_compressed_inverse_realMoment_integrable_iff",
+        "actual_compressed_inverse_realMoment_integrable_iff",
+        []
+      ],
+      [
+        "L-compressed-inverse-actual_compressed_inverse_realMoment_lintegral_eq_top",
+        "actual_compressed_inverse_realMoment_lintegral_eq_top",
+        [
+          "L-compressed-inverse-actual_compressed_inverse_realMoment_integrable_iff"
+        ]
+      ]
+    ]
+  }
+]

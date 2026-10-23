@@ -1,0 +1,52 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCompressedInverseCriterion.lean:34:30: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => (B.fromRows M * C).rank = _a
+Error: Application type mismatch: The argument
+  C
+has type
+  Matrix (Fin n) (Fin r) ℂ
+but is expected to have type
+  Matrix (Fin n) (Fin _a) ℂ
+in the application
+  B.fromRows M * C
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+m p n r : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hr : r = (B.fromRows M).rank
+hb : 0 < B.rank
+hc : 0 < r - B.rank
+hcm : r - B.rank < m
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m r
+q : ℝ
+hq : 0 < q
+hR : 0 < min m (B.fromRows M).rank
+C : Matrix (Fin n) (Fin r) ℂ
+hiso : Cᴴ * C = 1
+hB : B * C * Cᴴ = B
+hM : M * C * Cᴴ = M
+j : Fin (Fintype.card (Fin r))
+hj : ↑j + 1 = min m (B.fromRows M).rank
+hmj : Measurable (actualCorrelatedEigenvalue (B * C) (M * C) j)
+hi0 : ↑i + 1 = min m (B.fromRows M).rank
+hmi : Measurable (actualCorrelatedEigenvalue B M i)
+hAE :
+  ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample,
+    0 < actualCorrelatedEigenvalue B M i z ∧
+      0 < actualCorrelatedEigenvalue (B * C) (M * C) j z ∧
+        actualCorrelatedEigenvalue B M i z = actualCorrelatedEigenvalue (B * C) (M * C) j z
+hj' : ↑j + 1 = min m r
+hrec : B.fromRows M * C * Cᴴ = B.fromRows M
+⊢ (B.fromRows M * C).rank = r
+'JinWishart.actual_compressed_inverse_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actual_compressed_inverse_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

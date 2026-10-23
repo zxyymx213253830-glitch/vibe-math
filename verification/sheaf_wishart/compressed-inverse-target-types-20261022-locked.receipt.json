@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:31:00.780625+00:00",
+  "ended_utc": "2026-10-23T00:31:12.661105+00:00",
+  "module": "SheafCompressedInverseTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCompressedInverseTargets.lean",
+  "source_sha256_before": "25c1f9b1f3d75e02927cafb80ac3b00491ee6742682c41966ad1c0088430b493",
+  "source_sha256": "25c1f9b1f3d75e02927cafb80ac3b00491ee6742682c41966ad1c0088430b493",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/compressed-inverse-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "6b3d52b77901bf736aa5e92b3d316b6d07f94bf8e4efc726aa0c324154130514",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

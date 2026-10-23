@@ -1,0 +1,82 @@
+import JinWishartFormalization.ActualFullStackInverseCriterion
+import JinWishartFormalization.ActualCompressedPositiveMinimum
+
+/-! Common-kernel compression transports the mixed-branch sharp inverse
+criterion on the SAME original 2mp Gaussian source. Codex.
+Controls seed2026102236:54 exact cases/379 checks,48 wrong-ambient negatives.
+[需人工审查] Fixed source/model, AE index equality and measure transport.
+Zero noise, zero kernel image and surjective kernel image remain separate. -/
+open Matrix Module MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem actual_compressed_inverse_realMoment_integrable_iff {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hb : 0<B.rank)
+    (hc : 0<r-B.rank) (hcm : r-B.rank<m)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m r)
+    (q : ℝ) (hq : 0<q) :
+    Integrable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹^q)
+      (stdGaussian (ComplexSample (m := m) (n := p))) ↔
+      q<((max m r-min m r+1 : ℕ) : ℝ) := by
+  have hR : 0<min m (Matrix.fromRows B M).rank := by rw [← hr];omega
+  obtain ⟨s,C,hs,hiso,hB,hM,i0,j,hi0,hj,hmi,hmj,hAE⟩ :=
+    exists_actual_fixed_compression_min_positive_ae B M hR
+  have hs' : s=r := hs.trans hr.symm
+  clear hs
+  subst s
+  have he : i=i0 := Fin.ext (by rw [← hr] at hi0;omega)
+  subst i0
+  have hj' : j.val+1=min m r := by simpa only [← hr] using hj
+  have hrec : Matrix.fromRows B M*C*Cᴴ=Matrix.fromRows B M := by
+    rw [Matrix.fromRows_mul,Matrix.fromRows_mul,hB,hM]
+  have hstack : (Matrix.fromRows (B*C) (M*C)).rank=r := by
+    rw [← Matrix.fromRows_mul,hr]
+    apply le_antisymm (Matrix.rank_mul_le_left _ _)
+    have h := Matrix.rank_mul_le_left (Matrix.fromRows B M*C) Cᴴ
+    rwa [hrec] at h
+  have hbr : (B*C).rank=B.rank := by
+    apply le_antisymm (Matrix.rank_mul_le_left _ _)
+    have h := Matrix.rank_mul_le_left (B*C) Cᴴ
+    rwa [hB] at h
+  have hdim : finrank ℂ (B*C).toEuclideanLin.ker=r-B.rank := by
+    have hde := (B*C).toEuclideanLin.finrank_range_add_finrank_ker
+    have hrange : (B*C).rank=finrank ℂ (B*C).toEuclideanLin.range := by
+      convert! (B*C).rank_eq_finrank_range_toLin
+        (EuclideanSpace.basisFun (Fin p) ℂ).toBasis
+        (EuclideanSpace.basisFun (Fin r) ℂ).toBasis using 1
+    rw [← hrange,hbr] at hde
+    simp only [finrank_euclideanSpace_fin] at hde
+    omega
+  have hcrit := actual_full_stack_inverse_realMoment_integrable_iff (B*C) (M*C)
+    hstack (by rwa [hbr]) (by rwa [hdim]) (by rwa [hdim]) j hj' q hq
+  have heq : (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹^q)=ᵐ[
+      stdGaussian (ComplexSample (m := m) (n := p))]
+      (fun z => (actualCorrelatedEigenvalue (B*C) (M*C) j z)⁻¹^q) := by
+    filter_upwards [hAE] with z hz
+    exact congrArg (fun t : ℝ => t⁻¹^q) hz.2.2
+  exact (integrable_congr heq).trans hcrit
+
+theorem actual_compressed_inverse_realMoment_lintegral_eq_top {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hb : 0<B.rank)
+    (hc : 0<r-B.rank) (hcm : r-B.rank<m)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m r)
+    (q : ℝ) (hq : ((max m r-min m r+1 : ℕ) : ℝ)≤q) :
+    (∫⁻ z : ComplexSample (m := m) (n := p),
+      ENNReal.ofReal ((actualCorrelatedEigenvalue B M i z)⁻¹^q) ∂stdGaussian _)=⊤ := by
+  have hq0 : 0<q := lt_of_lt_of_le
+    (by positivity : (0 : ℝ)<((max m r-min m r+1 : ℕ) : ℝ)) hq
+  have hF : Measurable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹^q) :=
+    (measurable_actualCorrelatedEigenvalue B M i).inv.pow_const q
+  by_contra h
+  have hI := (lintegral_ofReal_ne_top_iff_integrable hF.aestronglyMeasurable
+    (ae_of_all _ (fun z => Real.rpow_nonneg (inv_nonneg.mpr
+      (complexGram_eigenvalues₀_nonneg (complexSampleMatrix z*B+M) i)) q))).mp h
+  exact (not_lt_of_ge hq) ((actual_compressed_inverse_realMoment_integrable_iff
+    B M hr hb hc hcm i hi q hq0).mp hI)
+
+end
+end JinWishart
+#print axioms JinWishart.actual_compressed_inverse_realMoment_integrable_iff
+#print axioms JinWishart.actual_compressed_inverse_realMoment_lintegral_eq_top

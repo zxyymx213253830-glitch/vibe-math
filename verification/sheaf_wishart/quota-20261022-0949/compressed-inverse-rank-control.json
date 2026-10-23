@@ -1,0 +1,9 @@
+{
+  "status": "PASS exact rank controls, not probability proof",
+  "seed": 2026102236,
+  "checks": 379,
+  "cases": 54,
+  "wrong_ambient_negative_cases": 48,
+  "reference": "coordinate noise/fixed kernel-image matrices under column permutations",
+  "source_sha256": "62d1550c738a922cc50b4bbe49054863ed6e4cd02e75a7d62768de208e25e1f6"
+}

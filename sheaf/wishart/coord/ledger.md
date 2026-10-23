@@ -83,3 +83,4 @@
 - 2026-10-22T20:25:39.753783+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-canonical-matrix-product-CanonicalMatrixProductInverse.json; human measure/model review remains REQUIRED.
 - 2026-10-23T00:23:17.083974+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-canonical-inverse-ActualCanonicalInverseTransport.json; human measure/model review remains REQUIRED.
 - 2026-10-23T00:27:10.032521+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-full-stack-inverse-ActualFullStackInverseCriterion.json; human measure/model review remains REQUIRED.
+- 2026-10-23T00:32:33.318948+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-compressed-inverse-ActualCompressedInverseCriterion.json; human measure/model review remains REQUIRED.

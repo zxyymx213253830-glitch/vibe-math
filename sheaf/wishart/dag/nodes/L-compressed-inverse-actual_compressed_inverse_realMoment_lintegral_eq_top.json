@@ -1,0 +1,24 @@
+{
+  "id": "L-compressed-inverse-actual_compressed_inverse_realMoment_lintegral_eq_top",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualCompressedInverseCriterion",
+  "declaration": "JinWishart.actual_compressed_inverse_realMoment_lintegral_eq_top",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-compressed-inverse-actual_compressed_inverse_realMoment_integrable_iff"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-compressed-inverse-actual_compressed_inverse_realMoment_integrable_iff"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-compressed-inverse-ActualCompressedInverseCriterion.json",
+    "source_sha256": "6e843b4ebae9a97b6427043148eb8414df1331f0f4290839c8f2b5ab078f8c02"
+  }
+}

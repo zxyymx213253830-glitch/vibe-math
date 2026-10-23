@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualCompressedInverseCriterion.lean": {
+      "sha256": "6e843b4ebae9a97b6427043148eb8414df1331f0f4290839c8f2b5ab078f8c02",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "770c2c6ee67f33dbfc649fdb561a4e46a5a5436584da63302f6b6d280b39d31c"
+}

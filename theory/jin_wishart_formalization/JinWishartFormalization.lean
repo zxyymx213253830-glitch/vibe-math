@@ -1,3 +1,4 @@
+import JinWishartFormalization.ActualCompressedInverseCriterion
 import JinWishartFormalization.ActualFullStackInverseCriterion
 import JinWishartFormalization.ActualCanonicalInverseTransport
 import JinWishartFormalization.CanonicalMatrixProductInverse

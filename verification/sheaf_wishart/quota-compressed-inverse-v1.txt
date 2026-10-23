@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCompressedInverseCriterion.lean:46:8: error: Application type mismatch: The argument
+  (EuclideanSpace.basisFun (Fin r) ℂ).toBasis
+has type
+  Basis (Fin r) ℂ (EuclideanSpace ℂ (Fin r))
+but is expected to have type
+  Basis (Fin (B.fromRows M).rank) ℂ ?m.569
+in the application
+  rank_eq_finrank_range_toLin (B * C) (EuclideanSpace.basisFun (Fin p) ℂ).toBasis
+    (EuclideanSpace.basisFun (Fin r) ℂ).toBasis
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCompressedInverseCriterion.lean:44:6: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCompressedInverseCriterion.lean:48:4: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCompressedInverseCriterion.lean:13:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCompressedInverseCriterion.lean:59:8: error: (kernel) unknown constant 'JinWishart.actual_compressed_inverse_realMoment_integrable_iff'
+'JinWishart.actual_compressed_inverse_realMoment_integrable_iff' does not depend on any axioms
+'JinWishart.actual_compressed_inverse_realMoment_lintegral_eq_top' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.actual_compressed_inverse_realMoment_lintegral_eq_top,
+ Quot.sound]
