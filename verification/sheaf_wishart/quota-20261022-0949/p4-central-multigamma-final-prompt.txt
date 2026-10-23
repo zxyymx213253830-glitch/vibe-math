@@ -1,0 +1,73 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE CentralMultigammaBridge.lean
+import JinWishartFormalization.CentralGammaDenominator
+import JinWishartFormalization.T3NormalizationAudit
+
+/-! Exact T1 denominator / audited central T3 scalar bridge.
+Codex. Seed2026102248:197 exact controls before source.
+This is deterministic normalization algebra, not a corrected probability theorem.
+[需人工审查] Original article version, Theta convention and probability interpretation. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+private theorem multigammaAscending (s t : ℕ) (hst : s≤t) :
+    T3NormalizationAudit.factorialMultigamma s t=
+      ∏ i : Fin s,((t-s+i.val).factorial : ℝ) := by
+  classical
+  unfold T3NormalizationAudit.factorialMultigamma
+  have h := Equiv.prod_comp (Fin.revPerm : Fin s ≃ Fin s)
+    (fun i : Fin s => ((t-(i.val+1)).factorial : ℝ))
+  rw [← h]
+  apply Finset.prod_congr rfl
+  intro i _
+  have hi : t-((Fin.revPerm i).val+1)=t-s+i.val := by
+    change t-((s-(i.val+1))+1)=t-s+i.val
+    omega
+  rw [hi]
+
+private theorem bridgeMultigammaPos (s t : ℕ) :
+    0<T3NormalizationAudit.factorialMultigamma s t := by
+  unfold T3NormalizationAudit.factorialMultigamma
+  apply Finset.prod_pos
+  intro i _
+  exact Nat.cast_pos.mpr (Nat.factorial_pos _)
+
+theorem theorem1Central_PsiDet_zero_eq_multigamma (s t : ℕ) (hst : s≤t) :
+    (theorem1PsiMatrix s t 0 hst (Nat.zero_le s)
+      (fun j : Fin 0 => Fin.elim0 j) 0).det=
+      ((T3NormalizationAudit.factorialMultigamma s s*
+        T3NormalizationAudit.factorialMultigamma s t : ℝ) : ℂ) := by
+  rw [theorem1Central_PsiDet_zero]
+  have hh : (∏ i : Fin s,(i.val.factorial : ℝ)*((t-s+i.val).factorial : ℝ))=
+      T3NormalizationAudit.factorialMultigamma s s*T3NormalizationAudit.factorialMultigamma s t := by
+    rw [multigammaAscending s s (le_refl s),multigammaAscending s t hst]
+    simp only [Nat.sub_self,zero_add,Finset.prod_mul_distrib]
+  exact_mod_cast hh
+
+theorem centralDisplayedC3_times_PsiDet_zero (s t : ℕ) (hst : s≤t) :
+    T3NormalizationAudit.paperC3 s t 0 (fun j : Fin 0 => Fin.elim0 j)*
+      (theorem1PsiMatrix s t 0 hst (Nat.zero_le s)
+        (fun j : Fin 0 => Fin.elim0 j) 0).det.re=
+      T3NormalizationAudit.factorialMultigamma s t := by
+  rw [theorem1Central_PsiDet_zero_eq_multigamma,Complex.ofReal_re]
+  have hG := (bridgeMultigammaPos s s).ne'
+  simp only [T3NormalizationAudit.paperC3,T3NormalizationAudit.activeVandermonde,
+    Nat.sub_zero,Finset.univ_eq_empty,Finset.prod_empty,one_mul]
+  field_simp [hG]
+
+theorem centralDerivedC3_times_PsiDet_zero (s t : ℕ) (hst : s≤t) :
+    (T3NormalizationAudit.paperC3 s t 0 (fun j : Fin 0 => Fin.elim0 j)/
+      T3NormalizationAudit.factorialMultigamma s t)*
+      (theorem1PsiMatrix s t 0 hst (Nat.zero_le s)
+        (fun j : Fin 0 => Fin.elim0 j) 0).det.re=1 := by
+  rw [div_mul_eq_mul_div,centralDisplayedC3_times_PsiDet_zero s t hst,
+    div_self (bridgeMultigammaPos s t).ne']
+
+end
+end JinWishart
+#print axioms JinWishart.theorem1Central_PsiDet_zero_eq_multigamma
+#print axioms JinWishart.centralDisplayedC3_times_PsiDet_zero
+#print axioms JinWishart.centralDerivedC3_times_PsiDet_zero

@@ -1,0 +1,8 @@
+{
+  "status": "PASS exact scalar/matrix controls; no probability formula claimed",
+  "seed": 2026102248,
+  "checks": 197,
+  "reference": "T1 Psi0 determinant; audited central displayed c3=1/Gamma_s(s); derived c3 includes Gamma_s(t)",
+  "negative_control": "s2 t3 L0: displayed scalar times full-interval determinant=2, derived normalization=1",
+  "source_sha256": "5856cb4d48cd49798555c8caa37f2fae899f94d64c82f50a0b9ccc2d61dd783e"
+}

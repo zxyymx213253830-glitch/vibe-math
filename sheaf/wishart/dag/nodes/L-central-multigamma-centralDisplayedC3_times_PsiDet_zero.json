@@ -1,0 +1,24 @@
+{
+  "id": "L-central-multigamma-centralDisplayedC3_times_PsiDet_zero",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CentralMultigammaBridge",
+  "declaration": "JinWishart.centralDisplayedC3_times_PsiDet_zero",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-central-multigamma-theorem1Central_PsiDet_zero_eq_multigamma"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-central-multigamma-theorem1Central_PsiDet_zero_eq_multigamma"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-multigamma-CentralMultigammaBridge.json",
+    "source_sha256": "09456a261b6106df637c4dff7b83f53d058a0e44769bcb9f7bfd63282d84c424"
+  }
+}

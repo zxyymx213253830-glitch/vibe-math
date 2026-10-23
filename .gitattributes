@@ -574,3 +574,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/central_gamma_denominator_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CENTRAL_GAMMA_DENOMINATOR.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralMultigammaBridge.lean -text whitespace=cr-at-eol
+
+/experiments/central_multigamma_bridge_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CENTRAL_MULTIGAMMA_BRIDGE.md -text whitespace=cr-at-eol

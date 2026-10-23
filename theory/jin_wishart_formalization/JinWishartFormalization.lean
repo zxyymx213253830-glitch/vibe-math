@@ -1,3 +1,4 @@
+import JinWishartFormalization.CentralMultigammaBridge
 import JinWishartFormalization.CentralGammaDenominator
 import JinWishartFormalization.FactorialHankelDeterminant
 import JinWishartFormalization.PolynomialMomentTranslation

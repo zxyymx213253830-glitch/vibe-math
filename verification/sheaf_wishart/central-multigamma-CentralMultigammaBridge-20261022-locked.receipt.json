@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T10:52:00.747471+00:00",
+  "ended_utc": "2026-10-23T10:52:12.688512+00:00",
+  "module": "JinWishartFormalization.CentralMultigammaBridge",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CentralMultigammaBridge.lean",
+  "source_sha256_before": "09456a261b6106df637c4dff7b83f53d058a0e44769bcb9f7bfd63282d84c424",
+  "source_sha256": "09456a261b6106df637c4dff7b83f53d058a0e44769bcb9f7bfd63282d84c424",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/central-multigamma-CentralMultigammaBridge-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f8f0a2b92fc2212a3e76ab403e983a65bf22d3dd1a512940761fac53eaaf6013",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

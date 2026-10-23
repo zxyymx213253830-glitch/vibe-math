@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CentralMultigammaBridge.lean": {
+      "sha256": "09456a261b6106df637c4dff7b83f53d058a0e44769bcb9f7bfd63282d84c424",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ae67ff8cf77518cd1c83dfca1b0f163b765e27e69d164f4cdfde8ea9f398ac50"
+}

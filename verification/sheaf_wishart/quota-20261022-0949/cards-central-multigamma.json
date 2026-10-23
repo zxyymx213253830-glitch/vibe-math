@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "central-multigamma-CentralMultigammaBridge",
+    "module": "CentralMultigammaBridge",
+    "nodes": [
+      [
+        "L-central-multigamma-theorem1Central_PsiDet_zero_eq_multigamma",
+        "theorem1Central_PsiDet_zero_eq_multigamma",
+        []
+      ],
+      [
+        "L-central-multigamma-centralDisplayedC3_times_PsiDet_zero",
+        "centralDisplayedC3_times_PsiDet_zero",
+        [
+          "L-central-multigamma-theorem1Central_PsiDet_zero_eq_multigamma"
+        ]
+      ],
+      [
+        "L-central-multigamma-centralDerivedC3_times_PsiDet_zero",
+        "centralDerivedC3_times_PsiDet_zero",
+        [
+          "L-central-multigamma-centralDisplayedC3_times_PsiDet_zero"
+        ]
+      ]
+    ]
+  }
+]
