@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "singular-inverse-edges-ActualSingularInverseEdges",
+    "module": "ActualSingularInverseEdges",
+    "nodes": [
+      [
+        "L-singular-inverse-edges-actual_inverse_realMoment_integrable_of_noise_rank_zero",
+        "actual_inverse_realMoment_integrable_of_noise_rank_zero",
+        []
+      ],
+      [
+        "L-singular-inverse-edges-actual_positive_boundary_inverse_integrable_of_noiseless_full_image",
+        "actual_positive_boundary_inverse_integrable_of_noiseless_full_image",
+        [
+          "L-singular-inverse-edges-actual_inverse_realMoment_integrable_of_noise_rank_zero"
+        ]
+      ]
+    ]
+  }
+]

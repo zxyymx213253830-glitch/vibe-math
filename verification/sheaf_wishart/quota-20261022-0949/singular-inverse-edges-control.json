@@ -1,0 +1,8 @@
+{
+  "status": "PASS exact edge controls, not probability proof",
+  "seed": 2026102237,
+  "checks": 198,
+  "cases": 27,
+  "reference": "scalar |z|^2+1>=1; fixed right inverse XC=I; zero-noise constant sample",
+  "source_sha256": "4544b3d85fee74b5d3b9b9f5d3ed91168cb63a1491360f98787d8723b053b974"
+}

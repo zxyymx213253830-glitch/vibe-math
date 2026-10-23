@@ -1,0 +1,24 @@
+{
+  "id": "L-singular-inverse-edges-actual_positive_boundary_inverse_integrable_of_noiseless_full_image",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualSingularInverseEdges",
+  "declaration": "JinWishart.actual_positive_boundary_inverse_integrable_of_noiseless_full_image",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-singular-inverse-edges-actual_inverse_realMoment_integrable_of_noise_rank_zero"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-singular-inverse-edges-actual_inverse_realMoment_integrable_of_noise_rank_zero"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-singular-inverse-edges-ActualSingularInverseEdges.json",
+    "source_sha256": "88ee7821b1e124536eb1f9a3564df59e89aaaf3388722a7ac9ba990324c58d57"
+  }
+}

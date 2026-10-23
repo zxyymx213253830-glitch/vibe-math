@@ -1,3 +1,4 @@
+import JinWishartFormalization.ActualSingularInverseEdges
 import JinWishartFormalization.ActualCompressedInverseCriterion
 import JinWishartFormalization.ActualFullStackInverseCriterion
 import JinWishartFormalization.ActualCanonicalInverseTransport

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:36:25.435500+00:00",
+  "ended_utc": "2026-10-23T00:36:38.063281+00:00",
+  "module": "SheafSingularInverseEdgesTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafSingularInverseEdgesTargets.lean",
+  "source_sha256_before": "aab7c6a232410c2841417b5aedeecbab5493968805def84843521a3fa182d919",
+  "source_sha256": "aab7c6a232410c2841417b5aedeecbab5493968805def84843521a3fa182d919",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/singular-inverse-edges-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "fda977d6bbec06e8bbc58f37f4a1260f8630d12b539e62c33158f1b631e6b714",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

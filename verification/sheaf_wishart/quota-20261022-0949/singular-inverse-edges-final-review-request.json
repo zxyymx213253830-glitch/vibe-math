@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualSingularInverseEdges.lean": {
+      "sha256": "88ee7821b1e124536eb1f9a3564df59e89aaaf3388722a7ac9ba990324c58d57",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "2598cb3ab7263cebd81a066ee15883e80d06fef6a08961ab833d5e2839f8d488"
+}

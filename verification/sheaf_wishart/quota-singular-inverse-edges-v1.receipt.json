@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:34:24.102817+00:00",
+  "ended_utc": "2026-10-23T00:34:35.453969+00:00",
+  "module": "JinWishartFormalization.ActualSingularInverseEdges",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularInverseEdges.lean",
+  "source_sha256_before": "0f0ab570958f2b1b80bf206fcf24f47d85601cde2a544e6727b6ace7b2648260",
+  "source_sha256": "0f0ab570958f2b1b80bf206fcf24f47d85601cde2a544e6727b6ace7b2648260",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-singular-inverse-edges-v1.txt",
+  "log_exists": true,
+  "log_sha256": "b4dbf3170d7297f40be53c11b66ddf4aa0af3561c503a51c8ddf3228aadd855c",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

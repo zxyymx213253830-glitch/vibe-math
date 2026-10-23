@@ -1,0 +1,20 @@
+{
+  "id": "L-singular-inverse-edges-actual_inverse_realMoment_integrable_of_noise_rank_zero",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualSingularInverseEdges",
+  "declaration": "JinWishart.actual_inverse_realMoment_integrable_of_noise_rank_zero",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-singular-inverse-edges-ActualSingularInverseEdges.json",
+    "source_sha256": "88ee7821b1e124536eb1f9a3564df59e89aaaf3388722a7ac9ba990324c58d57"
+  }
+}

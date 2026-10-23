@@ -1,0 +1,57 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularInverseEdges.lean:54:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularInverseEdges.lean:54:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  StarOrderedRing ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualSingularInverseEdges.lean:52:55: error: unsolved goals
+m p n r : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hr : r = (B.fromRows M).rank
+hm : 0 < m
+hc : r - B.rank = m
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m r
+q : ℝ
+hq : 0 ≤ q
+hd : r = B.rank + finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range
+hs : finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range = m
+him : ↑i + 1 = m
+δ : ℝ
+hδ : 0 < δ
+hfloor : ∀ (Z : Matrix (Fin m) (Fin p) ℂ), δ ≤ gramSmallestValue (Z * B + M)ᴴ hm
+z : ComplexSample
+hp : 0 < gramSmallestValue (complexSampleMatrix z * B + M)ᴴ hm
+hh : (complexSampleMatrix z * B + M)ᴴ.rank = m
+⊢ PartialOrder ℂ
+
+m p n r : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hr : r = (B.fromRows M).rank
+hm : 0 < m
+hc : r - B.rank = m
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m r
+q : ℝ
+hq : 0 ≤ q
+hd : r = B.rank + finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range
+hs : finrank ℂ ↥(M.mulVecLin.domRestrict B.mulVecLin.ker).range = m
+him : ↑i + 1 = m
+δ : ℝ
+hδ : 0 < δ
+hfloor : ∀ (Z : Matrix (Fin m) (Fin p) ℂ), δ ≤ gramSmallestValue (Z * B + M)ᴴ hm
+z : ComplexSample
+hp : 0 < gramSmallestValue (complexSampleMatrix z * B + M)ᴴ hm
+hh : (complexSampleMatrix z * B + M)ᴴ.rank = m
+⊢ StarOrderedRing ℂ
+'JinWishart.actual_inverse_realMoment_integrable_of_noise_rank_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actual_positive_boundary_inverse_integrable_of_noiseless_full_image' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
