@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "rectangular-factor-inverse-RectangularFullColumnFrame",
+    "module": "RectangularFullColumnFrame",
+    "nodes": [
+      [
+        "L-rectangular-factor-inverse-exists_rectangular_full_column_frame",
+        "exists_rectangular_full_column_frame",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "rectangular-factor-inverse-RectangularFactorInverseCriterion",
+    "module": "RectangularFactorInverseCriterion",
+    "nodes": [
+      [
+        "L-rectangular-factor-inverse-actual_rectangular_factor_inverse_realMoment_integrable_iff",
+        "actual_rectangular_factor_inverse_realMoment_integrable_iff",
+        [
+          "L-rectangular-factor-inverse-exists_rectangular_full_column_frame"
+        ]
+      ]
+    ]
+  }
+]

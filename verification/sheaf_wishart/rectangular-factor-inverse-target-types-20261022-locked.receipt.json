@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:43:30.639724+00:00",
+  "ended_utc": "2026-10-23T00:43:44.196686+00:00",
+  "module": "SheafRectangularFactorInverseTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafRectangularFactorInverseTargets.lean",
+  "source_sha256_before": "d7e839bee86c56a04f95d88720280cbd70e5064564847fc024d0d2336bc13d83",
+  "source_sha256": "d7e839bee86c56a04f95d88720280cbd70e5064564847fc024d0d2336bc13d83",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/rectangular-factor-inverse-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "bdf151e234c1d24a2fc22bb2e79f4436cea54f572ed7f0ecf539308742848fc1",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

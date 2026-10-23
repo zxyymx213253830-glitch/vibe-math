@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "RectangularFullColumnFrame.lean": {
+      "sha256": "710c55ce3ac87ab5dcfb1b29491560031b04781d27c891e42e73144431c38b96",
+      "supplied": "Full source"
+    },
+    "RectangularFactorInverseCriterion.lean": {
+      "sha256": "6a5ddf489d57bf1cbad7918391de5cb2fad9d84bbf2765593221bf0a7f273c9a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "62d1d340279c1d20ea6d8c45028d55db14634d4e7880fd5583866a3a5e993288"
+}

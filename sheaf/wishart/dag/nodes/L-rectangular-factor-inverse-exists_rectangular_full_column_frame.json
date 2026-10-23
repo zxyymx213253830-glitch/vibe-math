@@ -1,0 +1,20 @@
+{
+  "id": "L-rectangular-factor-inverse-exists_rectangular_full_column_frame",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.RectangularFullColumnFrame",
+  "declaration": "JinWishart.exists_rectangular_full_column_frame",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-rectangular-factor-inverse-RectangularFullColumnFrame.json",
+    "source_sha256": "710c55ce3ac87ab5dcfb1b29491560031b04781d27c891e42e73144431c38b96"
+  }
+}

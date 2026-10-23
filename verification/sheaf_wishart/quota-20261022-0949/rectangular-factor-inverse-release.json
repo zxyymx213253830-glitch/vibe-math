@@ -1,0 +1,13 @@
+{
+ "name":"rectangular-factor-inverse",
+ "review":"rectangular-factor-inverse-final",
+ "resolution":"notes/WISHART_RECTANGULAR_FACTOR_INVERSE.md",
+ "facade":"facade-102",
+ "total":743,
+ "new_count":2,
+ "control_script":"experiments/rectangular_factor_inverse_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/rectangular-factor-inverse-control.json",
+ "seed":2026102238,
+ "commit":"Prove the sharp inverse threshold for rectangular full-column noise factors",
+ "scope":"2026-10-23续跑第三十八里程碑：743绑定项（741定理实例+2构造），auditPASS/facade102真实exit0，76接受记录全验证。本轮133打印声明/58模块非133概率突破。新2声明/2模块：1确定性满列矩形B存在固定S detunit及U^HU=I、BS=U；1概率声明rankB=n、m,n>0下原始同一2mp源固定i+1=min(m,n)正谱逆q矩可积iff0<q<|m-n|+1。Y=ZU+MS=(ZB+M)S的完整properCN1投影law与AE列谱比较闭合，不把非酉S当Gaussian不变，扩展旧方阵可逆因子接口。18精确例109控制非概率证明，2字面类型及完整最终源码真实Qoder P4绑定；隐含n<=p、空行允许、误读iidCriterion源维数、原始rank AE和control positivity误报按精确签名裁决。失败SymPy结构相等/Lean替换及map组合日志保留不接受。一般r=rankB>0压缩拼接和最终全分类/R0仍OPEN。普通额度继续未用重置券，lease02:12非用户截止；人审测度/Fubini/极限/方差/模型仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

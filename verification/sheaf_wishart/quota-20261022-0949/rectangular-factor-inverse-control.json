@@ -1,0 +1,8 @@
+{
+  "status": "PASS exact factor controls, not Gaussian/inverse proof",
+  "seed": 2026102238,
+  "checks": 109,
+  "cases": 18,
+  "reference": "coordinate isometry U; nonunitary invertible R; scalar B=2 gives Gram scale4",
+  "source_sha256": "3740df4c06ebebda563bfabdc30504b2305812834d6277f25383ef6d538e0217"
+}

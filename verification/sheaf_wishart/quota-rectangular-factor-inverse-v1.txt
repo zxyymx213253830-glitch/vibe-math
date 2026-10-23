@@ -1,0 +1,40 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularFactorInverseCriterion.lean:87:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map (fun X => X + M * S) (Measure.map ((fun X => X * U) ∘ complexSampleMatrix) ?m.387)
+in the target expression
+  Measure.map (fun X => X + M * S) (Measure.map (fun z => complexSampleMatrix z * U) μ) =
+    complexGaussianMatrixLaw (M * S)
+
+m p n : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hB : B.rank = n
+hm : 0 < m
+hn : 0 < n
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m n
+q : ℝ
+hq : 0 < q
+S : Matrix (Fin n) (Fin n) ℂ
+U : Matrix (Fin p) (Fin n) ℂ
+hS : IsUnit S.det
+hU : Uᴴ * U = 1
+hBS : B * S = U
+μ : Measure ComplexSample := stdGaussian ComplexSample
+Y : ComplexSample → Matrix (Fin m) (Fin n) ℂ := fun z => complexSampleMatrix z * U + M * S
+G : Matrix (Fin m) (Fin n) ℂ → ℝ := fun X => ⋯.eigenvalues₀ i
+hZ : Measurable complexSampleMatrix
+hmul : Measurable fun X => X * U
+hYm : Measurable Y
+h0 :
+  Measure.map ((fun X => X * U) ∘ fun z => complexSampleMatrix z + 0) (stdGaussian ComplexSample) =
+    Measure.map (fun z => complexSampleMatrix z + 0) (stdGaussian ComplexSample)
+h0' : Measure.map (fun z => complexSampleMatrix z * U) μ = complexGaussianMatrixLaw 0
+hshift : Measurable fun X => X + M * S
+hs :
+  Measure.map (fun X => X + M * S) (Measure.map (fun z => complexSampleMatrix z * U) μ) =
+    complexGaussianMatrixLaw (M * S)
+⊢ Measure.map Y μ = complexGaussianMatrixLaw (M * S)
+'JinWishart.actual_rectangular_factor_inverse_realMoment_integrable_iff' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

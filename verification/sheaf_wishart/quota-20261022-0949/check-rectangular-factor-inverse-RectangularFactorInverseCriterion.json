@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "6a5ddf489d57bf1cbad7918391de5cb2fad9d84bbf2765593221bf0a7f273c9a",
+  "target_lock_sha256": "bb3c6a63e73f5d7fbbd9304b380dc4b271e365b1b1678a8fdcaebb288b71fe7b",
+  "leaf": {
+    "started_utc": "2026-10-23T00:43:18.353950+00:00",
+    "ended_utc": "2026-10-23T00:43:30.638027+00:00",
+    "module": "JinWishartFormalization.RectangularFactorInverseCriterion",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularFactorInverseCriterion.lean",
+    "source_sha256_before": "6a5ddf489d57bf1cbad7918391de5cb2fad9d84bbf2765593221bf0a7f273c9a",
+    "source_sha256": "6a5ddf489d57bf1cbad7918391de5cb2fad9d84bbf2765593221bf0a7f273c9a",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/rectangular-factor-inverse-RectangularFactorInverseCriterion-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "a2feb97468624fb0b71c040aac5a94cc2db22684414cc23eb8176d14681f3aec",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T00:43:30.639724+00:00",
+    "ended_utc": "2026-10-23T00:43:44.196686+00:00",
+    "module": "SheafRectangularFactorInverseTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafRectangularFactorInverseTargets.lean",
+    "source_sha256_before": "d7e839bee86c56a04f95d88720280cbd70e5064564847fc024d0d2336bc13d83",
+    "source_sha256": "d7e839bee86c56a04f95d88720280cbd70e5064564847fc024d0d2336bc13d83",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/rectangular-factor-inverse-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "bdf151e234c1d24a2fc22bb2e79f4436cea54f572ed7f0ecf539308742848fc1",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

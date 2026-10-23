@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:43:18.353950+00:00",
+  "ended_utc": "2026-10-23T00:43:30.638027+00:00",
+  "module": "JinWishartFormalization.RectangularFactorInverseCriterion",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularFactorInverseCriterion.lean",
+  "source_sha256_before": "6a5ddf489d57bf1cbad7918391de5cb2fad9d84bbf2765593221bf0a7f273c9a",
+  "source_sha256": "6a5ddf489d57bf1cbad7918391de5cb2fad9d84bbf2765593221bf0a7f273c9a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/rectangular-factor-inverse-RectangularFactorInverseCriterion-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "a2feb97468624fb0b71c040aac5a94cc2db22684414cc23eb8176d14681f3aec",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

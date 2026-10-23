@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "710c55ce3ac87ab5dcfb1b29491560031b04781d27c891e42e73144431c38b96",
+  "target_lock_sha256": "4933f9729a949fcd33c2621d9b29ec0d7897f172d378d5975d8187c6fe954be5",
+  "leaf": {
+    "started_utc": "2026-10-23T00:43:05.345965+00:00",
+    "ended_utc": "2026-10-23T00:43:18.222421+00:00",
+    "module": "JinWishartFormalization.RectangularFullColumnFrame",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularFullColumnFrame.lean",
+    "source_sha256_before": "710c55ce3ac87ab5dcfb1b29491560031b04781d27c891e42e73144431c38b96",
+    "source_sha256": "710c55ce3ac87ab5dcfb1b29491560031b04781d27c891e42e73144431c38b96",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/rectangular-factor-inverse-RectangularFullColumnFrame-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "b75844e28eaae48fc345b7e19243866d93fedd4e5622665a391358b5dfa4b97d",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T00:43:30.639724+00:00",
+    "ended_utc": "2026-10-23T00:43:44.196686+00:00",
+    "module": "SheafRectangularFactorInverseTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafRectangularFactorInverseTargets.lean",
+    "source_sha256_before": "d7e839bee86c56a04f95d88720280cbd70e5064564847fc024d0d2336bc13d83",
+    "source_sha256": "d7e839bee86c56a04f95d88720280cbd70e5064564847fc024d0d2336bc13d83",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/rectangular-factor-inverse-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "bdf151e234c1d24a2fc22bb2e79f4436cea54f572ed7f0ecf539308742848fc1",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

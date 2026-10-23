@@ -1,0 +1,24 @@
+{
+  "id": "L-rectangular-factor-inverse-actual_rectangular_factor_inverse_realMoment_integrable_iff",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.RectangularFactorInverseCriterion",
+  "declaration": "JinWishart.actual_rectangular_factor_inverse_realMoment_integrable_iff",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-rectangular-factor-inverse-exists_rectangular_full_column_frame"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-rectangular-factor-inverse-exists_rectangular_full_column_frame"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-rectangular-factor-inverse-RectangularFactorInverseCriterion.json",
+    "source_sha256": "6a5ddf489d57bf1cbad7918391de5cb2fad9d84bbf2765593221bf0a7f273c9a"
+  }
+}

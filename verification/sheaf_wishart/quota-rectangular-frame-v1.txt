@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularFullColumnFrame.lean:38:53: error: Application type mismatch: The argument
+  ec.symm
+has type
+  Fin n ≃ Fin n ⊕ Fin 0
+but is expected to have type
+  Fin n → Fin n ⊕ Fin (finrank ℂ ↥(toEuclideanLin B).ker)
+in the application
+  T.submatrix id ec.symm
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularFullColumnFrame.lean:39:57: error: Application type mismatch: The argument
+  ec
+has type
+  Fin n ⊕ Fin 0 ≃ Fin n
+but is expected to have type
+  Fin n ⊕ Fin (finrank ℂ ↥(toEuclideanLin B).ker) ≃ Fin n
+in the application
+  canonical_reindexed_column_det_isUnit T hT ec
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RectangularFullColumnFrame.lean:41:2: error: 'change' tactic failed, pattern
+  (B * T) i (Sum.inl j) = U i j
+is not definitionally equal to target
+  (B * S) i j = U i j
+'JinWishart.exists_rectangular_full_column_frame' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

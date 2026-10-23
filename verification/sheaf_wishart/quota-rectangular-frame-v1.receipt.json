@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:39:51.352641+00:00",
+  "ended_utc": "2026-10-23T00:40:04.069274+00:00",
+  "module": "JinWishartFormalization.RectangularFullColumnFrame",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularFullColumnFrame.lean",
+  "source_sha256_before": "dc9fafdb8225d1c0bc602a8be086437a90b83adc0ebd336c2f131fa2a82bcaf2",
+  "source_sha256": "dc9fafdb8225d1c0bc602a8be086437a90b83adc0ebd336c2f131fa2a82bcaf2",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-rectangular-frame-v1.txt",
+  "log_exists": true,
+  "log_sha256": "ec9d5daf3b75f77cd67db2800dac32c339970a0a0fab40a1dbcf0d0214b617b3",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

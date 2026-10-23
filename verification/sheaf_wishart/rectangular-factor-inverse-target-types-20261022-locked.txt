@@ -1,0 +1,37 @@
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafRectangularFactorInverseTargets.lean:7:36: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafRectangularFactorInverseTargets.lean:12:5: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafRectangularFactorInverseTargets.lean:12:21: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafRectangularFactorInverseTargets.lean:12:32: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafRectangularFactorInverseTargets.lean:13:38: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafRectangularFactorInverseTargets.lean:13:69: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+SHEAF_TARGET_TYPES_EQ PASS

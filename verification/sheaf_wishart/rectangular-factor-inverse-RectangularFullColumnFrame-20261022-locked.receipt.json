@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T00:43:05.345965+00:00",
+  "ended_utc": "2026-10-23T00:43:18.222421+00:00",
+  "module": "JinWishartFormalization.RectangularFullColumnFrame",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RectangularFullColumnFrame.lean",
+  "source_sha256_before": "710c55ce3ac87ab5dcfb1b29491560031b04781d27c891e42e73144431c38b96",
+  "source_sha256": "710c55ce3ac87ab5dcfb1b29491560031b04781d27c891e42e73144431c38b96",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/rectangular-factor-inverse-RectangularFullColumnFrame-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "b75844e28eaae48fc345b7e19243866d93fedd4e5622665a391358b5dfa4b97d",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

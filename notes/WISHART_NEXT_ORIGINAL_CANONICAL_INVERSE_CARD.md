@@ -1,5 +1,7 @@
 # Next original-model inverse transport card
 
+Superseded after741: original explicit-source735, full-stack737 and common-kernel mixed branch739 are accepted. Zero-noise and full noiseless-image interfaces741 are accepted with the totalization limitation recorded. Do not redo items1-5 below for the mixed branch. Remaining exact card: WISHART_NEXT_ZERO_KERNEL_IMAGE_CARD.md, especially r=rankB>0 rectangular factor and the exhaustive edge assembly. Historical text below is retained as provenance.
+
 Established by canonical product criterion732 (5fc8975): a,b,c>0, fixed invertible N, arbitrary fixed complex means, independent proper-CN1 blocks A and H, D=[[A,0],[H,N]], and fixed column index i+1=min(a+c,b+c). The inverse real p moment is finite iff p<max(a,b)-min(a,b)+1. CanonicalMatrixProductInverse734 (e008629) is accepted: auditPASS/facade97 realexit0,70 acceptance records validated; its matrix-product-law criterion and critical/higher nonnegative ENNReal TOP statement are closed. The source controls are reused, not new experiments.
 
 This card replaces completed Fin/shear/rank work. Do NOT redo compression, fixed-normal-form existence, rectangular Gaussian projection, disjoint block product law, Fin column transport, canonical rank, Gaussian factor moments or the product-section lemma.
