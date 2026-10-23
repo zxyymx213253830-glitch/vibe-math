@@ -1,0 +1,58 @@
+{
+  "status": "PASS finite/Gamma controls, not DCT or general model proof",
+  "seed": 2026102242,
+  "checks": 731,
+  "spectrum_cases": 60,
+  "gamma_records": [
+    {
+      "shape": 2,
+      "rho": 1.0,
+      "scaled_offset": 0.5772156649015323,
+      "known_inverse_first": 1.0
+    },
+    {
+      "shape": 2,
+      "rho": 10.0,
+      "scaled_offset": 0.8780886214509366,
+      "known_inverse_first": 1.0
+    },
+    {
+      "shape": 2,
+      "rho": 1000.0,
+      "scaled_offset": 0.9965821745582981,
+      "known_inverse_first": 1.0
+    },
+    {
+      "shape": 2,
+      "rho": 100000.0,
+      "scaled_offset": 0.9999428210417073,
+      "known_inverse_first": 1.0
+    },
+    {
+      "shape": 3,
+      "rho": 1.0,
+      "scaled_offset": 0.3753893460631285,
+      "known_inverse_first": 0.5
+    },
+    {
+      "shape": 3,
+      "rho": 10.0,
+      "scaled_offset": 0.47882074868635766,
+      "known_inverse_first": 0.5
+    },
+    {
+      "shape": 3,
+      "rho": 1000.0,
+      "scaled_offset": 0.4997511115934296,
+      "known_inverse_first": 0.5
+    },
+    {
+      "shape": 3,
+      "rho": 100000.0,
+      "scaled_offset": 0.49999750011895583,
+      "known_inverse_first": 0.5
+    }
+  ],
+  "critical_shape1": "inverse first moment divergent; excluded from finite coefficient control",
+  "source_sha256": "5b065d0bb7761664778ae91a946da7019178ab2bca69ea4d838308e92c768ae3"
+}

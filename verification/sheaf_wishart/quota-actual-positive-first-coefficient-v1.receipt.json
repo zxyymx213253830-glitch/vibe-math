@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:13:13.490185+00:00",
+  "ended_utc": "2026-10-23T01:13:25.153550+00:00",
+  "module": "JinWishartFormalization.ActualPositiveFirstCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualPositiveFirstCoefficient.lean",
+  "source_sha256_before": "eb183a3f329b214415005fe6a9e42ccd48c7013665ecdd963d718a6f1cea6cba",
+  "source_sha256": "eb183a3f329b214415005fe6a9e42ccd48c7013665ecdd963d718a6f1cea6cba",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quota-actual-positive-first-coefficient-v1.txt",
+  "log_exists": true,
+  "log_sha256": "facf2e17d5e3493d57f0a7e465d43b2b7a9bc25daad365b0fb88e60f06ddd732",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

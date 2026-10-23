@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "PositiveModeFirstCoefficient.lean": {
+      "sha256": "7d6e06a631df86b519e76f4651d8a642980d442ba506d87eb5513db2bd6372a1",
+      "supplied": "Full source"
+    },
+    "ActualPositiveFirstCoefficient.lean": {
+      "sha256": "7270b5dbf815d42f32cc0817da3494bc6dbb0e99ca63b0ffffff8c047085cba0",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "3aa76eba5a1fc7118791621816d90a1962b7550eb1adedaaaae5d8b73c40cf75"
+}

@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveModeFirstCoefficient.lean:23:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveModeFirstCoefficient.lean:24:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveModeFirstCoefficient.lean:32:8: error: Type mismatch: The rewritten hypothesis
+  hh
+has type
+  0 ≤ x⁻¹ - t * positiveModeOffsetError x t ∧ x⁻¹ - t * positiveModeOffsetError x t ≤ 1 / (2 * t * x ^ 2)
+but is expected to have type
+  0 ≤ x⁻¹ - t * positiveModeOffsetError x t
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveModeFirstCoefficient.lean:41:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [positiveModeOffsetError, positiveSpectrumLog]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'JinWishart.positiveModeOffsetError_scaled_tendsto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

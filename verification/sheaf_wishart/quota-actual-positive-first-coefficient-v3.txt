@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualPositiveFirstCoefficient.lean:99:86: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualPositiveFirstCoefficient.lean:99:86: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'JinWishart.actualCorrelatedMatrixLogDet_expected_positive_first_coefficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

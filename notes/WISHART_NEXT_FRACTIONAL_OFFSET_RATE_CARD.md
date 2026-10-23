@@ -1,5 +1,7 @@
 # Fractional offset/variance rates after751
 
+CLOSED at755/94cffe3: both finite majorants and actual fractional MSE/variance bounds are accepted. Next WISHART_NEXT_POSITIVE_FIRST_CORRECTION_CARD.md, not another fractional-rate workflow. Historical plan below retained.
+
 Accepted746: exhaustive fixed singular-model inverse classification including R0 absence. Accepted749/8a91a6f: inverse-square integrability implies MSE offset<=n^2 t^-2 E(lambdaPlus^-2). Accepted751/30e204e: variance difference<= (n/t)^2 K+2(n/t)sqrt(K)sqrt(Var S). Latest auditPASS/facade105 realexit0,81 acceptance records,751 items. Do not redo these results.
 
 Remaining useful extension: handle inverse-square critical regimes via fractional exponents. For0<alpha<=1, aim to prove log(1+x)<=x^alpha/alpha for x>=0. Pinned mathlib `Real.rpow_add_le_add_rpow` is in Mathlib.Analysis.MeanInequalitiesPow: `(a+b)^p<=a^p+b^p` for a,b>=0,0<=p<=1. Combine it at a=1,b=x with `Real.log_le_sub_one_of_pos` applied to `(1+x)^alpha` and `Real.log_rpow`. No new calculus library or full build is needed.

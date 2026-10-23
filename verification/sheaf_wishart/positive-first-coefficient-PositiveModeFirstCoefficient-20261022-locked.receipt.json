@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:15:50.769089+00:00",
+  "ended_utc": "2026-10-23T01:16:03.936838+00:00",
+  "module": "JinWishartFormalization.PositiveModeFirstCoefficient",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveModeFirstCoefficient.lean",
+  "source_sha256_before": "7d6e06a631df86b519e76f4651d8a642980d442ba506d87eb5513db2bd6372a1",
+  "source_sha256": "7d6e06a631df86b519e76f4651d8a642980d442ba506d87eb5513db2bd6372a1",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/positive-first-coefficient-PositiveModeFirstCoefficient-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "39e750f2f0fa690149ebc5c1e74d753b919ea1116c71d2e1f8b1d015ab17186b",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

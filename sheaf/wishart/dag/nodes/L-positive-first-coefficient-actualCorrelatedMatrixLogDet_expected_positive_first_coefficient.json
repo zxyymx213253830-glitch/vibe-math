@@ -1,0 +1,24 @@
+{
+  "id": "L-positive-first-coefficient-actualCorrelatedMatrixLogDet_expected_positive_first_coefficient",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualPositiveFirstCoefficient",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_expected_positive_first_coefficient",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-positive-first-coefficient-positiveModeOffsetError_scaled_tendsto"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-positive-first-coefficient-positiveModeOffsetError_scaled_tendsto"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-first-coefficient-ActualPositiveFirstCoefficient.json",
+    "source_sha256": "7270b5dbf815d42f32cc0817da3494bc6dbb0e99ca63b0ffffff8c047085cba0"
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "positive-first-coefficient-PositiveModeFirstCoefficient",
+    "module": "PositiveModeFirstCoefficient",
+    "nodes": [
+      [
+        "L-positive-first-coefficient-positiveModeOffsetError_scaled_tendsto",
+        "positiveModeOffsetError_scaled_tendsto",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "positive-first-coefficient-ActualPositiveFirstCoefficient",
+    "module": "ActualPositiveFirstCoefficient",
+    "nodes": [
+      [
+        "L-positive-first-coefficient-actualCorrelatedMatrixLogDet_expected_positive_first_coefficient",
+        "actualCorrelatedMatrixLogDet_expected_positive_first_coefficient",
+        [
+          "L-positive-first-coefficient-positiveModeOffsetError_scaled_tendsto"
+        ]
+      ]
+    ]
+  }
+]

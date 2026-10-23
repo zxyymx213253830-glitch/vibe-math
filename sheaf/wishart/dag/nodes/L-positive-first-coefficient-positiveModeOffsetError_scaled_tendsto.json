@@ -1,0 +1,20 @@
+{
+  "id": "L-positive-first-coefficient-positiveModeOffsetError_scaled_tendsto",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PositiveModeFirstCoefficient",
+  "declaration": "JinWishart.positiveModeOffsetError_scaled_tendsto",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-first-coefficient-PositiveModeFirstCoefficient.json",
+    "source_sha256": "7d6e06a631df86b519e76f4651d8a642980d442ba506d87eb5513db2bd6372a1"
+  }
+}

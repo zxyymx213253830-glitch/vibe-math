@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:16:17.181862+00:00",
+  "ended_utc": "2026-10-23T01:16:30.691477+00:00",
+  "module": "SheafPositiveFirstCoefficientTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafPositiveFirstCoefficientTargets.lean",
+  "source_sha256_before": "1efed589b2c1830d4c95593f3ea2e91b8d0db69ef0efa970c515827acfd87424",
+  "source_sha256": "1efed589b2c1830d4c95593f3ea2e91b8d0db69ef0efa970c515827acfd87424",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/positive-first-coefficient-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "cd0862f896830b1f1b29d6331ca6902ff74f48d3c6ea6bf66acd0e2ad5533dcc",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,130 @@
+import JinWishartFormalization.PositiveModeFirstCoefficient
+import JinWishartFormalization.ActualSingularFractionalRates
+
+/-! Expected positive-spectrum reciprocal first high-scale coefficient under
+its exact finite-inverse-one condition. Same original 2mp source. Codex.
+Controls seed2026102242:731 finite/Gamma2/3 checks before source.
+[需人工审查] Dominated convergence, AE rank/index, expectation linearity and
+physical model. No ordinary inverse of a singular full Gram is asserted. -/
+open Matrix Module MeasureTheory ProbabilityTheory Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+private theorem offsetEqModes {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (t : ℝ) (ht : 0<t) (z : ComplexSample (m := m) (n := p))
+    (hz : (complexSampleMatrix z*B+M).rank=min m r) :
+    (∑ j,positiveModeOffsetError (actualCorrelatedEigenvalue B M j z) t)=
+      actualCorrelatedMatrixLogDet B M t z-(min m r : ℕ)*Real.log t-
+        ∑ j,positiveSpectrumLog (actualCorrelatedEigenvalue B M j z) := by
+  classical
+  have hc := gram_positive_modes_eq_rank (complexSampleMatrix z*B+M)
+  change (∑ j,if 0<actualCorrelatedEigenvalue B M j z then (1 : ℝ) else 0)=_ at hc
+  rw [hz] at hc
+  have hC : (∑ j,Real.log (1+t*actualCorrelatedEigenvalue B M j z))=
+      actualCorrelatedMatrixLogDet B M t z := by
+    simpa only [finiteSpectrumLogDet] using
+      (actualCorrelatedMatrixLogDet_eq_spectral B M t ht.le z).symm
+  unfold positiveModeOffsetError
+  rw [Finset.sum_sub_distrib,Finset.sum_sub_distrib,← Finset.sum_mul,hc,hC]
+
+theorem actualCorrelatedMatrixLogDet_expected_positive_first_coefficient {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hR : 0<min m r)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m r)
+    (hMoment : B.rank=0 ∨ r-B.rank=m ∨ (1 : ℝ)<((max m r-min m r+1 : ℕ) : ℝ)) :
+    let R : ℝ := (min m r : ℕ)
+    let S := fun z : ComplexSample (m := m) (n := p) =>
+      ∑ j,positiveSpectrumLog (actualCorrelatedEigenvalue B M j z)
+    let L := fun z : ComplexSample (m := m) (n := p) =>
+      ∑ j,(actualCorrelatedEigenvalue B M j z)⁻¹
+    Integrable L (stdGaussian _) ∧
+      Tendsto (fun t : ℝ => t*((∫ z,actualCorrelatedMatrixLogDet B M t z ∂stdGaussian _)-
+        R*Real.log t-(∫ z,S z ∂stdGaussian _))) atTop (𝓝 (∫ z,L z ∂stdGaussian _)) := by
+  classical
+  intro R S L
+  let μ := stdGaussian (ComplexSample (m := m) (n := p))
+  let F := fun (t : ℝ) (z : ComplexSample (m := m) (n := p)) =>
+    t*(actualCorrelatedMatrixLogDet B M t z-R*Real.log t-S z)
+  have hIq := (actual_singular_positive_inverse_realMoment_integrable_iff
+    B M hr hR i hi (1 : ℝ) (by norm_num)).mpr hMoment
+  have hI : Integrable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹) μ := by
+    simpa only [Real.rpow_one] using hIq
+  have hR' : 0<min m (Matrix.fromRows B M).rank := by rwa [← hr]
+  obtain ⟨i0,hi0,hmi,hMin⟩ := exists_actualCorrelated_smallest_positive_coordinate B M hR'
+  have he : i=i0 := Fin.ext (by rw [← hr] at hi0;omega)
+  subst i0
+  have hRank := actualCorrelatedRank_eq_generic_ae B M
+  rw [← matrix_fromRows_rank_eq B M,← hr] at hRank
+  have hS := integrable_actualCorrelated_positive_log_sum B M
+  change Integrable S μ at hS
+  have hLm : Measurable L := by
+    apply Finset.measurable_sum
+    intro j _
+    exact (measurable_actualCorrelatedEigenvalue B M j).inv
+  have hLnon (z : ComplexSample (m := m) (n := p)) : 0≤L z :=
+    Finset.sum_nonneg (fun j _ => inv_nonneg.mpr (actualCorrelatedEigenvalue_nonneg B M j z))
+  have hLb : ∀ᵐ z ∂μ,‖L z‖≤(n : ℝ)*(actualCorrelatedEigenvalue B M i z)⁻¹ := by
+    filter_upwards [hMin] with z hz
+    rw [Real.norm_eq_abs,abs_of_nonneg (hLnon z)]
+    have hb (j : Fin (Fintype.card (Fin n))) :
+        (actualCorrelatedEigenvalue B M j z)⁻¹≤(actualCorrelatedEigenvalue B M i z)⁻¹ := by
+      by_cases hp : 0<actualCorrelatedEigenvalue B M j z
+      · simpa only [one_div] using one_div_le_one_div_of_le hz.1 (hz.2 j hp)
+      · have hh : actualCorrelatedEigenvalue B M j z=0 := le_antisymm
+          (le_of_not_gt hp) (actualCorrelatedEigenvalue_nonneg B M j z)
+        rw [hh,inv_zero]
+        exact inv_nonneg.mpr hz.1.le
+    have hh := Finset.sum_le_sum (s := Finset.univ) (fun j _ => hb j)
+    simpa only [Finset.sum_const,Finset.card_univ,Fintype.card_fin,nsmul_eq_mul] using hh
+  have hLI : Integrable L μ := (hI.const_mul (n : ℝ)).mono' hLm.aestronglyMeasurable hLb
+  have hFI (t : ℝ) (ht : 1≤t) : Integrable (F t) μ :=
+    (((integrable_actualCorrelatedMatrixLogDet B M t (zero_le_one.trans ht)).sub
+      (integrable_const (R*Real.log t))).sub hS).const_mul t
+  have hFb (t : ℝ) (ht : 1≤t) : ∀ᵐ z ∂μ,
+      ‖F t z‖≤(n : ℝ)*(actualCorrelatedEigenvalue B M i z)⁻¹ := by
+    have ht0 : 0<t := zero_lt_one.trans_le ht
+    filter_upwards [hMin,hRank] with z hz hzr
+    have hb := finiteSpectrumOffsetError_nonneg_le_min_inverse
+      (fun j => actualCorrelatedEigenvalue B M j z)
+      (fun j => actualCorrelatedEigenvalue_nonneg B M j z)
+      (actualCorrelatedEigenvalue B M i z) t hz.1 ht0 hz.2
+    simp only [Fintype.card_fin,offsetEqModes B M t ht0 z hzr] at hb
+    have hn : 0≤F t z := mul_nonneg ht0.le hb.1
+    rw [Real.norm_eq_abs,abs_of_nonneg hn]
+    calc
+      F t z≤t*((n : ℝ)*t⁻¹*(actualCorrelatedEigenvalue B M i z)⁻¹) :=
+        mul_le_mul_of_nonneg_left hb.2 ht0.le
+      _=(n : ℝ)*(actualCorrelatedEigenvalue B M i z)⁻¹ := by field_simp [ht0.ne'];ring
+  have hConv : ∀ᵐ z ∂μ,Tendsto (fun t => F t z) atTop (𝓝 (L z)) := by
+    filter_upwards [hRank] with z hzr
+    have hs := tendsto_finsetSum Finset.univ (fun j _ =>
+      positiveModeOffsetError_scaled_tendsto (actualCorrelatedEigenvalue B M j z)
+        (actualCorrelatedEigenvalue_nonneg B M j z))
+    have hs' : Tendsto (fun t : ℝ => t*(∑ j,positiveModeOffsetError (actualCorrelatedEigenvalue B M j z) t))
+        atTop (𝓝 (L z)) := by simpa only [Finset.mul_sum] using hs
+    apply hs'.congr'
+    filter_upwards [eventually_ge_atTop (1 : ℝ)] with t ht
+    rw [offsetEqModes B M t (zero_lt_one.trans_le ht) z hzr]
+  have hD : Tendsto (fun t => ∫ z,F t z ∂μ) atTop (𝓝 (∫ z,L z ∂μ)) := by
+    apply tendsto_integral_filter_of_dominated_convergence
+      (fun z => (n : ℝ)*(actualCorrelatedEigenvalue B M i z)⁻¹)
+    · filter_upwards [eventually_ge_atTop (1 : ℝ)] with t ht
+      exact (hFI t ht).aestronglyMeasurable
+    · filter_upwards [eventually_ge_atTop (1 : ℝ)] with t ht
+      exact hFb t ht
+    · exact hI.const_mul _
+    · exact hConv
+  refine ⟨hLI,?_⟩
+  apply hD.congr'
+  filter_upwards [eventually_ge_atTop (1 : ℝ)] with t ht
+  have hC := integrable_actualCorrelatedMatrixLogDet B M t (zero_le_one.trans ht)
+  dsimp only [F]
+  rw [integral_const_mul,integral_sub (hC.sub (integrable_const _)) hS,
+    integral_sub hC (integrable_const _)]
+  simp
+
+end
+end JinWishart
+#print axioms JinWishart.actualCorrelatedMatrixLogDet_expected_positive_first_coefficient

@@ -1,0 +1,59 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualPositiveFirstCoefficient.lean:77:15: error: Ambiguous term
+  inv_zero
+Possible interpretations:
+  _root_.inv_zero : 0⁻¹ = 0
+  
+  Matrix.inv_zero : 0⁻¹ = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualPositiveFirstCoefficient.lean:99:82: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualPositiveFirstCoefficient.lean:124:25: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : ComplexSample), (actualCorrelatedMatrixLogDet B M t - fun x => ?m.1115) a - S a ∂stdGaussian ComplexSample
+in the target expression
+  t * ∫ (a : ComplexSample), actualCorrelatedMatrixLogDet B M t a - R * Real.log t - S a ∂μ =
+    t *
+      (∫ (z : ComplexSample), actualCorrelatedMatrixLogDet B M t z ∂stdGaussian ComplexSample - R * Real.log t -
+        ∫ (z : ComplexSample), S z ∂stdGaussian ComplexSample)
+
+m p n r : ℕ
+B : Matrix (Fin p) (Fin n) ℂ
+M : Matrix (Fin m) (Fin n) ℂ
+hr : r = (B.fromRows M).rank
+hR : 0 < min m r
+i : Fin (Fintype.card (Fin n))
+hi : ↑i + 1 = min m r
+hMoment : B.rank = 0 ∨ r - B.rank = m ∨ 1 < ↑(max m r - min m r + 1)
+R : ℝ := ↑(min m r)
+S : ComplexSample → ℝ := fun z => ∑ j, positiveSpectrumLog (actualCorrelatedEigenvalue B M j z)
+L : ComplexSample → ℝ := fun z => ∑ j, (actualCorrelatedEigenvalue B M j z)⁻¹
+μ : Measure ComplexSample := stdGaussian ComplexSample
+F : ℝ → ComplexSample → ℝ := fun t z => t * (actualCorrelatedMatrixLogDet B M t z - R * Real.log t - S z)
+hIq : Integrable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹ ^ 1) (stdGaussian ComplexSample)
+hI : Integrable (fun z => (actualCorrelatedEigenvalue B M i z)⁻¹) μ
+hR' : 0 < min m (B.fromRows M).rank
+hi0 : ↑i + 1 = min m (B.fromRows M).rank
+hmi : Measurable (actualCorrelatedEigenvalue B M i)
+hMin :
+  ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample,
+    0 < actualCorrelatedEigenvalue B M i z ∧
+      ∀ (j : Fin (Fintype.card (Fin n))),
+        0 < actualCorrelatedEigenvalue B M j z → actualCorrelatedEigenvalue B M i z ≤ actualCorrelatedEigenvalue B M j z
+hRank : ∀ᵐ (z : ComplexSample) ∂stdGaussian ComplexSample, (complexSampleMatrix z * B + M).rank = min m r
+hS : Integrable S μ
+hLm : Measurable L
+hLnon : ∀ (z : ComplexSample), 0 ≤ L z
+hLb : ∀ᵐ (z : ComplexSample) ∂μ, ‖L z‖ ≤ ↑n * (actualCorrelatedEigenvalue B M i z)⁻¹
+hLI : Integrable L μ
+hFI : ∀ (t : ℝ), 1 ≤ t → Integrable (F t) μ
+hFb : ∀ (t : ℝ), 1 ≤ t → ∀ᵐ (z : ComplexSample) ∂μ, ‖F t z‖ ≤ ↑n * (actualCorrelatedEigenvalue B M i z)⁻¹
+hConv : ∀ᵐ (z : ComplexSample) ∂μ, Tendsto (fun t => F t z) atTop (𝓝 (L z))
+hD : Tendsto (fun t => ∫ (z : ComplexSample), F t z ∂μ) atTop (𝓝 (∫ (z : ComplexSample), L z ∂μ))
+t : ℝ
+ht : 1 ≤ t
+hC : Integrable (actualCorrelatedMatrixLogDet B M t) (stdGaussian ComplexSample)
+⊢ t * ∫ (a : ComplexSample), actualCorrelatedMatrixLogDet B M t a - R * Real.log t - S a ∂μ =
+    t *
+      (∫ (z : ComplexSample), actualCorrelatedMatrixLogDet B M t z ∂stdGaussian ComplexSample - R * Real.log t -
+        ∫ (z : ComplexSample), S z ∂stdGaussian ComplexSample)
+'JinWishart.actualCorrelatedMatrixLogDet_expected_positive_first_coefficient' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
