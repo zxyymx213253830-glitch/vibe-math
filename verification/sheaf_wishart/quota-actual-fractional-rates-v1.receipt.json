@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:05:17.363279+00:00",
+  "ended_utc": "2026-10-23T01:05:30.513341+00:00",
+  "module": "JinWishartFormalization.ActualSingularFractionalRates",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularFractionalRates.lean",
+  "source_sha256_before": "f4a69464362d635e0689c1ea85120d0d12a750327bf1059805ceddc42ac2abfc",
+  "source_sha256": "f4a69464362d635e0689c1ea85120d0d12a750327bf1059805ceddc42ac2abfc",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-actual-fractional-rates-v1.txt",
+  "log_exists": true,
+  "log_sha256": "3e93eb3cc9ad457bb1562bbe01b6ad9a2bd1baa2676fe73a2baf8ddc05fe5a35",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

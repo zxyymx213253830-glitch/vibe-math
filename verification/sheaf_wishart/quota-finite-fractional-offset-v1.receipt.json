@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:03:58.652730+00:00",
+  "ended_utc": "2026-10-23T01:04:10.771173+00:00",
+  "module": "JinWishartFormalization.FiniteSpectrumFractionalOffset",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumFractionalOffset.lean",
+  "source_sha256_before": "dc10ca5e9f66c9c7afb6eb2195a03b9919fac0723634545b9aa4159d5e72d406",
+  "source_sha256": "dc10ca5e9f66c9c7afb6eb2195a03b9919fac0723634545b9aa4159d5e72d406",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quota-finite-fractional-offset-v1.txt",
+  "log_exists": true,
+  "log_sha256": "2b2fe345fb6f8885ab6970dfab0c7f76287610cee53bb5d436661558b57de683",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

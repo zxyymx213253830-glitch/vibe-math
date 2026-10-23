@@ -1,0 +1,13 @@
+{
+ "name":"fractional-offset",
+ "review":"fractional-offset-final",
+ "resolution":"notes/WISHART_FRACTIONAL_OFFSET_RATES.md",
+ "facade":"facade-106",
+ "total":755,
+ "new_count":4,
+ "control_script":"experiments/fractional_offset_rate_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/fractional-offset-rate-control.json",
+ "seed":2026102241,
+ "commit":"Extend actual offset and variance bounds to subcritical fractional inverse moments",
+ "scope":"2026-10-23续跑第四十二里程碑：755绑定项（753定理实例+2构造），auditPASS/facade106真实exit0，83接受记录全验证。本轮145打印声明/65模块非145概率突破。新4声明/2模块：0<alpha<=1时标量/有限谱error受alpha逆*t逆的alpha次幂*最小正值逆alpha控制；原始固定B,M在逆2alpha矩有限条件下，MSE<=A平方*K、方差差<=A平方*K+2A sqrtK sqrtVarS，A=(n/alpha)t^-alpha、K=E lambdaPlus^-2alpha，所有t>=1。任意0<alpha<1/2可覆盖所有R>0固定模型含square临界，端点及最优临界渐近不声称。1323有限/Gamma1亚临界校准与缺1/alpha负控制非证明，4字面类型及完整最终源码真实Qoder P4绑定；AE有限交不需要完备性这一P4误报已明确裁决，不采纳BorelGaussian完备的未经核实说法；索引/端点/API逐项核对。所有源首轮/最终默认预算exit0。下一一般正谱pseudo逆trace高尺度一/二阶系数或最优临界渐近，旧逆矩分类/速率勿重做。普通额度继续未用重置券，lease02:12非用户截止；人审测度/Fubini/极限/方差/模型仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

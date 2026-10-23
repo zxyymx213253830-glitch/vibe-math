@@ -1,0 +1,195 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE FiniteSpectrumFractionalOffset.lean
+import JinWishartFormalization.FiniteSpectrumOffsetInverseRate
+import Mathlib.Analysis.MeanInequalitiesPow
+
+/-! Fractional finite-spectrum offset majorant. Codex.
+Controls seed2026102241:1323 finite/Gamma subcritical controls, with a
+missing-1/alpha negative control. [需人工审查] Stochastic use of real powers. -/
+namespace JinWishart
+noncomputable section
+
+private theorem logOneAddFractional (x α : ℝ) (hx : 0≤x) (ha : 0<α) (ha1 : α≤1) :
+    Real.log (1+x)≤x^α/α := by
+  have hp : 0<1+x := by positivity
+  have hpow := Real.rpow_add_le_add_rpow (show (0 : ℝ)≤1 by norm_num) hx ha.le ha1
+  rw [Real.one_rpow] at hpow
+  have hh := Real.log_le_sub_one_of_pos (Real.rpow_pos_of_pos hp α)
+  rw [Real.log_rpow hp α] at hh
+  apply (le_div_iff₀ ha).mpr
+  nlinarith
+
+theorem positiveModeOffsetError_fractional_bound (x t α : ℝ)
+    (hx : 0≤x) (ht : 0<t) (ha : 0<α) (ha1 : α≤1) :
+    0≤positiveModeOffsetError x t ∧
+      positiveModeOffsetError x t≤α⁻¹*(t⁻¹)^α*(x⁻¹)^α := by
+  refine ⟨(positiveModeOffsetError_nonneg_le_inverse x t hx ht).1,?_⟩
+  by_cases hp : 0<x
+  · have harg : 0<1+t⁻¹*x⁻¹ := by positivity
+    have he : 1+t*x=(t*x)*(1+t⁻¹*x⁻¹) := by field_simp [ht.ne',hp.ne'];ring
+    have herr : positiveModeOffsetError x t=Real.log (1+t⁻¹*x⁻¹) := by
+      unfold positiveModeOffsetError positiveSpectrumLog
+      rw [if_pos hp,one_mul,he,Real.log_mul (mul_ne_zero ht.ne' hp.ne') harg.ne',
+        Real.log_mul ht.ne' hp.ne']
+      simp only [if_pos hp]
+      ring
+    rw [herr]
+    have hh := logOneAddFractional (t⁻¹*x⁻¹) α (by positivity) ha ha1
+    rw [Real.mul_rpow (inv_nonneg.mpr ht.le) (inv_nonneg.mpr hp.le),div_eq_mul_inv] at hh
+    convert hh using 1 <;> ring
+  · have hz : x=0 := le_antisymm (le_of_not_gt hp) hx
+    simp [hz,positiveModeOffsetError,positiveSpectrumLog,Real.zero_rpow ha.ne']
+
+theorem finiteSpectrumOffsetError_fractional_min_bound {ι : Type*} [Fintype ι]
+    (x : ι → ℝ) (hx : ∀ i,0≤x i) (a t α : ℝ) (ha : 0<a) (ht : 0<t)
+    (hα : 0<α) (hα1 : α≤1) (hmin : ∀ i,0<x i → a≤x i) :
+    0≤(∑ i,positiveModeOffsetError (x i) t) ∧
+      (∑ i,positiveModeOffsetError (x i) t)≤
+        (Fintype.card ι : ℝ)*α⁻¹*(t⁻¹)^α*(a⁻¹)^α := by
+  classical
+  constructor
+  · exact Finset.sum_nonneg (fun i _ => (positiveModeOffsetError_fractional_bound (x i) t α (hx i) ht hα hα1).1)
+  · have hb (i : ι) : positiveModeOffsetError (x i) t≤α⁻¹*(t⁻¹)^α*(a⁻¹)^α := by
+      by_cases hp : 0<x i
+      · apply (positiveModeOffsetError_fractional_bound (x i) t α (hx i) ht hα hα1).2.trans
+        apply mul_le_mul_of_nonneg_left _ (by positivity : 0≤α⁻¹*(t⁻¹)^α)
+        apply Real.rpow_le_rpow (inv_nonneg.mpr hp.le) _ hα.le
+        simpa only [one_div] using one_div_le_one_div_of_le ha (hmin i hp)
+      · have hz : x i=0 := le_antisymm (le_of_not_gt hp) (hx i)
+        simp only [hz,positiveModeOffsetError,positiveSpectrumLog,lt_self_iff_false,
+          if_false,mul_zero,add_zero,Real.log_one,zero_mul,sub_zero]
+        positivity
+    have hh := Finset.sum_le_sum (s := Finset.univ) (fun i _ => hb i)
+    simpa only [Finset.sum_const,Finset.card_univ,nsmul_eq_mul,mul_assoc] using hh
+
+end
+end JinWishart
+#print axioms JinWishart.positiveModeOffsetError_fractional_bound
+#print axioms JinWishart.finiteSpectrumOffsetError_fractional_min_bound
+
+SOURCE ActualSingularFractionalRates.lean
+import JinWishartFormalization.FiniteSpectrumFractionalOffset
+import JinWishartFormalization.ActualSingularVarianceRate
+
+/-! Fractional offset and variance rates, including subcritical square models.
+Codex. Controls seed2026102241:1323 checks, calibrated Gamma1 finite fractional
+inverse moments; not endpoint asymptotics. [需人工审查] Source, AE rank/index,
+real powers, integral/variance meaning and paper interpretation. -/
+open Matrix Module MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem actualCorrelatedMatrixLogDet_offset_fractional_mean_square_bound {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hR : 0<min m r)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m r)
+    (α : ℝ) (hα : 0<α) (hα1 : α≤1)
+    (hMoment : B.rank=0 ∨ r-B.rank=m ∨ 2*α<((max m r-min m r+1 : ℕ) : ℝ)) :
+    let R : ℝ := (min m r : ℕ)
+    let S := fun z : ComplexSample (m := m) (n := p) =>
+      ∑ j,positiveSpectrumLog (actualCorrelatedEigenvalue B M j z)
+    Integrable (fun z => ((actualCorrelatedEigenvalue B M i z)⁻¹)^(2*α)) (stdGaussian _) ∧
+      ∀ t : ℝ,1≤t →
+        (∫ z,(actualCorrelatedMatrixLogDet B M t z-R*Real.log t-S z)^2 ∂stdGaussian _)
+          ≤((n : ℝ)*α⁻¹*(t⁻¹)^α)^2*
+            (∫ z,((actualCorrelatedEigenvalue B M i z)⁻¹)^(2*α) ∂stdGaussian _) := by
+  classical
+  intro R S
+  have hI := (actual_singular_positive_inverse_realMoment_integrable_iff
+    B M hr hR i hi (2*α) (by positivity)).mpr hMoment
+  have hR' : 0<min m (Matrix.fromRows B M).rank := by rwa [← hr]
+  obtain ⟨i0,hi0,hmi,hMin⟩ := exists_actualCorrelated_smallest_positive_coordinate B M hR'
+  have he : i=i0 := Fin.ext (by rw [← hr] at hi0;omega)
+  subst i0
+  refine ⟨hI,?_⟩
+  intro t ht
+  have ht0 : 0<t := zero_lt_one.trans_le ht
+  have hErrI : Integrable (fun z =>
+      (actualCorrelatedMatrixLogDet B M t z-R*Real.log t-S z)^2) (stdGaussian _) := by
+    have hh := (actualCorrelatedMatrixLogDet_offset_mean_square B M).1 t ht
+    simpa only [← hr] using hh
+  have hBound : ∀ᵐ z ∂stdGaussian (ComplexSample (m := m) (n := p)),
+      (actualCorrelatedMatrixLogDet B M t z-R*Real.log t-S z)^2≤
+        ((n : ℝ)*α⁻¹*(t⁻¹)^α)^2*((actualCorrelatedEigenvalue B M i z)⁻¹)^(2*α) := by
+    filter_upwards [hMin,actualCorrelatedRank_eq_generic_ae B M] with z hz hzr
+    have hcount := gram_positive_modes_eq_rank (complexSampleMatrix z*B+M)
+    change (∑ j,if 0<actualCorrelatedEigenvalue B M j z then (1 : ℝ) else 0)=_ at hcount
+    have hRank : ((complexSampleMatrix z*B+M).rank : ℝ)=R := by
+      rw [hzr,← matrix_fromRows_rank_eq,← hr]
+    have hCountR := hcount.trans hRank
+    have hC : (∑ j,Real.log (1+t*actualCorrelatedEigenvalue B M j z))=
+        actualCorrelatedMatrixLogDet B M t z := by
+      simpa only [finiteSpectrumLogDet] using
+        (actualCorrelatedMatrixLogDet_eq_spectral B M t ht0.le z).symm
+    have hE : (∑ j,positiveModeOffsetError (actualCorrelatedEigenvalue B M j z) t)=
+        actualCorrelatedMatrixLogDet B M t z-R*Real.log t-S z := by
+      unfold positiveModeOffsetError
+      rw [Finset.sum_sub_distrib,Finset.sum_sub_distrib,← Finset.sum_mul,hCountR,hC]
+    have hb := finiteSpectrumOffsetError_fractional_min_bound
+      (fun j => actualCorrelatedEigenvalue B M j z)
+      (fun j => actualCorrelatedEigenvalue_nonneg B M j z)
+      (actualCorrelatedEigenvalue B M i z) t α hz.1 ht0 hα hα1 hz.2
+    simp only [Fintype.card_fin,hE] at hb
+    have hpow : (((actualCorrelatedEigenvalue B M i z)⁻¹)^α)^2=
+        ((actualCorrelatedEigenvalue B M i z)⁻¹)^(2*α) := by
+      rw [← Real.rpow_mul_natCast (inv_nonneg.mpr hz.1.le) α 2]
+      congr 1
+      ring
+    have hh := pow_le_pow_left₀ hb.1 hb.2 2
+    simpa only [mul_pow,hpow] using hh
+  have hh := integral_mono_ae hErrI (hI.const_mul (((n : ℝ)*α⁻¹*(t⁻¹)^α)^2)) hBound
+  rwa [integral_const_mul] at hh
+
+theorem actualCorrelatedMatrixLogDet_variance_fractional_bound {m p n r : ℕ}
+    (B : Matrix (Fin p) (Fin n) ℂ) (M : Matrix (Fin m) (Fin n) ℂ)
+    (hr : r=(Matrix.fromRows B M).rank) (hR : 0<min m r)
+    (i : Fin (Fintype.card (Fin n))) (hi : i.val+1=min m r)
+    (α : ℝ) (hα : 0<α) (hα1 : α≤1)
+    (hMoment : B.rank=0 ∨ r-B.rank=m ∨ 2*α<((max m r-min m r+1 : ℕ) : ℝ)) :
+    let S := fun z : ComplexSample (m := m) (n := p) =>
+      ∑ j,positiveSpectrumLog (actualCorrelatedEigenvalue B M j z)
+    let K : ℝ := ∫ z,((actualCorrelatedEigenvalue B M i z)⁻¹)^(2*α) ∂stdGaussian _
+    ∀ t : ℝ,1≤t →
+      |variance (actualCorrelatedMatrixLogDet B M t) (stdGaussian _)-variance S (stdGaussian _)|
+        ≤((n : ℝ)*α⁻¹*(t⁻¹)^α)^2*K+
+          2*((n : ℝ)*α⁻¹*(t⁻¹)^α)*Real.sqrt K*Real.sqrt (variance S (stdGaussian _)) := by
+  intro S K t ht
+  let μ := stdGaussian (ComplexSample (m := m) (n := p))
+  let R : ℝ := (min m r : ℕ)
+  let U := fun z : ComplexSample (m := m) (n := p) =>
+    actualCorrelatedMatrixLogDet B M t z-R*Real.log t
+  have hS := integrable_actualCorrelated_positive_log_sum B M
+  have hQ := integrable_actualCorrelated_positive_log_sum_sq B M
+  change Integrable S μ at hS
+  change Integrable (fun z => (S z)^2) μ at hQ
+  have hSM : MemLp S 2 μ := (memLp_two_iff_integrable_sq hS.aestronglyMeasurable).2 hQ
+  have hUM : MemLp U 2 μ := by
+    have hh := (actualCorrelatedMatrixLogDet_offset_second_moment B M).1 t ht
+    simpa only [← hr] using hh
+  have hVar : variance U μ=variance (actualCorrelatedMatrixLogDet B M t) μ :=
+    variance_sub_const
+      (integrable_actualCorrelatedMatrixLogDet B M t (zero_le_one.trans ht)).aestronglyMeasurable (R*Real.log t)
+  have hh := variance_difference_le_mean_square μ U S hUM hSM
+  rw [hVar] at hh
+  have hMSE := (actualCorrelatedMatrixLogDet_offset_fractional_mean_square_bound
+    B M hr hR i hi α hα hα1 hMoment).2 t ht
+  change (∫ z,(U z-S z)^2 ∂μ)≤((n : ℝ)*α⁻¹*(t⁻¹)^α)^2*K at hMSE
+  have hroot := Real.sqrt_le_sqrt hMSE
+  have hvnon := Real.sqrt_nonneg (variance S μ)
+  have hc : 0≤(n : ℝ)*α⁻¹*(t⁻¹)^α := by positivity
+  have hsqrt : Real.sqrt (((n : ℝ)*α⁻¹*(t⁻¹)^α)^2*K)=
+      ((n : ℝ)*α⁻¹*(t⁻¹)^α)*Real.sqrt K := by
+    rw [Real.sqrt_mul (sq_nonneg _),Real.sqrt_sq_eq_abs,abs_of_nonneg hc]
+  calc
+    _ ≤ (∫ z,(U z-S z)^2 ∂μ)+
+        2*Real.sqrt (∫ z,(U z-S z)^2 ∂μ)*Real.sqrt (variance S μ) := hh
+    _ ≤ ((n : ℝ)*α⁻¹*(t⁻¹)^α)^2*K+
+        2*Real.sqrt (((n : ℝ)*α⁻¹*(t⁻¹)^α)^2*K)*Real.sqrt (variance S μ) := by nlinarith
+    _ = _ := by rw [hsqrt];ring
+
+end
+end JinWishart
+#print axioms JinWishart.actualCorrelatedMatrixLogDet_offset_fractional_mean_square_bound
+#print axioms JinWishart.actualCorrelatedMatrixLogDet_variance_fractional_bound

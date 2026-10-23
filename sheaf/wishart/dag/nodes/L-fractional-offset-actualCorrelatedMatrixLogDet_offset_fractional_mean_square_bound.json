@@ -1,0 +1,24 @@
+{
+  "id": "L-fractional-offset-actualCorrelatedMatrixLogDet_offset_fractional_mean_square_bound",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualSingularFractionalRates",
+  "declaration": "JinWishart.actualCorrelatedMatrixLogDet_offset_fractional_mean_square_bound",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-fractional-offset-finiteSpectrumOffsetError_fractional_min_bound"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-fractional-offset-finiteSpectrumOffsetError_fractional_min_bound"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-fractional-offset-ActualSingularFractionalRates.json",
+    "source_sha256": "f4a69464362d635e0689c1ea85120d0d12a750327bf1059805ceddc42ac2abfc"
+  }
+}

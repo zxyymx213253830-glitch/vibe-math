@@ -1,0 +1,73 @@
+{
+  "status": "PASS finite fractional controls, not general proof",
+  "seed": 2026102241,
+  "checks": 1323,
+  "gamma_shape1_records": [
+    {
+      "alpha": 0.125,
+      "rho": 1.0,
+      "mse": 2.2400236965246916,
+      "bound": 78.42666895777138,
+      "inverse_moment": 1.2254167024651779
+    },
+    {
+      "alpha": 0.125,
+      "rho": 10.0,
+      "mse": 0.30147754831967455,
+      "bound": 44.102556951977974,
+      "inverse_moment": 1.2254167024651779
+    },
+    {
+      "alpha": 0.125,
+      "rho": 1000.0,
+      "mse": 0.003282678576595623,
+      "bound": 13.94645306055436,
+      "inverse_moment": 1.2254167024651779
+    },
+    {
+      "alpha": 0.25,
+      "rho": 1.0,
+      "mse": 2.2400236965246916,
+      "bound": 28.359261614488254,
+      "inverse_moment": 1.7724538509055159
+    },
+    {
+      "alpha": 0.25,
+      "rho": 10.0,
+      "mse": 0.30147754831967455,
+      "bound": 8.967985946236686,
+      "inverse_moment": 1.7724538509055159
+    },
+    {
+      "alpha": 0.25,
+      "rho": 1000.0,
+      "mse": 0.003282678576595623,
+      "bound": 0.8967985946236685,
+      "inverse_moment": 1.7724538509055159
+    },
+    {
+      "alpha": 0.45,
+      "rho": 1.0,
+      "mse": 2.2400236965246916,
+      "bound": 46.98028493169745,
+      "inverse_moment": 9.513507698668734
+    },
+    {
+      "alpha": 0.45,
+      "rho": 10.0,
+      "mse": 0.30147754831967455,
+      "bound": 5.914467455384452,
+      "inverse_moment": 9.513507698668734
+    },
+    {
+      "alpha": 0.45,
+      "rho": 1000.0,
+      "mse": 0.003282678576595623,
+      "bound": 0.09373799207071622,
+      "inverse_moment": 9.513507698668734
+    }
+  ],
+  "negative_control": "omitting 1/alpha fails at alpha=.1,x=1e6",
+  "endpoint": "q=1 at Gamma shape1 excluded; not inferred from finite cutoff",
+  "source_sha256": "284f60045ec6dc5a849e169088d71620d9d4456633242bdafee75d91594a7abc"
+}

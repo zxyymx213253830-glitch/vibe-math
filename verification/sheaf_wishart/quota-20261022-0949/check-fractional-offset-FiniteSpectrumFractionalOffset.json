@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "dc10ca5e9f66c9c7afb6eb2195a03b9919fac0723634545b9aa4159d5e72d406",
+  "target_lock_sha256": "2e15baafa91baad7670d2a935903378d95c88fd92740dc510de40562d40000a7",
+  "leaf": {
+    "started_utc": "2026-10-23T01:06:11.121030+00:00",
+    "ended_utc": "2026-10-23T01:06:23.403597+00:00",
+    "module": "JinWishartFormalization.FiniteSpectrumFractionalOffset",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSpectrumFractionalOffset.lean",
+    "source_sha256_before": "dc10ca5e9f66c9c7afb6eb2195a03b9919fac0723634545b9aa4159d5e72d406",
+    "source_sha256": "dc10ca5e9f66c9c7afb6eb2195a03b9919fac0723634545b9aa4159d5e72d406",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/fractional-offset-FiniteSpectrumFractionalOffset-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "2b2fe345fb6f8885ab6970dfab0c7f76287610cee53bb5d436661558b57de683",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T01:06:36.128796+00:00",
+    "ended_utc": "2026-10-23T01:06:49.834074+00:00",
+    "module": "SheafFractionalOffsetTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFractionalOffsetTargets.lean",
+    "source_sha256_before": "3b88964cea051bb928af4bf9917503c5e5130c6a29538eedb59ad06632b3d1eb",
+    "source_sha256": "3b88964cea051bb928af4bf9917503c5e5130c6a29538eedb59ad06632b3d1eb",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/fractional-offset-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "1da2545c30c1271a751a5d3eede5e458a7ae9f8077099ddd280519e476a2b622",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T01:06:36.128796+00:00",
+  "ended_utc": "2026-10-23T01:06:49.834074+00:00",
+  "module": "SheafFractionalOffsetTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFractionalOffsetTargets.lean",
+  "source_sha256_before": "3b88964cea051bb928af4bf9917503c5e5130c6a29538eedb59ad06632b3d1eb",
+  "source_sha256": "3b88964cea051bb928af4bf9917503c5e5130c6a29538eedb59ad06632b3d1eb",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/fractional-offset-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "1da2545c30c1271a751a5d3eede5e458a7ae9f8077099ddd280519e476a2b622",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

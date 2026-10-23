@@ -1,0 +1,40 @@
+[
+  {
+    "tag": "fractional-offset-FiniteSpectrumFractionalOffset",
+    "module": "FiniteSpectrumFractionalOffset",
+    "nodes": [
+      [
+        "L-fractional-offset-positiveModeOffsetError_fractional_bound",
+        "positiveModeOffsetError_fractional_bound",
+        []
+      ],
+      [
+        "L-fractional-offset-finiteSpectrumOffsetError_fractional_min_bound",
+        "finiteSpectrumOffsetError_fractional_min_bound",
+        [
+          "L-fractional-offset-positiveModeOffsetError_fractional_bound"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "fractional-offset-ActualSingularFractionalRates",
+    "module": "ActualSingularFractionalRates",
+    "nodes": [
+      [
+        "L-fractional-offset-actualCorrelatedMatrixLogDet_offset_fractional_mean_square_bound",
+        "actualCorrelatedMatrixLogDet_offset_fractional_mean_square_bound",
+        [
+          "L-fractional-offset-finiteSpectrumOffsetError_fractional_min_bound"
+        ]
+      ],
+      [
+        "L-fractional-offset-actualCorrelatedMatrixLogDet_variance_fractional_bound",
+        "actualCorrelatedMatrixLogDet_variance_fractional_bound",
+        [
+          "L-fractional-offset-actualCorrelatedMatrixLogDet_offset_fractional_mean_square_bound"
+        ]
+      ]
+    ]
+  }
+]

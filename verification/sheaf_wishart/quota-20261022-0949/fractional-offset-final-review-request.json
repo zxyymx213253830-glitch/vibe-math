@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "FiniteSpectrumFractionalOffset.lean": {
+      "sha256": "dc10ca5e9f66c9c7afb6eb2195a03b9919fac0723634545b9aa4159d5e72d406",
+      "supplied": "Full source"
+    },
+    "ActualSingularFractionalRates.lean": {
+      "sha256": "f4a69464362d635e0689c1ea85120d0d12a750327bf1059805ceddc42ac2abfc",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "d82a111dc89dececd51e6978ba27a0a5a1cc511159be7b4ee7ccae1ae0302442"
+}

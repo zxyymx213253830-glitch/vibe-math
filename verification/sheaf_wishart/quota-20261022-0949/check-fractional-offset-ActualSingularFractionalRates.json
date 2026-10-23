@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "f4a69464362d635e0689c1ea85120d0d12a750327bf1059805ceddc42ac2abfc",
+  "target_lock_sha256": "bad2409b2d7b689a07c01181dac684e2658e98b2e6a107d63b39956fa56285ba",
+  "leaf": {
+    "started_utc": "2026-10-23T01:06:23.553547+00:00",
+    "ended_utc": "2026-10-23T01:06:36.126686+00:00",
+    "module": "JinWishartFormalization.ActualSingularFractionalRates",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualSingularFractionalRates.lean",
+    "source_sha256_before": "f4a69464362d635e0689c1ea85120d0d12a750327bf1059805ceddc42ac2abfc",
+    "source_sha256": "f4a69464362d635e0689c1ea85120d0d12a750327bf1059805ceddc42ac2abfc",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/fractional-offset-ActualSingularFractionalRates-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "3e93eb3cc9ad457bb1562bbe01b6ad9a2bd1baa2676fe73a2baf8ddc05fe5a35",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-23T01:06:36.128796+00:00",
+    "ended_utc": "2026-10-23T01:06:49.834074+00:00",
+    "module": "SheafFractionalOffsetTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFractionalOffsetTargets.lean",
+    "source_sha256_before": "3b88964cea051bb928af4bf9917503c5e5130c6a29538eedb59ad06632b3d1eb",
+    "source_sha256": "3b88964cea051bb928af4bf9917503c5e5130c6a29538eedb59ad06632b3d1eb",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/fractional-offset-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "1da2545c30c1271a751a5d3eede5e458a7ae9f8077099ddd280519e476a2b622",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

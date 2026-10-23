@@ -1,5 +1,7 @@
 # Next useful goal after inverse classification746
 
+CLOSED at749/8a91a6f and751/30e204e: explicit inverse-square MSE and variance difference bounds are accepted. Next extension is WISHART_NEXT_FRACTIONAL_OFFSET_RATE_CARD.md for critical regimes; do not rerun this completed target. Historical exact plan below is retained.
+
 Accepted746 (beae7bb): arbitrary fixed rectangular/singular/zero B,M, r=rank stacked[B;M], b=rankB and R=min(m,r)>0. For the fixed minimum-positive coordinate, inverse q integrability iff b=0 or r-b=m or q<|m-r|+1. Divergence is nonnegative ENNReal TOP for b>0,r-b<m,q>=threshold. R=0 is AE absence of positive spectrum. Do not reopen or rerun this classification. Human model/measure/paper review still required.
 
 Target a quantitative high-scale mean-square offset bound, reusing actualCorrelatedMatrixLogDet_offset_mean_square rather than repeating convergence. With E_r=logdet(I+rX^HX)-R log r-S and S=sum positiveSpectrumLog(lambda_i), prove for r>=1

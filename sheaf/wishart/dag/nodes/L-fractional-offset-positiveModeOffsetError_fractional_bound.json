@@ -1,0 +1,20 @@
+{
+  "id": "L-fractional-offset-positiveModeOffsetError_fractional_bound",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteSpectrumFractionalOffset",
+  "declaration": "JinWishart.positiveModeOffsetError_fractional_bound",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-fractional-offset-FiniteSpectrumFractionalOffset.json",
+    "source_sha256": "dc10ca5e9f66c9c7afb6eb2195a03b9919fac0723634545b9aa4159d5e72d406"
+  }
+}
