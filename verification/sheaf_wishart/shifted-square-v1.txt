@@ -1,0 +1,39 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:12:12: error(lean.unknownIdentifier): Unknown identifier `pi`
+
+Note: It is not possible to treat `pi` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:30:15: error(lean.unknownIdentifier): Unknown identifier `pi`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:30:64: error: unsolved goals
+case e_a.e_a
+u t : ℝ
+ht : t < 1
+hp : 0 < 1 - t
+hn : 1 - t ≠ 0
+x : ℝ
+⊢ (√π)⁻¹ = (√(sorry ()))⁻¹
+
+case e_a
+u t : ℝ
+ht : t < 1
+hp : 0 < 1 - t
+hn : 1 - t ≠ 0
+x : ℝ
+⊢ -x ^ 2 / 2 + t * (x + u) ^ 2 / 2 = -((1 - t) / 2 * x ^ 2) + t * u * x + t * u ^ 2 / 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:42:18: error(lean.unknownIdentifier): Unknown identifier `pi`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:42:42: error(lean.unknownIdentifier): Unknown identifier `pi`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:43:23: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:48:20: error(lean.unknownIdentifier): Unknown identifier `pi`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:48:56: error: failed to prove positivity/nonnegativity/nonzeroness
+'JinWishart.gaussianReal_integral_exp_shifted_square' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gaussianReal_integrable_exp_shifted_square' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

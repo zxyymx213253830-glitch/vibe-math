@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "GaussianShiftedSquareMGF.lean": {
+      "sha256": "20a3cedcac4dbb333406366dbfbdb713906a188927ce123511efb9cbb3846fba",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7ea533a0928b202660790ab0a41b11017dff413aec78de1fc94638dfad247d56"
+}

@@ -604,3 +604,7 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/one_column_mgf_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_LOCAL_MGF_LAW_UNIQUENESS.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianShiftedSquareMGF.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_GAUSSIAN_SHIFTED_SQUARE_MGF.md -text whitespace=cr-at-eol

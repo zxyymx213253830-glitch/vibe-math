@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "shifted-square-GaussianShiftedSquareMGF",
+    "module": "GaussianShiftedSquareMGF",
+    "nodes": [
+      [
+        "L-shifted-square-gaussianReal_integral_exp_shifted_square",
+        "gaussianReal_integral_exp_shifted_square",
+        []
+      ],
+      [
+        "L-shifted-square-gaussianReal_integrable_exp_shifted_square",
+        "gaussianReal_integrable_exp_shifted_square",
+        [
+          "L-shifted-square-gaussianReal_integral_exp_shifted_square"
+        ]
+      ]
+    ]
+  }
+]

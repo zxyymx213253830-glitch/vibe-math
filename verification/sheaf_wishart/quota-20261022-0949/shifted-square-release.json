@@ -1,0 +1,14 @@
+{
+  "name": "shifted-square",
+  "review": "shifted-square-final",
+  "resolution": "notes/WISHART_GAUSSIAN_SHIFTED_SQUARE_MGF.md",
+  "facade": "facade-117",
+  "total": 794,
+  "new_count": 2,
+  "control_script": "experiments/one_column_mgf_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/one-column-mgf-control.json",
+  "seed": 2026102251,
+  "reuse_control": true,
+  "commit": "Compute the actual scalar shifted-square Gaussian MGF and integrability",
+  "scope": "2026-10-23续跑第五十三里程碑：794绑定项（792定理实例+2构造），auditPASS/facade117真实exit0，103接受记录全验证。本轮184打印声明/85模块非184概率突破。新2标量声明：真实gaussianReal0,1下exp(t*(x+u)^2/2)在t<1精确积分为sqrt(1-t)逆乘exp(u平方*t/(2*(1-t)))且可积；private完成平方平移+既有Gaussian integral，无循环可积假设。复用先行seed2026102251的同90控制不重复计数，2字面类型和完整最终源码真实Qoder P4绑定。P4完成平方误报自撤回、平移/密度无可积前提和of_integral_ne_zero按精确语义裁决，两个失败源保留，v3/final标准3公理。11:36普通true primary97 weekly46，两重置券从未用，lease12:02非用户截止。下一有限乘积Gaussian平方和MGF及规范化radial核加权MGF再用792local law桥；一般正行单列实际law仍OPEN。人审测度/求和积分/模型/论文映射仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

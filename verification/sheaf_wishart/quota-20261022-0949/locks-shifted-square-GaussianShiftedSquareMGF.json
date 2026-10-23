@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-10-23T11:36:32.995720+00:00",
+  "module": "JinWishartFormalization.GaussianShiftedSquareMGF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianShiftedSquareMGF.lean",
+  "statements": {
+    "JinWishart.gaussianReal_integral_exp_shifted_square": "(u t : ℝ) (ht : t<1) : (∫ x : ℝ, exp (t*(x+u)^2/2) ∂gaussianReal 0 1) = (sqrt (1-t))⁻¹ * exp (u^2*t/(2*(1-t)))",
+    "JinWishart.gaussianReal_integrable_exp_shifted_square": "(u t : ℝ) (ht : t<1) : Integrable (fun x : ℝ => exp (t*(x+u)^2/2)) (gaussianReal 0 1)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianShiftedSquareMGF.lean": "20a3cedcac4dbb333406366dbfbdb713906a188927ce123511efb9cbb3846fba",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafShiftedSquareTargets.lean",
+  "type_check_source_sha256": "b54a281f3640d0821ca7f08a8593e611a63ae17f1192311c23fe58621d01c939",
+  "locked_local_definitions": {}
+}

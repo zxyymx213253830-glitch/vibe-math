@@ -1,3 +1,4 @@
+import JinWishartFormalization.GaussianShiftedSquareMGF
 import JinWishartFormalization.LocalMGFLawUniqueness
 import JinWishartFormalization.OneColumnRadialCDF
 import JinWishartFormalization.Theorem12FourRowsActualCDF

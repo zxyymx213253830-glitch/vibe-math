@@ -1,0 +1,20 @@
+{
+  "id": "L-shifted-square-gaussianReal_integral_exp_shifted_square",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GaussianShiftedSquareMGF",
+  "declaration": "JinWishart.gaussianReal_integral_exp_shifted_square",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-shifted-square-GaussianShiftedSquareMGF.json",
+    "source_sha256": "20a3cedcac4dbb333406366dbfbdb713906a188927ce123511efb9cbb3846fba"
+  }
+}

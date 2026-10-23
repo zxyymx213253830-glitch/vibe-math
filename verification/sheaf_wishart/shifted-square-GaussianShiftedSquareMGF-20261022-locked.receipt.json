@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-23T11:36:33.009730+00:00",
+  "ended_utc": "2026-10-23T11:36:43.666603+00:00",
+  "module": "JinWishartFormalization.GaussianShiftedSquareMGF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianShiftedSquareMGF.lean",
+  "source_sha256_before": "20a3cedcac4dbb333406366dbfbdb713906a188927ce123511efb9cbb3846fba",
+  "source_sha256": "20a3cedcac4dbb333406366dbfbdb713906a188927ce123511efb9cbb3846fba",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/shifted-square-GaussianShiftedSquareMGF-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f43ac8677c7627db2ec03c77978efb01e7d4dbdf70cf3d0612de20492413c262",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

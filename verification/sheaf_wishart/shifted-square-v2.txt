@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:20:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ?m.204), ?f (x - ?g) ∂?m.209
+in the target expression
+  (∫ (a : ℝ), rexp (-b * (a - c / (2 * b)) ^ 2)) * rexp (d + c ^ 2 / (4 * b)) = √(π / b) * rexp (d + c ^ 2 / (4 * b))
+
+b c d : ℝ
+hb : 0 < b
+h : ∀ (x : ℝ), rexp (-b * x ^ 2 + c * x + d) = rexp (-b * (x - c / (2 * b)) ^ 2) * rexp (d + c ^ 2 / (4 * b))
+⊢ (∫ (a : ℝ), rexp (-b * (a - c / (2 * b)) ^ 2)) * rexp (d + c ^ 2 / (4 * b)) = √(π / b) * rexp (d + c ^ 2 / (4 * b))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:46:8: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:46:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianShiftedSquareMGF.lean:40:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.gaussianReal_integral_exp_shifted_square' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gaussianReal_integrable_exp_shifted_square' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
