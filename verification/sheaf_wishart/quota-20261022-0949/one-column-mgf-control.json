@@ -1,0 +1,8 @@
+{
+  "seed": 2026102251,
+  "checks": 90,
+  "status": "PASS finite controls; not proof",
+  "reference": "Completed-square scalar Gaussian integral; Gamma/Rice weighted radial integral; exact Gaussian MGF second moment; finite-support moment negative control",
+  "scope": "MGF route only, no actual general-row radial-law theorem",
+  "source_sha256": "c73fd1777f0b36d916e0948e249ea5e6dca51508d4f9324ac81e4cc0f86bd054"
+}
