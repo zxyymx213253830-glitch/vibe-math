@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T13:25:49.219781+00:00",
+  "ended_utc": "2026-10-24T13:25:59.307137+00:00",
+  "module": "JinWishartFormalization.PowerExponentialIntervalMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PowerExponentialIntervalMoments.lean",
+  "source_sha256_before": "90a6d4aec86ca539b6a6af75918c34c220abcebb606fdf9e0cca50f855a63a08",
+  "source_sha256": "90a6d4aec86ca539b6a6af75918c34c220abcebb606fdf9e0cca50f855a63a08",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/two-column-maximum-PowerExponentialIntervalMoments-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "cdb4a80e20e275e3580a5238912fd34ef7280f07bfdc449b816f25d1727c4c6c",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

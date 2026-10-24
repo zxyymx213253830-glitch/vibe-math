@@ -1,0 +1,208 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE PowerExponentialIntervalMoments.lean
+import JinWishartFormalization.ExponentialIntervalMoments
+
+/-! Codex. Seed2026102415 before source. Truncated integer Gamma moments.
+[需人工审查] Compact integrability and signed interval versus restricted measure. -/
+open MeasureTheory Set Matrix
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def powerExponentialIntervalMeasure (d : ℕ) (x : ℝ) : Measure ℝ :=
+  (volume.restrict (Ioc 0 x)).withDensity
+    (fun y => ENNReal.ofReal (|y|^d*Real.exp (-y)))
+
+theorem powerExponentialIntervalMeasure_isFinite (d : ℕ) (x : ℝ) :
+    IsFiniteMeasure (powerExponentialIntervalMeasure d x) := by
+  have hi : IntegrableOn (fun y : ℝ => |y|^d*Real.exp (-y)) (Ioc 0 x) :=
+    (by fun_prop : Continuous (fun y : ℝ => |y|^d*Real.exp (-y))).integrableOn_Icc.mono_set Ioc_subset_Icc_self
+  apply isFiniteMeasure_withDensity
+  rw [← ofReal_integral_eq_lintegral_ofReal hi (ae_of_all _ fun y => by positivity)]
+  exact ENNReal.ofReal_ne_top
+attribute [instance] powerExponentialIntervalMeasure_isFinite
+
+theorem powerExponentialInterval_integrable_pow (d : ℕ) (x : ℝ) (k : ℕ) :
+    Integrable (fun y : ℝ => y^k) (powerExponentialIntervalMeasure d x) := by
+  unfold powerExponentialIntervalMeasure
+  rw [integrable_withDensity_iff_integrable_smul' (by fun_prop) (ae_of_all _ fun y => by finiteness)]
+  have hi : IntegrableOn (fun y : ℝ => (|y|^d*Real.exp (-y))*y^k) (Ioc 0 x) :=
+    (by fun_prop : Continuous (fun y : ℝ => (|y|^d*Real.exp (-y))*y^k)).integrableOn_Icc.mono_set Ioc_subset_Icc_self
+  have hN (y : ℝ) : 0≤|y|^d*Real.exp (-y) := by positivity
+  simpa only [IntegrableOn,ENNReal.toReal_ofReal (hN _),smul_eq_mul] using hi
+
+theorem powerExponentialInterval_integral_pow_eq_partialGamma (d : ℕ) (x : ℝ) (hx : 0≤x) (k : ℕ) :
+    ((∫ y : ℝ,y^k ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ)=
+      Complex.partialGamma ((d+k+1 : ℕ) : ℂ) x := by
+  rw [partialGamma_nat_succ_eq_realInterval]
+  congr 1
+  unfold powerExponentialIntervalMeasure
+  rw [integral_withDensity_eq_integral_toReal_smul (by fun_prop) (ae_of_all _ fun y => by finiteness)]
+  simp only [smul_eq_mul]
+  rw [intervalIntegral.integral_of_le hx]
+  apply integral_congr_ae
+  filter_upwards [ae_restrict_mem measurableSet_Ioc] with y hy
+  rw [ENNReal.toReal_ofReal (by positivity : 0≤|y|^d*Real.exp (-y)),abs_of_pos hy.1,pow_add]
+  ring
+
+theorem theorem2CentralTwoColumn_XiDet_eq_intervalMoments (d : ℕ) (x : ℝ) (hx : 0≤x) :
+    (theorem2XiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det=
+      (twoMomentDeterminant (powerExponentialIntervalMeasure d x) : ℂ) := by
+  have hm : theorem2XiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x=
+      (!![((∫ y : ℝ,y^2 ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ),
+          ((∫ y : ℝ,y ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ);
+          ((∫ y : ℝ,y ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ),
+          ((∫ _ : ℝ,(1 : ℝ) ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ)] : Matrix (Fin 2) (Fin 2) ℂ) := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [theorem2XiMatrix,theorem2XiEntry,theorem1GammaIndex]
+    · convert (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 2).symm using 1 <;> norm_num <;> congr 1 <;> ring
+    · convert (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 1).symm using 1 <;> norm_num <;> congr 1 <;> ring
+    · convert (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 1).symm using 1 <;> norm_num <;> congr 1 <;> ring
+    · simpa using (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 0).symm
+  rw [hm,Matrix.det_fin_two]
+  change ((∫ y : ℝ,y^2 ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ)*
+    ((∫ _ : ℝ,(1 : ℝ) ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ)-
+    ((∫ y : ℝ,y ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ)*
+    ((∫ y : ℝ,y ∂powerExponentialIntervalMeasure d x : ℝ) : ℂ)=_
+  unfold twoMomentDeterminant
+  push_cast
+  ring
+end
+end JinWishart
+#print axioms JinWishart.powerExponentialIntervalMeasure_isFinite
+#print axioms JinWishart.powerExponentialInterval_integrable_pow
+#print axioms JinWishart.powerExponentialInterval_integral_pow_eq_partialGamma
+#print axioms JinWishart.theorem2CentralTwoColumn_XiDet_eq_intervalMoments
+
+SOURCE ActualCentralTwoColumnMaximum.lean
+import JinWishartFormalization.PowerExponentialIntervalMoments
+import JinWishartFormalization.CentralTwoColumnJointDensity
+
+/-! Codex. Actual all-row two-column maximum and unchanged original T2.
+Seed2026102415 precedes source. [需人工审查] Ordered support and restricted integrals. -/
+open MeasureTheory ProbabilityTheory Set Matrix
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+private theorem powerInterval_prod_density (d : ℕ) (x : ℝ) :
+    (powerExponentialIntervalMeasure d x).prod (powerExponentialIntervalMeasure d x)=
+      ((volume : Measure (ℝ × ℝ)).restrict ((Ioc 0 x) ×ˢ (Ioc 0 x))).withDensity
+        (fun z => ENNReal.ofReal (|z.1*z.2|^d*Real.exp (-(z.1+z.2)))) := by
+  unfold powerExponentialIntervalMeasure
+  rw [prod_withDensity (by fun_prop) (by fun_prop),Measure.prod_restrict,← Measure.volume_eq_prod]
+  congr 1
+  funext z
+  rw [← ENNReal.ofReal_mul (by positivity)]
+  congr 1
+  calc
+    _ = |z.1*z.2|^d*(Real.exp (-z.1)*Real.exp (-z.2)) := by rw [abs_mul,mul_pow];ring
+    _ = _ := by rw [← Real.exp_add];congr 1;ring
+
+private theorem max_weighted_ordered_integral (d : ℕ) (x : ℝ) :
+    ENNReal.ofReal ((d.factorial : ℝ)*((d+1).factorial : ℝ))*
+      (centralTwoColumnJointEigenvalueLaw d) {y | y.1≤x}=
+    ∫⁻ z in {z : ℝ × ℝ | z.2<z.1},ENNReal.ofReal ((z.1-z.2)^2)
+      ∂(powerExponentialIntervalMeasure d x).prod (powerExponentialIntervalMeasure d x) := by
+  let P : Set (ℝ × ℝ) := {z | z.1≤x}
+  let S : Set (ℝ × ℝ) := {z | 0<z.2 ∧ z.2<z.1}
+  let O : Set (ℝ × ℝ) := {z | z.2<z.1}
+  let R : Set (ℝ × ℝ) := (Ioc 0 x) ×ˢ (Ioc 0 x)
+  let C : ℝ := (d.factorial : ℝ)*((d+1).factorial : ℝ)
+  let W : ℝ × ℝ → ℝ≥0∞ := fun z => ENNReal.ofReal (|z.1*z.2|^d*Real.exp (-(z.1+z.2)))
+  let G : ℝ × ℝ → ℝ≥0∞ := fun z => ENNReal.ofReal ((z.1-z.2)^2)
+  have hP : MeasurableSet P := measurableSet_le measurable_fst measurable_const
+  have hO : MeasurableSet O := measurableSet_lt measurable_snd measurable_fst
+  have hR : MeasurableSet R := measurableSet_Ioc.prod measurableSet_Ioc
+  have hW : Measurable W := by dsimp [W];fun_prop
+  have hG : Measurable G := by dsimp [G];fun_prop
+  have hC : 0<C := by dsimp [C];positivity
+  have hsets : P ∩ S=R ∩ O := by
+    ext ⟨u,v⟩
+    simp only [P,S,R,O,mem_inter_iff,mem_prod,mem_Ioc,mem_setOf_eq]
+    constructor
+    · rintro ⟨hux,hv0,hvu⟩
+      exact ⟨⟨⟨lt_trans hv0 hvu,hux⟩,⟨hv0,le_trans hvu.le hux⟩⟩,hvu⟩
+    · rintro ⟨⟨⟨hu0,hux⟩,⟨hv0,hvx⟩⟩,hvu⟩
+      exact ⟨hux,hv0,hvu⟩
+  have hpaper : (fun z => ENNReal.ofReal C*centralTwoColumnEigenvalueDensity d z)=
+      S.indicator (fun z => W z*G z) := by
+    funext z
+    by_cases hz : 0<z.2 ∧ z.2<z.1
+    · have hz0 : 0≤z.1*z.2 := mul_nonneg (le_trans hz.1.le hz.2.le) hz.1.le
+      simp only [centralTwoColumnEigenvalueDensity,if_pos hz,
+        Set.indicator_of_mem (show z ∈ S from hz)]
+      dsimp [W,G]
+      rw [← ENNReal.ofReal_mul hC.le,← ENNReal.ofReal_mul (by positivity),abs_of_nonneg hz0]
+      congr 1
+      dsimp [C]
+      field_simp
+    · simp [centralTwoColumnEigenvalueDensity,S,hz]
+  have hright : (∫⁻ z in O,G z ∂(powerExponentialIntervalMeasure d x).prod (powerExponentialIntervalMeasure d x))=
+      ∫⁻ z : ℝ × ℝ,(R ∩ O).indicator (fun z => W z*G z) z := by
+    rw [← lintegral_indicator hO,powerInterval_prod_density,
+      lintegral_withDensity_eq_lintegral_mul _ hW (hG.indicator hO),← lintegral_indicator hR]
+    apply lintegral_congr
+    intro z
+    by_cases hzR : z ∈ R <;> by_cases hzO : z ∈ O <;> simp [hzR,hzO,Set.mem_inter_iff]
+  change ENNReal.ofReal C*(centralTwoColumnJointEigenvalueLaw d) P=_
+  rw [actualCentralTwoColumn_jointEigenvalueDensity,withDensity_apply _ hP,
+    ← lintegral_const_mul' _ _ ENNReal.ofReal_ne_top,← lintegral_indicator hP]
+  calc
+    _ = ∫⁻ z : ℝ × ℝ,(R ∩ O).indicator (fun z => W z*G z) z := by
+      rw [hpaper,Set.indicator_indicator,hsets]
+    _ = _ := hright.symm
+
+theorem actualCentralTwoColumn_maximum_momentDet (d : ℕ) (x : ℝ) :
+    ((stdGaussian (ComplexSample (m := d+2) (n := 2)))
+      {z | (centralTwoColumnEigenpair z).1≤x}).toReal=
+      twoMomentDeterminant (powerExponentialIntervalMeasure d x)/
+        ((d.factorial : ℝ)*((d+1).factorial : ℝ)) := by
+  have hg := ordered_square_gap_moment_identity (powerExponentialIntervalMeasure d x)
+    (by simpa using powerExponentialInterval_integrable_pow d x 1)
+    (powerExponentialInterval_integrable_pow d x 2)
+  have h := max_weighted_ordered_integral d x
+  rw [hg.2] at h
+  have hr := congrArg ENNReal.toReal h
+  have hC : 0<(d.factorial : ℝ)*((d+1).factorial : ℝ) := by positivity
+  have hpairM : Measurable (centralTwoColumnEigenpair (m := d+2)) :=
+    measurable_twoColumnMatrixEigenpair.comp measurable_complexSampleGram
+  rw [ENNReal.toReal_mul,ENNReal.toReal_ofReal hC.le,ENNReal.toReal_ofReal hg.1,
+    centralTwoColumnJointEigenvalueLaw,Measure.map_apply
+      hpairM
+      (measurableSet_le measurable_fst measurable_const)] at hr
+  exact (eq_div_iff hC.ne').mpr (by simpa [mul_comm] using hr)
+
+theorem theorem1CentralTwoColumn_PsiDet_zero (d : ℕ) :
+    (theorem1PsiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) 0).det=
+      (((d.factorial : ℝ)*((d+1).factorial : ℝ) : ℝ) : ℂ) := by
+  have hm : theorem1PsiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) 0=
+      (!![((d+2).factorial : ℂ),((d+1).factorial : ℂ);((d+1).factorial : ℂ),(d.factorial : ℂ)] : Matrix (Fin 2) (Fin 2) ℂ) := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [theorem1PsiMatrix,theorem1PsiEntry,theorem1GammaIndex,upperGammaNat_at_zero_eq_factorial]
+  rw [hm,Matrix.det_fin_two]
+  change ((d+2).factorial : ℂ)*(d.factorial : ℂ)-((d+1).factorial : ℂ)*((d+1).factorial : ℂ)=_
+  simp only [show d+2=(d+1)+1 by omega,Nat.factorial_succ,Nat.cast_mul,Nat.cast_add,Nat.cast_one]
+  push_cast
+  ring
+
+theorem theorem2CentralTwoColumn_candidate_eq_actualCDF (d : ℕ) (x : ℝ) (hx : 0≤x) :
+    theorem2CdfCandidate 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x=
+      ((stdGaussian (ComplexSample (m := d+2) (n := 2)))
+        {z | (centralTwoColumnEigenpair z).1≤x}).toReal := by
+  have hg := (ordered_square_gap_moment_identity (powerExponentialIntervalMeasure d x)
+    (by simpa using powerExponentialInterval_integrable_pow d x 1)
+    (powerExponentialInterval_integrable_pow d x 2)).1
+  have hC : 0≤(d.factorial : ℝ)*((d+1).factorial : ℝ) := by positivity
+  rw [theorem2CdfCandidate,theorem2CentralTwoColumn_XiDet_eq_intervalMoments d x hx,
+    theorem1CentralTwoColumn_PsiDet_zero,Complex.norm_of_nonneg hg,Complex.norm_of_nonneg hC,
+    actualCentralTwoColumn_maximum_momentDet]
+end
+end JinWishart
+#print axioms JinWishart.actualCentralTwoColumn_maximum_momentDet
+#print axioms JinWishart.theorem1CentralTwoColumn_PsiDet_zero
+#print axioms JinWishart.theorem2CentralTwoColumn_candidate_eq_actualCDF

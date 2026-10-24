@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "90a6d4aec86ca539b6a6af75918c34c220abcebb606fdf9e0cca50f855a63a08",
+  "target_lock_sha256": "4410a36177de3dcc766b14be72650a8f6d8d0a3da93a308f75dc95e82930728d",
+  "leaf": {
+    "started_utc": "2026-10-24T13:25:49.219781+00:00",
+    "ended_utc": "2026-10-24T13:25:59.307137+00:00",
+    "module": "JinWishartFormalization.PowerExponentialIntervalMoments",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/PowerExponentialIntervalMoments.lean",
+    "source_sha256_before": "90a6d4aec86ca539b6a6af75918c34c220abcebb606fdf9e0cca50f855a63a08",
+    "source_sha256": "90a6d4aec86ca539b6a6af75918c34c220abcebb606fdf9e0cca50f855a63a08",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-column-maximum-PowerExponentialIntervalMoments-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "cdb4a80e20e275e3580a5238912fd34ef7280f07bfdc449b816f25d1727c4c6c",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T13:26:09.445852+00:00",
+    "ended_utc": "2026-10-24T13:26:18.774411+00:00",
+    "module": "SheafTwoColumnMaximumTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafTwoColumnMaximumTargets.lean",
+    "source_sha256_before": "a62dab97c763ed4b11a0a779d4ab21cabdba4bc1deefb65ac9d9b446b7f35b33",
+    "source_sha256": "a62dab97c763ed4b11a0a779d4ab21cabdba4bc1deefb65ac9d9b446b7f35b33",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-column-maximum-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

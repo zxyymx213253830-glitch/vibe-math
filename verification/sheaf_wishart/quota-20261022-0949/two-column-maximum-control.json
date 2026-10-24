@@ -1,0 +1,7 @@
+{
+  "seed": 2026102415,
+  "checks": 121,
+  "status": "PASS calibrated controls; not proof",
+  "reference": "Independent triangular joint-density quadrature versus lower-Gamma moment determinant, upper-Gamma tail range, row/column reversal, denominator negative calibration",
+  "source_sha256": "25dd036c745fdc1d0a3f06121d3471aec0b47c970cecd9a54674927807af498c"
+}

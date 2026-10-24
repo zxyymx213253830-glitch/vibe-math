@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T13:24:58.623186+00:00",
+  "ended_utc": "2026-10-24T13:25:08.494956+00:00",
+  "module": "JinWishartFormalization.ActualCentralTwoColumnMaximum",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCentralTwoColumnMaximum.lean",
+  "source_sha256_before": "e0792a6b1e9a793386269456af7657a66a02393fe7148c7d6974f7c75f3c7c27",
+  "source_sha256": "e0792a6b1e9a793386269456af7657a66a02393fe7148c7d6974f7c75f3c7c27",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/two-column-maximum-v2.txt",
+  "log_exists": true,
+  "log_sha256": "7672f01f5c1246373b29e0f29c440589415f32e14dc255d8067b86383625eb1f",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

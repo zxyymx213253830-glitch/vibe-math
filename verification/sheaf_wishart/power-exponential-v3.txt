@@ -1,0 +1,47 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:57:109: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:57:121: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:58:109: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:58:121: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:59:109: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:59:121: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:57:92: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:57:109: warning: Unused tactic linter: `congr 1` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:57:121: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:58:109: warning: Unused tactic linter: `congr 1` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:58:121: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:59:109: warning: Unused tactic linter: `congr 1` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:59:121: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'JinWishart.powerExponentialIntervalMeasure_isFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.powerExponentialInterval_integrable_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.powerExponentialInterval_integral_pow_eq_partialGamma' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem2CentralTwoColumn_XiDet_eq_intervalMoments' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

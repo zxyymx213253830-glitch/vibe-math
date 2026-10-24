@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "PowerExponentialIntervalMoments.lean": {
+      "sha256": "90a6d4aec86ca539b6a6af75918c34c220abcebb606fdf9e0cca50f855a63a08",
+      "supplied": "Full source"
+    },
+    "ActualCentralTwoColumnMaximum.lean": {
+      "sha256": "e0792a6b1e9a793386269456af7657a66a02393fe7148c7d6974f7c75f3c7c27",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "36b694e14b56543e7384f8c6c2f71a3f03b5f4484f76358adeca8eb212cad1e1"
+}

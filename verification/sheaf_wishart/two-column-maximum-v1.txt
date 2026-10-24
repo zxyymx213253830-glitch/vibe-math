@@ -1,0 +1,49 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCentralTwoColumnMaximum.lean:45:54: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCentralTwoColumnMaximum.lean:56:51: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCentralTwoColumnMaximum.lean:63:6: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCentralTwoColumnMaximum.lean:93:39: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Measure.map (twoColumnMatrixEigenpair ∘ complexSampleGram) ?m.131) {a | a.1 ≤ ?m.163}
+in the target expression
+  ↑d.factorial * ↑(d + 1).factorial *
+      ((Measure.map centralTwoColumnEigenpair (stdGaussian ComplexSample)) {y | y.1 ≤ x}).toReal =
+    twoMomentDeterminant (powerExponentialIntervalMeasure d x)
+
+d : ℕ
+x : ℝ
+hg :
+  0 ≤ twoMomentDeterminant (powerExponentialIntervalMeasure d x) ∧
+    ∫⁻ (z : ℝ × ℝ) in {z | z.2 < z.1},
+        ENNReal.ofReal
+          ((z.1 - z.2) ^ 2) ∂(powerExponentialIntervalMeasure d x).prod (powerExponentialIntervalMeasure d x) =
+      ENNReal.ofReal (twoMomentDeterminant (powerExponentialIntervalMeasure d x))
+h :
+  ENNReal.ofReal (↑d.factorial * ↑(d + 1).factorial) * (centralTwoColumnJointEigenvalueLaw d) {y | y.1 ≤ x} =
+    ENNReal.ofReal (twoMomentDeterminant (powerExponentialIntervalMeasure d x))
+hr :
+  ↑d.factorial * ↑(d + 1).factorial *
+      ((Measure.map centralTwoColumnEigenpair (stdGaussian ComplexSample)) {y | y.1 ≤ x}).toReal =
+    twoMomentDeterminant (powerExponentialIntervalMeasure d x)
+hC : 0 < ↑d.factorial * ↑(d + 1).factorial
+⊢ ((stdGaussian ComplexSample) {z | (centralTwoColumnEigenpair z).1 ≤ x}).toReal =
+    twoMomentDeterminant (powerExponentialIntervalMeasure d x) / (↑d.factorial * ↑(d + 1).factorial)
+'JinWishart.actualCentralTwoColumn_maximum_momentDet' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralTwoColumn_PsiDet_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem2CentralTwoColumn_candidate_eq_actualCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

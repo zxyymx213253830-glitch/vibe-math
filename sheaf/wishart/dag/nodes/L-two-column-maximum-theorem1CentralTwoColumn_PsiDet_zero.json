@@ -1,0 +1,24 @@
+{
+  "id": "L-two-column-maximum-theorem1CentralTwoColumn_PsiDet_zero",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualCentralTwoColumnMaximum",
+  "declaration": "JinWishart.theorem1CentralTwoColumn_PsiDet_zero",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-column-maximum-actualCentralTwoColumn_maximum_momentDet"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-column-maximum-actualCentralTwoColumn_maximum_momentDet"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-maximum-ActualCentralTwoColumnMaximum.json",
+    "source_sha256": "e0792a6b1e9a793386269456af7657a66a02393fe7148c7d6974f7c75f3c7c27"
+  }
+}

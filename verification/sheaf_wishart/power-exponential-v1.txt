@@ -1,0 +1,72 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:29:44: error: Application type mismatch: The argument
+  ?m.337
+has type
+  ∀ (y : ℝ), 0 ≤ |y| ^ d * Real.exp (-y)
+but is expected to have type
+  0 ≤ ?m.319
+in the application
+  ENNReal.toReal_ofReal ?m.337
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:29:48: error: not a positivity goal
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:29:2: error: Type mismatch: After simplification, term
+  hi
+ has type
+  Integrable (fun y => |y| ^ d * Real.exp (-y) * y ^ k) (volume.restrict (Ioc 0 x))
+but is expected to have type
+  Integrable (fun x => |x| ^ d * (ENNReal.ofReal (Real.exp (-x))).toReal * x ^ k) (volume.restrict (Ioc 0 x))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:56:6: error: Type mismatch: After simplification, term
+  Eq.symm (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 2)
+ has type
+  (↑d + 3).partialGamma x = ↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x)
+but is expected to have type
+  (↑d + 2 + 1).partialGamma x = ↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:57:6: error: Type mismatch: After simplification, term
+  Eq.symm (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 1)
+ has type
+  (↑d + 2).partialGamma x = ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x)
+but is expected to have type
+  (↑d + 1 + 1).partialGamma x = ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:58:6: error: Type mismatch: After simplification, term
+  Eq.symm (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 1)
+ has type
+  (↑d + 2).partialGamma x = ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x)
+but is expected to have type
+  (↑d + 1 + 1).partialGamma x = ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:47:74: error: unsolved goals
+d : ℕ
+x : ℝ
+hx : 0 ≤ x
+hm :
+  theorem2XiMatrix 2 (d + 2) 0 ⋯ ⋯ (fun j => j.elim0) x =
+    !![↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x), ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x);
+      ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x), ↑(∫ (x : ℝ), 1 ∂powerExponentialIntervalMeasure d x)]
+⊢ !![↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x), ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x);
+            ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x), ↑(∫ (x : ℝ), 1 ∂powerExponentialIntervalMeasure d x)]
+          0 0 *
+        !![↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x),
+              ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x);
+            ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x), ↑(∫ (x : ℝ), 1 ∂powerExponentialIntervalMeasure d x)]
+          1 1 -
+      !![↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x), ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x);
+            ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x), ↑(∫ (x : ℝ), 1 ∂powerExponentialIntervalMeasure d x)]
+          0 1 *
+        !![↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x),
+              ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x);
+            ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x), ↑(∫ (x : ℝ), 1 ∂powerExponentialIntervalMeasure d x)]
+          1 0 =
+    ↑(∫ (x : ℝ), 1 ∂powerExponentialIntervalMeasure d x) * ↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x) -
+      ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x) ^ 2
+'JinWishart.powerExponentialIntervalMeasure_isFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.powerExponentialInterval_integrable_pow' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.powerExponentialInterval_integral_pow_eq_partialGamma' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem2CentralTwoColumn_XiDet_eq_intervalMoments' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

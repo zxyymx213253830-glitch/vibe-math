@@ -726,3 +726,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/two_column_bias_density_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_CENTRAL_TWO_COLUMN_JOINT_DENSITY.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/PowerExponentialIntervalMoments.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualCentralTwoColumnMaximum.lean -text whitespace=cr-at-eol
+
+/experiments/two_column_maximum_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_ORIGINAL_CENTRAL_TWO_COLUMN_MAXIMUM.md -text whitespace=cr-at-eol

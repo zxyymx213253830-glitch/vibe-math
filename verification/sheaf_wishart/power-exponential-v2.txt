@@ -1,0 +1,27 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:57:6: error: Type mismatch: After simplification, term
+  Eq.symm (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 2)
+ has type
+  (↑d + 3).partialGamma x = ↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x)
+but is expected to have type
+  (↑d + (2 + 1)).partialGamma x = ↑(∫ (y : ℝ), y ^ 2 ∂powerExponentialIntervalMeasure d x)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:58:6: error: Type mismatch: After simplification, term
+  Eq.symm (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 1)
+ has type
+  (↑d + 2).partialGamma x = ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x)
+but is expected to have type
+  (↑d + (1 + 1)).partialGamma x = ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialIntervalMoments.lean:59:6: error: Type mismatch: After simplification, term
+  Eq.symm (powerExponentialInterval_integral_pow_eq_partialGamma d x hx 1)
+ has type
+  (↑d + 2).partialGamma x = ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x)
+but is expected to have type
+  (↑d + (1 + 1)).partialGamma x = ↑(∫ (y : ℝ), y ∂powerExponentialIntervalMeasure d x)
+'JinWishart.powerExponentialIntervalMeasure_isFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.powerExponentialInterval_integrable_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.powerExponentialInterval_integral_pow_eq_partialGamma' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem2CentralTwoColumn_XiDet_eq_intervalMoments' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

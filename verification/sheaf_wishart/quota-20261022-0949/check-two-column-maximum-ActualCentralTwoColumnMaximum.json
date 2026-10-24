@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "e0792a6b1e9a793386269456af7657a66a02393fe7148c7d6974f7c75f3c7c27",
+  "target_lock_sha256": "712f53f10a708fdc42a601a977bb58f90d951557630c9a4761d5364f73d0d20b",
+  "leaf": {
+    "started_utc": "2026-10-24T13:25:59.353316+00:00",
+    "ended_utc": "2026-10-24T13:26:09.444313+00:00",
+    "module": "JinWishartFormalization.ActualCentralTwoColumnMaximum",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCentralTwoColumnMaximum.lean",
+    "source_sha256_before": "e0792a6b1e9a793386269456af7657a66a02393fe7148c7d6974f7c75f3c7c27",
+    "source_sha256": "e0792a6b1e9a793386269456af7657a66a02393fe7148c7d6974f7c75f3c7c27",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-column-maximum-ActualCentralTwoColumnMaximum-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "7672f01f5c1246373b29e0f29c440589415f32e14dc255d8067b86383625eb1f",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T13:26:09.445852+00:00",
+    "ended_utc": "2026-10-24T13:26:18.774411+00:00",
+    "module": "SheafTwoColumnMaximumTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafTwoColumnMaximumTargets.lean",
+    "source_sha256_before": "a62dab97c763ed4b11a0a779d4ab21cabdba4bc1deefb65ac9d9b446b7f35b33",
+    "source_sha256": "a62dab97c763ed4b11a0a779d4ab21cabdba4bc1deefb65ac9d9b446b7f35b33",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-column-maximum-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

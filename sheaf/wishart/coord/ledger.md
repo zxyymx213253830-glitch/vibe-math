@@ -144,3 +144,5 @@
 - 2026-10-24T13:09:45.360249+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-original-two-t3-OriginalCentralTwoByTwoT3.json; human measure/model review remains REQUIRED.
 - 2026-10-24T13:20:27.055659+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-density-TwoColumnOrderedSpectralMap.json; human measure/model review remains REQUIRED.
 - 2026-10-24T13:20:39.351440+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-density-CentralTwoColumnJointDensity.json; human measure/model review remains REQUIRED.
+- 2026-10-24T13:28:41.178813+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-maximum-PowerExponentialIntervalMoments.json; human measure/model review remains REQUIRED.
+- 2026-10-24T13:28:53.994306+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-maximum-ActualCentralTwoColumnMaximum.json; human measure/model review remains REQUIRED.

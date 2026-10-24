@@ -1,0 +1,24 @@
+{
+  "id": "L-two-column-maximum-powerExponentialInterval_integrable_pow",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PowerExponentialIntervalMoments",
+  "declaration": "JinWishart.powerExponentialInterval_integrable_pow",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-column-maximum-powerExponentialIntervalMeasure_isFinite"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-column-maximum-powerExponentialIntervalMeasure_isFinite"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-maximum-PowerExponentialIntervalMoments.json",
+    "source_sha256": "90a6d4aec86ca539b6a6af75918c34c220abcebb606fdf9e0cca50f855a63a08"
+  }
+}

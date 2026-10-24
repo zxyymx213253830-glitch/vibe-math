@@ -1,0 +1,61 @@
+[
+  {
+    "tag": "two-column-maximum-PowerExponentialIntervalMoments",
+    "module": "PowerExponentialIntervalMoments",
+    "nodes": [
+      [
+        "L-two-column-maximum-powerExponentialIntervalMeasure_isFinite",
+        "powerExponentialIntervalMeasure_isFinite",
+        []
+      ],
+      [
+        "L-two-column-maximum-powerExponentialInterval_integrable_pow",
+        "powerExponentialInterval_integrable_pow",
+        [
+          "L-two-column-maximum-powerExponentialIntervalMeasure_isFinite"
+        ]
+      ],
+      [
+        "L-two-column-maximum-powerExponentialInterval_integral_pow_eq_partialGamma",
+        "powerExponentialInterval_integral_pow_eq_partialGamma",
+        [
+          "L-two-column-maximum-powerExponentialInterval_integrable_pow"
+        ]
+      ],
+      [
+        "L-two-column-maximum-theorem2CentralTwoColumn_XiDet_eq_intervalMoments",
+        "theorem2CentralTwoColumn_XiDet_eq_intervalMoments",
+        [
+          "L-two-column-maximum-powerExponentialInterval_integral_pow_eq_partialGamma"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "two-column-maximum-ActualCentralTwoColumnMaximum",
+    "module": "ActualCentralTwoColumnMaximum",
+    "nodes": [
+      [
+        "L-two-column-maximum-actualCentralTwoColumn_maximum_momentDet",
+        "actualCentralTwoColumn_maximum_momentDet",
+        [
+          "L-two-column-maximum-theorem2CentralTwoColumn_XiDet_eq_intervalMoments"
+        ]
+      ],
+      [
+        "L-two-column-maximum-theorem1CentralTwoColumn_PsiDet_zero",
+        "theorem1CentralTwoColumn_PsiDet_zero",
+        [
+          "L-two-column-maximum-actualCentralTwoColumn_maximum_momentDet"
+        ]
+      ],
+      [
+        "L-two-column-maximum-theorem2CentralTwoColumn_candidate_eq_actualCDF",
+        "theorem2CentralTwoColumn_candidate_eq_actualCDF",
+        [
+          "L-two-column-maximum-theorem1CentralTwoColumn_PsiDet_zero"
+        ]
+      ]
+    ]
+  }
+]

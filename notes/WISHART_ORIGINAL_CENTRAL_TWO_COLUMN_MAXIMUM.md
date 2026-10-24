@@ -1,0 +1,13 @@
+# Original T2 for all central two-column row counts
+
+Seven Codex exports in two modules. The actual maximum weakCDF for properCN1 (d+2)-by-2 equals the two-moment determinant of the finite truncated weight y^d exp(-y) divided by d!(d+1)!. The unchanged original theorem2CdfCandidate (s,t,L)=(2,d+2,0) equals this actual CDF for every d>=0,x>=0; no target density or normalization hypothesis. Raw moment identity is valid all real x (negative Ioc empty), while the lower-Gamma formula explicitly requires x>=0. Original Xi matrix matches the moment determinant, original Psi(0) determinant is exactly d!(d+1)! with its full complex equality, and numerator nonnegativity is derived from the ordered squared-gap integral. No hidden norm sign assumption.
+
+121 seed2026102415 pre-source calibrated checks: d0..7,x0/0.5/1/2/4 lower-Gamma determinant against independent triangular joint-density quadrature, upper-Gamma tail range, reversed indexing and omitted denominator calibration. These controls are not proofs. Existing56 actual joint controls reused through dependency, not rerun/count inflation. Failed universally quantified positivity, complex cast arithmetic, Matrix.of, extra ring and map-composition transparency attempts retained; no acceptance of failed logs. Final seven independent literal types/full final two-source realQoderP4 bound, default serial gate exit0/standard3 axioms. Nonblocking deprecated-if/Set membership/ring hint warnings retained.
+
+## Final P4 resolution
+
+The reviewer ultimately explicitly concludes no mathematical gap and retracts its own off-by-one speculation. Exact imported partialGamma_nat_succ_eq_realInterval(k,x): partialGamma(k+1,x)=complexcast integral0..x y^k exp(-y), all realx signed interval. Here k=d+j yields exponentd+j as required. For conversion to positive restricted measure, explicit hx and `abs_of_pos hy.1` on Ioc0x remove absolute value; no implicit assumption. Unconditional finiteness/L1 for negative x is deliberately correct because the restricted measure is zero; it does not claim the signed lower-Gamma integral vanishes for negative x.
+
+ordered_square_gap_moment_identity explicitly requires finite measure and moments1,2 L1; new finite instance and pow theorem supply them. The coefficient denominator positivity is factorial positivity. All probability steps use ENNReal nonnegative integrals before finite toReal; no totalized divergent Bochner substitution.
+
+[需人工审查] Compact restricted products, actual joint-law provenance, original Xi/Psi indexing, same properCN1 source and paper correspondence. Real P4 not human review/independent compilation. General >2-column and noncentral joint density/T2 remain OPEN. Frozen publications unchanged; fullLake/Linux independent kernel NOT_RUN.

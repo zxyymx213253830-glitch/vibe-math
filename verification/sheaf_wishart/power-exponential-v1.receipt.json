@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T13:21:47.461261+00:00",
+  "ended_utc": "2026-10-24T13:21:57.256204+00:00",
+  "module": "JinWishartFormalization.PowerExponentialIntervalMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PowerExponentialIntervalMoments.lean",
+  "source_sha256_before": "b0a0c30060b4cded390abefc9ed06f58650ea2601d5a27de39483db2543fa358",
+  "source_sha256": "b0a0c30060b4cded390abefc9ed06f58650ea2601d5a27de39483db2543fa358",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/power-exponential-v1.txt",
+  "log_exists": true,
+  "log_sha256": "3e4cfa7fdf7845164a80a213b48d3658925e893e42cb05595d11148d1726295d",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
