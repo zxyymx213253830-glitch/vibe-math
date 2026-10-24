@@ -1,0 +1,10 @@
+{
+ "name":"actual-two-joint","review":"actual-two-joint-final",
+ "resolution":"notes/WISHART_ACTUAL_CENTRAL_TWO_BY_TWO_JOINT.md",
+ "facade":"facade-126","total":841,"new_count":8,
+ "control_script":"experiments/two_by_two_spectral_linear_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/two-by-two-spectral-linear-control.json",
+ "seed":2026102408,
+ "commit":"Prove actual central two by two ordered joint density and concrete T3 integral",
+ "scope":"2026-10-24第九里程碑：841绑定项（839定理实例+2构造），auditPASS/facade126真实exit0，121接受记录全验证。今日47打印声明/18模块，累计231/103非概率突破数。新8声明/4模块闭合一个actual central properCN1 2x2 ordered joint law及具体T3积分：同一原始Gaussian源trace/radius密度8r²e^-2t于0<r<t；二维正向det-2、逆体积1/2；实际降序谱测度=exp(-(l1+l2))*(l1-l2)^2于0<l2<l1，零区间外；具体central2x2 T3 increment不再假设hDensity。不是一般维数/非中心G2，不声称独立min/gap law已证。164新先行精确控制非证明，旧322/97复用未重跑；8独立字面类型（joint密度完整展开）/4最终源码真实Qoder P4绑定。cone正t、边界indicator、Tonelli实例、map_map不需SFinite等误报按精确pinned签名裁决；失败源码日志保留不接受，最终默认预算标准3公理。12:04UTC ordinarytrue primary9 weekly17，两重置券仍available从未用；技术lease13:56:35非用户截止，恢复前间隔工作/拒绝未观察不推断。人审测度/角向规范化/模型/原文T3映射仍需；一般central/noncentralG2/generalT1T2/journalT3/full映射OPEN，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

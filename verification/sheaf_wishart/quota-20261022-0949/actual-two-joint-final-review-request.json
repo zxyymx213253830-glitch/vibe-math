@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "TwoByTwoTraceRadiusIntegral.lean": {
+      "sha256": "e2a68715affb95e2f5e1568cd043c538e7662d07b7309f48813f88aa7f55dd2c",
+      "supplied": "Full source"
+    },
+    "TwoByTwoSpectralLinearTransport.lean": {
+      "sha256": "abe26422085a54cfb8a012f1ff65641b8ab2549127f643f5a1a562f7a595a3e2",
+      "supplied": "Full source"
+    },
+    "TwoByTwoTraceRadiusLaw.lean": {
+      "sha256": "4d88c332e4184ff6231bfa30170425949f457149a17ce7f5331d0e44e2c236de",
+      "supplied": "Full source"
+    },
+    "ActualCentralTwoByTwoJointDensity.lean": {
+      "sha256": "809a87b97b97e7ea536c38151bae5bd45c066cf9dd82ae2d0bbd9fa780b84176",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "19a31bfa8f2abf8c3c0869051c955607c59d96b6e352188b86793bcdda17223d"
+}

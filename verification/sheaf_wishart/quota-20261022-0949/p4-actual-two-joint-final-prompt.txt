@@ -1,0 +1,275 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE TwoByTwoTraceRadiusIntegral.lean
+import JinWishartFormalization.FourDimensionalRadialIntegral
+import JinWishartFormalization.TwoByTwoTraceDensity
+
+/-! Codex candidate. Prior seeds2026102405/2407 calibrated actual central2x2
+joint/radial and product-volume reductions before this source.
+[需人工审查] Original-source pushforward, nonnegative Tonelli and normalization. -/
+open MeasureTheory ProbabilityTheory Set
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def twoRowTraceRadius (p : GramChartSpace) : ℝ × ℝ :=
+  ((traceVectorCoordinates p).1,‖(traceVectorCoordinates p).2‖)
+
+private theorem traceRadius_cone (p : GramChartSpace) :
+    (0<p 0 ∧ p 1^2+p 2^2+p 3^2<(p 0)^2) ↔ (twoRowTraceRadius p).2<p 0 := by
+  have hv : (fun j : Fin 3 => p j.succ)=![p 1,p 2,p 3] := by
+    funext j
+    fin_cases j <;> rfl
+  simpa only [twoRowTraceRadius,traceVectorCoordinates,hv] using twoRowTraceCone_iff_norm p
+
+theorem actualTwoRow_traceRadius_lintegral (F : ℝ × ℝ → ℝ≥0∞) (hF : Measurable F) :
+    (∫⁻ z : ComplexSample (m := 2) (n := 2),
+      F (twoRowTraceRadius (twoRowTraceCoordinates
+        (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))))) ∂stdGaussian _) =
+    ∫⁻ t : ℝ, ∫⁻ r in Ioi (0 : ℝ),
+      if r<t then ENNReal.ofReal (8*r^2*Real.exp (-2*t))*F (t,r) else 0 := by
+  let D : Set GramChartSpace := {p | 0<p 0 ∧ p 1^2+p 2^2+p 3^2<(p 0)^2}
+  let T := fun z : ComplexSample (m := 2) (n := 2) => twoRowTraceCoordinates
+    (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))
+  let K : ℝ × ℝ → ℝ≥0∞ := fun x =>
+    if x.2<x.1 then ENNReal.ofReal (2*Real.pi⁻¹*Real.exp (-2*x.1))*F x else 0
+  have hD : MeasurableSet D := by dsimp [D];measurability
+  have ht : Measurable twoRowTraceCoordinates := by unfold twoRowTraceCoordinates;fun_prop
+  have hT : Measurable T := ht.comp
+    (measurable_twoRowGramRealCoordinates.comp measurable_complexSampleGram)
+  have hR : Measurable twoRowTraceRadius := by unfold twoRowTraceRadius traceVectorCoordinates;fun_prop
+  have hK : Measurable K :=
+    Measurable.ite (measurableSet_lt measurable_snd measurable_fst) (by fun_prop) measurable_const
+  have hFR : Measurable (fun p : GramChartSpace => F (twoRowTraceRadius p)) := hF.comp hR
+  have hmp : MeasurePreserving T (stdGaussian (ComplexSample (m := 2) (n := 2)))
+      ((volume.restrict D).withDensity (fun p => ENNReal.ofReal (2*Real.pi⁻¹*Real.exp (-2*p 0)))) :=
+    ⟨hT,actualTwoRow_traceCoordinates_eq_density⟩
+  calc
+    _ = ∫⁻ p, F (twoRowTraceRadius p)
+        ∂(volume.restrict D).withDensity (fun p => ENNReal.ofReal (2*Real.pi⁻¹*Real.exp (-2*p 0))) :=
+      hmp.lintegral_comp (hF.comp hR)
+    _ = ∫⁻ p : GramChartSpace,K (twoRowTraceRadius p) := by
+      rw [lintegral_withDensity_eq_lintegral_mul _ (by fun_prop) hFR,← lintegral_indicator hD]
+      apply lintegral_congr
+      intro p
+      by_cases hp : p ∈ D
+      · rw [Set.indicator_of_mem hp]
+        change ENNReal.ofReal (2*Real.pi⁻¹*Real.exp (-2*p 0))*F (twoRowTraceRadius p)=
+          if (twoRowTraceRadius p).2<p 0 then
+            ENNReal.ofReal (2*Real.pi⁻¹*Real.exp (-2*p 0))*F (twoRowTraceRadius p) else 0
+        rw [if_pos ((traceRadius_cone p).mp hp)]
+      · rw [Set.indicator_of_notMem hp]
+        change 0=if (twoRowTraceRadius p).2<p 0 then
+          ENNReal.ofReal (2*Real.pi⁻¹*Real.exp (-2*p 0))*F (twoRowTraceRadius p) else 0
+        rw [if_neg (fun h => hp ((traceRadius_cone p).mpr h))]
+    _ = ENNReal.ofReal (4*Real.pi) *
+        ∫⁻ t : ℝ, ∫⁻ r in Ioi (0 : ℝ),ENNReal.ofReal (r^2)*K (t,r) :=
+      lintegral_trace_radius_fin_four K hK
+    _ = _ := by
+      rw [← lintegral_const_mul' _ _ (by finiteness)]
+      apply lintegral_congr
+      intro t
+      rw [← lintegral_const_mul' _ _ (by finiteness)]
+      apply lintegral_congr
+      intro r
+      by_cases hrt : r<t
+      · simp only [K,hrt,if_pos]
+        have he : (4*Real.pi*r^2)*(2*Real.pi⁻¹*Real.exp (-2*t))=
+            8*r^2*Real.exp (-2*t) := by field_simp;ring
+        rw [← mul_assoc,← mul_assoc,← ENNReal.ofReal_mul (by positivity),
+          ← ENNReal.ofReal_mul (by positivity),he]
+      · simp [K,hrt]
+
+end
+end JinWishart
+#print axioms JinWishart.actualTwoRow_traceRadius_lintegral
+
+SOURCE TwoByTwoSpectralLinearTransport.lean
+import JinWishartFormalization.T3CentralTwoByTwoDensityInterface
+import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+import Mathlib.LinearAlgebra.Basis.Fin
+import JinWishartFormalization.GaussianRadialLaw
+
+/-! Codex. Seed2026102408: 164 exact controls before source.
+Trace/radius to ordered-eigenvalue linear density transport, not actual law yet.
+[需人工审查] Direction of Jacobian and plane Lebesgue conventions. -/
+open MeasureTheory Set Module
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def traceRadiusEigenCoordinates (x : ℝ × ℝ) : ℝ × ℝ := (x.1+x.2,x.1-x.2)
+def traceRadiusEigenInverse (y : ℝ × ℝ) : ℝ × ℝ := ((y.1+y.2)/2,(y.1-y.2)/2)
+
+def traceRadiusEigenEquiv : (ℝ × ℝ) ≃ₗ[ℝ] (ℝ × ℝ) where
+  toFun := traceRadiusEigenCoordinates
+  invFun := traceRadiusEigenInverse
+  left_inv x := by ext <;> simp [traceRadiusEigenCoordinates,traceRadiusEigenInverse] <;> ring
+  right_inv x := by ext <;> simp [traceRadiusEigenCoordinates,traceRadiusEigenInverse] <;> ring
+  map_add' x y := by ext <;> simp [traceRadiusEigenCoordinates] <;> ring
+  map_smul' a x := by ext <;> simp [traceRadiusEigenCoordinates] <;> ring
+
+theorem traceRadiusEigenEquiv_det : traceRadiusEigenEquiv.toLinearMap.det=(-2 : ℝ) := by
+  rw [← LinearMap.det_toMatrix (Basis.finTwoProd ℝ)]
+  have hm : LinearMap.toMatrix (Basis.finTwoProd ℝ) (Basis.finTwoProd ℝ)
+      traceRadiusEigenEquiv.toLinearMap=(!![(1:ℝ),1;1,-1] : Matrix (Fin 2) (Fin 2) ℝ) := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [LinearMap.toMatrix_apply,Basis.coe_finTwoProd_repr,traceRadiusEigenEquiv,
+        traceRadiusEigenCoordinates]
+  rw [hm,Matrix.det_fin_two]
+  norm_num
+
+theorem map_volume_traceRadiusEigenEquiv :
+    (volume : Measure (ℝ × ℝ)).map traceRadiusEigenEquiv=(1/2 : ℝ≥0∞) • volume := by
+  have h := Measure.map_linearMap_addHaar_eq_smul_addHaar (volume : Measure (ℝ × ℝ))
+    (f := traceRadiusEigenEquiv.toLinearMap) (by rw [traceRadiusEigenEquiv_det];norm_num)
+  simpa [traceRadiusEigenEquiv_det] using h
+
+private def eigenMeasEquiv : (ℝ × ℝ) ≃ᵐ (ℝ × ℝ) :=
+  traceRadiusEigenEquiv.toContinuousLinearEquiv.toHomeomorph.toMeasurableEquiv
+
+theorem traceRadiusEigen_density_transport (f : ℝ × ℝ → ℝ≥0∞) (hf : Measurable f) :
+    ((volume : Measure (ℝ × ℝ)).withDensity f).map traceRadiusEigenCoordinates =
+      volume.withDensity (fun y => (1/2 : ℝ≥0∞)*f (traceRadiusEigenInverse y)) := by
+  have hmp : MeasurePreserving eigenMeasEquiv (volume : Measure (ℝ × ℝ))
+      ((1/2 : ℝ≥0∞) • volume) := by
+    refine ⟨eigenMeasEquiv.measurable,?_⟩
+    change (volume : Measure (ℝ × ℝ)).map traceRadiusEigenEquiv= _
+    exact map_volume_traceRadiusEigenEquiv
+  have h := map_withDensity_measurePreserving eigenMeasEquiv volume
+    ((1/2 : ℝ≥0∞) • volume) hmp f hf
+  rw [withDensity_smul_measure,← withDensity_smul' (1/2) _ (by norm_num)] at h
+  exact h
+
+theorem traceRadiusDensity_spectral_transport :
+    (((volume : Measure (ℝ × ℝ)).restrict {x | 0<x.2 ∧ x.2<x.1}).withDensity
+      (fun x => ENNReal.ofReal (8*x.2^2*Real.exp (-2*x.1)))).map traceRadiusEigenCoordinates =
+    volume.withDensity centralTwoByTwoPaperEigenvalueDensity := by
+  let D : Set (ℝ × ℝ) := {x | 0<x.2 ∧ x.2<x.1}
+  have hD : MeasurableSet D := by dsimp [D];measurability
+  have hw : Measurable (fun x : ℝ × ℝ => ENNReal.ofReal (8*x.2^2*Real.exp (-2*x.1))) := by fun_prop
+  rw [← withDensity_indicator hD,
+    traceRadiusEigen_density_transport _ (hw.indicator hD)]
+  congr 1
+  funext y
+  have hc : traceRadiusEigenInverse y ∈ D ↔ 0<y.2 ∧ y.2<y.1 := by
+    change (0<(y.1-y.2)/2 ∧ (y.1-y.2)/2<(y.1+y.2)/2) ↔ _
+    constructor <;> rintro ⟨h1,h2⟩ <;> constructor <;> linarith
+  by_cases hy : 0<y.2 ∧ y.2<y.1
+  · rw [Set.indicator_of_mem (hc.mpr hy)]
+    change (1/2 : ℝ≥0∞)*ENNReal.ofReal
+      (8*((y.1-y.2)/2)^2*Real.exp (-2*((y.1+y.2)/2)))= _
+    rw [show (1/2 : ℝ≥0∞)=ENNReal.ofReal (1/2 : ℝ) by
+      rw [ENNReal.ofReal_div_of_pos (by norm_num : (0:ℝ)<2)];norm_num,
+      ← ENNReal.ofReal_mul (by norm_num : (0:ℝ)≤1/2)]
+    unfold centralTwoByTwoPaperEigenvalueDensity
+    rw [if_pos hy]
+    congr 1
+    rw [show -2*((y.1+y.2)/2)=-(y.1+y.2) by ring]
+    ring
+  · rw [Set.indicator_of_notMem (fun h => hy (hc.mp h)),mul_zero]
+    simp [centralTwoByTwoPaperEigenvalueDensity,hy]
+
+end
+end JinWishart
+#print axioms JinWishart.traceRadiusEigenEquiv_det
+#print axioms JinWishart.map_volume_traceRadiusEigenEquiv
+#print axioms JinWishart.traceRadiusEigen_density_transport
+#print axioms JinWishart.traceRadiusDensity_spectral_transport
+
+SOURCE TwoByTwoTraceRadiusLaw.lean
+import JinWishartFormalization.TwoByTwoTraceRadiusIntegral
+
+/-! Codex. Prior seeds2026102405/2407 before source.
+Actual same-source central 2x2 trace/radius law, from the nonnegative integral identity.
+[需人工审查] Measure extensionality, nonnegative Tonelli and strict chamber boundary. -/
+open MeasureTheory ProbabilityTheory Set
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def actualTwoRowTraceRadius (z : ComplexSample (m := 2) (n := 2)) : ℝ × ℝ :=
+  twoRowTraceRadius (twoRowTraceCoordinates
+    (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))))
+
+theorem actualTwoRow_traceRadius_eq_density :
+    (stdGaussian (ComplexSample (m := 2) (n := 2))).map actualTwoRowTraceRadius =
+    ((volume : Measure (ℝ × ℝ)).restrict {x | 0<x.2 ∧ x.2<x.1}).withDensity
+      (fun x => ENNReal.ofReal (8*x.2^2*Real.exp (-2*x.1))) := by
+  let D : Set (ℝ × ℝ) := {x | 0<x.2 ∧ x.2<x.1}
+  have hD : MeasurableSet D := by dsimp [D];measurability
+  have hw : Measurable (fun x : ℝ × ℝ => ENNReal.ofReal (8*x.2^2*Real.exp (-2*x.1))) := by fun_prop
+  have ht : Measurable twoRowTraceCoordinates := by unfold twoRowTraceCoordinates;fun_prop
+  have hr : Measurable twoRowTraceRadius := by unfold twoRowTraceRadius traceVectorCoordinates;fun_prop
+  have hA : Measurable actualTwoRowTraceRadius := hr.comp (ht.comp
+    (measurable_twoRowGramRealCoordinates.comp measurable_complexSampleGram))
+  refine Measure.ext_of_lintegral _ fun F hF => ?_
+  calc
+    _ = ∫⁻ z, F (actualTwoRowTraceRadius z) ∂stdGaussian (ComplexSample (m := 2) (n := 2)) :=
+      lintegral_map hF hA
+    _ = ∫⁻ t : ℝ, ∫⁻ r in Ioi (0 : ℝ),
+        if r<t then ENNReal.ofReal (8*r^2*Real.exp (-2*t))*F (t,r) else 0 := by
+      simpa only [actualTwoRowTraceRadius] using actualTwoRow_traceRadius_lintegral F hF
+    _ = _ := by
+      symm
+      rw [lintegral_withDensity_eq_lintegral_mul _ hw hF,← lintegral_indicator hD]
+      change (∫⁻ a : ℝ × ℝ,D.indicator
+        ((fun x => ENNReal.ofReal (8*x.2^2*Real.exp (-2*x.1)))*F) a
+        ∂((volume : Measure ℝ).prod volume))= _
+      rw [lintegral_prod _ ((hw.mul hF).indicator hD).aemeasurable]
+      apply lintegral_congr
+      intro t
+      rw [← lintegral_indicator measurableSet_Ioi]
+      apply lintegral_congr
+      intro r
+      by_cases hr0 : 0<r <;> by_cases hrt : r<t <;>
+        simp [D,Set.indicator,hr0,hrt]
+
+end
+end JinWishart
+#print axioms JinWishart.actualTwoRow_traceRadius_eq_density
+
+SOURCE ActualCentralTwoByTwoJointDensity.lean
+import JinWishartFormalization.TwoByTwoTraceRadiusLaw
+import JinWishartFormalization.TwoByTwoSpectralLinearTransport
+import JinWishartFormalization.TwoByTwoOrderedEigenpair
+
+/-! Codex. Seeds2026102405/2407/2408 preceded this source.
+Actual original-source ordered central2x2 Gram density; no hDensity premise.
+[需人工审查] Lebesgue/angular factors, original paper T3 interpretation and model. -/
+open MeasureTheory ProbabilityTheory Set
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+theorem actualCentralTwoByTwo_jointEigenvalueDensity :
+    centralTwoByTwoJointEigenvalueLaw =
+      (volume : Measure (ℝ × ℝ)).withDensity centralTwoByTwoPaperEigenvalueDensity := by
+  have ht : Measurable twoRowTraceCoordinates := by unfold twoRowTraceCoordinates;fun_prop
+  have hr : Measurable twoRowTraceRadius := by unfold twoRowTraceRadius traceVectorCoordinates;fun_prop
+  have hA : Measurable actualTwoRowTraceRadius := hr.comp (ht.comp
+    (measurable_twoRowGramRealCoordinates.comp measurable_complexSampleGram))
+  have he : Measurable traceRadiusEigenCoordinates := by unfold traceRadiusEigenCoordinates;fun_prop
+  have hsame : centralTwoByTwoEigenpair=traceRadiusEigenCoordinates ∘ actualTwoRowTraceRadius := by
+    funext z
+    rw [centralTwoByTwoEigenpair_eq_traceSpectralPair]
+    have hv (p : GramChartSpace) : (fun j : Fin 3 => p j.succ)=![p 1,p 2,p 3] := by
+      funext j
+      fin_cases j <;> rfl
+    simp only [Function.comp_def,actualTwoRowTraceRadius,twoRowTraceRadius,
+      traceVectorCoordinates,traceRadiusEigenCoordinates,twoRowTraceSpectralPair,hv]
+  rw [centralTwoByTwoJointEigenvalueLaw,hsame,← Measure.map_map he hA,
+    actualTwoRow_traceRadius_eq_density,traceRadiusDensity_spectral_transport]
+
+theorem actualCentralTwoByTwo_T3Increment_densityIntegral (x : ℝ) :
+    centralTwoByTwoT3Increment x =
+      ∫⁻ y in centralTwoByTwoT3Region x, centralTwoByTwoPaperEigenvalueDensity y
+        ∂(volume : Measure (ℝ × ℝ)) :=
+  centralTwoByTwoT3Increment_eq_densityIntegral x actualCentralTwoByTwo_jointEigenvalueDensity
+
+end
+end JinWishart
+#print axioms JinWishart.actualCentralTwoByTwo_jointEigenvalueDensity
+#print axioms JinWishart.actualCentralTwoByTwo_T3Increment_densityIntegral

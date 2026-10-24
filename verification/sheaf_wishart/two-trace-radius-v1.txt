@@ -1,0 +1,67 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:34:41: error: `fun_prop` was unable to prove `Measurable fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))`
+
+Issues:
+  No theorems found for `JinWishart.twoRowTraceCoordinates` in order to prove `Measurable fun z0 => twoRowTraceCoordinates z0`
+  No theorems found for `JinWishart.twoRowTraceCoordinates` in order to prove `Measurable fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:36:41: error: `fun_prop` was unable to prove `Measurable fun x => if x.2 < x.1 then ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * x.1)) * F x else 0`
+
+Issues:
+  No theorems found for `ite` in order to prove `Measurable fun x => if x.2 < x.1 then ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * x.1)) * F x else 0`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:45:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (a : GramChartSpace), (F ∘ twoRowTraceRadius) a ∂Measure.withDensity ?m.650 ?m.651
+in the target expression
+  (∫⁻ (p : GramChartSpace),
+      F
+        (twoRowTraceRadius
+          p) ∂(ℙ.restrict D).withDensity fun p => ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * p 0))) =
+    ∫⁻ (p : GramChartSpace), K (twoRowTraceRadius p)
+
+F : ℝ × ℝ → ℝ≥0∞
+hF : Measurable F
+D : Set GramChartSpace := {p | 0 < p 0 ∧ p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2 < p 0 ^ 2}
+T : ComplexSample → GramChartSpace :=
+  fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))
+K : ℝ × ℝ → ℝ≥0∞ := fun x => if x.2 < x.1 then ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * x.1)) * F x else 0
+hD : MeasurableSet D
+hT : Measurable T
+hR : Measurable twoRowTraceRadius
+hK : Measurable K
+hmp :
+  MeasurePreserving T (stdGaussian ComplexSample)
+    ((ℙ.restrict D).withDensity fun p => ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * p 0)))
+⊢ (∫⁻ (p : GramChartSpace),
+      F
+        (twoRowTraceRadius
+          p) ∂(ℙ.restrict D).withDensity fun p => ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * p 0))) =
+    ∫⁻ (p : GramChartSpace), K (twoRowTraceRadius p)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:63:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:67:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ENNReal.ofReal ?m.795 * ENNReal.ofReal ?m.796
+in the target expression
+  ENNReal.ofReal (4 * Real.pi * r ^ 2) * (ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * t)) * F (t, r)) =
+    ENNReal.ofReal (8 * r ^ 2 * Real.exp (-2 * t)) * F (t, r)
+
+case pos
+F : ℝ × ℝ → ℝ≥0∞
+hF : Measurable F
+D : Set GramChartSpace := {p | 0 < p 0 ∧ p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2 < p 0 ^ 2}
+T : ComplexSample → GramChartSpace :=
+  fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))
+K : ℝ × ℝ → ℝ≥0∞ := fun x => if x.2 < x.1 then ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * x.1)) * F x else 0
+hD : MeasurableSet D
+hT : Measurable T
+hR : Measurable twoRowTraceRadius
+hK : Measurable K
+hmp :
+  MeasurePreserving T (stdGaussian ComplexSample)
+    ((ℙ.restrict D).withDensity fun p => ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * p 0)))
+t r : ℝ
+hrt : r < t
+he : 4 * Real.pi * (r ^ 2 * (2 * Real.pi⁻¹ * Real.exp (-2 * t))) = 8 * r ^ 2 * Real.exp (-2 * t)
+⊢ ENNReal.ofReal (4 * Real.pi * r ^ 2) * (ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * t)) * F (t, r)) =
+    ENNReal.ofReal (8 * r ^ 2 * Real.exp (-2 * t)) * F (t, r)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:67:35: error: failed to prove positivity/nonnegativity/nonzeroness
+'JinWishart.actualTwoRow_traceRadius_lintegral' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

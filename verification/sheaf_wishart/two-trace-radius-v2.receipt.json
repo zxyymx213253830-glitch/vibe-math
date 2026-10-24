@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T08:09:56.930192+00:00",
+  "ended_utc": "2026-10-24T08:10:10.011700+00:00",
+  "module": "JinWishartFormalization.TwoByTwoTraceRadiusIntegral",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceRadiusIntegral.lean",
+  "source_sha256_before": "84a41c378305513ddd5643ed4430138cd1dba0f5c71b84bc9e86e656acbe513a",
+  "source_sha256": "84a41c378305513ddd5643ed4430138cd1dba0f5c71b84bc9e86e656acbe513a",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/two-trace-radius-v2.txt",
+  "log_exists": true,
+  "log_sha256": "f09ee70507cb067e7b1131a3c73f5aaca3bae2f63343006a86e2636338fe6bc6",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

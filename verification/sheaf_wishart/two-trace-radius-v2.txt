@@ -1,0 +1,61 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:53:6: error: unsolved goals
+case pos
+F : ℝ × ℝ → ℝ≥0∞
+hF : Measurable F
+D : Set GramChartSpace := {p | 0 < p 0 ∧ p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2 < p 0 ^ 2}
+T : ComplexSample → GramChartSpace :=
+  fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))
+K : ℝ × ℝ → ℝ≥0∞ := fun x => if x.2 < x.1 then ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * x.1)) * F x else 0
+hD : MeasurableSet D
+ht : Measurable twoRowTraceCoordinates
+hT : Measurable T
+hR : Measurable twoRowTraceRadius
+hK : Measurable K
+hFR : Measurable fun p => F (twoRowTraceRadius p)
+hmp :
+  MeasurePreserving T (stdGaussian ComplexSample)
+    ((ℙ.restrict D).withDensity fun p => ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * p 0)))
+p : GramChartSpace
+hp : p ∈ D
+⊢ p 0 ≤ ‖WithLp.toLp 2 fun j => p j.succ‖ →
+    2 * Real.pi⁻¹ * Real.exp (-(2 * p 0)) ≤ 0 ∨ F (p 0, ‖WithLp.toLp 2 fun j => p j.succ‖) = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:54:6: error: unsolved goals
+case neg
+F : ℝ × ℝ → ℝ≥0∞
+hF : Measurable F
+D : Set GramChartSpace := {p | 0 < p 0 ∧ p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2 < p 0 ^ 2}
+T : ComplexSample → GramChartSpace :=
+  fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))
+K : ℝ × ℝ → ℝ≥0∞ := fun x => if x.2 < x.1 then ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * x.1)) * F x else 0
+hD : MeasurableSet D
+ht : Measurable twoRowTraceCoordinates
+hT : Measurable T
+hR : Measurable twoRowTraceRadius
+hK : Measurable K
+hFR : Measurable fun p => F (twoRowTraceRadius p)
+hmp :
+  MeasurePreserving T (stdGaussian ComplexSample)
+    ((ℙ.restrict D).withDensity fun p => ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * p 0)))
+p : GramChartSpace
+hp : p ∉ D
+⊢ ‖WithLp.toLp 2 fun j => p j.succ‖ < p 0 →
+    2 * Real.pi⁻¹ * Real.exp (-(2 * p 0)) ≤ 0 ∨ F (p 0, ‖WithLp.toLp 2 fun j => p j.succ‖) = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:67:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:53:40: warning: This simp argument is unused:
+  (traceRadius_cone p).mp hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [K, Set.indicator_of_mem hp, twoRowTraceRadius, traceVectorCoordinates]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusIntegral.lean:54:43: warning: This simp argument is unused:
+  show ¬(twoRowTraceRadius p).2 < p 0 from fun h => hp ((traceRadius_cone p).mpr h)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [K, Set.indicator_of_notMem hp, twoRowTraceRadius, traceVectorCoordinates]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.actualTwoRow_traceRadius_lintegral' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

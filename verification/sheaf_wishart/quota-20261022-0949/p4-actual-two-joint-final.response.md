@@ -1,0 +1,23 @@
+# P4 Adversarial Review
+
+## Source 1: TwoByTwoTraceRadiusIntegral
+
+**Mathematical gap (domain mismatch in cone equivalence).** `traceRadius_cone` states `(0 < p 0 ∧ p 1^2 + p 2^2 + p 3^2 < (p 0)^2) ↔ (twoRowTraceRadius p).2 < p 0`. The right side constrains only the norm of the spatial part against `p 0`, but does not enforce `p 0 > 0`. The left side explicitly requires `0 < p 0`. If `p 0 ≤ 0`, the left side is false, yet `(twoRowTraceRadius p).2 < p 0` could also be false (since the norm is nonnegative and `p 0 ≤ 0`), making the equivalence hold vacuously in some cases but fail in others. Specifically, when `p 0 = 0`, LHS is false, RHS becomes `‖...‖ < 0` which is false—so the equivalence holds. But the logical structure suggests the cone characterization may silently allow degenerate cases through the `rw [if_neg ...]` branch without verifying that the complement of `D` maps correctly to the zero region of the indicator. This needs explicit verification that the boundary `p 0 = 0` carries no mass under the pushforward.
+
+**Potential gap (Tonelli application).** The proof uses `lintegral_prod` to convert a double integral into iterated form. Tonelli's theorem requires σ-finiteness of the underlying measures and nonnegativity of the integrand. Nonnegativity holds (the integrand is explicitly constructed with `ENNReal.ofReal` of a nonnegative expression times `F ≥ 0`). However, σ-finiteness of the product measure on `ℝ × ℝ` restricted to `D` is never stated. This is likely true by standard Lebesgue measure properties, but it is an implicit assumption.
+
+## Source 2: TwoByTwoSpectralLinearTransport
+
+**Mathematical gap (Jacobian factor direction).** `map_volume_traceRadiusEigenEquiv` claims the pushforward of volume under the linear map equals `(1/2) • volume`. The determinant is `-2`, so the absolute value is `2`. For a linear map `T : ℝ^n → ℝ^n`, the pushforward satisfies `volume.map T = |det T|⁻¹ • volume` when `T` is invertible. Here `|det|⁻¹ = 1/2`, which matches. **This is correct.** No gap.
+
+**Actual gap (density transport domain tracking).** In `traceRadiusDensity_spectral_transport`, the equivalence `hc : traceRadiusEigenInverse y ∈ D ↔ 0 < y.2 ∧ y.2 < y.1` defines the ordered eigenvalue chamber. But `D` on the trace-radius side is `{x | 0 < x.2 ∧ x.2 < x.1}`, meaning radius `r = x.2 > 0` and `r < t = x.1`. Under the inverse map `x.1 = (y.1 + y.2)/2`, `x.2 = (y.1 - y.2)/2`. So `x.2 > 0 ⟺ y.1 > y.2` and `x.2 < x.1 ⟺ (y.1 - y.2)/2 < (y.1 + y.2)/2 ⟺ -y.2 < y.2 ⟺ y.2 > 0`. Thus the target chamber should be `{y | y.2 > 0 ∧ y.1 > y.2}`. The proof writes `0 < y.2 ∧ y.2 < y.1`, which matches. **This is correct.** No gap.
+
+## Source 3: TwoByTwoTraceRadiusLaw
+
+**Mathematical gap (measure extensionality applicability).** `Measure.ext_of_lintegral` requires that two measures agree on all nonnegative measurable test functions to conclude equality. The calculation shows equality of integrals for arbitrary measurable `F ≥ 0`. This is the correct approach. However, the final `by_cases hr0 : 0 < r <;> by_cases hrt : r < t` case split must handle the boundary `r = 0` and `r = t` correctly. When `r = 0`, the indicator of `Ioi 0` vanishes, and the density `8 * r^2 * ...` also vanishes, so both sides are zero—consistent. When `r = t`, the strict inequality in `D` (`x.2 < x.1`) excludes the diagonal, and the `if r < t` branch selects `false`, giving zero—also consistent. **No actual gap**, but the boundary handling relies on the density `r^2` vanishing at `r = 0`, which should be noted as essential rather than incidental.
+
+## Source 4: ActualCentralTwoByTwoJointDensity
+
+**Mathematical gap (composition of pushforwards).** The proof chains `Measure.map_map he hA` to compose the trace-radius law with the spectral transport. This requires that `traceRadiusEigenCoordinates` is measurable (established) and that the composition `he ∘ hA` equals `centralTwoByTwoEigenpair` pointwise (established by `hsame`). The chain then applies `actualTwoRow_traceRadius_eq_density` followed by `traceRadiusDensity_spectral_transport`. This is logically sound provided the intermediate measures are σ-finite (needed for uniqueness of pushforward). The source measure `stdGaussian` on a finite-dimensional space is a probability measure, hence finite, hence σ-finite. **No gap.**
+
+**API-level question (not a mathematical gap).** The definition of `centralTwoByTwoPaperEigenvalueDensity` is imported and used without inspection. If its formula differs from `(1/2) * 8 * ((y.1 - y.2)/2)^2 * exp(-(y.1 + y.2))` on the ordered chamber, the `congr 1; ring` step would fail. This is a dependency trust issue, not a logical error in this source.

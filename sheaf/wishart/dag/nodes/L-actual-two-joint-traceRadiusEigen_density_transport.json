@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-two-joint-traceRadiusEigen_density_transport",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.TwoByTwoSpectralLinearTransport",
+  "declaration": "JinWishart.traceRadiusEigen_density_transport",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-actual-two-joint-map_volume_traceRadiusEigenEquiv"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-actual-two-joint-map_volume_traceRadiusEigenEquiv"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-joint-TwoByTwoSpectralLinearTransport.json",
+    "source_sha256": "abe26422085a54cfb8a012f1ff65641b8ab2549127f643f5a1a562f7a595a3e2"
+  }
+}

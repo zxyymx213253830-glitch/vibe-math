@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-two-joint-actualCentralTwoByTwo_jointEigenvalueDensity",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualCentralTwoByTwoJointDensity",
+  "declaration": "JinWishart.actualCentralTwoByTwo_jointEigenvalueDensity",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-actual-two-joint-actualTwoRow_traceRadius_eq_density"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-actual-two-joint-actualTwoRow_traceRadius_eq_density"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-joint-ActualCentralTwoByTwoJointDensity.json",
+    "source_sha256": "809a87b97b97e7ea536c38151bae5bd45c066cf9dd82ae2d0bbd9fa780b84176"
+  }
+}

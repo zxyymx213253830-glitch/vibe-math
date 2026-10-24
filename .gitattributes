@@ -666,3 +666,15 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/four_dimensional_radial_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_FOUR_DIMENSIONAL_RADIAL_INTEGRAL.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceRadiusIntegral.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoSpectralLinearTransport.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceRadiusLaw.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualCentralTwoByTwoJointDensity.lean -text whitespace=cr-at-eol
+
+/experiments/two_by_two_spectral_linear_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_ACTUAL_CENTRAL_TWO_BY_TWO_JOINT.md -text whitespace=cr-at-eol

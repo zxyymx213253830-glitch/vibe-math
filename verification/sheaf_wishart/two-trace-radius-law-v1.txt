@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceRadiusLaw.lean:36:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (z : ℝ × ℝ),
+    D.indicator ((fun x => ENNReal.ofReal (8 * x.2 ^ 2 * Real.exp (-2 * x.1))) * F) z ∂Measure.prod ?m.865 ?m.866
+in the target expression
+  ∫⁻ (a : ℝ × ℝ), D.indicator ((fun x => ENNReal.ofReal (8 * x.2 ^ 2 * Real.exp (-2 * x.1))) * F) a ∂ℙ =
+    ∫⁻ (t : ℝ), ∫⁻ (r : ℝ) in Ioi 0, if r < t then ENNReal.ofReal (8 * r ^ 2 * Real.exp (-2 * t)) * F (t, r) else 0
+
+D : Set (ℝ × ℝ) := {x | 0 < x.2 ∧ x.2 < x.1}
+hD : MeasurableSet D
+hw : Measurable fun x => ENNReal.ofReal (8 * x.2 ^ 2 * Real.exp (-2 * x.1))
+ht : Measurable twoRowTraceCoordinates
+hr : Measurable twoRowTraceRadius
+hA : Measurable actualTwoRowTraceRadius
+F : ℝ × ℝ → ℝ≥0∞
+hF : Measurable F
+⊢ ∫⁻ (a : ℝ × ℝ), D.indicator ((fun x => ENNReal.ofReal (8 * x.2 ^ 2 * Real.exp (-2 * x.1))) * F) a ∂ℙ =
+    ∫⁻ (t : ℝ), ∫⁻ (r : ℝ) in Ioi 0, if r < t then ENNReal.ofReal (8 * r ^ 2 * Real.exp (-2 * t)) * F (t, r) else 0
+'JinWishart.actualTwoRow_traceRadius_eq_density' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

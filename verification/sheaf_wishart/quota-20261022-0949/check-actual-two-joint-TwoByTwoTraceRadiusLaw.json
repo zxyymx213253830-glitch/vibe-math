@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "4d88c332e4184ff6231bfa30170425949f457149a17ce7f5331d0e44e2c236de",
+  "target_lock_sha256": "d6bfc21e73e5ee651e501e1ad87a64b71a5d7b90e7254886e66699b2bb4e5740",
+  "leaf": {
+    "started_utc": "2026-10-24T12:05:31.432602+00:00",
+    "ended_utc": "2026-10-24T12:05:42.561044+00:00",
+    "module": "JinWishartFormalization.TwoByTwoTraceRadiusLaw",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceRadiusLaw.lean",
+    "source_sha256_before": "4d88c332e4184ff6231bfa30170425949f457149a17ce7f5331d0e44e2c236de",
+    "source_sha256": "4d88c332e4184ff6231bfa30170425949f457149a17ce7f5331d0e44e2c236de",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/actual-two-joint-TwoByTwoTraceRadiusLaw-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "4bd18cdd8cde5bbe58638b6d5f1693791d3cbbf9c8552c89c1366ff0ac4d6377",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T12:05:53.477514+00:00",
+    "ended_utc": "2026-10-24T12:06:22.337891+00:00",
+    "module": "SheafActualTwoJointTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafActualTwoJointTargets.lean",
+    "source_sha256_before": "3d02db7768b853ba22aa71946a13acd09b1aaf90f13046d39607d5aed9246fbc",
+    "source_sha256": "3d02db7768b853ba22aa71946a13acd09b1aaf90f13046d39607d5aed9246fbc",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/actual-two-joint-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

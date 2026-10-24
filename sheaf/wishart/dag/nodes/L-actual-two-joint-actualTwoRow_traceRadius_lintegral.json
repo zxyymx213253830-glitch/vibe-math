@@ -1,0 +1,20 @@
+{
+  "id": "L-actual-two-joint-actualTwoRow_traceRadius_lintegral",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.TwoByTwoTraceRadiusIntegral",
+  "declaration": "JinWishart.actualTwoRow_traceRadius_lintegral",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-joint-TwoByTwoTraceRadiusIntegral.json",
+    "source_sha256": "e2a68715affb95e2f5e1568cd043c538e7662d07b7309f48813f88aa7f55dd2c"
+  }
+}

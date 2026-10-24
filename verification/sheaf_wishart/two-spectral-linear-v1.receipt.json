@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T11:59:23.479547+00:00",
+  "ended_utc": "2026-10-24T11:59:45.976020+00:00",
+  "module": "JinWishartFormalization.TwoByTwoSpectralLinearTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoSpectralLinearTransport.lean",
+  "source_sha256_before": "81ef02b9b64736ad3a7c2cc6128b14344cd8774af31b5b6f0e1e33089ca7e736",
+  "source_sha256": "81ef02b9b64736ad3a7c2cc6128b14344cd8774af31b5b6f0e1e33089ca7e736",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/two-spectral-linear-v1.txt",
+  "log_exists": true,
+  "log_sha256": "b385f036b81a06110285747d7416022e5ae71253f3cb38f2c6dbe4a1f166f540",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

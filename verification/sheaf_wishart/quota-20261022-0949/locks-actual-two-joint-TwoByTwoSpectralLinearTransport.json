@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-24T12:05:06.743884+00:00",
+  "module": "JinWishartFormalization.TwoByTwoSpectralLinearTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoSpectralLinearTransport.lean",
+  "statements": {
+    "JinWishart.traceRadiusEigenEquiv_det": ": traceRadiusEigenEquiv.toLinearMap.det=(-2 : ℝ)",
+    "JinWishart.map_volume_traceRadiusEigenEquiv": ": (volume : Measure (ℝ × ℝ)).map traceRadiusEigenEquiv=(1/2 : ℝ≥0∞) • volume",
+    "JinWishart.traceRadiusEigen_density_transport": "(f : ℝ × ℝ → ℝ≥0∞) (hf : Measurable f) : ((volume : Measure (ℝ × ℝ)).withDensity f).map traceRadiusEigenCoordinates = volume.withDensity (fun y => (1/2 : ℝ≥0∞)*f (traceRadiusEigenInverse y))",
+    "JinWishart.traceRadiusDensity_spectral_transport": ": (((volume : Measure (ℝ × ℝ)).restrict {x | 0<x.2 ∧ x.2<x.1}).withDensity (fun x => ENNReal.ofReal (8*x.2^2*Real.exp (-2*x.1)))).map traceRadiusEigenCoordinates = volume.withDensity centralTwoByTwoPaperEigenvalueDensity"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianRadialLaw.lean": "13f4c9957b1405432b7e35066cb49c56e17847dc3167a7b650418265939fb663",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianRadialLaw.olean": "b5e8f2c4431a08b508cbdf542220ade60b99769317c74b0f704d9bf4246ce43e",
+    "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/WishartProbability.olean": "5d5dad561c507df7943f399fb4f93cf17fa45106ca408c8b38959cb856817aaa",
+    "theory/jin_wishart_formalization/JinWishartFormalization/T3CentralTwoByTwoDensityInterface.lean": "64720edd89e9b2d5c5736c3d358b55b9572624930ee9637aa7bb21f033d6aa3e",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/T3CentralTwoByTwoDensityInterface.olean": "14b8ff586341d203736df005533d393bb962408231eaa55350a2ca6e2489da88",
+    "theory/jin_wishart_formalization/JinWishartFormalization/OrderedEigenvalueMeasurable.lean": "af44f41cd8ae7f0d8a21acdf15d1ba87e509d05cf4c9e791939f000249ae4e80",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/OrderedEigenvalueMeasurable.olean": "1eafe437457048db6d35963b195b40c4cd87f2641ece6f3db0a6c6e544b517bc",
+    "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoSpectralLinearTransport.lean": "abe26422085a54cfb8a012f1ff65641b8ab2549127f643f5a1a562f7a595a3e2",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafActualTwoJointTargets.lean",
+  "type_check_source_sha256": "3d02db7768b853ba22aa71946a13acd09b1aaf90f13046d39607d5aed9246fbc",
+  "locked_local_definitions": {}
+}

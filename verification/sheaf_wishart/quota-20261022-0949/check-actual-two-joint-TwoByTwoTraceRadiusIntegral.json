@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "e2a68715affb95e2f5e1568cd043c538e7662d07b7309f48813f88aa7f55dd2c",
+  "target_lock_sha256": "7cdddcc3740dac40faa345eee79e2988595ac7538641cb6d4f3d3320a8f055aa",
+  "leaf": {
+    "started_utc": "2026-10-24T12:05:07.035453+00:00",
+    "ended_utc": "2026-10-24T12:05:20.278930+00:00",
+    "module": "JinWishartFormalization.TwoByTwoTraceRadiusIntegral",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceRadiusIntegral.lean",
+    "source_sha256_before": "e2a68715affb95e2f5e1568cd043c538e7662d07b7309f48813f88aa7f55dd2c",
+    "source_sha256": "e2a68715affb95e2f5e1568cd043c538e7662d07b7309f48813f88aa7f55dd2c",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/actual-two-joint-TwoByTwoTraceRadiusIntegral-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "9652b10c6eb493ff5f3f4ca87a8524180433a9d9500c9b84bc7f38a62579675b",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T12:05:53.477514+00:00",
+    "ended_utc": "2026-10-24T12:06:22.337891+00:00",
+    "module": "SheafActualTwoJointTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafActualTwoJointTargets.lean",
+    "source_sha256_before": "3d02db7768b853ba22aa71946a13acd09b1aaf90f13046d39607d5aed9246fbc",
+    "source_sha256": "3d02db7768b853ba22aa71946a13acd09b1aaf90f13046d39607d5aed9246fbc",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/actual-two-joint-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

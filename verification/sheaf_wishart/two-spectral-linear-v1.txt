@@ -1,0 +1,32 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:19:90: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:19:90: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:25:32: error(lean.unknownIdentifier): Unknown identifier `Basis.finTwoProd`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:24:86: error: unsolved goals
+⊢ LinearMap.det ↑traceRadiusEigenEquiv = -2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:52:12: error(lean.unknownIdentifier): Unknown identifier `map_withDensity_measurePreserving`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:46:82: error: unsolved goals
+f : ℝ × ℝ → ℝ≥0∞
+hf : Measurable f
+hmp : MeasurePreserving (⇑eigenMeasEquiv) volume ((1 / 2) • volume)
+⊢ Measure.map traceRadiusEigenCoordinates (volume.withDensity f) =
+    volume.withDensity fun y => 1 / 2 * f (traceRadiusEigenInverse y)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:64:43: error: invalid 'by' tactic, expected type has not been provided
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:74:8: error: unsolved goals
+D : Set (ℝ × ℝ) := {x | 0 < x.2 ∧ x.2 < x.1}
+hD : MeasurableSet D
+y : ℝ × ℝ
+hc : traceRadiusEigenInverse y ∈ D ↔ 0 < y.2 ∧ y.2 < y.1
+hy : 0 < y.2 ∧ y.2 < y.1
+⊢ 2⁻¹ = ENNReal.ofReal (1 / 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoSpectralLinearTransport.lean:77:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.traceRadiusEigenEquiv_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.map_volume_traceRadiusEigenEquiv' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.traceRadiusEigen_density_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.traceRadiusDensity_spectral_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

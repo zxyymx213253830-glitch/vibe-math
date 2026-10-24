@@ -1,0 +1,7 @@
+{
+  "seed": 2026102408,
+  "checks": 164,
+  "status": "PASS exact controls; not general proof",
+  "reference": "Signed Jacobian -2; inverse 1/2; cone equivalence; exact transformed density and normalization; omitted-half negative control",
+  "source_sha256": "c305e72b7dd2bd256d8235b40f1dfe7920522f39ae80866fa89a6a01f79b06ce"
+}

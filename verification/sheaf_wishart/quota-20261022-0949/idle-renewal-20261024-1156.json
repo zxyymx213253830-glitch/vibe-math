@@ -1,0 +1,16 @@
+{
+  "renewed_utc": "2026-10-24T11:56:35.329121+00:00",
+  "old_hashes": {
+    "sheaf/wishart/coord/claims/quota-20261022-0949.lock": "5f23419d5d2be31e9852fc56b1d22b2b3d9a6b48d59140d7e151b0a2b45831e7",
+    ".tools/central-mixed-moments-20261019/state.json": "2436cee1bd64029a38269bc8c9d8f26919b168ef3e093b5319d76cb51781bab8"
+  },
+  "token": "d4b78a7c1a0449debe4e04635d41d232",
+  "technical_lease_utc": "2026-10-24T13:56:35.329121+00:00",
+  "idle_locks_checked": true,
+  "ordinaryUsageAllowed": true,
+  "quota_observed_utc": "2026-10-24T11:55:51+00:00",
+  "primary_used": 1,
+  "weekly_used": 16,
+  "no_user_deadline": true,
+  "no_purchase_or_reset": true
+}
