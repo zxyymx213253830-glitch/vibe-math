@@ -1,0 +1,8 @@
+{
+  "seed": 2026102405,
+  "checks": 322,
+  "status": "PASS calibrated finite controls; not joint-law proof",
+  "reference": "Exact 4D trace determinant/Jacobian; positive-cone algebra; eigenpair formula; Exp(2) x Gamma(3,1); closed maximum CDF; omitted-Jacobian control",
+  "scope": "200000 actual properCN1 central 2x2 matrices; ordered joint spectral density remains unproved",
+  "source_sha256": "20bcfc2b0122e0d3ad81856a915afead9f53eaf3f631274f3959acb7781ae7cb"
+}

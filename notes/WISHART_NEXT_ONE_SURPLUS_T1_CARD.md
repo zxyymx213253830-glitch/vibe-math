@@ -1,4 +1,8 @@
-# General one-surplus central T1 (OPEN)
+# General one-surplus central T1 (CLOSED)
+
+Closed at 822/92ac227 on 2026-10-24: all-n factorial/Gamma determinant,
+literal original Psi and norm ratio, and actual CDF for every n>0.
+See WISHART_ONE_SURPLUS_ORIGINAL_T1.md. Earlier text below is historical.
 
 After 810/1809c98 closes arbitrary-row noncentral single-column T1/T2,
 next target is the ORIGINAL central T1 for (s,t,L)=(n,n+1,0), all n>0.
