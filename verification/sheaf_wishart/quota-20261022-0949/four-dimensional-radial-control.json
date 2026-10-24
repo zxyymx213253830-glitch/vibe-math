@@ -1,0 +1,7 @@
+{
+  "seed": 2026102407,
+  "checks": 97,
+  "status": "PASS calibrated controls; not general proof",
+  "reference": "Exact coordinate split/recovery; Euclidean norm; product of four Gaussian integrals versus R3 radial reduction; sup-norm negative control",
+  "source_sha256": "ddc74ca9a5f26a0dbf3b4abf364a74817df55f3daf3815a8b92b4819d09ffe2f"
+}

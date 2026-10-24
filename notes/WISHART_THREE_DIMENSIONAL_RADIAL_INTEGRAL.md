@@ -2,6 +2,8 @@
 
 One public theorem, Codex proof, final `three-radial` bundle exit0 and standard3axioms. Seed2026102406: 36 calibrated Gamma/Gaussian/ball-volume and negative-factor controls passed before source; not a general proof. One independent literal target and full final-source real Qoder Qwen3.8-Max P4 are bound. Failed v1/v2 sources/logs remain unaccepted.
 
+Acceptance correction: the original checker emitted a nonstandard success marker, so the acceptance guard refused it despite its successful literal-type comparison. Old records/locks/logs and pointer bytes are retained under retired prefixes; the old node is superseded. The new `three-radial-v2` checker changes ONLY the output marker, and reran the same literal type and source through the serial gate. Proof and Qoder hashes are unchanged. A pre-audit attempt also correctly refused a stale specification hash; the subsequent audit and all115 acceptance checks passed. No guard was weakened.
+
 For every measurable f:Real→ENNReal, the integral of f(norm v) over Euclidean R3 equals ofReal(4*pi) times the integral over r>0 of ofReal(r²)*f(r). No integrability or finiteness assumption is imposed. This nonnegative statement can be used in Tonelli and does not totalize divergent real integrals to zero. It reuses mathlib's Haar-to-unit-sphere measure-preserving homeomorphism and exact unit-ball volume, rather than assuming a matrix Weyl formula. Ordered Wishart joint density is still OPEN.
 
 ## P4 adjudication

@@ -1,5 +1,19 @@
 # Actual central 2x2 ordered joint spectrum (OPEN)
 
+2026-10-24 08:00UTC checkpoint a2b2167: 831 bound items, auditPASS/facade124,
+116 acceptances. Trace coordinate actual density (828), nonnegative R3 radial
+integration (829) and every-sample sorted eigenpair=half-trace±radius (831)
+are CLOSED. Do not redo those. Next assemble Fin4 volume as Real×Euclidean R3,
+then nonnegative radial test-function formula, trace/radius density and the
+two-dimensional eigenvalue linear change. Seed2026102407 new split/Gaussian
+controls precede this source. Use Euclidean norm via WithLp.toLp2, NOT Pi sup norm.
+Pinned volume_preserving_piFinSuccAbove (fun _ : Fin4 => Real)0 composed with
+MeasurePreserving.prod id (PiLp.volume_preserving_toLp (Fin3)) supplies the split.
+After this, R3 formula at each fixed trace and Tonelli give the generic radial
+test-function identity. hDensity in T3 interface remains OPEN until actual law.
+
+Historical preflight follows; its 822 checkpoint is not current.
+
 Last accepted 822/92ac227: original central T1 one-surplus all n>0 closed.
 Do not repeat single-column or one-surplus CDFs. Next target closes the
 explicit missing hDensity premise in T3CentralTwoByTwoDensityInterface.
