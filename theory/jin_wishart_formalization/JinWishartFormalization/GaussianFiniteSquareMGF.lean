@@ -19,11 +19,11 @@ theorem gaussianPi_integral_exp_shifted_square_sum {ι : Type*} [Fintype ι]
     congr 1
     rw [Finset.mul_sum, Finset.sum_div]
   simp_rw [hfun]
-  rw [integral_fintype_prod_eq_prod]
+  rw [integral_fintype_prod_eq_prod (fun i x => exp (t*(x+u i)^2/2))]
   simp_rw [gaussianReal_integral_exp_shifted_square _ t ht]
   rw [Finset.prod_mul_distrib, Finset.prod_const, ← exp_sum]
   congr 2
-  rw [Finset.sum_div, Finset.sum_mul]
+  rw [← Finset.sum_div, ← Finset.sum_mul]
 
 theorem gaussianPi_integrable_exp_shifted_square_sum {ι : Type*} [Fintype ι]
     (u : ι → ℝ) (t : ℝ) (ht : t<1) :

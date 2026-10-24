@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-finite-radial-mgf-GaussianFiniteSquareMGF.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-finite-radial-mgf-GaussianFiniteSquareMGF.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/finite-radial-mgf-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-radial-mgf-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-radial-mgf-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-finite-radial-mgf-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/finite-radial-mgf-final-snapshot",
+    "resolution": "notes/WISHART_FINITE_RADIAL_MGF.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-118.receipt.json"
+}

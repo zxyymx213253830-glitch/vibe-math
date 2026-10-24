@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianFiniteSquareMGF.lean:26:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (∑ i ∈ ?s, ?f i) / ?a
+in the target expression
+  ∑ x, u x ^ 2 * t / (2 * (1 - t)) = (∑ i, u i ^ 2) * t / (2 * (1 - t))
+
+case e_a
+ι : Type u_1
+inst✝ : Fintype ι
+u : ι → ℝ
+t : ℝ
+ht : t < 1
+hfun : ∀ (x : ι → ℝ), rexp ((t * ∑ i, (x i + u i) ^ 2) / 2) = ∏ i, rexp (t * (x i + u i) ^ 2 / 2)
+⊢ ∑ x, u x ^ 2 * t / (2 * (1 - t)) = (∑ i, u i ^ 2) * t / (2 * (1 - t))
+'JinWishart.gaussianPi_integral_exp_shifted_square_sum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.gaussianPi_integrable_exp_shifted_square_sum' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

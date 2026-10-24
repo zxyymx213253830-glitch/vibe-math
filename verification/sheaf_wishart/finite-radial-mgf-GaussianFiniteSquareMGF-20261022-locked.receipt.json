@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T06:54:51.860274+00:00",
+  "ended_utc": "2026-10-24T06:55:02.153968+00:00",
+  "module": "JinWishartFormalization.GaussianFiniteSquareMGF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianFiniteSquareMGF.lean",
+  "source_sha256_before": "c3e8f739729f429410e95c893265c858c75a924b92836dc8daa7dada4451497a",
+  "source_sha256": "c3e8f739729f429410e95c893265c858c75a924b92836dc8daa7dada4451497a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/finite-radial-mgf-GaussianFiniteSquareMGF-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "8f3e0cd66a8fa8df28461a5780c33f9b7a372a169a7413fc1891bec468860e25",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

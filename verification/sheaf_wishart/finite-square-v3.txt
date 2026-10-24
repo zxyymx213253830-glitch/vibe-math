@@ -1,0 +1,2 @@
+'JinWishart.gaussianPi_integral_exp_shifted_square_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gaussianPi_integrable_exp_shifted_square_sum' depends on axioms: [propext, Classical.choice, Quot.sound]

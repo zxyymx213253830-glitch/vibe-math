@@ -1,0 +1,20 @@
+{
+  "id": "L-finite-radial-mgf-gaussianPi_integral_exp_shifted_square_sum",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GaussianFiniteSquareMGF",
+  "declaration": "JinWishart.gaussianPi_integral_exp_shifted_square_sum",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-radial-mgf-GaussianFiniteSquareMGF.json",
+    "source_sha256": "c3e8f739729f429410e95c893265c858c75a924b92836dc8daa7dada4451497a"
+  }
+}

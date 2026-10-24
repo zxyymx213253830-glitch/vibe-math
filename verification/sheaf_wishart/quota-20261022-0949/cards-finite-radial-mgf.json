@@ -1,0 +1,61 @@
+[
+  {
+    "tag": "finite-radial-mgf-GaussianFiniteSquareMGF",
+    "module": "GaussianFiniteSquareMGF",
+    "nodes": [
+      [
+        "L-finite-radial-mgf-gaussianPi_integral_exp_shifted_square_sum",
+        "gaussianPi_integral_exp_shifted_square_sum",
+        []
+      ],
+      [
+        "L-finite-radial-mgf-gaussianPi_integrable_exp_shifted_square_sum",
+        "gaussianPi_integrable_exp_shifted_square_sum",
+        [
+          "L-finite-radial-mgf-gaussianPi_integral_exp_shifted_square_sum"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "finite-radial-mgf-EvenRadialWeightedIntegral",
+    "module": "EvenRadialWeightedIntegral",
+    "nodes": [
+      [
+        "L-finite-radial-mgf-evenRadialKernel_scaling",
+        "evenRadialKernel_scaling",
+        [
+          "L-finite-radial-mgf-gaussianPi_integrable_exp_shifted_square_sum"
+        ]
+      ],
+      [
+        "L-finite-radial-mgf-evenRadialKernel_weighted_integral",
+        "evenRadialKernel_weighted_integral",
+        [
+          "L-finite-radial-mgf-evenRadialKernel_scaling"
+        ]
+      ],
+      [
+        "L-finite-radial-mgf-evenRadialKernel_weighted_integrable",
+        "evenRadialKernel_weighted_integrable",
+        [
+          "L-finite-radial-mgf-evenRadialKernel_weighted_integral"
+        ]
+      ],
+      [
+        "L-finite-radial-mgf-evenRadialKernel_mgf_integral",
+        "evenRadialKernel_mgf_integral",
+        [
+          "L-finite-radial-mgf-evenRadialKernel_weighted_integrable"
+        ]
+      ],
+      [
+        "L-finite-radial-mgf-evenRadialKernel_mgf_integrable",
+        "evenRadialKernel_mgf_integrable",
+        [
+          "L-finite-radial-mgf-evenRadialKernel_mgf_integral"
+        ]
+      ]
+    ]
+  }
+]

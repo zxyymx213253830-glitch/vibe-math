@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GaussianFiniteSquareMGF.lean": {
+      "sha256": "c3e8f739729f429410e95c893265c858c75a924b92836dc8daa7dada4451497a",
+      "supplied": "Full source"
+    },
+    "EvenRadialWeightedIntegral.lean": {
+      "sha256": "e0f592c9b3640f1d66c420257902ea05cc15ab33849ab3d418ba7e9eac39e599",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "8e20b7414cde4a3f0249eec8a5222dc99bc68eff82c010b3ce9c89c2b5ea2b0e"
+}

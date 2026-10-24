@@ -1,0 +1,24 @@
+{
+  "id": "L-finite-radial-mgf-evenRadialKernel_mgf_integral",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.EvenRadialWeightedIntegral",
+  "declaration": "JinWishart.evenRadialKernel_mgf_integral",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-finite-radial-mgf-evenRadialKernel_weighted_integrable"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-finite-radial-mgf-evenRadialKernel_weighted_integrable"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-radial-mgf-EvenRadialWeightedIntegral.json",
+    "source_sha256": "e0f592c9b3640f1d66c420257902ea05cc15ab33849ab3d418ba7e9eac39e599"
+  }
+}

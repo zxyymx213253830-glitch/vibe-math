@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T06:53:53.098953+00:00",
+  "ended_utc": "2026-10-24T06:54:02.863188+00:00",
+  "module": "JinWishartFormalization.EvenRadialWeightedIntegral",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/EvenRadialWeightedIntegral.lean",
+  "source_sha256_before": "981d0c18109915ed5831645974099b8c4e7e3a4be0392eef908d84025c39ae2d",
+  "source_sha256": "981d0c18109915ed5831645974099b8c4e7e3a4be0392eef908d84025c39ae2d",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/radial-weighted-v1.txt",
+  "log_exists": true,
+  "log_sha256": "58e5d8ca183d9f4f9c7775d57046e580fabcbd071d3530e8d51417ec73990f7e",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

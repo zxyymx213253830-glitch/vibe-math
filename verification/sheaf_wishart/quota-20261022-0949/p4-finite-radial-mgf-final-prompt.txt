@@ -1,0 +1,123 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE GaussianFiniteSquareMGF.lean
+import JinWishartFormalization.GaussianShiftedSquareMGF
+import Mathlib.MeasureTheory.Integral.Pi
+
+/-! Codex. Seed2026102251 finite-product controls precede source.
+[需人工审查] Product Gaussian/Fubini and finite-dimensional model transport.
+Real raw independent coordinates; empty finite index is allowed. -/
+open MeasureTheory ProbabilityTheory Real
+namespace JinWishart
+noncomputable section
+
+theorem gaussianPi_integral_exp_shifted_square_sum {ι : Type*} [Fintype ι]
+    (u : ι → ℝ) (t : ℝ) (ht : t<1) :
+    (∫ x : ι → ℝ, exp (t*(∑ i,(x i+u i)^2)/2)
+      ∂Measure.pi (fun _ : ι => gaussianReal 0 1)) =
+    ((sqrt (1-t))⁻¹)^Fintype.card ι * exp ((∑ i,(u i)^2)*t/(2*(1-t))) := by
+  have hfun (x : ι → ℝ) : exp (t*(∑ i,(x i+u i)^2)/2) =
+      ∏ i,exp (t*(x i+u i)^2/2) := by
+    rw [← exp_sum]
+    congr 1
+    rw [Finset.mul_sum, Finset.sum_div]
+  simp_rw [hfun]
+  rw [integral_fintype_prod_eq_prod (fun i x => exp (t*(x+u i)^2/2))]
+  simp_rw [gaussianReal_integral_exp_shifted_square _ t ht]
+  rw [Finset.prod_mul_distrib, Finset.prod_const, ← exp_sum]
+  congr 2
+  rw [← Finset.sum_div, ← Finset.sum_mul]
+
+theorem gaussianPi_integrable_exp_shifted_square_sum {ι : Type*} [Fintype ι]
+    (u : ι → ℝ) (t : ℝ) (ht : t<1) :
+    Integrable (fun x : ι → ℝ => exp (t*(∑ i,(x i+u i)^2)/2))
+      (Measure.pi (fun _ : ι => gaussianReal 0 1)) := by
+  apply Integrable.of_integral_ne_zero
+  rw [gaussianPi_integral_exp_shifted_square_sum u t ht]
+  apply ne_of_gt
+  exact mul_pos (pow_pos (inv_pos.2 (sqrt_pos.2 (sub_pos.mpr ht))) _) (exp_pos _)
+
+end
+end JinWishart
+#print axioms JinWishart.gaussianPi_integral_exp_shifted_square_sum
+#print axioms JinWishart.gaussianPi_integrable_exp_shifted_square_sum
+
+SOURCE EvenRadialWeightedIntegral.lean
+import JinWishartFormalization.NaturalNuttallNormalization
+
+/-! Codex. Seed2026102401 controls before source.
+[需人工审查] Positive radial change of scale and weighted integrability.
+Analytic kernel only; no actual general-row sample law is asserted. -/
+open MeasureTheory Set
+namespace JinWishart
+noncomputable section
+
+theorem evenRadialKernel_scaling (q : ℕ) (a r c : ℝ) (hc : 0<c) :
+    c^(2*q+1)*Real.exp ((1-c^2)*r^2/2)*noncentralChiEvenRadialKernel q a r =
+      Real.exp (a^2*(1-c^2)/(2*c^2))*noncentralChiEvenRadialKernel q (a/c) (c*r) := by
+  have hn : c ≠ 0 := ne_of_gt hc
+  have harg : (a/c)*(c*r)=a*r := by field_simp
+  have he : Real.exp ((1-c^2)*r^2/2)*Real.exp (-((r^2+a^2)/2)) =
+      Real.exp (a^2*(1-c^2)/(2*c^2))*Real.exp (-(((c*r)^2+(a/c)^2)/2)) := by
+    rw [← Real.exp_add, ← Real.exp_add]
+    congr 1
+    field_simp
+    <;> ring
+  unfold noncentralChiEvenRadialKernel
+  rw [harg, mul_pow]
+  calc
+    _ = (c^(2*q+1)*r^(2*q+1)/2^q) *
+        (Real.exp ((1-c^2)*r^2/2)*Real.exp (-((r^2+a^2)/2))) *
+        ∑' n : ℕ, ((a*r)^2/4)^n/((n.factorial : ℝ)*((n+q).factorial : ℝ)) := by ring
+    _ = _ := by rw [he];ring
+
+theorem evenRadialKernel_weighted_integral (q : ℕ) (a c : ℝ) (hc : 0<c) :
+    (∫ r in Ioi (0 : ℝ), Real.exp ((1-c^2)*r^2/2)*noncentralChiEvenRadialKernel q a r) =
+      Real.exp (a^2*(1-c^2)/(2*c^2))/c^(2*(q+1)) := by
+  have hn : c ≠ 0 := ne_of_gt hc
+  have hf : (fun r : ℝ => Real.exp ((1-c^2)*r^2/2)*noncentralChiEvenRadialKernel q a r) =
+      fun r => (Real.exp (a^2*(1-c^2)/(2*c^2))/c^(2*q+1))*
+        noncentralChiEvenRadialKernel q (a/c) (c*r) := by
+    funext r
+    rw [div_mul_eq_mul_div]
+    apply (eq_div_iff (pow_ne_zero _ hn)).2
+    simpa [div_mul_eq_mul_div, mul_assoc, mul_comm, mul_left_comm] using
+      evenRadialKernel_scaling q a r c hc
+  rw [hf, integral_const_mul, integral_comp_mul_left_Ioi _ 0 hc, mul_zero,
+    noncentralChiEvenRadialKernel_integral_eq_one, smul_eq_mul, mul_one]
+  rw [show 2*(q+1)=(2*q+1)+1 by omega, pow_succ]
+  field_simp
+  simp [pow_succ, mul_comm]
+
+theorem evenRadialKernel_weighted_integrable (q : ℕ) (a c : ℝ) (hc : 0<c) :
+    IntegrableOn (fun r : ℝ => Real.exp ((1-c^2)*r^2/2)*
+      noncentralChiEvenRadialKernel q a r) (Ioi 0) := by
+  apply Integrable.of_integral_ne_zero
+  rw [evenRadialKernel_weighted_integral q a c hc]
+  exact ne_of_gt (div_pos (Real.exp_pos _) (pow_pos hc _))
+
+theorem evenRadialKernel_mgf_integral (q : ℕ) (a t : ℝ) (ht : t<1) :
+    (∫ r in Ioi (0 : ℝ), Real.exp (t*r^2/2)*noncentralChiEvenRadialKernel q a r) =
+      Real.exp (a^2*t/(2*(1-t)))/(1-t)^(q+1) := by
+  have hp : 0<1-t := sub_pos.mpr ht
+  have hs : (Real.sqrt (1-t))^2=1-t := Real.sq_sqrt hp.le
+  have h := evenRadialKernel_weighted_integral q a (Real.sqrt (1-t)) (Real.sqrt_pos.2 hp)
+  rw [show (Real.sqrt (1-t))^(2*(q+1))=((Real.sqrt (1-t))^2)^(q+1) by
+    rw [pow_mul], hs, show 1-(1-t)=t by ring] at h
+  exact h
+
+theorem evenRadialKernel_mgf_integrable (q : ℕ) (a t : ℝ) (ht : t<1) :
+    IntegrableOn (fun r : ℝ => Real.exp (t*r^2/2)*noncentralChiEvenRadialKernel q a r)
+      (Ioi 0) := by
+  apply Integrable.of_integral_ne_zero
+  rw [evenRadialKernel_mgf_integral q a t ht]
+  exact ne_of_gt (div_pos (Real.exp_pos _) (pow_pos (sub_pos.mpr ht) _))
+
+end
+end JinWishart
+#print axioms JinWishart.evenRadialKernel_scaling
+#print axioms JinWishart.evenRadialKernel_weighted_integral
+#print axioms JinWishart.evenRadialKernel_weighted_integrable
+#print axioms JinWishart.evenRadialKernel_mgf_integral
+#print axioms JinWishart.evenRadialKernel_mgf_integrable

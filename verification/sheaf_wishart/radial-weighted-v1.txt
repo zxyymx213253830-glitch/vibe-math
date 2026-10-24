@@ -1,0 +1,27 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\EvenRadialWeightedIntegral.lean:20:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\EvenRadialWeightedIntegral.lean:31:52: error: unsolved goals
+q : ℕ
+a c : ℝ
+hc : 0 < c
+hn : c ≠ 0
+hf :
+  (fun r => Real.exp ((1 - c ^ 2) * r ^ 2 / 2) * noncentralChiEvenRadialKernel q a r) = fun r =>
+    Real.exp (a ^ 2 * (1 - c ^ 2) / (2 * c ^ 2)) / c ^ (2 * q + 1) * noncentralChiEvenRadialKernel q (a / c) (c * r)
+⊢ c ^ (2 * q + 1 + 1) = c * c ^ (2 * q + 1)
+'JinWishart.evenRadialKernel_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.evenRadialKernel_weighted_integral' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.evenRadialKernel_weighted_integrable' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,8 @@
+{
+  "seed": 2026102401,
+  "checks": 223,
+  "status": "PASS finite controls; not proof",
+  "reference": "Exact hypergeometric kernel scaling; central Gamma integral; missing-Jacobian negative control",
+  "scope": "Real a/r including zero and negative r; positive scale; no actual general-row Gaussian law",
+  "source_sha256": "950736410e801384614697f3de522c2e12884b553d2410d0977ce4f4a83f6c17"
+}

@@ -608,3 +608,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/GaussianShiftedSquareMGF.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_GAUSSIAN_SHIFTED_SQUARE_MGF.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GaussianFiniteSquareMGF.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/EvenRadialWeightedIntegral.lean -text whitespace=cr-at-eol
+
+/experiments/even_radial_scaling_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_FINITE_RADIAL_MGF.md -text whitespace=cr-at-eol

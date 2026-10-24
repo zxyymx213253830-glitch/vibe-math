@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "e0f592c9b3640f1d66c420257902ea05cc15ab33849ab3d418ba7e9eac39e599",
+  "target_lock_sha256": "db57cd5e77777c22191559b6356100289d4a2aeb2aaa93282f12b34b0d0f0ead",
+  "leaf": {
+    "started_utc": "2026-10-24T06:55:02.173068+00:00",
+    "ended_utc": "2026-10-24T06:55:10.989471+00:00",
+    "module": "JinWishartFormalization.EvenRadialWeightedIntegral",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/EvenRadialWeightedIntegral.lean",
+    "source_sha256_before": "e0f592c9b3640f1d66c420257902ea05cc15ab33849ab3d418ba7e9eac39e599",
+    "source_sha256": "e0f592c9b3640f1d66c420257902ea05cc15ab33849ab3d418ba7e9eac39e599",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/finite-radial-mgf-EvenRadialWeightedIntegral-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "14fa623d63124b8889615b9b35bb2b46a9886a1fcc37aed7cb8234c0f6c1996e",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T06:55:10.990704+00:00",
+    "ended_utc": "2026-10-24T06:55:36.866167+00:00",
+    "module": "SheafFiniteRadialMGFTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFiniteRadialMGFTargets.lean",
+    "source_sha256_before": "0b804a92a4b9535f291a783f2d83378707c434a7092da81443c627e7e2069e70",
+    "source_sha256": "0b804a92a4b9535f291a783f2d83378707c434a7092da81443c627e7e2069e70",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/finite-radial-mgf-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}
