@@ -1,0 +1,8 @@
+{
+  "seed": 2026102403,
+  "checks": 55,
+  "status": "PASS exact finite algebra; not a general proof",
+  "reference": "Factorial/Pascal Gram factor; Laguerre polynomial; explicit integer upper-Gamma polynomial; n=0 empty determinant",
+  "scope": "n<=8 exact controls; no new actual probability law and no general determinant proof",
+  "source_sha256": "bdc6ed13400947bfee0503e6fcf389e2b2d45e049a4ea1b4e443737f215e0a0e"
+}

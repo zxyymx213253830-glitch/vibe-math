@@ -1,0 +1,8 @@
+{
+  "seed": 2026102404,
+  "checks": 129,
+  "status": "PASS exact finite controls; not general proof",
+  "reference": "Signed monic factorial-Laguerre orthogonality; arbitrary complex linear moment functional Christoffel identity; tridiagonal/diagonal negative control",
+  "scope": "Orthogonality n<=10, generic complex moment n<=5; positivity not assumed",
+  "source_sha256": "91d542346573b9099628d887376f719ec940533362d856ca31858d2d279f5606"
+}

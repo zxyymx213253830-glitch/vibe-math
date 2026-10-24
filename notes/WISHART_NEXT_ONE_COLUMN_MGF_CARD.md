@@ -1,4 +1,12 @@
-# General one-column actual law via MGF (OPEN)
+# General one-column actual law via MGF (CLOSED)
+
+Closed at 810/1809c98, 2026-10-24: normalized radial probability measure,
+actual finite Gaussian/Euclidean shifted-energy law, all positive-row actual
+one-column CDF, and original unchanged T1/T2 candidates for positive Frobenius
+energy. See WISHART_GENERAL_ONE_COLUMN_ACTUAL.md. Zero means are covered by
+the radial CDF theorem; the L=1 paper formula theorem assumes positive energy.
+Do not repeat this card. Multiple-column noncentral G2 and general T1/T2/T3
+remain open. Earlier text below is historical route planning.
 
 Checkpoint 794/8d18446 (792/dd33ca3): local MGF law uniqueness and actual
 scalar shifted-square Gaussian MGF/integrability are now accepted. These
