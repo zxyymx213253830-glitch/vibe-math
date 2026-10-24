@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:01:36.803361+00:00",
+  "ended_utc": "2026-10-24T07:01:45.139619+00:00",
+  "module": "JinWishartFormalization.GaussianEvenRadialLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianEvenRadialLaw.lean",
+  "source_sha256_before": "01b781cba2fb50cf2d022dc3ecea2e775a4aefd0ce44860cbac9b0e32bf5e103",
+  "source_sha256": "01b781cba2fb50cf2d022dc3ecea2e775a4aefd0ce44860cbac9b0e32bf5e103",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/gaussian-even-law-v3.txt",
+  "log_exists": true,
+  "log_sha256": "320ca8dffb515102404d1a8cd87f99429f2715fff84f9995cf865ac4adc7bc29",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

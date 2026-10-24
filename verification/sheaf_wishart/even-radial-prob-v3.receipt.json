@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T06:59:48.365949+00:00",
+  "ended_utc": "2026-10-24T06:59:56.446883+00:00",
+  "module": "JinWishartFormalization.EvenRadialProbability",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/EvenRadialProbability.lean",
+  "source_sha256_before": "e1d1b1b33194eff0030d350ba2f00b4ddfbf17e274a4fdf2fb0999468804e2e7",
+  "source_sha256": "e1d1b1b33194eff0030d350ba2f00b4ddfbf17e274a4fdf2fb0999468804e2e7",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/even-radial-prob-v3.txt",
+  "log_exists": true,
+  "log_sha256": "adadff3df8c450937d6c8d7242d15c897e1b7a9f4aa4308c70dd639a51535819",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

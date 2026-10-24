@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "01b781cba2fb50cf2d022dc3ecea2e775a4aefd0ce44860cbac9b0e32bf5e103",
+  "target_lock_sha256": "43bb3e0160ae4c3839a03214d22f9f43e38dc199c96364bed90ef934206b64bd",
+  "leaf": {
+    "started_utc": "2026-10-24T07:03:59.484381+00:00",
+    "ended_utc": "2026-10-24T07:04:07.763891+00:00",
+    "module": "JinWishartFormalization.GaussianEvenRadialLaw",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianEvenRadialLaw.lean",
+    "source_sha256_before": "01b781cba2fb50cf2d022dc3ecea2e775a4aefd0ce44860cbac9b0e32bf5e103",
+    "source_sha256": "01b781cba2fb50cf2d022dc3ecea2e775a4aefd0ce44860cbac9b0e32bf5e103",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/general-one-column-GaussianEvenRadialLaw-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "320ca8dffb515102404d1a8cd87f99429f2715fff84f9995cf865ac4adc7bc29",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T07:04:16.286762+00:00",
+    "ended_utc": "2026-10-24T07:04:26.162015+00:00",
+    "module": "SheafGeneralOneColumnTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafGeneralOneColumnTargets.lean",
+    "source_sha256_before": "9eb2d499e908416827d520e33443a272439b5255236f3509c4873e8318f6fbaa",
+    "source_sha256": "9eb2d499e908416827d520e33443a272439b5255236f3509c4873e8318f6fbaa",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/general-one-column-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

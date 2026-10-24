@@ -1,0 +1,44 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:36:2: error: unsolved goals
+ι : Type u_1
+inst✝ : Fintype ι
+q : ℕ
+hdim : Fintype.card ι = 2 * (q + 1)
+u : ι → ℝ
+a : ℝ
+ha : a ^ 2 = ∑ i, u i ^ 2
+μ : Measure (ι → ℝ) := Measure.pi fun x => gaussianReal 0 1
+X : (ι → ℝ) → ℝ := fun x => (∑ i, (x i + u i) ^ 2) / 2
+Y : ℝ → ℝ := fun r => r ^ 2 / 2
+hIX : ∀ t < 1, Integrable (fun x => Real.exp (t * X x)) μ
+hIY : ∀ t < 1, Integrable (fun r => Real.exp (t * Y r)) (evenRadialMeasure q a)
+t : ℝ
+ht : t ∈ Iio 1
+hp : 0 ≤ 1 - t
+hG :
+  (∫ (x : ι → ℝ), Real.exp ((t * ∑ i, (x i + u i) ^ 2) / 2) ∂Measure.pi fun x => gaussianReal 0 1) =
+    (√(1 - t))⁻¹ ^ Fintype.card ι * Real.exp ((∑ i, u i ^ 2) * t / (2 * (1 - t)))
+hR : mgf Y (evenRadialMeasure q a) t = Real.exp (a ^ 2 * t / (2 * (1 - t))) / (1 - t) ^ (q + 1)
+⊢ Real.exp (t * a ^ 2 * ((1 - t)⁻¹ * 2⁻¹)) * ((√(1 - t) ^ (q + 1)) ^ 2)⁻¹ =
+    ((1 - t) ^ (q + 1))⁻¹ * Real.exp (t * a ^ 2 * ((1 - t)⁻¹ * 2⁻¹))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:46:34: warning: This simp argument is unused:
+  Real.sq_sqrt hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hdim, pow_mul, inv_pow, div_eq_mul_inv, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:53:8: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [EuclideanSpace.real_norm_sq_eq]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:58:8: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [EuclideanSpace.real_norm_sq_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.gaussianPi_energy_eq_evenRadialLaw' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_energy_eq_evenRadialLaw' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

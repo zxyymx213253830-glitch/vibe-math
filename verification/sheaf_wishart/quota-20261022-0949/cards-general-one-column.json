@@ -1,0 +1,81 @@
+[
+  {
+    "tag": "general-one-column-EvenRadialProbability",
+    "module": "EvenRadialProbability",
+    "nodes": [
+      [
+        "L-general-one-column-evenRadialMeasure_isProbabilityMeasure",
+        "evenRadialMeasure_isProbabilityMeasure",
+        []
+      ],
+      [
+        "L-general-one-column-evenRadialMeasure_integral",
+        "evenRadialMeasure_integral",
+        [
+          "L-general-one-column-evenRadialMeasure_isProbabilityMeasure"
+        ]
+      ],
+      [
+        "L-general-one-column-evenRadialMeasure_mgf",
+        "evenRadialMeasure_mgf",
+        [
+          "L-general-one-column-evenRadialMeasure_integral"
+        ]
+      ],
+      [
+        "L-general-one-column-evenRadialMeasure_integrable_exp_energy",
+        "evenRadialMeasure_integrable_exp_energy",
+        [
+          "L-general-one-column-evenRadialMeasure_mgf"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "general-one-column-GaussianEvenRadialLaw",
+    "module": "GaussianEvenRadialLaw",
+    "nodes": [
+      [
+        "L-general-one-column-gaussianPi_energy_eq_evenRadialLaw",
+        "gaussianPi_energy_eq_evenRadialLaw",
+        [
+          "L-general-one-column-evenRadialMeasure_integrable_exp_energy"
+        ]
+      ],
+      [
+        "L-general-one-column-stdGaussian_energy_eq_evenRadialLaw",
+        "stdGaussian_energy_eq_evenRadialLaw",
+        [
+          "L-general-one-column-gaussianPi_energy_eq_evenRadialLaw"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "general-one-column-GeneralOneColumnActualCDF",
+    "module": "GeneralOneColumnActualCDF",
+    "nodes": [
+      [
+        "L-general-one-column-evenRadialMeasure_energyCDF",
+        "evenRadialMeasure_energyCDF",
+        [
+          "L-general-one-column-stdGaussian_energy_eq_evenRadialLaw"
+        ]
+      ],
+      [
+        "L-general-one-column-noncentralColumnCDF_eq_generalRadialIntegral",
+        "noncentralColumnCDF_eq_generalRadialIntegral",
+        [
+          "L-general-one-column-evenRadialMeasure_energyCDF"
+        ]
+      ],
+      [
+        "L-general-one-column-theorem12OneColumnCandidates_eq_actualCDF_frobenius",
+        "theorem12OneColumnCandidates_eq_actualCDF_frobenius",
+        [
+          "L-general-one-column-noncentralColumnCDF_eq_generalRadialIntegral"
+        ]
+      ]
+    ]
+  }
+]

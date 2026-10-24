@@ -1,0 +1,8 @@
+{
+  "seed": 2026102402,
+  "checks": 176,
+  "status": "PASS calibrated finite controls; not a law proof",
+  "reference": "Noncentral chi-square CDF versus explicit Poisson/Gamma mixture; central Gamma; fixed-direction shifted Gaussian samples; factor-two negative control",
+  "scope": "Arbitrary positive complex row count target, real dimension 2*(q+1), source/law bridge still required",
+  "source_sha256": "dfc8da1b0fbe948a039cec150e48bfc4f6375c0df6e167d75f3d979c1b99f2ef"
+}

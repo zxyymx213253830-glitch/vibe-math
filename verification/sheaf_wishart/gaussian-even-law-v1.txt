@@ -1,0 +1,48 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:29:10: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  IsOpen.mem_nhds isOpen_Iio ?m.1987
+has type `(𝓝 0).1 (Iio 1)` which does not have the necessary form.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:31:10: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  IsOpen.mem_nhds isOpen_Iio ?m.2013
+has type `(𝓝 0).1 (Iio 1)` which does not have the necessary form.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:41:68: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ι → ℝ), Real.exp ((t * ∑ i, (x i + u i) ^ 2) / 2) ∂Measure.pi fun x => gaussianReal 0 1
+in the target expression
+  (∫ (x : ι → ℝ), Real.exp (t * ((∑ i, (x i + u i) ^ 2) / 2)) ∂Measure.pi fun x => gaussianReal 0 1) =
+    Real.exp (a ^ 2 * (t / (2 * (1 - t)))) / (1 - t) ^ (q + 1)
+
+ι : Type u_1
+inst✝ : Fintype ι
+q : ℕ
+hdim : Fintype.card ι = 2 * (q + 1)
+u : ι → ℝ
+a : ℝ
+ha : a ^ 2 = ∑ i, u i ^ 2
+μ : Measure (ι → ℝ) := Measure.pi fun x => gaussianReal 0 1
+X : (ι → ℝ) → ℝ := fun x => (∑ i, (x i + u i) ^ 2) / 2
+Y : ℝ → ℝ := fun r => r ^ 2 / 2
+hIX : ∀ t < 1, Integrable (fun x => Real.exp (t * X x)) μ
+hIY : ∀ t < 1, Integrable (fun r => Real.exp (t * Y r)) (evenRadialMeasure q a)
+t : ℝ
+ht : t ∈ Iio 1
+hp : 0 ≤ 1 - t
+hG :
+  (∫ (x : ι → ℝ), Real.exp ((t * ∑ i, (x i + u i) ^ 2) / 2) ∂Measure.pi fun x => gaussianReal 0 1) =
+    (√(1 - t))⁻¹ ^ Fintype.card ι * Real.exp ((∑ i, u i ^ 2) * t / (2 * (1 - t)))
+hR : mgf Y (evenRadialMeasure q a) t = Real.exp (a ^ 2 * t / (2 * (1 - t))) / (1 - t) ^ (q + 1)
+⊢ (∫ (x : ι → ℝ), Real.exp (t * ((∑ i, (x i + u i) ^ 2) / 2)) ∂Measure.pi fun x => gaussianReal 0 1) =
+    Real.exp (a ^ 2 * (t / (2 * (1 - t)))) / (1 - t) ^ (q + 1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:49:8: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [EuclideanSpace.real_norm_sq_eq]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GaussianEvenRadialLaw.lean:54:8: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [EuclideanSpace.real_norm_sq_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.gaussianPi_energy_eq_evenRadialLaw' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.stdGaussian_energy_eq_evenRadialLaw' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

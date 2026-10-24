@@ -1,0 +1,20 @@
+{
+  "id": "L-general-one-column-evenRadialMeasure_isProbabilityMeasure",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.EvenRadialProbability",
+  "declaration": "JinWishart.evenRadialMeasure_isProbabilityMeasure",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-general-one-column-EvenRadialProbability.json",
+    "source_sha256": "e1d1b1b33194eff0030d350ba2f00b4ddfbf17e274a4fdf2fb0999468804e2e7"
+  }
+}

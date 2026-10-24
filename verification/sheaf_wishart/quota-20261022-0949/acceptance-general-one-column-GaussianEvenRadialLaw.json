@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-general-one-column-GaussianEvenRadialLaw.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-general-one-column-GaussianEvenRadialLaw.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/general-one-column-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-general-one-column-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-general-one-column-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-general-one-column-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/general-one-column-final-snapshot",
+    "resolution": "notes/WISHART_GENERAL_ONE_COLUMN_ACTUAL.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-119.receipt.json"
+}

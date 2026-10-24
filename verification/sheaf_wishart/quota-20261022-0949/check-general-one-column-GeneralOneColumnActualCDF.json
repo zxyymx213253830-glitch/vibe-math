@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "57087a541318cc9ed63bc2582c7fac0e7c82e3e80593d20a4c174547d99272af",
+  "target_lock_sha256": "7e6cf1c38f5b99c69c5b4e6913749a5c6d1d40f13b6b9e560a9cdda541364f3b",
+  "leaf": {
+    "started_utc": "2026-10-24T07:04:07.790404+00:00",
+    "ended_utc": "2026-10-24T07:04:16.285584+00:00",
+    "module": "JinWishartFormalization.GeneralOneColumnActualCDF",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/GeneralOneColumnActualCDF.lean",
+    "source_sha256_before": "57087a541318cc9ed63bc2582c7fac0e7c82e3e80593d20a4c174547d99272af",
+    "source_sha256": "57087a541318cc9ed63bc2582c7fac0e7c82e3e80593d20a4c174547d99272af",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/general-one-column-GeneralOneColumnActualCDF-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "78c9a33cfaf7e01dd21a44258514432a9ed8c42130172a350831b3bee839ea7f",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T07:04:16.286762+00:00",
+    "ended_utc": "2026-10-24T07:04:26.162015+00:00",
+    "module": "SheafGeneralOneColumnTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafGeneralOneColumnTargets.lean",
+    "source_sha256_before": "9eb2d499e908416827d520e33443a272439b5255236f3509c4873e8318f6fbaa",
+    "source_sha256": "9eb2d499e908416827d520e33443a272439b5255236f3509c4873e8318f6fbaa",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/general-one-column-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

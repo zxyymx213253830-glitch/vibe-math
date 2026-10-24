@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:03:12.677743+00:00",
+  "ended_utc": "2026-10-24T07:03:21.537809+00:00",
+  "module": "JinWishartFormalization.GeneralOneColumnActualCDF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GeneralOneColumnActualCDF.lean",
+  "source_sha256_before": "57087a541318cc9ed63bc2582c7fac0e7c82e3e80593d20a4c174547d99272af",
+  "source_sha256": "57087a541318cc9ed63bc2582c7fac0e7c82e3e80593d20a4c174547d99272af",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/general-one-column-v1.txt",
+  "log_exists": true,
+  "log_sha256": "78c9a33cfaf7e01dd21a44258514432a9ed8c42130172a350831b3bee839ea7f",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

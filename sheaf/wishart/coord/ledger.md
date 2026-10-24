@@ -116,3 +116,6 @@
 - 2026-10-23T11:38:29.231742+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-shifted-square-GaussianShiftedSquareMGF.json; human measure/model review remains REQUIRED.
 - 2026-10-24T06:57:32.961942+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-radial-mgf-GaussianFiniteSquareMGF.json; human measure/model review remains REQUIRED.
 - 2026-10-24T06:57:43.758317+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-finite-radial-mgf-EvenRadialWeightedIntegral.json; human measure/model review remains REQUIRED.
+- 2026-10-24T07:07:06.639929+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-general-one-column-EvenRadialProbability.json; human measure/model review remains REQUIRED.
+- 2026-10-24T07:07:18.497514+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-general-one-column-GaussianEvenRadialLaw.json; human measure/model review remains REQUIRED.
+- 2026-10-24T07:07:29.868180+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-general-one-column-GeneralOneColumnActualCDF.json; human measure/model review remains REQUIRED.

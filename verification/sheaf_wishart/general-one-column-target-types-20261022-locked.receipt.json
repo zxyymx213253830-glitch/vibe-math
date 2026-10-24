@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:04:16.286762+00:00",
+  "ended_utc": "2026-10-24T07:04:26.162015+00:00",
+  "module": "SheafGeneralOneColumnTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafGeneralOneColumnTargets.lean",
+  "source_sha256_before": "9eb2d499e908416827d520e33443a272439b5255236f3509c4873e8318f6fbaa",
+  "source_sha256": "9eb2d499e908416827d520e33443a272439b5255236f3509c4873e8318f6fbaa",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/general-one-column-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

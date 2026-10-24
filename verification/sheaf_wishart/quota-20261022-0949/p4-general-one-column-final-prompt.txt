@@ -1,0 +1,218 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE EvenRadialProbability.lean
+import JinWishartFormalization.EvenRadialWeightedIntegral
+import Mathlib.Probability.Moments.Basic
+
+/-! Codex. Seed2026102402 controls before source.
+[需人工审查] Density measure, AE positivity and weighted Bochner conversion.
+The measure constructed here is not yet identified with an actual sample law. -/
+open MeasureTheory ProbabilityTheory Set
+namespace JinWishart
+noncomputable section
+
+def evenRadialMeasure (q : ℕ) (a : ℝ) : Measure ℝ :=
+  (volume.restrict (Ioi (0 : ℝ))).withDensity
+    (fun r => ENNReal.ofReal (noncentralChiEvenRadialKernel q a r))
+
+private theorem radialKernel_nonneg_ae (q : ℕ) (a : ℝ) :
+    0 ≤ᵐ[volume.restrict (Ioi (0 : ℝ))] noncentralChiEvenRadialKernel q a := by
+  filter_upwards [ae_restrict_mem measurableSet_Ioi] with r hr
+  unfold noncentralChiEvenRadialKernel
+  apply mul_nonneg
+  · exact mul_nonneg (div_nonneg (pow_nonneg (le_of_lt hr) _) (by positivity)) (Real.exp_pos _).le
+  · exact tsum_nonneg (fun n => by positivity)
+
+theorem evenRadialMeasure_isProbabilityMeasure (q : ℕ) (a : ℝ) :
+    IsProbabilityMeasure (evenRadialMeasure q a) := by
+  constructor
+  change ((volume.restrict (Ioi (0 : ℝ))).withDensity
+    (fun r => ENNReal.ofReal (noncentralChiEvenRadialKernel q a r))) univ=1
+  rw [withDensity_apply _ MeasurableSet.univ, setLIntegral_univ,
+    ← ofReal_integral_eq_lintegral_ofReal (integrableOn_noncentralChiEvenRadialKernel q a)
+      (radialKernel_nonneg_ae q a), noncentralChiEvenRadialKernel_integral_eq_one]
+  norm_num
+attribute [instance] evenRadialMeasure_isProbabilityMeasure
+
+theorem evenRadialMeasure_integral (q : ℕ) (a : ℝ) (f : ℝ → ℝ) :
+    (∫ r, f r ∂evenRadialMeasure q a) =
+      ∫ r in Ioi (0 : ℝ), noncentralChiEvenRadialKernel q a r*f r := by
+  unfold evenRadialMeasure
+  rw [integral_withDensity_eq_integral_toReal_smul₀
+    ((integrableOn_noncentralChiEvenRadialKernel q a).aemeasurable.ennreal_ofReal)
+    (ae_of_all _ (fun _ => ENNReal.ofReal_lt_top))]
+  apply integral_congr_ae
+  filter_upwards [radialKernel_nonneg_ae q a] with r hr
+  rw [ENNReal.toReal_ofReal hr, smul_eq_mul]
+
+theorem evenRadialMeasure_mgf (q : ℕ) (a t : ℝ) (ht : t<1) :
+    mgf (fun r : ℝ => r^2/2) (evenRadialMeasure q a) t =
+      Real.exp (a^2*t/(2*(1-t)))/(1-t)^(q+1) := by
+  unfold mgf
+  rw [evenRadialMeasure_integral]
+  simpa only [mul_div_assoc, mul_comm] using evenRadialKernel_mgf_integral q a t ht
+
+theorem evenRadialMeasure_integrable_exp_energy (q : ℕ) (a t : ℝ) (ht : t<1) :
+    Integrable (fun r : ℝ => Real.exp (t*(r^2/2))) (evenRadialMeasure q a) := by
+  apply Integrable.of_integral_ne_zero
+  change mgf (fun r : ℝ => r^2/2) (evenRadialMeasure q a) t ≠ 0
+  rw [evenRadialMeasure_mgf q a t ht]
+  exact ne_of_gt (div_pos (Real.exp_pos _) (pow_pos (sub_pos.mpr ht) _))
+
+end
+end JinWishart
+#print axioms JinWishart.evenRadialMeasure_isProbabilityMeasure
+#print axioms JinWishart.evenRadialMeasure_integral
+#print axioms JinWishart.evenRadialMeasure_mgf
+#print axioms JinWishart.evenRadialMeasure_integrable_exp_energy
+
+SOURCE GaussianEvenRadialLaw.lean
+import JinWishartFormalization.GaussianFiniteSquareMGF
+import JinWishartFormalization.EvenRadialProbability
+import JinWishartFormalization.LocalMGFLawUniqueness
+import Mathlib.Probability.Distributions.Gaussian.Multivariate
+
+/-! Codex. Seed2026102402 controls before source.
+[需人工审查] Same-law identification via local MGFs, raw/Euclidean coordinates.
+No sphere-chart integration or unproved noncentral mixture-law assumption. -/
+open MeasureTheory ProbabilityTheory Filter Set
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem gaussianPi_energy_eq_evenRadialLaw {ι : Type*} [Fintype ι]
+    (q : ℕ) (hdim : Fintype.card ι=2*(q+1)) (u : ι → ℝ) (a : ℝ)
+    (ha : a^2=∑ i,(u i)^2) :
+    (Measure.pi (fun _ : ι => gaussianReal 0 1)).map
+      (fun x : ι → ℝ => (∑ i,(x i+u i)^2)/2) =
+    (evenRadialMeasure q a).map (fun r : ℝ => r^2/2) := by
+  let μ := Measure.pi (fun _ : ι => gaussianReal 0 1)
+  let X := fun x : ι → ℝ => (∑ i,(x i+u i)^2)/2
+  let Y := fun r : ℝ => r^2/2
+  have hIX (t : ℝ) (ht : t<1) : Integrable (fun x => Real.exp (t*X x)) μ := by
+    simpa only [X, μ, mul_div_assoc] using gaussianPi_integrable_exp_shifted_square_sum u t ht
+  have hIY (t : ℝ) (ht : t<1) : Integrable (fun r => Real.exp (t*Y r)) (evenRadialMeasure q a) :=
+    evenRadialMeasure_integrable_exp_energy q a t ht
+  apply map_eq_of_mgf_eventuallyEq_zero (X := X) (Y := Y) (by fun_prop) (by fun_prop)
+  · apply mem_interior_iff_mem_nhds.2
+    change ∀ᶠ t in 𝓝 (0 : ℝ), Integrable (fun x => Real.exp (t*X x)) μ
+    filter_upwards [isOpen_Iio.mem_nhds (by norm_num : (0 : ℝ) ∈ Iio 1)] with t ht
+    exact hIX t ht
+  · apply mem_interior_iff_mem_nhds.2
+    change ∀ᶠ t in 𝓝 (0 : ℝ), Integrable (fun r => Real.exp (t*Y r)) (evenRadialMeasure q a)
+    filter_upwards [isOpen_Iio.mem_nhds (by norm_num : (0 : ℝ) ∈ Iio 1)] with t ht
+    exact hIY t ht
+  · filter_upwards [isOpen_Iio.mem_nhds (by norm_num : (0 : ℝ) ∈ Iio 1)] with t ht
+    have hp : 0≤1-t := le_of_lt (sub_pos.mpr ht)
+    change (∫ x : ι → ℝ, Real.exp (t*X x) ∂μ) = _
+    have hG := gaussianPi_integral_exp_shifted_square_sum u t ht
+    have hR := evenRadialMeasure_mgf q a t ht
+    change mgf Y (evenRadialMeasure q a) t = _ at hR
+    rw [hR]
+    change (∫ x : ι → ℝ, Real.exp (t*((∑ i,(x i+u i)^2)/2)) ∂μ) = _
+    simp only [← mul_div_assoc]
+    rw [show μ=Measure.pi (fun _ : ι => gaussianReal 0 1) from rfl, hG, ← ha]
+    have hpow : ((Real.sqrt (1-t))⁻¹)^Fintype.card ι=((1-t)^(q+1))⁻¹ := by
+      rw [hdim, pow_mul, inv_pow, Real.sq_sqrt hp, inv_pow]
+    rw [hpow]
+    ring
+
+theorem stdGaussian_energy_eq_evenRadialLaw {ι : Type*} [Fintype ι]
+    (q : ℕ) (hdim : Fintype.card ι=2*(q+1)) (u : EuclideanSpace ℝ ι) :
+    (stdGaussian (EuclideanSpace ℝ ι)).map (fun z => ‖z+u‖^2/2) =
+      (evenRadialMeasure q ‖u‖).map (fun r : ℝ => r^2/2) := by
+  have h := gaussianPi_energy_eq_evenRadialLaw q hdim (fun i => u i) ‖u‖
+    (by simpa only [EuclideanSpace.real_norm_sq_eq])
+  rw [← map_pi_eq_stdGaussian, Measure.map_map (by fun_prop) (by fun_prop)]
+  convert h using 1
+  congr 1
+  funext x
+  simp [Function.comp_def, EuclideanSpace.real_norm_sq_eq]
+
+end
+end JinWishart
+#print axioms JinWishart.gaussianPi_energy_eq_evenRadialLaw
+#print axioms JinWishart.stdGaussian_energy_eq_evenRadialLaw
+
+SOURCE GeneralOneColumnActualCDF.lean
+import JinWishartFormalization.GaussianEvenRadialLaw
+import JinWishartFormalization.NoncentralOneColumnEnergy
+import JinWishartFormalization.OneColumnRadialCDF
+import JinWishartFormalization.OneColumnFrobeniusParameter
+
+/-! Codex. Seed2026102402 controls before source.
+[需人工审查] Radial energy sublevel, physical CN1 scaling and original T1/T2.
+All positive row counts; zero means allowed for radial CDF, nonzero for L=1 formulas. -/
+open MeasureTheory ProbabilityTheory Set
+namespace JinWishart
+noncomputable section
+
+theorem evenRadialMeasure_energyCDF (q : ℕ) (a x : ℝ) (hx : 0≤x) :
+    cdf ((evenRadialMeasure q a).map (fun r : ℝ => r^2/2)) x =
+      ∫ r in Ioc (0 : ℝ) (Real.sqrt (2*x)), noncentralChiEvenRadialKernel q a r := by
+  have hs : MeasurableSet ((fun r : ℝ => r^2/2) ⁻¹' Iic x) :=
+    measurableSet_Iic.preimage (by fun_prop)
+  have hset : ((fun r : ℝ => r^2/2) ⁻¹' Iic x) ∩ Ioi 0 = Ioc 0 (Real.sqrt (2*x)) := by
+    ext r
+    simp only [mem_inter_iff, mem_preimage, mem_Iic, mem_Ioi, mem_Ioc]
+    have hR := Real.sqrt_nonneg (2*x)
+    have hR2 := Real.sq_sqrt (show 0≤2*x by positivity)
+    constructor
+    · rintro ⟨he,hr⟩
+      exact ⟨hr, by nlinarith⟩
+    · rintro ⟨hr,he⟩
+      exact ⟨by nlinarith,hr⟩
+  rw [cdf_eq_real, measureReal_def, Measure.map_apply (by fun_prop) measurableSet_Iic]
+  unfold evenRadialMeasure
+  rw [withDensity_apply _ hs, Measure.restrict_restrict hs, hset]
+  have hI : IntegrableOn (noncentralChiEvenRadialKernel q a)
+      (Ioc 0 (Real.sqrt (2*x))) :=
+    (integrableOn_noncentralChiEvenRadialKernel q a).mono_set (fun _ hr => hr.1)
+  have hnn : 0 ≤ᵐ[volume.restrict (Ioc 0 (Real.sqrt (2*x)))] noncentralChiEvenRadialKernel q a := by
+    filter_upwards [ae_restrict_mem measurableSet_Ioc] with r hr
+    unfold noncentralChiEvenRadialKernel
+    apply mul_nonneg
+    · exact mul_nonneg (div_nonneg (pow_nonneg (le_of_lt hr.1) _) (by positivity)) (Real.exp_pos _).le
+    · exact tsum_nonneg (fun n => by positivity)
+  rw [← ofReal_integral_eq_lintegral_ofReal hI hnn,
+    ENNReal.toReal_ofReal (integral_nonneg_of_ae hnn)]
+
+theorem noncentralColumnCDF_eq_generalRadialIntegral {m : ℕ} (hm : 0<m)
+    (M : Matrix (Fin m) (Fin 1) ℂ) (x : ℝ) (hx : 0≤x) :
+    cdf ((stdGaussian (ComplexSample (m := m) (n := 1))).map
+      (complexNoncentralSampleSmallestEigenvalue M (by norm_num))) x =
+    ∫ r in Ioc (0 : ℝ) (Real.sqrt (2*x)),
+      noncentralChiEvenRadialKernel (m-1) ‖complexSampleMean M‖ r := by
+  have hd : Fintype.card (((Fin m × Fin 1) × Fin 2))=2*((m-1)+1) := by simp;omega
+  have hLaw := stdGaussian_energy_eq_evenRadialLaw (m-1) hd (complexSampleMean M)
+  have hf : complexNoncentralSampleSmallestEigenvalue M (by norm_num) =
+      fun z => ‖z+complexSampleMean M‖^2/2 :=
+    funext (complexNoncentralColumnSmallestEigenvalue_eq_shiftedEnergy hm M)
+  rw [hf,hLaw,evenRadialMeasure_energyCDF _ _ _ hx]
+
+theorem theorem12OneColumnCandidates_eq_actualCDF_frobenius {m : ℕ} (hm : 0<m)
+    (M : Matrix (Fin m) (Fin 1) ℂ) (x : ℝ)
+    (hEnergy : 0<∑ i : Fin m,‖M i 0‖^2) (hx : 0≤x) :
+    let lambda := ∑ i : Fin m,‖M i 0‖^2
+    let F := cdf ((stdGaussian (ComplexSample (m := m) (n := 1))).map
+      (complexNoncentralSampleSmallestEigenvalue M (by norm_num))) x
+    theorem1CdfCandidate 1 m 1 (by omega) (by omega) (fun _ : Fin 1 => lambda) x=F ∧
+      theorem2CdfCandidate 1 m 1 (by omega) (by omega) (fun _ : Fin 1 => lambda) x=F := by
+  intro lambda F
+  have h := theorem12OneColumnCandidates_eq_radialCDF m (by omega) lambda x hEnergy hx
+  have hn : ‖complexSampleMean M‖=Real.sqrt (2*lambda) := by
+    have hsq := complexSampleMean_oneColumn_norm_sq_eq_twice_frobenius M
+    change ‖complexSampleMean M‖^2=2*lambda at hsq
+    rw [← hsq,Real.sqrt_sq_eq_abs,abs_of_nonneg (norm_nonneg _)]
+  have hF : F=∫ r in Ioc (0 : ℝ) (Real.sqrt (2*x)),
+      noncentralChiEvenRadialKernel (m-1) (Real.sqrt (2*lambda)) r := by
+    dsimp only [F]
+    rw [noncentralColumnCDF_eq_generalRadialIntegral hm M x hx,hn]
+  exact ⟨h.1.trans hF.symm,h.2.trans hF.symm⟩
+
+end
+end JinWishart
+#print axioms JinWishart.evenRadialMeasure_energyCDF
+#print axioms JinWishart.noncentralColumnCDF_eq_generalRadialIntegral
+#print axioms JinWishart.theorem12OneColumnCandidates_eq_actualCDF_frobenius

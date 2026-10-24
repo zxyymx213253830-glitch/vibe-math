@@ -1,0 +1,24 @@
+{
+  "id": "L-general-one-column-evenRadialMeasure_energyCDF",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GeneralOneColumnActualCDF",
+  "declaration": "JinWishart.evenRadialMeasure_energyCDF",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-general-one-column-stdGaussian_energy_eq_evenRadialLaw"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-general-one-column-stdGaussian_energy_eq_evenRadialLaw"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-general-one-column-GeneralOneColumnActualCDF.json",
+    "source_sha256": "57087a541318cc9ed63bc2582c7fac0e7c82e3e80593d20a4c174547d99272af"
+  }
+}

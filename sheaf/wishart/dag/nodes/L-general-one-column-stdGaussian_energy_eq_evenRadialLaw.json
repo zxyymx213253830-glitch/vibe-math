@@ -1,0 +1,24 @@
+{
+  "id": "L-general-one-column-stdGaussian_energy_eq_evenRadialLaw",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GaussianEvenRadialLaw",
+  "declaration": "JinWishart.stdGaussian_energy_eq_evenRadialLaw",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-general-one-column-gaussianPi_energy_eq_evenRadialLaw"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-general-one-column-gaussianPi_energy_eq_evenRadialLaw"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-general-one-column-GaussianEvenRadialLaw.json",
+    "source_sha256": "01b781cba2fb50cf2d022dc3ecea2e775a4aefd0ce44860cbac9b0e32bf5e103"
+  }
+}

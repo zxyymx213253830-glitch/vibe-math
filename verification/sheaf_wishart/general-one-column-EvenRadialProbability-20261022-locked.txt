@@ -1,0 +1,4 @@
+'JinWishart.evenRadialMeasure_isProbabilityMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.evenRadialMeasure_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.evenRadialMeasure_mgf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.evenRadialMeasure_integrable_exp_energy' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "e1d1b1b33194eff0030d350ba2f00b4ddfbf17e274a4fdf2fb0999468804e2e7",
+  "target_lock_sha256": "eb6fda7723e5697453bbd94a746d35b1a7b48ede7225b651cc8daee4e734e5f0",
+  "leaf": {
+    "started_utc": "2026-10-24T07:03:51.270155+00:00",
+    "ended_utc": "2026-10-24T07:03:59.460911+00:00",
+    "module": "JinWishartFormalization.EvenRadialProbability",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/EvenRadialProbability.lean",
+    "source_sha256_before": "e1d1b1b33194eff0030d350ba2f00b4ddfbf17e274a4fdf2fb0999468804e2e7",
+    "source_sha256": "e1d1b1b33194eff0030d350ba2f00b4ddfbf17e274a4fdf2fb0999468804e2e7",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/general-one-column-EvenRadialProbability-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "adadff3df8c450937d6c8d7242d15c897e1b7a9f4aa4308c70dd639a51535819",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T07:04:16.286762+00:00",
+    "ended_utc": "2026-10-24T07:04:26.162015+00:00",
+    "module": "SheafGeneralOneColumnTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafGeneralOneColumnTargets.lean",
+    "source_sha256_before": "9eb2d499e908416827d520e33443a272439b5255236f3509c4873e8318f6fbaa",
+    "source_sha256": "9eb2d499e908416827d520e33443a272439b5255236f3509c4873e8318f6fbaa",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/general-one-column-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

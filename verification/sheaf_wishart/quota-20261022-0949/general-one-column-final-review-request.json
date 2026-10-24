@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "EvenRadialProbability.lean": {
+      "sha256": "e1d1b1b33194eff0030d350ba2f00b4ddfbf17e274a4fdf2fb0999468804e2e7",
+      "supplied": "Full source"
+    },
+    "GaussianEvenRadialLaw.lean": {
+      "sha256": "01b781cba2fb50cf2d022dc3ecea2e775a4aefd0ce44860cbac9b0e32bf5e103",
+      "supplied": "Full source"
+    },
+    "GeneralOneColumnActualCDF.lean": {
+      "sha256": "57087a541318cc9ed63bc2582c7fac0e7c82e3e80593d20a4c174547d99272af",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "1a14f027704a6704a592d1fb46af938c9c49c863f500155c3fa1af2db96d9de2"
+}
