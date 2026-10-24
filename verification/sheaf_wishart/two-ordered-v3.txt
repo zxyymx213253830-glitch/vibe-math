@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoOrderedEigenpair.lean:38:4: error: Type mismatch
+  Eq.trans hs (Eq.symm ht)
+has type
+  ∑ j, hA.eigenvalues₀ j = (A 0 0).re + (A 1 1).re
+but is expected to have type
+  hA.eigenvalues₀ 0 + hA.eigenvalues₀ 1 = (A 0 0).re + (A 1 1).re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoOrderedEigenpair.lean:42:4: error: Type mismatch
+  Eq.trans hp (Eq.symm hd)
+has type
+  ∏ j, hA.eigenvalues₀ j = A.det.re
+but is expected to have type
+  hA.eigenvalues₀ 0 * hA.eigenvalues₀ 1 = A.det.re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoOrderedEigenpair.lean:67:4: error: Type mismatch: After simplification, term
+  h.right
+ has type
+  @Eq ℝ (⋯.eigenvalues₀ 1)
+    (((complexGram (complexSampleMatrix z) 0 0).re + (complexGram (complexSampleMatrix z) 1 1).re) / 2 -
+      ‖!₂[((complexGram (complexSampleMatrix z) 0 0).re - (complexGram (complexSampleMatrix z) 1 1).re) / 2,
+          (complexGram (complexSampleMatrix z) 0 1).re, (complexGram (complexSampleMatrix z) 0 1).im]‖)
+but is expected to have type
+  @Eq ℝ (⋯.eigenvalues₀ (Fin.cast ⋯ (Fin.last (Fintype.card (Fin 2) - 1))))
+    (((complexGram (complexSampleMatrix z) 0 0).re + (complexGram (complexSampleMatrix z) 1 1).re) / 2 -
+      ‖!₂[((complexGram (complexSampleMatrix z) 0 0).re - (complexGram (complexSampleMatrix z) 1 1).re) / 2,
+          (complexGram (complexSampleMatrix z) 0 1).re, (complexGram (complexSampleMatrix z) 0 1).im]‖)
+'JinWishart.hermitian_twoRow_ordered_eigenpair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralTwoByTwoEigenpair_eq_traceSpectralPair' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

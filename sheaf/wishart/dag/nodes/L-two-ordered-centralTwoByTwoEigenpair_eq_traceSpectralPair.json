@@ -1,0 +1,24 @@
+{
+  "id": "L-two-ordered-centralTwoByTwoEigenpair_eq_traceSpectralPair",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.TwoByTwoOrderedEigenpair",
+  "declaration": "JinWishart.centralTwoByTwoEigenpair_eq_traceSpectralPair",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-ordered-hermitian_twoRow_ordered_eigenpair"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-ordered-hermitian_twoRow_ordered_eigenpair"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-ordered-TwoByTwoOrderedEigenpair.json",
+    "source_sha256": "a72df7218f39af0316e5fb8706802e4e979dcb660190904c8879de44eb0037cc"
+  }
+}

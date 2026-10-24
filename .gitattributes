@@ -656,3 +656,7 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/three_dimensional_radial_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_THREE_DIMENSIONAL_RADIAL_INTEGRAL.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoOrderedEigenpair.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_TWO_BY_TWO_ORDERED_EIGENPAIR.md -text whitespace=cr-at-eol

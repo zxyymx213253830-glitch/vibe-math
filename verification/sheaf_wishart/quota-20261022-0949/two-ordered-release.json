@@ -1,0 +1,10 @@
+{
+ "name":"two-ordered","review":"two-ordered-final",
+ "resolution":"notes/WISHART_TWO_BY_TWO_ORDERED_EIGENPAIR.md",
+ "facade":"facade-124","total":831,"new_count":2,
+ "control_script":"experiments/two_by_two_trace_radial_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/two-by-two-trace-radial-control.json",
+ "seed":2026102405,"reuse_control":true,
+ "commit":"Identify ordered Hermitian two by two eigenpairs with trace and radius",
+ "scope":"2026-10-24第七里程碑：831绑定项（829定理实例+2构造），auditPASS/facade124真实exit0，116接受记录全验证。今日37打印声明/13模块，累计221/98非概率突破数。新2声明/1模块：任意Hermitian2x2含不定/重根的descending eigenvalues0=半迹±traceless R3范数；actual central原样本每点centralTwoByTwoEigenpair等于该坐标，不是joint density。复用已绑定seed2026102405的322先行控制未重跑不重计；2字面类型/最终源码真实Qoder P4绑定。排序重索引、det无PSD前提、实对角和smallestindex疑问按精确pinned定义裁决，失败v1/v2/v3保留不接受。剩余实际jointlaw需4D volume分拆、R3非负径向与2D线性输运拼接，不重做已验收原始Gram密度/迹坐标/径向公式。07:57UTC ordinarytrue primary90 weekly14，未用重置券。人审测度/模型/论文仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

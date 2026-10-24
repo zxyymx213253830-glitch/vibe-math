@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoOrderedEigenpair.lean:36:4: error: Type mismatch
+  Eq.trans hs (Eq.symm ht)
+has type
+  ∑ j, hA.eigenvalues₀ j = (A 0 0).re + (A 1 1).re
+but is expected to have type
+  hA.eigenvalues₀ 0 + hA.eigenvalues₀ 1 = (A 0 0).re + (A 1 1).re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoOrderedEigenpair.lean:39:4: error: Type mismatch
+  Eq.trans hp (Eq.symm hd)
+has type
+  ∏ j, hA.eigenvalues₀ j = A.det.re
+but is expected to have type
+  hA.eigenvalues₀ 0 * hA.eigenvalues₀ 1 = A.det.re
+'JinWishart.hermitian_twoRow_ordered_eigenpair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "two-ordered-TwoByTwoOrderedEigenpair",
+    "module": "TwoByTwoOrderedEigenpair",
+    "nodes": [
+      [
+        "L-two-ordered-hermitian_twoRow_ordered_eigenpair",
+        "hermitian_twoRow_ordered_eigenpair",
+        []
+      ],
+      [
+        "L-two-ordered-centralTwoByTwoEigenpair_eq_traceSpectralPair",
+        "centralTwoByTwoEigenpair_eq_traceSpectralPair",
+        [
+          "L-two-ordered-hermitian_twoRow_ordered_eigenpair"
+        ]
+      ]
+    ]
+  }
+]

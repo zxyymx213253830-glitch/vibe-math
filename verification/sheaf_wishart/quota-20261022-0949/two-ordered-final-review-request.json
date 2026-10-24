@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "TwoByTwoOrderedEigenpair.lean": {
+      "sha256": "a72df7218f39af0316e5fb8706802e4e979dcb660190904c8879de44eb0037cc",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9715c25b49ed409d31e99a08e7e8da0a0bae4caac836612bab83ac297d85b049"
+}

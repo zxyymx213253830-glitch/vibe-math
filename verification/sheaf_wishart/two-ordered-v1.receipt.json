@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:55:04.774860+00:00",
+  "ended_utc": "2026-10-24T07:55:15.415414+00:00",
+  "module": "JinWishartFormalization.TwoByTwoOrderedEigenpair",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoOrderedEigenpair.lean",
+  "source_sha256_before": "189e6f53354aa4a63c1854451a0fc29e016367feadcb09644f2ada3921c57807",
+  "source_sha256": "189e6f53354aa4a63c1854451a0fc29e016367feadcb09644f2ada3921c57807",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/two-ordered-v1.txt",
+  "log_exists": true,
+  "log_sha256": "a137d98f6e191d888ce02e2f45368d438c66be46a0dcf694b1706da8152ef5f1",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
