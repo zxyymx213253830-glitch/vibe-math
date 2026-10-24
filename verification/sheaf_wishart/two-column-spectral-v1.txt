@@ -1,0 +1,11 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoColumnOrderedSpectralMap.lean:21:82: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoColumnOrderedSpectralMap.lean:22:77: error: unsolved goals
+A : Matrix (Fin 2) (Fin 2) ℂ
+hA : sorry
+⊢ ‖A.det‖ = (twoColumnMatrixEigenpair A).1 * (twoColumnMatrixEigenpair A).2
+'JinWishart.measurable_twoColumnMatrixEigenpair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoColumnMatrixEigenpair_det_product' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.centralTwoColumnEigenpair_eq_ordered' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "320f546d508cbc55b5fdaa8f47f56165f44f6979d45695807f3aa24041a20983",
+  "target_lock_sha256": "9621a46a21c993b11252ca042c544e8f53508e865e9ca15c8b58ef0ef26da719",
+  "leaf": {
+    "started_utc": "2026-10-24T13:17:30.315111+00:00",
+    "ended_utc": "2026-10-24T13:17:40.073240+00:00",
+    "module": "JinWishartFormalization.CentralTwoColumnJointDensity",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CentralTwoColumnJointDensity.lean",
+    "source_sha256_before": "320f546d508cbc55b5fdaa8f47f56165f44f6979d45695807f3aa24041a20983",
+    "source_sha256": "320f546d508cbc55b5fdaa8f47f56165f44f6979d45695807f3aa24041a20983",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-column-density-CentralTwoColumnJointDensity-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "09d4f52c1728b20281b9161945e70ac80a102c37cf9bb06877caa4897826d60e",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T13:17:40.074388+00:00",
+    "ended_utc": "2026-10-24T13:17:50.994734+00:00",
+    "module": "SheafTwoColumnDensityTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafTwoColumnDensityTargets.lean",
+    "source_sha256_before": "5b55f3352efe93e1189f977af105e2a0079bae0883388add38f7f8ddbf95e3ca",
+    "source_sha256": "5b55f3352efe93e1189f977af105e2a0079bae0883388add38f7f8ddbf95e3ca",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-column-density-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

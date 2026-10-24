@@ -1,0 +1,47 @@
+[
+  {
+    "tag": "two-column-density-TwoColumnOrderedSpectralMap",
+    "module": "TwoColumnOrderedSpectralMap",
+    "nodes": [
+      [
+        "L-two-column-density-measurable_twoColumnMatrixEigenpair",
+        "measurable_twoColumnMatrixEigenpair",
+        []
+      ],
+      [
+        "L-two-column-density-twoColumnMatrixEigenpair_det_product",
+        "twoColumnMatrixEigenpair_det_product",
+        [
+          "L-two-column-density-measurable_twoColumnMatrixEigenpair"
+        ]
+      ],
+      [
+        "L-two-column-density-centralTwoColumnEigenpair_eq_ordered",
+        "centralTwoColumnEigenpair_eq_ordered",
+        [
+          "L-two-column-density-twoColumnMatrixEigenpair_det_product"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "two-column-density-CentralTwoColumnJointDensity",
+    "module": "CentralTwoColumnJointDensity",
+    "nodes": [
+      [
+        "L-two-column-density-centralTwoColumn_joint_spectral_bias",
+        "centralTwoColumn_joint_spectral_bias",
+        [
+          "L-two-column-density-centralTwoColumnEigenpair_eq_ordered"
+        ]
+      ],
+      [
+        "L-two-column-density-actualCentralTwoColumn_jointEigenvalueDensity",
+        "actualCentralTwoColumn_jointEigenvalueDensity",
+        [
+          "L-two-column-density-centralTwoColumn_joint_spectral_bias"
+        ]
+      ]
+    ]
+  }
+]

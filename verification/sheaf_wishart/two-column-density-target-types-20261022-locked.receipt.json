@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T13:17:40.074388+00:00",
+  "ended_utc": "2026-10-24T13:17:50.994734+00:00",
+  "module": "SheafTwoColumnDensityTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafTwoColumnDensityTargets.lean",
+  "source_sha256_before": "5b55f3352efe93e1189f977af105e2a0079bae0883388add38f7f8ddbf95e3ca",
+  "source_sha256": "5b55f3352efe93e1189f977af105e2a0079bae0883388add38f7f8ddbf95e3ca",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/two-column-density-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

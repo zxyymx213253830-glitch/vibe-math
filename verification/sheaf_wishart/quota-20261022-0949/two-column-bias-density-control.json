@@ -1,0 +1,73 @@
+{
+  "seed": 2026102414,
+  "samples_per_shape": 200000,
+  "checks": 56,
+  "status": "PASS calibrated controls; not proof",
+  "reference": "Gamma moment determinant normalization d!(d+1)!, exact determinant-bias ratios, independent actual properCN1 trace/determinant moments and ordered joint rectangle quadrature",
+  "joint_checks": [
+    {
+      "m": 3,
+      "a": 0.25,
+      "b": 4.0,
+      "estimate": 0.34343,
+      "reference": 0.34415882004705434
+    },
+    {
+      "m": 3,
+      "a": 1.0,
+      "b": 8.0,
+      "estimate": 0.420935,
+      "reference": 0.4218468878353003
+    },
+    {
+      "m": 3,
+      "a": 2.0,
+      "b": 12.0,
+      "estimate": 0.12612,
+      "reference": 0.12662624520184657
+    },
+    {
+      "m": 4,
+      "a": 0.25,
+      "b": 4.0,
+      "estimate": 0.16514,
+      "reference": 0.165507465645464
+    },
+    {
+      "m": 4,
+      "a": 1.0,
+      "b": 8.0,
+      "estimate": 0.605345,
+      "reference": 0.6063817314314021
+    },
+    {
+      "m": 4,
+      "a": 2.0,
+      "b": 12.0,
+      "estimate": 0.34852,
+      "reference": 0.3494427145543034
+    },
+    {
+      "m": 6,
+      "a": 0.25,
+      "b": 4.0,
+      "estimate": 0.016235,
+      "reference": 0.015619981427611574
+    },
+    {
+      "m": 6,
+      "a": 1.0,
+      "b": 8.0,
+      "estimate": 0.42789,
+      "reference": 0.4280760441042213
+    },
+    {
+      "m": 6,
+      "a": 2.0,
+      "b": 12.0,
+      "estimate": 0.7193,
+      "reference": 0.7167842591728748
+    }
+  ],
+  "source_sha256": "6d47a85097ed99de486f6aac2e29691e8a1957aaa409b9157da90b79d6ac5380"
+}

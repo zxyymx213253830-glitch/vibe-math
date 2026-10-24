@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "ce9dccacacfd9c7e4284cfc8783b0ce037a438a79d3972fd1cb862377a788edb",
+  "target_lock_sha256": "f4d8b4fd617bff90486de8eef4efbf0bedbe2f118bcd31e97596e966cea0ed7e",
+  "leaf": {
+    "started_utc": "2026-10-24T13:17:20.412023+00:00",
+    "ended_utc": "2026-10-24T13:17:30.272596+00:00",
+    "module": "JinWishartFormalization.TwoColumnOrderedSpectralMap",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoColumnOrderedSpectralMap.lean",
+    "source_sha256_before": "ce9dccacacfd9c7e4284cfc8783b0ce037a438a79d3972fd1cb862377a788edb",
+    "source_sha256": "ce9dccacacfd9c7e4284cfc8783b0ce037a438a79d3972fd1cb862377a788edb",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-column-density-TwoColumnOrderedSpectralMap-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "75b8e71896a019840c14a3d68171b3f4fc30669a5fbe6155f871ba78bbc85f7d",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T13:17:40.074388+00:00",
+    "ended_utc": "2026-10-24T13:17:50.994734+00:00",
+    "module": "SheafTwoColumnDensityTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafTwoColumnDensityTargets.lean",
+    "source_sha256_before": "5b55f3352efe93e1189f977af105e2a0079bae0883388add38f7f8ddbf95e3ca",
+    "source_sha256": "5b55f3352efe93e1189f977af105e2a0079bae0883388add38f7f8ddbf95e3ca",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-column-density-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

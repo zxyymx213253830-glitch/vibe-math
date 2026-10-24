@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T13:16:06.811903+00:00",
+  "ended_utc": "2026-10-24T13:16:16.960585+00:00",
+  "module": "JinWishartFormalization.CentralTwoColumnJointDensity",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CentralTwoColumnJointDensity.lean",
+  "source_sha256_before": "d9f3ee727b58da95d45f9af104360557d37ffdb138a02a211e4bba3d06fa5e90",
+  "source_sha256": "d9f3ee727b58da95d45f9af104360557d37ffdb138a02a211e4bba3d06fa5e90",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/two-column-density-v3.txt",
+  "log_exists": true,
+  "log_sha256": "3bc12d123397c74a52550569388ea74fde5cb68fb62ee00f96748d8b072a5ce3",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

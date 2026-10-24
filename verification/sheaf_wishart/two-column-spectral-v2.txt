@@ -1,0 +1,3 @@
+'JinWishart.measurable_twoColumnMatrixEigenpair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoColumnMatrixEigenpair_det_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.centralTwoColumnEigenpair_eq_ordered' depends on axioms: [propext, Classical.choice, Quot.sound]

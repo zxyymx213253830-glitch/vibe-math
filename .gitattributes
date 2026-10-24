@@ -718,3 +718,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/original_two_t3_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_ORIGINAL_CENTRAL_TWO_BY_TWO_T3.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoColumnOrderedSpectralMap.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CentralTwoColumnJointDensity.lean -text whitespace=cr-at-eol
+
+/experiments/two_column_bias_density_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CENTRAL_TWO_COLUMN_JOINT_DENSITY.md -text whitespace=cr-at-eol

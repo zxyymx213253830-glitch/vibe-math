@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T13:12:13.138794+00:00",
+  "ended_utc": "2026-10-24T13:12:22.197273+00:00",
+  "module": "JinWishartFormalization.TwoColumnOrderedSpectralMap",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoColumnOrderedSpectralMap.lean",
+  "source_sha256_before": "9a15338dc177bb944a13385bee6a2f06bc32ad80bc14e93afdf814e7746a9d78",
+  "source_sha256": "9a15338dc177bb944a13385bee6a2f06bc32ad80bc14e93afdf814e7746a9d78",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/two-column-spectral-v1.txt",
+  "log_exists": true,
+  "log_sha256": "b6d76cc7a2731dda73b833af01bbc409a2abda5fbd4971884d29c3526a787aef",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

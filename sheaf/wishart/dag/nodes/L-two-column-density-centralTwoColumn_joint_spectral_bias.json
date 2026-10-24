@@ -1,0 +1,24 @@
+{
+  "id": "L-two-column-density-centralTwoColumn_joint_spectral_bias",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CentralTwoColumnJointDensity",
+  "declaration": "JinWishart.centralTwoColumn_joint_spectral_bias",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-column-density-centralTwoColumnEigenpair_eq_ordered"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-column-density-centralTwoColumnEigenpair_eq_ordered"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-density-CentralTwoColumnJointDensity.json",
+    "source_sha256": "320f546d508cbc55b5fdaa8f47f56165f44f6979d45695807f3aa24041a20983"
+  }
+}

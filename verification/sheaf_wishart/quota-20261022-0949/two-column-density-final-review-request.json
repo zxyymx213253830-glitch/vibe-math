@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "TwoColumnOrderedSpectralMap.lean": {
+      "sha256": "ce9dccacacfd9c7e4284cfc8783b0ce037a438a79d3972fd1cb862377a788edb",
+      "supplied": "Full source"
+    },
+    "CentralTwoColumnJointDensity.lean": {
+      "sha256": "320f546d508cbc55b5fdaa8f47f56165f44f6979d45695807f3aa24041a20983",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "58e01a201592d0fc6a72e86310439b23d64548775996af84493ddae104585bf6"
+}

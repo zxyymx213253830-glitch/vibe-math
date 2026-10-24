@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoColumnJointDensity.lean:35:48: error: unsolved goals
+d : ℕ
+hw : Measurable fun y => ENNReal.ofReal ((y.1 * y.2) ^ d)
+F : ℝ × ℝ → ℝ≥0∞
+hF : Measurable F
+hW : Measurable fun A => ENNReal.ofReal (‖A.det‖ ^ d) * F (twoColumnMatrixEigenpair A)
+hFM : Measurable fun A => F (twoColumnMatrixEigenpair A)
+h :
+  ∫⁻ (z : ComplexSample),
+      ENNReal.ofReal (‖(complexSampleGram z).det‖ ^ d) * F (centralTwoColumnEigenpair z) ∂stdGaussian ComplexSample =
+    ENNReal.ofReal (↑d.factorial * ↑(d + 1).factorial) *
+      ∫⁻ (z : ComplexSample), F (centralTwoColumnEigenpair z) ∂stdGaussian ComplexSample
+z : ComplexSample
+hp : ‖(complexSampleGram z).det‖ = (centralTwoColumnEigenpair z).1 * (centralTwoColumnEigenpair z).2
+⊢ ((fun y => ENNReal.ofReal ((y.1 * y.2) ^ d)) * F) (centralTwoByTwoEigenpair z) =
+    ENNReal.ofReal (((centralTwoByTwoEigenpair z).1 * (centralTwoByTwoEigenpair z).2) ^ d) *
+      F (centralTwoByTwoEigenpair z)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoColumnJointDensity.lean:83:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoColumnJointDensity.lean:83:92: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.centralTwoColumn_joint_spectral_bias' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralTwoColumn_jointEigenvalueDensity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

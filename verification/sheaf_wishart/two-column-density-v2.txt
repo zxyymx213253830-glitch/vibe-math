@@ -1,0 +1,56 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoColumnJointDensity.lean:57:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ENNReal.ofReal (↑d.factorial * ↑(d + 1).factorial) *
+    ∫⁻ (a : ComplexSample), F (twoColumnMatrixEigenpair (complexSampleGram a)) ∂stdGaussian ComplexSample
+in the target expression
+  ∫⁻ (a : ComplexSample),
+      ((fun y => ENNReal.ofReal ((y.1 * y.2) ^ d)) * F) (centralTwoByTwoEigenpair a) ∂stdGaussian ComplexSample =
+    ENNReal.ofReal (↑d.factorial * ↑(d + 1).factorial) *
+      ∫⁻ (z : ComplexSample), F (centralTwoColumnEigenpair z) ∂stdGaussian ComplexSample
+
+d : ℕ
+hw : Measurable fun y => ENNReal.ofReal ((y.1 * y.2) ^ d)
+F : ℝ × ℝ → ℝ≥0∞
+hF : Measurable F
+h :
+  ∫⁻ (a : ComplexSample),
+      ENNReal.ofReal (‖(complexSampleGram a).det‖ ^ d) *
+        F (twoColumnMatrixEigenpair (complexSampleGram a)) ∂stdGaussian ComplexSample =
+    ENNReal.ofReal (↑d.factorial * ↑(d + 1).factorial) *
+      ∫⁻ (a : ComplexSample), F (twoColumnMatrixEigenpair (complexSampleGram a)) ∂stdGaussian ComplexSample
+hW : Measurable fun A => ENNReal.ofReal (‖A.det‖ ^ d) * F (twoColumnMatrixEigenpair A)
+hFM : Measurable fun A => F (twoColumnMatrixEigenpair A)
+⊢ ∫⁻ (a : ComplexSample),
+      ((fun y => ENNReal.ofReal ((y.1 * y.2) ^ d)) * F) (centralTwoByTwoEigenpair a) ∂stdGaussian ComplexSample =
+    ENNReal.ofReal (↑d.factorial * ↑(d + 1).factorial) *
+      ∫⁻ (z : ComplexSample), F (centralTwoColumnEigenpair z) ∂stdGaussian ComplexSample
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoColumnJointDensity.lean:79:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoColumnJointDensity.lean:79:92: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoColumnJointDensity.lean:87:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ENNReal.ofReal ?m.332 • Measure.withDensity ?m.329 ?m.331
+in the target expression
+  (ℙ.withDensity fun y => ENNReal.ofReal C * centralTwoColumnEigenvalueDensity d y) =
+    ENNReal.ofReal (↑d.factorial * ↑(d + 1).factorial) • centralTwoColumnJointEigenvalueLaw d
+
+d : ℕ
+C : ℝ := ↑d.factorial * ↑(d + 1).factorial
+hC : 0 < C
+hp : Measurable centralTwoByTwoPaperEigenvalueDensity
+hw : Measurable fun y => ENNReal.ofReal ((y.1 * y.2) ^ d)
+hd :
+  (fun y => centralTwoByTwoPaperEigenvalueDensity y * ENNReal.ofReal ((y.1 * y.2) ^ d)) = fun y =>
+    ENNReal.ofReal C * centralTwoColumnEigenvalueDensity d y
+h :
+  (ℙ.withDensity fun y => ENNReal.ofReal C * centralTwoColumnEigenvalueDensity d y) =
+    ENNReal.ofReal (↑d.factorial * ↑(d + 1).factorial) • centralTwoColumnJointEigenvalueLaw d
+⊢ centralTwoColumnJointEigenvalueLaw d = ℙ.withDensity (centralTwoColumnEigenvalueDensity d)
+'JinWishart.centralTwoColumn_joint_spectral_bias' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualCentralTwoColumn_jointEigenvalueDensity' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

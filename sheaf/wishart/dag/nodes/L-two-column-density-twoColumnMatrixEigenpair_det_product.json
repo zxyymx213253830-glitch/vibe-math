@@ -1,0 +1,24 @@
+{
+  "id": "L-two-column-density-twoColumnMatrixEigenpair_det_product",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.TwoColumnOrderedSpectralMap",
+  "declaration": "JinWishart.twoColumnMatrixEigenpair_det_product",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-column-density-measurable_twoColumnMatrixEigenpair"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-column-density-measurable_twoColumnMatrixEigenpair"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-density-TwoColumnOrderedSpectralMap.json",
+    "source_sha256": "ce9dccacacfd9c7e4284cfc8783b0ce037a438a79d3972fd1cb862377a788edb"
+  }
+}
