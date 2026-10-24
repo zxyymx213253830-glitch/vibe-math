@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "PositiveDeterminantEnsembleCount.lean": {
+      "sha256": "a26eaed1c52d2b19f2e23f9275a856e1510cf06a57b8f85db153fc9560e9ce67",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "3d05fc9a51df937c6dbe434b7ff7af0ee5630e36aee1a29a354829df09894032"
+}

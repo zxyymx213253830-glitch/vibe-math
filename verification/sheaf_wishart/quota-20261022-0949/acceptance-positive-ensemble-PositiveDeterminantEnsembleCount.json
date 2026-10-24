@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-positive-ensemble-PositiveDeterminantEnsembleCount.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-positive-ensemble-PositiveDeterminantEnsembleCount.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/positive-ensemble-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-ensemble-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-ensemble-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-positive-ensemble-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/positive-ensemble-final-snapshot",
+    "resolution": "notes/WISHART_POSITIVE_DETERMINANT_ENSEMBLE_COUNT.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-130.receipt.json"
+}

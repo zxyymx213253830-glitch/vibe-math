@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T13:00:53.857968+00:00",
+  "ended_utc": "2026-10-24T13:01:02.142973+00:00",
+  "module": "JinWishartFormalization.PositiveDeterminantEnsembleCount",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveDeterminantEnsembleCount.lean",
+  "source_sha256_before": "61200cf5e7eb1369f96c85ab3c51b64f36386320d9745ad997c2e04f812cef4b",
+  "source_sha256": "61200cf5e7eb1369f96c85ab3c51b64f36386320d9745ad997c2e04f812cef4b",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/determinant-ensemble-v1.txt",
+  "log_exists": true,
+  "log_sha256": "9d2d423128a4aea2ff204ae586d668ca6fce06d1d27ab99095caab6d84489ab1",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

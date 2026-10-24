@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveDeterminantEnsembleCount.lean:101:4: error: 'change' tactic failed, pattern
+  (ENNReal.ofReal (↑n.factorial * (determinantMomentMatrix μ f g).det)⁻¹ *
+        ENNReal.ofReal (countDeterminantMoment f g μ E k)).toReal =
+    ?m.293
+is not definitionally equal to target
+  ((ENNReal.ofReal (↑n.factorial * (determinantMomentMatrix μ f g).det))⁻¹ •
+        ENNReal.ofReal
+          (∫ (x : Fin n → ℝ) in {z | coordinateMembershipCount E z = k},
+            determinantProduct f g x ∂Measure.pi fun x => μ)).toReal =
+    (rowAffinePolynomialMatrix (of fun i j => ∫ (y : ℝ) in E, f i y * g j y ∂μ)
+              (of fun i j => ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ)).det.coeff
+        k /
+      (determinantMomentMatrix μ f g).det
+'JinWishart.determinantEnsemble_total_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.determinantEnsemble_count_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.normalizedDeterminantEnsemble_probability_count' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

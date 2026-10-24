@@ -1,0 +1,90 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveDeterminantEnsembleCount.lean:45:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (x : Fin n → ℝ),
+    ENNReal.ofReal ((of fun i j => f i (x j)).det * (of fun i j => g i (x j)).det) ∂Measure.pi fun x => μ
+in the target expression
+  (∫⁻ (a : Fin n → ℝ), ENNReal.ofReal (determinantProduct f g a) ∂Measure.pi fun x => μ) =
+    ENNReal.ofReal (↑n.factorial * (determinantMomentMatrix μ f g).det)
+
+n : ℕ
+μ : Measure ℝ
+inst✝ : SigmaFinite μ
+f g : Fin n → ℝ → ℝ
+hfg : ∀ (i j : Fin n), Integrable (fun y => f i y * g j y) μ
+hpos : ∀ (z : Fin n → ℝ), 0 ≤ determinantProduct f g z
+⊢ (∫⁻ (a : Fin n → ℝ), ENNReal.ofReal (determinantProduct f g a) ∂Measure.pi fun x => μ) =
+    ENNReal.ofReal (↑n.factorial * (determinantMomentMatrix μ f g).det)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveDeterminantEnsembleCount.lean:61:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (x : Fin n → ℝ) in ?m.130,
+    ENNReal.ofReal ((of fun i j => f i (x j)).det * (of fun i j => g i (x j)).det) ∂Measure.pi fun x => μ
+in the target expression
+  (∫⁻ (a : Fin n → ℝ) in {z | coordinateMembershipCount E z = k},
+      ENNReal.ofReal (determinantProduct f g a) ∂Measure.pi fun x => μ) =
+    ENNReal.ofReal
+      (↑n.factorial *
+        (rowAffinePolynomialMatrix (of fun i j => ∫ (y : ℝ) in E, f i y * g j y ∂μ)
+                (of fun i j => ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ)).det.coeff
+          k)
+
+n : ℕ
+μ : Measure ℝ
+inst✝ : SigmaFinite μ
+f g : Fin n → ℝ → ℝ
+hfg : ∀ (i j : Fin n), Integrable (fun y => f i y * g j y) μ
+hpos : ∀ (z : Fin n → ℝ), 0 ≤ determinantProduct f g z
+E : Set ℝ
+hE : MeasurableSet E
+k : ℕ
+hk : k ≤ n
+hK : MeasurableSet {z | coordinateMembershipCount E z = k}
+⊢ (∫⁻ (a : Fin n → ℝ) in {z | coordinateMembershipCount E z = k},
+      ENNReal.ofReal (determinantProduct f g a) ∂Measure.pi fun x => μ) =
+    ENNReal.ofReal
+      (↑n.factorial *
+        (rowAffinePolynomialMatrix (of fun i j => ∫ (y : ℝ) in E, f i y * g j y ∂μ)
+                (of fun i j => ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ)).det.coeff
+          k)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveDeterminantEnsembleCount.lean:93:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (x : Fin n → ℝ) in ?m.252,
+    ENNReal.ofReal ((of fun i j => f i (x j)).det * (of fun i j => g i (x j)).det) ∂Measure.pi fun x => μ
+in the target expression
+  ((ENNReal.ofReal (↑n.factorial * (determinantMomentMatrix μ f g).det))⁻¹ •
+        ∫⁻ (a : Fin n → ℝ) in {z | coordinateMembershipCount E z = k},
+          ENNReal.ofReal (determinantProduct f g a) ∂Measure.pi fun x => μ).toReal =
+    (rowAffinePolynomialMatrix (of fun i j => ∫ (y : ℝ) in E, f i y * g j y ∂μ)
+              (of fun i j => ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ)).det.coeff
+        k /
+      (determinantMomentMatrix μ f g).det
+
+case right
+n : ℕ
+μ : Measure ℝ
+inst✝ : SigmaFinite μ
+f g : Fin n → ℝ → ℝ
+hfg : ∀ (i j : Fin n), Integrable (fun y => f i y * g j y) μ
+hpos : ∀ (z : Fin n → ℝ), 0 ≤ determinantProduct f g z
+hdet : 0 < (determinantMomentMatrix μ f g).det
+hZ : 0 < ↑n.factorial * (determinantMomentMatrix μ f g).det
+E : Set ℝ
+hE : MeasurableSet E
+k : ℕ
+hk : k ≤ n
+hK : MeasurableSet {z | coordinateMembershipCount E z = k}
+hc :
+  (rowAffinePolynomialMatrix (of fun i j => ∫ (y : ℝ) in E, f i y * g j y ∂μ)
+            (of fun i j => ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ)).det.coeff
+      k =
+    1 / ↑n.factorial * countDeterminantMoment f g μ E k
+hI : 0 ≤ countDeterminantMoment f g μ E k
+⊢ ((ENNReal.ofReal (↑n.factorial * (determinantMomentMatrix μ f g).det))⁻¹ •
+        ∫⁻ (a : Fin n → ℝ) in {z | coordinateMembershipCount E z = k},
+          ENNReal.ofReal (determinantProduct f g a) ∂Measure.pi fun x => μ).toReal =
+    (rowAffinePolynomialMatrix (of fun i j => ∫ (y : ℝ) in E, f i y * g j y ∂μ)
+              (of fun i j => ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ)).det.coeff
+        k /
+      (determinantMomentMatrix μ f g).det
+'JinWishart.determinantEnsemble_total_mass' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.determinantEnsemble_count_mass' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.normalizedDeterminantEnsemble_probability_count' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

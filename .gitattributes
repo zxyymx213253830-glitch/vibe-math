@@ -706,3 +706,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/split_andreief_count_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_SPLIT_ANDREIEF_COUNT.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/PositiveDeterminantEnsembleCount.lean -text whitespace=cr-at-eol
+
+/experiments/determinant_ensemble_count_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_POSITIVE_DETERMINANT_ENSEMBLE_COUNT.md -text whitespace=cr-at-eol

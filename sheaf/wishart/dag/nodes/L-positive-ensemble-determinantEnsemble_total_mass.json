@@ -1,0 +1,20 @@
+{
+  "id": "L-positive-ensemble-determinantEnsemble_total_mass",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PositiveDeterminantEnsembleCount",
+  "declaration": "JinWishart.determinantEnsemble_total_mass",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-positive-ensemble-PositiveDeterminantEnsembleCount.json",
+    "source_sha256": "a26eaed1c52d2b19f2e23f9275a856e1510cf06a57b8f85db153fc9560e9ce67"
+  }
+}

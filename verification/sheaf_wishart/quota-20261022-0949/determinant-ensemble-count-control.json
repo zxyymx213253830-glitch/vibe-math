@@ -1,0 +1,7 @@
+{
+  "seed": 2026102412,
+  "checks": 126,
+  "status": "PASS exact controls; not proof",
+  "reference": "Positive discrete squared-determinant ensemble total mass n!detH, normalized count coefficient/detH, empty dimension, rank deficient zero-mass negative calibration",
+  "source_sha256": "5024feeac41ec432275f09a9228814d5e970976fd76d801d2a27ffba1ad8bcbb"
+}

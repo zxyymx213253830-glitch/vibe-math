@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "positive-ensemble-PositiveDeterminantEnsembleCount",
+    "module": "PositiveDeterminantEnsembleCount",
+    "nodes": [
+      [
+        "L-positive-ensemble-determinantEnsemble_total_mass",
+        "determinantEnsemble_total_mass",
+        []
+      ],
+      [
+        "L-positive-ensemble-determinantEnsemble_count_mass",
+        "determinantEnsemble_count_mass",
+        [
+          "L-positive-ensemble-determinantEnsemble_total_mass"
+        ]
+      ],
+      [
+        "L-positive-ensemble-normalizedDeterminantEnsemble_probability_count",
+        "normalizedDeterminantEnsemble_probability_count",
+        [
+          "L-positive-ensemble-determinantEnsemble_count_mass"
+        ]
+      ]
+    ]
+  }
+]

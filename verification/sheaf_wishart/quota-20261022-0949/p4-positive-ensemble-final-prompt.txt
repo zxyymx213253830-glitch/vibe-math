@@ -1,0 +1,113 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE PositiveDeterminantEnsembleCount.lean
+import JinWishartFormalization.SplitAndreiefCountCoefficients
+import Mathlib.MeasureTheory.Measure.WithDensity
+
+/-! Positive determinant ensemble: normalization and exact count probabilities.
+Codex. Seed2026102412 finite calibrated controls before source.
+[需人工审查] Nonnegative measure conversion and probability/model normalization. -/
+open MeasureTheory Matrix Polynomial
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+variable {n : ℕ} {μ : Measure ℝ} [SigmaFinite μ]
+
+def determinantProduct (f g : Fin n → ℝ → ℝ) (z : Fin n → ℝ) : ℝ :=
+  (Matrix.of (fun i j => f i (z j))).det*(Matrix.of (fun i j => g i (z j))).det
+
+def determinantMomentMatrix (μ : Measure ℝ) (f g : Fin n → ℝ → ℝ) : Matrix (Fin n) (Fin n) ℝ :=
+  Matrix.of (fun i j => ∫ y,f i y*g j y ∂μ)
+
+def determinantEnsembleMeasure (μ : Measure ℝ) (f g : Fin n → ℝ → ℝ) : Measure (Fin n → ℝ) :=
+  (Measure.pi (fun _ : Fin n => μ)).withDensity (fun z => ENNReal.ofReal (determinantProduct f g z))
+
+def normalizedDeterminantEnsemble (μ : Measure ℝ) (f g : Fin n → ℝ → ℝ) : Measure (Fin n → ℝ) :=
+  (ENNReal.ofReal ((n.factorial : ℝ)*(determinantMomentMatrix μ f g).det))⁻¹ • determinantEnsembleMeasure μ f g
+
+private theorem factorial_pos_real (n : ℕ) : (0 : ℝ)<n.factorial := by positivity
+
+private theorem integral_detProduct (f g : Fin n → ℝ → ℝ)
+    (hfg : ∀ i j,Integrable (fun y => f i y*g j y) μ) :
+    (∫ z,determinantProduct f g z ∂Measure.pi (fun _ : Fin n => μ))=
+      (n.factorial : ℝ)*(determinantMomentMatrix μ f g).det := by
+  have h := Andreief.andreief f g hfg
+  change (determinantMomentMatrix μ f g).det=
+    (1/(n.factorial : ℝ))*(∫ z,determinantProduct f g z ∂Measure.pi (fun _ : Fin n => μ)) at h
+  have hn := (factorial_pos_real n).ne'
+  calc
+    _ = (n.factorial : ℝ)*((1/(n.factorial : ℝ))*(∫ z,determinantProduct f g z ∂Measure.pi (fun _ : Fin n => μ))) := by field_simp
+    _ = _ := by rw [← h]
+
+theorem determinantEnsemble_total_mass (f g : Fin n → ℝ → ℝ)
+    (hfg : ∀ i j,Integrable (fun y => f i y*g j y) μ)
+    (hpos : ∀ z,0≤determinantProduct f g z) :
+    determinantEnsembleMeasure μ f g Set.univ=
+      ENNReal.ofReal ((n.factorial : ℝ)*(determinantMomentMatrix μ f g).det) := by
+  have hD : Integrable (determinantProduct f g) (Measure.pi (fun _ : Fin n => μ)) :=
+    andreief_det_product_integrable f g hfg
+  rw [determinantEnsembleMeasure,withDensity_apply _ MeasurableSet.univ,Measure.restrict_univ,
+    ← ofReal_integral_eq_lintegral_ofReal hD
+      (ae_of_all _ hpos)]
+  rw [integral_detProduct f g hfg]
+
+theorem determinantEnsemble_count_mass (f g : Fin n → ℝ → ℝ)
+    (hfg : ∀ i j,Integrable (fun y => f i y*g j y) μ)
+    (hpos : ∀ z,0≤determinantProduct f g z)
+    (E : Set ℝ) (hE : MeasurableSet E) (k : ℕ) (hk : k≤n) :
+    determinantEnsembleMeasure μ f g {z | coordinateMembershipCount E z=k}=
+      ENNReal.ofReal ((n.factorial : ℝ)*
+        ((rowAffinePolynomialMatrix
+          (Matrix.of (fun i j => ∫ y in E,f i y*g j y ∂μ))
+          (Matrix.of (fun i j => ∫ y in Eᶜ,f i y*g j y ∂μ))).det).coeff k) := by
+  have hD : Integrable (determinantProduct f g) (Measure.pi (fun _ : Fin n => μ)) :=
+    andreief_det_product_integrable f g hfg
+  have hK : MeasurableSet {z : Fin n → ℝ | coordinateMembershipCount E z=k} :=
+    measurableSet_eq_fun (measurable_coordinateMembershipCount E hE) measurable_const
+  rw [determinantEnsembleMeasure,withDensity_apply _ hK,
+    ← ofReal_integral_eq_lintegral_ofReal
+      hD.integrableOn (ae_of_all _ hpos)]
+  congr 1
+  have h := split_andreief_count_coefficient f g hfg E hE k hk
+  change countDeterminantMoment f g μ E k=_
+  rw [h]
+  field_simp
+
+theorem normalizedDeterminantEnsemble_probability_count (f g : Fin n → ℝ → ℝ)
+    (hfg : ∀ i j,Integrable (fun y => f i y*g j y) μ)
+    (hpos : ∀ z,0≤determinantProduct f g z)
+    (hdet : 0<(determinantMomentMatrix μ f g).det) :
+    IsProbabilityMeasure (normalizedDeterminantEnsemble μ f g) ∧
+    ∀ (E : Set ℝ),MeasurableSet E → ∀ (k : ℕ),k≤n →
+      ((normalizedDeterminantEnsemble μ f g) {z | coordinateMembershipCount E z=k}).toReal=
+        ((rowAffinePolynomialMatrix
+          (Matrix.of (fun i j => ∫ y in E,f i y*g j y ∂μ))
+          (Matrix.of (fun i j => ∫ y in Eᶜ,f i y*g j y ∂μ))).det).coeff k/
+            (determinantMomentMatrix μ f g).det := by
+  have hD : Integrable (determinantProduct f g) (Measure.pi (fun _ : Fin n => μ)) :=
+    andreief_det_product_integrable f g hfg
+  have hZ : 0<(n.factorial : ℝ)*(determinantMomentMatrix μ f g).det :=
+    mul_pos (factorial_pos_real n) hdet
+  constructor
+  · constructor
+    rw [normalizedDeterminantEnsemble,Measure.smul_apply,determinantEnsemble_total_mass f g hfg hpos]
+    exact ENNReal.inv_mul_cancel (ne_of_gt (ENNReal.ofReal_pos.mpr hZ)) ENNReal.ofReal_ne_top
+  · intro E hE k hk
+    have hK : MeasurableSet {z : Fin n → ℝ | coordinateMembershipCount E z=k} :=
+      measurableSet_eq_fun (measurable_coordinateMembershipCount E hE) measurable_const
+    have hc := split_andreief_count_coefficient f g hfg E hE k hk
+    have hI : 0≤countDeterminantMoment f g μ E k := integral_nonneg hpos
+    rw [normalizedDeterminantEnsemble,Measure.smul_apply]
+    rw [determinantEnsembleMeasure,withDensity_apply _ hK,
+      ← ofReal_integral_eq_lintegral_ofReal
+        hD.integrableOn (ae_of_all _ hpos)]
+    change ((ENNReal.ofReal ((n.factorial : ℝ)*(determinantMomentMatrix μ f g).det))⁻¹*
+      ENNReal.ofReal (countDeterminantMoment f g μ E k)).toReal=_
+    rw [ENNReal.toReal_mul,ENNReal.toReal_inv,ENNReal.toReal_ofReal hZ.le,ENNReal.toReal_ofReal hI,hc]
+    field_simp
+end
+end JinWishart
+#print axioms JinWishart.determinantEnsemble_total_mass
+#print axioms JinWishart.determinantEnsemble_count_mass
+#print axioms JinWishart.normalizedDeterminantEnsemble_probability_count
