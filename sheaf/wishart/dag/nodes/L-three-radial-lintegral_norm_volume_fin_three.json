@@ -1,0 +1,19 @@
+{
+  "id": "L-three-radial-lintegral_norm_volume_fin_three",
+  "kind": "lemma",
+  "target": false,
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "superseded_checker_marker_error",
+    "reason": "Independent literal type checked, but its success marker did not satisfy acceptance guard. Corrected marker only, new checker/new lock/new receipt; no guard change."
+  },
+  "superseded_declaration": "JinWishart.lintegral_norm_volume_fin_three",
+  "superseded_module": "JinWishartFormalization.ThreeDimensionalRadialIntegral"
+}

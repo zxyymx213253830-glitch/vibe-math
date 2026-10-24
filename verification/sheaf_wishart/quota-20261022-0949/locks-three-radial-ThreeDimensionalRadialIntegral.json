@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-24T07:50:23.547826+00:00",
+  "module": "JinWishartFormalization.ThreeDimensionalRadialIntegral",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ThreeDimensionalRadialIntegral.lean",
+  "statements": {
+    "JinWishart.lintegral_norm_volume_fin_three": "(f : ℝ → ℝ≥0∞) (hf : Measurable f) : (∫⁻ v : EuclideanSpace ℝ (Fin 3), f ‖v‖) = ENNReal.ofReal (4*Real.pi) * ∫⁻ r in Ioi (0 : ℝ), ENNReal.ofReal (r^2)*f r"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/ThreeDimensionalRadialIntegral.lean": "17801fb8c8bb8e54490a85c681be2d3c3fd2103b8c716c85566ad6ba59ecc0d2",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafThreeRadialTargets.lean",
+  "type_check_source_sha256": "a3e8a145948baad12f790bcf82baea599143c27afe8d0e3d7c01b8fe5e14458e",
+  "locked_local_definitions": {}
+}

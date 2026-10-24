@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ThreeDimensionalRadialIntegral.lean": {
+      "sha256": "17801fb8c8bb8e54490a85c681be2d3c3fd2103b8c716c85566ad6ba59ecc0d2",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "836804b7314710c03588fb0ef15ed38d1d346ee73930a42590f479f32a21c2da"
+}

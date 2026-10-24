@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "17801fb8c8bb8e54490a85c681be2d3c3fd2103b8c716c85566ad6ba59ecc0d2",
+  "target_lock_sha256": "9a89adc9f4f5cb4ba78879b12aa9852d4a6e7611b1b163937528170a2c85c536",
+  "leaf": {
+    "started_utc": "2026-10-24T07:50:23.560957+00:00",
+    "ended_utc": "2026-10-24T07:50:32.029989+00:00",
+    "module": "JinWishartFormalization.ThreeDimensionalRadialIntegral",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ThreeDimensionalRadialIntegral.lean",
+    "source_sha256_before": "17801fb8c8bb8e54490a85c681be2d3c3fd2103b8c716c85566ad6ba59ecc0d2",
+    "source_sha256": "17801fb8c8bb8e54490a85c681be2d3c3fd2103b8c716c85566ad6ba59ecc0d2",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/three-radial-ThreeDimensionalRadialIntegral-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "953772cdf2ff63583ea83249cc3fe56b1e094305d40e0b68c786e66d08377573",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T07:50:32.031502+00:00",
+    "ended_utc": "2026-10-24T07:50:48.873706+00:00",
+    "module": "SheafThreeRadialTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafThreeRadialTargets.lean",
+    "source_sha256_before": "a3e8a145948baad12f790bcf82baea599143c27afe8d0e3d7c01b8fe5e14458e",
+    "source_sha256": "a3e8a145948baad12f790bcf82baea599143c27afe8d0e3d7c01b8fe5e14458e",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/three-radial-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "45ed2083c701adda2dc9fb8f47302d823bb08bc52350d0e32fdf9a81befa61ee",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

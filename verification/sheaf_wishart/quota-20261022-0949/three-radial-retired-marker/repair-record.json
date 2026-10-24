@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-24T07:53:24.974055+00:00",
+  "proof_sha256": "17801fb8c8bb8e54490a85c681be2d3c3fd2103b8c716c85566ad6ba59ecc0d2",
+  "old_checker_sha256": "a3e8a145948baad12f790bcf82baea599143c27afe8d0e3d7c01b8fe5e14458e",
+  "new_checker_sha256": "ab55583418c373cf489d8bf32fa07a2266f24b5e3a843a3229e3b8cc66abf2cf",
+  "only_change": "Success output marker; literal target/inferType/whnf/isDefEq unchanged",
+  "old_acceptance_sha256": "f276de1965f29e7e98149ad305bc3c0298bff3a991569f9f639f0adb1dace5ec",
+  "acceptance_guard_changed": false
+}

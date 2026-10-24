@@ -1,0 +1,7 @@
+{
+  "seed": 2026102406,
+  "checks": 36,
+  "status": "PASS calibrated controls; not a proof",
+  "reference": "Gamma factorial integrals, Cartesian Gaussian integral cubed, Euclidean ball volume; factor-two negative controls",
+  "source_sha256": "bb23284fe7e1eb734b6a13d2e8130998639b2a01f19c813750c02dc05f3928f0"
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "three-radial-v2-ThreeDimensionalRadialIntegral",
+    "module": "ThreeDimensionalRadialIntegral",
+    "nodes": [
+      [
+        "L-three-radial-v2-lintegral_norm_volume_fin_three",
+        "lintegral_norm_volume_fin_three",
+        []
+      ]
+    ]
+  }
+]

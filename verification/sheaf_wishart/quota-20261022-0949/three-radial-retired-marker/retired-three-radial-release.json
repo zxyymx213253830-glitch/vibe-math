@@ -1,0 +1,10 @@
+{
+ "name":"three-radial","review":"three-radial-final",
+ "resolution":"notes/WISHART_THREE_DIMENSIONAL_RADIAL_INTEGRAL.md",
+ "facade":"facade-123","total":829,"new_count":1,
+ "control_script":"experiments/three_dimensional_radial_control.py",
+ "control_result":"verification/sheaf_wishart/quota-20261022-0949/three-dimensional-radial-control.json",
+ "seed":2026102406,
+ "commit":"Prove nonnegative three dimensional radial integration with exact sphere factor",
+ "scope":"2026-10-24第六里程碑：829绑定项（827定理实例+2构造），auditPASS/facade123真实exit0，115接受记录全验证。今日35打印声明/12模块，累计219/97非概率突破数。新1声明R3非负径向积分：所有可测ENNReal f，积分f(norm v)=4pi*积分r>0 r²*f(r)，无有限性/L1假设，复用HaarToSphere真实MP及球体积；不是联合谱密度。36先行校准控制非证明，字面类型/最终源码真实Qoder P4绑定；nullSingleton实例、radius subtype和volumeIoiPow精确pinned签名裁决，失败v1/v2保留不接受。后续排序特征值半迹±半径桥及actual2x2 ordered joint law仍OPEN。人审测度/Tonelli/模型/论文仍需，冻结发表产物未改，fullLake/Linux独立内核NOT_RUN。"
+}

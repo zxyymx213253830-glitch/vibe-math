@@ -1,0 +1,39 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ThreeDimensionalRadialIntegral.lean:19:17: error(lean.unknownIdentifier): Unknown constant `Module.finrank_euclideanSpace`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ThreeDimensionalRadialIntegral.lean:21:33: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ENNReal.ofReal 3 * ENNReal.ofReal ?m.96
+in the target expression
+  ENNReal.ofReal ↑(Module.finrank ℝ (EuclideanSpace ℝ (Fin 3))) * ENNReal.ofReal (Real.pi * 4 / 3) =
+    ENNReal.ofReal (4 * Real.pi)
+
+f : ℝ → ℝ≥0∞
+hf : Measurable f
+E : Type := EuclideanSpace ℝ (Fin 3)
+⊢ ENNReal.ofReal ↑(Module.finrank ℝ (EuclideanSpace ℝ (Fin 3))) * ENNReal.ofReal (Real.pi * 4 / 3) =
+    ENNReal.ofReal (4 * Real.pi)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ThreeDimensionalRadialIntegral.lean:25:60: error: cannot coerce
+  x
+to type
+  ?m.111
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ThreeDimensionalRadialIntegral.lean:38:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫⁻ (x : ↑(Ioi ?m.361)), ENNReal.ofReal (↑x ^ 2) * f ↑x ∂Measure.comap Subtype.val ?m.354
+in the target expression
+  ENNReal.ofReal (4 * Real.pi) *
+      ∫⁻ (a : ↑(Ioi 0)), ((fun r => ENNReal.ofReal (↑r ^ 2)) * fun r => f ↑r) a ∂Measure.comap Subtype.val volume =
+    ENNReal.ofReal (4 * Real.pi) * ∫⁻ (r : ℝ) in Ioi 0, ENNReal.ofReal (r ^ 2) * f r
+
+f : ℝ → ℝ≥0∞
+hf : Measurable f
+E : Type := EuclideanSpace ℝ (Fin 3)
+hs : volume.toSphere univ = ENNReal.ofReal (4 * Real.pi)
+⊢ ENNReal.ofReal (4 * Real.pi) *
+      ∫⁻ (a : ↑(Ioi 0)), ((fun r => ENNReal.ofReal (↑r ^ 2)) * fun r => f ↑r) a ∂Measure.comap Subtype.val volume =
+    ENNReal.ofReal (4 * Real.pi) * ∫⁻ (r : ℝ) in Ioi 0, ENNReal.ofReal (r ^ 2) * f r
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ThreeDimensionalRadialIntegral.lean:19:48: warning: This simp argument is unused:
+  Fintype.card_fin
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [E, Module.finrank_euclideanSpace, EuclideanSpace.volume_ball_fin_three, ENNReal.ofReal_one,
+    one_pow, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.lintegral_norm_volume_fin_three' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

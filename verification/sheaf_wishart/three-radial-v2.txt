@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ThreeDimensionalRadialIntegral.lean:21:33: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ENNReal.ofReal 3 * ENNReal.ofReal ?m.96
+in the target expression
+  ENNReal.ofReal ↑3 * ENNReal.ofReal (Real.pi * 4 / 3) = ENNReal.ofReal (4 * Real.pi)
+
+f : ℝ → ℝ≥0∞
+hf : Measurable f
+E : Type := EuclideanSpace ℝ (Fin 3)
+⊢ ENNReal.ofReal ↑3 * ENNReal.ofReal (Real.pi * 4 / 3) = ENNReal.ofReal (4 * Real.pi)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ThreeDimensionalRadialIntegral.lean:25:60: error: cannot coerce
+  x
+to type
+  ?m.111
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ThreeDimensionalRadialIntegral.lean:39:74: error: cannot coerce
+  x
+to type
+  ?m.372
+'JinWishart.lintegral_norm_volume_fin_three' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

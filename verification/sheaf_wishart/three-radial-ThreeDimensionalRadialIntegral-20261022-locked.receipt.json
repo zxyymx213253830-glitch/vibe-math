@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:50:23.560957+00:00",
+  "ended_utc": "2026-10-24T07:50:32.029989+00:00",
+  "module": "JinWishartFormalization.ThreeDimensionalRadialIntegral",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ThreeDimensionalRadialIntegral.lean",
+  "source_sha256_before": "17801fb8c8bb8e54490a85c681be2d3c3fd2103b8c716c85566ad6ba59ecc0d2",
+  "source_sha256": "17801fb8c8bb8e54490a85c681be2d3c3fd2103b8c716c85566ad6ba59ecc0d2",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/three-radial-ThreeDimensionalRadialIntegral-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "953772cdf2ff63583ea83249cc3fe56b1e094305d40e0b68c786e66d08377573",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
