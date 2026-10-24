@@ -1,0 +1,13 @@
+{
+  "name": "actual-two-strict",
+  "review": "actual-two-strict-final",
+  "resolution": "notes/WISHART_ACTUAL_CENTRAL_TWO_BY_TWO_STRICT_T3.md",
+  "facade": "facade-128",
+  "total": 856,
+  "new_count": 3,
+  "control_script": "experiments/two_by_two_strict_crossing_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/two-by-two-strict-crossing-control.json",
+  "seed": 2026102410,
+  "commit": "Close actual central two by two strict T3 crossing probability",
+  "scope": "2026-10-24第十一里程碑：856绑定项（854定理实例+2构造），auditPASS/facade128真实exit0，127接受记录全验证。今日62打印声明/24模块，累计246/109非概率突破数。新3声明闭合actual central properCN1 2x2两坐标任意固定阈值无原子、严格CDF递推及T3 crossing=(x²+2)e^-x-2e^-2x（x>=0），同一原始源，无目标density/atom前提，复用已验actual jointlaw及min/maxCDF。111先行精确控制非证明，3字面类型/完整源码真实Qoder P4绑定；审查参考测度/递推方向/有限性/谱排序误报按精确签名裁决，失败日志保留不接受。12:42UTC ordinarytrue primary46 weekly23，两重置券从未用，技术lease13:56:35非用户截止。现查ThresholdNoAtom已含一般固定均值小侧谱无原子及actual严格递推，勿重做；下一应为剩余原T3行列式增量求值/一般谱积分路线。一般central/noncentralG2/generalT1T2/full映射仍OPEN。人审测度/严格事件/模型/论文映射仍需，冻结产物未改fullLake/Linux独立内核NOT_RUN。"
+}

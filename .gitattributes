@@ -692,3 +692,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/two_by_two_maximum_cdf_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_ACTUAL_CENTRAL_TWO_BY_TWO_MAXIMUM.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualCentralTwoByTwoStrictCrossing.lean -text whitespace=cr-at-eol
+
+/experiments/two_by_two_strict_crossing_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_ACTUAL_CENTRAL_TWO_BY_TWO_STRICT_T3.md -text whitespace=cr-at-eol

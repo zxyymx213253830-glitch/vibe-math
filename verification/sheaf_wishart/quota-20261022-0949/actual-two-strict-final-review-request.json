@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualCentralTwoByTwoStrictCrossing.lean": {
+      "sha256": "ea8416747bb88e52a023df3780f5b7e9080cd76bd76f33df67470ab8192e43d4",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "2055787ba54f38261049e015e8015b3a2b73e2c2e1747fc5263a490113a0d74f"
+}

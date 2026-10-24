@@ -1,0 +1,7 @@
+{
+  "seed": 2026102410,
+  "checks": 111,
+  "status": "PASS exact controls; not proof",
+  "reference": "Direct strip integral against known ordered central2x2 joint density, endpoint limits, exact weighted ordered atomic recurrence and missing-boundary negative control",
+  "source_sha256": "e54eda9a43df8ebe5a7d8548d017cb679245d396d85ed18ba00a817ec0f601fe"
+}

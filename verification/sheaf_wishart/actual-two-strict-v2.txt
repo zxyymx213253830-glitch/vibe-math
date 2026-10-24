@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCentralTwoByTwoStrictCrossing.lean:52:43: error: expected token
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualCentralTwoByTwoStrictCrossing.lean:50:49: error: unsolved goals
+case hi
+x : ℝ
+hx : 0 ≤ x
+h :
+  ((stdGaussian ComplexSample) {z | (centralTwoByTwoEigenpair z).2 ≤ x}).toReal =
+    ((stdGaussian ComplexSample) {z | (centralTwoByTwoEigenpair z).1 ≤ x} + centralTwoByTwoT3Increment x).toReal
+⊢ centralTwoByTwoT3Increment x ≠ sorry
+
+x : ℝ
+hx : 0 ≤ x
+h :
+  ((stdGaussian ComplexSample) {z | (centralTwoByTwoEigenpair z).2 ≤ x}).toReal =
+    ((stdGaussian ComplexSample) {z | (centralTwoByTwoEigenpair z).1 ≤ x} + centralTwoByTwoT3Increment x).toReal
+hi : centralTwoByTwoT3Increment x ≠ sorry
+⊢ (centralTwoByTwoT3Increment x).toReal = (x ^ 2 + 2) * Real.exp (-x) - 2 * Real.exp (-2 * x)
+'JinWishart.actualCentralTwoByTwo_coordinate_atoms_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralTwoByTwo_strict_CDF_recurrence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralTwoByTwo_T3Increment_closed' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

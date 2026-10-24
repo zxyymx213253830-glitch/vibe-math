@@ -137,3 +137,4 @@
 - 2026-10-24T12:37:31.502678+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-maximum-ExponentialIntervalMoments.json; human measure/model review remains REQUIRED.
 - 2026-10-24T12:37:43.507788+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-maximum-ActualCentralTwoByTwoMaximum.json; human measure/model review remains REQUIRED.
 - 2026-10-24T12:37:55.241409+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-maximum-CentralTwoByTwoMaximumClosedCDF.json; human measure/model review remains REQUIRED.
+- 2026-10-24T12:46:28.624387+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-strict-ActualCentralTwoByTwoStrictCrossing.json; human measure/model review remains REQUIRED.

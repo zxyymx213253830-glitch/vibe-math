@@ -1,0 +1,20 @@
+{
+  "id": "L-actual-two-strict-actualCentralTwoByTwo_coordinate_atoms_zero",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualCentralTwoByTwoStrictCrossing",
+  "declaration": "JinWishart.actualCentralTwoByTwo_coordinate_atoms_zero",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-strict-ActualCentralTwoByTwoStrictCrossing.json",
+    "source_sha256": "ea8416747bb88e52a023df3780f5b7e9080cd76bd76f33df67470ab8192e43d4"
+  }
+}

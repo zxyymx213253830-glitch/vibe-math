@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:43:33.462497+00:00",
+  "ended_utc": "2026-10-24T12:43:42.506349+00:00",
+  "module": "JinWishartFormalization.ActualCentralTwoByTwoStrictCrossing",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCentralTwoByTwoStrictCrossing.lean",
+  "source_sha256_before": "4ea1369800b1013eae2074dc241db234b8dad7b89fc3ed5b388b2e60c3a6e9fb",
+  "source_sha256": "4ea1369800b1013eae2074dc241db234b8dad7b89fc3ed5b388b2e60c3a6e9fb",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/actual-two-strict-v2.txt",
+  "log_exists": true,
+  "log_sha256": "9153f1d3ed262892fe66ad8d450f11e7561b7e067bf88b919787a6d62735f5cb",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

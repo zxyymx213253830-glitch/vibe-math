@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "actual-two-strict-ActualCentralTwoByTwoStrictCrossing",
+    "module": "ActualCentralTwoByTwoStrictCrossing",
+    "nodes": [
+      [
+        "L-actual-two-strict-actualCentralTwoByTwo_coordinate_atoms_zero",
+        "actualCentralTwoByTwo_coordinate_atoms_zero",
+        []
+      ],
+      [
+        "L-actual-two-strict-actualCentralTwoByTwo_strict_CDF_recurrence",
+        "actualCentralTwoByTwo_strict_CDF_recurrence",
+        [
+          "L-actual-two-strict-actualCentralTwoByTwo_coordinate_atoms_zero"
+        ]
+      ],
+      [
+        "L-actual-two-strict-actualCentralTwoByTwo_T3Increment_closed",
+        "actualCentralTwoByTwo_T3Increment_closed",
+        [
+          "L-actual-two-strict-actualCentralTwoByTwo_strict_CDF_recurrence"
+        ]
+      ]
+    ]
+  }
+]
