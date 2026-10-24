@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T08:02:33.018416+00:00",
+  "ended_utc": "2026-10-24T08:02:43.108940+00:00",
+  "module": "JinWishartFormalization.FourDimensionalRadialIntegral",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FourDimensionalRadialIntegral.lean",
+  "source_sha256_before": "1f8bf2d3b0b087f57d078e907822c9cb56d1b4a80ebfbee18f672bdda8b813b4",
+  "source_sha256": "1f8bf2d3b0b087f57d078e907822c9cb56d1b4a80ebfbee18f672bdda8b813b4",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/four-radial-v2.txt",
+  "log_exists": true,
+  "log_sha256": "fe3ca6c5fbb039ad17af1d904aab19113ab158abaedbe51d82c2ec0455ce8a5b",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

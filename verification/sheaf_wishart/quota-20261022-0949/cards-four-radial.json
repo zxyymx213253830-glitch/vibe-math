@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "four-radial-FourDimensionalRadialIntegral",
+    "module": "FourDimensionalRadialIntegral",
+    "nodes": [
+      [
+        "L-four-radial-measurePreserving_traceVectorCoordinates",
+        "measurePreserving_traceVectorCoordinates",
+        []
+      ],
+      [
+        "L-four-radial-lintegral_trace_radius_fin_four",
+        "lintegral_trace_radius_fin_four",
+        [
+          "L-four-radial-measurePreserving_traceVectorCoordinates"
+        ]
+      ]
+    ]
+  }
+]

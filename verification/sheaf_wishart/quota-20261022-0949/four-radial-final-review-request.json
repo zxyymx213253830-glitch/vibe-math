@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "FourDimensionalRadialIntegral.lean": {
+      "sha256": "795ca8470abfc96fa8d1cc5fd3478bc8a7c0e1af3c5cab2501d7c922cdf9289a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "72091a4d2a46407ef469da2e5f4fe3ddeb687caff9ab23f7c0ba3945b9d6b500"
+}

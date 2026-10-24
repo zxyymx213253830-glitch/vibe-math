@@ -1,0 +1,8 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FourDimensionalRadialIntegral.lean:17:14: error(lean.unknownIdentifier): Unknown identifier `measurePreserving_id`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FourDimensionalRadialIntegral.lean:16:48: error: unsolved goals
+⊢ MeasurePreserving traceVectorCoordinates volume volume
+'JinWishart.measurePreserving_traceVectorCoordinates' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.lintegral_trace_radius_fin_four' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
