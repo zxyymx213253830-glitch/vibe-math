@@ -1,0 +1,24 @@
+{
+  "id": "L-one-surplus-t1-theorem1CentralOneSurplus_PsiDet",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.Theorem1CentralOneSurplus",
+  "declaration": "JinWishart.theorem1CentralOneSurplus_PsiDet",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-one-surplus-t1-upperGammaHankel_one_surplus_det"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-one-surplus-t1-upperGammaHankel_one_surplus_det"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-one-surplus-t1-Theorem1CentralOneSurplus.json",
+    "source_sha256": "9f65ea5408d1c93d05132b30fda6f678d8ed5ddd079c42fc6f4e8a2948c6df09"
+  }
+}

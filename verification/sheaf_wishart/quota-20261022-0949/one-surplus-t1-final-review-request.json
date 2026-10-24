@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "OneSurplusGammaHankel.lean": {
+      "sha256": "60f7de4a4fb94f547a66c4d714013cccbb232daae7ca3a1037527de372210161",
+      "supplied": "Full source"
+    },
+    "Theorem1CentralOneSurplus.lean": {
+      "sha256": "9f65ea5408d1c93d05132b30fda6f678d8ed5ddd079c42fc6f4e8a2948c6df09",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "e6169ad9e9a741b4beff50b9f24bbb8fa203d1a447574d96a9f3bf527a70d400"
+}

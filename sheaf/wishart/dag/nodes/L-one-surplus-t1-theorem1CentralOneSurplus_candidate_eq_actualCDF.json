@@ -1,0 +1,24 @@
+{
+  "id": "L-one-surplus-t1-theorem1CentralOneSurplus_candidate_eq_actualCDF",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.Theorem1CentralOneSurplus",
+  "declaration": "JinWishart.theorem1CentralOneSurplus_candidate_eq_actualCDF",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-one-surplus-t1-theorem1CentralOneSurplus_candidate_eq_polynomial"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-one-surplus-t1-theorem1CentralOneSurplus_candidate_eq_polynomial"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-one-surplus-t1-Theorem1CentralOneSurplus.json",
+    "source_sha256": "9f65ea5408d1c93d05132b30fda6f678d8ed5ddd079c42fc6f4e8a2948c6df09"
+  }
+}

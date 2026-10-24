@@ -1,0 +1,47 @@
+[
+  {
+    "tag": "one-surplus-t1-OneSurplusGammaHankel",
+    "module": "OneSurplusGammaHankel",
+    "nodes": [
+      [
+        "L-one-surplus-t1-factorialHankel_one_surplus_pencil_det",
+        "factorialHankel_one_surplus_pencil_det",
+        []
+      ],
+      [
+        "L-one-surplus-t1-upperGammaHankel_one_surplus_det",
+        "upperGammaHankel_one_surplus_det",
+        [
+          "L-one-surplus-t1-factorialHankel_one_surplus_pencil_det"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "one-surplus-t1-Theorem1CentralOneSurplus",
+    "module": "Theorem1CentralOneSurplus",
+    "nodes": [
+      [
+        "L-one-surplus-t1-theorem1CentralOneSurplus_PsiDet",
+        "theorem1CentralOneSurplus_PsiDet",
+        [
+          "L-one-surplus-t1-upperGammaHankel_one_surplus_det"
+        ]
+      ],
+      [
+        "L-one-surplus-t1-theorem1CentralOneSurplus_candidate_eq_polynomial",
+        "theorem1CentralOneSurplus_candidate_eq_polynomial",
+        [
+          "L-one-surplus-t1-theorem1CentralOneSurplus_PsiDet"
+        ]
+      ],
+      [
+        "L-one-surplus-t1-theorem1CentralOneSurplus_candidate_eq_actualCDF",
+        "theorem1CentralOneSurplus_candidate_eq_actualCDF",
+        [
+          "L-one-surplus-t1-theorem1CentralOneSurplus_candidate_eq_polynomial"
+        ]
+      ]
+    ]
+  }
+]

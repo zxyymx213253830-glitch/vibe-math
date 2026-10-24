@@ -1,0 +1,43 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralOneSurplus.lean:24:4: error: 'change' tactic failed, pattern
+  n + (n + 1) - (↑i + 1) - (↑j + 1) = n - (↑i + 1) + (n - (↑j + 1)) + 1
+is not definitionally equal to target
+  theorem1GammaIndex n (n + 1) i j = ↑(Fin.revPerm i) + ↑(Fin.revPerm j) + 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralOneSurplus.lean:22:27: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Fin.revPerm_symm, Fin.revPerm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralOneSurplus.lean:22:60: warning: This simp argument is unused:
+  Fin.revPerm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Matrix.of_apply, Fin.revPerm_symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralOneSurplus.lean:39:51: error: unsolved goals
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+hD : ∏ i, ↑(↑i).factorial * ↑(↑i + 1).factorial ≠ 0
+hDN : ‖∏ i, ↑(↑i).factorial * ↑(↑i + 1).factorial‖ ≠ 0
+⊢ ∑ l ∈ Finset.range (n + 1), ↑(n.choose l) * 0 ^ l / ↑l.factorial = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralOneSurplus.lean:42:22: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, Real.exp_zero, Complex.ofReal_one, one_mul, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.theorem1CentralOneSurplus_PsiDet' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralOneSurplus_candidate_eq_polynomial' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralOneSurplus_candidate_eq_actualCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

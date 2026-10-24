@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-one-surplus-t1-Theorem1CentralOneSurplus.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-one-surplus-t1-Theorem1CentralOneSurplus.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/one-surplus-t1-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-one-surplus-t1-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-one-surplus-t1-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-one-surplus-t1-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/one-surplus-t1-final-snapshot",
+    "resolution": "notes/WISHART_ONE_SURPLUS_ORIGINAL_T1.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-121.receipt.json"
+}

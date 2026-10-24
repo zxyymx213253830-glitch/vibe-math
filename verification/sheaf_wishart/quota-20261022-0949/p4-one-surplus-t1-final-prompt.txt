@@ -1,0 +1,153 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE OneSurplusGammaHankel.lean
+import JinWishartFormalization.FactorialLaguerreOrthogonality
+import JinWishartFormalization.ChristoffelMomentDeterminant
+import JinWishartFormalization.CentralGammaDenominator
+import JinWishartFormalization.RectangularWishartOneExtraRow
+
+/-! Codex. Seed2026102403 controls before source.
+All-size one-surplus factorial/Gamma determinants, no actual CDF assumed.
+[需人工审查] Later original T1 indexing and probability mapping. -/
+open Matrix Polynomial
+namespace JinWishart
+noncomputable section
+
+private theorem factorialProduct_shift_one (n : ℕ) :
+    (n.factorial : ℂ)*(∏ i : Fin n,(i.val.factorial : ℂ)^2)=
+      ∏ i : Fin n,(i.val.factorial : ℂ)*((i.val+1).factorial : ℂ) := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+    simp only [Fin.prod_univ_castSucc,Fin.val_castSucc,Fin.val_last]
+    rw [← ih]
+    simp only [Nat.factorial_succ,Nat.cast_mul,Nat.cast_add,Nat.cast_one]
+    ring
+
+theorem factorialHankel_one_surplus_pencil_det (n : ℕ) (x : ℂ) :
+    Matrix.det (fun i j : Fin n => ((i.val+j.val+1).factorial : ℂ)+x*((i.val+j.val).factorial : ℂ)) =
+      (∏ i : Fin n,(i.val.factorial : ℂ)*((i.val+1).factorial : ℂ))*
+        ∑ k ∈ Finset.range (n+1),(n.choose k : ℂ)*x^k/(k.factorial : ℂ) := by
+  have h := christoffel_moment_det n factorialMomentFunctional (factorialLaguerre n)
+    (factorialLaguerre_natDegree n) (factorialLaguerre_monic n)
+    (fun i => factorialLaguerre_moment_orthogonal n i.val i.isLt) (-x)
+  have hf (i j : Fin n) : factorialMomentFunctional ((X-C (-x))*X^(i.val+j.val)) =
+      ((i.val+j.val+1).factorial : ℂ)+x*((i.val+j.val).factorial : ℂ) := by
+    rw [map_neg,sub_neg_eq_add,add_mul,←pow_succ',map_add,
+      ← smul_eq_C_mul,map_smul,factorialMoment_X_pow,factorialMoment_X_pow]
+    rfl
+  simp_rw [hf,factorialMoment_X_pow] at h
+  change _ = (-1 : ℂ)^n*(factorialLaguerre n).eval (-x)*(factorialHankel n).det at h
+  rw [factorialLaguerre_eval_neg,factorialHankel_det] at h
+  rw [h,← factorialProduct_shift_one]
+  ring
+
+theorem upperGammaHankel_one_surplus_det (n : ℕ) (x : ℝ) (hx : 0≤x) :
+    Matrix.det (fun i j : Fin n => upperGammaNat (i.val+j.val+1) x) =
+      (Real.exp (-(n : ℝ)*x) : ℂ)*
+      (∏ i : Fin n,(i.val.factorial : ℂ)*((i.val+1).factorial : ℂ))*
+      (oneExtraRowMinimumPolynomial n x : ℂ) := by
+  let F : ℂ[X] →ₗ[ℂ] ℂ := factorialMomentFunctional.comp (LinearMap.mulLeft ℂ (X+C (x : ℂ)))
+  have heq : Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val+1) x)=
+      (Real.exp (-x) : ℂ) • Matrix.of (fun i j : Fin n => F ((X+C (x : ℂ))^(i.val+j.val))) := by
+    ext i j
+    change upperGammaNat (i.val+j.val+1) x=(Real.exp (-x) : ℂ)*F ((X+C (x : ℂ))^(i.val+j.val))
+    rw [upperGammaNat_eq_factorialMoment _ x hx]
+    dsimp only [F,LinearMap.comp_apply,LinearMap.mulLeft_apply]
+    rw [pow_succ']
+  change (Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val+1) x)).det=_
+  rw [heq,Matrix.det_smul,Fintype.card_fin]
+  change (Real.exp (-x) : ℂ)^n*Matrix.det (fun i j : Fin n => F ((X+C (x : ℂ))^(i.val+j.val)))=_
+  rw [shifted_polynomial_moment_det]
+  have hf (i j : Fin n) : F (X^(i.val+j.val))=
+      ((i.val+j.val+1).factorial : ℂ)+(x : ℂ)*((i.val+j.val).factorial : ℂ) := by
+    dsimp only [F,LinearMap.comp_apply,LinearMap.mulLeft_apply]
+    rw [add_mul,←pow_succ',map_add,←smul_eq_C_mul,map_smul,
+      factorialMoment_X_pow,factorialMoment_X_pow]
+    rfl
+  simp_rw [hf]
+  rw [factorialHankel_one_surplus_pencil_det]
+  have hexp : (Real.exp (-x) : ℂ)^n=(Real.exp (-(n : ℝ)*x) : ℂ) := by
+    rw [←Complex.ofReal_pow,←Real.exp_nat_mul]
+    congr 2
+    ring
+  rw [hexp]
+  have hsum : (∑ k ∈ Finset.range (n+1),(n.choose k : ℂ)*(x : ℂ)^k/(k.factorial : ℂ))=
+      (oneExtraRowMinimumPolynomial n x : ℂ) := by
+    unfold oneExtraRowMinimumPolynomial
+    push_cast
+    rfl
+  rw [hsum]
+  ring
+
+end
+end JinWishart
+#print axioms JinWishart.factorialHankel_one_surplus_pencil_det
+#print axioms JinWishart.upperGammaHankel_one_surplus_det
+
+SOURCE Theorem1CentralOneSurplus.lean
+import JinWishartFormalization.OneSurplusGammaHankel
+
+/-! Codex. Seed2026102403 controls before source.
+Original central T1 in all positive sizes with exactly one extra row.
+[需人工审查] Original formula indexing, raw Gram convention and inherited CDF. -/
+open Matrix MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem theorem1CentralOneSurplus_PsiDet (n : ℕ) (x : ℝ) (hx : 0≤x) :
+    (theorem1PsiMatrix n (n+1) 0 (by omega) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x).det =
+      (Real.exp (-(n : ℝ)*x) : ℂ)*
+      (∏ i : Fin n,(i.val.factorial : ℂ)*((i.val+1).factorial : ℂ))*
+      (oneExtraRowMinimumPolynomial n x : ℂ) := by
+  have heq : theorem1PsiMatrix n (n+1) 0 (by omega) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x=
+      Matrix.reindex (Fin.revPerm : Fin n ≃ Fin n) Fin.revPerm
+        (Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val+1) x)) := by
+    ext i j
+    simp only [theorem1PsiMatrix,theorem1PsiEntry,Nat.not_lt_zero,↓reduceDIte,
+      Matrix.reindex_apply,Matrix.of_apply,Fin.revPerm_symm,Fin.revPerm_apply]
+    congr 1
+    change (n+1)+n-(i.val+1)-(j.val+1)=(n-(i.val+1))+(n-(j.val+1))+1
+    omega
+  rw [heq,Matrix.det_reindex_self]
+  exact upperGammaHankel_one_surplus_det n x hx
+
+theorem theorem1CentralOneSurplus_candidate_eq_polynomial (n : ℕ) (x : ℝ) (hx : 0≤x) :
+    theorem1CdfCandidate n (n+1) 0 (by omega) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x =
+      1-Real.exp (-(n : ℝ)*x)*oneExtraRowMinimumPolynomial n x := by
+  have hD : (∏ i : Fin n,(i.val.factorial : ℂ)*((i.val+1).factorial : ℂ))≠0 := by
+    apply Finset.prod_ne_zero_iff.mpr
+    intro i _
+    exact mul_ne_zero (by exact_mod_cast Nat.factorial_ne_zero i.val)
+      (by exact_mod_cast Nat.factorial_ne_zero (i.val+1))
+  have hDN := norm_ne_zero_iff.mpr hD
+  have hP0 : oneExtraRowMinimumPolynomial n 0=1 := by
+    unfold oneExtraRowMinimumPolynomial
+    rw [Finset.sum_range_succ']
+    simp
+  rw [theorem1CdfCandidate,theorem1CentralOneSurplus_PsiDet n x hx,
+    theorem1CentralOneSurplus_PsiDet n 0 (by norm_num),hP0]
+  simp only [mul_zero,neg_zero,Real.exp_zero,Complex.ofReal_one,one_mul,mul_one]
+  rw [norm_mul,norm_mul,Complex.norm_of_nonneg (Real.exp_nonneg _),
+    Complex.norm_of_nonneg (oneExtraRowMinimumPolynomial_nonneg n x hx)]
+  field_simp
+  <;> ring
+
+theorem theorem1CentralOneSurplus_candidate_eq_actualCDF (n : ℕ) (hn : 0<n)
+    (x : ℝ) (hx : 0≤x) :
+    theorem1CdfCandidate n (n+1) 0 (by omega) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x =
+      ((stdGaussian (ComplexSample (m := n+1) (n := n)))
+        {z | oneExtraRowSampleMinimum n hn z≤x}).toReal := by
+  rw [theorem1CentralOneSurplus_candidate_eq_polynomial n x hx,
+    actualOneExtraRow_minimum_CDF n hn x hx]
+
+end
+end JinWishart
+#print axioms JinWishart.theorem1CentralOneSurplus_PsiDet
+#print axioms JinWishart.theorem1CentralOneSurplus_candidate_eq_polynomial
+#print axioms JinWishart.theorem1CentralOneSurplus_candidate_eq_actualCDF

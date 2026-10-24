@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:23:57.970007+00:00",
+  "ended_utc": "2026-10-24T07:24:08.790901+00:00",
+  "module": "JinWishartFormalization.Theorem1CentralOneSurplus",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1CentralOneSurplus.lean",
+  "source_sha256_before": "92025f3d9dc3702a4e23dea3524a7d56e554630058d41fc7fda8f006ddffce15",
+  "source_sha256": "92025f3d9dc3702a4e23dea3524a7d56e554630058d41fc7fda8f006ddffce15",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/t1-one-surplus-v1.txt",
+  "log_exists": true,
+  "log_sha256": "53f8ec3cd11b86a0b9dcbb21aefea83f4a550e0737dcc7f08f11ea328479fbb5",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

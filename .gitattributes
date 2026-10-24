@@ -634,3 +634,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/christoffel_factorial_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_FACTORIAL_CHRISTOFFEL.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/OneSurplusGammaHankel.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/Theorem1CentralOneSurplus.lean -text whitespace=cr-at-eol
+
+/experiments/one_surplus_hankel_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_ONE_SURPLUS_ORIGINAL_T1.md -text whitespace=cr-at-eol

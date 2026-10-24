@@ -1,0 +1,2 @@
+'JinWishart.factorialHankel_one_surplus_pencil_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.upperGammaHankel_one_surplus_det' depends on axioms: [propext, Classical.choice, Quot.sound]

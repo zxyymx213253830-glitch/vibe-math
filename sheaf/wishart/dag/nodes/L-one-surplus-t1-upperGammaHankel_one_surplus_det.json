@@ -1,0 +1,24 @@
+{
+  "id": "L-one-surplus-t1-upperGammaHankel_one_surplus_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.OneSurplusGammaHankel",
+  "declaration": "JinWishart.upperGammaHankel_one_surplus_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-one-surplus-t1-factorialHankel_one_surplus_pencil_det"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-one-surplus-t1-factorialHankel_one_surplus_pencil_det"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-one-surplus-t1-OneSurplusGammaHankel.json",
+    "source_sha256": "60f7de4a4fb94f547a66c4d714013cccbb232daae7ca3a1037527de372210161"
+  }
+}
