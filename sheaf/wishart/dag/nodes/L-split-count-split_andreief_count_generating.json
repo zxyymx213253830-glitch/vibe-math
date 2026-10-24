@@ -1,0 +1,20 @@
+{
+  "id": "L-split-count-split_andreief_count_generating",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.SplitAndreiefCountGenerating",
+  "declaration": "JinWishart.split_andreief_count_generating",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-split-count-SplitAndreiefCountGenerating.json",
+    "source_sha256": "0965ad446cf7d9ca1a0b3da868c671c65e35a7644f211885c782c9d0cbaccd33"
+  }
+}

@@ -1,0 +1,25 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:117:8: error(lean.unknownIdentifier): Unknown constant `Polynomial.coeff_finset_sum`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:114:64: error: unsolved goals
+n : ℕ
+μ : Measure ℝ
+inst✝ : SigmaFinite μ
+f g : Fin n → ℝ → ℝ
+hfg : ∀ (i j : Fin n), Integrable (fun y => f i y * g j y) μ
+E : Set ℝ
+hE : MeasurableSet E
+k : ℕ
+hk : k ≤ n
+⊢ ∑ b ∈ range (n + 1), (C (↑n.factorial)⁻¹ * C (countDeterminantMoment f g μ E b) * X ^ b).coeff k =
+    (↑n.factorial)⁻¹ * countDeterminantMoment f g μ E k
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:117:36: warning: This simp argument is unused:
+  Nat.lt_succ_of_le hk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Polynomial.coeff_finset_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.measurable_coordinateMembershipCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.andreief_det_product_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.split_andreief_count_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.split_andreief_count_coefficient' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.split_andreief_count_rowMix' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-split-count-SplitAndreiefCountCoefficients.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-split-count-SplitAndreiefCountCoefficients.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/split-count-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-split-count-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-split-count-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-split-count-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/split-count-final-snapshot",
+    "resolution": "notes/WISHART_SPLIT_ANDREIEF_COUNT.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-129.receipt.json"
+}

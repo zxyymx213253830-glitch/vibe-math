@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "SplitAndreiefCountGenerating.lean": {
+      "sha256": "0965ad446cf7d9ca1a0b3da868c671c65e35a7644f211885c782c9d0cbaccd33",
+      "supplied": "Full source"
+    },
+    "SplitAndreiefCountCoefficients.lean": {
+      "sha256": "2296a75def4e35ce9bced063bdaad9b7ab7e31f627ae0d6e9b2e909e9b26eb95",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "b0ffed55eb7909e059b6e201dec87832211e62b9838a3ba258e27972420e8f57"
+}

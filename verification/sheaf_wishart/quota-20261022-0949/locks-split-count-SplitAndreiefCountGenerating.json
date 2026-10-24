@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-10-24T12:56:34.409173+00:00",
+  "module": "JinWishartFormalization.SplitAndreiefCountGenerating",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SplitAndreiefCountGenerating.lean",
+  "statements": {
+    "JinWishart.split_andreief_count_generating": "(f g : Fin n → ℝ → ℝ) (hfg : ∀ i j,Integrable (fun y => f i y*g j y) μ) (E : Set ℝ) (hE : MeasurableSet E) (t : ℝ) : Matrix.det (fun i j => t*(∫ y in E,f i y*g j y ∂μ)+ ∫ y in Eᶜ,f i y*g j y ∂μ)= (1/(n.factorial : ℝ))*∫ z : Fin n → ℝ, t^(coordinateMembershipCount E z)* (Matrix.of (fun i j => f i (z j))).det*(Matrix.of (fun i j => g i (z j))).det ∂(Measure.pi (fun _ : Fin n => μ))"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/T3FixedCardinalityRowSelection.lean": "c4bf3dd8913ba41756069d92012b1054cd499166e55ed62760a523df26b6e526",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/T3FixedCardinalityRowSelection.olean": "58fba968f8a9fe48f22fedf482ac5dcfd455597737299ccf757a5268709b66d4",
+    "theory/jin_wishart_formalization/JinWishartFormalization/DeterminantRowExpansion.lean": "be9fe185423e17b79824d078a664f14280eaf8ccfc24c4a0a78b72737a2dd0fe",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/DeterminantRowExpansion.olean": "e709679324a6c8aa3582db0fd93570fd51fdd5774987e81375191e4f2492f3d5",
+    "theory/jin_wishart_formalization/JinWishartFormalization/Andreief.lean": "48fc507811c46b7eaa4d1a30041eeb04a339f79a28faa669dd328285ea84e91a",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/Andreief.olean": "b44a6964fd02e2cd076ad726e274927b8866b37b3eebf8efd97fb68c508e1db7",
+    "theory/jin_wishart_formalization/JinWishartFormalization/SplitAndreiefCountGenerating.lean": "0965ad446cf7d9ca1a0b3da868c671c65e35a7644f211885c782c9d0cbaccd33",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafSplitCountTargets.lean",
+  "type_check_source_sha256": "a5c5ad31d01b04a2d3e483428354956bd42638b95e44b8a1649baf0382587005",
+  "locked_local_definitions": {}
+}

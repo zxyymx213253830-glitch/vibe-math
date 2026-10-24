@@ -1,0 +1,24 @@
+{
+  "id": "L-split-count-split_andreief_count_coefficient",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.SplitAndreiefCountCoefficients",
+  "declaration": "JinWishart.split_andreief_count_coefficient",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-split-count-split_andreief_count_polynomial"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-split-count-split_andreief_count_polynomial"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-split-count-SplitAndreiefCountCoefficients.json",
+    "source_sha256": "2296a75def4e35ce9bced063bdaad9b7ab7e31f627ae0d6e9b2e909e9b26eb95"
+  }
+}

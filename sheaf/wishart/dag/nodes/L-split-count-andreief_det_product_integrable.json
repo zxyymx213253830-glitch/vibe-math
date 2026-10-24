@@ -1,0 +1,24 @@
+{
+  "id": "L-split-count-andreief_det_product_integrable",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.SplitAndreiefCountCoefficients",
+  "declaration": "JinWishart.andreief_det_product_integrable",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-split-count-measurable_coordinateMembershipCount"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-split-count-measurable_coordinateMembershipCount"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-split-count-SplitAndreiefCountCoefficients.json",
+    "source_sha256": "2296a75def4e35ce9bced063bdaad9b7ab7e31f627ae0d6e9b2e909e9b26eb95"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "2296a75def4e35ce9bced063bdaad9b7ab7e31f627ae0d6e9b2e909e9b26eb95",
+  "target_lock_sha256": "11269b20cd2c24e4e27fca5a802587c496532258e2f7ee090d3edd836faca510",
+  "leaf": {
+    "started_utc": "2026-10-24T12:56:41.819334+00:00",
+    "ended_utc": "2026-10-24T12:56:49.654025+00:00",
+    "module": "JinWishartFormalization.SplitAndreiefCountCoefficients",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/SplitAndreiefCountCoefficients.lean",
+    "source_sha256_before": "2296a75def4e35ce9bced063bdaad9b7ab7e31f627ae0d6e9b2e909e9b26eb95",
+    "source_sha256": "2296a75def4e35ce9bced063bdaad9b7ab7e31f627ae0d6e9b2e909e9b26eb95",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/split-count-SplitAndreiefCountCoefficients-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "78c05206fb9d8baf399ea311152622fae40cc07e24bf823bb42226652bf55216",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T12:56:49.655487+00:00",
+    "ended_utc": "2026-10-24T12:56:59.033255+00:00",
+    "module": "SheafSplitCountTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafSplitCountTargets.lean",
+    "source_sha256_before": "a5c5ad31d01b04a2d3e483428354956bd42638b95e44b8a1649baf0382587005",
+    "source_sha256": "a5c5ad31d01b04a2d3e483428354956bd42638b95e44b8a1649baf0382587005",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/split-count-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -1,0 +1,65 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:17:10: warning: Possibly looping simp theorem: `coordinateMembershipCount.eq_1`
+
+Note: Possibly caused by: `card_eq_sum_ones` and `sum_const`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:17:36: warning: Possibly looping simp theorem: `card_eq_sum_ones`
+
+Note: Possibly caused by: `sum_const`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:17:4: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:79:10: error(lean.unknownIdentifier): Unknown constant `Polynomial.evalRingHom_apply`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:91:4: error: unsolved goals
+case h₀
+n : ℕ
+μ : Measure ℝ
+inst✝ : SigmaFinite μ
+f g : Fin n → ℝ → ℝ
+hfg : ∀ (i j : Fin n), Integrable (fun y => f i y * g j y) μ
+E : Set ℝ
+hE : MeasurableSet E
+ν : Measure (Fin n → ℝ) := Measure.pi fun x => μ
+D : (Fin n → ℝ) → ℝ := fun z => (of fun i j => f i (z j)).det * (of fun i j => g i (z j)).det
+hD : Integrable D ν
+hK : ∀ (k : ℕ), MeasurableSet {z | coordinateMembershipCount E z = k}
+t : ℝ
+heval :
+  eval t
+      (rowAffinePolynomialMatrix (of fun i j => ∫ (y : ℝ) in E, f i y * g j y ∂μ)
+          (of fun i j => ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ)).det =
+    det fun i j => t * ∫ (y : ℝ) in E, f i y * g j y ∂μ + ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ
+z : Fin n → ℝ
+hc : coordinateMembershipCount E z < n + 1
+k : ℕ
+hk : k ∈ range (n + 1)
+hne : k ≠ coordinateMembershipCount E z
+⊢ t = 0 ∧ ¬k = 0 ∨ (coordinateMembershipCount E z = k → D z = 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:94:2: error: 'change' tactic failed, pattern
+  1 / ↑n.factorial * ∫ (z : Fin n → ℝ), t ^ coordinateMembershipCount E z * D z ∂ν = ?m.395
+is not definitionally equal to target
+  (1 / ↑n.factorial *
+      ∫ (z : Fin n → ℝ),
+        t ^ coordinateMembershipCount E z * (of fun i j => f i (z j)).det *
+          (of fun i j => g i (z j)).det ∂Measure.pi fun x => μ) =
+    eval t (∑ k ∈ range (n + 1), C (1 / ↑n.factorial * countDeterminantMoment f g μ E k) * X ^ k)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:92:12: warning: This simp argument is unused:
+  hne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.indicator_of_notMem]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:92:16: warning: This simp argument is unused:
+  Set.indicator_of_notMem
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hne]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.measurable_coordinateMembershipCount' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.andreief_det_product_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.split_andreief_count_polynomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

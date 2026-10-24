@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountGenerating.lean:54:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (of fun i j => (if z j ∈ E then t else 1) * of (fun i j => f i (z j)) i j).det
+in the target expression
+  (of fun i j => (if z j ∈ E then t else 1) * f i (z j)).det =
+    t ^ coordinateMembershipCount E z * (of fun i j => f i (z j)).det
+
+n : ℕ
+μ : Measure ℝ
+inst✝ : SigmaFinite μ
+f g : Fin n → ℝ → ℝ
+hfg : ∀ (i j : Fin n), Integrable (fun y => f i y * g j y) μ
+E : Set ℝ
+hE : MeasurableSet E
+t : ℝ
+F : Fin n → ℝ → ℝ := fun i y => (if y ∈ E then t else 1) * f i y
+hF : ∀ (i j : Fin n), Integrable (fun y => F i y * g j y) μ
+hm :
+  (fun i j => ∫ (y : ℝ), F i y * g j y ∂μ) = fun i j =>
+    t * ∫ (y : ℝ) in E, f i y * g j y ∂μ + ∫ (y : ℝ) in Eᶜ, f i y * g j y ∂μ
+z : Fin n → ℝ
+⊢ (of fun i j => (if z j ∈ E then t else 1) * f i (z j)).det =
+    t ^ coordinateMembershipCount E z * (of fun i j => f i (z j)).det
+'JinWishart.split_andreief_count_generating' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

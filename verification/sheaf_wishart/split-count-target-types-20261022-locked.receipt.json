@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:56:49.655487+00:00",
+  "ended_utc": "2026-10-24T12:56:59.033255+00:00",
+  "module": "SheafSplitCountTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafSplitCountTargets.lean",
+  "source_sha256_before": "a5c5ad31d01b04a2d3e483428354956bd42638b95e44b8a1649baf0382587005",
+  "source_sha256": "a5c5ad31d01b04a2d3e483428354956bd42638b95e44b8a1649baf0382587005",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/split-count-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

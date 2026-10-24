@@ -1,0 +1,54 @@
+[
+  {
+    "tag": "split-count-SplitAndreiefCountGenerating",
+    "module": "SplitAndreiefCountGenerating",
+    "nodes": [
+      [
+        "L-split-count-split_andreief_count_generating",
+        "split_andreief_count_generating",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "split-count-SplitAndreiefCountCoefficients",
+    "module": "SplitAndreiefCountCoefficients",
+    "nodes": [
+      [
+        "L-split-count-measurable_coordinateMembershipCount",
+        "measurable_coordinateMembershipCount",
+        [
+          "L-split-count-split_andreief_count_generating"
+        ]
+      ],
+      [
+        "L-split-count-andreief_det_product_integrable",
+        "andreief_det_product_integrable",
+        [
+          "L-split-count-measurable_coordinateMembershipCount"
+        ]
+      ],
+      [
+        "L-split-count-split_andreief_count_polynomial",
+        "split_andreief_count_polynomial",
+        [
+          "L-split-count-andreief_det_product_integrable"
+        ]
+      ],
+      [
+        "L-split-count-split_andreief_count_coefficient",
+        "split_andreief_count_coefficient",
+        [
+          "L-split-count-split_andreief_count_polynomial"
+        ]
+      ],
+      [
+        "L-split-count-split_andreief_count_rowMix",
+        "split_andreief_count_rowMix",
+        [
+          "L-split-count-split_andreief_count_coefficient"
+        ]
+      ]
+    ]
+  }
+]

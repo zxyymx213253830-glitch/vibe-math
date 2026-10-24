@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:53:47.914619+00:00",
+  "ended_utc": "2026-10-24T12:53:55.783149+00:00",
+  "module": "JinWishartFormalization.SplitAndreiefCountCoefficients",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SplitAndreiefCountCoefficients.lean",
+  "source_sha256_before": "72ca379851174e199a5fe64fdcd2f296340755f38524f21413151aeec5878674",
+  "source_sha256": "72ca379851174e199a5fe64fdcd2f296340755f38524f21413151aeec5878674",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/split-count-coeff-v1.txt",
+  "log_exists": true,
+  "log_sha256": "b0bda67d239877c43c2e646b3e405e0ce897e9b61f512b97443dbb720653728c",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

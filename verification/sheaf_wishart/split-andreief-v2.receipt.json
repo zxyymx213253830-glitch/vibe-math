@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:51:27.749008+00:00",
+  "ended_utc": "2026-10-24T12:51:34.895893+00:00",
+  "module": "JinWishartFormalization.SplitAndreiefCountGenerating",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SplitAndreiefCountGenerating.lean",
+  "source_sha256_before": "56e07875c3d456fa3a192805f474aa0fadfdfea5bd2c5a2c0a071b832b48cd84",
+  "source_sha256": "56e07875c3d456fa3a192805f474aa0fadfdfea5bd2c5a2c0a071b832b48cd84",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/split-andreief-v2.txt",
+  "log_exists": true,
+  "log_sha256": "e7a93a6f0fbb6b92df23c9b89befb2e8ac4ffeee2f612a513f24bb569caee080",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

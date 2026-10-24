@@ -1,0 +1,22 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:78:86: error: unsolved goals
+n : ℕ
+μ : Measure ℝ
+inst✝ : SigmaFinite μ
+f g : Fin n → ℝ → ℝ
+hfg : ∀ (i j : Fin n), Integrable (fun y => f i y * g j y) μ
+E : Set ℝ
+hE : MeasurableSet E
+ν : Measure (Fin n → ℝ) := Measure.pi fun x => μ
+D : (Fin n → ℝ) → ℝ := fun z => (of fun i j => f i (z j)).det * (of fun i j => g i (z j)).det
+hD : Integrable D ν
+hK : ∀ (k : ℕ), MeasurableSet {z | coordinateMembershipCount E z = k}
+t : ℝ
+i j : Fin n
+⊢ (∫ (y : ℝ) in E, f i y * g j y ∂μ) * t = t * ∫ (y : ℝ) in E, f i y * g j y ∂μ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SplitAndreiefCountCoefficients.lean:99:13: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+
+Hint: Replace the deprecated name:
+  P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵f̵i̵n̵s̵e̵t̵_̵s̵u̵m̵e̲v̲a̲l̲_̲f̲i̲n̲s̲e̲t̲S̲u̲m̲
+'JinWishart.measurable_coordinateMembershipCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.andreief_det_product_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.split_andreief_count_polynomial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,7 @@
+{
+  "seed": 2026102411,
+  "checks": 176,
+  "status": "PASS exact controls; not proof",
+  "reference": "Exact discrete Andreief including empty dimension, signed f/g, atomic thresholds, zero and negative t, coefficient count masses and factorial negative calibration",
+  "source_sha256": "7b56242e15c590b14d9910a5903f50b013496d73263ffd8efb539ecd3a0b3210"
+}
