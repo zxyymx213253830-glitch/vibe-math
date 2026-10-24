@@ -1,0 +1,20 @@
+{
+  "id": "L-original-two-t3-theorem3CentralTwoSquare_candidate_eq_closed",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.OriginalCentralTwoByTwoT3",
+  "declaration": "JinWishart.theorem3CentralTwoSquare_candidate_eq_closed",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-original-two-t3-OriginalCentralTwoByTwoT3.json",
+    "source_sha256": "c20a17354acd99d559bcfa3bba540d0d69926ac0a64b9557300ca853d85fae08"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "OriginalCentralTwoByTwoT3.lean": {
+      "sha256": "c20a17354acd99d559bcfa3bba540d0d69926ac0a64b9557300ca853d85fae08",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ff5fa52072520670625b863b29b9678aa60fd698b042c10b9606b02ee95b1973"
+}

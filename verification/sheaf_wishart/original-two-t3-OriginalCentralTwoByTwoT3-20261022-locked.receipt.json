@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T13:07:14.869609+00:00",
+  "ended_utc": "2026-10-24T13:07:24.381104+00:00",
+  "module": "JinWishartFormalization.OriginalCentralTwoByTwoT3",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OriginalCentralTwoByTwoT3.lean",
+  "source_sha256_before": "c20a17354acd99d559bcfa3bba540d0d69926ac0a64b9557300ca853d85fae08",
+  "source_sha256": "c20a17354acd99d559bcfa3bba540d0d69926ac0a64b9557300ca853d85fae08",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/original-two-t3-OriginalCentralTwoByTwoT3-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "806621ea2de06f06636b77d5f82aa2485d879f0ae5f4cdae01fb110a790b1408",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

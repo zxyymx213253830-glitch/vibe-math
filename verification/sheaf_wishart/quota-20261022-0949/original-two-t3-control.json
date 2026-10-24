@@ -1,0 +1,7 @@
+{
+  "seed": 2026102413,
+  "checks": 64,
+  "status": "PASS exact controls; not proof",
+  "reference": "Unchanged s=t=2 L0 k2 c3=1, exact mixed-row sum equals actual crossing closed expression, arbitrary complex det-add relation, determinant-versus-modulus negative control",
+  "source_sha256": "fd5154ea174adcf96a57cb5d140c8ec7179287c134ebc08efbdaeb9a027437fc"
+}

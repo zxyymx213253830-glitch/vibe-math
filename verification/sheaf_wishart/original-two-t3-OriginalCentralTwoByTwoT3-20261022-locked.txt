@@ -1,0 +1,5 @@
+'JinWishart.theorem3CentralTwoSquare_candidate_eq_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem3CentralTwoSquare_candidate_eq_actual_crossing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem3CentralTwoSquare_original_recurrence' depends on axioms: [propext, Classical.choice, Quot.sound]

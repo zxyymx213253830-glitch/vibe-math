@@ -712,3 +712,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/determinant_ensemble_count_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_POSITIVE_DETERMINANT_ENSEMBLE_COUNT.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/OriginalCentralTwoByTwoT3.lean -text whitespace=cr-at-eol
+
+/experiments/original_two_t3_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_ORIGINAL_CENTRAL_TWO_BY_TWO_T3.md -text whitespace=cr-at-eol

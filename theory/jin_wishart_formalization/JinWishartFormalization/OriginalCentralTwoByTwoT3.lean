@@ -1,0 +1,57 @@
+import JinWishartFormalization.ActualCentralTwoByTwoStrictCrossing
+import JinWishartFormalization.T3CentralNormalizationClosure
+
+/-! Original unchanged T3 candidate in the central properCN1 square2 instance.
+Codex. Seed2026102413 controls before source. Not a general journal-T3 claim.
+[需人工审查] Exact source transcription, determinant bars and physical model mapping. -/
+open Matrix Finset MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+private theorem two_rowMix_sum (A B : Matrix (Fin 2) (Fin 2) ℂ) :
+    (rowMix A B {0}).det+(rowMix A B {1}).det=(A+B).det-A.det-B.det := by
+  simp [Matrix.det_fin_two,rowMix]
+  ring
+
+theorem theorem3CentralTwoSquare_candidate_eq_closed (x : ℝ) (hx : 0≤x) :
+    theorem3IncrementCandidate 2 2 0 2 (by omega) (by omega) emptyNoncentralSpectrum x=
+      (((x^2+2)*Real.exp (-x)-2*Real.exp (-2*x) : ℝ) : ℂ) := by
+  have hc : theorem3C3 2 2 0 (by omega) emptyNoncentralSpectrum=1 := by
+    norm_num [theorem3C3,theorem3GammaFactor,Fin.prod_univ_succ]
+  rw [theorem3IncrementCandidate,hc,Complex.ofReal_one,one_mul]
+  simp only [theorem3ThetaDetSum,show 2-1=1 by decide]
+  rw [sum_powerset_card_one,Fin.sum_univ_two]
+  change (rowMix (theorem1PsiMatrix 2 2 0 (by omega) (by omega) emptyNoncentralSpectrum.values x)
+      (theorem2XiMatrix 2 2 0 (by omega) (by omega) emptyNoncentralSpectrum.values x) {0}).det+
+    (rowMix (theorem1PsiMatrix 2 2 0 (by omega) (by omega) emptyNoncentralSpectrum.values x)
+      (theorem2XiMatrix 2 2 0 (by omega) (by omega) emptyNoncentralSpectrum.values x) {1}).det=_
+  rw [two_rowMix_sum]
+  rw [add_comm (theorem1PsiMatrix _ _ _ _ _ _ _) _,theorem2XiMatrix_add_theorem1PsiMatrix]
+  change (theorem1PsiMatrix 2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) 0).det-
+    (theorem1PsiMatrix 2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det-
+    (theorem2XiMatrix 2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det=_
+  rw [theorem1CentralTwoRow_PsiDet 0 (by norm_num),theorem1CentralTwoRow_PsiDet x hx,
+    theorem2CentralTwoRow_XiDet_eq_closedCDF x hx]
+  push_cast
+  norm_num
+  ring
+
+theorem theorem3CentralTwoSquare_candidate_eq_actual_crossing (x : ℝ) (hx : 0≤x) :
+    theorem3IncrementCandidate 2 2 0 2 (by omega) (by omega) emptyNoncentralSpectrum x=
+      ((centralTwoByTwoT3Increment x).toReal : ℂ) := by
+  rw [theorem3CentralTwoSquare_candidate_eq_closed x hx,actualCentralTwoByTwo_T3Increment_closed x hx]
+
+theorem theorem3CentralTwoSquare_original_recurrence (x : ℝ) (hx : 0≤x) :
+    theorem1CdfCandidate 2 2 0 (by omega) (by omega) emptyNoncentralSpectrum.values x=
+      theorem2CdfCandidate 2 2 0 (by omega) (by omega) emptyNoncentralSpectrum.values x+
+      (theorem3IncrementCandidate 2 2 0 2 (by omega) (by omega) emptyNoncentralSpectrum x).re := by
+  rw [theorem3CentralTwoSquare_candidate_eq_closed x hx]
+  dsimp only [emptyNoncentralSpectrum]
+  rw [theorem1CentralTwoRow_candidate_eq_expCDF x hx,theorem2CentralTwoRow_candidate_eq_closedCDF x hx]
+  simp only [Complex.ofReal_re]
+  ring
+end
+end JinWishart
+#print axioms JinWishart.theorem3CentralTwoSquare_candidate_eq_closed
+#print axioms JinWishart.theorem3CentralTwoSquare_candidate_eq_actual_crossing
+#print axioms JinWishart.theorem3CentralTwoSquare_original_recurrence

@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "original-two-t3-OriginalCentralTwoByTwoT3",
+    "module": "OriginalCentralTwoByTwoT3",
+    "nodes": [
+      [
+        "L-original-two-t3-theorem3CentralTwoSquare_candidate_eq_closed",
+        "theorem3CentralTwoSquare_candidate_eq_closed",
+        []
+      ],
+      [
+        "L-original-two-t3-theorem3CentralTwoSquare_candidate_eq_actual_crossing",
+        "theorem3CentralTwoSquare_candidate_eq_actual_crossing",
+        [
+          "L-original-two-t3-theorem3CentralTwoSquare_candidate_eq_closed"
+        ]
+      ],
+      [
+        "L-original-two-t3-theorem3CentralTwoSquare_original_recurrence",
+        "theorem3CentralTwoSquare_original_recurrence",
+        [
+          "L-original-two-t3-theorem3CentralTwoSquare_candidate_eq_actual_crossing"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-original-two-t3-OriginalCentralTwoByTwoT3.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-original-two-t3-OriginalCentralTwoByTwoT3.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/original-two-t3-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-original-two-t3-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-original-two-t3-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-original-two-t3-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/original-two-t3-final-snapshot",
+    "resolution": "notes/WISHART_ORIGINAL_CENTRAL_TWO_BY_TWO_T3.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-131.receipt.json"
+}

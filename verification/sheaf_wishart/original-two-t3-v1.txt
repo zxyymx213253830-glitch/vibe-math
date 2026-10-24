@@ -1,0 +1,20 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalCentralTwoByTwoT3.lean:50:53: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  theorem2CdfCandidate 2 2 0 ⋯ ⋯ (fun j => j.elim0) x
+in the target expression
+  1 - Real.exp (-2 * x) =
+    theorem2CdfCandidate 2 2 0 ⋯ ⋯ emptyNoncentralSpectrum.values x +
+      (↑((x ^ 2 + 2) * Real.exp (-x) - 2 * Real.exp (-2 * x))).re
+
+x : ℝ
+hx : 0 ≤ x
+⊢ 1 - Real.exp (-2 * x) =
+    theorem2CdfCandidate 2 2 0 ⋯ ⋯ emptyNoncentralSpectrum.values x +
+      (↑((x ^ 2 + 2) * Real.exp (-x) - 2 * Real.exp (-2 * x))).re
+'JinWishart.theorem3CentralTwoSquare_candidate_eq_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem3CentralTwoSquare_candidate_eq_actual_crossing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem3CentralTwoSquare_original_recurrence' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
