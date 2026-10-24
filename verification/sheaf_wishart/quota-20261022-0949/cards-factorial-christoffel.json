@@ -1,0 +1,61 @@
+[
+  {
+    "tag": "factorial-christoffel-FactorialLaguerreOrthogonality",
+    "module": "FactorialLaguerreOrthogonality",
+    "nodes": [
+      [
+        "L-factorial-christoffel-factorial_alternating_moment_sum",
+        "factorial_alternating_moment_sum",
+        []
+      ],
+      [
+        "L-factorial-christoffel-factorialLaguerre_monic",
+        "factorialLaguerre_monic",
+        [
+          "L-factorial-christoffel-factorial_alternating_moment_sum"
+        ]
+      ],
+      [
+        "L-factorial-christoffel-factorialLaguerre_natDegree",
+        "factorialLaguerre_natDegree",
+        [
+          "L-factorial-christoffel-factorialLaguerre_monic"
+        ]
+      ],
+      [
+        "L-factorial-christoffel-factorialLaguerre_moment_orthogonal",
+        "factorialLaguerre_moment_orthogonal",
+        [
+          "L-factorial-christoffel-factorialLaguerre_natDegree"
+        ]
+      ],
+      [
+        "L-factorial-christoffel-factorialLaguerre_eval_neg",
+        "factorialLaguerre_eval_neg",
+        [
+          "L-factorial-christoffel-factorialLaguerre_moment_orthogonal"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "factorial-christoffel-ChristoffelMomentDeterminant",
+    "module": "ChristoffelMomentDeterminant",
+    "nodes": [
+      [
+        "L-factorial-christoffel-monic_functional_columns_det",
+        "monic_functional_columns_det",
+        [
+          "L-factorial-christoffel-factorialLaguerre_eval_neg"
+        ]
+      ],
+      [
+        "L-factorial-christoffel-christoffel_moment_det",
+        "christoffel_moment_det",
+        [
+          "L-factorial-christoffel-monic_functional_columns_det"
+        ]
+      ]
+    ]
+  }
+]

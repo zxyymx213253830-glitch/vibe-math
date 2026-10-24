@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "FactorialLaguerreOrthogonality.lean": {
+      "sha256": "278f1fbc80f5a0ad79cf5f2ac42f0044e332a25cdafa873a6419f36fa0b1a1c1",
+      "supplied": "Full source"
+    },
+    "ChristoffelMomentDeterminant.lean": {
+      "sha256": "bf061196e3fe441974c33170ce438f77fdf4bef4aa437a123a759328a93a569f",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9cfc80875fec22f022939cf3f7a74ebb119f76e49f4bc9f4b806f0c4952f034c"
+}

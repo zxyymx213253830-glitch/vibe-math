@@ -1,0 +1,32 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OneSurplusGammaHankel.lean:16:11: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OneSurplusGammaHankel.lean:52:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  upperGammaNat ?m.174 x
+in the target expression
+  of (fun i j => upperGammaNat (↑i + ↑j + 1) x) i j = (↑(Real.exp (-x)) • of fun i j => F ((X + C ↑x) ^ (↑i + ↑j))) i j
+
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+F : ℂ[X] →ₗ[ℂ] ℂ := factorialMomentFunctional ∘ₗ LinearMap.mulLeft ℂ (X + C ↑x)
+i j : Fin n
+⊢ of (fun i j => upperGammaNat (↑i + ↑j + 1) x) i j = (↑(Real.exp (-x)) • of fun i j => F ((X + C ↑x) ^ (↑i + ↑j))) i j
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    of (fun i j => upperGammaNat (↑i + ↑j + 1) x) i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OneSurplusGammaHankel.lean:57:43: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  det fun i j => ?F ((X + C ?x) ^ (↑i + ↑j))
+in the target expression
+  ↑(Real.exp (-x)) ^ n * (of fun i j => F ((X + C ↑x) ^ (↑i + ↑j))).det =
+    (↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial * ↑(↑i + 1).factorial) * ↑(oneExtraRowMinimumPolynomial n x)
+
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+F : ℂ[X] →ₗ[ℂ] ℂ := factorialMomentFunctional ∘ₗ LinearMap.mulLeft ℂ (X + C ↑x)
+heq : (of fun i j => upperGammaNat (↑i + ↑j + 1) x) = ↑(Real.exp (-x)) • of fun i j => F ((X + C ↑x) ^ (↑i + ↑j))
+⊢ ↑(Real.exp (-x)) ^ n * (of fun i j => F ((X + C ↑x) ^ (↑i + ↑j))).det =
+    (↑(Real.exp (-↑n * x)) * ∏ i, ↑(↑i).factorial * ↑(↑i + 1).factorial) * ↑(oneExtraRowMinimumPolynomial n x)
+'JinWishart.factorialHankel_one_surplus_pencil_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.upperGammaHankel_one_surplus_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:18:28.572190+00:00",
+  "ended_utc": "2026-10-24T07:18:55.022694+00:00",
+  "module": "JinWishartFormalization.OneSurplusGammaHankel",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OneSurplusGammaHankel.lean",
+  "source_sha256_before": "4901fc6770fbcd03dba0bcf60cf13ac990ab277d11570cb8245e0ba8ceb79382",
+  "source_sha256": "4901fc6770fbcd03dba0bcf60cf13ac990ab277d11570cb8245e0ba8ceb79382",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/one-surplus-gamma-v1.txt",
+  "log_exists": true,
+  "log_sha256": "3accb652191cfa11a993a7ce9f597757c28849dce18f0f270a07c493fd0b4bb7",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

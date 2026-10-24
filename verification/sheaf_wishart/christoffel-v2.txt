@@ -1,0 +1,80 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:61:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [P]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:63:69: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p : ℂ[X]
+hd : p.natDegree = n
+hm : p.Monic
+ho : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+z : ℂ
+G : Fin (n + 1) → ℂ[X] →ₗ[ℂ] ℂ := fun i => Fin.cases (leval z) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i
+Q : Fin (n + 1) → ℂ[X] := fun i => Fin.cases 1 (fun j => X ^ ↑j * (X - C z)) i
+P : Fin (n + 1) → ℂ[X] := fun i => Fin.lastCases p (fun j => X ^ ↑j) i
+hdQ : ∀ (j : Fin (n + 1)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 1)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 1)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 1)), (P j).Monic
+⊢ ((of fun i j =>
+            (Fin.cases (leval z) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i)
+              (Fin.cases 1 (fun j => X ^ ↑j * (X - C z)) j)).submatrix
+        Fin.succ Fin.succ).det =
+    det fun i j => F (X ^ ↑i * (X ^ ↑j * (X - C z)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:68:81: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p : ℂ[X]
+hd : p.natDegree = n
+hm : p.Monic
+ho : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+z : ℂ
+G : Fin (n + 1) → ℂ[X] →ₗ[ℂ] ℂ := fun i => Fin.cases (leval z) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i
+Q : Fin (n + 1) → ℂ[X] := fun i => Fin.cases 1 (fun j => X ^ ↑j * (X - C z)) i
+P : Fin (n + 1) → ℂ[X] := fun i => Fin.lastCases p (fun j => X ^ ↑j) i
+hdQ : ∀ (j : Fin (n + 1)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 1)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 1)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 1)), (P j).Monic
+hQ : (det fun i j => (G i) (Q j)) = det fun i j => F ((X - C z) * X ^ (↑i + ↑j))
+⊢ (((of fun i j =>
+              (Fin.cases (leval z) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i)
+                (Fin.lastCases p (fun j => X ^ ↑j) j)).submatrix
+          Fin.succ Fin.castSucc).det =
+      det fun i j => F (X ^ (↑i + ↑j))) ∨
+    eval z p = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:66:37: warning: This simp argument is unused:
+  Matrix.submatrix_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [G, Q, Polynomial.leval_apply, pow_add, mul_comm, mul_left_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:66:77: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [G, Q, Polynomial.leval_apply, Matrix.submatrix_apply, pow_add, mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:71:40: warning: This simp argument is unused:
+  Matrix.submatrix_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [G, P, Polynomial.leval_apply, ho, ← pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:71:63: warning: This simp argument is unused:
+  ← pow_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [G, P, Polynomial.leval_apply, ho, Matrix.submatrix_apply]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.monic_functional_columns_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.christoffel_moment_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

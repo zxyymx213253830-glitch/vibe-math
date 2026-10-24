@@ -1,0 +1,24 @@
+{
+  "id": "L-factorial-christoffel-monic_functional_columns_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ChristoffelMomentDeterminant",
+  "declaration": "JinWishart.monic_functional_columns_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-factorial-christoffel-factorialLaguerre_eval_neg"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-factorial-christoffel-factorialLaguerre_eval_neg"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-factorial-christoffel-ChristoffelMomentDeterminant.json",
+    "source_sha256": "bf061196e3fe441974c33170ce438f77fdf4bef4aa437a123a759328a93a569f"
+  }
+}

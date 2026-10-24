@@ -1,0 +1,24 @@
+{
+  "id": "L-factorial-christoffel-factorialLaguerre_moment_orthogonal",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FactorialLaguerreOrthogonality",
+  "declaration": "JinWishart.factorialLaguerre_moment_orthogonal",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-factorial-christoffel-factorialLaguerre_natDegree"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-factorial-christoffel-factorialLaguerre_natDegree"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-factorial-christoffel-FactorialLaguerreOrthogonality.json",
+    "source_sha256": "278f1fbc80f5a0ad79cf5f2ac42f0044e332a25cdafa873a6419f36fa0b1a1c1"
+  }
+}

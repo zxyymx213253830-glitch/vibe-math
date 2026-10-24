@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:15:56.701230+00:00",
+  "ended_utc": "2026-10-24T07:16:06.687523+00:00",
+  "module": "JinWishartFormalization.ChristoffelMomentDeterminant",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ChristoffelMomentDeterminant.lean",
+  "source_sha256_before": "231baed3ddeeaaac9b5b6b5a3b0b4ea6813621fd027b35c7ba999bd289255146",
+  "source_sha256": "231baed3ddeeaaac9b5b6b5a3b0b4ea6813621fd027b35c7ba999bd289255146",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/christoffel-v2.txt",
+  "log_exists": true,
+  "log_sha256": "d29dcc990ac25d0dc8b9cdc71799275b23178cb7d3cd3dd7543e4203902d889e",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

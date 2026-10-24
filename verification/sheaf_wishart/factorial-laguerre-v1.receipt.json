@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:12:42.782845+00:00",
+  "ended_utc": "2026-10-24T07:13:05.169886+00:00",
+  "module": "JinWishartFormalization.FactorialLaguerreOrthogonality",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FactorialLaguerreOrthogonality.lean",
+  "source_sha256_before": "8fe4204dd1f8950e167a1b002b88e0964c750594b02692376167d549a98d438f",
+  "source_sha256": "8fe4204dd1f8950e167a1b002b88e0964c750594b02692376167d549a98d438f",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/factorial-laguerre-v1.txt",
+  "log_exists": true,
+  "log_sha256": "603295bd486894eb0f44be90a2a6cfa5a873a9e0c2ec80ba6261d154f657d011",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

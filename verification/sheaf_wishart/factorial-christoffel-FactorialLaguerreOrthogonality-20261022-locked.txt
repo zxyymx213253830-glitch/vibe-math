@@ -1,0 +1,33 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FactorialLaguerreOrthogonality.lean:48:8: warning: This simp argument is unused:
+  coeff_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_C_mul_X_pow, Finset.sum_eq_single n, Nat.factorial_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FactorialLaguerreOrthogonality.lean:48:18: warning: This simp argument is unused:
+  coeff_C_mul_X_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sum, Finset.sum_eq_single n, Nat.factorial_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FactorialLaguerreOrthogonality.lean:48:36: warning: This simp argument is unused:
+  Finset.sum_eq_single n
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sum, coeff_C_mul_X_pow, Nat.factorial_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FactorialLaguerreOrthogonality.lean:69:15: warning: This simp argument is unused:
+  RingHom.id_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.factorial_alternating_moment_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.factorialLaguerre_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.factorialLaguerre_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.factorialLaguerre_moment_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.factorialLaguerre_eval_neg' depends on axioms: [propext, Classical.choice, Quot.sound]

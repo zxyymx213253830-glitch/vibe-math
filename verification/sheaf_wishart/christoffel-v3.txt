@@ -1,0 +1,50 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:61:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [P]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:63:69: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p : ℂ[X]
+hd : p.natDegree = n
+hm : p.Monic
+ho : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+z : ℂ
+G : Fin (n + 1) → ℂ[X] →ₗ[ℂ] ℂ := fun i => Fin.cases (leval z) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i
+Q : Fin (n + 1) → ℂ[X] := fun i => Fin.cases 1 (fun j => X ^ ↑j * (X - C z)) i
+P : Fin (n + 1) → ℂ[X] := fun i => Fin.lastCases p (fun j => X ^ ↑j) i
+hdQ : ∀ (j : Fin (n + 1)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 1)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 1)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 1)), (P j).Monic
+hminor : (of fun i j => (G i) (Q j)).submatrix Fin.succ Fin.succ = of fun i j => F ((X - C z) * X ^ (↑i + ↑j))
+⊢ (of fun i j => F ((X - C z) * X ^ (↑i + ↑j))).det = det fun i j => F ((X - C z) * X ^ (↑i + ↑j))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:74:81: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p : ℂ[X]
+hd : p.natDegree = n
+hm : p.Monic
+ho : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+z : ℂ
+G : Fin (n + 1) → ℂ[X] →ₗ[ℂ] ℂ := fun i => Fin.cases (leval z) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i
+Q : Fin (n + 1) → ℂ[X] := fun i => Fin.cases 1 (fun j => X ^ ↑j * (X - C z)) i
+P : Fin (n + 1) → ℂ[X] := fun i => Fin.lastCases p (fun j => X ^ ↑j) i
+hdQ : ∀ (j : Fin (n + 1)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 1)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 1)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 1)), (P j).Monic
+hQ : (det fun i j => (G i) (Q j)) = det fun i j => F ((X - C z) * X ^ (↑i + ↑j))
+hminor : (of fun i j => (G i) (P j)).submatrix Fin.succ Fin.castSucc = of fun i j => F (X ^ (↑i + ↑j))
+⊢ ((of fun i j => F (X ^ (↑i + ↑j))).det = det fun i j => F (X ^ (↑i + ↑j))) ∨ eval z p = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:67:56: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [G, Q, Matrix.submatrix_apply, pow_add, mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.monic_functional_columns_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.christoffel_moment_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

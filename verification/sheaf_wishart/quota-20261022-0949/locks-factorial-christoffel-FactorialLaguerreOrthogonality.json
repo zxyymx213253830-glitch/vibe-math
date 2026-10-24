@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-10-24T07:19:37.597831+00:00",
+  "module": "JinWishartFormalization.FactorialLaguerreOrthogonality",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FactorialLaguerreOrthogonality.lean",
+  "statements": {
+    "JinWishart.factorial_alternating_moment_sum": "(n j : ℕ) (hj : j<n) : (∑ k ∈ Finset.range (n+1),(-1 : ℂ)^(n-k)*(n.choose k : ℂ)* ((j+k).factorial : ℂ)/(k.factorial : ℂ))=0",
+    "JinWishart.factorialLaguerre_monic": "(n : ℕ) : (factorialLaguerre n).Monic",
+    "JinWishart.factorialLaguerre_natDegree": "(n : ℕ) : (factorialLaguerre n).natDegree=n",
+    "JinWishart.factorialLaguerre_moment_orthogonal": "(n j : ℕ) (hj : j<n) : factorialMomentFunctional ((X : ℂ[X])^j*factorialLaguerre n)=0",
+    "JinWishart.factorialLaguerre_eval_neg": "(n : ℕ) (x : ℂ) : (-1 : ℂ)^n*(factorialLaguerre n).eval (-x)= (n.factorial : ℂ)*∑ k ∈ Finset.range (n+1),(n.choose k : ℂ)*x^k/(k.factorial : ℂ)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GammaFactorialMoment.lean": "02e40819a9fa6e32195fa93e2779bf38d6cb82ab76d22851cae3fc0481affc63",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GammaFactorialMoment.olean": "88b803fd8a8759a509b70723f1025c35b078aaea4b066c4bd1ffce41bd592214",
+    "theory/jin_wishart_formalization/JinWishartFormalization/IncompleteGamma.lean": "8218e54945bb43bd233034dda988a20b8ffe1a74e82e13c79e32b458ae6ec378",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/IncompleteGamma.olean": "1ec416113b374bd3a07cab7b6c857cdcd85b04d269c9547b19fc51121a9d1d3c",
+    "theory/jin_wishart_formalization/JinWishartFormalization/FactorialLaguerreOrthogonality.lean": "278f1fbc80f5a0ad79cf5f2ac42f0044e332a25cdafa873a6419f36fa0b1a1c1",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafFactorialChristoffelTargets.lean",
+  "type_check_source_sha256": "97f505e524087c4083206422b8778b5540b5824ed6fbf5b769aa9563a00be333",
+  "locked_local_definitions": {}
+}

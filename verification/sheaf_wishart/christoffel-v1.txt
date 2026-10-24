@@ -1,0 +1,90 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:25:70: error: unsolved goals
+n : ℕ
+G : Fin n → ℂ[X] →ₗ[ℂ] ℂ
+p : Fin n → ℂ[X]
+hd : ∀ (i : Fin n), (p i).natDegree = ↑i
+hm : ∀ (i : Fin n), (p i).Monic
+T : Matrix (Fin n) (Fin n) ℂ := fun i j => (p i).coeff ↑j
+B : Matrix (Fin n) (Fin n) ℂ := fun i j => (G i) (X ^ ↑j)
+hp : ∀ (j : Fin n), p j = ∑ k, (p j).coeff ↑k • X ^ ↑k
+hT : T.det = 1
+i j k : Fin n
+a✝ : k ∈ Finset.univ
+⊢ ((p j).coeff ↑k = ∑ x, if ↑k = ↑x then (p j).coeff ↑x else 0) ∨ (G i) (X ^ ↑k) = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:60:6: error: Type mismatch
+  hm
+has type
+  p.Monic
+but is expected to have type
+  (P (Fin.last n)).Monic
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:61:6: error: Type mismatch
+  monic_X_pow ?m.356
+has type
+  (X ^ ?m.356).Monic
+but is expected to have type
+  (P j.castSucc).Monic
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:64:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  det ?A
+in the target expression
+  (det fun i j => (G i) (Q j)) = det fun i j => F ((X - C z) * X ^ (↑i + ↑j))
+
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p : ℂ[X]
+hd : p.natDegree = n
+hm : p.Monic
+ho : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+z : ℂ
+G : Fin (n + 1) → ℂ[X] →ₗ[ℂ] ℂ := fun i => Fin.cases (leval z) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i
+Q : Fin (n + 1) → ℂ[X] := fun i => Fin.cases 1 (fun j => X ^ ↑j * (X - C z)) i
+P : Fin (n + 1) → ℂ[X] := fun i => Fin.lastCases p (fun j => X ^ ↑j) i
+hdQ : ∀ (j : Fin (n + 1)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 1)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 1)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 1)), (P j).Monic
+⊢ (det fun i j => (G i) (Q j)) = det fun i j => F ((X - C z) * X ^ (↑i + ↑j))
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    fun i j => (G i) (Q j)
+  has type
+    Fin (n + 1) → Fin (n + 1) → ℂ
+  but is expected to have type
+    Matrix (Fin (n + 1)) (Fin (n + 1)) ℂ
+  in the application
+    det fun i j => (G i) (Q j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:68:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  det ?m.490
+in the target expression
+  (det fun i j => (G i) (P j)) = (-1) ^ n * eval z p * det fun i j => F (X ^ (↑i + ↑j))
+
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p : ℂ[X]
+hd : p.natDegree = n
+hm : p.Monic
+ho : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+z : ℂ
+G : Fin (n + 1) → ℂ[X] →ₗ[ℂ] ℂ := fun i => Fin.cases (leval z) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i
+Q : Fin (n + 1) → ℂ[X] := fun i => Fin.cases 1 (fun j => X ^ ↑j * (X - C z)) i
+P : Fin (n + 1) → ℂ[X] := fun i => Fin.lastCases p (fun j => X ^ ↑j) i
+hdQ : ∀ (j : Fin (n + 1)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 1)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 1)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 1)), (P j).Monic
+hQ : (det fun i j => (G i) (Q j)) = det fun i j => F ((X - C z) * X ^ (↑i + ↑j))
+⊢ (det fun i j => (G i) (P j)) = (-1) ^ n * eval z p * det fun i j => F (X ^ (↑i + ↑j))
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    fun i j => (G i) (P j)
+  has type
+    Fin (n + 1) → Fin (n + 1) → ℂ
+  but is expected to have type
+    Matrix (Fin (n + 1)) (Fin (n + 1)) ℂ
+  in the application
+    det fun i j => (G i) (P j)
+'JinWishart.monic_functional_columns_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.christoffel_moment_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

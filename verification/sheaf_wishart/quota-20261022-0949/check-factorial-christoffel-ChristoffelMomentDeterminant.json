@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "bf061196e3fe441974c33170ce438f77fdf4bef4aa437a123a759328a93a569f",
+  "target_lock_sha256": "ff5dfcae75cfb19ed939a1ca8b2572ed5eb1a362e2dff59cb8e91e90ba8c21cc",
+  "leaf": {
+    "started_utc": "2026-10-24T07:19:50.889004+00:00",
+    "ended_utc": "2026-10-24T07:20:03.409550+00:00",
+    "module": "JinWishartFormalization.ChristoffelMomentDeterminant",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ChristoffelMomentDeterminant.lean",
+    "source_sha256_before": "bf061196e3fe441974c33170ce438f77fdf4bef4aa437a123a759328a93a569f",
+    "source_sha256": "bf061196e3fe441974c33170ce438f77fdf4bef4aa437a123a759328a93a569f",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/factorial-christoffel-ChristoffelMomentDeterminant-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "4a1aa7b5d896f71bcc343887b011a3a6387216cb0b320de2cad0ed7f7785a255",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-24T07:20:03.411188+00:00",
+    "ended_utc": "2026-10-24T07:20:33.122963+00:00",
+    "module": "SheafFactorialChristoffelTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafFactorialChristoffelTargets.lean",
+    "source_sha256_before": "97f505e524087c4083206422b8778b5540b5824ed6fbf5b769aa9563a00be333",
+    "source_sha256": "97f505e524087c4083206422b8778b5540b5824ed6fbf5b769aa9563a00be333",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/factorial-christoffel-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

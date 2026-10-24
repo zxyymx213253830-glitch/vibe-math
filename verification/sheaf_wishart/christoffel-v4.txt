@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:61:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [P]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ChristoffelMomentDeterminant.lean:67:56: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [G, Q, Matrix.submatrix_apply, pow_add, mul_comm, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.monic_functional_columns_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.christoffel_moment_det' depends on axioms: [propext, Classical.choice, Quot.sound]
