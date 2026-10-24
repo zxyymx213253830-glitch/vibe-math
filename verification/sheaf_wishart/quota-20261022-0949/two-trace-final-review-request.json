@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "TwoByTwoTraceCoordinates.lean": {
+      "sha256": "5fda29f29b43435f20d08f60683e32cc9bb1823c13f84e0a16527ba8618de0c5",
+      "supplied": "Full source"
+    },
+    "TwoByTwoTraceDensity.lean": {
+      "sha256": "1459f6ab4ac78934939c74bfb66c2ee7add91d077f1750d59e216110e7586d58",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "fb3fc34b18f0a26410ebbcde156f954348c6f4bcb8f48b9503b162c37d417b2f"
+}

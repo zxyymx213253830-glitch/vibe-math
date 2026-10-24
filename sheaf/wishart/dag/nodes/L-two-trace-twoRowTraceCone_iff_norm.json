@@ -1,0 +1,24 @@
+{
+  "id": "L-two-trace-twoRowTraceCone_iff_norm",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.TwoByTwoTraceCoordinates",
+  "declaration": "JinWishart.twoRowTraceCone_iff_norm",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-trace-twoRowTraceCoordinates_cone"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-trace-twoRowTraceCoordinates_cone"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-trace-TwoByTwoTraceCoordinates.json",
+    "source_sha256": "5fda29f29b43435f20d08f60683e32cc9bb1823c13f84e0a16527ba8618de0c5"
+  }
+}

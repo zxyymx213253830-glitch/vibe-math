@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceDensity.lean:19:34: error: Type mismatch: After simplification, term
+  map_volume_twoRowTraceEquiv
+ has type
+  @Eq (Measure GramChartSpace) (Measure.map ⇑twoRowTraceEquiv ℙ) (2 • ℙ)
+but is expected to have type
+  @Eq (Measure GramChartSpace) (Measure.map ⇑twoRowTraceEquiv.toContinuousLinearEquiv.toHomeomorph.toMeasurableEquiv ℙ)
+    (2 • ℙ)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceDensity.lean:32:44: error: `MeasurableSet
+  {q |
+    0 < q 0 ∧
+      q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}` is not a `fun_prop` goal! Consider marking `MeasurableSet` with `@[fun_prop]`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceDensity.lean:33:44: error: `MeasurableSet
+  {p |
+    0 < p 0 ∧
+      p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2 <
+        p 0 ^ 2}` is not a `fun_prop` goal! Consider marking `MeasurableSet` with `@[fun_prop]`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceDensity.lean:35:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map (twoRowTraceCoordinates ∘ ?m.772) ?m.770
+in the target expression
+  Measure.map (fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))))
+      (stdGaussian ComplexSample) =
+    (ℙ.restrict {p | 0 < p 0 ∧ p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2 < p 0 ^ 2}).withDensity fun p =>
+      ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * p 0))
+
+C : Set GramChartSpace := {q | 0 < q 0 ∧ q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3}
+D : Set GramChartSpace := {p | 0 < p 0 ∧ p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2 < p 0 ^ 2}
+hC : MeasurableSet C
+hD : MeasurableSet D
+ht : Measurable twoRowTraceCoordinates
+⊢ Measure.map (fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))))
+      (stdGaussian ComplexSample) =
+    (ℙ.restrict {p | 0 < p 0 ∧ p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2 < p 0 ^ 2}).withDensity fun p =>
+      ENNReal.ofReal (2 * Real.pi⁻¹ * Real.exp (-2 * p 0))
+'JinWishart.twoRowTrace_density_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.actualTwoRow_traceCoordinates_eq_density' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

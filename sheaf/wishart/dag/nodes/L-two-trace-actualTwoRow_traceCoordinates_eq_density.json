@@ -1,0 +1,24 @@
+{
+  "id": "L-two-trace-actualTwoRow_traceCoordinates_eq_density",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.TwoByTwoTraceDensity",
+  "declaration": "JinWishart.actualTwoRow_traceCoordinates_eq_density",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-trace-twoRowTrace_density_transport"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-trace-twoRowTrace_density_transport"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-trace-TwoByTwoTraceDensity.json",
+    "source_sha256": "1459f6ab4ac78934939c74bfb66c2ee7add91d077f1750d59e216110e7586d58"
+  }
+}

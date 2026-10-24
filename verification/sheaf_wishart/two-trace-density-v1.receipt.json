@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:38:07.918652+00:00",
+  "ended_utc": "2026-10-24T07:38:18.776109+00:00",
+  "module": "JinWishartFormalization.TwoByTwoTraceDensity",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceDensity.lean",
+  "source_sha256_before": "1ce924971762153e1f4762da385fbcf206810cf85757ba9039dcb39818847fed",
+  "source_sha256": "1ce924971762153e1f4762da385fbcf206810cf85757ba9039dcb39818847fed",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/two-trace-density-v1.txt",
+  "log_exists": true,
+  "log_sha256": "87667a0d25417ee31720f00da5930330c3560013d89d47dde290bbb1dec1c791",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,149 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE TwoByTwoTraceCoordinates.lean
+import JinWishartFormalization.TwoRowActualNormalizedDensity
+import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+
+/-! Codex. Seed2026102405 controls before source.
+Trace/traceless coordinates and exact volume factor for central 2x2 G2.
+[需人工审查] Lebesgue coordinate convention; joint eigenvalue law still separate. -/
+open MeasureTheory Set
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def twoRowTraceCoordinates (q : GramChartSpace) : GramChartSpace :=
+  ![(q 0+q 3)/2,(q 0-q 3)/2,q 1,q 2]
+
+def twoRowTraceInverse (p : GramChartSpace) : GramChartSpace :=
+  ![p 0+p 1,p 2,p 3,p 0-p 1]
+
+def twoRowTraceEquiv : GramChartSpace ≃ₗ[ℝ] GramChartSpace where
+  toFun := twoRowTraceCoordinates
+  invFun := twoRowTraceInverse
+  left_inv q := by ext i;fin_cases i <;> simp [twoRowTraceCoordinates,twoRowTraceInverse] <;> ring
+  right_inv p := by ext i;fin_cases i <;> simp [twoRowTraceCoordinates,twoRowTraceInverse] <;> ring
+  map_add' q p := by ext i;fin_cases i <;> simp [twoRowTraceCoordinates] <;> ring
+  map_smul' r q := by ext i;fin_cases i <;> simp [twoRowTraceCoordinates] <;> ring
+
+theorem twoRowTraceEquiv_det : twoRowTraceEquiv.toLinearMap.det=-(1/2 : ℝ) := by
+  rw [← LinearMap.det_toMatrix']
+  have hm : LinearMap.toMatrix' twoRowTraceEquiv.toLinearMap=
+      (!![(1/2 : ℝ),0,0,1/2;1/2,0,0,-1/2;0,1,0,0;0,0,1,0] : Matrix (Fin 4) (Fin 4) ℝ) := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [LinearMap.toMatrix'_apply,twoRowTraceEquiv,twoRowTraceCoordinates,Pi.single_apply]
+  rw [hm,Matrix.det_succ_row_zero]
+  norm_num [Fin.sum_univ_succ,Matrix.submatrix_apply,Matrix.det_fin_three,Fin.succAbove]
+
+theorem map_volume_twoRowTraceEquiv :
+    (volume : Measure GramChartSpace).map twoRowTraceEquiv=(2 : ℝ≥0∞) • volume := by
+  have h := Measure.map_linearMap_addHaar_eq_smul_addHaar (volume : Measure GramChartSpace)
+    (f := twoRowTraceEquiv.toLinearMap) (by rw [twoRowTraceEquiv_det];norm_num)
+  simpa [twoRowTraceEquiv_det] using h
+
+theorem twoRowTraceCoordinates_cone (q : GramChartSpace) :
+    (0<q 0 ∧ q 1^2+q 2^2<q 0*q 3) ↔
+    (0<twoRowTraceCoordinates q 0 ∧
+      (twoRowTraceCoordinates q 1)^2+(twoRowTraceCoordinates q 2)^2+
+        (twoRowTraceCoordinates q 3)^2<(twoRowTraceCoordinates q 0)^2) := by
+  change (0<q 0 ∧ q 1^2+q 2^2<q 0*q 3) ↔
+    (0<(q 0+q 3)/2 ∧ ((q 0-q 3)/2)^2+q 1^2+q 2^2<((q 0+q 3)/2)^2)
+  constructor
+  · rintro ⟨ha,hd⟩
+    have hdpos : 0<q 3 := by
+      have hprod : 0<q 0*q 3 := lt_of_le_of_lt (by positivity) hd
+      exact (mul_pos_iff_of_pos_left ha).mp hprod
+    constructor <;> nlinarith
+  · rintro ⟨ht,hr⟩
+    constructor <;> nlinarith [sq_nonneg (q 1),sq_nonneg (q 2)]
+
+theorem twoRowTraceCone_iff_norm (p : GramChartSpace) :
+    (0<p 0 ∧ p 1^2+p 2^2+p 3^2<(p 0)^2) ↔
+      ‖(WithLp.toLp 2 ![p 1,p 2,p 3] : EuclideanSpace ℝ (Fin 3))‖<p 0 := by
+  let v : EuclideanSpace ℝ (Fin 3) := WithLp.toLp 2 ![p 1,p 2,p 3]
+  have hv : ‖v‖^2=p 1^2+p 2^2+p 3^2 := by
+    simp [v,EuclideanSpace.real_norm_sq_eq,Fin.sum_univ_succ,add_assoc]
+  change _ ↔ ‖v‖<p 0
+  constructor
+  · rintro ⟨ht,hr⟩
+    nlinarith [norm_nonneg v]
+  · intro h
+    exact ⟨lt_of_le_of_lt (norm_nonneg v) h,by nlinarith [norm_nonneg v]⟩
+
+end
+end JinWishart
+#print axioms JinWishart.twoRowTraceEquiv_det
+#print axioms JinWishart.map_volume_twoRowTraceEquiv
+#print axioms JinWishart.twoRowTraceCoordinates_cone
+#print axioms JinWishart.twoRowTraceCone_iff_norm
+
+SOURCE TwoByTwoTraceDensity.lean
+import JinWishartFormalization.TwoByTwoTraceCoordinates
+
+/-! Codex. Seed2026102405 controls before source.
+Actual central Gram trace/traceless density in four real coordinates.
+[需人工审查] Exact Lebesgue factor and cone; ordered joint spectral law still separate. -/
+open MeasureTheory Set ProbabilityTheory
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+private def traceMeasEquiv : GramChartSpace ≃ᵐ GramChartSpace :=
+  twoRowTraceEquiv.toContinuousLinearEquiv.toHomeomorph.toMeasurableEquiv
+
+theorem twoRowTrace_density_transport (f : GramChartSpace → ℝ≥0∞) (hf : Measurable f) :
+    ((volume : Measure GramChartSpace).withDensity f).map twoRowTraceCoordinates =
+      volume.withDensity (fun p => 2*f (twoRowTraceInverse p)) := by
+  have hmp : MeasurePreserving traceMeasEquiv (volume : Measure GramChartSpace)
+      ((2 : ℝ≥0∞) • volume) := by
+    refine ⟨traceMeasEquiv.measurable,?_⟩
+    change (volume : Measure GramChartSpace).map twoRowTraceEquiv= _
+    exact map_volume_twoRowTraceEquiv
+  have h := map_withDensity_measurePreserving traceMeasEquiv volume
+    ((2 : ℝ≥0∞) • volume) hmp f hf
+  rw [withDensity_smul_measure,← withDensity_smul' 2 _ (by norm_num)] at h
+  exact h
+
+theorem actualTwoRow_traceCoordinates_eq_density :
+    (stdGaussian (ComplexSample (m := 2) (n := 2))).map
+      (fun z => twoRowTraceCoordinates (twoRowGramRealCoordinates (complexGram (complexSampleMatrix z)))) =
+    (volume.restrict {p : GramChartSpace | 0<p 0 ∧ p 1^2+p 2^2+p 3^2<(p 0)^2}).withDensity
+      (fun p => ENNReal.ofReal (2*Real.pi⁻¹*Real.exp (-2*p 0))) := by
+  let C : Set GramChartSpace := {q | 0<q 0 ∧ q 1^2+q 2^2<q 0*q 3}
+  let D : Set GramChartSpace := {p | 0<p 0 ∧ p 1^2+p 2^2+p 3^2<(p 0)^2}
+  have hC : MeasurableSet C := by dsimp [C];measurability
+  have hD : MeasurableSet D := by dsimp [D];measurability
+  have ht : Measurable twoRowTraceCoordinates := by unfold twoRowTraceCoordinates;fun_prop
+  have hg : Measurable (fun z : ComplexSample (m := 2) (n := 2) =>
+      twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))) :=
+    measurable_twoRowGramRealCoordinates.comp measurable_complexSampleGram
+  change (stdGaussian (ComplexSample (m := 2) (n := 2))).map
+    (twoRowTraceCoordinates ∘ (fun z => twoRowGramRealCoordinates (complexGram (complexSampleMatrix z))))= _
+  rw [← Measure.map_map ht hg,
+    actualTwoRow_GramRealCoordinates_eq_traceDensity]
+  rw [← withDensity_indicator hC, twoRowTrace_density_transport _ (by fun_prop),
+    ← withDensity_indicator hD]
+  congr 1
+  funext p
+  have hc : twoRowTraceInverse p ∈ C ↔ p ∈ D := by
+    have h := twoRowTraceCoordinates_cone (twoRowTraceInverse p)
+    have hi : twoRowTraceCoordinates (twoRowTraceInverse p)=p := twoRowTraceEquiv.apply_symm_apply p
+    simpa only [hi,C,D,Set.mem_setOf_eq] using h
+  by_cases hp : p ∈ D
+  · rw [Set.indicator_of_mem (hc.mpr hp),Set.indicator_of_mem hp]
+    have he : 2*(Real.pi⁻¹*Real.exp (-((twoRowTraceInverse p) 0+(twoRowTraceInverse p) 3)))=
+        2*Real.pi⁻¹*Real.exp (-2*p 0) := by
+      have hh : (twoRowTraceInverse p) 0+(twoRowTraceInverse p) 3=2*p 0 := by
+        simp [twoRowTraceInverse];ring
+      rw [hh]
+      ring
+    rw [← he,ENNReal.ofReal_mul (by norm_num : (0 : ℝ)≤2)]
+    norm_num
+  · rw [Set.indicator_of_notMem (fun h => hp (hc.mp h)),Set.indicator_of_notMem hp,mul_zero]
+
+end
+end JinWishart
+#print axioms JinWishart.twoRowTrace_density_transport
+#print axioms JinWishart.actualTwoRow_traceCoordinates_eq_density

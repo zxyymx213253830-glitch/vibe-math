@@ -1,0 +1,24 @@
+{
+  "id": "L-two-trace-twoRowTrace_density_transport",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.TwoByTwoTraceDensity",
+  "declaration": "JinWishart.twoRowTrace_density_transport",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-trace-twoRowTraceCone_iff_norm"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-trace-twoRowTraceCone_iff_norm"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-trace-TwoByTwoTraceDensity.json",
+    "source_sha256": "1459f6ab4ac78934939c74bfb66c2ee7add91d077f1750d59e216110e7586d58"
+  }
+}

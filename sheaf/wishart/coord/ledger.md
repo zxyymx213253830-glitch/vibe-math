@@ -123,3 +123,5 @@
 - 2026-10-24T07:21:46.743751+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-factorial-christoffel-ChristoffelMomentDeterminant.json; human measure/model review remains REQUIRED.
 - 2026-10-24T07:28:12.343167+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-one-surplus-t1-OneSurplusGammaHankel.json; human measure/model review remains REQUIRED.
 - 2026-10-24T07:28:23.246880+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-one-surplus-t1-Theorem1CentralOneSurplus.json; human measure/model review remains REQUIRED.
+- 2026-10-24T07:47:10.817845+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-trace-TwoByTwoTraceCoordinates.json; human measure/model review remains REQUIRED.
+- 2026-10-24T07:47:22.207115+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-trace-TwoByTwoTraceDensity.json; human measure/model review remains REQUIRED.

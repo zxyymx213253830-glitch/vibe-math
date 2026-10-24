@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:22:95: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:22:95: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:38:12: error(lean.unknownIdentifier): Unknown identifier `map_linearMap_addHaar_eq_smul_addHaar`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:37:82: error: unsolved goals
+⊢ Measure.map (⇑twoRowTraceEquiv) volume = 2 • volume
+'JinWishart.twoRowTraceEquiv_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.map_volume_twoRowTraceEquiv' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.twoRowTraceCoordinates_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.twoRowTraceCone_iff_norm' depends on axioms: [propext, Classical.choice, Quot.sound]

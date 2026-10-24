@@ -1,0 +1,54 @@
+[
+  {
+    "tag": "two-trace-TwoByTwoTraceCoordinates",
+    "module": "TwoByTwoTraceCoordinates",
+    "nodes": [
+      [
+        "L-two-trace-twoRowTraceEquiv_det",
+        "twoRowTraceEquiv_det",
+        []
+      ],
+      [
+        "L-two-trace-map_volume_twoRowTraceEquiv",
+        "map_volume_twoRowTraceEquiv",
+        [
+          "L-two-trace-twoRowTraceEquiv_det"
+        ]
+      ],
+      [
+        "L-two-trace-twoRowTraceCoordinates_cone",
+        "twoRowTraceCoordinates_cone",
+        [
+          "L-two-trace-map_volume_twoRowTraceEquiv"
+        ]
+      ],
+      [
+        "L-two-trace-twoRowTraceCone_iff_norm",
+        "twoRowTraceCone_iff_norm",
+        [
+          "L-two-trace-twoRowTraceCoordinates_cone"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "two-trace-TwoByTwoTraceDensity",
+    "module": "TwoByTwoTraceDensity",
+    "nodes": [
+      [
+        "L-two-trace-twoRowTrace_density_transport",
+        "twoRowTrace_density_transport",
+        [
+          "L-two-trace-twoRowTraceCone_iff_norm"
+        ]
+      ],
+      [
+        "L-two-trace-actualTwoRow_traceCoordinates_eq_density",
+        "actualTwoRow_traceCoordinates_eq_density",
+        [
+          "L-two-trace-twoRowTrace_density_transport"
+        ]
+      ]
+    ]
+  }
+]

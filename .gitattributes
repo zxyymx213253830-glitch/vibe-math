@@ -642,3 +642,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/one_surplus_hankel_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_ONE_SURPLUS_ORIGINAL_T1.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceCoordinates.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceDensity.lean -text whitespace=cr-at-eol
+
+/experiments/two_by_two_trace_radial_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_TWO_BY_TWO_TRACE_DENSITY.md -text whitespace=cr-at-eol

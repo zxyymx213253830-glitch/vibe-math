@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T07:36:30.083699+00:00",
+  "ended_utc": "2026-10-24T07:36:45.865903+00:00",
+  "module": "JinWishartFormalization.TwoByTwoTraceCoordinates",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoByTwoTraceCoordinates.lean",
+  "source_sha256_before": "bb089ea0780c023f8743651e671e4455fa6749a70eb71addb392743c48f03b85",
+  "source_sha256": "bb089ea0780c023f8743651e671e4455fa6749a70eb71addb392743c48f03b85",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/two-trace-v2.txt",
+  "log_exists": true,
+  "log_sha256": "9da0aaa20dbdf89bbdcec8966dcdb699bd27b00d045ef0480f0fa2daf072d474",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,3 +1,5 @@
+import JinWishartFormalization.TwoByTwoTraceCoordinates
+import JinWishartFormalization.TwoByTwoTraceDensity
 import JinWishartFormalization.OneSurplusGammaHankel
 import JinWishartFormalization.Theorem1CentralOneSurplus
 import JinWishartFormalization.FactorialLaguerreOrthogonality

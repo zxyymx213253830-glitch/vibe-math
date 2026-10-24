@@ -1,0 +1,41 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:21:95: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:21:95: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:25:78: error: unsolved goals
+hm : LinearMap.toMatrix' ↑twoRowTraceEquiv = !![1 / 2, 0, 0, 1 / 2; 1 / 2, 0, 0, -1 / 2; 0, 1, 0, 0; 0, 0, 1, 0]
+⊢ -(1 / 4) + -(1 / 2 * (1 / 2 * ![0, 0, 1, 0] (Fin.succAbove 3 2))) = -(1 / 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:36:67: error: expected token
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:53:20: error: linarith failed to find a contradiction
+case mp.right
+q : GramChartSpace
+ha : 0 < q 0
+hd : q 1 ^ 2 + q 2 ^ 2 < q 0 * q 3
+hdpos : 0 < q 3
+a✝ :
+  ((q 0 + q 3) / 2) ^ 2 ≤
+    ((q 0 - q 3) / 2) ^ 2 + Matrix.vecHead (Matrix.vecTail ![(q 0 - q 3) / 2, q 1, q 2]) ^ 2 +
+      Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![(q 0 - q 3) / 2, q 1, q 2])) ^ 2
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:55:20: error: linarith failed to find a contradiction
+case mpr.right
+q : GramChartSpace
+ht : 0 < (q 0 + q 3) / 2
+hr :
+  ((q 0 - q 3) / 2) ^ 2 + Matrix.vecHead (Matrix.vecTail ![(q 0 - q 3) / 2, q 1, q 2]) ^ 2 +
+      Matrix.vecHead (Matrix.vecTail (Matrix.vecTail ![(q 0 - q 3) / 2, q 1, q 2])) ^ 2 <
+    ((q 0 + q 3) / 2) ^ 2
+a✝ : q 0 * q 3 ≤ q 1 ^ 2 + q 2 ^ 2
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoByTwoTraceCoordinates.lean:61:39: error: unsolved goals
+p : GramChartSpace
+v : EuclideanSpace ℝ (Fin 3) := !₂[p 1, p 2, p 3]
+⊢ p 1 ^ 2 + (p 2 ^ 2 + p 3 ^ 2) = p 1 ^ 2 + p 2 ^ 2 + p 3 ^ 2
+'JinWishart.twoRowTraceEquiv_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.map_volume_twoRowTraceEquiv' does not depend on any axioms
+'JinWishart.twoRowTraceCoordinates_cone' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.twoRowTraceCone_iff_norm' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
