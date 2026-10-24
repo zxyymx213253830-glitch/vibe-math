@@ -1,0 +1,6 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoByTwoMaximumClosedCDF.lean:27:2: warning: Unused tactic linter: `norm_num only [Real.exp_zero, Complex.ofReal_one]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'JinWishart.theorem2CentralTwoRow_XiDet_eq_closedCDF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualCentralTwoByTwo_maximum_CDF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem2CentralTwoRow_candidate_eq_closedCDF' depends on axioms: [propext, Classical.choice, Quot.sound]

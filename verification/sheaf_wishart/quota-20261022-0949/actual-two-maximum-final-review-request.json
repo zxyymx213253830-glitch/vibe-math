@@ -1,0 +1,25 @@
+{
+  "inputs": {
+    "SymmetricTwoVariableOrderIntegral.lean": {
+      "sha256": "d08059e09288dafcd01c89bf3dcb1bde7e6a90201727029944183b56f9a6a492",
+      "supplied": "Full source"
+    },
+    "OrderedSquareGapMoments.lean": {
+      "sha256": "d661499ddb07d10e1d27ed3e7633bc65c87532145ba73fe80c43c0f476787fed",
+      "supplied": "Full source"
+    },
+    "ExponentialIntervalMoments.lean": {
+      "sha256": "9e72a80a850e4755efc9c8415730024c7c4542f80be437a9333b8ecb82dae950",
+      "supplied": "Full source"
+    },
+    "ActualCentralTwoByTwoMaximum.lean": {
+      "sha256": "098aa7fcdccebba4f67169a4972e17ea353bb30e02e64face97c605e4b467ec3",
+      "supplied": "Full source"
+    },
+    "CentralTwoByTwoMaximumClosedCDF.lean": {
+      "sha256": "bc415f917b0b4f87246642e8e639340bee914cd4b1cd2b663086480dd486e20e",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "f6fbf787feed88ba64470434c0cdeff7e9515b88d468a8372a57ac2bb08c1a73"
+}

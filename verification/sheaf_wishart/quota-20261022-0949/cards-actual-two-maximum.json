@@ -1,0 +1,114 @@
+[
+  {
+    "tag": "actual-two-maximum-SymmetricTwoVariableOrderIntegral",
+    "module": "SymmetricTwoVariableOrderIntegral",
+    "nodes": [
+      [
+        "L-actual-two-maximum-lintegral_symmetric_ordered_half",
+        "lintegral_symmetric_ordered_half",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "actual-two-maximum-OrderedSquareGapMoments",
+    "module": "OrderedSquareGapMoments",
+    "nodes": [
+      [
+        "L-actual-two-maximum-ordered_square_gap_moment_identity",
+        "ordered_square_gap_moment_identity",
+        [
+          "L-actual-two-maximum-lintegral_symmetric_ordered_half"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "actual-two-maximum-ExponentialIntervalMoments",
+    "module": "ExponentialIntervalMoments",
+    "nodes": [
+      [
+        "L-actual-two-maximum-exponentialIntervalMeasure_isFinite",
+        "exponentialIntervalMeasure_isFinite",
+        [
+          "L-actual-two-maximum-ordered_square_gap_moment_identity"
+        ]
+      ],
+      [
+        "L-actual-two-maximum-exponentialInterval_integrable_pow",
+        "exponentialInterval_integrable_pow",
+        [
+          "L-actual-two-maximum-exponentialIntervalMeasure_isFinite"
+        ]
+      ],
+      [
+        "L-actual-two-maximum-partialGamma_nat_succ_eq_realInterval",
+        "partialGamma_nat_succ_eq_realInterval",
+        [
+          "L-actual-two-maximum-exponentialInterval_integrable_pow"
+        ]
+      ],
+      [
+        "L-actual-two-maximum-exponentialInterval_integral_pow_eq_partialGamma",
+        "exponentialInterval_integral_pow_eq_partialGamma",
+        [
+          "L-actual-two-maximum-partialGamma_nat_succ_eq_realInterval"
+        ]
+      ],
+      [
+        "L-actual-two-maximum-theorem2CentralTwoRow_XiDet_eq_intervalMoments",
+        "theorem2CentralTwoRow_XiDet_eq_intervalMoments",
+        [
+          "L-actual-two-maximum-exponentialInterval_integral_pow_eq_partialGamma"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "actual-two-maximum-ActualCentralTwoByTwoMaximum",
+    "module": "ActualCentralTwoByTwoMaximum",
+    "nodes": [
+      [
+        "L-actual-two-maximum-actualCentralTwoByTwo_maximumCDF_eq_momentDet",
+        "actualCentralTwoByTwo_maximumCDF_eq_momentDet",
+        [
+          "L-actual-two-maximum-theorem2CentralTwoRow_XiDet_eq_intervalMoments"
+        ]
+      ],
+      [
+        "L-actual-two-maximum-theorem2CentralTwoRow_candidate_eq_actualCDF",
+        "theorem2CentralTwoRow_candidate_eq_actualCDF",
+        [
+          "L-actual-two-maximum-actualCentralTwoByTwo_maximumCDF_eq_momentDet"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "actual-two-maximum-CentralTwoByTwoMaximumClosedCDF",
+    "module": "CentralTwoByTwoMaximumClosedCDF",
+    "nodes": [
+      [
+        "L-actual-two-maximum-theorem2CentralTwoRow_XiDet_eq_closedCDF",
+        "theorem2CentralTwoRow_XiDet_eq_closedCDF",
+        [
+          "L-actual-two-maximum-theorem2CentralTwoRow_candidate_eq_actualCDF"
+        ]
+      ],
+      [
+        "L-actual-two-maximum-actualCentralTwoByTwo_maximum_CDF",
+        "actualCentralTwoByTwo_maximum_CDF",
+        [
+          "L-actual-two-maximum-theorem2CentralTwoRow_XiDet_eq_closedCDF"
+        ]
+      ],
+      [
+        "L-actual-two-maximum-theorem2CentralTwoRow_candidate_eq_closedCDF",
+        "theorem2CentralTwoRow_candidate_eq_closedCDF",
+        [
+          "L-actual-two-maximum-actualCentralTwoByTwo_maximum_CDF"
+        ]
+      ]
+    ]
+  }
+]

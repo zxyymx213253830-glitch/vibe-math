@@ -1,0 +1,61 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OrderedSquareGapMoments.lean:26:37: error: unsolved goals
+μ : Measure ℝ
+inst✝ : IsFiniteMeasure μ
+h1 : Integrable (fun y => y) μ
+h2 : Integrable (fun y => y ^ 2) μ
+h0 : Integrable (fun x => 1) μ
+hA : Integrable (fun z => z.1 ^ 2 * 1) (μ.prod μ)
+hB : Integrable (fun z => 1 * z.2 ^ 2) (μ.prod μ)
+hC : Integrable (fun z => z.1 * z.2) (μ.prod μ)
+hsum : Integrable (((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) - fun x => 2 * (x.1 * x.2)) (μ.prod μ)
+z : ℝ × ℝ
+⊢ (((fun z => z.1 ^ 2) + fun z => z.2 ^ 2) - fun x => x.1 * x.2 * 2) z = -(z.1 * z.2 * 2) + z.1 ^ 2 + z.2 ^ 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OrderedSquareGapMoments.lean:33:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : ℝ × ℝ), ((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) a - 2 * (a.1 * a.2) ∂μ.prod μ
+in the target expression
+  ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 + 1 * z.2 ^ 2 - 2 * (z.1 * z.2) ∂μ.prod μ =
+    ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 ∂μ.prod μ + ∫ (z : ℝ × ℝ), 1 * z.2 ^ 2 ∂μ.prod μ - 2 * ∫ (z : ℝ × ℝ), z.1 * z.2 ∂μ.prod μ
+
+μ : Measure ℝ
+inst✝ : IsFiniteMeasure μ
+h1 : Integrable (fun y => y) μ
+h2 : Integrable (fun y => y ^ 2) μ
+h0 : Integrable (fun x => 1) μ
+hA : Integrable (fun z => z.1 ^ 2 * 1) (μ.prod μ)
+hB : Integrable (fun z => 1 * z.2 ^ 2) (μ.prod μ)
+hC : Integrable (fun z => z.1 * z.2) (μ.prod μ)
+hsum : Integrable (((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) - fun x => 2 * (x.1 * x.2)) (μ.prod μ)
+hGap : Integrable (fun z => (z.1 - z.2) ^ 2) (μ.prod μ)
+⊢ ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 + 1 * z.2 ^ 2 - 2 * (z.1 * z.2) ∂μ.prod μ =
+    ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 ∂μ.prod μ + ∫ (z : ℝ × ℝ), 1 * z.2 ^ 2 ∂μ.prod μ - 2 * ∫ (z : ℝ × ℝ), z.1 * z.2 ∂μ.prod μ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OrderedSquareGapMoments.lean:35:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (z : ?m.533 × ?m.534), ?f z.1 * ?g z.2 ∂Measure.prod ?m.537 ?m.538
+in the target expression
+  ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 ∂μ.prod μ + ∫ (z : ℝ × ℝ), 1 * z.2 ^ 2 ∂μ.prod μ - 2 * ∫ (z : ℝ × ℝ), z.1 * z.2 ∂μ.prod μ =
+    2 * twoMomentDeterminant μ
+
+μ : Measure ℝ
+inst✝ : IsFiniteMeasure μ
+h1 : Integrable (fun y => y) μ
+h2 : Integrable (fun y => y ^ 2) μ
+h0 : Integrable (fun x => 1) μ
+hA : Integrable (fun z => z.1 ^ 2 * 1) (μ.prod μ)
+hB : Integrable (fun z => 1 * z.2 ^ 2) (μ.prod μ)
+hC : Integrable (fun z => z.1 * z.2) (μ.prod μ)
+hsum : Integrable (((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) - fun x => 2 * (x.1 * x.2)) (μ.prod μ)
+hGap : Integrable (fun z => (z.1 - z.2) ^ 2) (μ.prod μ)
+⊢ ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 ∂μ.prod μ + ∫ (z : ℝ × ℝ), 1 * z.2 ^ 2 ∂μ.prod μ - 2 * ∫ (z : ℝ × ℝ), z.1 * z.2 ∂μ.prod μ =
+    2 * twoMomentDeterminant μ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OrderedSquareGapMoments.lean:39:48: error: Type mismatch
+  sq_nonneg (z.1 - z.2)
+has type
+  @LE.le ℝ instDistribLatticeOfLinearOrder.toSemilatticeInf.toLE 0 ((z.1 - z.2) ^ 2)
+but is expected to have type
+  @LE.le ((fun a => ?m.554) z) ((fun i => PartialOrder.toPreorder.toLE) z) (0 z) (?m.566 z)
+'JinWishart.ordered_square_gap_moment_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

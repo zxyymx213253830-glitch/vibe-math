@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-two-maximum-actualCentralTwoByTwo_maximum_CDF",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CentralTwoByTwoMaximumClosedCDF",
+  "declaration": "JinWishart.actualCentralTwoByTwo_maximum_CDF",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-actual-two-maximum-theorem2CentralTwoRow_XiDet_eq_closedCDF"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-actual-two-maximum-theorem2CentralTwoRow_XiDet_eq_closedCDF"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-maximum-CentralTwoByTwoMaximumClosedCDF.json",
+    "source_sha256": "bc415f917b0b4f87246642e8e639340bee914cd4b1cd2b663086480dd486e20e"
+  }
+}

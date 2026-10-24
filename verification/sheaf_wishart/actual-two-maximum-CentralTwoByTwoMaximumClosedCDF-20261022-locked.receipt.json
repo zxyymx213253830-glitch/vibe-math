@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:33:04.055782+00:00",
+  "ended_utc": "2026-10-24T12:33:13.179968+00:00",
+  "module": "JinWishartFormalization.CentralTwoByTwoMaximumClosedCDF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CentralTwoByTwoMaximumClosedCDF.lean",
+  "source_sha256_before": "bc415f917b0b4f87246642e8e639340bee914cd4b1cd2b663086480dd486e20e",
+  "source_sha256": "bc415f917b0b4f87246642e8e639340bee914cd4b1cd2b663086480dd486e20e",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/actual-two-maximum-CentralTwoByTwoMaximumClosedCDF-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "b33f259fdc962c0b0f5c4f667957ab19b7ebd1b15286aaf905a9e2d719cb3203",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

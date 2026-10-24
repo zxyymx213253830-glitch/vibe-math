@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:13:37.404922+00:00",
+  "ended_utc": "2026-10-24T12:13:44.800195+00:00",
+  "module": "JinWishartFormalization.SymmetricTwoVariableOrderIntegral",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SymmetricTwoVariableOrderIntegral.lean",
+  "source_sha256_before": "0688aa5c2e3f92279ac848d741db728bf6cd7974a201f81a40ef58126f33f98b",
+  "source_sha256": "0688aa5c2e3f92279ac848d741db728bf6cd7974a201f81a40ef58126f33f98b",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/symmetric-two-order-v1.txt",
+  "log_exists": true,
+  "log_sha256": "1cb923681cf0d2b79a3ea1f7fdf4ad3464e922b5cd780df6e65dc9ab375999a0",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:32:54.141670+00:00",
+  "ended_utc": "2026-10-24T12:33:04.023518+00:00",
+  "module": "JinWishartFormalization.ActualCentralTwoByTwoMaximum",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCentralTwoByTwoMaximum.lean",
+  "source_sha256_before": "098aa7fcdccebba4f67169a4972e17ea353bb30e02e64face97c605e4b467ec3",
+  "source_sha256": "098aa7fcdccebba4f67169a4972e17ea353bb30e02e64face97c605e4b467ec3",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/actual-two-maximum-ActualCentralTwoByTwoMaximum-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "33db949040b0f994c30bc2fd7dd43316225c0803ddb297d59c93a6ac35389655",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

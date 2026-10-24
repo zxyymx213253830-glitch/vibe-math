@@ -1,0 +1,7 @@
+{
+  "seed": 2026102409,
+  "checks": 47,
+  "status": "PASS exact controls; not proof",
+  "reference": "Ordered joint triangular integral, lower-Gamma 2x2 moment determinant, min/max T3 difference; discrete symmetric ordered-half and moment determinant; asymmetric/nonzero-diagonal negative controls",
+  "source_sha256": "dbbca08c42489fa0c29b90113017d63293bed6a5c52000ea1ad1e8910f510d55"
+}

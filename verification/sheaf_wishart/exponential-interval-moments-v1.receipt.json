@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:22:50.077544+00:00",
+  "ended_utc": "2026-10-24T12:23:11.458897+00:00",
+  "module": "JinWishartFormalization.ExponentialIntervalMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ExponentialIntervalMoments.lean",
+  "source_sha256_before": "35ecbd1e08b528cea18ce7c6b3f4d7ccd41cdac4fd640f1a43152e54afb72ca6",
+  "source_sha256": "35ecbd1e08b528cea18ce7c6b3f4d7ccd41cdac4fd640f1a43152e54afb72ca6",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/exponential-interval-moments-v1.txt",
+  "log_exists": true,
+  "log_sha256": "43e119cf3002210be4cb92bf232fcb2d931264f7fcb1de33842de427871fdf1d",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

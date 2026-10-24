@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-24T12:20:16.449456+00:00",
+  "ended_utc": "2026-10-24T12:20:24.250037+00:00",
+  "module": "JinWishartFormalization.OrderedSquareGapMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedSquareGapMoments.lean",
+  "source_sha256_before": "d661499ddb07d10e1d27ed3e7633bc65c87532145ba73fe80c43c0f476787fed",
+  "source_sha256": "d661499ddb07d10e1d27ed3e7633bc65c87532145ba73fe80c43c0f476787fed",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/ordered-gap-moments-v4.txt",
+  "log_exists": true,
+  "log_sha256": "c1f9711e754694f7dadabff253694df7a3cfa23abecba43bd4223c521a6b5746",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

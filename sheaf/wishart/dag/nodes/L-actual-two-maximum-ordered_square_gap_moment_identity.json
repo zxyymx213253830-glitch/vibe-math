@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-two-maximum-ordered_square_gap_moment_identity",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.OrderedSquareGapMoments",
+  "declaration": "JinWishart.ordered_square_gap_moment_identity",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-actual-two-maximum-lintegral_symmetric_ordered_half"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-actual-two-maximum-lintegral_symmetric_ordered_half"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-maximum-OrderedSquareGapMoments.json",
+    "source_sha256": "d661499ddb07d10e1d27ed3e7633bc65c87532145ba73fe80c43c0f476787fed"
+  }
+}

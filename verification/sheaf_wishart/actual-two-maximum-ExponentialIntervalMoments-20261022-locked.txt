@@ -1,0 +1,5 @@
+'JinWishart.exponentialIntervalMeasure_isFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exponentialInterval_integrable_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.partialGamma_nat_succ_eq_realInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exponentialInterval_integral_pow_eq_partialGamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem2CentralTwoRow_XiDet_eq_intervalMoments' depends on axioms: [propext, Classical.choice, Quot.sound]

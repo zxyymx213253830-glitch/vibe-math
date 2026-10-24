@@ -1,0 +1,43 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoByTwoMaximumClosedCDF.lean:18:2: error: 'change' tactic failed, pattern
+  (2 - ↑(Real.exp (-x)) * (↑x ^ 2 + 2 * ↑x + 2)) * (1 - ↑(Real.exp (-x))) -
+      (1 - ↑(Real.exp (-x)) * (↑x + 1)) * (1 - ↑(Real.exp (-x)) * (↑x + 1)) =
+    ?m.156
+is not definitionally equal to target
+  Matrix.of
+          (Matrix.vecCons
+            (Matrix.vecCons (2 - Complex.exp (-↑x) * (↑x ^ 2 + 2 * ↑x + 2))
+              (Matrix.vecCons (1 - Complex.exp (-↑x) * (↑x + 1)) 0))
+            (Matrix.vecCons
+              (Matrix.vecCons (1 - Complex.exp (-↑x) * (↑x + 1)) (Matrix.vecCons (1 - Complex.exp (-↑x)) 0)) 0))
+          0 0 *
+        Matrix.of
+          (Matrix.vecCons
+            (Matrix.vecCons (2 - Complex.exp (-↑x) * (↑x ^ 2 + 2 * ↑x + 2))
+              (Matrix.vecCons (1 - Complex.exp (-↑x) * (↑x + 1)) 0))
+            (Matrix.vecCons
+              (Matrix.vecCons (1 - Complex.exp (-↑x) * (↑x + 1)) (Matrix.vecCons (1 - Complex.exp (-↑x)) 0)) 0))
+          1 1 -
+      Matrix.of
+          (Matrix.vecCons
+            (Matrix.vecCons (2 - Complex.exp (-↑x) * (↑x ^ 2 + 2 * ↑x + 2))
+              (Matrix.vecCons (1 - Complex.exp (-↑x) * (↑x + 1)) 0))
+            (Matrix.vecCons
+              (Matrix.vecCons (1 - Complex.exp (-↑x) * (↑x + 1)) (Matrix.vecCons (1 - Complex.exp (-↑x)) 0)) 0))
+          0 1 *
+        Matrix.of
+          (Matrix.vecCons
+            (Matrix.vecCons (2 - Complex.exp (-↑x) * (↑x ^ 2 + 2 * ↑x + 2))
+              (Matrix.vecCons (1 - Complex.exp (-↑x) * (↑x + 1)) 0))
+            (Matrix.vecCons
+              (Matrix.vecCons (1 - Complex.exp (-↑x) * (↑x + 1)) (Matrix.vecCons (1 - Complex.exp (-↑x)) 0)) 0))
+          1 0 =
+    ↑(1 - (x ^ 2 + 2) * Real.exp (-x) + Real.exp (-2 * x))
+'JinWishart.theorem2CentralTwoRow_XiDet_eq_closedCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralTwoByTwo_maximum_CDF' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem2CentralTwoRow_candidate_eq_closedCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

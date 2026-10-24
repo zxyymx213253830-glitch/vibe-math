@@ -1,0 +1,46 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExponentialIntervalMoments.lean:28:74: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+x : ℝ
+k : ℕ
+⊢ ∀ᵐ (x : ℝ) ∂volume.restrict (Ioc 0 x), ENNReal.ofReal (Real.exp (-x)) < ∞
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExponentialIntervalMoments.lean:31:2: error: Type mismatch: After simplification, term
+  hi
+ has type
+  IntegrableOn (fun y => Real.exp (-y) * y ^ k) (Ioc 0 x) volume
+but is expected to have type
+  Integrable (fun x => Real.exp (-x) * x ^ k) (volume.restrict (Ioc 0 x))
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ExponentialIntervalMoments.lean:60:67: error: unsolved goals
+x : ℝ
+hx : 0 ≤ x
+hm :
+  theorem2XiMatrix 2 2 0 ⋯ ⋯ (fun j => j.elim0) x =
+    !![↑(∫ (y : ℝ), y ^ 2 ∂exponentialIntervalMeasure x), ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x);
+      ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x), ↑(∫ (x : ℝ), 1 ∂exponentialIntervalMeasure x)]
+⊢ !![↑(∫ (y : ℝ), y ^ 2 ∂exponentialIntervalMeasure x), ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x);
+            ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x), ↑(∫ (x : ℝ), 1 ∂exponentialIntervalMeasure x)]
+          0 0 *
+        !![↑(∫ (y : ℝ), y ^ 2 ∂exponentialIntervalMeasure x), ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x);
+            ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x), ↑(∫ (x : ℝ), 1 ∂exponentialIntervalMeasure x)]
+          1 1 -
+      !![↑(∫ (y : ℝ), y ^ 2 ∂exponentialIntervalMeasure x), ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x);
+            ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x), ↑(∫ (x : ℝ), 1 ∂exponentialIntervalMeasure x)]
+          0 1 *
+        !![↑(∫ (y : ℝ), y ^ 2 ∂exponentialIntervalMeasure x), ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x);
+            ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x), ↑(∫ (x : ℝ), 1 ∂exponentialIntervalMeasure x)]
+          1 0 =
+    ↑(∫ (x : ℝ), 1 ∂exponentialIntervalMeasure x) * ↑(∫ (y : ℝ), y ^ 2 ∂exponentialIntervalMeasure x) -
+      ↑(∫ (y : ℝ), y ∂exponentialIntervalMeasure x) ^ 2
+'JinWishart.exponentialIntervalMeasure_isFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exponentialInterval_integrable_pow' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.partialGamma_nat_succ_eq_realInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exponentialInterval_integral_pow_eq_partialGamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem2CentralTwoRow_XiDet_eq_intervalMoments' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

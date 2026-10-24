@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CentralTwoByTwoMaximumClosedCDF.lean:29:2: error: `simp` made no progress
+'JinWishart.theorem2CentralTwoRow_XiDet_eq_closedCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualCentralTwoByTwo_maximum_CDF' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem2CentralTwoRow_candidate_eq_closedCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

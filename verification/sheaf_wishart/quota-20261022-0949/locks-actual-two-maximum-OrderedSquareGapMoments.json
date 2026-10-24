@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-24T12:32:28.163117+00:00",
+  "module": "JinWishartFormalization.OrderedSquareGapMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OrderedSquareGapMoments.lean",
+  "statements": {
+    "JinWishart.ordered_square_gap_moment_identity": "(μ : Measure ℝ) [IsFiniteMeasure μ] (h1 : Integrable (fun y : ℝ => y) μ) (h2 : Integrable (fun y : ℝ => y^2) μ) : 0≤twoMomentDeterminant μ ∧ (∫⁻ z in {z : ℝ × ℝ | z.2<z.1}, ENNReal.ofReal ((z.1-z.2)^2) ∂μ.prod μ)= ENNReal.ofReal (twoMomentDeterminant μ)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/SymmetricTwoVariableOrderIntegral.lean": "d08059e09288dafcd01c89bf3dcb1bde7e6a90201727029944183b56f9a6a492",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/SymmetricTwoVariableOrderIntegral.olean": "70b24bec611280ae956268a41a530c847b3869019abda2233697ca7cb9ec41bd",
+    "theory/jin_wishart_formalization/JinWishartFormalization/OrderedSquareGapMoments.lean": "d661499ddb07d10e1d27ed3e7633bc65c87532145ba73fe80c43c0f476787fed",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafActualTwoMaximumTargets.lean",
+  "type_check_source_sha256": "56007600cd5e7c116b892fa5d4b59abd5f086ea61d0234ad0b4122cad38d807a",
+  "locked_local_definitions": {}
+}

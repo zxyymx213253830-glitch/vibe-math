@@ -1,0 +1,348 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE SymmetricTwoVariableOrderIntegral.lean
+import Mathlib.MeasureTheory.Measure.Prod
+import Mathlib.MeasureTheory.Integral.Lebesgue.Map
+
+/-! Codex. Seed2026102409 finite-atomic/negative controls before source.
+Ordered-half identity allows atoms because the kernel vanishes on the diagonal.
+[需人工审查] Nonnegative product integration and symmetry normalization. -/
+open MeasureTheory Set
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+theorem lintegral_symmetric_ordered_half (μ : Measure ℝ) [SFinite μ]
+    (H : ℝ × ℝ → ℝ≥0∞) (hH : Measurable H)
+    (hsym : ∀ x y, H (x,y)=H (y,x)) (hdiag : ∀ x, H (x,x)=0) :
+    (∫⁻ z in {z : ℝ × ℝ | z.2<z.1}, H z ∂μ.prod μ) =
+      (1/2 : ℝ≥0∞) * ∫⁻ z, H z ∂μ.prod μ := by
+  let O : Set (ℝ × ℝ) := {z | z.2<z.1}
+  let G := O.indicator H
+  have hO : MeasurableSet O := measurableSet_lt measurable_snd measurable_fst
+  have hG : Measurable G := hH.indicator hO
+  have hp : ∀ z : ℝ × ℝ,H z=G z+G z.swap := by
+    rintro ⟨x,y⟩
+    by_cases hyx : y<x
+    · have hxy : ¬x<y := not_lt.mpr hyx.le
+      simp [G,O,hyx,hxy]
+    · by_cases hxy : x<y
+      · simpa [G,O,hyx,hxy] using hsym x y
+      · have he : x=y := le_antisymm (le_of_not_gt hyx) (le_of_not_gt hxy)
+        subst y
+        simp [G,O,hdiag]
+  have hswap : MeasurePreserving Prod.swap (μ.prod μ) (μ.prod μ) := Measure.measurePreserving_swap
+  have hfull : (∫⁻ z,H z ∂μ.prod μ)=(∫⁻ z,G z ∂μ.prod μ)+(∫⁻ z,G z ∂μ.prod μ) := by
+    calc
+      _ = ∫⁻ z,G z+G z.swap ∂μ.prod μ := lintegral_congr hp
+      _ = (∫⁻ z,G z ∂μ.prod μ)+(∫⁻ z,G z.swap ∂μ.prod μ) := lintegral_add_left hG _
+      _ = _ := by rw [hswap.lintegral_comp hG]
+  rw [← lintegral_indicator hO]
+  change (∫⁻ z,G z ∂μ.prod μ)=(1/2 : ℝ≥0∞)*∫⁻ z,H z ∂μ.prod μ
+  rw [hfull,← two_mul,← mul_assoc]
+  rw [one_div,ENNReal.inv_mul_cancel (by norm_num : (2 : ℝ≥0∞)≠0)
+    (by norm_num : (2 : ℝ≥0∞)≠∞),one_mul]
+
+end
+end JinWishart
+#print axioms JinWishart.lintegral_symmetric_ordered_half
+
+SOURCE OrderedSquareGapMoments.lean
+import JinWishartFormalization.SymmetricTwoVariableOrderIntegral
+import Mathlib.MeasureTheory.Integral.Prod
+
+/-! Codex. Seed2026102409 calibrated finite atomic moment/ordered-half controls.
+Concrete two-variable moment determinant interface; no assumed determinant sign.
+[需人工审查] Product integrability and ENNReal/Bochner conversion. -/
+open MeasureTheory Set
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def twoMomentDeterminant (μ : Measure ℝ) : ℝ :=
+  (∫ _ : ℝ,(1 : ℝ) ∂μ)*(∫ y : ℝ,y^2 ∂μ)-(∫ y : ℝ,y ∂μ)^2
+
+theorem ordered_square_gap_moment_identity (μ : Measure ℝ) [IsFiniteMeasure μ]
+    (h1 : Integrable (fun y : ℝ => y) μ) (h2 : Integrable (fun y : ℝ => y^2) μ) :
+    0≤twoMomentDeterminant μ ∧
+      (∫⁻ z in {z : ℝ × ℝ | z.2<z.1}, ENNReal.ofReal ((z.1-z.2)^2) ∂μ.prod μ)=
+        ENNReal.ofReal (twoMomentDeterminant μ) := by
+  have h0 : Integrable (fun _ : ℝ => (1 : ℝ)) μ := integrable_const 1
+  have hA := h2.mul_prod h0
+  have hB := h0.mul_prod h2
+  have hC := h1.mul_prod h1
+  have hsum := (hA.add hB).sub (hC.const_mul 2)
+  have hGap : Integrable (fun z : ℝ × ℝ => (z.1-z.2)^2) (μ.prod μ) :=
+    hsum.congr (ae_of_all _ fun z => by dsimp only [Pi.add_apply,Pi.sub_apply];ring)
+  have hreal : (∫ z : ℝ × ℝ,(z.1-z.2)^2 ∂μ.prod μ)=2*twoMomentDeterminant μ := by
+    calc
+      _ = ∫ z : ℝ × ℝ,z.1^2*1+1*z.2^2-2*(z.1*z.2) ∂μ.prod μ :=
+        integral_congr_ae (ae_of_all _ fun z => by ring)
+      _ = (∫ z : ℝ × ℝ,z.1^2*1 ∂μ.prod μ)+(∫ z : ℝ × ℝ,1*z.2^2 ∂μ.prod μ)-
+          2*(∫ z : ℝ × ℝ,z.1*z.2 ∂μ.prod μ) := by
+        have h := integral_sub (hA.add hB) (hC.const_mul 2)
+        simp only [Pi.add_apply] at h
+        rw [integral_add hA hB,integral_const_mul (2 : ℝ) (fun z : ℝ × ℝ => z.1*z.2)] at h
+        simpa only [Pi.add_apply] using h
+      _ = _ := by
+        rw [integral_prod_mul (fun y : ℝ => y^2) (fun _ : ℝ => (1 : ℝ)),
+          integral_prod_mul (fun _ : ℝ => (1 : ℝ)) (fun y : ℝ => y^2),
+          integral_prod_mul (fun y : ℝ => y) (fun y : ℝ => y)]
+        unfold twoMomentDeterminant
+        ring
+  have hnonneg : 0≤twoMomentDeterminant μ := by
+    have h : 0≤∫ z : ℝ × ℝ,(z.1-z.2)^2 ∂μ.prod μ :=
+      integral_nonneg (fun z => sq_nonneg (z.1-z.2))
+    rw [hreal] at h
+    linarith
+  refine ⟨hnonneg,?_⟩
+  have hh := lintegral_symmetric_ordered_half μ
+    (fun z => ENNReal.ofReal ((z.1-z.2)^2)) (by fun_prop)
+    (fun x y => by congr 1;ring) (by intro x;simp)
+  rw [← ofReal_integral_eq_lintegral_ofReal hGap (ae_of_all _ fun z => sq_nonneg (z.1-z.2)),
+    hreal,ENNReal.ofReal_mul (by norm_num : (0 : ℝ)≤2)] at hh
+  rw [← mul_assoc,show ENNReal.ofReal (2 : ℝ)=(2 : ℝ≥0∞) by norm_num,one_div,
+    ENNReal.inv_mul_cancel (by norm_num : (2 : ℝ≥0∞)≠0) (by norm_num : (2 : ℝ≥0∞)≠∞),one_mul] at hh
+  exact hh
+
+end
+end JinWishart
+#print axioms JinWishart.ordered_square_gap_moment_identity
+
+SOURCE ExponentialIntervalMoments.lean
+import JinWishartFormalization.OrderedSquareGapMoments
+import JinWishartFormalization.Theorem1CentralTwoRowActualCDF
+import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+
+/-! Codex. Seed2026102409 exact lower-Gamma/moment controls before source.
+Truncated exponential moments and the ORIGINAL central2x2 T2 matrix determinant.
+[需人工审查] Compact integrability, density conversion, and interval endpoints. -/
+open MeasureTheory Set
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def exponentialIntervalMeasure (x : ℝ) : Measure ℝ :=
+  (volume.restrict (Ioc 0 x)).withDensity (fun y => ENNReal.ofReal (Real.exp (-y)))
+
+theorem exponentialIntervalMeasure_isFinite (x : ℝ) : IsFiniteMeasure (exponentialIntervalMeasure x) := by
+  have hi : IntegrableOn (fun y : ℝ => Real.exp (-y)) (Ioc 0 x) :=
+    (by fun_prop : Continuous (fun y : ℝ => Real.exp (-y))).integrableOn_Icc.mono_set Ioc_subset_Icc_self
+  apply isFiniteMeasure_withDensity
+  rw [← ofReal_integral_eq_lintegral_ofReal hi (ae_of_all _ fun y => Real.exp_nonneg (-y))]
+  exact ENNReal.ofReal_ne_top
+
+attribute [instance] exponentialIntervalMeasure_isFinite
+
+theorem exponentialInterval_integrable_pow (x : ℝ) (k : ℕ) :
+    Integrable (fun y : ℝ => y^k) (exponentialIntervalMeasure x) := by
+  unfold exponentialIntervalMeasure
+  rw [integrable_withDensity_iff_integrable_smul' (by fun_prop) (ae_of_all _ fun y => by finiteness)]
+  have hi : IntegrableOn (fun y : ℝ => Real.exp (-y)*y^k) (Ioc 0 x) :=
+    (by fun_prop : Continuous (fun y : ℝ => Real.exp (-y)*y^k)).integrableOn_Icc.mono_set Ioc_subset_Icc_self
+  simpa [IntegrableOn,ENNReal.toReal_ofReal,Real.exp_nonneg,smul_eq_mul] using hi
+
+theorem partialGamma_nat_succ_eq_realInterval (k : ℕ) (x : ℝ) :
+    Complex.partialGamma ((k+1 : ℕ) : ℂ) x=
+      ((∫ y in (0 : ℝ)..x,y^k*Real.exp (-y) : ℝ) : ℂ) := by
+  rw [Complex.partialGamma]
+  have hfun : (fun y : ℝ => (-y).exp*(y : ℂ)^(((k+1 : ℕ) : ℂ)-1))=
+      (fun y : ℝ => ((y^k*Real.exp (-y) : ℝ) : ℂ)) := by
+    funext y
+    rw [show ((k+1 : ℕ) : ℂ)-1=(k : ℂ) by push_cast;ring,Complex.cpow_natCast]
+    push_cast
+    ring
+  rw [hfun,intervalIntegral.integral_ofReal]
+
+theorem exponentialInterval_integral_pow_eq_partialGamma (x : ℝ) (hx : 0≤x) (k : ℕ) :
+    ((∫ y : ℝ,y^k ∂exponentialIntervalMeasure x : ℝ) : ℂ)=
+      Complex.partialGamma ((k+1 : ℕ) : ℂ) x := by
+  rw [partialGamma_nat_succ_eq_realInterval]
+  congr 1
+  unfold exponentialIntervalMeasure
+  rw [integral_withDensity_eq_integral_toReal_smul (by fun_prop)
+    (ae_of_all _ fun y => by finiteness)]
+  simp only [ENNReal.toReal_ofReal (Real.exp_nonneg _),smul_eq_mul]
+  rw [intervalIntegral.integral_of_le hx]
+  apply integral_congr_ae
+  exact ae_of_all _ fun y => mul_comm _ _
+
+theorem theorem2CentralTwoRow_XiDet_eq_intervalMoments (x : ℝ) (hx : 0≤x) :
+    (theorem2XiMatrix 2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det=
+      (twoMomentDeterminant (exponentialIntervalMeasure x) : ℂ) := by
+  have hm : theorem2XiMatrix 2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x=
+      (!![((∫ y : ℝ,y^2 ∂exponentialIntervalMeasure x : ℝ) : ℂ),
+          ((∫ y : ℝ,y ∂exponentialIntervalMeasure x : ℝ) : ℂ);
+          ((∫ y : ℝ,y ∂exponentialIntervalMeasure x : ℝ) : ℂ),
+          ((∫ _ : ℝ,(1 : ℝ) ∂exponentialIntervalMeasure x : ℝ) : ℂ)] : Matrix (Fin 2) (Fin 2) ℂ) := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [theorem2XiMatrix,theorem2XiEntry,theorem1GammaIndex]
+    · simpa using (exponentialInterval_integral_pow_eq_partialGamma x hx 2).symm
+    · simpa using (exponentialInterval_integral_pow_eq_partialGamma x hx 1).symm
+    · simpa using (exponentialInterval_integral_pow_eq_partialGamma x hx 1).symm
+    · simpa using (exponentialInterval_integral_pow_eq_partialGamma x hx 0).symm
+  rw [hm,Matrix.det_fin_two]
+  change ((∫ y : ℝ,y^2 ∂exponentialIntervalMeasure x : ℝ) : ℂ)*
+      ((∫ _ : ℝ,(1 : ℝ) ∂exponentialIntervalMeasure x : ℝ) : ℂ)-
+      ((∫ y : ℝ,y ∂exponentialIntervalMeasure x : ℝ) : ℂ)*
+      ((∫ y : ℝ,y ∂exponentialIntervalMeasure x : ℝ) : ℂ)=_
+  unfold twoMomentDeterminant
+  push_cast
+  ring
+
+end
+end JinWishart
+#print axioms JinWishart.exponentialIntervalMeasure_isFinite
+#print axioms JinWishart.exponentialInterval_integrable_pow
+#print axioms JinWishart.partialGamma_nat_succ_eq_realInterval
+#print axioms JinWishart.exponentialInterval_integral_pow_eq_partialGamma
+#print axioms JinWishart.theorem2CentralTwoRow_XiDet_eq_intervalMoments
+
+SOURCE ActualCentralTwoByTwoMaximum.lean
+import JinWishartFormalization.ExponentialIntervalMoments
+import JinWishartFormalization.ActualCentralTwoByTwoJointDensity
+
+/-! Codex. Seed2026102409 exact max-CDF/moment and normalization controls.
+Actual maximum event and ORIGINAL central2x2 T2 candidate, no density premise.
+[需人工审查] Restricted product measure, strict/weak events and original T2 mapping. -/
+open MeasureTheory ProbabilityTheory Set
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+private theorem exponentialInterval_prod_density (x : ℝ) :
+    (exponentialIntervalMeasure x).prod (exponentialIntervalMeasure x)=
+      ((volume : Measure (ℝ × ℝ)).restrict ((Ioc 0 x) ×ˢ (Ioc 0 x))).withDensity
+        (fun z => ENNReal.ofReal (Real.exp (-(z.1+z.2)))) := by
+  unfold exponentialIntervalMeasure
+  rw [prod_withDensity (by fun_prop) (by fun_prop),Measure.prod_restrict,← Measure.volume_eq_prod]
+  congr 1
+  funext z
+  rw [← ENNReal.ofReal_mul (Real.exp_nonneg _),← Real.exp_add]
+  congr 1
+  ring
+
+private theorem actualMaximum_eq_orderedGapIntegral (x : ℝ) :
+    (stdGaussian (ComplexSample (m := 2) (n := 2))) {z | (centralTwoByTwoEigenpair z).1≤x}=
+      ∫⁻ z in {z : ℝ × ℝ | z.2<z.1}, ENNReal.ofReal ((z.1-z.2)^2)
+        ∂(exponentialIntervalMeasure x).prod (exponentialIntervalMeasure x) := by
+  let P : Set (ℝ × ℝ) := {z | z.1≤x}
+  let S : Set (ℝ × ℝ) := {z | 0<z.2 ∧ z.2<z.1}
+  let O : Set (ℝ × ℝ) := {z | z.2<z.1}
+  let R : Set (ℝ × ℝ) := (Ioc 0 x) ×ˢ (Ioc 0 x)
+  let W : ℝ × ℝ → ℝ≥0∞ := fun z => ENNReal.ofReal (Real.exp (-(z.1+z.2)))
+  let G : ℝ × ℝ → ℝ≥0∞ := fun z => ENNReal.ofReal ((z.1-z.2)^2)
+  have hP : MeasurableSet P := measurableSet_le measurable_fst measurable_const
+  have hS : MeasurableSet S := by dsimp [S];measurability
+  have hO : MeasurableSet O := measurableSet_lt measurable_snd measurable_fst
+  have hR : MeasurableSet R := measurableSet_Ioc.prod measurableSet_Ioc
+  have hW : Measurable W := by dsimp [W];fun_prop
+  have hG : Measurable G := by dsimp [G];fun_prop
+  have hsets : P ∩ S=R ∩ O := by
+    ext ⟨u,v⟩
+    simp only [P,S,R,O,mem_inter_iff,mem_prod,mem_Ioc,mem_setOf_eq]
+    constructor
+    · rintro ⟨hux,hv0,hvu⟩
+      exact ⟨⟨⟨lt_trans hv0 hvu,hux⟩,⟨hv0,le_trans hvu.le hux⟩⟩,hvu⟩
+    · rintro ⟨⟨⟨hu0,hux⟩,⟨hv0,hvx⟩⟩,hvu⟩
+      exact ⟨hux,hv0,hvu⟩
+  have hpaper : centralTwoByTwoPaperEigenvalueDensity=S.indicator (fun z => W z*G z) := by
+    funext z
+    by_cases hz : 0<z.2 ∧ z.2<z.1
+    · simp [centralTwoByTwoPaperEigenvalueDensity,S,W,G,hz,ENNReal.ofReal_mul (Real.exp_nonneg _)]
+    · simp [centralTwoByTwoPaperEigenvalueDensity,S,hz]
+  have hright : (∫⁻ z in O,G z ∂(exponentialIntervalMeasure x).prod (exponentialIntervalMeasure x))=
+      ∫⁻ z : ℝ × ℝ,(R ∩ O).indicator (fun z => W z*G z) z := by
+    rw [← lintegral_indicator hO,exponentialInterval_prod_density,
+      lintegral_withDensity_eq_lintegral_mul _ hW (hG.indicator hO),← lintegral_indicator hR]
+    apply lintegral_congr
+    intro z
+    by_cases hzR : z ∈ R <;> by_cases hzO : z ∈ O <;>
+      simp [hzR,hzO,Set.mem_inter_iff]
+  calc
+    _ = centralTwoByTwoJointEigenvalueLaw P := by
+      rw [centralTwoByTwoJointEigenvalueLaw,Measure.map_apply measurable_centralTwoByTwoEigenpair hP]
+      rfl
+    _ = ∫⁻ z in P,centralTwoByTwoPaperEigenvalueDensity z := by
+      rw [actualCentralTwoByTwo_jointEigenvalueDensity,withDensity_apply _ hP]
+    _ = ∫⁻ z : ℝ × ℝ,(R ∩ O).indicator (fun z => W z*G z) z := by
+      rw [← lintegral_indicator hP,hpaper,Set.indicator_indicator,hsets]
+    _ = _ := hright.symm
+
+theorem actualCentralTwoByTwo_maximumCDF_eq_momentDet (x : ℝ) :
+    (stdGaussian (ComplexSample (m := 2) (n := 2))) {z | (centralTwoByTwoEigenpair z).1≤x}=
+      ENNReal.ofReal (twoMomentDeterminant (exponentialIntervalMeasure x)) := by
+  rw [actualMaximum_eq_orderedGapIntegral]
+  exact (ordered_square_gap_moment_identity (exponentialIntervalMeasure x)
+    (by simpa using exponentialInterval_integrable_pow x 1) (exponentialInterval_integrable_pow x 2)).2
+
+theorem theorem2CentralTwoRow_candidate_eq_actualCDF (x : ℝ) (hx : 0≤x) :
+    theorem2CdfCandidate 2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x=
+      ((stdGaussian (ComplexSample (m := 2) (n := 2)))
+        {z | (centralTwoByTwoEigenpair z).1≤x}).toReal := by
+  have hd := (ordered_square_gap_moment_identity (exponentialIntervalMeasure x)
+    (by simpa using exponentialInterval_integrable_pow x 1) (exponentialInterval_integrable_pow x 2)).1
+  rw [theorem2CdfCandidate,theorem1CentralTwoRow_PsiDet_norm_zero,div_one,
+    theorem2CentralTwoRow_XiDet_eq_intervalMoments x hx,Complex.norm_of_nonneg hd,
+    actualCentralTwoByTwo_maximumCDF_eq_momentDet,ENNReal.toReal_ofReal hd]
+
+end
+end JinWishart
+#print axioms JinWishart.actualCentralTwoByTwo_maximumCDF_eq_momentDet
+#print axioms JinWishart.theorem2CentralTwoRow_candidate_eq_actualCDF
+
+SOURCE CentralTwoByTwoMaximumClosedCDF.lean
+import JinWishartFormalization.ActualCentralTwoByTwoMaximum
+
+/-! Codex. Seed2026102409 exact triangular/lowerGamma determinant controls.
+Closed actual maximum CDF and original T2, without assuming positivity of the formula.
+[需人工审查] Original T2 mapping and weak-CDF interpretation. -/
+open MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+theorem theorem2CentralTwoRow_XiDet_eq_closedCDF (x : ℝ) (hx : 0≤x) :
+    (theorem2XiMatrix 2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det=
+      ((1-(x^2+2)*Real.exp (-x)+Real.exp (-2*x) : ℝ) : ℂ) := by
+  have h := eq_sub_of_add_eq (theorem2XiMatrix_add_theorem1PsiMatrix
+    2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x)
+  rw [theorem1CentralTwoRow_PsiMatrix x hx,theorem1CentralTwoRow_PsiMatrix 0 (by norm_num)] at h
+  norm_num at h
+  rw [h,Matrix.det_fin_two]
+  change (2-Complex.exp (-(x : ℂ))*((x : ℂ)^2+2*(x : ℂ)+2))*
+      (1-Complex.exp (-(x : ℂ)))-
+      (1-Complex.exp (-(x : ℂ))*((x : ℂ)+1))*
+      (1-Complex.exp (-(x : ℂ))*((x : ℂ)+1))=_
+  have he : Real.exp (-2*x)=Real.exp (-x)^2 := by
+    rw [pow_two,← Real.exp_add]
+    congr 1
+    ring
+  rw [he]
+  norm_num only [Real.exp_zero,Complex.ofReal_one]
+  push_cast
+  ring
+
+theorem actualCentralTwoByTwo_maximum_CDF (x : ℝ) (hx : 0≤x) :
+    ((stdGaussian (ComplexSample (m := 2) (n := 2)))
+      {z | (centralTwoByTwoEigenpair z).1≤x}).toReal=
+        1-(x^2+2)*Real.exp (-x)+Real.exp (-2*x) := by
+  have hd0 := (ordered_square_gap_moment_identity (exponentialIntervalMeasure x)
+    (by simpa using exponentialInterval_integrable_pow x 1) (exponentialInterval_integrable_pow x 2)).1
+  have hd : twoMomentDeterminant (exponentialIntervalMeasure x)=
+      1-(x^2+2)*Real.exp (-x)+Real.exp (-2*x) :=
+    Complex.ofReal_injective ((theorem2CentralTwoRow_XiDet_eq_intervalMoments x hx).symm.trans
+      (theorem2CentralTwoRow_XiDet_eq_closedCDF x hx))
+  rw [actualCentralTwoByTwo_maximumCDF_eq_momentDet,ENNReal.toReal_ofReal hd0,hd]
+
+theorem theorem2CentralTwoRow_candidate_eq_closedCDF (x : ℝ) (hx : 0≤x) :
+    theorem2CdfCandidate 2 2 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x=
+      1-(x^2+2)*Real.exp (-x)+Real.exp (-2*x) := by
+  rw [theorem2CentralTwoRow_candidate_eq_actualCDF x hx,actualCentralTwoByTwo_maximum_CDF x hx]
+
+end
+end JinWishart
+#print axioms JinWishart.theorem2CentralTwoRow_XiDet_eq_closedCDF
+#print axioms JinWishart.actualCentralTwoByTwo_maximum_CDF
+#print axioms JinWishart.theorem2CentralTwoRow_candidate_eq_closedCDF

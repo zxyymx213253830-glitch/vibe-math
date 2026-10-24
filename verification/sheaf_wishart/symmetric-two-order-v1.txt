@@ -1,0 +1,17 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SymmetricTwoVariableOrderIntegral.lean:31:68: error(lean.unknownIdentifier): Unknown identifier `measurePreserving_swap`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SymmetricTwoVariableOrderIntegral.lean:16:44: error: unsolved goals
+μ : Measure ℝ
+inst✝ : SFinite μ
+H : ℝ × ℝ → ℝ≥0∞
+hH : Measurable H
+hsym : ∀ (x y : ℝ), H (x, y) = H (y, x)
+hdiag : ∀ (x : ℝ), H (x, x) = 0
+O : Set (ℝ × ℝ) := {z | z.2 < z.1}
+G : ℝ × ℝ → ℝ≥0∞ := O.indicator H
+hO : MeasurableSet O
+hG : Measurable G
+hp : ∀ (z : ℝ × ℝ), H z = G z + G z.swap
+hswap : MeasurePreserving Prod.swap (μ.prod μ) (μ.prod μ)
+hfull : ∫⁻ (z : ℝ × ℝ), H z ∂μ.prod μ = ∫⁻ (z : ℝ × ℝ), G z ∂μ.prod μ + ∫⁻ (z : ℝ × ℝ), G z ∂μ.prod μ
+⊢ ∫⁻ (z : ℝ × ℝ), G z ∂μ.prod μ = 2⁻¹ * 2 * ∫⁻ (z : ℝ × ℝ), G z ∂μ.prod μ
+'JinWishart.lintegral_symmetric_ordered_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

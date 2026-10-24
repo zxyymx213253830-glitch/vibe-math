@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OrderedSquareGapMoments.lean:36:8: error: Type mismatch: After simplification, term
+  h
+ has type
+  ∫ (a : ℝ × ℝ), a.1 ^ 2 * 1 + 1 * a.2 ^ 2 - 2 * (a.1 * a.2) ∂μ.prod μ =
+    ∫ (a : ℝ × ℝ), a.1 ^ 2 * 1 ∂μ.prod μ + 1 * ∫ (a : ℝ × ℝ), a.2 ^ 2 ∂μ.prod μ -
+      ∫ (a : ℝ × ℝ), 2 * (a.1 * a.2) ∂μ.prod μ
+but is expected to have type
+  ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 + 1 * z.2 ^ 2 - 2 * (z.1 * z.2) ∂μ.prod μ =
+    ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 ∂μ.prod μ + ∫ (z : ℝ × ℝ), 1 * z.2 ^ 2 ∂μ.prod μ - 2 * ∫ (z : ℝ × ℝ), z.1 * z.2 ∂μ.prod μ
+'JinWishart.ordered_square_gap_moment_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

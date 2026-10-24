@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OrderedSquareGapMoments.lean:34:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : ℝ × ℝ), a.1 ^ 2 * 1 + 1 * a.2 ^ 2 ∂μ.prod μ
+in the target expression
+  ∫ (a : ℝ × ℝ), ((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) a - 2 * (a.1 * a.2) ∂μ.prod μ =
+    ∫ (a : ℝ × ℝ), ((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) a ∂μ.prod μ -
+      ∫ (a : ℝ × ℝ), 2 * (a.1 * a.2) ∂μ.prod μ
+
+μ : Measure ℝ
+inst✝ : IsFiniteMeasure μ
+h1 : Integrable (fun y => y) μ
+h2 : Integrable (fun y => y ^ 2) μ
+h0 : Integrable (fun x => 1) μ
+hA : Integrable (fun z => z.1 ^ 2 * 1) (μ.prod μ)
+hB : Integrable (fun z => 1 * z.2 ^ 2) (μ.prod μ)
+hC : Integrable (fun z => z.1 * z.2) (μ.prod μ)
+hsum : Integrable (((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) - fun x => 2 * (x.1 * x.2)) (μ.prod μ)
+hGap : Integrable (fun z => (z.1 - z.2) ^ 2) (μ.prod μ)
+h :
+  ∫ (a : ℝ × ℝ), ((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) a - 2 * (a.1 * a.2) ∂μ.prod μ =
+    ∫ (a : ℝ × ℝ), ((fun z => z.1 ^ 2 * 1) + fun z => 1 * z.2 ^ 2) a ∂μ.prod μ -
+      ∫ (a : ℝ × ℝ), 2 * (a.1 * a.2) ∂μ.prod μ
+⊢ ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 + 1 * z.2 ^ 2 - 2 * (z.1 * z.2) ∂μ.prod μ =
+    ∫ (z : ℝ × ℝ), z.1 ^ 2 * 1 ∂μ.prod μ + ∫ (z : ℝ × ℝ), 1 * z.2 ^ 2 ∂μ.prod μ - 2 * ∫ (z : ℝ × ℝ), z.1 * z.2 ∂μ.prod μ
+'JinWishart.ordered_square_gap_moment_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

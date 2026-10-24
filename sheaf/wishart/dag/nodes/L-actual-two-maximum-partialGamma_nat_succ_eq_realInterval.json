@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-two-maximum-partialGamma_nat_succ_eq_realInterval",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ExponentialIntervalMoments",
+  "declaration": "JinWishart.partialGamma_nat_succ_eq_realInterval",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-actual-two-maximum-exponentialInterval_integrable_pow"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-actual-two-maximum-exponentialInterval_integrable_pow"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-two-maximum-ExponentialIntervalMoments.json",
+    "source_sha256": "9e72a80a850e4755efc9c8415730024c7c4542f80be437a9333b8ecb82dae950"
+  }
+}

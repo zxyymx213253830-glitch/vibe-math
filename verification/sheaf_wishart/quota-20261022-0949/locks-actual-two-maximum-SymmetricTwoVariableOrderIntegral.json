@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-24T12:32:28.124324+00:00",
+  "module": "JinWishartFormalization.SymmetricTwoVariableOrderIntegral",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SymmetricTwoVariableOrderIntegral.lean",
+  "statements": {
+    "JinWishart.lintegral_symmetric_ordered_half": "(μ : Measure ℝ) [SFinite μ] (H : ℝ × ℝ → ℝ≥0∞) (hH : Measurable H) (hsym : ∀ x y, H (x,y)=H (y,x)) (hdiag : ∀ x, H (x,x)=0) : (∫⁻ z in {z : ℝ × ℝ | z.2<z.1}, H z ∂μ.prod μ) = (1/2 : ℝ≥0∞) * ∫⁻ z, H z ∂μ.prod μ"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/SymmetricTwoVariableOrderIntegral.lean": "d08059e09288dafcd01c89bf3dcb1bde7e6a90201727029944183b56f9a6a492",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafActualTwoMaximumTargets.lean",
+  "type_check_source_sha256": "56007600cd5e7c116b892fa5d4b59abd5f086ea61d0234ad0b4122cad38d807a",
+  "locked_local_definitions": {}
+}

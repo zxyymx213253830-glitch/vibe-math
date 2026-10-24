@@ -1,0 +1,31 @@
+# Original T2 and actual central2x2 maximum CDF — 2026-10-24
+
+Codex proof bodies, five final modules and twelve public printed declarations. One actual maximum/T2 bridge, with reusable integration and Gamma interfaces; not twelve probability breakthroughs. Independent literal target checker includes every hypothesis and exact original candidate. Final-source real Qoder Qwen3.8-Max P4 is bound by `actual-two-maximum-final`. Final acceptance requires the immutable leaf/type gates, facade and complete audit. Failed source versions/logs are retained unaccepted.
+
+## Claims and route
+
+For every x>=0, the ORIGINAL unchanged `theorem2CdfCandidate 2 2 0 ...` equals the actual original-source properCN1 maximum-eigenvalue weak CDF. Both equal
+
+    1 - (x^2+2)*exp(-x) + exp(-2*x).
+
+The actual joint spectral law was already proved in2d5d88f and is reused, not assumed as a new premise. For mu_x = Lebesgue on Ioc(0,x) with density exp(-y), its two-variable product density is exp(-(u+v)) on the square. The exact set identity `{u<=x} intersect {0<v<u} = square intersect {v<u}` identifies the maximum event. An ordered-half identity for arbitrary SFinite measures and diagonal-zero symmetric ENNReal kernels gives its integral; finite first/second moments then give the determinant m0*m2-m1². Nonnegativity of this real determinant is DERIVED from the nonnegative squared-gap integral.
+
+All natural moments of mu_x are integrable for every real x. For x>=0 they equal the literal unnormalized `Complex.partialGamma (k+1) x` after casting to complex. The original T2 Xi determinant is exactly that moment determinant; its original Psi(0) norm is1 by an already accepted theorem. Thus the complex norm and real probability are compared with a proved sign, no assumed positivity. The closed CDF follows algebraically from the unchanged matrix complement identity Xi(x)+Psi(x)=Psi(0), existing explicit Psi and exp(-2x)=exp(-x)^2.
+
+The generic ordered-half lemma allows atoms because H(x,x)=0. It does not claim that every symmetric kernel or every atomic diagonal can be dropped. First/second moment integrability is explicit. At x<0 the interval measure is zero, its moments and actual event mass are zero; the partial-Gamma/T2 identification is explicitly restricted by hx:0<=x. The Gamma real-interval interface itself holds for all real endpoints with the signed interval convention, and is distinguished from the Ioc measure moment interface.
+
+Seed2026102409:47 pre-source exact controls (triangular integral, lowerGamma moment determinant,20 finite atomic tests including repeated points and zero weights, asymmetric and diagonal-atom negative controls). They are not general proofs. The prior actual-sample322 controls were not rerun or counted as new. Source uses the concrete n2 product-moment expansion for its Real×Real ENNReal interface, rather than re-proving the existing general Andreief theorem or claiming to have invoked it.
+
+## Real P1 adjudication
+
+Qoder compared direct triangular calculus with moment-determinant routes. We use the latter structure and existing product integration. Reject its invented crossing point/IVT discussion: T3 crossing means the EVENT min<x<max, not a zero of Fmin-Fmax. Reject the claim that the direct real-integrand route avoids ENNReal-to-real conversion; an actual measure statement still needs that bridge. Its inner integral notation should be from0 to u. No determinant sign can be justified by saying the paper formula already encodes it; we derive the sign. No additional model or proof call was used to paper over these errors. Full original response retained.
+
+## P4 adjudication
+
+1. The claimed critical nonnegativity gap in `lintegral_add_left` is false. Its pinned signature is `{f : alpha -> ENNReal} (hf : Measurable f) (g : alpha -> ENNReal)`, with no sign premise. ENNReal values are nonnegative by their type. `MeasurePreserving.lintegral_comp` takes the explicit measurable test function; swap acts on the same literal mu.prod mu. All SFinite instances are inherited from the explicit SFinite mu, with no hidden dimension/atom premise.
+2. For the moment conversion, hGap explicitly proves Bochner integrability, and `ae_of_all` supplies squared-gap nonnegativity. Both are supplied to `ofReal_integral_eq_lintegral_ofReal`; the reviewer explicitly agrees the conversion is correct. A hypothetical weakening of h1/h2 cannot silently retain the same checked proof.
+3. Every x is a finite real; Icc/Ioc are compact/bounded or empty. The finite measure and integrability theorems hold also for x<0. The lower-Gamma Ioc equality and original T2 theorem REQUIRE hx:0<=x in their literal types, so they cannot be applied at a negative endpoint without a proof of a false premise. Pinned Complex.partialGamma is the UNNORMALIZED signed interval integral exp(-y)*y^(s-1), not divided by Gamma(s); its definition is explicitly unfolded in the new proof.
+4. There is no missing exponential weight or support factor. `exponentialInterval_prod_density` explicitly proves the product withDensity formula and exp addition. `hright` invokes that exact measure equality before its withDensity integral rewrite, then uses rectangular and ordered indicators. `hsets` and `hpaper` track all supports pointwise. The reviewer describes the final argument as correct while labelling its fragility critical; no mathematical counterexample is given.
+5. Fin0 here indexes the EMPTY NONCENTRALITY list, not the two eigenvalues. The imported original Psi(0) norm theorem is proved for the literal central2x2 matrix. The general Xi+Psi complement holds for all L<=s including L0, without extra assumptions. These full sources/artifacts are transitively locked. The reviewer found no gap in the closed-CDF calculation.
+
+[需人工审查] Product/density measures, ENNReal/Bochner conversion, compact integrability, Gamma conventions, weak versus strict events, model scale and original T2/T3 mapping. P4 is not human review or independent compilation. The general-dimensional and noncentral T2 statements remain OPEN; this is central2x2 only. T3's concrete density integral is accepted, but its closed crossing-probability formula is a next obligation. Frozen publication artifacts unchanged; fullLake/mathlib and Linux independent kernel NOT_RUN.
