@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "tilted-laplace-LocalDualMGFLawUniqueness",
+    "module": "LocalDualMGFLawUniqueness",
+    "nodes": [
+      [
+        "L-tilted-laplace-eq_of_localMGF_all_dual",
+        "eq_of_localMGF_all_dual",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "tilted-laplace-DominatedLocalLaplaceUniqueness",
+    "module": "DominatedLocalLaplaceUniqueness",
+    "nodes": [
+      [
+        "L-tilted-laplace-eq_of_norm_dominated_localLaplace",
+        "eq_of_norm_dominated_localLaplace",
+        [
+          "L-tilted-laplace-eq_of_localMGF_all_dual"
+        ]
+      ]
+    ]
+  }
+]

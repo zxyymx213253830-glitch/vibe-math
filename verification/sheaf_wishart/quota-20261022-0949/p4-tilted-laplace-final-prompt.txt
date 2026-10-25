@@ -1,0 +1,124 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE LocalDualMGFLawUniqueness.lean
+import JinWishartFormalization.LocalMGFLawUniqueness
+
+/-! Codex. Seed 2026102508 controls precede source.
+[需人工审查] Scalar analytic uniqueness and separation by the complete real dual.
+This identifies finite Borel measures from ALL continuous linear projections,
+not from coordinate marginals or finitely many moments. -/
+open MeasureTheory ProbabilityTheory Filter Set
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+theorem eq_of_localMGF_all_dual
+    {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
+    [MeasurableSpace E] [BorelSpace E] [SecondCountableTopology E]
+    {μ ν : Measure E} [IsFiniteMeasure μ] [IsFiniteMeasure ν]
+    (hμ : ∀ L : E →L[ℝ] ℝ, 0 ∈ interior (integrableExpSet L μ))
+    (hν : ∀ L : E →L[ℝ] ℝ, 0 ∈ interior (integrableExpSet L ν))
+    (hmgf : ∀ L : E →L[ℝ] ℝ, mgf L μ =ᶠ[𝓝 0] mgf L ν) : μ = ν := by
+  apply Measure.ext_of_charFunDual
+  funext L
+  rw [charFunDual_eq_charFun_map_one, charFunDual_eq_charFun_map_one]
+  exact congrArg (fun ρ : Measure ℝ => charFun ρ 1)
+    (map_eq_of_mgf_eventuallyEq_zero L.continuous.measurable.aemeasurable
+      L.continuous.measurable.aemeasurable (hμ L) (hν L) (hmgf L))
+
+end
+end JinWishart
+#print axioms JinWishart.eq_of_localMGF_all_dual
+
+SOURCE DominatedLocalLaplaceUniqueness.lean
+import JinWishartFormalization.LocalDualMGFLawUniqueness
+import Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap
+
+/-! Codex. Seed 2026102508 controls precede source.
+[需人工审查] Positive exponential tilt, local integrability, untilting.
+Generic norm-dominated anchor lemma; PSD trace/dual representation is NOT supplied here. -/
+open MeasureTheory ProbabilityTheory Filter Set
+open scoped Topology
+namespace JinWishart
+noncomputable section
+variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  [MeasurableSpace E] [BorelSpace E] [SecondCountableTopology E]
+
+private theorem anchored_exp_integrable {μ : Measure E} [IsFiniteMeasure μ]
+    {f : E → ℝ} (hf : Measurable f) (hdom : ∀ᵐ x ∂μ, ‖x‖ ≤ f x)
+    (L : E →L[ℝ] ℝ) (hL : ‖L‖ < 1) :
+    Integrable (fun x => Real.exp (-f x + L x)) μ := by
+  refine (integrable_const (1 : ℝ)).mono' (by fun_prop) ?_
+  filter_upwards [hdom] with x hx
+  rw [Real.norm_eq_abs, abs_of_pos (Real.exp_pos _)]
+  apply Real.exp_le_one_iff.mpr
+  have h : L x ≤ f x := calc
+    L x ≤ ‖L x‖ := le_abs_self _
+    _ ≤ ‖L‖ * ‖x‖ := L.le_opNorm x
+    _ ≤ 1 * ‖x‖ := mul_le_mul_of_nonneg_right hL.le (norm_nonneg x)
+    _ ≤ f x := by simpa using hx
+  linarith
+
+private theorem anchored_tilt_integrable {μ : Measure E} [IsFiniteMeasure μ]
+    {f : E → ℝ} (hf : Measurable f) (hdom : ∀ᵐ x ∂μ, ‖x‖ ≤ f x)
+    (L : E →L[ℝ] ℝ) (t : ℝ) (ht : ‖t • L‖ < 1) :
+    Integrable (fun x => Real.exp (t * L x))
+      (μ.withDensity (fun x => ENNReal.ofReal (Real.exp (-f x)))) := by
+  rw [integrable_withDensity_iff_integrable_smul' (by fun_prop)
+    (Filter.Eventually.of_forall (fun x => ENNReal.ofReal_lt_top))]
+  simpa only [ENNReal.toReal_ofReal (Real.exp_nonneg _), smul_eq_mul,
+    ← Real.exp_add, smul_apply, smul_eq_mul] using
+    anchored_exp_integrable hf hdom (t • L) ht
+
+private theorem anchored_tilt_mgf {μ : Measure E} {f : E → ℝ} (hf : Measurable f)
+    (L : E →L[ℝ] ℝ) (t : ℝ) :
+    mgf L (μ.withDensity (fun x => ENNReal.ofReal (Real.exp (-f x)))) t =
+      ∫ x, Real.exp (-f x + (t • L) x) ∂μ := by
+  rw [mgf, integral_withDensity_eq_integral_toReal_smul (by fun_prop)
+    (Filter.Eventually.of_forall (fun x => ENNReal.ofReal_lt_top))]
+  simp only [ENNReal.toReal_ofReal (Real.exp_nonneg _), smul_eq_mul,
+    ← Real.exp_add, smul_apply, smul_eq_mul]
+
+theorem eq_of_norm_dominated_localLaplace
+    [CompleteSpace E] {μ ν : Measure E} [IsFiniteMeasure μ] [IsFiniteMeasure ν]
+    {f : E → ℝ} (hf : Measurable f)
+    (hμ : ∀ᵐ x ∂μ, ‖x‖ ≤ f x) (hν : ∀ᵐ x ∂ν, ‖x‖ ≤ f x)
+    (hLaplace : ∀ L : E →L[ℝ] ℝ, ‖L‖ < 1 →
+      (∫ x, Real.exp (-f x + L x) ∂μ) = ∫ x, Real.exp (-f x + L x) ∂ν) : μ = ν := by
+  let w : E → ENNReal := fun x => ENNReal.ofReal (Real.exp (-f x))
+  have hw : Measurable w := by dsimp [w]; fun_prop
+  have hfinite (ρ : Measure E) [IsFiniteMeasure ρ] (hρ : ∀ᵐ x ∂ρ, ‖x‖ ≤ f x) :
+      IsFiniteMeasure (ρ.withDensity w) := by
+    apply isFiniteMeasure_withDensity_ofReal
+    simpa only [zero_apply, add_zero] using
+      (anchored_exp_integrable hf hρ 0 (by simp)).hasFiniteIntegral
+  letI : IsFiniteMeasure (μ.withDensity w) := hfinite μ hμ
+  letI : IsFiniteMeasure (ν.withDensity w) := hfinite ν hν
+  have hneigh (L : E →L[ℝ] ℝ) : ∀ᶠ t : ℝ in 𝓝 0, ‖t • L‖ < 1 := by
+    have ho : IsOpen {t : ℝ | ‖t • L‖ < 1} := isOpen_lt (by fun_prop) continuous_const
+    exact ho.mem_nhds (by simp)
+  have h0 (ρ : Measure E) [IsFiniteMeasure ρ] (hρ : ∀ᵐ x ∂ρ, ‖x‖ ≤ f x)
+      (L : E →L[ℝ] ℝ) : 0 ∈ interior (integrableExpSet L (ρ.withDensity w)) := by
+    rw [mem_interior_iff_mem_nhds]
+    exact Filter.mem_of_superset (hneigh L) (fun t ht => anchored_tilt_integrable hf hρ L t ht)
+  have he : μ.withDensity w = ν.withDensity w := by
+    apply eq_of_localMGF_all_dual (h0 μ hμ) (h0 ν hν)
+    intro L
+    filter_upwards [hneigh L] with t ht
+    change mgf L (μ.withDensity (fun x => ENNReal.ofReal (Real.exp (-f x)))) t =
+      mgf L (ν.withDensity (fun x => ENNReal.ofReal (Real.exp (-f x)))) t
+    rw [anchored_tilt_mgf hf, anchored_tilt_mgf hf]
+    exact hLaplace (t • L) ht
+  have hnz (x : E) : w x ≠ 0 := by
+    exact ne_of_gt (ENNReal.ofReal_pos.mpr (Real.exp_pos _))
+  have hnt (x : E) : w x ≠ ⊤ := ENNReal.ofReal_ne_top
+  have huμ := withDensity_inv_same (μ := μ) hw (Filter.Eventually.of_forall hnz)
+    (Filter.Eventually.of_forall hnt)
+  have huν := withDensity_inv_same (μ := ν) hw (Filter.Eventually.of_forall hnz)
+    (Filter.Eventually.of_forall hnt)
+  rw [← huμ, ← huν, he]
+
+end
+end JinWishart
+#print axioms JinWishart.eq_of_norm_dominated_localLaplace

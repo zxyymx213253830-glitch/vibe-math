@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:10:09.280314+00:00",
+  "ended_utc": "2026-10-25T13:10:17.319404+00:00",
+  "module": "JinWishartFormalization.DominatedLocalLaplaceUniqueness",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/DominatedLocalLaplaceUniqueness.lean",
+  "source_sha256_before": "a08825310f4e87dbd2f9ccb46eca28e825d026f7615679a4570aa925ef0d7438",
+  "source_sha256": "a08825310f4e87dbd2f9ccb46eca28e825d026f7615679a4570aa925ef0d7438",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/tilted-laplace-DominatedLocalLaplaceUniqueness-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "88d6a54719a33eeda1419b138f310587b56259a27e571cf304291e55b8ac8ef8",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

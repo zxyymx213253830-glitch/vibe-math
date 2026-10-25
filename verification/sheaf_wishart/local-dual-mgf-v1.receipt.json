@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:06:49.576839+00:00",
+  "ended_utc": "2026-10-25T13:08:39.566327+00:00",
+  "module": "JinWishartFormalization.LocalDualMGFLawUniqueness",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/LocalDualMGFLawUniqueness.lean",
+  "source_sha256_before": "4e80ed0a61e408b95103abc7a98fe8c88dff302b500acbf99b089ff03ba2975e",
+  "source_sha256": "4e80ed0a61e408b95103abc7a98fe8c88dff302b500acbf99b089ff03ba2975e",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/local-dual-mgf-v1.txt",
+  "log_exists": true,
+  "log_sha256": "27c5e7487e155ba61914237cccb504d9d66be2f858a74f8d7dc28c035d0c55f8",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

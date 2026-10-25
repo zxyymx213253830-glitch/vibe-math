@@ -1,3 +1,5 @@
+Generic tilt/local-dual bridge is now checked in LocalDualMGFLawUniqueness and DominatedLocalLaplaceUniqueness; see WISHART_TILTED_LOCAL_LAPLACE_UNIQUENESS.md. PSD specialization remains OPEN: every small real dual perturbation must be represented by a fixed Hermitian test and norm domination proved. Seed2026102508 controls already cover trace domination/local PSD tests, but no Lean matrix geometry source yet. Do not redo generic all-dual/tilt proofs.
+
 # Next: identify PSD-supported matrix laws by their Laplace transforms
 
 Actual matrix transform is closed in ActualNoncentralMatrixLaplace, all shapes/M and fixed PSD T. Reuse it; do not redo diagonal MGF, Gaussian frames or matrix inverse algebra. This is not yet original noncentral G2 joint density.

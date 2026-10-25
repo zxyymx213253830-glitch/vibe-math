@@ -1,0 +1,24 @@
+{
+  "id": "L-tilted-laplace-eq_of_norm_dominated_localLaplace",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.DominatedLocalLaplaceUniqueness",
+  "declaration": "JinWishart.eq_of_norm_dominated_localLaplace",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-tilted-laplace-eq_of_localMGF_all_dual"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-tilted-laplace-eq_of_localMGF_all_dual"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-tilted-laplace-DominatedLocalLaplaceUniqueness.json",
+    "source_sha256": "a08825310f4e87dbd2f9ccb46eca28e825d026f7615679a4570aa925ef0d7438"
+  }
+}

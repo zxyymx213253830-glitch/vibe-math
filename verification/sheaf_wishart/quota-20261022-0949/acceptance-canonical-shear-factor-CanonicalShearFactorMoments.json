@@ -10,5 +10,5 @@
     "resolution": "notes/WISHART_CANONICAL_SHEAR_FACTOR_MOMENTS.md"
   },
   "audit": "verification/central_mixed_moments/audit.json",
-  "facade_receipt": "verification/sheaf_wishart/facade-143.receipt.json"
+  "facade_receipt": "verification/sheaf_wishart/facade-144.receipt.json"
 }

@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-10-25T13:10:01.185914+00:00",
+  "module": "JinWishartFormalization.DominatedLocalLaplaceUniqueness",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/DominatedLocalLaplaceUniqueness.lean",
+  "statements": {
+    "JinWishart.eq_of_norm_dominated_localLaplace": "[CompleteSpace E] {μ ν : Measure E} [IsFiniteMeasure μ] [IsFiniteMeasure ν] {f : E → ℝ} (hf : Measurable f) (hμ : ∀ᵐ x ∂μ, ‖x‖ ≤ f x) (hν : ∀ᵐ x ∂ν, ‖x‖ ≤ f x) (hLaplace : ∀ L : E →L[ℝ] ℝ, ‖L‖ < 1 → (∫ x, Real.exp (-f x + L x) ∂μ) = ∫ x, Real.exp (-f x + L x) ∂ν) : μ = ν"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/LocalDualMGFLawUniqueness.lean": "4e80ed0a61e408b95103abc7a98fe8c88dff302b500acbf99b089ff03ba2975e",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LocalDualMGFLawUniqueness.olean": "24ac3893f02efb27b1e9880e2816858f7075dc5fcf9bb1854ee97213a47ac5a9",
+    "theory/jin_wishart_formalization/JinWishartFormalization/LocalMGFLawUniqueness.lean": "9369eeb0f60a2f056fe85184f47061dd3ae3a2550de37e9b05151da61b6ee829",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LocalMGFLawUniqueness.olean": "7b68537f864e0c997d18506e3b1891af81c3f51eaa148ca1ec7010e5fe9d06f7",
+    "theory/jin_wishart_formalization/JinWishartFormalization/DominatedLocalLaplaceUniqueness.lean": "a08825310f4e87dbd2f9ccb46eca28e825d026f7615679a4570aa925ef0d7438",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafTiltedLaplaceTargets.lean",
+  "type_check_source_sha256": "38fe43db44656e0f6cb0ccdfc9de7952b26c7404c3b00c202979e7bb2f5f90e2",
+  "locked_local_definitions": {}
+}

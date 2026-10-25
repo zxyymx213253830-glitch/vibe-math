@@ -1,0 +1,20 @@
+{
+  "id": "L-tilted-laplace-eq_of_localMGF_all_dual",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.LocalDualMGFLawUniqueness",
+  "declaration": "JinWishart.eq_of_localMGF_all_dual",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-tilted-laplace-LocalDualMGFLawUniqueness.json",
+    "source_sha256": "4e80ed0a61e408b95103abc7a98fe8c88dff302b500acbf99b089ff03ba2975e"
+  }
+}

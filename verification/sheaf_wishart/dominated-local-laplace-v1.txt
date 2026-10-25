@@ -1,0 +1,57 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:14:8: warning: automatically included section variable(s) unused in theorem `_private.JinWishartFormalization.DominatedLocalLaplaceUniqueness.0.JinWishart.anchored_exp_integrable`:
+  [SecondCountableTopology E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [SecondCountableTopology E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:37:20: warning: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+
+Hint: Replace the deprecated name:
+  C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵s̵m̵u̵l̵_̵a̵p̵p̵l̵y̵s̲m̲u̲l̲_̲a̲p̲p̲l̲y̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:47:20: warning: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+
+Hint: Replace the deprecated name:
+  C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵s̵m̵u̵l̵_̵a̵p̵p̵l̵y̵s̲m̲u̲l̲_̲a̲p̲p̲l̲y̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:40:8: warning: automatically included section variable(s) unused in theorem `_private.JinWishartFormalization.DominatedLocalLaplaceUniqueness.0.JinWishart.anchored_tilt_mgf`:
+  [BorelSpace E]
+  [SecondCountableTopology E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [BorelSpace E] [SecondCountableTopology E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:55:17: error: expected token
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:55:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:55:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:55:6: error: Missing cases:
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:54:82: error: unsolved goals
+E : Type u_1
+inst✝⁷ : NormedAddCommGroup E
+inst✝⁶ : NormedSpace ℝ E
+inst✝⁵ : MeasurableSpace E
+inst✝⁴ : BorelSpace E
+inst✝³ : SecondCountableTopology E
+inst✝² : CompleteSpace E
+μ ν : Measure E
+inst✝¹ : IsFiniteMeasure μ
+inst✝ : IsFiniteMeasure ν
+f : E → ℝ
+hf : Measurable f
+hμ : ∀ᵐ (x : E) ∂μ, ‖x‖ ≤ f x
+hν : ∀ᵐ (x : E) ∂ν, ‖x‖ ≤ f x
+hLaplace : ∀ (L : E →L[ℝ] ℝ), ‖L‖ < 1 → ∫ (x : E), Real.exp (-f x + L x) ∂μ = ∫ (x : E), Real.exp (-f x + L x) ∂ν
+w : E → sorry := nomatch
+⊢ μ = ν
+'JinWishart.eq_of_norm_dominated_localLaplace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

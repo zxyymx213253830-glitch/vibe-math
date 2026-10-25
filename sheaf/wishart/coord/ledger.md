@@ -160,3 +160,5 @@
 - 2026-10-25T09:05:26.537791+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-diagonal-mgf-ActualDiagonalGramMGF.json; human measure/model review remains REQUIRED.
 - 2026-10-25T12:53:19.805515+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-matrix-laplace-ActualNoncentralSpectralLaplace.json; human measure/model review remains REQUIRED.
 - 2026-10-25T12:53:34.278612+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-matrix-laplace-ActualNoncentralMatrixLaplace.json; human measure/model review remains REQUIRED.
+- 2026-10-25T13:12:49.615643+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-tilted-laplace-LocalDualMGFLawUniqueness.json; human measure/model review remains REQUIRED.
+- 2026-10-25T13:13:06.161751+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-tilted-laplace-DominatedLocalLaplaceUniqueness.json; human measure/model review remains REQUIRED.

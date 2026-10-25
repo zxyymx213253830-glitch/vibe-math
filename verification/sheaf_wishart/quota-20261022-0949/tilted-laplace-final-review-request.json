@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "LocalDualMGFLawUniqueness.lean": {
+      "sha256": "4e80ed0a61e408b95103abc7a98fe8c88dff302b500acbf99b089ff03ba2975e",
+      "supplied": "Full source"
+    },
+    "DominatedLocalLaplaceUniqueness.lean": {
+      "sha256": "a08825310f4e87dbd2f9ccb46eca28e825d026f7615679a4570aa925ef0d7438",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "febaf8e197ad0ff0be245329ae924802d622252ef4c14f2e4c16a9eda3438aeb"
+}

@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:14:8: warning: automatically included section variable(s) unused in theorem `_private.JinWishartFormalization.DominatedLocalLaplaceUniqueness.0.JinWishart.anchored_exp_integrable`:
+  [SecondCountableTopology E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [SecondCountableTopology E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:40:8: warning: automatically included section variable(s) unused in theorem `_private.JinWishartFormalization.DominatedLocalLaplaceUniqueness.0.JinWishart.anchored_tilt_mgf`:
+  [BorelSpace E]
+  [SecondCountableTopology E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [BorelSpace E] [SecondCountableTopology E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:62:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\DominatedLocalLaplaceUniqueness.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'JinWishart.eq_of_norm_dominated_localLaplace' depends on axioms: [propext, Classical.choice, Quot.sound]
