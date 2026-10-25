@@ -1,0 +1,56 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:26:71: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:23:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:45:4: error: Type mismatch: After simplification, term
+  IsHermitian.spectral_theorem hT.left
+ has type
+  @Eq (Matrix (Fin n) (Fin n) ℂ) T
+    (↑⋯.eigenvectorUnitary * diagonal (Complex.ofReal ∘ ⋯.eigenvalues) * star ↑⋯.eigenvectorUnitary)
+but is expected to have type
+  @Eq (Matrix (Fin n) (Fin n) ℂ) T
+    (↑⋯.eigenvectorUnitary * diagonal (Complex.ofReal ∘ ⋯.eigenvalues) * (↑⋯.eigenvectorUnitary)ᴴ)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:63:4: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:55:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:79:4: error: Type mismatch: After simplification, term
+  Unitary.coe_star_mul_self hT.left.eigenvectorUnitary
+ has type
+  True
+but is expected to have type
+  (↑⋯.eigenvectorUnitary)ᴴ * ↑⋯.eigenvectorUnitary = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:90:6: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:87:107: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:67:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:106:8: error: (kernel) unknown constant 'JinWishart.actualNoncentralPSD_integral_exp_spectral'
+'JinWishart.complexGaussianMatrixLaw_right_unitary_mean' does not depend on any axioms
+'JinWishart.actualNoncentralPSD_integral_exp_spectral' does not depend on any axioms
+'JinWishart.actualNoncentralPSD_integrable_exp' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.actualNoncentralPSD_integrable_exp,
+ Quot.sound]

@@ -1,0 +1,104 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:25:46: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:25:57: error: (deterministic) timeout at `«synthesize pending MVars»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:34:41: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:37:89: error: unsolved goals
+m n : ℕ
+T : Matrix (Fin n) (Fin n) ℂ
+hT : sorry
+A : Matrix (Fin m) (Fin n) ℂ
+U : Matrix (Fin n) (Fin n) ℂ := sorry
+D : Matrix (Fin n) (Fin n) ℂ := diagonal (Complex.ofReal ∘ sorry)
+hs : T = U * D * Uᴴ
+hg : complexGram (A * U) = Uᴴ * complexGram A * U
+he : (T * complexGram A).trace = (D * complexGram (A * U)).trace
+⊢ ∑ x, sorry () x * (complexGram (A * sorry ()) x x).re = ∑ x, sorry () * (complexGram (A * sorry ()) x x).re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:57:44: error: Application type mismatch: The argument
+  measurable_shiftedComplexSampleMatrix M
+has type
+  Measurable fun z => complexSampleMatrix z + M
+but is expected to have type
+  AEMeasurable ?m.115 ?m.112
+in the application
+  @integral_map ?m.107 ?m.108 ?m.109 ?m.110 ?m.111 ?m.112 ?m.113 ?m.114 ?m.115 (measurable_shiftedComplexSampleMatrix M)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:56:72: error: unsolved goals
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+v : Fin n → ℝ
+hv : ∀ (j : Fin n), v j < 1
+⊢ ∫ (A : Matrix (Fin m) (Fin n) ℂ),
+      rexp
+        (∑ j,
+          v j * (complexGram A j j).re) ∂Measure.map (fun z => complexSampleMatrix z + M) (stdGaussian ComplexSample) =
+    (∏ a, (1 - v a.2)⁻¹) * rexp (∑ a, ‖M a.1 a.2‖ ^ 2 * v a.2 / (1 - v a.2))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:61:72: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:81:46: error: Application type mismatch: The argument
+  measurable_shiftedComplexSampleMatrix M
+has type
+  Measurable fun z => complexSampleMatrix z + M
+but is expected to have type
+  AEMeasurable ?m.228 ?m.225
+in the application
+  @integral_map ?m.220 ?m.221 ?m.222 ?m.223 ?m.224 ?m.225 ?m.226 ?m.227 ?m.228 (measurable_shiftedComplexSampleMatrix M)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:81:99: error: Tactic `unfold` failed to unfold `complexGram` in
+  AEStronglyMeasurable ?m.231 (Measure.map ?m.228 ?m.225)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:84:55: error: unsolved goals
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin n) ℂ
+hT : sorry
+U : Matrix (Fin n) (Fin n) ℂ := sorry
+l : Fin n → ℝ := sorry
+hU : Uᴴ * U = 1
+hv : ∀ (j : Fin n), -l j < 1
+hsource :
+  ∫ (z : ComplexSample), rexp (-(T * complexGram (complexSampleMatrix z + M)).trace.re) ∂stdGaussian ComplexSample =
+    ∫ (A : Matrix (Fin m) (Fin n) ℂ), rexp (-(T * complexGram A).trace.re) ∂complexGaussianMatrixLaw M
+A : Matrix (Fin m) (Fin n) ℂ
+⊢ -∑ j, sorry * (complexGram (A * sorry) j j).re = -∑ x, sorry x * (complexGram (A * sorry) x x).re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:90:25: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:60:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:95:72: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:105:21: error: unsolved goals
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin n) ℂ
+hT : sorry
+a : Fin m × Fin n
+a✝ : a ∈ univ
+⊢ 0 < 1 + sorry
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:94:8: error: (kernel) unknown constant 'JinWishart.actualNoncentralPSD_integral_exp_spectral'
+'JinWishart.complexGaussianMatrixLaw_right_unitary_mean' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralPSD_integral_exp_spectral' does not depend on any axioms
+'JinWishart.actualNoncentralPSD_integrable_exp' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ JinWishart.actualNoncentralPSD_integrable_exp,
+ Quot.sound]

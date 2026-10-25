@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T09:16:34.601688+00:00",
+  "ended_utc": "2026-10-25T09:17:04.173107+00:00",
+  "module": "SheafMatrixLaplaceTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafMatrixLaplaceTargets.lean",
+  "source_sha256_before": "39218f32e5bd4369a183c2b630a832dc68f7e63baf325788cc46770d9cbd82d7",
+  "source_sha256": "39218f32e5bd4369a183c2b630a832dc68f7e63baf325788cc46770d9cbd82d7",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/actual-matrix-laplace-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

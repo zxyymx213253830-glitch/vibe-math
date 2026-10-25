@@ -1,0 +1,47 @@
+[
+  {
+    "tag": "actual-matrix-laplace-ActualNoncentralSpectralLaplace",
+    "module": "ActualNoncentralSpectralLaplace",
+    "nodes": [
+      [
+        "L-actual-matrix-laplace-complexGaussianMatrixLaw_right_unitary_mean",
+        "complexGaussianMatrixLaw_right_unitary_mean",
+        []
+      ],
+      [
+        "L-actual-matrix-laplace-actualNoncentralPSD_integral_exp_spectral",
+        "actualNoncentralPSD_integral_exp_spectral",
+        [
+          "L-actual-matrix-laplace-complexGaussianMatrixLaw_right_unitary_mean"
+        ]
+      ],
+      [
+        "L-actual-matrix-laplace-actualNoncentralPSD_integrable_exp",
+        "actualNoncentralPSD_integrable_exp",
+        [
+          "L-actual-matrix-laplace-actualNoncentralPSD_integral_exp_spectral"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "actual-matrix-laplace-ActualNoncentralMatrixLaplace",
+    "module": "ActualNoncentralMatrixLaplace",
+    "nodes": [
+      [
+        "L-actual-matrix-laplace-actualNoncentralPSD_matrixLaplace",
+        "actualNoncentralPSD_matrixLaplace",
+        [
+          "L-actual-matrix-laplace-actualNoncentralPSD_integrable_exp"
+        ]
+      ],
+      [
+        "L-actual-matrix-laplace-noncentralWishart_PSD_matrixLaplace",
+        "noncentralWishart_PSD_matrixLaplace",
+        [
+          "L-actual-matrix-laplace-actualNoncentralPSD_matrixLaplace"
+        ]
+      ]
+    ]
+  }
+]

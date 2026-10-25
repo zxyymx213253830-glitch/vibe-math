@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "ActualNoncentralSpectralLaplace.lean": {
+      "sha256": "c3b45339abfa847cb0512fba3e31b4357c4fe0b20949f1ab67a89b80dc4dc5ed",
+      "supplied": "Full source"
+    },
+    "ActualNoncentralMatrixLaplace.lean": {
+      "sha256": "234137d23ad6e78fda6fed34319e5f6bfe2ff93d2c104299bd8c683e1c7a8059",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a28cb10afa5393cd0e509e7a50a893732f383e35a08f6d17f2bf88b42d9a6591"
+}

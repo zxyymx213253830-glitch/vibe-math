@@ -1,0 +1,267 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE ActualNoncentralSpectralLaplace.lean
+import JinWishartFormalization.ActualDiagonalGramMGF
+import JinWishartFormalization.GaussianRectangularFrameLaw
+import Mathlib.Analysis.Matrix.PosDef
+
+/-! Codex. Seed2026102507 actual dense properCN1 controls precede source.
+General fixed PSD test matrix: actual Laplace transform in its fixed spectral
+basis, including singular/zero/empty dimensions. No Wishart joint density.
+[需人工审查] Fixed-frame pushforward/Fubini/model and later invariant formula. -/
+open Matrix MeasureTheory ProbabilityTheory Real Finset
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+
+
+private theorem gramContinuous (m n : ℕ) : Continuous (fun A : Matrix (Fin m) (Fin n) ℂ => complexGram A) :=
+  continuous_id.matrix_conjTranspose.matrix_mul continuous_id
+
+private theorem diagonalExpMeasurable (m n : ℕ) (v : Fin n → ℝ) :
+    Measurable (fun A : Matrix (Fin m) (Fin n) ℂ => Real.exp (∑ j,v j*(complexGram A j j).re)) := by
+  apply Measurable.exp
+  apply Finset.measurable_sum
+  intro j _
+  apply measurable_const.mul
+  exact Complex.continuous_re.measurable.comp ((measurable_pi_apply j).comp
+    ((measurable_pi_apply j).comp (gramContinuous m n).measurable))
+
+private theorem traceExpMeasurable (m n : ℕ) (T : Matrix (Fin n) (Fin n) ℂ) :
+    Measurable (fun A : Matrix (Fin m) (Fin n) ℂ => Real.exp (-(T*complexGram A).trace.re)) :=
+  (Real.continuous_exp.comp (Complex.continuous_re.comp
+    (continuous_const.matrix_mul (gramContinuous m n)).matrix_trace).neg).measurable
+
+private theorem matrixLaw_shift {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ) :
+    (complexGaussianMatrixLaw (0 : Matrix (Fin m) (Fin n) ℂ)).map (fun A => A+M)=
+      complexGaussianMatrixLaw M := by
+  unfold complexGaussianMatrixLaw
+  rw [Measure.map_map (by fun_prop) (measurable_shiftedComplexSampleMatrix _)]
+  congr 1
+  funext z
+  simp
+
+theorem complexGaussianMatrixLaw_right_unitary_mean {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (U : Matrix (Fin n) (Fin n) ℂ) (hU : Uᴴ*U=1) :
+    (complexGaussianMatrixLaw M).map (fun A => A*U)=complexGaussianMatrixLaw (M*U) := by
+  have hm : Measurable (fun A : Matrix (Fin m) (Fin n) ℂ => A*U) := (continuous_id.matrix_mul continuous_const).measurable
+  have hs : Measurable (fun A : Matrix (Fin m) (Fin n) ℂ => A+M) := (continuous_id.add continuous_const).measurable
+  have hsU : Measurable (fun A : Matrix (Fin m) (Fin n) ℂ => A+M*U) := (continuous_id.add continuous_const).measurable
+  rw [← matrixLaw_shift M,Measure.map_map hm hs]
+  have he : (fun A : Matrix (Fin m) (Fin n) ℂ => A*U) ∘ (fun A => A+M)=
+      (fun A => A+M*U) ∘ (fun A => A*U) := by
+    funext A
+    simp [Matrix.add_mul]
+  rw [he,← Measure.map_map hsU hm,
+    complexGaussianMatrixLaw_right_isometric_projection U hU,matrixLaw_shift]
+
+private theorem trace_psd_spectral {m n : ℕ}
+    (T : Matrix (Fin n) (Fin n) ℂ) (hT : T.PosSemidef) (A : Matrix (Fin m) (Fin n) ℂ) :
+    (T*complexGram A).trace.re =
+      ∑ j : Fin n,hT.1.eigenvalues j*
+        (complexGram (A*(hT.1.eigenvectorUnitary : Matrix (Fin n) (Fin n) ℂ)) j j).re := by
+  let U : Matrix (Fin n) (Fin n) ℂ := hT.1.eigenvectorUnitary
+  let D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hT.1.eigenvalues)
+  have hs : T=U*D*Uᴴ := by
+    simpa only [U,D,Unitary.conjStarAlgAut_apply,Unitary.coe_star,Matrix.star_eq_conjTranspose] using hT.1.spectral_theorem
+  have hg : complexGram (A*U)=Uᴴ*complexGram A*U := by
+    simp only [complexGram,Matrix.conjTranspose_mul,Matrix.mul_assoc]
+  have he : (T*complexGram A).trace=(D*complexGram (A*U)).trace := by
+    calc
+      _ = ((Uᴴ*complexGram A*U)*D).trace := by rw [hs,Matrix.mul_assoc,Matrix.trace_mul_cycle]
+      _ = _ := by rw [hg,Matrix.trace_mul_comm]
+  rw [he]
+  simp [D,U,Matrix.trace,Matrix.diagonal_mul,Complex.mul_re,Function.comp_def]
+
+private theorem diagonalLawIntegral {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ)
+    (v : Fin n → ℝ) (hv : ∀ j,v j<1) :
+    (∫ A : Matrix (Fin m) (Fin n) ℂ,Real.exp (∑ j,v j*(complexGram A j j).re)
+      ∂complexGaussianMatrixLaw M) =
+      (∏ a : Fin m × Fin n,(1-v a.2)⁻¹)*
+        Real.exp (∑ a : Fin m × Fin n,‖M a.1 a.2‖^2*v a.2/(1-v a.2)) := by
+  have hf := diagonalExpMeasurable m n v
+  rw [complexGaussianMatrixLaw,integral_map (measurable_shiftedComplexSampleMatrix M).aemeasurable hf.aestronglyMeasurable]
+  exact actualNoncentralDiagonalGram_integral_exp M v hv
+
+theorem actualNoncentralPSD_integral_exp_spectral {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (T : Matrix (Fin n) (Fin n) ℂ) (hT : T.PosSemidef) :
+    (∫ z : ComplexSample (m := m) (n := n),
+      Real.exp (-(T*complexGram (complexSampleMatrix z+M)).trace.re)
+      ∂stdGaussian (ComplexSample (m := m) (n := n))) =
+      (∏ a : Fin m × Fin n,(1+hT.1.eigenvalues a.2)⁻¹)*
+        Real.exp (-(∑ a : Fin m × Fin n,
+          ‖(M*(hT.1.eigenvectorUnitary : Matrix (Fin n) (Fin n) ℂ)) a.1 a.2‖^2*
+            hT.1.eigenvalues a.2/(1+hT.1.eigenvalues a.2))) := by
+  let U : Matrix (Fin n) (Fin n) ℂ := hT.1.eigenvectorUnitary
+  let l : Fin n → ℝ := hT.1.eigenvalues
+  have hU : Uᴴ*U=1 := by
+    simpa only [U,Unitary.coe_star,Matrix.star_eq_conjTranspose] using Unitary.coe_star_mul_self hT.1.eigenvectorUnitary
+  have hv (j : Fin n) : -l j<1 := by
+    have h := hT.eigenvalues_nonneg j
+    dsimp only [l]
+    linarith
+  have hsource : (∫ z : ComplexSample (m := m) (n := n),
+      Real.exp (-(T*complexGram (complexSampleMatrix z+M)).trace.re)
+      ∂stdGaussian (ComplexSample (m := m) (n := n))) =
+      ∫ A : Matrix (Fin m) (Fin n) ℂ,Real.exp (-(T*complexGram A).trace.re) ∂complexGaussianMatrixLaw M := by
+    have hf := traceExpMeasurable m n T
+    rw [complexGaussianMatrixLaw,integral_map (measurable_shiftedComplexSampleMatrix M).aemeasurable hf.aestronglyMeasurable]
+  rw [hsource]
+  have he (A : Matrix (Fin m) (Fin n) ℂ) : -(T*complexGram A).trace.re=
+      ∑ j : Fin n,(-l j)*(complexGram (A*U) j j).re := by
+    rw [trace_psd_spectral T hT A]
+    simp only [l,U,neg_mul,Finset.sum_neg_distrib]
+  simp_rw [he]
+  let g : Matrix (Fin m) (Fin n) ℂ → ℝ := fun A => Real.exp (∑ j : Fin n,(-l j)*(complexGram A j j).re)
+  change (∫ A : Matrix (Fin m) (Fin n) ℂ,g (A*U) ∂complexGaussianMatrixLaw M)=_
+  have hm : Measurable (fun A : Matrix (Fin m) (Fin n) ℂ => A*U) := (continuous_id.matrix_mul continuous_const).measurable
+  have hg : Measurable g := diagonalExpMeasurable m n (fun j => -l j)
+  rw [← integral_map hm.aemeasurable hg.aestronglyMeasurable,complexGaussianMatrixLaw_right_unitary_mean M U hU,
+    diagonalLawIntegral (M*U) (fun j => -l j) hv]
+  simp only [l,U,sub_neg_eq_add,mul_neg,neg_div,Finset.sum_neg_distrib]
+
+theorem actualNoncentralPSD_integrable_exp {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (T : Matrix (Fin n) (Fin n) ℂ) (hT : T.PosSemidef) :
+    Integrable (fun z : ComplexSample (m := m) (n := n) =>
+      Real.exp (-(T*complexGram (complexSampleMatrix z+M)).trace.re))
+      (stdGaussian (ComplexSample (m := m) (n := n))) := by
+  apply Integrable.of_integral_ne_zero
+  rw [actualNoncentralPSD_integral_exp_spectral M T hT]
+  apply ne_of_gt
+  apply mul_pos
+  · apply Finset.prod_pos
+    intro a _
+    exact inv_pos.2 (by have h := hT.eigenvalues_nonneg a.2;linarith)
+  · exact Real.exp_pos _
+
+end
+end JinWishart
+#print axioms JinWishart.complexGaussianMatrixLaw_right_unitary_mean
+#print axioms JinWishart.actualNoncentralPSD_integral_exp_spectral
+#print axioms JinWishart.actualNoncentralPSD_integrable_exp
+
+SOURCE ActualNoncentralMatrixLaplace.lean
+import JinWishartFormalization.ActualNoncentralSpectralLaplace
+import JinWishartFormalization.GramRankSpectralCoefficient
+
+/-! Codex. Seed2026102507 actual dense-matrix Laplace controls precede source.
+Basis-free actual properCN1 noncentral Wishart Laplace transform for PSD T.
+The inverse is of I+T, never of possibly singular T.
+[需人工审查] Inherited actual measure/model and future density identification. -/
+open Matrix MeasureTheory ProbabilityTheory Real Finset
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+
+private theorem gram_diagonal_norm {m n : ℕ} (B : Matrix (Fin m) (Fin n) ℂ) (j : Fin n) :
+    (complexGram B j j).re=∑ i : Fin m,‖B i j‖^2 := by
+  simp only [complexGram,Matrix.mul_apply,Matrix.conjTranspose_apply,Complex.re_sum]
+  apply Finset.sum_congr rfl
+  intro i _
+  simp [Complex.mul_re,Complex.star_def,RCLike.norm_sq_eq_def]
+  <;> ring
+
+private theorem weighted_gram_trace {m n : ℕ} (B : Matrix (Fin m) (Fin n) ℂ) (w : Fin n → ℝ) :
+    ((diagonal (fun j => (w j : ℂ)))*complexGram B).trace.re =
+      ∑ a : Fin m × Fin n,‖B a.1 a.2‖^2*w a.2 := by
+  calc
+    _ = ∑ j : Fin n,w j*(complexGram B j j).re := by
+      simp [Matrix.trace,Matrix.diagonal_mul,Complex.mul_re]
+    _ = ∑ j : Fin n,w j*(∑ i : Fin m,‖B i j‖^2) := by simp_rw [gram_diagonal_norm]
+    _ = _ := by
+      rw [Fintype.sum_prod_type,Finset.sum_comm]
+      simp_rw [Finset.mul_sum]
+      apply Finset.sum_congr rfl
+      intro j _
+      apply Finset.sum_congr rfl
+      intro i _
+      ring
+
+private theorem psd_laplace_correction {m n : ℕ} (M : Matrix (Fin m) (Fin n) ℂ)
+    (T : Matrix (Fin n) (Fin n) ℂ) (hT : T.PosSemidef) :
+    (M*T*(1+T)⁻¹*Mᴴ).trace.re =
+      ∑ a : Fin m × Fin n,
+        ‖(M*(hT.1.eigenvectorUnitary : Matrix (Fin n) (Fin n) ℂ)) a.1 a.2‖^2*
+          hT.1.eigenvalues a.2/(1+hT.1.eigenvalues a.2) := by
+  let U := hT.1.eigenvectorUnitary
+  let D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ hT.1.eigenvalues)
+  let E : Matrix (Fin n) (Fin n) ℂ := diagonal (fun j => ((1+hT.1.eigenvalues j)⁻¹ : ℝ))
+  let F : Matrix (Fin n) (Fin n) ℂ := diagonal (fun j => ((hT.1.eigenvalues j/(1+hT.1.eigenvalues j) : ℝ) : ℂ))
+  let P := Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ) U
+  have hn (j : Fin n) : 1+hT.1.eigenvalues j≠0 := by
+    have h := hT.eigenvalues_nonneg j
+    linarith
+  have hd : 1+D=diagonal (fun j => ((1+hT.1.eigenvalues j : ℝ) : ℂ)) := by
+    ext i j
+    by_cases hij : i=j
+    · subst j;simp [D]
+    · simp [D,hij]
+  have hDE : (1+D)*E=1 := by
+    rw [hd,Matrix.diagonal_mul_diagonal]
+    ext i j
+    by_cases hij : i=j
+    · subst j
+      have hz : (1+(hT.1.eigenvalues i : ℂ))≠0 := by exact_mod_cast hn i
+      simp [E,hz]
+    · simp [E,hij]
+  have hP : 1+T=P (1+D) := by
+    rw [map_add,map_one,← hT.1.spectral_theorem]
+  have hAE : (1+T)*P E=1 := by
+    rw [hP,← map_mul,hDE,map_one]
+  have hi : (1+T)⁻¹=P E := Matrix.inv_eq_right_inv hAE
+  have hDF : D*E=F := by
+    dsimp only [D,E,F]
+    rw [Matrix.diagonal_mul_diagonal]
+    ext i j
+    by_cases hij : i=j
+    · subst j;simp [div_eq_mul_inv]
+    · simp [hij]
+  have hTE : T*(1+T)⁻¹=P F := by
+    rw [hi,hT.1.spectral_theorem,← map_mul,hDF]
+  have hMF : M*P F*Mᴴ=(M*(U : Matrix (Fin n) (Fin n) ℂ))*F*(M*(U : Matrix (Fin n) (Fin n) ℂ))ᴴ := by
+    simp only [P,Unitary.conjStarAlgAut_apply,Unitary.coe_star,Matrix.star_eq_conjTranspose,Matrix.conjTranspose_mul,Matrix.mul_assoc]
+  rw [Matrix.mul_assoc M T ((1+T)⁻¹),hTE,hMF,Matrix.trace_mul_cycle,Matrix.trace_mul_comm]
+  change (F*complexGram (M*(U : Matrix (Fin n) (Fin n) ℂ))).trace.re=_
+  rw [weighted_gram_trace]
+  apply Finset.sum_congr rfl
+  intro a _
+  dsimp only [U]
+  ring
+
+private theorem psd_laplace_prefactor (m : ℕ) {n : ℕ}
+    (T : Matrix (Fin n) (Fin n) ℂ) (hT : T.PosSemidef) :
+    (∏ a : Fin m × Fin n,(1+hT.1.eigenvalues a.2)⁻¹)=(‖(1+T).det‖^m)⁻¹ := by
+  have hd : (1+T).det=((∏ j : Fin n,(1+hT.1.eigenvalues j) : ℝ) : ℂ) := by
+    have h := hermitian_det_one_add_complex_smul T hT.1 (1 : ℂ)
+    simpa only [one_smul,one_mul,Complex.ofReal_prod,Complex.ofReal_add,Complex.ofReal_one] using h
+  have hN : ‖(1+T).det‖=∏ j : Fin n,(1+hT.1.eigenvalues j) := by
+    rw [hd,Complex.norm_of_nonneg]
+    exact Finset.prod_nonneg (fun j _ => by have h := hT.eigenvalues_nonneg j;linarith)
+  rw [Fintype.prod_prod_type]
+  simp only [Finset.prod_const,Finset.card_univ,Fintype.card_fin]
+  rw [Finset.prod_inv_distrib,inv_pow,hN]
+
+theorem actualNoncentralPSD_matrixLaplace {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (T : Matrix (Fin n) (Fin n) ℂ) (hT : T.PosSemidef) :
+    (∫ z : ComplexSample (m := m) (n := n),
+      Real.exp (-(T*complexGram (complexSampleMatrix z+M)).trace.re)
+      ∂stdGaussian (ComplexSample (m := m) (n := n))) =
+      (‖(1+T).det‖^m)⁻¹*Real.exp (-(M*T*(1+T)⁻¹*Mᴴ).trace.re) := by
+  rw [actualNoncentralPSD_integral_exp_spectral M T hT,psd_laplace_prefactor m T hT,
+    ← psd_laplace_correction M T hT]
+
+theorem noncentralWishart_PSD_matrixLaplace {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ) (T : Matrix (Fin n) (Fin n) ℂ) (hT : T.PosSemidef) :
+    (∫ W : Matrix (Fin n) (Fin n) ℂ,Real.exp (-(T*W).trace.re) ∂complexNoncentralWishart M) =
+      (‖(1+T).det‖^m)⁻¹*Real.exp (-(M*T*(1+T)⁻¹*Mᴴ).trace.re) := by
+  have hc : Continuous (fun W : Matrix (Fin n) (Fin n) ℂ => Real.exp (-(T*W).trace.re)) :=
+    Real.continuous_exp.comp (Complex.continuous_re.comp
+      (continuous_const.matrix_mul continuous_id).matrix_trace).neg
+  rw [complexNoncentralWishart,integral_map (measurable_shiftedComplexSampleGram M).aemeasurable hc.measurable.aestronglyMeasurable]
+  exact actualNoncentralPSD_matrixLaplace M T hT
+
+end
+end JinWishart
+#print axioms JinWishart.actualNoncentralPSD_matrixLaplace
+#print axioms JinWishart.noncentralWishart_PSD_matrixLaplace

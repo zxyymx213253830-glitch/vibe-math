@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T09:13:22.032862+00:00",
+  "ended_utc": "2026-10-25T09:13:33.866658+00:00",
+  "module": "JinWishartFormalization.ActualNoncentralMatrixLaplace",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualNoncentralMatrixLaplace.lean",
+  "source_sha256_before": "9e8b918529bc4ba58d67a56eea0385245dd6b189d275c367c017565ab78e9f5f",
+  "source_sha256": "9e8b918529bc4ba58d67a56eea0385245dd6b189d275c367c017565ab78e9f5f",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/actual-matrix-laplace-v1.txt",
+  "log_exists": true,
+  "log_sha256": "3d511bd23d00be5cfe735f7b6e9780162088d5210aad6930d7f8a378e0cea72b",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

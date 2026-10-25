@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T09:11:31.127382+00:00",
+  "ended_utc": "2026-10-25T09:11:42.729360+00:00",
+  "module": "JinWishartFormalization.ActualNoncentralSpectralLaplace",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualNoncentralSpectralLaplace.lean",
+  "source_sha256_before": "c9aca4b5ae8846792f6282302cdefdb02080f0e7b50e72337e77dd87dac8a5e3",
+  "source_sha256": "c9aca4b5ae8846792f6282302cdefdb02080f0e7b50e72337e77dd87dac8a5e3",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/actual-spectral-laplace-v3.txt",
+  "log_exists": true,
+  "log_sha256": "5d960f473218cf79a91d26897ceec672148c61dbd4e23b1e8c18ff7b5b641aa4",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

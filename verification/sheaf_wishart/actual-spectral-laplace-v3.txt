@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralLaplace.lean:63:4: error: Type mismatch: After simplification, term
+  IsHermitian.spectral_theorem hT.left
+ has type
+  @Eq (Matrix (Fin n) (Fin n) ℂ) T
+    (↑⋯.eigenvectorUnitary * diagonal (RCLike.ofReal ∘ ⋯.eigenvalues) * (↑⋯.eigenvectorUnitary)ᴴ)
+but is expected to have type
+  @Eq (Matrix (Fin n) (Fin n) ℂ) T
+    (↑⋯.eigenvectorUnitary * diagonal (Complex.ofReal ∘ ⋯.eigenvalues) * (↑⋯.eigenvectorUnitary)ᴴ)
+'JinWishart.complexGaussianMatrixLaw_right_unitary_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentralPSD_integral_exp_spectral' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralPSD_integrable_exp' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

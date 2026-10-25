@@ -1,0 +1,37 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:18:23: warning: This simp argument is unused:
+  Complex.star_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.mul_re, RCLike.norm_sq_eq_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:19:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:19:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:62:12: warning: This simp argument is unused:
+  E
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:63:12: warning: This simp argument is unused:
+  E
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:79:46: warning: This simp argument is unused:
+  Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [P, Unitary.conjStarAlgAut_apply, Matrix.star_eq_conjTranspose, Matrix.conjTranspose_mul,
+    Matrix.mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.actualNoncentralPSD_matrixLaplace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralWishart_PSD_matrixLaplace' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,9 @@
+# Next: identify PSD-supported matrix laws by their Laplace transforms
+
+Actual matrix transform is closed in ActualNoncentralMatrixLaplace, all shapes/M and fixed PSD T. Reuse it; do not redo diagonal MGF, Gaussian frames or matrix inverse algebra. This is not yet original noncentral G2 joint density.
+
+Precise next research target: two finite measures on finite Hermitian matrices, both supported on PSD cone, equal Laplace integrals for all PSD test matrices -> equal measures. First inspect pinned general Laplace uniqueness/multivariate characteristic-function APIs and existing LocalMGFLawUniqueness.map_eq_of_mgf_eventuallyEq_zero. No proof/source/control for this new target exists yet.
+
+Possible route (unproved plan): tilt both measures by exp(-trace W); for each fixed Hermitian H, use I-sH PSD for sufficiently small real s to identify the local real MGFs of Re trace(HW) under tilted measures. PSD support bounds these by trace W. Reuse scalar local-MGF law uniqueness on every such linear functional, recover full characteristic functions via nondegenerate Hermitian-coordinate trace pairing, then cancel the strictly positive tilt with withDensity multiplication. Need finite-measure hypotheses, trace/norm inequality, integrability and all zero dimensions stated explicitly. Numeric controls must precede any new source; test rank-deficient/zero support, finite atomic measures, and inadequate finite-direction/moment negatives. This plan is not a theorem.
+
+Even after uniqueness, original G2 requires proving the CANDIDATE transform/normalization; two matching moments or a few directions never identify a law. Do not silently assume HCIZ/general joint density or author/source normalization. [需人工审查] Tilt/Fubini/Borel/finite-dimensional duality and model/source matching. Frozen publications unchanged; fullLake/Linux independent kernel NOT_RUN.

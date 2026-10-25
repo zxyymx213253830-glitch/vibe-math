@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-matrix-laplace-actualNoncentralPSD_integrable_exp",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualNoncentralSpectralLaplace",
+  "declaration": "JinWishart.actualNoncentralPSD_integrable_exp",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-actual-matrix-laplace-actualNoncentralPSD_integral_exp_spectral"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-actual-matrix-laplace-actualNoncentralPSD_integral_exp_spectral"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-matrix-laplace-ActualNoncentralSpectralLaplace.json",
+    "source_sha256": "c3b45339abfa847cb0512fba3e31b4357c4fe0b20949f1ab67a89b80dc4dc5ed"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "L-actual-matrix-laplace-noncentralWishart_PSD_matrixLaplace",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualNoncentralMatrixLaplace",
+  "declaration": "JinWishart.noncentralWishart_PSD_matrixLaplace",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-actual-matrix-laplace-actualNoncentralPSD_matrixLaplace"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-actual-matrix-laplace-actualNoncentralPSD_matrixLaplace"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-matrix-laplace-ActualNoncentralMatrixLaplace.json",
+    "source_sha256": "234137d23ad6e78fda6fed34319e5f6bfe2ff93d2c104299bd8c683e1c7a8059"
+  }
+}

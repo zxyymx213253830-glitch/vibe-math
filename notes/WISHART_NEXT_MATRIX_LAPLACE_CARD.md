@@ -1,3 +1,5 @@
+CLOSED at913: actual PSD matrix Laplace including invariant determinant/inverse expression; see WISHART_ACTUAL_NONCENTRAL_MATRIX_LAPLACE.md. Next WISHART_NEXT_PSD_LAPLACE_UNIQUENESS_CARD.md. Earlier route below is historical.
+
 # Next actual noncentral matrix Laplace bridge
 
 Current904 T1 two-surplus actual match is closed; current diagonal MGF four-export bundle is908 after acceptance. General central rectangular actual polynomial already exists, do NOT redo it.

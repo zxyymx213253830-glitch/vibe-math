@@ -1,0 +1,125 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:18:23: warning: This simp argument is unused:
+  Complex.star_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Complex.mul_re, RCLike.norm_sq_eq_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:19:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:19:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:60:4: error: unsolved goals
+case pos
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin n) ℂ
+hT : T.PosSemidef
+U : ↥(unitaryGroup (Fin n) ℂ) := ⋯.eigenvectorUnitary
+D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ ⋯.eigenvalues)
+E : Matrix (Fin n) (Fin n) ℂ := diagonal fun j => ↑(1 + ⋯.eigenvalues j)⁻¹
+F : Matrix (Fin n) (Fin n) ℂ := diagonal fun j => ↑(⋯.eigenvalues j / (1 + ⋯.eigenvalues j))
+P : Matrix (Fin n) (Fin n) ℂ ≃⋆ₐ[ℂ] Matrix (Fin n) (Fin n) ℂ := (Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) U
+hn : ∀ (j : Fin n), 1 + ⋯.eigenvalues j ≠ 0
+hd : 1 + D = diagonal fun j => ↑(1 + ⋯.eigenvalues j)
+i : Fin n
+⊢ (1 + ↑(⋯.eigenvalues i)) * (1 + ↑(⋯.eigenvalues i))⁻¹ = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:75:30: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (1 + T)⁻¹
+in the target expression
+  ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) ⋯.eigenvectorUnitary)
+        (diagonal (RCLike.ofReal ∘ ⋯.eigenvalues)) *
+      (1 +
+          ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) ⋯.eigenvectorUnitary)
+            (diagonal (RCLike.ofReal ∘ ⋯.eigenvalues)))⁻¹ =
+    P F
+
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+T : Matrix (Fin n) (Fin n) ℂ
+hT : T.PosSemidef
+U : ↥(unitaryGroup (Fin n) ℂ) := ⋯.eigenvectorUnitary
+D : Matrix (Fin n) (Fin n) ℂ := diagonal (RCLike.ofReal ∘ ⋯.eigenvalues)
+E : Matrix (Fin n) (Fin n) ℂ := diagonal fun j => ↑(1 + ⋯.eigenvalues j)⁻¹
+F : Matrix (Fin n) (Fin n) ℂ := diagonal fun j => ↑(⋯.eigenvalues j / (1 + ⋯.eigenvalues j))
+P : Matrix (Fin n) (Fin n) ℂ ≃⋆ₐ[ℂ] Matrix (Fin n) (Fin n) ℂ := (Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) U
+hn : ∀ (j : Fin n), 1 + ⋯.eigenvalues j ≠ 0
+hd : 1 + D = diagonal fun j => ↑(1 + ⋯.eigenvalues j)
+hDE : (1 + D) * E = 1
+hP : 1 + T = P (1 + D)
+hAE : (1 + T) * P E = 1
+hi : (1 + T)⁻¹ = P E
+hDF : D * E = F
+⊢ ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) ⋯.eigenvectorUnitary)
+        (diagonal (RCLike.ofReal ∘ ⋯.eigenvalues)) *
+      (1 +
+          ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) ⋯.eigenvectorUnitary)
+            (diagonal (RCLike.ofReal ∘ ⋯.eigenvalues)))⁻¹ =
+    P F
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    T i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:60:20: warning: This simp argument is unused:
+  E
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn i]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:60:22: warning: This simp argument is unused:
+  hn i
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:61:12: warning: This simp argument is unused:
+  E
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:77:46: warning: This simp argument is unused:
+  Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [P, Unitary.conjStarAlgAut_apply, Matrix.star_eq_conjTranspose, Matrix.conjTranspose_mul,
+    Matrix.mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:89:55: error(lean.unknownIdentifier): Unknown identifier `j`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:92:55: error(lean.unknownIdentifier): Unknown identifier `j`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:94:78: error: linarith failed to find a contradiction
+m n : ℕ
+T : Matrix (Fin n) (Fin n) ℂ
+hT : T.PosSemidef
+hd : (1 + T).det = ↑(∏ j, 1 + ⋯.eigenvalues sorry)
+j : Fin n
+x✝ : j ∈ ?m.158
+h : 0 ≤ ⋯.eigenvalues j
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:88:74: error: unsolved goals
+m n : ℕ
+T : Matrix (Fin n) (Fin n) ℂ
+hT : T.PosSemidef
+hd : (1 + T).det = ↑(∏ j, 1 + ⋯.eigenvalues sorry)
+hN : ‖(1 + T).det‖ = ∏ j, 1 + ⋯.eigenvalues sorry
+⊢ ((∏ x, (1 + ⋯.eigenvalues x)) ^ m)⁻¹ = ((∏ j, 1 + ⋯.eigenvalues sorry) ^ m)⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralMatrixLaplace.lean:112:101: error: `fun_prop` was unable to prove `AEStronglyMeasurable (fun W => rexp (-(T * W).trace.re))
+  (Measure.map (fun x => complexGram (complexSampleMatrix x + M)) (stdGaussian ComplexSample))`
+
+Issues:
+  No theorems found for `Matrix.trace` in order to prove `AEStronglyMeasurable (fun i => (T * i).trace)
+  (Measure.map (fun x => complexGram (complexSampleMatrix x + M)) (stdGaussian ComplexSample))`
+  No theorems found for `Complex.re` in order to prove `AEStronglyMeasurable (fun i => (T * i).trace.re)
+  (Measure.map (fun x => complexGram (complexSampleMatrix x + M)) (stdGaussian ComplexSample))`
+  No theorems found for `Real.exp` in order to prove `AEStronglyMeasurable (fun W => rexp (-(T * W).trace.re))
+  (Measure.map (fun x => complexGram (complexSampleMatrix x + M)) (stdGaussian ComplexSample))`
+'JinWishart.actualNoncentralPSD_matrixLaplace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.noncentralWishart_PSD_matrixLaplace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
