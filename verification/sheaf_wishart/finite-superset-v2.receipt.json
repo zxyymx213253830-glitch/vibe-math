@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:33:23.748211+00:00",
+  "ended_utc": "2026-10-25T08:33:36.283613+00:00",
+  "module": "JinWishartFormalization.FiniteSupersetKernel",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSupersetKernel.lean",
+  "source_sha256_before": "3684e353bbb79f223ff79fe32ba042a80527426f80a5564683f2f8c17b67dc05",
+  "source_sha256": "3684e353bbb79f223ff79fe32ba042a80527426f80a5564683f2f8c17b67dc05",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/finite-superset-v2.txt",
+  "log_exists": true,
+  "log_sha256": "c617d18ed5b9c8505df0ea80255bb2d0c49b67281eef8fbd565fddd7a2c10d7e",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

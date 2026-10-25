@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSupersetKernel.lean:66:34: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteSupersetKernel.lean:63:13: warning: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fintype.sum_prod_type]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.finiteSupersetKernel_sum' depends on axioms: [propext, Classical.choice, Quot.sound]

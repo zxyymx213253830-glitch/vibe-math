@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "FiniteSupersetKernel.lean": {
+      "sha256": "3684e353bbb79f223ff79fe32ba042a80527426f80a5564683f2f8c17b67dc05",
+      "supplied": "Full source"
+    },
+    "TwoSurplusLaguerreSquares.lean": {
+      "sha256": "ce87bece9257265519b5e58c80e7006f520780f388ea39b7cca155a50f1d5abc",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "0103276f86c2819446098e4ddcbc3705fd1a33d766a88dad52de2169fd9466bb"
+}

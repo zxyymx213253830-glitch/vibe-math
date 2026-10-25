@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "3684e353bbb79f223ff79fe32ba042a80527426f80a5564683f2f8c17b67dc05",
+  "target_lock_sha256": "9e0964aa9277af87647afc3678deef2d7fe638920c051fc9fa56e984bc7f7727",
+  "leaf": {
+    "started_utc": "2026-10-25T08:38:03.796029+00:00",
+    "ended_utc": "2026-10-25T08:38:22.377634+00:00",
+    "module": "JinWishartFormalization.FiniteSupersetKernel",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteSupersetKernel.lean",
+    "source_sha256_before": "3684e353bbb79f223ff79fe32ba042a80527426f80a5564683f2f8c17b67dc05",
+    "source_sha256": "3684e353bbb79f223ff79fe32ba042a80527426f80a5564683f2f8c17b67dc05",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-surplus-squares-FiniteSupersetKernel-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "c617d18ed5b9c8505df0ea80255bb2d0c49b67281eef8fbd565fddd7a2c10d7e",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-25T08:38:36.679263+00:00",
+    "ended_utc": "2026-10-25T08:38:55.724243+00:00",
+    "module": "SheafTwoSurplusSquaresTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafTwoSurplusSquaresTargets.lean",
+    "source_sha256_before": "985588bb3543d146c5fd1aa9fbe16de895ce19713215843173fd184ecd1311b4",
+    "source_sha256": "985588bb3543d146c5fd1aa9fbe16de895ce19713215843173fd184ecd1311b4",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-surplus-squares-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -1,0 +1,235 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE FiniteSupersetKernel.lean
+import JinWishartFormalization.FiniteSubsetPairGrouping
+import Mathlib.Data.Nat.Choose.Sum
+import Mathlib.Tactic
+
+/-! Codex. Seed2026102504 exact controls precede source. Finite weighted
+superset identity, no integration or stochastic model.
+[需人工审查] Later overlap-kernel and Wishart interpretation. -/
+open Finset
+namespace JinWishart
+noncomputable section
+
+private theorem binomial_superset_weight_sum (n u : ℕ) (hu : u≤n) :
+    (∑ b ∈ range (n-u+1), ((n-u).choose b : ℝ)/
+      (((n+1 : ℕ) : ℝ)*(n.choose (u+b) : ℝ))) = 1/((u+1 : ℕ) : ℝ) := by
+  have hc : (n.choose u : ℝ)≠0 := by exact_mod_cast (Nat.choose_pos hu).ne'
+  have hn : ((n+1 : ℕ) : ℝ)≠0 := by positivity
+  have hu0 : ((u+1 : ℕ) : ℝ)≠0 := by positivity
+  have hterm (b : ℕ) (hb : b∈range (n-u+1)) :
+      ((n-u).choose b : ℝ)/(((n+1 : ℕ) : ℝ)*(n.choose (u+b) : ℝ)) =
+        ((b+u).choose u : ℝ)/(((n+1 : ℕ) : ℝ)*(n.choose u : ℝ)) := by
+    have hb0 : b≤n-u := Nat.le_of_lt_succ (mem_range.mp hb)
+    have hk : u+b≤n := by omega
+    have hk0 : (n.choose (u+b) : ℝ)≠0 := by exact_mod_cast (Nat.choose_pos hk).ne'
+    have h := Nat.choose_mul (n := n) (k := u+b) (s := u) (by omega)
+    simp only [Nat.add_sub_cancel_left] at h
+    have hr : (n.choose (u+b) : ℝ)*((b+u).choose u : ℝ)=
+        (n.choose u : ℝ)*((n-u).choose b : ℝ) := by
+      exact_mod_cast (by simpa [Nat.add_comm] using h)
+    apply (div_eq_div_iff (mul_ne_zero hn hk0) (mul_ne_zero hn hc)).2
+    nlinarith [hr]
+  rw [sum_congr rfl hterm,← sum_div]
+  have hs : (∑ b ∈ range (n-u+1),((b+u).choose u : ℝ))=((n+1).choose (u+1) : ℝ) := by
+    exact_mod_cast (by simpa [Nat.sub_add_cancel hu] using Nat.sum_range_add_choose (n-u) u)
+  rw [hs]
+  have h := Nat.add_one_mul_choose_eq n u
+  have hr : ((n+1 : ℕ) : ℝ)*(n.choose u : ℝ)=
+      ((n+1).choose (u+1) : ℝ)*((u+1 : ℕ) : ℝ) := by exact_mod_cast h
+  apply (div_eq_div_iff (mul_ne_zero hn hc) hu0).2
+  nlinarith [hr]
+
+theorem finiteSupersetKernel_sum (n : ℕ) (U : Finset (Fin n)) :
+    (∑ R : Finset (Fin n), if U⊆R then
+      1/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) else 0) =
+        1/((U.card+1 : ℕ) : ℝ) := by
+  classical
+  have hsub (C : Finset U) (D : Finset {i : Fin n // i∉U}) :
+      U⊆(finsetPartitionEquiv U).symm (C,D) ↔ C=univ := by
+    constructor
+    · intro h
+      have hc := congrArg Finset.card (Finset.inter_eq_left.mpr h)
+      rw [finsetPartitionEquiv_inter_card] at hc
+      exact Finset.eq_of_subset_of_card_le (subset_univ C) (by simpa using hc.ge)
+    · rintro rfl
+      have hc : (U ∩ (finsetPartitionEquiv U).symm (univ,D)).card=U.card := by
+        rw [finsetPartitionEquiv_inter_card]
+        simp
+      have he : U ∩ (finsetPartitionEquiv U).symm (univ,D)=U :=
+        Finset.eq_of_subset_of_card_le inter_subset_left hc.ge
+      exact Finset.inter_eq_left.mp he
+  have h := Equiv.sum_comp (finsetPartitionEquiv U).symm
+    (fun R : Finset (Fin n) => if U⊆R then 1/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) else 0)
+  rw [← h]
+  simp only [Function.comp_apply,Fintype.sum_prod_type]
+  rw [sum_comm]
+  simp only [hsub,finsetPartitionEquiv_symm_card]
+  simp only [sum_ite_eq',mem_univ,if_true,card_univ,Fintype.card_coe]
+  have hd := sum_finsets_card_fintype (α := {i : Fin n // i∉U})
+    (fun b => 1/(((n+1 : ℕ) : ℝ)*(n.choose (U.card+b) : ℝ)))
+  rw [hd]
+  simp only [Fintype.card_subtype_compl,Fintype.card_fin,Fintype.card_coe]
+  simp only [mul_one_div]
+  apply binomial_superset_weight_sum
+  simpa using card_le_card (subset_univ U)
+
+theorem finiteSubsetPairKernel_square_sum (n : ℕ) (f : Finset (Fin n) → ℝ) :
+    (∑ U : Finset (Fin n), ∑ V : Finset (Fin n),
+      f U*f V/(((U ∪ V).card+1 : ℕ) : ℝ)) =
+      ∑ R : Finset (Fin n), (∑ U ∈ R.powerset,f U)^2/
+        (((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) := by
+  classical
+  have hterm (U V : Finset (Fin n)) :
+      f U*f V/(((U ∪ V).card+1 : ℕ) : ℝ) =
+        ∑ R : Finset (Fin n), if U ∪ V⊆R then
+          f U*f V/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) else 0 := by
+    calc
+      _ = f U*f V*(∑ R : Finset (Fin n), if U ∪ V⊆R then
+          1/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) else 0) := by
+        rw [finiteSupersetKernel_sum]
+        ring
+      _ = _ := by
+        rw [mul_sum]
+        apply sum_congr rfl
+        intro R _
+        by_cases h : U ∪ V⊆R <;> simp [h,div_eq_mul_inv]
+  have hR (R : Finset (Fin n)) :
+      (∑ U : Finset (Fin n), ∑ V : Finset (Fin n), if U ∪ V⊆R then
+          f U*f V/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) else 0) =
+        (∑ U ∈ R.powerset,f U)^2/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) := by
+    have hs : (∑ U : Finset (Fin n),if U⊆R then f U else 0)=∑ U ∈ R.powerset,f U := by
+      rw [← sum_filter]
+      have he : (univ : Finset (Finset (Fin n))).filter (fun U => U⊆R)=R.powerset := by
+        ext U
+        simp
+      rw [he]
+    rw [← hs,pow_two,sum_mul]
+    simp_rw [mul_sum,sum_div]
+    apply sum_congr rfl
+    intro U _
+    apply sum_congr rfl
+    intro V _
+    by_cases hU : U⊆R <;> by_cases hV : V⊆R <;>
+      simp [union_subset_iff,hU,hV]
+  calc
+    _ = ∑ U : Finset (Fin n), ∑ V : Finset (Fin n), ∑ R : Finset (Fin n),
+      if U ∪ V⊆R then f U*f V/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) else 0 := by
+      apply sum_congr rfl
+      intro U _
+      apply sum_congr rfl
+      intro V _
+      exact hterm U V
+    _ = ∑ U : Finset (Fin n), ∑ R : Finset (Fin n), ∑ V : Finset (Fin n),
+      if U ∪ V⊆R then f U*f V/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) else 0 := by
+      apply sum_congr rfl
+      intro U _
+      rw [sum_comm]
+    _ = ∑ R : Finset (Fin n), ∑ U : Finset (Fin n), ∑ V : Finset (Fin n),
+      if U ∪ V⊆R then f U*f V/(((n+1 : ℕ) : ℝ)*(n.choose R.card : ℝ)) else 0 := by rw [sum_comm]
+    _ = _ := by
+      apply sum_congr rfl
+      intro R _
+      exact hR R
+
+end
+end JinWishart
+#print axioms JinWishart.finiteSupersetKernel_sum
+#print axioms JinWishart.finiteSubsetPairKernel_square_sum
+
+SOURCE TwoSurplusLaguerreSquares.lean
+import JinWishartFormalization.FiniteSupersetKernel
+import JinWishartFormalization.TwoSurplusOverlapKernel
+import JinWishartFormalization.RectangularWishartOneExtraRow
+
+/-! Codex. Seed2026102504 exact averages and seed2505 signed square controls
+precede source. An average-square form of the ALREADY PROVED actual polynomial.
+Not yet equality with the original T1 determinant candidate.
+[需人工审查] Inherited actual model/CDF and eventual original-paper mapping. -/
+open Finset MeasureTheory ProbabilityTheory
+namespace JinWishart
+noncomputable section
+
+private theorem sum_complements (n : ℕ) (g : Finset (Fin n) → ℝ) :
+    (∑ S : Finset (Fin n),g S)=∑ S : Finset (Fin n),g Sᶜ := by
+  let e : Finset (Fin n) ≃ Finset (Fin n) :=
+    { toFun := fun S => Sᶜ
+      invFun := fun S => Sᶜ
+      left_inv := by intro S;simp
+      right_inv := by intro S;simp }
+  exact (Equiv.sum_comp e g).symm
+
+private theorem subset_polynomial_sum (n : ℕ) (R : Finset (Fin n)) (x : ℝ) :
+    (∑ U ∈ R.powerset,x^U.card/(U.card.factorial : ℝ))=
+      oneExtraRowMinimumPolynomial R.card x := by
+  rw [sum_powerset]
+  simp_rw [sum_powersetCard _ R (fun k : ℕ => x^k/(k.factorial : ℝ))]
+  simp only [nsmul_eq_mul]
+  unfold oneExtraRowMinimumPolynomial
+  apply sum_congr rfl
+  intro k _
+  ring
+
+theorem twoExtraRowMinimumPolynomial_eq_meanSquares (n : ℕ) (x : ℝ) :
+    twoExtraRowMinimumPolynomial n x =
+      (∑ k ∈ range (n+1),(oneExtraRowMinimumPolynomial k x)^2)/((n+1 : ℕ) : ℝ) := by
+  classical
+  let O : Finset (Fin n) → Finset (Fin n) → ℝ := fun S T =>
+    x^(n-S.card+(n-T.card))/
+      (((n-(S ∩ T).card+1 : ℕ) : ℝ)*((n-S.card).factorial : ℝ)*((n-T.card).factorial : ℝ))
+  let f : Finset (Fin n) → ℝ := fun U => x^U.card/(U.card.factorial : ℝ)
+  have hterm (U V : Finset (Fin n)) : O Uᶜ Vᶜ =
+      f U*f V/(((U ∪ V).card+1 : ℕ) : ℝ) := by
+    have hU : U.card≤n := by simpa using card_le_card (subset_univ U)
+    have hV : V.card≤n := by simpa using card_le_card (subset_univ V)
+    have hUV : (U ∪ V).card≤n := by simpa using card_le_card (subset_univ (U ∪ V))
+    dsimp only [O,f]
+    rw [← compl_union]
+    simp only [card_compl,Fintype.card_fin,Nat.sub_sub_self hU,Nat.sub_sub_self hV,Nat.sub_sub_self hUV,pow_add]
+    simp only [div_eq_mul_inv,mul_inv_rev]
+    ring
+  have hp : twoExtraRowMinimumPolynomial n x=
+      ∑ U : Finset (Fin n), ∑ V : Finset (Fin n), f U*f V/(((U ∪ V).card+1 : ℕ) : ℝ) := by
+    calc
+      _ = ∑ S : Finset (Fin n), ∑ T : Finset (Fin n),O S T :=
+        twoExtraRowMinimumPolynomial_eq_overlapKernel n x
+      _ = ∑ U : Finset (Fin n), ∑ T : Finset (Fin n),O Uᶜ T :=
+        sum_complements n _
+      _ = ∑ U : Finset (Fin n), ∑ V : Finset (Fin n),O Uᶜ Vᶜ := by
+        apply sum_congr rfl
+        intro U _
+        exact sum_complements n _
+      _ = _ := by
+        apply sum_congr rfl
+        intro U _
+        apply sum_congr rfl
+        intro V _
+        exact hterm U V
+  rw [hp,finiteSubsetPairKernel_square_sum]
+  have hs (R : Finset (Fin n)) : (∑ U ∈ R.powerset,f U)=oneExtraRowMinimumPolynomial R.card x :=
+    subset_polynomial_sum n R x
+  simp_rw [hs]
+  rw [sum_finsets_card_fintype (α := Fin n) (fun k : ℕ =>
+    (oneExtraRowMinimumPolynomial k x)^2/(((n+1 : ℕ) : ℝ)*(n.choose k : ℝ)))]
+  simp only [Fintype.card_fin]
+  rw [sum_div]
+  apply sum_congr rfl
+  intro k hk
+  have hk0 : k≤n := Nat.le_of_lt_succ (mem_range.mp hk)
+  have hc : (n.choose k : ℝ)≠0 := by exact_mod_cast (Nat.choose_pos hk0).ne'
+  have hn : ((n+1 : ℕ) : ℝ)≠0 := by positivity
+  field_simp
+
+theorem actualTwoExtraRows_minimum_CDF_meanSquares (n : ℕ) (hn : 0<n) (x : ℝ) (hx : 0≤x) :
+    ((stdGaussian (ComplexSample (m := n+2) (n := n)))
+      {z | centralGaussianSampleMinimum (n+2) n hn z≤x}).toReal =
+        1-Real.exp (-(n : ℝ)*x)*
+          ((∑ k ∈ range (n+1),(oneExtraRowMinimumPolynomial k x)^2)/((n+1 : ℕ) : ℝ)) := by
+  rw [actualTwoExtraRows_minimum_CDF n hn x hx,twoExtraRowMinimumPolynomial_eq_meanSquares]
+
+end
+end JinWishart
+#print axioms JinWishart.twoExtraRowMinimumPolynomial_eq_meanSquares
+#print axioms JinWishart.actualTwoExtraRows_minimum_CDF_meanSquares

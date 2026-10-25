@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:35:56.079031+00:00",
+  "ended_utc": "2026-10-25T08:36:09.055787+00:00",
+  "module": "JinWishartFormalization.TwoSurplusLaguerreSquares",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoSurplusLaguerreSquares.lean",
+  "source_sha256_before": "a576084e8e433d59d513980613ec7c27c7ef0bba4110924c9b4c830a8f7c8e59",
+  "source_sha256": "a576084e8e433d59d513980613ec7c27c7ef0bba4110924c9b4c830a8f7c8e59",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/two-surplus-squares-v1.txt",
+  "log_exists": true,
+  "log_sha256": "31bd5956d919319eeff21c7b21613feeb28413d2cd35949ef2299fa3a9db3a29",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

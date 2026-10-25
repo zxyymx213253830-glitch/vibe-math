@@ -1,0 +1,24 @@
+{
+  "id": "L-two-surplus-squares-finiteSubsetPairKernel_square_sum",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteSupersetKernel",
+  "declaration": "JinWishart.finiteSubsetPairKernel_square_sum",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-surplus-squares-finiteSupersetKernel_sum"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-surplus-squares-finiteSupersetKernel_sum"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-surplus-squares-FiniteSupersetKernel.json",
+    "source_sha256": "3684e353bbb79f223ff79fe32ba042a80527426f80a5564683f2f8c17b67dc05"
+  }
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "tag": "two-surplus-squares-FiniteSupersetKernel",
+    "module": "FiniteSupersetKernel",
+    "nodes": [
+      [
+        "L-two-surplus-squares-finiteSupersetKernel_sum",
+        "finiteSupersetKernel_sum",
+        []
+      ],
+      [
+        "L-two-surplus-squares-finiteSubsetPairKernel_square_sum",
+        "finiteSubsetPairKernel_square_sum",
+        [
+          "L-two-surplus-squares-finiteSupersetKernel_sum"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "two-surplus-squares-TwoSurplusLaguerreSquares",
+    "module": "TwoSurplusLaguerreSquares",
+    "nodes": [
+      [
+        "L-two-surplus-squares-twoExtraRowMinimumPolynomial_eq_meanSquares",
+        "twoExtraRowMinimumPolynomial_eq_meanSquares",
+        [
+          "L-two-surplus-squares-finiteSubsetPairKernel_square_sum"
+        ]
+      ],
+      [
+        "L-two-surplus-squares-actualTwoExtraRows_minimum_CDF_meanSquares",
+        "actualTwoExtraRows_minimum_CDF_meanSquares",
+        [
+          "L-two-surplus-squares-twoExtraRowMinimumPolynomial_eq_meanSquares"
+        ]
+      ]
+    ]
+  }
+]

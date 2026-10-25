@@ -768,3 +768,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/two_surplus_subset_kernel_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_TWO_SURPLUS_OVERLAP_KERNEL.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteSupersetKernel.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoSurplusLaguerreSquares.lean -text whitespace=cr-at-eol
+
+/experiments/finite_subset_square_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_TWO_SURPLUS_LAGUERRE_SQUARES.md -text whitespace=cr-at-eol

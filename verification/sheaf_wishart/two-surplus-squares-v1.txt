@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusLaguerreSquares.lean:15:25: error(lean.unknownIdentifier): Unknown constant `Equiv.ofInvolutive`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusLaguerreSquares.lean:22:11: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusLaguerreSquares.lean:68:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ S, ?f #S
+in the target expression
+  ∑ x_1, oneExtraRowMinimumPolynomial (#x_1) x ^ 2 / (↑(n + 1) * ↑(n.choose #x_1)) =
+    (∑ k ∈ range (n + 1), oneExtraRowMinimumPolynomial k x ^ 2) / ↑(n + 1)
+
+n : ℕ
+x : ℝ
+O : Finset (Fin n) → Finset (Fin n) → ℝ :=
+  fun S T => x ^ (n - #S + (n - #T)) / (↑(n - #(S ∩ T) + 1) * ↑(n - #S).factorial * ↑(n - #T).factorial)
+f : Finset (Fin n) → ℝ := fun U => x ^ #U / ↑(#U).factorial
+hterm : ∀ (U V : Finset (Fin n)), O Uᶜ Vᶜ = f U * f V / ↑(#(U ∪ V) + 1)
+hp : twoExtraRowMinimumPolynomial n x = ∑ U, ∑ V, f U * f V / ↑(#(U ∪ V) + 1)
+hs : ∀ (R : Finset (Fin n)), ∑ U ∈ R.powerset, f U = oneExtraRowMinimumPolynomial (#R) x
+⊢ ∑ x_1, oneExtraRowMinimumPolynomial (#x_1) x ^ 2 / (↑(n + 1) * ↑(n.choose #x_1)) =
+    (∑ k ∈ range (n + 1), oneExtraRowMinimumPolynomial k x ^ 2) / ↑(n + 1)
+'JinWishart.twoExtraRowMinimumPolynomial_eq_meanSquares' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualTwoExtraRows_minimum_CDF_meanSquares' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

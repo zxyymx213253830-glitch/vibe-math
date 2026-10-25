@@ -1,3 +1,5 @@
+import JinWishartFormalization.FiniteSupersetKernel
+import JinWishartFormalization.TwoSurplusLaguerreSquares
 import JinWishartFormalization.TwoSurplusOverlapKernel
 import JinWishartFormalization.TwoSurplusGammaWronskian
 import JinWishartFormalization.QuadraticChristoffelMomentDeterminant
