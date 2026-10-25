@@ -756,3 +756,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/quadratic_christoffel_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_QUADRATIC_CHRISTOFFEL.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoSurplusGammaWronskian.lean -text whitespace=cr-at-eol
+
+/experiments/two_surplus_gamma_wronskian_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_TWO_SURPLUS_GAMMA_WRONSKIAN.md -text whitespace=cr-at-eol

@@ -1,0 +1,24 @@
+{
+  "id": "L-two-surplus-gamma-upperGammaHankel_two_surplus_wronskian",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.TwoSurplusGammaWronskian",
+  "declaration": "JinWishart.upperGammaHankel_two_surplus_wronskian",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-two-surplus-gamma-factorialHankel_two_surplus_pencil_det"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-two-surplus-gamma-factorialHankel_two_surplus_pencil_det"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-surplus-gamma-TwoSurplusGammaWronskian.json",
+    "source_sha256": "fe289926e0d907408120e7dfbb9f4ad18f523ec33a2fbbe453d4c713e548f010"
+  }
+}

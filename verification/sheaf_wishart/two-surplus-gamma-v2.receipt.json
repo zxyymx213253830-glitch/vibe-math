@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:23:10.236116+00:00",
+  "ended_utc": "2026-10-25T08:23:22.454728+00:00",
+  "module": "JinWishartFormalization.TwoSurplusGammaWronskian",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoSurplusGammaWronskian.lean",
+  "source_sha256_before": "fe289926e0d907408120e7dfbb9f4ad18f523ec33a2fbbe453d4c713e548f010",
+  "source_sha256": "fe289926e0d907408120e7dfbb9f4ad18f523ec33a2fbbe453d4c713e548f010",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/two-surplus-gamma-v2.txt",
+  "log_exists": true,
+  "log_sha256": "6de3cdde19bf0345c0a247030693e79bd546972512f14cc5614c753191086408",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

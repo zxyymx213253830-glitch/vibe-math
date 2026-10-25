@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "TwoSurplusGammaWronskian.lean": {
+      "sha256": "fe289926e0d907408120e7dfbb9f4ad18f523ec33a2fbbe453d4c713e548f010",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "f8385aebab245ffc118c9e592db53a94e9d2f115c95285b751f0d262c1cf89ca"
+}

@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusGammaWronskian.lean:91:27: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Fin.revPerm_symm, Fin.revPerm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusGammaWronskian.lean:91:60: warning: This simp argument is unused:
+  Fin.revPerm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Matrix.of_apply, Fin.revPerm_symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.factorialHankel_two_surplus_pencil_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.upperGammaHankel_two_surplus_wronskian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoSurplus_PsiDet_wronskian' depends on axioms: [propext, Classical.choice, Quot.sound]

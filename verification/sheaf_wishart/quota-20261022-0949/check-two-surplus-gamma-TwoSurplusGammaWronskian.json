@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "fe289926e0d907408120e7dfbb9f4ad18f523ec33a2fbbe453d4c713e548f010",
+  "target_lock_sha256": "6c1ae1ffcf16f4532f02ed9aba3aa1ab84b70e2b537f38e7b661d81643200dcb",
+  "leaf": {
+    "started_utc": "2026-10-25T08:24:15.435143+00:00",
+    "ended_utc": "2026-10-25T08:24:27.781220+00:00",
+    "module": "JinWishartFormalization.TwoSurplusGammaWronskian",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoSurplusGammaWronskian.lean",
+    "source_sha256_before": "fe289926e0d907408120e7dfbb9f4ad18f523ec33a2fbbe453d4c713e548f010",
+    "source_sha256": "fe289926e0d907408120e7dfbb9f4ad18f523ec33a2fbbe453d4c713e548f010",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-surplus-gamma-TwoSurplusGammaWronskian-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "6de3cdde19bf0345c0a247030693e79bd546972512f14cc5614c753191086408",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-25T08:24:27.784378+00:00",
+    "ended_utc": "2026-10-25T08:24:40.574588+00:00",
+    "module": "SheafTwoSurplusGammaTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafTwoSurplusGammaTargets.lean",
+    "source_sha256_before": "d27f6447ad84811b267d17e88f93a38e5bf79927cea0324a36b5d4f69dd17aa7",
+    "source_sha256": "d27f6447ad84811b267d17e88f93a38e5bf79927cea0324a36b5d4f69dd17aa7",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-surplus-gamma-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

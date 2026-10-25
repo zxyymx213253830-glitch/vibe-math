@@ -1,0 +1,54 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusGammaWronskian.lean:32:79: error: unsolved goals
+n : ℕ
+x : ℂ
+h :
+  (det fun i j => factorialMomentFunctional ((X - C (-x)) ^ 2 * X ^ (↑i + ↑j))) =
+    (det fun i j => factorialMomentFunctional (X ^ (↑i + ↑j))) *
+      (eval (-x) (factorialLaguerre n) * eval (-x) (derivative (factorialLaguerre (n + 1))) -
+        eval (-x) (factorialLaguerre (n + 1)) * eval (-x) (derivative (factorialLaguerre n)))
+i j : Fin n
+⊢ X * X ^ ↑i * X ^ ↑j * C x * 2 + X ^ 2 * X ^ ↑i * X ^ ↑j + X ^ ↑i * X ^ ↑j * C x ^ 2 =
+    X * X ^ ↑i * X ^ ↑j * C (x * 2) + X ^ 2 * X ^ ↑i * X ^ ↑j + X ^ ↑i * X ^ ↑j * C (x ^ 2)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusGammaWronskian.lean:65:91: error: unsolved goals
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+F : ℂ[X] →ₗ[ℂ] ℂ := factorialMomentFunctional ∘ₗ LinearMap.mulLeft ℂ ((X + C ↑x) ^ 2)
+heq : (of fun i j => upperGammaNat (↑i + ↑j + 2) x) = ↑(Real.exp (-x)) • of fun i j => F ((X + C ↑x) ^ (↑i + ↑j))
+i j : Fin n
+⊢ X * X ^ ↑i * X ^ ↑j * C ↑x * 2 + X ^ 2 * X ^ ↑i * X ^ ↑j + X ^ ↑i * X ^ ↑j * C ↑x ^ 2 =
+    X * X ^ ↑i * X ^ ↑j * C (↑x * 2) + X ^ 2 * X ^ ↑i * X ^ ↑j + X ^ ↑i * X ^ ↑j * C (↑x ^ 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusGammaWronskian.lean:91:27: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Fin.revPerm_symm, Fin.revPerm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\TwoSurplusGammaWronskian.lean:91:60: warning: This simp argument is unused:
+  Fin.revPerm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Nat.not_lt_zero, ↓reduceDIte, Matrix.reindex_apply,
+    Matrix.of_apply, Fin.revPerm_symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.factorialHankel_two_surplus_pencil_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.upperGammaHankel_two_surplus_wronskian' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoSurplus_PsiDet_wronskian' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,102 @@
+import JinWishartFormalization.QuadraticChristoffelMomentDeterminant
+import JinWishartFormalization.FactorialLaguerreOrthogonality
+import JinWishartFormalization.CentralGammaDenominator
+import JinWishartFormalization.Theorem1CentralOneSurplus
+
+/-! Codex. Seed2026102503 exact controls before source.
+All-size quadratic factorial/Gamma and original Psi determinants only.
+No equality to the actual two-extra-row CDF polynomial is asserted.
+[需人工审查] Paper normalization and later stochastic identification. -/
+open Matrix Polynomial
+namespace JinWishart
+noncomputable section
+
+def twoSurplusLaguerreWronskian (n : ℕ) (x : ℂ) : ℂ :=
+  (factorialLaguerre n).eval (-x)*(Polynomial.derivative (factorialLaguerre (n+1))).eval (-x)-
+    (factorialLaguerre (n+1)).eval (-x)*(Polynomial.derivative (factorialLaguerre n)).eval (-x)
+
+theorem factorialHankel_two_surplus_pencil_det (n : ℕ) (x : ℂ) :
+    Matrix.det (fun i j : Fin n => ((i.val+j.val+2).factorial : ℂ)+
+      2*x*((i.val+j.val+1).factorial : ℂ)+x^2*((i.val+j.val).factorial : ℂ)) =
+      (∏ i : Fin n,(i.val.factorial : ℂ)^2)*twoSurplusLaguerreWronskian n x := by
+  have h := quadratic_christoffel_moment_det n factorialMomentFunctional
+    (factorialLaguerre n) (factorialLaguerre (n+1))
+    (factorialLaguerre_natDegree n) (factorialLaguerre_monic n)
+    (factorialLaguerre_natDegree (n+1)) (factorialLaguerre_monic (n+1))
+    (fun i => factorialLaguerre_moment_orthogonal n i.val i.isLt)
+    (fun i => factorialLaguerre_moment_orthogonal (n+1) i.val (by omega)) (-x)
+  have hf (i j : Fin n) : factorialMomentFunctional ((X-C (-x))^2*X^(i.val+j.val)) =
+      ((i.val+j.val+2).factorial : ℂ)+2*x*((i.val+j.val+1).factorial : ℂ)+
+        x^2*((i.val+j.val).factorial : ℂ) := by
+    have he : ((X-C (-x))^2*X^(i.val+j.val) : ℂ[X]) =
+        X^(i.val+j.val+2)+(2*x) • X^(i.val+j.val+1)+(x^2) • X^(i.val+j.val) := by
+      simp only [map_neg,sub_neg_eq_add,smul_eq_C_mul,pow_add,map_mul,map_pow,map_ofNat]
+      ring
+    rw [he,map_add,map_add,map_smul,map_smul,factorialMoment_X_pow,
+      factorialMoment_X_pow,factorialMoment_X_pow]
+    rfl
+  simp_rw [hf,factorialMoment_X_pow] at h
+  change _ = (factorialHankel n).det*twoSurplusLaguerreWronskian n x at h
+  rw [factorialHankel_det] at h
+  exact h
+
+theorem upperGammaHankel_two_surplus_wronskian (n : ℕ) (x : ℝ) (hx : 0≤x) :
+    Matrix.det (fun i j : Fin n => upperGammaNat (i.val+j.val+2) x) =
+      (Real.exp (-(n : ℝ)*x) : ℂ)*(∏ i : Fin n,(i.val.factorial : ℂ)^2)*
+        twoSurplusLaguerreWronskian n (x : ℂ) := by
+  let F : ℂ[X] →ₗ[ℂ] ℂ := factorialMomentFunctional.comp
+    (LinearMap.mulLeft ℂ ((X+C (x : ℂ))^2))
+  have heq : Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val+2) x) =
+      (Real.exp (-x) : ℂ) • Matrix.of (fun i j : Fin n => F ((X+C (x : ℂ))^(i.val+j.val))) := by
+    ext i j
+    change upperGammaNat (i.val+j.val+2) x=(Real.exp (-x) : ℂ)*F ((X+C (x : ℂ))^(i.val+j.val))
+    rw [upperGammaNat_eq_factorialMoment _ x hx]
+    dsimp only [F,LinearMap.comp_apply,LinearMap.mulLeft_apply]
+    rw [pow_add,mul_comm ((X+C (x : ℂ))^(i.val+j.val))]
+  change (Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val+2) x)).det=_
+  rw [heq,Matrix.det_smul,Fintype.card_fin]
+  change (Real.exp (-x) : ℂ)^n*Matrix.det (fun i j : Fin n => F ((X+C (x : ℂ))^(i.val+j.val)))=_
+  rw [shifted_polynomial_moment_det]
+  have hf (i j : Fin n) : F (X^(i.val+j.val)) =
+      ((i.val+j.val+2).factorial : ℂ)+2*(x : ℂ)*((i.val+j.val+1).factorial : ℂ)+
+        (x : ℂ)^2*((i.val+j.val).factorial : ℂ) := by
+    dsimp only [F,LinearMap.comp_apply,LinearMap.mulLeft_apply]
+    have he : ((X+C (x : ℂ))^2*X^(i.val+j.val) : ℂ[X]) =
+        X^(i.val+j.val+2)+(2*(x : ℂ)) • X^(i.val+j.val+1)+((x : ℂ)^2) • X^(i.val+j.val) := by
+      simp only [smul_eq_C_mul,pow_add,map_mul,map_pow,map_ofNat]
+      ring
+    rw [he,map_add,map_add,map_smul,map_smul,factorialMoment_X_pow,
+      factorialMoment_X_pow,factorialMoment_X_pow]
+    rfl
+  simp_rw [hf]
+  rw [factorialHankel_two_surplus_pencil_det]
+  have hexp : (Real.exp (-x) : ℂ)^n=(Real.exp (-(n : ℝ)*x) : ℂ) := by
+    rw [←Complex.ofReal_pow,←Real.exp_nat_mul]
+    congr 2
+    ring
+  rw [hexp]
+  ring
+
+theorem theorem1CentralTwoSurplus_PsiDet_wronskian (n : ℕ) (x : ℝ) (hx : 0≤x) :
+    (theorem1PsiMatrix n (n+2) 0 (by omega) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x).det =
+      (Real.exp (-(n : ℝ)*x) : ℂ)*(∏ i : Fin n,(i.val.factorial : ℂ)^2)*
+        twoSurplusLaguerreWronskian n (x : ℂ) := by
+  have heq : theorem1PsiMatrix n (n+2) 0 (by omega) (Nat.zero_le n)
+      (fun j : Fin 0 => Fin.elim0 j) x =
+      Matrix.reindex (Fin.revPerm : Fin n ≃ Fin n) Fin.revPerm
+        (Matrix.of (fun i j : Fin n => upperGammaNat (i.val+j.val+2) x)) := by
+    ext i j
+    simp only [theorem1PsiMatrix,theorem1PsiEntry,Nat.not_lt_zero,↓reduceDIte,
+      Matrix.reindex_apply,Matrix.of_apply,Fin.revPerm_symm,Fin.revPerm_apply]
+    congr 1
+    change (n+2)+n-(i.val+1)-(j.val+1)=(n-(i.val+1))+(n-(j.val+1))+2
+    omega
+  rw [heq,Matrix.det_reindex_self]
+  exact upperGammaHankel_two_surplus_wronskian n x hx
+
+end
+end JinWishart
+#print axioms JinWishart.factorialHankel_two_surplus_pencil_det
+#print axioms JinWishart.upperGammaHankel_two_surplus_wronskian
+#print axioms JinWishart.theorem1CentralTwoSurplus_PsiDet_wronskian

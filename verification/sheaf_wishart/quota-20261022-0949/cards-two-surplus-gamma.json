@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "two-surplus-gamma-TwoSurplusGammaWronskian",
+    "module": "TwoSurplusGammaWronskian",
+    "nodes": [
+      [
+        "L-two-surplus-gamma-factorialHankel_two_surplus_pencil_det",
+        "factorialHankel_two_surplus_pencil_det",
+        []
+      ],
+      [
+        "L-two-surplus-gamma-upperGammaHankel_two_surplus_wronskian",
+        "upperGammaHankel_two_surplus_wronskian",
+        [
+          "L-two-surplus-gamma-factorialHankel_two_surplus_pencil_det"
+        ]
+      ],
+      [
+        "L-two-surplus-gamma-theorem1CentralTwoSurplus_PsiDet_wronskian",
+        "theorem1CentralTwoSurplus_PsiDet_wronskian",
+        [
+          "L-two-surplus-gamma-upperGammaHankel_two_surplus_wronskian"
+        ]
+      ]
+    ]
+  }
+]
