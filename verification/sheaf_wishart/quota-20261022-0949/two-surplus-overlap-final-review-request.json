@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "TwoSurplusOverlapKernel.lean": {
+      "sha256": "bd213226cb76c5dbd2fab334a14aab3c1c5a76fc479ab176ea67efa7f1497ee2",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "155ac5ddef168b06e24a88ee434ed45a0b0a96be55e689ee3b6639f5750a7ec7"
+}

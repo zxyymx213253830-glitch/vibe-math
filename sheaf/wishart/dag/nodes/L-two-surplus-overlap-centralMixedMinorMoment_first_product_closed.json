@@ -1,0 +1,20 @@
+{
+  "id": "L-two-surplus-overlap-centralMixedMinorMoment_first_product_closed",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.TwoSurplusOverlapKernel",
+  "declaration": "JinWishart.centralMixedMinorMoment_first_product_closed",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-surplus-overlap-TwoSurplusOverlapKernel.json",
+    "source_sha256": "bd213226cb76c5dbd2fab334a14aab3c1c5a76fc479ab176ea67efa7f1497ee2"
+  }
+}

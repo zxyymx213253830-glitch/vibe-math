@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "bd213226cb76c5dbd2fab334a14aab3c1c5a76fc479ab176ea67efa7f1497ee2",
+  "target_lock_sha256": "dd6c1ef759aff74329fcc98d72639d25979a573b38ff6abad990dcbe0ead07c0",
+  "leaf": {
+    "started_utc": "2026-10-25T08:28:07.736256+00:00",
+    "ended_utc": "2026-10-25T08:28:42.661822+00:00",
+    "module": "JinWishartFormalization.TwoSurplusOverlapKernel",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoSurplusOverlapKernel.lean",
+    "source_sha256_before": "bd213226cb76c5dbd2fab334a14aab3c1c5a76fc479ab176ea67efa7f1497ee2",
+    "source_sha256": "bd213226cb76c5dbd2fab334a14aab3c1c5a76fc479ab176ea67efa7f1497ee2",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-surplus-overlap-TwoSurplusOverlapKernel-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "0240b021b24a6626d5a9368f97c9b82faf60cb2f5f070c5c68fedaf7f251bd2f",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-25T08:28:42.664274+00:00",
+    "ended_utc": "2026-10-25T08:28:56.762453+00:00",
+    "module": "SheafTwoSurplusOverlapTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafTwoSurplusOverlapTargets.lean",
+    "source_sha256_before": "abbe5b210ea2aa1c6b8bc393e7026ce0833035c775d9009ab9bc57ac5f68f641",
+    "source_sha256": "abbe5b210ea2aa1c6b8bc393e7026ce0833035c775d9009ab9bc57ac5f68f641",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/two-surplus-overlap-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

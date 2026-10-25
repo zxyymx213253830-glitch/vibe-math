@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:26:33.982299+00:00",
+  "ended_utc": "2026-10-25T08:26:58.930399+00:00",
+  "module": "JinWishartFormalization.TwoSurplusOverlapKernel",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/TwoSurplusOverlapKernel.lean",
+  "source_sha256_before": "bd213226cb76c5dbd2fab334a14aab3c1c5a76fc479ab176ea67efa7f1497ee2",
+  "source_sha256": "bd213226cb76c5dbd2fab334a14aab3c1c5a76fc479ab176ea67efa7f1497ee2",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/two-surplus-overlap-v1.txt",
+  "log_exists": true,
+  "log_sha256": "0240b021b24a6626d5a9368f97c9b82faf60cb2f5f070c5c68fedaf7f251bd2f",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,3 +1,4 @@
+import JinWishartFormalization.TwoSurplusOverlapKernel
 import JinWishartFormalization.TwoSurplusGammaWronskian
 import JinWishartFormalization.QuadraticChristoffelMomentDeterminant
 import JinWishartFormalization.CentralTwoColumnT3Normalization

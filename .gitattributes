@@ -762,3 +762,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/two_surplus_gamma_wronskian_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_TWO_SURPLUS_GAMMA_WRONSKIAN.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/TwoSurplusOverlapKernel.lean -text whitespace=cr-at-eol
+
+/experiments/two_surplus_subset_kernel_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_TWO_SURPLUS_OVERLAP_KERNEL.md -text whitespace=cr-at-eol

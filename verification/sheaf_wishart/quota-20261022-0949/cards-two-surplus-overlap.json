@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "two-surplus-overlap-TwoSurplusOverlapKernel",
+    "module": "TwoSurplusOverlapKernel",
+    "nodes": [
+      [
+        "L-two-surplus-overlap-centralMixedMinorMoment_first_product_closed",
+        "centralMixedMinorMoment_first_product_closed",
+        []
+      ],
+      [
+        "L-two-surplus-overlap-twoExtraRowMinimumPolynomial_eq_overlapKernel",
+        "twoExtraRowMinimumPolynomial_eq_overlapKernel",
+        [
+          "L-two-surplus-overlap-centralMixedMinorMoment_first_product_closed"
+        ]
+      ]
+    ]
+  }
+]
