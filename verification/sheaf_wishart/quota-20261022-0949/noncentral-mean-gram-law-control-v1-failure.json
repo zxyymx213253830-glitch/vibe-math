@@ -1,0 +1,5 @@
+{
+  "seed": 2026102510,
+  "status": "REJECTED_CONTROL_IMPLEMENTATION",
+  "failure": "Structural SymPy matrix equality at pointwise Gram conjugation shape(1,3); expand/simplify exact entries before comparing. No Lean source created."
+}

@@ -820,3 +820,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/psd_dual_trace_geometry_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_PSD_MATRIX_LAPLACE_UNIQUENESS.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualNoncentralMeanGramLaw.lean -text whitespace=cr-at-eol
+
+/experiments/noncentral_mean_gram_law_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_ACTUAL_NONCENTRAL_MEAN_GRAM_LAW.md -text whitespace=cr-at-eol

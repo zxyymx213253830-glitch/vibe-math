@@ -1,0 +1,7 @@
+'JinWishart.complexNoncentralWishart_eq_of_meanGram_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.complexNoncentralWishart_right_unitary_conjugation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.complexNoncentralWishart_meanGram_unitary_transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

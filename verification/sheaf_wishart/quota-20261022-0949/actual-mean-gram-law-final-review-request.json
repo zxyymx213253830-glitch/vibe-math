@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualNoncentralMeanGramLaw.lean": {
+      "sha256": "f8c5016316308ef952d2807f95f34ea76a095fab7c89e28d146f60482da3a0e5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "5575bbf8fe1dc377ae16a13dfe75253113a39bba4f9632c7056fe92d2c3a2f82"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "L-actual-mean-gram-law-complexNoncentralWishart_eq_of_meanGram_eq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualNoncentralMeanGramLaw",
+  "declaration": "JinWishart.complexNoncentralWishart_eq_of_meanGram_eq",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-mean-gram-law-ActualNoncentralMeanGramLaw.json",
+    "source_sha256": "f8c5016316308ef952d2807f95f34ea76a095fab7c89e28d146f60482da3a0e5"
+  }
+}

@@ -167,3 +167,4 @@
 - 2026-10-25T13:53:19.051067+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-psd-matrix-uniqueness-HermitianScalarShiftPSD.json; human measure/model review remains REQUIRED.
 - 2026-10-25T13:53:40.027857+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-psd-matrix-uniqueness-PSDMatrixLaplaceUniqueness.json; human measure/model review remains REQUIRED.
 - 2026-10-25T13:54:02.974067+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-psd-matrix-uniqueness-ActualNoncentralLaplaceCharacterization.json; human measure/model review remains REQUIRED.
+- 2026-10-25T14:07:39.923171+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-actual-mean-gram-law-ActualNoncentralMeanGramLaw.json; human measure/model review remains REQUIRED.

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T14:01:34.213665+00:00",
+  "ended_utc": "2026-10-25T14:01:46.886664+00:00",
+  "module": "JinWishartFormalization.ActualNoncentralMeanGramLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualNoncentralMeanGramLaw.lean",
+  "source_sha256_before": "f8c5016316308ef952d2807f95f34ea76a095fab7c89e28d146f60482da3a0e5",
+  "source_sha256": "f8c5016316308ef952d2807f95f34ea76a095fab7c89e28d146f60482da3a0e5",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/actual-mean-gram-law-ActualNoncentralMeanGramLaw-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "8bf752765d9c713c8c421d21b1e441e6ceb045cd6e8cf7168010284a302e6378",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

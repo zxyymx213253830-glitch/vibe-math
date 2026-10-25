@@ -1,0 +1,13 @@
+# Next: sorted noncentrality parameters and actual ordered-spectrum law
+
+Matrix mean-Gram equality and fixed unitary conjugate transport are closed in ActualNoncentralMeanGramLaw; do not redo. They DO NOT assert matrix-law equality from only equal noncentrality eigenvalues. The seed2026102510 negative shows that is false.
+
+Precise next target: same m,n, arbitrary fixed M,N, equality of descending eigenvalue vectors of M^H M and N^H N -> equality of the FULL n-coordinate descending actual column-Gram eigenvalue-vector laws under the original same 2mn real Gaussian source. Zero dimensions, repeated/zero noncentrality eigenvalues and wide structural zeros must remain allowed. This is a model invariance result, not a joint-density formula. The paper's small-side Fin(min m n) spectrum and positive rank-L noncentrality interface are later mapping obligations.
+
+First new seeded controls (none written yet) should cover canonical diagonal spectra with repeated/zero eigenvalues, fixed complex unitary conjugate pairs, exact Gram/charpoly identities and sorted spectrum equality; keep the matrix-law-versus-spectral-law negative.
+
+Reuse pinned Spectrum.eigenvectorUnitary/spectral_theorem to construct U from the same mean-Gram eigenvalues: U=U_M U_N^H. No simple-spectrum or fullrank hypothesis. For invariance of indexed eigenvalues under conjugation, pinned Mathlib/Analysis/InnerProductSpace/Spectrum.lean has LinearMap.IsSymmetric.eigenvalues_eq_eigenvalues_iff, equivalent to equality of charpolys, and sort_roots_charpoly_eq_eigenvalues. Avoid rebuilding sorted-multiset theory. Matrix charpoly conjugacy and toEuclideanLin charpoly interfaces need inspection.
+
+Existing HermitianMatrix, hermitianEigenvalueVector, shiftedComplexGramHermitian and measurable_shiftedComplexGramHermitian are in OrderedEigenvalueFullMeasurable. The old continuity interface has ALREADY BEEN CLOSED by WeylComplexHermitian.orderedHermitianEigenvalueCoordinatesContinuous; do not mistake the old interface header for an open theorem. A global non-Hermitian spectrum extension is unnecessary: work with measures on the Hermitian subtype, whose inclusion pushforward is injective by MeasureTheory/Measure/Map.lean map_injective for a MeasurableEmbedding. Check actual subtype embedding hypotheses explicitly.
+
+Before source, inspect latest git/state/locks and exact existing signatures, retain single coordinator, all Lean through shared gate. Codex proofs, bounded Qoder P4. [需人工审查] Borel subtype transport, sorted indices, source noncentrality convention; frozen publication products unchanged, fullLake/Linux independent kernel NOT_RUN. Candidate G2 finite mass/transform/normalization still unverified.
