@@ -1,0 +1,40 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:72:2: error: 'change' tactic failed, pattern
+  (((-1) ^ (n + 1) * E q *
+        det fun i j =>
+          ((fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+            (Fin.lastCases p (fun j => X ^ ↑j) j)) +
+      (-1) ^ (1 + (n + 1)) * D q *
+        det fun i j =>
+          ((fun i => Fin.cases E (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+            (Fin.lastCases p (fun j => X ^ ↑j) j)) =
+    ?m.836
+is not definitionally equal to target
+  (-1) ^ (n + 1) * E (Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) (Fin.last (n + 1))) *
+        ((Equiv.refl (Fin (n + 1) → Fin (n + 1) → ℂ)) fun i j =>
+            (Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) (Fin.lastCases p (fun j => X ^ ↑j) j)).det +
+      (-1) ^ (1 + (n + 1)) * D (Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) (Fin.last (n + 1))) *
+        ((Equiv.refl (Fin (n + 1) → Fin (n + 1) → ℂ)) fun i j =>
+            (Fin.cases E (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) (Fin.lastCases p (fun j => X ^ ↑j) j)).det =
+    (E p * D q - E q * D p) * det fun i j => F (X ^ (↑i + ↑j))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:129:8: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [P]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:162:4: error: Type mismatch: After simplification, term
+  congrArg det hminor
+ has type
+  @Eq ℂ ((M.submatrix Fin.succ Fin.succ).submatrix Fin.succ Fin.succ).det
+    ((Equiv.refl (Fin n → Fin n → ℂ)) fun i j => F ((X - C z) ^ 2 * X ^ (↑i + ↑j))).det
+but is expected to have type
+  @Eq ℂ ((M.submatrix Fin.succ Fin.succ).submatrix Fin.succ Fin.succ).det
+    (det fun i j => F ((X - C z) ^ 2 * X ^ (↑i + ↑j)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:111:96: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Polynomial.natDegree_mul, (monic_X_sub_C z).ne_zero, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.quadratic_christoffel_moment_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

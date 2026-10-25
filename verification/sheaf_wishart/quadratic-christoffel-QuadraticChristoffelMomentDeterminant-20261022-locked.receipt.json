@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:18:26.986107+00:00",
+  "ended_utc": "2026-10-25T08:18:39.849081+00:00",
+  "module": "JinWishartFormalization.QuadraticChristoffelMomentDeterminant",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/QuadraticChristoffelMomentDeterminant.lean",
+  "source_sha256_before": "ed763b1585fd31dfb449f08506e7b7b2d440bf82385736fa79644462add1488a",
+  "source_sha256": "ed763b1585fd31dfb449f08506e7b7b2d440bf82385736fa79644462add1488a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/quadratic-christoffel-QuadraticChristoffelMomentDeterminant-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "5690e6ee6947d1324c8778454b6496a3f73ab96027448814a5e339cd0cb0c457",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

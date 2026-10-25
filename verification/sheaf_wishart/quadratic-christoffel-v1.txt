@@ -1,0 +1,31 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:14:7: error: failed to elaborate eliminator, expected type is not available
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:36:7: error: failed to elaborate eliminator, expected type is not available
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:38:79: error: unsolved goals
+n : ℕ
+F E D : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+⊢ (det fun i j => sorry) = (E p * D q - E q * D p) * det fun i j => F (X ^ (↑i + ↑j))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:41:67: error: unexpected token ')'; expected command
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:83:97: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hdp : p.natDegree = n
+hmp : p.Monic
+hdq : q.natDegree = n + 1
+hmq : q.Monic
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+z : ℂ
+E : ℂ[X] →ₗ[ℂ] ℂ := leval z
+D : ℂ[X] →ₗ[ℂ] ℂ := E ∘ₗ derivative
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+⊢ (det fun i j => F ((X - C z) ^ 2 * X ^ (↑i + ↑j))) =
+    (det fun i j => F (X ^ (↑i + ↑j))) * (eval z p * eval z (derivative q) - eval z q * eval z (derivative p))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:88:67: error: unexpected token ')'; expected command
+'JinWishart.quadratic_christoffel_moment_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

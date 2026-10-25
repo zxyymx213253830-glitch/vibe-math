@@ -1,0 +1,400 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:47:51: error: unsolved goals
+n : ℕ
+F E D : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+M : Matrix (Fin (n + 2)) (Fin (n + 2)) ℂ := fun i j => (G i) (P j)
+i j : Fin (n + 1)
+⊢ submatrix
+      (fun i j =>
+        (Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+          (Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) j))
+      Fin.succ Fin.castSucc i j =
+    (Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) (Fin.lastCases p (fun j => X ^ ↑j) j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:56:4: error: unsolved goals
+case refine_1
+n : ℕ
+F E D : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+M : Matrix (Fin (n + 2)) (Fin (n + 2)) ℂ := fun i j => (G i) (P j)
+hminor0 :
+  M.submatrix Fin.succ Fin.castSucc =
+    of fun i j =>
+      ((fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i) (Fin.lastCases p (fun j => X ^ ↑j) j)
+i j : Fin (n + 1)
+⊢ submatrix
+      (fun i j =>
+        (Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+          (Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) j))
+      (Fin.succAbove 1) Fin.castSucc 0 j =
+    E (Fin.lastCases p (fun j => X ^ ↑j) j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:65:22: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  det fun i j =>
+    ((fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i) (Fin.lastCases p (fun j => X ^ ↑j) j)
+in the target expression
+  (-1) ^ (↑0 + ↑(Fin.last (n + 1))) * M 0 (Fin.last (n + 1)) *
+        (of fun i j =>
+            ((fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+              (Fin.lastCases p (fun j => X ^ ↑j) j)).det +
+      (-1) ^ (↑(Fin.succ 0) + ↑(Fin.last (n + 1))) * M (Fin.succ 0) (Fin.last (n + 1)) *
+        (of fun i j =>
+            ((fun i => Fin.cases E (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+              (Fin.lastCases p (fun j => X ^ ↑j) j)).det =
+    (E p * D q - E q * D p) * det fun i j => F (X ^ (↑i + ↑j))
+
+n : ℕ
+F E D : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+M : Matrix (Fin (n + 2)) (Fin (n + 2)) ℂ := fun i j => (G i) (P j)
+hminor0 :
+  M.submatrix Fin.succ Fin.castSucc =
+    of fun i j =>
+      ((fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i) (Fin.lastCases p (fun j => X ^ ↑j) j)
+hminor1 :
+  M.submatrix (Fin.succ 0).succAbove Fin.castSucc =
+    of fun i j =>
+      ((fun i => Fin.cases E (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i) (Fin.lastCases p (fun j => X ^ ↑j) j)
+hz : ∀ (i : Fin n), M i.succ.succ (Fin.last (n + 1)) = 0
+⊢ (-1) ^ (↑0 + ↑(Fin.last (n + 1))) * M 0 (Fin.last (n + 1)) *
+        (of fun i j =>
+            ((fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+              (Fin.lastCases p (fun j => X ^ ↑j) j)).det +
+      (-1) ^ (↑(Fin.succ 0) + ↑(Fin.last (n + 1))) * M (Fin.succ 0) (Fin.last (n + 1)) *
+        (of fun i j =>
+            ((fun i => Fin.cases E (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+              (Fin.lastCases p (fun j => X ^ ↑j) j)).det =
+    (E p * D q - E q * D p) * det fun i j => F (X ^ (↑i + ↑j))
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    M 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:49:16: warning: This simp argument is unused:
+  Matrix.submatrix_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, P]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:56:18: warning: This simp argument is unused:
+  Matrix.submatrix_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, P, Fin.succAbove, Fin.lt_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:56:41: warning: This simp argument is unused:
+  Fin.succAbove
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, P, Matrix.submatrix_apply, Fin.lt_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:56:55: warning: This simp argument is unused:
+  Fin.lt_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, P, Matrix.submatrix_apply, Fin.succAbove]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:96:6: error: unsolved goals
+case refine_2.refine_1
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hdp : p.natDegree = n
+hmp : p.Monic
+hdq : q.natDegree = n + 1
+hmq : q.Monic
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+z : ℂ
+E : ℂ[X] →ₗ[ℂ] ℂ := leval z
+D : ℂ[X] →ₗ[ℂ] ℂ := E ∘ₗ derivative
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+Q : Fin (n + 2) → ℂ[X] := fun i => Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+j✝ : Fin (n + 2)
+j : Fin (n + 1)
+⊢ (Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) 1).natDegree = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:97:6: error: unsolved goals
+case refine_2.refine_2
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hdp : p.natDegree = n
+hmp : p.Monic
+hdq : q.natDegree = n + 1
+hmq : q.Monic
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+z : ℂ
+E : ℂ[X] →ₗ[ℂ] ℂ := leval z
+D : ℂ[X] →ₗ[ℂ] ℂ := E ∘ₗ derivative
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+Q : Fin (n + 2) → ℂ[X] := fun i => Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+j✝¹ : Fin (n + 2)
+j✝ : Fin (n + 1)
+j : Fin n
+⊢ ↑j + 2 = 1 + (↑j + 1)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:115:8: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [P]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:120:72: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hdp : p.natDegree = n
+hmp : p.Monic
+hdq : q.natDegree = n + 1
+hmq : q.Monic
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+z : ℂ
+E : ℂ[X] →ₗ[ℂ] ℂ := leval z
+D : ℂ[X] →ₗ[ℂ] ℂ := E ∘ₗ derivative
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+Q : Fin (n + 2) → ℂ[X] := fun i => Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+hdQ : ∀ (j : Fin (n + 2)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 2)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 2)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 2)), (P j).Monic
+M : Matrix (Fin (n + 2)) (Fin (n + 2)) ℂ := fun i j => (G i) (Q j)
+i j : Fin n
+⊢ submatrix
+      (fun i j =>
+        (Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i)
+          (Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => X ^ ↑j * (X - C z) ^ 2) i) j))
+      Fin.succ Fin.succ i.succ j.succ =
+    F (X ^ (↑i + ↑j) * (X - C z) ^ 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:125:46: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hdp : p.natDegree = n
+hmp : p.Monic
+hdq : q.natDegree = n + 1
+hmq : q.Monic
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+z : ℂ
+E : ℂ[X] →ₗ[ℂ] ℂ := leval z
+D : ℂ[X] →ₗ[ℂ] ℂ := E ∘ₗ derivative
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+Q : Fin (n + 2) → ℂ[X] := fun i => Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+hdQ : ∀ (j : Fin (n + 2)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 2)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 2)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 2)), (P j).Monic
+M : Matrix (Fin (n + 2)) (Fin (n + 2)) ℂ := fun i j => (G i) (Q j)
+hminor : (M.submatrix Fin.succ Fin.succ).submatrix Fin.succ Fin.succ = of fun i j => F ((X - C z) ^ 2 * X ^ (↑i + ↑j))
+j : Fin (n + 1)
+⊢ eval z (Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) j) = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:131:72: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hdp : p.natDegree = n
+hmp : p.Monic
+hdq : q.natDegree = n + 1
+hmq : q.Monic
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+z : ℂ
+E : ℂ[X] →ₗ[ℂ] ℂ := leval z
+D : ℂ[X] →ₗ[ℂ] ℂ := E ∘ₗ derivative
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+Q : Fin (n + 2) → ℂ[X] := fun i => Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+hdQ : ∀ (j : Fin (n + 2)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 2)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 2)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 2)), (P j).Monic
+M : Matrix (Fin (n + 2)) (Fin (n + 2)) ℂ := fun i j => (G i) (Q j)
+hminor : (M.submatrix Fin.succ Fin.succ).submatrix Fin.succ Fin.succ = of fun i j => F ((X - C z) ^ 2 * X ^ (↑i + ↑j))
+he : ∀ (j : Fin (n + 1)), M 0 j.succ = 0
+he0 : M 0 0 = 1
+j : Fin n
+⊢ submatrix
+      (fun i j =>
+        (Fin.cases (leval z) (fun i => Fin.cases (leval z ∘ₗ derivative) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i)
+            i)
+          (Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) j))
+      Fin.succ Fin.succ 0 j.succ =
+    0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:134:56: error: unsolved goals
+n : ℕ
+F : ℂ[X] →ₗ[ℂ] ℂ
+p q : ℂ[X]
+hdp : p.natDegree = n
+hmp : p.Monic
+hdq : q.natDegree = n + 1
+hmq : q.Monic
+hp : ∀ (i : Fin n), F (X ^ ↑i * p) = 0
+hq : ∀ (i : Fin n), F (X ^ ↑i * q) = 0
+z : ℂ
+E : ℂ[X] →ₗ[ℂ] ℂ := leval z
+D : ℂ[X] →ₗ[ℂ] ℂ := E ∘ₗ derivative
+G : Fin (n + 2) → ℂ[X] →ₗ[ℂ] ℂ :=
+  fun i => Fin.cases E (fun i => Fin.cases D (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i) i
+Q : Fin (n + 2) → ℂ[X] := fun i => Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) i
+P : Fin (n + 2) → ℂ[X] := fun i => Fin.lastCases q (fun i => Fin.lastCases p (fun j => X ^ ↑j) i) i
+hdQ : ∀ (j : Fin (n + 2)), (Q j).natDegree = ↑j
+hmQ : ∀ (j : Fin (n + 2)), (Q j).Monic
+hdP : ∀ (j : Fin (n + 2)), (P j).natDegree = ↑j
+hmP : ∀ (j : Fin (n + 2)), (P j).Monic
+M : Matrix (Fin (n + 2)) (Fin (n + 2)) ℂ := fun i j => (G i) (Q j)
+hminor : (M.submatrix Fin.succ Fin.succ).submatrix Fin.succ Fin.succ = of fun i j => F ((X - C z) ^ 2 * X ^ (↑i + ↑j))
+he : ∀ (j : Fin (n + 1)), M 0 j.succ = 0
+he0 : M 0 0 = 1
+hd : ∀ (j : Fin n), M.submatrix Fin.succ Fin.succ 0 j.succ = 0
+⊢ submatrix
+      (fun i j =>
+        (Fin.cases (leval z) (fun i => Fin.cases (leval z ∘ₗ derivative) (fun i => F ∘ₗ LinearMap.mulLeft ℂ (X ^ ↑i)) i)
+            i)
+          (Fin.cases 1 (fun i => Fin.cases (X - C z) (fun j => (X - C z) ^ 2 * X ^ ↑j) i) j))
+      Fin.succ Fin.succ 0 0 =
+    1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:137:4: error: Type mismatch: After simplification, term
+  congrArg det hminor
+ has type
+  ((M.submatrix Fin.succ Fin.succ).submatrix Fin.succ Fin.succ).det =
+    (of fun i j => F ((X - C z) ^ 2 * X ^ (↑i + ↑j))).det
+but is expected to have type
+  ((M.submatrix Fin.succ Fin.succ).submatrix Fin.succ Fin.succ).det +
+        ∑ x, (-1) ^ ↑x.succ * 0 * ((M.submatrix Fin.succ Fin.succ).submatrix Fin.succ x.succ.succAbove).det +
+      ∑ x, (-1) ^ ↑x.succ * 0 * (M.submatrix Fin.succ x.succ.succAbove).det =
+    det fun i j => F ((X - C z) ^ 2 * X ^ (↑i + ↑j))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:122:41: warning: This simp argument is unused:
+  ← pow_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, Q, Matrix.submatrix_apply, mul_assoc, mul_comm, mul_left_comm]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:122:51: warning: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, Q, Matrix.submatrix_apply, ← pow_add, mul_comm, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:122:70: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, Q, Matrix.submatrix_apply, ← pow_add, mul_assoc, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:126:18: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [he, Finset.sum_const_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:126:27: warning: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [he, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:126:49: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [he, zero_mul, Finset.sum_const_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:132:22: warning: This simp argument is unused:
+  Matrix.submatrix_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, D, E, Q, Polynomial.leval_apply, Polynomial.derivative_mul, Polynomial.derivative_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:132:45: warning: This simp argument is unused:
+  Polynomial.leval_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, D, E, Q, Matrix.submatrix_apply, Polynomial.derivative_mul, Polynomial.derivative_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:132:68: warning: This simp argument is unused:
+  Polynomial.derivative_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, D, E, Q, Matrix.submatrix_apply, Polynomial.leval_apply, Polynomial.derivative_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:132:94: warning: This simp argument is unused:
+  Polynomial.derivative_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, D, E, Q, Matrix.submatrix_apply, Polynomial.leval_apply, Polynomial.derivative_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:133:18: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hd, Finset.sum_const_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:133:27: warning: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hd, zero_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:133:49: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hd, zero_mul, Finset.sum_const_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:135:22: warning: This simp argument is unused:
+  Matrix.submatrix_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, D, E, Q, Polynomial.leval_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:135:45: warning: This simp argument is unused:
+  Polynomial.leval_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, G, D, E, Q, Matrix.submatrix_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.quadratic_christoffel_moment_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

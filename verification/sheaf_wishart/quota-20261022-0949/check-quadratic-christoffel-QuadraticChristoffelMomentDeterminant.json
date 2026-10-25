@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "ed763b1585fd31dfb449f08506e7b7b2d440bf82385736fa79644462add1488a",
+  "target_lock_sha256": "ec652cfe0f6c78f949c9d8d61e563c0c302fc2daed746ae3ac2c961d09e37dd0",
+  "leaf": {
+    "started_utc": "2026-10-25T08:18:26.986107+00:00",
+    "ended_utc": "2026-10-25T08:18:39.849081+00:00",
+    "module": "JinWishartFormalization.QuadraticChristoffelMomentDeterminant",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/QuadraticChristoffelMomentDeterminant.lean",
+    "source_sha256_before": "ed763b1585fd31dfb449f08506e7b7b2d440bf82385736fa79644462add1488a",
+    "source_sha256": "ed763b1585fd31dfb449f08506e7b7b2d440bf82385736fa79644462add1488a",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/quadratic-christoffel-QuadraticChristoffelMomentDeterminant-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "5690e6ee6947d1324c8778454b6496a3f73ab96027448814a5e339cd0cb0c457",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-25T08:18:39.850794+00:00",
+    "ended_utc": "2026-10-25T08:18:52.972117+00:00",
+    "module": "SheafQuadraticChristoffelTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafQuadraticChristoffelTargets.lean",
+    "source_sha256_before": "b73b969c10c936c1f93f3598567d98f3d347f5c052388f802b831aeaf3bb8ed6",
+    "source_sha256": "b73b969c10c936c1f93f3598567d98f3d347f5c052388f802b831aeaf3bb8ed6",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/quadratic-christoffel-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

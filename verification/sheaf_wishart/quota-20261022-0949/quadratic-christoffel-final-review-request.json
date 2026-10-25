@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "QuadraticChristoffelMomentDeterminant.lean": {
+      "sha256": "ed763b1585fd31dfb449f08506e7b7b2d440bf82385736fa79644462add1488a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "3edc5f85d91294e959f12246ae02f2456133615d23e0d0e12291e785cfdadc35"
+}

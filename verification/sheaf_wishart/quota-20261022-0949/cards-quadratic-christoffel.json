@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "quadratic-christoffel-QuadraticChristoffelMomentDeterminant",
+    "module": "QuadraticChristoffelMomentDeterminant",
+    "nodes": [
+      [
+        "L-quadratic-christoffel-quadratic_christoffel_moment_det",
+        "quadratic_christoffel_moment_det",
+        []
+      ]
+    ]
+  }
+]

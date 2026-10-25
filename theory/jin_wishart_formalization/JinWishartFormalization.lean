@@ -1,3 +1,4 @@
+import JinWishartFormalization.QuadraticChristoffelMomentDeterminant
 import JinWishartFormalization.CentralTwoColumnT3Normalization
 import JinWishartFormalization.ActualCentralTwoColumnMinimum
 import JinWishartFormalization.PowerExponentialTailMoments

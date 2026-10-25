@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-10-25T08:18:26.952912+00:00",
+  "module": "JinWishartFormalization.QuadraticChristoffelMomentDeterminant",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/QuadraticChristoffelMomentDeterminant.lean",
+  "statements": {
+    "JinWishart.quadratic_christoffel_moment_det": "(n : ℕ) (F : ℂ[X] →ₗ[ℂ] ℂ) (p q : ℂ[X]) (hdp : p.natDegree=n) (hmp : p.Monic) (hdq : q.natDegree=n+1) (hmq : q.Monic) (hp : ∀ i : Fin n,F (X^i.val*p)=0) (hq : ∀ i : Fin n,F (X^i.val*q)=0) (z : ℂ) : Matrix.det (fun i j : Fin n => F ((X-C z)^2*X^(i.val+j.val))) = Matrix.det (fun i j : Fin n => F (X^(i.val+j.val)))* (p.eval z*(Polynomial.derivative q).eval z-q.eval z*(Polynomial.derivative p).eval z)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/ChristoffelMomentDeterminant.lean": "bf061196e3fe441974c33170ce438f77fdf4bef4aa437a123a759328a93a569f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/ChristoffelMomentDeterminant.olean": "17de713092a3d54ac4b91a9189341d5bec0ec01324b0dc91c1ac979c8b220b36",
+    "theory/jin_wishart_formalization/JinWishartFormalization/PolynomialMomentTranslation.lean": "bfeca08b78291e993288ab68d5f84787de4c24e4b44b20b849ef64daf98adab4",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/PolynomialMomentTranslation.olean": "6eeaa6994d9bcea53896976840e40335867ef678123530152554fa25fae97fce",
+    "theory/jin_wishart_formalization/JinWishartFormalization/FactorialHankelDeterminant.lean": "ea9b0e763902878bc26fdabd03691cfb61c193b6def4ef9734b6340823054d81",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/FactorialHankelDeterminant.olean": "5e61d6cd0f526a07cbebd8cc71f99260bf90e3971495c77029b45eca8988ad1b",
+    "theory/jin_wishart_formalization/JinWishartFormalization/QuadraticChristoffelMomentDeterminant.lean": "ed763b1585fd31dfb449f08506e7b7b2d440bf82385736fa79644462add1488a",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafQuadraticChristoffelTargets.lean",
+  "type_check_source_sha256": "b73b969c10c936c1f93f3598567d98f3d347f5c052388f802b831aeaf3bb8ed6",
+  "locked_local_definitions": {}
+}

@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:72:32: warning: This simp argument is unused:
+  Equiv.refl_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.lastCases_last]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:130:8: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [P]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticChristoffelMomentDeterminant.lean:112:96: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Polynomial.natDegree_mul, (monic_X_sub_C z).ne_zero, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.quadratic_christoffel_moment_det' depends on axioms: [propext, Classical.choice, Quot.sound]
