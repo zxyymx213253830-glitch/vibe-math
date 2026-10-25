@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:59:49.575902+00:00",
+  "ended_utc": "2026-10-25T09:00:03.771442+00:00",
+  "module": "JinWishartFormalization.ActualDiagonalGramMGF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualDiagonalGramMGF.lean",
+  "source_sha256_before": "c37e0377918f00774aef13c125b67dbf4eec3c8f1bdb2d07f7232be8a4ca580e",
+  "source_sha256": "c37e0377918f00774aef13c125b67dbf4eec3c8f1bdb2d07f7232be8a4ca580e",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/diagonal-mgf-ActualDiagonalGramMGF-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f07eb734a1936586efc043cee8491e413fe4bb31af721dc241d784046851f953",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "tag": "diagonal-mgf-GaussianWeightedSquareMGF",
+    "module": "GaussianWeightedSquareMGF",
+    "nodes": [
+      [
+        "L-diagonal-mgf-gaussianPi_integral_exp_weighted_shifted_squares",
+        "gaussianPi_integral_exp_weighted_shifted_squares",
+        []
+      ],
+      [
+        "L-diagonal-mgf-gaussianPi_integrable_exp_weighted_shifted_squares",
+        "gaussianPi_integrable_exp_weighted_shifted_squares",
+        [
+          "L-diagonal-mgf-gaussianPi_integral_exp_weighted_shifted_squares"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "diagonal-mgf-ActualDiagonalGramMGF",
+    "module": "ActualDiagonalGramMGF",
+    "nodes": [
+      [
+        "L-diagonal-mgf-actualNoncentralDiagonalGram_integral_exp",
+        "actualNoncentralDiagonalGram_integral_exp",
+        [
+          "L-diagonal-mgf-gaussianPi_integrable_exp_weighted_shifted_squares"
+        ]
+      ],
+      [
+        "L-diagonal-mgf-actualNoncentralDiagonalGram_integrable_exp",
+        "actualNoncentralDiagonalGram_integrable_exp",
+        [
+          "L-diagonal-mgf-actualNoncentralDiagonalGram_integral_exp"
+        ]
+      ]
+    ]
+  }
+]

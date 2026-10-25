@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:59:34.992788+00:00",
+  "ended_utc": "2026-10-25T08:59:49.508944+00:00",
+  "module": "JinWishartFormalization.GaussianWeightedSquareMGF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianWeightedSquareMGF.lean",
+  "source_sha256_before": "e61a6f85709835eb63787fed9fbabc9d51f50f684a534570aac63e4a66a2d8e2",
+  "source_sha256": "e61a6f85709835eb63787fed9fbabc9d51f50f684a534570aac63e4a66a2d8e2",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/diagonal-mgf-GaussianWeightedSquareMGF-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "9cc4cc22a014579658f1f257d9db5003a7b23e474412b00d8d509cc15367a625",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

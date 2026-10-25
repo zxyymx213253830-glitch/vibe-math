@@ -1,0 +1,99 @@
+{
+  "seed": 2026102507,
+  "checks": 28,
+  "status": "PASS",
+  "source_sha256": "0ce4ca6531db4a83a8ef1697a22b9fe8a6ebf6f539a1c3caf8a10937cd45c8d3",
+  "records": [
+    {
+      "shape": [
+        0,
+        3
+      ],
+      "samples": 200000,
+      "closed": 1.0,
+      "empirical": 1.0,
+      "known_standard_error": 0.0
+    },
+    {
+      "shape": [
+        3,
+        0
+      ],
+      "samples": 200000,
+      "closed": 1.0,
+      "empirical": 1.0,
+      "known_standard_error": 0.0
+    },
+    {
+      "shape": [
+        1,
+        1
+      ],
+      "samples": 200000,
+      "closed": 0.8624752779239604,
+      "empirical": 0.8623141981561243,
+      "known_standard_error": 0.00025306311377171285
+    },
+    {
+      "shape": [
+        2,
+        3
+      ],
+      "samples": 200000,
+      "closed": 0.10675020732600236,
+      "empirical": 0.10685774511630618,
+      "known_standard_error": 0.00023821367153842603
+    },
+    {
+      "shape": [
+        3,
+        2
+      ],
+      "samples": 200000,
+      "closed": 0.10294206680311764,
+      "empirical": 0.10303774300528055,
+      "known_standard_error": 0.0002501121244630745
+    },
+    {
+      "shape": [
+        2,
+        2
+      ],
+      "samples": 200000,
+      "closed": 0.5749192589397943,
+      "empirical": 0.5744336301806455,
+      "known_standard_error": 0.0012152740883842573
+    }
+  ],
+  "controls": [
+    "real nonuniform product d0",
+    "real empty product",
+    "real nonuniform product d1",
+    "real nonuniform product d2",
+    "real nonuniform product d3",
+    "real nonuniform product d4",
+    "real nonuniform product d5",
+    "real nonuniform product d6",
+    "diagonal formula (0, 3)",
+    "actual dense matrix (0, 3)",
+    "actual empty (0, 3)",
+    "isotropic closed (0, 3)",
+    "diagonal formula (3, 0)",
+    "actual dense matrix (3, 0)",
+    "actual empty (3, 0)",
+    "diagonal formula (1, 1)",
+    "actual dense matrix (1, 1)",
+    "isotropic closed (1, 1)",
+    "diagonal formula (2, 3)",
+    "actual dense matrix (2, 3)",
+    "isotropic closed (2, 3)",
+    "diagonal formula (3, 2)",
+    "actual dense matrix (3, 2)",
+    "isotropic closed (3, 2)",
+    "diagonal formula (2, 2)",
+    "actual dense matrix (2, 2)",
+    "isotropic closed (2, 2)",
+    "proper variance missing factor2 rejected"
+  ],
+  "scope": "Nonuniform scalar quadrature/product, actual properCN1 dense/diagonal matrix Laplace Monte Carlo with known second-moment error, empty/isotropic and variance negatives. Not proof; I+T positive, finite-variance calibration I+2T positive."
+}

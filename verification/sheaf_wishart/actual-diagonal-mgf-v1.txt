@@ -1,0 +1,63 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualDiagonalGramMGF.lean:15:53: error: unsolved goals
+m n : ℕ
+z : ComplexSample
+j : Fin n
+hq : ↑√2 ^ 2 = 2
+hn : ↑√2 ≠ 0
+he :
+  ∀ (i : Fin m),
+    star (complexSampleMatrix z i j) * complexSampleMatrix z i j =
+      ↑((z.ofLp ((i, j), 0) ^ 2 + z.ofLp ((i, j), 1) ^ 2) / 2)
+⊢ ∑ x, ((↑(z.ofLp ((x, j), 0)) ^ 2).re + (↑(z.ofLp ((x, j), 1)) ^ 2).re) / 2 =
+    ∑ x, (z.ofLp ((x, j), 0) ^ 2 + z.ofLp ((x, j), 1) ^ 2) / 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualDiagonalGramMGF.lean:45:2: error: 'change' tactic failed, pattern
+  v j *
+        ((z.ofLp ((i, j), 0) + (complexSampleMean M).ofLp ((i, j), 0)) ^ 2 +
+          (z.ofLp ((i, j), 1) + (complexSampleMean M).ofLp ((i, j), 1)) ^ 2) /
+      2 =
+    ?m.176
+is not definitionally equal to target
+  v j * (((z + complexSampleMean M).ofLp ((i, j), 0) ^ 2 + (z + complexSampleMean M).ofLp ((i, j), 1) ^ 2) / 2) =
+    v j * (z.ofLp ((i, j), 0) + (complexSampleMean M).ofLp ((i, j), 0)) ^ 2 / 2 +
+      v j * (z.ofLp ((i, j), 1) + (complexSampleMean M).ofLp ((i, j), 1)) ^ 2 / 2
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualDiagonalGramMGF.lean:69:18: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a ^ ?n)⁻¹
+in the target expression
+  (√(1 - v a.2))⁻¹ ^ 2 = (1 - v a.2)⁻¹
+
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+v : Fin n → ℝ
+hv : ∀ (j : Fin n), v j < 1
+u : (Fin m × Fin n) × Fin 2 → ℝ := fun a => (complexSampleMean M).ofLp a
+t : (Fin m × Fin n) × Fin 2 → ℝ := fun a => v a.1.2
+a : Fin m × Fin n
+a✝ : a ∈ univ
+⊢ (√(1 - v a.2))⁻¹ ^ 2 = (1 - v a.2)⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualDiagonalGramMGF.lean:75:54: error(lean.unknownIdentifier): Unknown constant `WithLp.toLp_apply`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualDiagonalGramMGF.lean:80:4: error: linarith failed to find a contradiction
+case h1
+m n : ℕ
+M : Matrix (Fin m) (Fin n) ℂ
+v : Fin n → ℝ
+hv : ∀ (j : Fin n), v j < 1
+u : (Fin m × Fin n) × Fin 2 → ℝ := fun a => (complexSampleMean M).ofLp a
+t : (Fin m × Fin n) × Fin 2 → ℝ := fun a => v a.1.2
+hp : ∏ a, (√(1 - t a))⁻¹ = ∏ a, (1 - v a.2)⁻¹
+a : Fin m × Fin n
+a✝¹ : a ∈ univ
+hsq : √2 ^ 2 = 2
+hn : 1 - v a.2 ≠ 0
+a✝ :
+  √2 ^ 2 * v a.2 * ((M a.1 a.2).re ^ 2 + (if 1 = 0 then (M a.1 a.2).re else (M a.1 a.2).im) ^ 2) <
+    v a.2 * 2 * (RCLike.re (M a.1 a.2) ^ 2 + RCLike.im (M a.1 a.2) ^ 2)
+⊢ False
+failed
+'JinWishart.actualNoncentralDiagonalGram_integral_exp' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentralDiagonalGram_integrable_exp' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

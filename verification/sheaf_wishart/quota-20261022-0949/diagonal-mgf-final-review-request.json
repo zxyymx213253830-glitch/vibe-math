@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GaussianWeightedSquareMGF.lean": {
+      "sha256": "e61a6f85709835eb63787fed9fbabc9d51f50f684a534570aac63e4a66a2d8e2",
+      "supplied": "Full source"
+    },
+    "ActualDiagonalGramMGF.lean": {
+      "sha256": "c37e0377918f00774aef13c125b67dbf4eec3c8f1bdb2d07f7232be8a4ca580e",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "36b74d047bc6f92d9bf22c6624efc4815fa6bb5a997e1342162390958e5ffd8c"
+}

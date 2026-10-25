@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-25T08:59:34.737119+00:00",
+  "module": "JinWishartFormalization.GaussianWeightedSquareMGF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GaussianWeightedSquareMGF.lean",
+  "statements": {
+    "JinWishart.gaussianPi_integral_exp_weighted_shifted_squares": "{ι : Type*} [Fintype ι] (u t : ι → ℝ) (ht : ∀ i,t i<1) : (∫ x : ι → ℝ,exp (∑ i,t i*(x i+u i)^2/2) ∂Measure.pi (fun _ : ι => gaussianReal 0 1)) = (∏ i,(sqrt (1-t i))⁻¹)*exp (∑ i,(u i)^2*t i/(2*(1-t i)))",
+    "JinWishart.gaussianPi_integrable_exp_weighted_shifted_squares": "{ι : Type*} [Fintype ι] (u t : ι → ℝ) (ht : ∀ i,t i<1) : Integrable (fun x : ι → ℝ => exp (∑ i,t i*(x i+u i)^2/2)) (Measure.pi (fun _ : ι => gaussianReal 0 1))"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianFiniteSquareMGF.lean": "c3e8f739729f429410e95c893265c858c75a924b92836dc8daa7dada4451497a",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianFiniteSquareMGF.olean": "321985341e2c8eb9808137f412af090a4bf4e89262964eb65e72afd3319d6734",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianShiftedSquareMGF.lean": "20a3cedcac4dbb333406366dbfbdb713906a188927ce123511efb9cbb3846fba",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GaussianShiftedSquareMGF.olean": "3f4631a0b7741141d307ca68a96c22051b28f663d6ca8253611c5b7ea6a682ae",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GaussianWeightedSquareMGF.lean": "e61a6f85709835eb63787fed9fbabc9d51f50f684a534570aac63e4a66a2d8e2",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafDiagonalMGFTargets.lean",
+  "type_check_source_sha256": "c1bc62ed82d86a9e855bfdaf1441975f4613bfeb34eed93fc7c00ed47f889bb1",
+  "locked_local_definitions": {}
+}

@@ -1,0 +1,24 @@
+{
+  "id": "L-diagonal-mgf-gaussianPi_integrable_exp_weighted_shifted_squares",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GaussianWeightedSquareMGF",
+  "declaration": "JinWishart.gaussianPi_integrable_exp_weighted_shifted_squares",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-diagonal-mgf-gaussianPi_integral_exp_weighted_shifted_squares"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-diagonal-mgf-gaussianPi_integral_exp_weighted_shifted_squares"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-diagonal-mgf-GaussianWeightedSquareMGF.json",
+    "source_sha256": "e61a6f85709835eb63787fed9fbabc9d51f50f684a534570aac63e4a66a2d8e2"
+  }
+}

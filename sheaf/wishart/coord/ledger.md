@@ -156,3 +156,5 @@
 - 2026-10-25T08:41:05.971219+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-surplus-squares-TwoSurplusLaguerreSquares.json; human measure/model review remains REQUIRED.
 - 2026-10-25T08:50:17.489351+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-central-two-surplus-PositiveLaguerreRecurrence.json; human measure/model review remains REQUIRED.
 - 2026-10-25T08:50:39.058408+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-central-two-surplus-Theorem1CentralTwoSurplus.json; human measure/model review remains REQUIRED.
+- 2026-10-25T09:05:06.410751+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-diagonal-mgf-GaussianWeightedSquareMGF.json; human measure/model review remains REQUIRED.
+- 2026-10-25T09:05:26.537791+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-diagonal-mgf-ActualDiagonalGramMGF.json; human measure/model review remains REQUIRED.
