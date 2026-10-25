@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "PowerExponentialTailMoments.lean": {
+      "sha256": "8f0a08d0cbea7844e08a23a34ae5b3f8665735b6d9e66af5b9885db646004df8",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "c63b65c950dc07c39254f92d259e96f8a89af7be67eafab3d62b1106355cacc4"
+}

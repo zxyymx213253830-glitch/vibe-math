@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T07:43:57.549836+00:00",
+  "ended_utc": "2026-10-25T07:46:34.733879+00:00",
+  "module": "JinWishartFormalization.PowerExponentialTailMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PowerExponentialTailMoments.lean",
+  "source_sha256_before": "8f0a08d0cbea7844e08a23a34ae5b3f8665735b6d9e66af5b9885db646004df8",
+  "source_sha256": "8f0a08d0cbea7844e08a23a34ae5b3f8665735b6d9e66af5b9885db646004df8",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/power-tail-PowerExponentialTailMoments-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "94eeb3678182ee66b5896f0df576edee7d677026b345bcc9dcf75022e6797b31",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

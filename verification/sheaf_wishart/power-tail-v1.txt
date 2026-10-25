@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PowerExponentialTailMoments.lean:55:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ?m.113), ↑(?m.118 x) ∂?m.115
+in the target expression
+  ↑(∫ (y : ℝ), y ^ k ∂powerExponentialTailMeasure d x) = ∫ (y : ℝ) in Ioi x, ↑(y ^ (d + k) * Real.exp (-y))
+
+d : ℕ
+x : ℝ
+hx : 0 ≤ x
+k : ℕ
+hfun : (fun y => ↑(Real.exp (-y)) * ↑y ^ (↑(d + k + 1) - 1)) = fun y => ↑(y ^ (d + k) * Real.exp (-y))
+⊢ ↑(∫ (y : ℝ), y ^ k ∂powerExponentialTailMeasure d x) = ∫ (y : ℝ) in Ioi x, ↑(y ^ (d + k) * Real.exp (-y))
+'JinWishart.powerExponentialTailMeasure_isFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.powerExponentialTail_integrable_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.powerExponentialTail_integral_pow_eq_upperGamma' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralTwoColumn_PsiDet_eq_tailMoments' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

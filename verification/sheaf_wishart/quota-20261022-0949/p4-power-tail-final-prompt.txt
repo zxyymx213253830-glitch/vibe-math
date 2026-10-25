@@ -1,0 +1,97 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE PowerExponentialTailMoments.lean
+import JinWishartFormalization.PowerExponentialIntervalMoments
+
+/-! Codex. Seed2026102416 before source. Positive clipped upper-Gamma tail measure.
+[需人工审查] Improper integrability and clipped versus signed endpoint convention. -/
+open MeasureTheory Set Matrix
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+private theorem pow_exp_integrable_positive (k : ℕ) :
+    IntegrableOn (fun y : ℝ => Real.exp (-y)*y^k) (Ioi 0) := by
+  have h := Real.GammaIntegral_convergent (s := ((k+1 : ℕ) : ℝ)) (by positivity)
+  rw [show ((k+1 : ℕ) : ℝ)-1=(k : ℝ) by push_cast;ring] at h
+  simpa only [Real.rpow_natCast] using h
+
+def powerExponentialTailMeasure (d : ℕ) (x : ℝ) : Measure ℝ :=
+  (volume.restrict (Ioi (max 0 x))).withDensity
+    (fun y => ENNReal.ofReal (|y|^d*Real.exp (-y)))
+
+private theorem tail_weight_integrable (d : ℕ) (x : ℝ) :
+    IntegrableOn (fun y : ℝ => |y|^d*Real.exp (-y)) (Ioi (max 0 x)) := by
+  have h := (pow_exp_integrable_positive d).mono_set (Ioi_subset_Ioi (le_max_left 0 x))
+  apply h.congr
+  filter_upwards [ae_restrict_mem measurableSet_Ioi] with y hy
+  rw [abs_of_pos (lt_of_le_of_lt (le_max_left 0 x) hy)]
+  ring
+
+theorem powerExponentialTailMeasure_isFinite (d : ℕ) (x : ℝ) :
+    IsFiniteMeasure (powerExponentialTailMeasure d x) := by
+  apply isFiniteMeasure_withDensity
+  rw [← ofReal_integral_eq_lintegral_ofReal (tail_weight_integrable d x) (ae_of_all _ fun y => by positivity)]
+  exact ENNReal.ofReal_ne_top
+attribute [instance] powerExponentialTailMeasure_isFinite
+
+theorem powerExponentialTail_integrable_pow (d : ℕ) (x : ℝ) (k : ℕ) :
+    Integrable (fun y : ℝ => y^k) (powerExponentialTailMeasure d x) := by
+  unfold powerExponentialTailMeasure
+  rw [integrable_withDensity_iff_integrable_smul' (by fun_prop) (ae_of_all _ fun y => by finiteness)]
+  have h := (pow_exp_integrable_positive (d+k)).mono_set (Ioi_subset_Ioi (le_max_left 0 x))
+  apply h.congr
+  filter_upwards [ae_restrict_mem measurableSet_Ioi] with y hy
+  rw [ENNReal.toReal_ofReal (by positivity : 0≤|y|^d*Real.exp (-y)),smul_eq_mul,
+    abs_of_pos (lt_of_le_of_lt (le_max_left 0 x) hy),pow_add]
+  ring
+
+theorem powerExponentialTail_integral_pow_eq_upperGamma (d : ℕ) (x : ℝ) (hx : 0≤x) (k : ℕ) :
+    ((∫ y : ℝ,y^k ∂powerExponentialTailMeasure d x : ℝ) : ℂ)=upperGammaNat (d+k) x := by
+  rw [upperGammaNat,upperGammaComplement_eq_tail (by norm_num <;> positivity) hx,upperGammaTail]
+  have hfun : (fun y : ℝ => (Real.exp (-y) : ℂ)*(y : ℂ)^(((d+k+1 : ℕ) : ℂ)-1))=
+      fun y => ((y^(d+k)*Real.exp (-y) : ℝ) : ℂ) := by
+    funext y
+    rw [show ((d+k+1 : ℕ) : ℂ)-1=((d+k : ℕ) : ℂ) by push_cast;ring,Complex.cpow_natCast]
+    push_cast
+    ring
+  rw [hfun,integral_complex_ofReal]
+  congr 1
+  unfold powerExponentialTailMeasure
+  rw [integral_withDensity_eq_integral_toReal_smul (by fun_prop) (ae_of_all _ fun y => by finiteness),max_eq_right hx]
+  apply integral_congr_ae
+  filter_upwards [ae_restrict_mem measurableSet_Ioi] with y hy
+  rw [ENNReal.toReal_ofReal (by positivity : 0≤|y|^d*Real.exp (-y)),smul_eq_mul,
+    abs_of_pos (lt_of_le_of_lt hx hy),pow_add]
+  ring
+
+theorem theorem1CentralTwoColumn_PsiDet_eq_tailMoments (d : ℕ) (x : ℝ) (hx : 0≤x) :
+    (theorem1PsiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det=
+      (twoMomentDeterminant (powerExponentialTailMeasure d x) : ℂ) := by
+  have hm : theorem1PsiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x=
+      (!![((∫ y : ℝ,y^2 ∂powerExponentialTailMeasure d x : ℝ) : ℂ),
+          ((∫ y : ℝ,y ∂powerExponentialTailMeasure d x : ℝ) : ℂ);
+          ((∫ y : ℝ,y ∂powerExponentialTailMeasure d x : ℝ) : ℂ),
+          ((∫ _ : ℝ,(1 : ℝ) ∂powerExponentialTailMeasure d x : ℝ) : ℂ)] : Matrix (Fin 2) (Fin 2) ℂ) := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [theorem1PsiMatrix,theorem1PsiEntry,theorem1GammaIndex]
+    · simpa using (powerExponentialTail_integral_pow_eq_upperGamma d x hx 2).symm
+    · simpa using (powerExponentialTail_integral_pow_eq_upperGamma d x hx 1).symm
+    · simpa using (powerExponentialTail_integral_pow_eq_upperGamma d x hx 1).symm
+    · simpa using (powerExponentialTail_integral_pow_eq_upperGamma d x hx 0).symm
+  rw [hm,Matrix.det_fin_two]
+  change ((∫ y : ℝ,y^2 ∂powerExponentialTailMeasure d x : ℝ) : ℂ)*
+    ((∫ _ : ℝ,(1 : ℝ) ∂powerExponentialTailMeasure d x : ℝ) : ℂ)-
+    ((∫ y : ℝ,y ∂powerExponentialTailMeasure d x : ℝ) : ℂ)*
+    ((∫ y : ℝ,y ∂powerExponentialTailMeasure d x : ℝ) : ℂ)=_
+  unfold twoMomentDeterminant
+  push_cast
+  ring
+end
+end JinWishart
+#print axioms JinWishart.powerExponentialTailMeasure_isFinite
+#print axioms JinWishart.powerExponentialTail_integrable_pow
+#print axioms JinWishart.powerExponentialTail_integral_pow_eq_upperGamma
+#print axioms JinWishart.theorem1CentralTwoColumn_PsiDet_eq_tailMoments

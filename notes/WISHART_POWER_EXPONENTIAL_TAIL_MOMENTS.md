@@ -1,0 +1,11 @@
+# Upper-Gamma tail moments for the central two-column minimum
+
+Four Codex exports: finite clipped positive-tail measure, all natural power moments L1, real moment cast equals upperGammaNat(d+k,x) for x>=0, and unchanged original central two-column Psi determinant equals the two-moment determinant. Measure support is Ioi(max0x), weight |y|^d exp(-y). Finiteness and L1 hold for every realx; literal Gamma matching explicitly requires hx:0<=x. No actual minimum probability equality claimed yet. This is the input to the next actual T1 event bridge.
+
+Seed2026102416 before source:55 controls compare upper-Gamma determinant with independent infinite triangular joint-density quadrature, complement CDF range, zero threshold and clipped negative endpoint. Controls are calibration, not proofs. v1/v2 ambiguous generic integral_ofReal rewrites failed and remain retained; v3 uses explicit integral_complex_ofReal and exits0 on standard3 axioms. Final full source immutable hash, four independent literal types and real bounded tools-disabled Qwen3.8-Max P4 are bound. One unnecessary sequence-focus warning is nonblocking. No extra Lean budget or direct compilation.
+
+Final P4 reports no mathematical gap. Optional exact signature questions resolved against pinned dependencies: Real.GammaIntegral_convergent requires s>0, here s=k+1; upperGammaComplement_eq_tail requires s.re>0 and x>=0 (not x>0); upperGammaTail uses Ioi x. Under hx, max0x=x exactly. The two-moment determinant is mass*moment2-moment1^2, and the original2x2 Psi entries are reversed moments2/1/0; determinant commutativity gives the same expression. No opaque or unproved index computation is assumed.
+
+2026-10-25 user resumed. At07:43UTC currentordinarytrue primary0 weekly0; same-token idle technical lease renewed to09:43:38UTC. Previous observed Oct24 13:32 ordinarytrue at rounded100; interruption interval activity/refusal not observed and not inferred. Two reset credits remain available and never used.
+
+[需人工审查] Improper integral convergence, complex-real transport, clipping/endpoints, original source indexing and later actual probability model. P4 is not human review or independent compilation. Frozen publication artifacts unchanged; fullLake/Linux independent kernel NOT_RUN.

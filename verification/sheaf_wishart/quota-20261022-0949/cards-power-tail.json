@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "power-tail-PowerExponentialTailMoments",
+    "module": "PowerExponentialTailMoments",
+    "nodes": [
+      [
+        "L-power-tail-powerExponentialTailMeasure_isFinite",
+        "powerExponentialTailMeasure_isFinite",
+        []
+      ],
+      [
+        "L-power-tail-powerExponentialTail_integrable_pow",
+        "powerExponentialTail_integrable_pow",
+        [
+          "L-power-tail-powerExponentialTailMeasure_isFinite"
+        ]
+      ],
+      [
+        "L-power-tail-powerExponentialTail_integral_pow_eq_upperGamma",
+        "powerExponentialTail_integral_pow_eq_upperGamma",
+        [
+          "L-power-tail-powerExponentialTail_integrable_pow"
+        ]
+      ],
+      [
+        "L-power-tail-theorem1CentralTwoColumn_PsiDet_eq_tailMoments",
+        "theorem1CentralTwoColumn_PsiDet_eq_tailMoments",
+        [
+          "L-power-tail-powerExponentialTail_integral_pow_eq_upperGamma"
+        ]
+      ]
+    ]
+  }
+]

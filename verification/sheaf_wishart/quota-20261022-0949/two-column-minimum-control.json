@@ -1,0 +1,7 @@
+{
+  "seed": 2026102416,
+  "checks": 55,
+  "status": "PASS calibrated controls; not proof",
+  "reference": "Independent infinite triangular tail quadrature versus upper-Gamma determinant, minCDF complement and zero threshold normalization; clipped-negative endpoint calibration",
+  "source_sha256": "5ebd3dfe8f3597348291172b7e8fe2aad7937b1346226574b86cc7e097dfcf52"
+}

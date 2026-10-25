@@ -1,0 +1,20 @@
+{
+  "id": "L-power-tail-powerExponentialTailMeasure_isFinite",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PowerExponentialTailMoments",
+  "declaration": "JinWishart.powerExponentialTailMeasure_isFinite",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-power-tail-PowerExponentialTailMoments.json",
+    "source_sha256": "8f0a08d0cbea7844e08a23a34ae5b3f8665735b6d9e66af5b9885db646004df8"
+  }
+}

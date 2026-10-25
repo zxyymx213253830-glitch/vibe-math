@@ -1,0 +1,24 @@
+{
+  "id": "L-power-tail-powerExponentialTail_integrable_pow",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PowerExponentialTailMoments",
+  "declaration": "JinWishart.powerExponentialTail_integrable_pow",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-power-tail-powerExponentialTailMeasure_isFinite"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-power-tail-powerExponentialTailMeasure_isFinite"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-power-tail-PowerExponentialTailMoments.json",
+    "source_sha256": "8f0a08d0cbea7844e08a23a34ae5b3f8665735b6d9e66af5b9885db646004df8"
+  }
+}

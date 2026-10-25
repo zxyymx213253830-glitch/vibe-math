@@ -1,0 +1,24 @@
+{
+  "id": "L-power-tail-theorem1CentralTwoColumn_PsiDet_eq_tailMoments",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.PowerExponentialTailMoments",
+  "declaration": "JinWishart.theorem1CentralTwoColumn_PsiDet_eq_tailMoments",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-power-tail-powerExponentialTail_integral_pow_eq_upperGamma"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-power-tail-powerExponentialTail_integral_pow_eq_upperGamma"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-power-tail-PowerExponentialTailMoments.json",
+    "source_sha256": "8f0a08d0cbea7844e08a23a34ae5b3f8665735b6d9e66af5b9885db646004df8"
+  }
+}

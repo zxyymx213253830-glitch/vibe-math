@@ -734,3 +734,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/two_column_maximum_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_ORIGINAL_CENTRAL_TWO_COLUMN_MAXIMUM.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/PowerExponentialTailMoments.lean -text whitespace=cr-at-eol
+
+/experiments/two_column_minimum_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_POWER_EXPONENTIAL_TAIL_MOMENTS.md -text whitespace=cr-at-eol
