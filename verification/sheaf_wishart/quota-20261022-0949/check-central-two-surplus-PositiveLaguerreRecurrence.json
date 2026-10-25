@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "72661ff2cb53c4207fa6d830596c61d93f63686ee041f3b7382dcb6001a1bbda",
+  "target_lock_sha256": "b8ebe696bc6e56864e2674045257dd6e83a5663e892881ae275c548157a96fdf",
+  "leaf": {
+    "started_utc": "2026-10-25T08:47:59.089862+00:00",
+    "ended_utc": "2026-10-25T08:48:16.655132+00:00",
+    "module": "JinWishartFormalization.PositiveLaguerreRecurrence",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveLaguerreRecurrence.lean",
+    "source_sha256_before": "72661ff2cb53c4207fa6d830596c61d93f63686ee041f3b7382dcb6001a1bbda",
+    "source_sha256": "72661ff2cb53c4207fa6d830596c61d93f63686ee041f3b7382dcb6001a1bbda",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/central-two-surplus-PositiveLaguerreRecurrence-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "2bd964f37ef0468701c876f55d5a88a05c4d2d46ad1df62b48fa6c2ae1dcfcdb",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-25T08:48:28.382237+00:00",
+    "ended_utc": "2026-10-25T08:48:41.536957+00:00",
+    "module": "SheafCentralTwoSurplusTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCentralTwoSurplusTargets.lean",
+    "source_sha256_before": "f5b6ab717b9083f792c47a6f780d661a8f0786dc4db64340d0ac51eba850ee4d",
+    "source_sha256": "f5b6ab717b9083f792c47a6f780d661a8f0786dc4db64340d0ac51eba850ee4d",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/central-two-surplus-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -1,0 +1,31 @@
+## P4 Adversarial Review
+
+### PositiveLaguerreRecurrence.lean
+
+**Mathematical gap (derivative chain rule):** The proof of `positiveLaguerre_christoffelDarboux` applies `congrArg (fun p => (Polynomial.derivative p).eval x)` to the recurrence identity, then simplifies using `derivative_mul`, `derivative_add`, etc. This is **correct** for formal polynomial derivatives—no analytic regularity needed. However, the inductive step's `linear_combination` tacitly assumes that the derivative of the recurrence relation at evaluation point `x` algebraically telescopes with the induction hypothesis. The script offers no intermediate lemma showing *why* the cross-terms cancel; it delegates entirely to `linear_combination`. This is not a gap per se, but if the arithmetic heuristic fails on edge cases (e.g., small `n` where degree truncation occurs), the proof gives no diagnostic. Low risk, but opaque.
+
+**Coefficient extraction boundary:** `positiveLaguerre_coeff` uses `sum_eq_single k` and handles the out-of-range case via `Nat.choose_eq_zero_of_lt`. Correct. No issue.
+
+**Definition mismatch (minor):** `positiveLaguerrePolynomial` divides by `k.factorial` inside the sum, which differs from the classical Laguerre normalization $L_n(x) = \sum (-1)^k \binom{n}{k} x^k / k!$. The sign alternation is absent. This is acknowledged by the "positive-argument" naming but matters for downstream sign tracking in Wronskian identities. See below.
+
+### Theorem1CentralTwoSurplus.lean
+
+**Actual mathematical concern (sign tracking in `monic_laguerre_derivative_positive`):** The lemma claims:
+```
+(derivative (factorialLaguerre n)).eval (-x) = -((-1)^n * n!) * (derivative positiveLaguerrePolynomial n).eval x
+```
+The proof uses `derivative_comp` on `factorialLaguerre n |>.comp (-X)`, which by the chain rule yields an extra factor of `-1` from `derivative (-X) = -1`. Combined with `(-1)^n` from the polynomial relation, this produces `-(-1)^n = (-1)^{n+1}`. But the RHS writes `-((-1)^n * ...)`, which equals `(-1)^{n+1} * (...)`. **This is consistent.** No gap here upon close reading.
+
+**Division by `(n+1 : ℂ)` in `monic_wronskian_squares`:** The proof requires `(n+1 : ℂ) ≠ 0`, established via `Nat.succ_ne_zero`. Correct for all `n : ℕ`.
+
+**Norm coercion chain (`push_cast`, `Complex.norm_of_nonneg`):** The step `Complex.norm_of_nonneg (twoExtraRowMinimumPolynomial_nonneg n x hx)` imports non-negativity from `TwoSurplusLaguerreSquares`. If that dependency only proves non-negativity for `x ≥ 0` and the current theorem already assumes `hx : 0 ≤ x`, this is fine. But if `twoExtraRowMinimumPolynomial_nonneg` required strict positivity or had a different domain assumption, this would be a semantic mismatch. The review cannot verify the imported signature; flagging as a **dependency interface question**, not a proven gap.
+
+**Candidate-to-CDF bridge (`theorem1CentralTwoSurplus_candidate_eq_actualCDF`):** Directly rewrites through `actualTwoExtraRows_minimum_CDF n hn x hx`. The assumption `hn : 0 < n` is explicit. The stochastic statement carries its own measure-theoretic preconditions via `stdGaussian (ComplexSample ...)`. No additional probability claim is invented here; the lemma is a deterministic equality conditional on the imported CDF characterization. **No gap in this file's logic.**
+
+**`hP0` proof obligation:** Showing `twoExtraRowMinimumPolynomial n 0 = 1` via `oneExtraRowMinimumPolynomial k 0 = 1` and `positivity`. The `simp [hA]` step reduces the mean-squares definition at zero to a sum of squared ones. The `positivity` tactic closes `0 ≤ 1`. Correct.
+
+### Summary
+
+- **No actual mathematical gaps** detected in the proof bodies as written.
+- **One opacity risk:** the CD identity's inductive `linear_combination` step lacks human-readable cancellation structure.
+- **One dependency interface question:** the exact signature/assumptions of `twoExtraRowMinimumPolynomial_nonneg` should be confirmed to match usage context.

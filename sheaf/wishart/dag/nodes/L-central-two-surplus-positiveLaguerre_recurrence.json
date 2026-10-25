@@ -1,0 +1,20 @@
+{
+  "id": "L-central-two-surplus-positiveLaguerre_recurrence",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PositiveLaguerreRecurrence",
+  "declaration": "JinWishart.positiveLaguerre_recurrence",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-two-surplus-PositiveLaguerreRecurrence.json",
+    "source_sha256": "72661ff2cb53c4207fa6d830596c61d93f63686ee041f3b7382dcb6001a1bbda"
+  }
+}

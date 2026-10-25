@@ -10,5 +10,5 @@
     "resolution": "notes/WISHART_ACTUAL_CANONICAL_INVERSE_TRANSPORT.md"
   },
   "audit": "verification/central_mixed_moments/audit.json",
-  "facade_receipt": "verification/sheaf_wishart/facade-140.receipt.json"
+  "facade_receipt": "verification/sheaf_wishart/facade-141.receipt.json"
 }

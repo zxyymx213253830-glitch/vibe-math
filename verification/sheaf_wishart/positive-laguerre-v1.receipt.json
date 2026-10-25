@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:41:43.530201+00:00",
+  "ended_utc": "2026-10-25T08:41:56.056221+00:00",
+  "module": "JinWishartFormalization.PositiveLaguerreRecurrence",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveLaguerreRecurrence.lean",
+  "source_sha256_before": "4b40b86d8a8e89badc58fca5509a9c489b776ec7ef283dd29eff38b7a20e5b3f",
+  "source_sha256": "4b40b86d8a8e89badc58fca5509a9c489b776ec7ef283dd29eff38b7a20e5b3f",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/positive-laguerre-v1.txt",
+  "log_exists": true,
+  "log_sha256": "f2fcf46c8e1839c2fa6ca3ad4fa6b13eff248f05df71c8393378557800eb9063",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

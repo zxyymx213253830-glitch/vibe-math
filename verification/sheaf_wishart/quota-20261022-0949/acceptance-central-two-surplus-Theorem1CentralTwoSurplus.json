@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-central-two-surplus-Theorem1CentralTwoSurplus.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-central-two-surplus-Theorem1CentralTwoSurplus.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/central-two-surplus-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-central-two-surplus-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-central-two-surplus-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-central-two-surplus-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/central-two-surplus-final-snapshot",
+    "resolution": "notes/WISHART_ORIGINAL_CENTRAL_TWO_SURPLUS.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-141.receipt.json"
+}

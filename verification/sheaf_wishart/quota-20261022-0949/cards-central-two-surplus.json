@@ -1,0 +1,54 @@
+[
+  {
+    "tag": "central-two-surplus-PositiveLaguerreRecurrence",
+    "module": "PositiveLaguerreRecurrence",
+    "nodes": [
+      [
+        "L-central-two-surplus-positiveLaguerre_recurrence",
+        "positiveLaguerre_recurrence",
+        []
+      ],
+      [
+        "L-central-two-surplus-positiveLaguerre_christoffelDarboux",
+        "positiveLaguerre_christoffelDarboux",
+        [
+          "L-central-two-surplus-positiveLaguerre_recurrence"
+        ]
+      ],
+      [
+        "L-central-two-surplus-positiveLaguerre_eval_real",
+        "positiveLaguerre_eval_real",
+        [
+          "L-central-two-surplus-positiveLaguerre_christoffelDarboux"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "central-two-surplus-Theorem1CentralTwoSurplus",
+    "module": "Theorem1CentralTwoSurplus",
+    "nodes": [
+      [
+        "L-central-two-surplus-twoSurplusLaguerreWronskian_eq_actualPolynomial",
+        "twoSurplusLaguerreWronskian_eq_actualPolynomial",
+        [
+          "L-central-two-surplus-positiveLaguerre_eval_real"
+        ]
+      ],
+      [
+        "L-central-two-surplus-theorem1CentralTwoSurplus_candidate_eq_polynomial",
+        "theorem1CentralTwoSurplus_candidate_eq_polynomial",
+        [
+          "L-central-two-surplus-twoSurplusLaguerreWronskian_eq_actualPolynomial"
+        ]
+      ],
+      [
+        "L-central-two-surplus-theorem1CentralTwoSurplus_candidate_eq_actualCDF",
+        "theorem1CentralTwoSurplus_candidate_eq_actualCDF",
+        [
+          "L-central-two-surplus-theorem1CentralTwoSurplus_candidate_eq_polynomial"
+        ]
+      ]
+    ]
+  }
+]

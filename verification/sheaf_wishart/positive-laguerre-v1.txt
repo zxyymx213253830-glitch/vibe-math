@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveLaguerreRecurrence.lean:17:2: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveLaguerreRecurrence.lean:46:4: error: unsolved goals
+case pos
+n : ℕ
+hk : ¬n + 1 ≤ n
+⊢ ↑n + 2 = ↑n + 1 + 1 - (↑n + 1) * ↑(n.choose (n + 1 + 1))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveLaguerreRecurrence.lean:73:4: error: ring failed, ring expressions not equal
+n k : ℕ
+hf : ↑k.factorial ≠ 0
+hk : ↑k + 1 ≠ 0
+⊢ ↑n * ↑((n + 2).choose (k + 1)) + ↑n * ↑(n.choose (k + 1)) + ↑((n + 2).choose (k + 1)) * 2 -
+                ↑((n + 2).choose (k + 1)) * ↑(n + 2) +
+              ↑(k + 1) * ↑((n + 1).choose k) -
+            ↑((n + 1).choose k) -
+          ↑((n + 1).choose k) * ↑k -
+        ↑(n + 1) * ↑(n.choose (k + 1)) +
+      ↑(n.choose (k + 1)) =
+    0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveLaguerreRecurrence.lean:88:56: warning: This simp argument is unused:
+  eval_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_smul, derivative_sub, derivative_mul, derivative_add, derivative_X, derivative_C, add_zero,
+    eval_sub, eval_add, eval_mul, eval_X, eval_C, one_mul, eval_smul, smul_eq_mul] at hd
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.positiveLaguerre_recurrence' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.positiveLaguerre_christoffelDarboux' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.positiveLaguerre_eval_real' depends on axioms: [propext, Classical.choice, Quot.sound]

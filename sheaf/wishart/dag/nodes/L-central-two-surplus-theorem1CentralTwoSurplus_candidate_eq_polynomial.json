@@ -1,0 +1,24 @@
+{
+  "id": "L-central-two-surplus-theorem1CentralTwoSurplus_candidate_eq_polynomial",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.Theorem1CentralTwoSurplus",
+  "declaration": "JinWishart.theorem1CentralTwoSurplus_candidate_eq_polynomial",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-central-two-surplus-twoSurplusLaguerreWronskian_eq_actualPolynomial"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-central-two-surplus-twoSurplusLaguerreWronskian_eq_actualPolynomial"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-central-two-surplus-Theorem1CentralTwoSurplus.json",
+    "source_sha256": "9b8e38789c84ecbd0ab904d552cc9a19750edaa2ca4e26a0025878c6e714d62b"
+  }
+}

@@ -1,0 +1,25 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralTwoSurplus.lean:94:51: error: unsolved goals
+n : ℕ
+x : ℝ
+hx : 0 ≤ x
+D : ℂ := (∏ i, ↑(↑i).factorial ^ 2) * ↑n.factorial * ↑(n + 1).factorial
+hD : D ≠ 0
+hDN : ‖D‖ ≠ 0
+hA : ∀ (k : ℕ), oneExtraRowMinimumPolynomial k 0 = 1
+⊢ ¬↑n + 1 = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1CentralTwoSurplus.lean:110:22: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, Real.exp_zero, Complex.ofReal_one, one_mul, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.twoSurplusLaguerreWronskian_eq_actualPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CentralTwoSurplus_candidate_eq_polynomial' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.theorem1CentralTwoSurplus_candidate_eq_actualCDF' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

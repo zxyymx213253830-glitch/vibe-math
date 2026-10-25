@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:44:59.146483+00:00",
+  "ended_utc": "2026-10-25T08:45:13.446852+00:00",
+  "module": "JinWishartFormalization.Theorem1CentralTwoSurplus",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1CentralTwoSurplus.lean",
+  "source_sha256_before": "ffa6b98b5428aa4e1ddcfc7524a2d8463dbce01f0f8d3fea98692a3d92606b16",
+  "source_sha256": "ffa6b98b5428aa4e1ddcfc7524a2d8463dbce01f0f8d3fea98692a3d92606b16",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/central-two-surplus-v1.txt",
+  "log_exists": true,
+  "log_sha256": "fd51d2a38c03cd54239a00265b5021a799b8e513aeb8d49221de0b514466d898",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

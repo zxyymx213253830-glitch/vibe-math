@@ -1,0 +1,27 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveLaguerreRecurrence.lean:20:2: error: unsolved goals
+case h₀
+n k b : ℕ
+a✝ : b ∈ range (n + 1)
+hb : b ≠ k
+⊢ k = b → n.choose b = 0 ∨ b.factorial = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveLaguerreRecurrence.lean:21:10: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveLaguerreRecurrence.lean:49:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PositiveLaguerreRecurrence.lean:92:56: warning: This simp argument is unused:
+  eval_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_smul, derivative_sub, derivative_mul, derivative_add, derivative_X, derivative_C, add_zero,
+    eval_sub, eval_add, eval_mul, eval_X, eval_C, one_mul, eval_smul, smul_eq_mul] at hd
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.positiveLaguerre_recurrence' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.positiveLaguerre_christoffelDarboux' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.positiveLaguerre_eval_real' depends on axioms: [propext, Classical.choice, Quot.sound]

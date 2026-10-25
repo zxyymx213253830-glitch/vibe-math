@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "PositiveLaguerreRecurrence.lean": {
+      "sha256": "72661ff2cb53c4207fa6d830596c61d93f63686ee041f3b7382dcb6001a1bbda",
+      "supplied": "Full source"
+    },
+    "Theorem1CentralTwoSurplus.lean": {
+      "sha256": "9b8e38789c84ecbd0ab904d552cc9a19750edaa2ca4e26a0025878c6e714d62b",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "48212cff72470b33ba691e57c29d3e5bdc22d6cb2bf2ec158068f781cd7d661f"
+}
