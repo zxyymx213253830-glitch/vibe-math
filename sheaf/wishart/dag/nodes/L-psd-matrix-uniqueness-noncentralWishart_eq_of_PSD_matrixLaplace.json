@@ -1,0 +1,24 @@
+{
+  "id": "L-psd-matrix-uniqueness-noncentralWishart_eq_of_PSD_matrixLaplace",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ActualNoncentralLaplaceCharacterization",
+  "declaration": "JinWishart.noncentralWishart_eq_of_PSD_matrixLaplace",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-psd-matrix-uniqueness-finite_PSD_measures_eq_of_matrixLaplace"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-psd-matrix-uniqueness-finite_PSD_measures_eq_of_matrixLaplace"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-psd-matrix-uniqueness-ActualNoncentralLaplaceCharacterization.json",
+    "source_sha256": "899f43209bb9db65a556b2413b88b06247dc78b878f7176f3732da8e139a6def"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:24:55.714324+00:00",
+  "ended_utc": "2026-10-25T13:25:03.840070+00:00",
+  "module": "JinWishartFormalization.PSDTraceNormGeometry",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PSDTraceNormGeometry.lean",
+  "source_sha256_before": "03d0b0d47b34f0614ded258c7becdb409a44a96b2f8a5e7c5fcf5af16ab2cc4d",
+  "source_sha256": "03d0b0d47b34f0614ded258c7becdb409a44a96b2f8a5e7c5fcf5af16ab2cc4d",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/psd-trace-norm-v2.txt",
+  "log_exists": true,
+  "log_sha256": "51226aa9b84f6b6b3695d3656fbb0d5e6e8db26e4a4830987fde93ed35e9b55c",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

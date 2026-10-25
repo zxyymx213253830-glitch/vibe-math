@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:31:32.407237+00:00",
+  "ended_utc": "2026-10-25T13:31:40.421802+00:00",
+  "module": "SheafPSDGeometryNormDiagnostic",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafPSDGeometryNormDiagnostic.lean",
+  "source_sha256_before": "6eb8cc766a46bef327b5cf6fafb66b0fa9e7e34b30829fb9ed62e29a6998c268",
+  "source_sha256": "6eb8cc766a46bef327b5cf6fafb66b0fa9e7e34b30829fb9ed62e29a6998c268",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/psd-geometry-norm-diagnostic-v1.txt",
+  "log_exists": true,
+  "log_sha256": "562d7ca5840fa97774ecadacd9cc371f449b074d68352179689eb39f59a89dad",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

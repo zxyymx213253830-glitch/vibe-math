@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:48:41.976819+00:00",
+  "ended_utc": "2026-10-25T13:48:51.332839+00:00",
+  "module": "JinWishartFormalization.PSDMatrixLaplaceUniqueness",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PSDMatrixLaplaceUniqueness.lean",
+  "source_sha256_before": "b6fbceb941e2e0c93e46e375f986c8d42bb07b9840fc2b59f13084fb1ce17a99",
+  "source_sha256": "b6fbceb941e2e0c93e46e375f986c8d42bb07b9840fc2b59f13084fb1ce17a99",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/psd-matrix-uniqueness-PSDMatrixLaplaceUniqueness-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "791bedd45d5d15e01f84d245e5d9fdb8491d09035bb37012a0a23752a350b4e0",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,28 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:10:17: error: failed to set `[local reducible]` for `Matrix`, recall that `[reducible]` affects the term indexing data structures used by `simp` and type class resolution
+
+Note: Use `set_option allowUnsafeReducibility true` to override reducibility status validation
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:56:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:59:71: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:60:32: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:62:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:65:48: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:78:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:103:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'JinWishart.exists_hermitian_trace_dual_norm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

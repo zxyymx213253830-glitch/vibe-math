@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:45:26.523558+00:00",
+  "ended_utc": "2026-10-25T13:45:53.791700+00:00",
+  "module": "JinWishartFormalization.ActualNoncentralLaplaceCharacterization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualNoncentralLaplaceCharacterization.lean",
+  "source_sha256_before": "899f43209bb9db65a556b2413b88b06247dc78b878f7176f3732da8e139a6def",
+  "source_sha256": "899f43209bb9db65a556b2413b88b06247dc78b878f7176f3732da8e139a6def",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/actual-noncentral-characterization-v1.txt",
+  "log_exists": true,
+  "log_sha256": "179b27d45e17830c81f771471132c8afa91ac052e45c6b6e5bf8ab244ec56074",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

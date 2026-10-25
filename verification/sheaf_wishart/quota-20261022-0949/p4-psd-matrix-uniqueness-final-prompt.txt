@@ -1,0 +1,327 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE PSDTraceNormGeometry.lean
+import Mathlib.Analysis.Matrix.PosDef
+import Mathlib.Analysis.Matrix.Normed
+
+/-! Codex. Seed2026102509 controls precede source.
+Entry-sup norm only; no operator/Frobenius norm substitution. -/
+open Matrix Finset
+open scoped ComplexOrder Matrix.Norms.Elementwise
+namespace JinWishart
+noncomputable section
+
+theorem psd_entry_norm_le_trace_re {n : ℕ} {A : Matrix (Fin n) (Fin n) ℂ}
+    (hA : A.PosSemidef) (i j : Fin n) : ‖A i j‖ ≤ A.trace.re := by
+  let U : Matrix (Fin n) (Fin n) ℂ := hA.1.eigenvectorUnitary
+  let lam : Fin n → ℝ := hA.1.eigenvalues
+  have hU (i k : Fin n) : ‖U i k‖ ≤ 1 := by
+    simpa only [U, Matrix.IsHermitian.eigenvectorUnitary_apply,
+      OrthonormalBasis.norm_eq_one] using
+      (PiLp.norm_apply_le (hA.1.eigenvectorBasis k) i)
+  have hlam (k : Fin n) : 0 ≤ lam k := hA.eigenvalues_nonneg k
+  have hentry : A i j = ∑ k, U i k * (lam k : ℂ) * star (U j k) := by
+    conv_lhs => rw [hA.1.spectral_theorem]
+    change ((U * diagonal (fun k => (lam k : ℂ))) * Uᴴ) i j = _
+    rw [Matrix.mul_apply]
+    simp only [Matrix.mul_diagonal, Matrix.conjTranspose_apply]
+  have htrace : A.trace.re = ∑ k, lam k := by
+    rw [hA.1.trace_eq_sum_eigenvalues]
+    simp [lam]
+  rw [hentry, htrace]
+  refine (norm_sum_le _ _).trans (Finset.sum_le_sum fun k _ => ?_)
+  calc
+    ‖U i k * (lam k : ℂ) * star (U j k)‖ = ‖U i k‖ * lam k * ‖U j k‖ := by
+      rw [norm_mul, norm_mul, norm_star, Complex.norm_real, Real.norm_eq_abs,
+        abs_of_nonneg (hlam k)]
+    _ ≤ 1 * lam k * 1 := by
+      exact mul_le_mul (mul_le_mul_of_nonneg_right (hU i k) (hlam k))
+        (hU j k) (norm_nonneg _) (mul_nonneg zero_le_one (hlam k))
+    _ = lam k := by ring
+
+theorem psd_entrySupNorm_le_trace_re {n : ℕ} {A : Matrix (Fin n) (Fin n) ℂ}
+    (hA : A.PosSemidef) : ‖A‖ ≤ A.trace.re := by
+  have ht : 0 ≤ A.trace.re := by
+    rw [hA.1.trace_eq_sum_eigenvalues]
+    simpa using Finset.sum_nonneg (fun i (_ : i ∈ (Finset.univ : Finset (Fin n))) =>
+      hA.eigenvalues_nonneg i)
+  exact (Matrix.norm_le_iff ht).mpr (psd_entry_norm_le_trace_re hA)
+
+end
+end JinWishart
+#print axioms JinWishart.psd_entry_norm_le_trace_re
+#print axioms JinWishart.psd_entrySupNorm_le_trace_re
+
+SOURCE HermitianTraceDualGeometry.lean
+import JinWishartFormalization.PSDTraceNormGeometry
+import Mathlib.Data.Matrix.Basis
+import Mathlib.Analysis.Normed.Operator.Basic
+
+/-! Codex. Seed2026102509 controls precede source.
+Real continuous duals on the full complex matrix space; trace representation
+is asserted on Hermitian arguments. All norms here are entry-sup norms. -/
+open Matrix Finset
+open scoped ComplexOrder Matrix.Norms.Elementwise
+namespace JinWishart
+noncomputable section
+
+-- Explicit parameters avoid typeclass indexing through the semireducible Matrix alias.
+local instance matrixRealDualNorm {n : ℕ} : Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ) :=
+  ContinuousLinearMap.hasOpNorm (E := Matrix (Fin n) (Fin n) ℂ) (F := ℝ) (𝕜 := ℝ) (𝕜₂ := ℝ)
+
+private theorem norm_matrix_single {n : ℕ} (i j : Fin n) (z : ℂ) :
+    ‖Matrix.single i j z‖ = ‖z‖ := by
+  rw [Matrix.single_eq_of_single_single]
+  change ‖(Pi.single i (Pi.single j z) : Fin n → Fin n → ℂ)‖ = ‖z‖
+  rw [Pi.norm_single, Pi.norm_single]
+
+private theorem dual_single_expand {n : ℕ}
+    (L : Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ) (i j : Fin n) (z : ℂ) :
+    L (Matrix.single i j z) = z.re * L (Matrix.single i j 1) +
+      z.im * L (Matrix.single i j Complex.I) := by
+  have hz : Matrix.single i j z = z.re • Matrix.single i j (1 : ℂ) +
+      z.im • Matrix.single i j Complex.I := by
+    rw [Matrix.smul_single, Matrix.smul_single, ← Matrix.single_add]
+    congr 1
+    simpa only [Complex.real_smul, mul_one] using (Complex.re_add_im z).symm
+  rw [hz, map_add, map_smul, map_smul]
+  rfl
+
+private def dualTraceKernel {n : ℕ} (L : Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ) :
+    Matrix (Fin n) (Fin n) ℂ := fun i j =>
+      (L (Matrix.single j i 1) : ℂ) - (L (Matrix.single j i Complex.I) : ℂ) * Complex.I
+
+private theorem dual_kernel_trace {n : ℕ}
+    (L : Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ) (W : Matrix (Fin n) (Fin n) ℂ) :
+    L W = ((dualTraceKernel L) * W).trace.re := by
+  have he : L W = ∑ i, ∑ j, ((W i j).re * L (Matrix.single i j 1) +
+      (W i j).im * L (Matrix.single i j Complex.I)) := by
+    conv_lhs => rw [Matrix.matrix_eq_sum_single W]
+    simp only [map_sum]
+    apply Finset.sum_congr rfl
+    intro i _
+    apply Finset.sum_congr rfl
+    intro j _
+    exact dual_single_expand L i j (W i j)
+  rw [he]
+  simp only [Matrix.trace, Matrix.diag, Matrix.mul_apply, Complex.re_sum]
+  rw [Finset.sum_comm]
+  apply Finset.sum_congr rfl
+  intro i _
+  apply Finset.sum_congr rfl
+  intro j _
+  simp [dualTraceKernel, Complex.mul_re]
+  <;> ring
+
+private theorem dual_kernel_norm {n : ℕ}
+    (L : Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ) : ‖dualTraceKernel L‖ ≤ 2 * ‖L‖ := by
+  have hnL : 0 ≤ ‖L‖ := ContinuousLinearMap.opNorm_nonneg (E := Matrix (Fin n) (Fin n) ℂ) (F := ℝ) L
+  apply (Matrix.norm_le_iff (mul_nonneg (by norm_num) hnL)).mpr
+  intro i j
+  have h1 : |L (Matrix.single j i 1)| ≤ ‖L‖ := by
+    have hh := ContinuousLinearMap.le_opNorm (E := Matrix (Fin n) (Fin n) ℂ) (F := ℝ) L (Matrix.single j i 1)
+    simp only [Real.norm_eq_abs, norm_matrix_single, norm_one, mul_one] at hh
+    convert hh using 1 <;> rfl
+  have hI : |L (Matrix.single j i Complex.I)| ≤ ‖L‖ := by
+    have hh := ContinuousLinearMap.le_opNorm (E := Matrix (Fin n) (Fin n) ℂ) (F := ℝ) L (Matrix.single j i Complex.I)
+    simp only [Real.norm_eq_abs, norm_matrix_single, Complex.norm_I, mul_one] at hh
+    convert hh using 1 <;> rfl
+  change ‖(L (Matrix.single j i 1) : ℂ) - (L (Matrix.single j i Complex.I) : ℂ) * Complex.I‖ ≤ _
+  refine (norm_sub_le _ _).trans ?_
+  rw [norm_mul, Complex.norm_real, Complex.norm_real, Complex.norm_I, mul_one,
+    Real.norm_eq_abs, Real.norm_eq_abs]
+  linarith
+
+theorem exists_hermitian_trace_dual_norm_le {n : ℕ}
+    (L : Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ) :
+    ∃ H : Matrix (Fin n) (Fin n) ℂ, H.IsHermitian ∧
+      (∀ W : Matrix (Fin n) (Fin n) ℂ, W.IsHermitian → L W = (H * W).trace.re) ∧
+      ‖H‖ ≤ 2 * ‖L‖ := by
+  let K := dualTraceKernel L
+  let H : Matrix (Fin n) (Fin n) ℂ := (1 / 2 : ℝ) • (K + Kᴴ)
+  refine ⟨H, ?_, ?_, ?_⟩
+  · change Hᴴ = H
+    simp [H, Matrix.conjTranspose_smul, Matrix.conjTranspose_add, add_comm]
+  · intro W hW
+    have hc : (Kᴴ * W).trace = star (K * W).trace := by
+      rw [← Matrix.trace_conjTranspose, Matrix.conjTranspose_mul, hW.eq,
+        Matrix.trace_mul_comm]
+    have hr : (Kᴴ * W).trace.re = (K * W).trace.re := by
+      rw [hc]
+      rfl
+    rw [dual_kernel_trace]
+    change (K * W).trace.re = _
+    simp only [H, Matrix.smul_mul, Matrix.add_mul, Matrix.trace_smul,
+      Matrix.trace_add, Complex.add_re, Complex.real_smul, Complex.mul_re,
+      Complex.ofReal_re, Complex.ofReal_im, zero_mul, sub_zero, hr]
+    ring
+  · calc
+      ‖H‖ = (1 / 2 : ℝ) * ‖K + Kᴴ‖ := by
+        change ‖(1 / 2 : ℝ) • (K + Kᴴ)‖ = _
+        rw [norm_smul, Real.norm_eq_abs, abs_of_pos (by norm_num)]
+      _ ≤ (1 / 2 : ℝ) * (‖K‖ + ‖Kᴴ‖) := mul_le_mul_of_nonneg_left (norm_add_le _ _) (by norm_num)
+      _ = ‖K‖ := by rw [Matrix.norm_conjTranspose]; ring
+      _ ≤ 2 * ‖L‖ := dual_kernel_norm L
+
+end
+end JinWishart
+#print axioms JinWishart.exists_hermitian_trace_dual_norm_le
+
+SOURCE HermitianScalarShiftPSD.lean
+import JinWishartFormalization.PSDTraceNormGeometry
+import Mathlib.LinearAlgebra.Matrix.Gershgorin
+
+/-! Codex. Seed2026102509 controls precede source.
+A quantitative entry-sup bound, proved using pinned Gershgorin and spectral positivity. -/
+open Matrix Finset
+open scoped ComplexOrder Matrix.Norms.Elementwise
+namespace JinWishart
+noncomputable section
+
+theorem hermitian_scalar_shift_posSemidef {n : ℕ} {H : Matrix (Fin n) (Fin n) ℂ}
+    (hH : H.IsHermitian) (c : ℝ) (hc : (n : ℝ) * ‖H‖ ≤ c) :
+    ((c : ℂ) • (1 : Matrix (Fin n) (Fin n) ℂ) - H).PosSemidef := by
+  let B : Matrix (Fin n) (Fin n) ℂ := (c : ℂ) • 1 - H
+  have hB : B.IsHermitian := (Matrix.isHermitian_one.smul (by simp [isSelfAdjoint_iff] : IsSelfAdjoint (c : ℂ))).sub hH
+  apply hB.posSemidef_iff_eigenvalues_nonneg.mpr
+  intro i
+  let lam : ℝ := hB.eigenvalues i
+  have hv : Module.End.HasEigenvector (Matrix.toLin' B) (lam : ℂ) ⇑(hB.eigenvectorBasis i) := by
+    constructor
+    · rw [Module.End.mem_eigenspace_iff, Matrix.toLin'_apply]
+      have hh := hB.mulVec_eigenvectorBasis i
+      simp only [RCLike.real_smul_eq_coe_smul (K := ℂ)] at hh
+      convert hh using 1 <;> rfl
+    · exact (WithLp.ofLp_eq_zero 2).ne.2 (hB.eigenvectorBasis.orthonormal.ne_zero i)
+  obtain ⟨k, hk⟩ := eigenvalue_mem_ball (A := B) (μ := (lam : ℂ)) hv.hasUnifEigenvalue
+  rw [mem_closedBall_iff_norm'] at hk
+  have hdiag : B k k = (c : ℂ) - H k k := by simp [B]
+  have hoff : ∑ j ∈ Finset.univ.erase k, ‖B k j‖ =
+      ∑ j ∈ Finset.univ.erase k, ‖H k j‖ := by
+    apply Finset.sum_congr rfl
+    intro j hj
+    have hkj : k ≠ j := (Finset.ne_of_mem_erase hj).symm
+    simp [B, Matrix.one_apply_ne hkj]
+  rw [hdiag, hoff] at hk
+  have hre : c - (H k k).re - lam ≤ ‖(c : ℂ) - H k k - (lam : ℂ)‖ := by
+    simpa using Complex.re_le_norm ((c : ℂ) - H k k - (lam : ℂ))
+  have hd : (H k k).re ≤ ‖H k k‖ := Complex.re_le_norm _
+  have hs : (∑ j ∈ Finset.univ.erase k, ‖H k j‖) + ‖H k k‖ =
+      ∑ j, ‖H k j‖ := Finset.sum_erase_add _ _ (Finset.mem_univ k)
+  have hall : ∑ j, ‖H k j‖ ≤ (n : ℝ) * ‖H‖ := by
+    calc
+      ∑ j, ‖H k j‖ ≤ ∑ _j : Fin n, ‖H‖ := Finset.sum_le_sum fun j _ =>
+        (norm_le_pi_norm (H k) j).trans (norm_le_pi_norm H k)
+      _ = (n : ℝ) * ‖H‖ := by simp
+  change 0 ≤ lam
+  linarith
+
+end
+end JinWishart
+#print axioms JinWishart.hermitian_scalar_shift_posSemidef
+
+SOURCE PSDMatrixLaplaceUniqueness.lean
+import JinWishartFormalization.DominatedLocalLaplaceUniqueness
+import JinWishartFormalization.HermitianTraceDualGeometry
+import JinWishartFormalization.HermitianScalarShiftPSD
+import Mathlib.Analysis.Matrix.MeasurableSpace
+
+/-! Codex. Seed2026102509 controls precede source.
+[需人工审查] AE PSD support and local exponential tilt specialization.
+Equality of ALL PSD matrix tests, not a finite set of directions or moments. -/
+open Matrix MeasureTheory ProbabilityTheory Finset
+open scoped ComplexOrder Matrix.Norms.Elementwise
+namespace JinWishart
+noncomputable section
+attribute [local instance] matrixRealDualNorm
+
+theorem finite_PSD_measures_eq_of_matrixLaplace {n : ℕ}
+    {μ ν : Measure (Matrix (Fin n) (Fin n) ℂ)} [IsFiniteMeasure μ] [IsFiniteMeasure ν]
+    (hμ : ∀ᵐ W ∂μ, W.PosSemidef) (hν : ∀ᵐ W ∂ν, W.PosSemidef)
+    (hLaplace : ∀ T : Matrix (Fin n) (Fin n) ℂ, T.PosSemidef →
+      (∫ W, Real.exp (-(T * W).trace.re) ∂μ) =
+        ∫ W, Real.exp (-(T * W).trace.re) ∂ν) : μ = ν := by
+  letI : BorelSpace (Matrix (Fin n) (Fin n) ℂ) :=
+    inferInstanceAs (BorelSpace (Fin n → Fin n → ℂ))
+  letI : SecondCountableTopology (Matrix (Fin n) (Fin n) ℂ) :=
+    inferInstanceAs (SecondCountableTopology (Fin n → Fin n → ℂ))
+  letI : CompleteSpace (Matrix (Fin n) (Fin n) ℂ) :=
+    inferInstanceAs (CompleteSpace (Fin n → Fin n → ℂ))
+  let c : ℝ := 2 * n + 1
+  let f : Matrix (Fin n) (Fin n) ℂ → ℝ := fun W => c * W.trace.re
+  have hf : Measurable f := by dsimp [f]; fun_prop
+  have hbound (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.PosSemidef) : ‖W‖ ≤ f W := by
+    have ht := psd_entrySupNorm_le_trace_re hW
+    have htr : 0 ≤ W.trace.re := (norm_nonneg W).trans ht
+    have hc : 1 ≤ c := by dsimp [c]; have := Nat.cast_nonneg (α := ℝ) n; linarith
+    exact ht.trans (by dsimp [f]; nlinarith)
+  apply @eq_of_norm_dominated_localLaplace (Matrix (Fin n) (Fin n) ℂ)
+    _ _ _ (inferInstanceAs (BorelSpace (Fin n → Fin n → ℂ)))
+    (inferInstanceAs (SecondCountableTopology (Fin n → Fin n → ℂ)))
+    (inferInstanceAs (CompleteSpace (Fin n → Fin n → ℂ))) μ ν _ _ f hf
+    (hμ.mono fun W hW => hbound W hW) (hν.mono fun W hW => hbound W hW)
+  intro L hL
+  obtain ⟨H, hH, hrep, hnorm⟩ := exists_hermitian_trace_dual_norm_le L
+  have hl : ‖L‖ < 1 := by convert hL using 1 <;> rfl
+  have hnorm' : ‖H‖ ≤ 2 * ‖L‖ := by convert hnorm using 1 <;> rfl
+  have hc : (n : ℝ) * ‖H‖ ≤ c := by
+    have hn : (0 : ℝ) ≤ n := Nat.cast_nonneg n
+    have hsmall : ‖H‖ ≤ 2 := by linarith
+    have hh := mul_le_mul_of_nonneg_left hsmall hn
+    dsimp [c]
+    linarith
+  let T : Matrix (Fin n) (Fin n) ℂ := (c : ℂ) • 1 - H
+  have hT : T.PosSemidef := hermitian_scalar_shift_posSemidef hH c hc
+  have hpoint (W : Matrix (Fin n) (Fin n) ℂ) (hW : W.PosSemidef) :
+      -f W + L W = -(T * W).trace.re := by
+    calc
+      -f W + L W = -f W + (H * W).trace.re := by
+        congr 1
+        convert hrep W hW.1 using 1 <;> rfl
+      _ = -(T * W).trace.re := by
+        simp only [T, f, Matrix.sub_mul, Matrix.smul_mul, Matrix.one_mul,
+          Matrix.trace_sub, Matrix.trace_smul, Complex.sub_re, smul_eq_mul, Complex.mul_re,
+          Complex.ofReal_re, Complex.ofReal_im, zero_mul, sub_zero]
+        ring
+  calc
+    (∫ W, Real.exp (-f W + L W) ∂μ) = ∫ W, Real.exp (-(T * W).trace.re) ∂μ :=
+      integral_congr_ae (hμ.mono fun W hW => congrArg Real.exp (hpoint W hW))
+    _ = ∫ W, Real.exp (-(T * W).trace.re) ∂ν := hLaplace T hT
+    _ = ∫ W, Real.exp (-f W + L W) ∂ν :=
+      (integral_congr_ae (hν.mono fun W hW => congrArg Real.exp (hpoint W hW))).symm
+
+end
+end JinWishart
+#print axioms JinWishart.finite_PSD_measures_eq_of_matrixLaplace
+
+SOURCE ActualNoncentralLaplaceCharacterization.lean
+import JinWishartFormalization.PSDMatrixLaplaceUniqueness
+import JinWishartFormalization.ActualNoncentralMatrixLaplace
+
+/-! Codex. Seed2026102509 controls precede source.
+[需人工审查] Actual properCN1 model and candidate support/transform hypotheses.
+This is a characterization, NOT a proof of an unverified candidate density. -/
+open Matrix MeasureTheory ProbabilityTheory
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+
+theorem noncentralWishart_eq_of_PSD_matrixLaplace {m n : ℕ}
+    (M : Matrix (Fin m) (Fin n) ℂ)
+    {ν : Measure (Matrix (Fin n) (Fin n) ℂ)} [IsFiniteMeasure ν]
+    (hν : ∀ᵐ W ∂ν, W.PosSemidef)
+    (hLaplace : ∀ T : Matrix (Fin n) (Fin n) ℂ, T.PosSemidef →
+      (∫ W, Real.exp (-(T * W).trace.re) ∂ν) =
+        (‖(1 + T).det‖ ^ m)⁻¹ * Real.exp (-(M * T * (1 + T)⁻¹ * Mᴴ).trace.re)) :
+    ν = complexNoncentralWishart M := by
+  have hactual : ∀ᵐ W ∂complexNoncentralWishart M, W.PosSemidef :=
+    (mem_ae_iff_prob_eq_one Matrix.posSemidef_is_closed.measurableSet).mpr
+      (complexNoncentralWishart_measure_posSemidef M)
+  apply finite_PSD_measures_eq_of_matrixLaplace hν hactual
+  intro T hT
+  exact (hLaplace T hT).trans (noncentralWishart_PSD_matrixLaplace M T hT).symm
+
+end
+end JinWishart
+#print axioms JinWishart.noncentralWishart_eq_of_PSD_matrixLaplace

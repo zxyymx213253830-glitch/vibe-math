@@ -1,0 +1,24 @@
+{
+  "id": "L-psd-matrix-uniqueness-hermitian_scalar_shift_posSemidef",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.HermitianScalarShiftPSD",
+  "declaration": "JinWishart.hermitian_scalar_shift_posSemidef",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-psd-matrix-uniqueness-exists_hermitian_trace_dual_norm_le"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-psd-matrix-uniqueness-exists_hermitian_trace_dual_norm_le"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-psd-matrix-uniqueness-HermitianScalarShiftPSD.json",
+    "source_sha256": "b9fa672df7a0d2dc0dc1e340993d95439dc896fd9e707b4a083e68ba435757bd"
+  }
+}

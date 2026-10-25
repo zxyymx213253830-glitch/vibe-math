@@ -1,0 +1,62 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:21:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:23:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:25:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:54:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  L W
+in the target expression
+  -f W + L W = -(T * W).trace.re
+
+n : ℕ
+μ ν : Measure (Matrix (Fin n) (Fin n) ℂ)
+inst✝¹ : IsFiniteMeasure μ
+inst✝ : IsFiniteMeasure ν
+hμ : ∀ᵐ (W : Matrix (Fin n) (Fin n) ℂ) ∂μ, W.PosSemidef
+hν : ∀ᵐ (W : Matrix (Fin n) (Fin n) ℂ) ∂ν, W.PosSemidef
+hLaplace :
+  ∀ (T : Matrix (Fin n) (Fin n) ℂ),
+    T.PosSemidef →
+      ∫ (W : Matrix (Fin n) (Fin n) ℂ), Real.exp (-(T * W).trace.re) ∂μ =
+        ∫ (W : Matrix (Fin n) (Fin n) ℂ), Real.exp (-(T * W).trace.re) ∂ν
+this✝¹ : BorelSpace (Matrix (Fin n) (Fin n) ℂ) := finite_PSD_measures_eq_of_matrixLaplace._proof_1_1
+this✝ : SecondCountableTopology (Matrix (Fin n) (Fin n) ℂ) := finite_PSD_measures_eq_of_matrixLaplace._proof_1_2
+this : CompleteSpace (Matrix (Fin n) (Fin n) ℂ) := finite_PSD_measures_eq_of_matrixLaplace._proof_1_3
+c : ℝ := 2 * ↑n + 1
+f : Matrix (Fin n) (Fin n) ℂ → ℝ := fun W => c * W.trace.re
+hf : Measurable f
+hbound : ∀ (W : Matrix (Fin n) (Fin n) ℂ), W.PosSemidef → ‖W‖ ≤ f W
+L : Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ
+hL : ‖L‖ < 1
+H : Matrix (Fin n) (Fin n) ℂ
+hH : H.IsHermitian
+hrep : ∀ (W : Matrix (Fin n) (Fin n) ℂ), W.IsHermitian → L W = (H * W).trace.re
+hnorm : ‖H‖ ≤ 2 * ‖L‖
+hl : ‖L‖ < 1
+hnorm' : ‖H‖ ≤ 2 * ‖L‖
+hc : ↑n * ‖H‖ ≤ c
+T : Matrix (Fin n) (Fin n) ℂ := ↑c • 1 - H
+hT : T.PosSemidef
+W : Matrix (Fin n) (Fin n) ℂ
+hW : W.PosSemidef
+⊢ -f W + L W = -(T * W).trace.re
+'JinWishart.finite_PSD_measures_eq_of_matrixLaplace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

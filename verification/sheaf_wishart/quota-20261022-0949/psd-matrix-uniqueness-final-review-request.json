@@ -1,0 +1,25 @@
+{
+  "inputs": {
+    "PSDTraceNormGeometry.lean": {
+      "sha256": "369acec02a67cd991ffec89b7ced2ac126a8c12a2d16e6d0ad8dda24c80ec22c",
+      "supplied": "Full source"
+    },
+    "HermitianTraceDualGeometry.lean": {
+      "sha256": "b1e4be22e3fb01400122cd280023d3e8694c105803873b2f07a58cc450304d43",
+      "supplied": "Full source"
+    },
+    "HermitianScalarShiftPSD.lean": {
+      "sha256": "b9fa672df7a0d2dc0dc1e340993d95439dc896fd9e707b4a083e68ba435757bd",
+      "supplied": "Full source"
+    },
+    "PSDMatrixLaplaceUniqueness.lean": {
+      "sha256": "b6fbceb941e2e0c93e46e375f986c8d42bb07b9840fc2b59f13084fb1ce17a99",
+      "supplied": "Full source"
+    },
+    "ActualNoncentralLaplaceCharacterization.lean": {
+      "sha256": "899f43209bb9db65a556b2413b88b06247dc78b878f7176f3732da8e139a6def",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "4b773684f6fe2d4859b498d7a6daae22527ea74d41877a10bc688f5aaa0d2099"
+}

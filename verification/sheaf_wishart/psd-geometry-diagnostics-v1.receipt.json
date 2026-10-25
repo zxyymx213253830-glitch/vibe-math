@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:27:40.398088+00:00",
+  "ended_utc": "2026-10-25T13:27:48.376908+00:00",
+  "module": "SheafPSDGeometryDiagnostics",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafPSDGeometryDiagnostics.lean",
+  "source_sha256_before": "387bc1c7c8f2aa8049a9d5175bfa3382d44ac0f7b4096e974dd2ac10acddd614",
+  "source_sha256": "387bc1c7c8f2aa8049a9d5175bfa3382d44ac0f7b4096e974dd2ac10acddd614",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/psd-geometry-diagnostics-v1.txt",
+  "log_exists": true,
+  "log_sha256": "f34f56560dcf5f03eea33c67bddb515540cf0fead22bf2e03f28577208b8a360",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

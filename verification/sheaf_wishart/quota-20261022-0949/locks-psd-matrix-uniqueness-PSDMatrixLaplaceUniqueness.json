@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-10-25T13:48:16.359647+00:00",
+  "module": "JinWishartFormalization.PSDMatrixLaplaceUniqueness",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PSDMatrixLaplaceUniqueness.lean",
+  "statements": {
+    "JinWishart.finite_PSD_measures_eq_of_matrixLaplace": "{n : ℕ} {μ ν : Measure (Matrix (Fin n) (Fin n) ℂ)} [IsFiniteMeasure μ] [IsFiniteMeasure ν] (hμ : ∀ᵐ W ∂μ, W.PosSemidef) (hν : ∀ᵐ W ∂ν, W.PosSemidef) (hLaplace : ∀ T : Matrix (Fin n) (Fin n) ℂ, T.PosSemidef → (∫ W, Real.exp (-(T * W).trace.re) ∂μ) = ∫ W, Real.exp (-(T * W).trace.re) ∂ν) : μ = ν"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/HermitianTraceDualGeometry.lean": "b1e4be22e3fb01400122cd280023d3e8694c105803873b2f07a58cc450304d43",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianTraceDualGeometry.olean": "5f25267e706e0bbc25d6257fc0150347561aa089f025b90d6e7656c2244e2f31",
+    "theory/jin_wishart_formalization/JinWishartFormalization/PSDTraceNormGeometry.lean": "369acec02a67cd991ffec89b7ced2ac126a8c12a2d16e6d0ad8dda24c80ec22c",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/PSDTraceNormGeometry.olean": "16e1efb26f6b13df23db9db33449ca91890e88ebf6f1d853d28f2bc4c498af1d",
+    "theory/jin_wishart_formalization/JinWishartFormalization/HermitianScalarShiftPSD.lean": "b9fa672df7a0d2dc0dc1e340993d95439dc896fd9e707b4a083e68ba435757bd",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/HermitianScalarShiftPSD.olean": "6dd1daddefa3ccea1cc17e8c4bbabd79f798de0d2e2f68e669c3ec41415efca4",
+    "theory/jin_wishart_formalization/JinWishartFormalization/DominatedLocalLaplaceUniqueness.lean": "a08825310f4e87dbd2f9ccb46eca28e825d026f7615679a4570aa925ef0d7438",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/DominatedLocalLaplaceUniqueness.olean": "a8b4b9e8f2a2e93f9aa90fcfdeb0fce67246efece6e7b8e3c047c384a98d4fb6",
+    "theory/jin_wishart_formalization/JinWishartFormalization/LocalDualMGFLawUniqueness.lean": "4e80ed0a61e408b95103abc7a98fe8c88dff302b500acbf99b089ff03ba2975e",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LocalDualMGFLawUniqueness.olean": "24ac3893f02efb27b1e9880e2816858f7075dc5fcf9bb1854ee97213a47ac5a9",
+    "theory/jin_wishart_formalization/JinWishartFormalization/LocalMGFLawUniqueness.lean": "9369eeb0f60a2f056fe85184f47061dd3ae3a2550de37e9b05151da61b6ee829",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/LocalMGFLawUniqueness.olean": "7b68537f864e0c997d18506e3b1891af81c3f51eaa148ca1ec7010e5fe9d06f7",
+    "theory/jin_wishart_formalization/JinWishartFormalization/PSDMatrixLaplaceUniqueness.lean": "b6fbceb941e2e0c93e46e375f986c8d42bb07b9840fc2b59f13084fb1ce17a99",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafPSDMatrixUniquenessTargets.lean",
+  "type_check_source_sha256": "e7a500208385da35a1e25f3b0c3949eedded73405a23d2a901b2e7060f2f0557",
+  "locked_local_definitions": {}
+}

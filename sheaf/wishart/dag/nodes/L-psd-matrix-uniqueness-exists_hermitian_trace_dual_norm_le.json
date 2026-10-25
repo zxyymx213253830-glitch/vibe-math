@@ -1,0 +1,24 @@
+{
+  "id": "L-psd-matrix-uniqueness-exists_hermitian_trace_dual_norm_le",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.HermitianTraceDualGeometry",
+  "declaration": "JinWishart.exists_hermitian_trace_dual_norm_le",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-psd-matrix-uniqueness-psd_entrySupNorm_le_trace_re"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-psd-matrix-uniqueness-psd_entrySupNorm_le_trace_re"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-psd-matrix-uniqueness-HermitianTraceDualGeometry.json",
+    "source_sha256": "b1e4be22e3fb01400122cd280023d3e8694c105803873b2f07a58cc450304d43"
+  }
+}

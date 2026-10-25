@@ -1,0 +1,24 @@
+{
+  "id": "L-psd-matrix-uniqueness-finite_PSD_measures_eq_of_matrixLaplace",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PSDMatrixLaplaceUniqueness",
+  "declaration": "JinWishart.finite_PSD_measures_eq_of_matrixLaplace",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-psd-matrix-uniqueness-hermitian_scalar_shift_posSemidef"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-psd-matrix-uniqueness-hermitian_scalar_shift_posSemidef"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-psd-matrix-uniqueness-PSDMatrixLaplaceUniqueness.json",
+    "source_sha256": "b6fbceb941e2e0c93e46e375f986c8d42bb07b9840fc2b59f13084fb1ce17a99"
+  }
+}

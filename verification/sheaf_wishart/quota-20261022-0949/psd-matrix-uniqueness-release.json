@@ -1,0 +1,13 @@
+{
+  "name": "psd-matrix-uniqueness",
+  "review": "psd-matrix-uniqueness-final",
+  "resolution": "notes/WISHART_PSD_MATRIX_LAPLACE_UNIQUENESS.md",
+  "facade": "facade-145",
+  "total": 921,
+  "new_count": 6,
+  "control_script": "experiments/psd_dual_trace_geometry_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/psd-dual-trace-geometry-control.json",
+  "seed": 2026102509,
+  "commit": "Characterize finite PSD matrix laws and actual noncentral Wishart by Laplace transforms",
+  "scope": "2026-10-25第十二里程碑：921绑定项（919定理实例+2构造），auditPASS/facade145真实exit0，156接受记录全验证。今日41打印声明21模块quota累计311/138非概率突破数。新6声明5模块闭合PSD矩阵entry-sup norm<=Re trace、全实连续双偶的Hermitian迹表示/norm<=2opnorm、Gershgorin cI-H PSD量化，以及所有有限PSD支持矩阵测度的全PSD Laplace唯一性；据此给出任意m,n固定M的actual非中心Wishart显式Laplace刻画。n0/奇异测度允许，无概率质量1/满秩/density前提；候选有限性/PSD支持/全Laplace仍是显式条件，不冒称G2密度已识别。168先行精确复数迹/零秩/负控制非证明；6字面类型/5完整源码真实QoderP4绑定，elementwise norm/AE非全局支配/小dual球域等误报按精确签名裁决。失败源含未采用的reducible尝试保留不接受，无unsafe override/预算升级，最终默认标准3。下一meanGram实际law参数桥见NEXT_MEAN_GRAM卡，暂无新控制源码。13:49:34UTCordinarytrue primary52 weekly24，两重置券未用；同tokenlease14:52:50非截止。人审解析/测度/模型原文仍需，冻结产物未改fullLake/Linux独立内核NOT_RUN；general surplus>2原T1/generalG2/noncentralG2/generalT2/journalT3/full映射OPEN。"
+}

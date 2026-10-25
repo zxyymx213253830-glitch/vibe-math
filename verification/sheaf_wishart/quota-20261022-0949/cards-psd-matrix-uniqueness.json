@@ -1,0 +1,72 @@
+[
+  {
+    "tag": "psd-matrix-uniqueness-PSDTraceNormGeometry",
+    "module": "PSDTraceNormGeometry",
+    "nodes": [
+      [
+        "L-psd-matrix-uniqueness-psd_entry_norm_le_trace_re",
+        "psd_entry_norm_le_trace_re",
+        []
+      ],
+      [
+        "L-psd-matrix-uniqueness-psd_entrySupNorm_le_trace_re",
+        "psd_entrySupNorm_le_trace_re",
+        [
+          "L-psd-matrix-uniqueness-psd_entry_norm_le_trace_re"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "psd-matrix-uniqueness-HermitianTraceDualGeometry",
+    "module": "HermitianTraceDualGeometry",
+    "nodes": [
+      [
+        "L-psd-matrix-uniqueness-exists_hermitian_trace_dual_norm_le",
+        "exists_hermitian_trace_dual_norm_le",
+        [
+          "L-psd-matrix-uniqueness-psd_entrySupNorm_le_trace_re"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "psd-matrix-uniqueness-HermitianScalarShiftPSD",
+    "module": "HermitianScalarShiftPSD",
+    "nodes": [
+      [
+        "L-psd-matrix-uniqueness-hermitian_scalar_shift_posSemidef",
+        "hermitian_scalar_shift_posSemidef",
+        [
+          "L-psd-matrix-uniqueness-exists_hermitian_trace_dual_norm_le"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "psd-matrix-uniqueness-PSDMatrixLaplaceUniqueness",
+    "module": "PSDMatrixLaplaceUniqueness",
+    "nodes": [
+      [
+        "L-psd-matrix-uniqueness-finite_PSD_measures_eq_of_matrixLaplace",
+        "finite_PSD_measures_eq_of_matrixLaplace",
+        [
+          "L-psd-matrix-uniqueness-hermitian_scalar_shift_posSemidef"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "psd-matrix-uniqueness-ActualNoncentralLaplaceCharacterization",
+    "module": "ActualNoncentralLaplaceCharacterization",
+    "nodes": [
+      [
+        "L-psd-matrix-uniqueness-noncentralWishart_eq_of_PSD_matrixLaplace",
+        "noncentralWishart_eq_of_PSD_matrixLaplace",
+        [
+          "L-psd-matrix-uniqueness-finite_PSD_measures_eq_of_matrixLaplace"
+        ]
+      ]
+    ]
+  }
+]

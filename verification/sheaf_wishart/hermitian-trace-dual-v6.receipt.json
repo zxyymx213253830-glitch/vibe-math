@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:33:57.509306+00:00",
+  "ended_utc": "2026-10-25T13:34:38.166299+00:00",
+  "module": "JinWishartFormalization.HermitianTraceDualGeometry",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianTraceDualGeometry.lean",
+  "source_sha256_before": "f660525be74afdc0e53c9d9fb6b70fa35b523aeeae32ad6a159bbed67324cefa",
+  "source_sha256": "f660525be74afdc0e53c9d9fb6b70fa35b523aeeae32ad6a159bbed67324cefa",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/hermitian-trace-dual-v6.txt",
+  "log_exists": true,
+  "log_sha256": "271bc6ded120484b1eec16d683a98729ce457ef908a30b2fc367d3899d0e2657",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

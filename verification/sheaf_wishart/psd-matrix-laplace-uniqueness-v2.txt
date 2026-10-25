@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:13:15: error: `JinWishart.matrixRealDualNorm` has already been declared
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:31:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  BorelSpace (Matrix (Fin n) (Fin n) ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:33:8: error: No goals to be solved
+'JinWishart.finite_PSD_measures_eq_of_matrixLaplace' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

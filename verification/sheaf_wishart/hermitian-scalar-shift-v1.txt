@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianScalarShiftPSD.lean:15:62: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianScalarShiftPSD.lean:19:30: error(lean.invalidField): Invalid field `HasEigenvector`: The environment does not contain `LinearMap.HasEigenvector`, so it is not possible to project the field `HasEigenvector` from an expression
+  toLin' B
+of type `(Fin n → ℂ) →ₗ[ℂ] Fin n → ℂ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianScalarShiftPSD.lean:20:4: error: Tactic `constructor` failed: target is not an inductive datatype
+
+n : ℕ
+H : Matrix (Fin n) (Fin n) ℂ
+hH : H.IsHermitian
+c : ℝ
+hc : ↑n * ‖H‖ ≤ c
+B : Matrix (Fin n) (Fin n) ℂ := ↑c • 1 - H
+hB : B.IsHermitian
+i : Fin n
+lam : ℝ := hB.eigenvalues i
+⊢ sorry
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianScalarShiftPSD.lean:25:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.118 ∈ @Metric.closedBall ?m.115 SeminormedAddCommGroup.toPseudoMetricSpace ?m.117 ?m.119
+in the target expression
+  ?m.104 ∈
+    @Metric.closedBall ?m.98 NormedCommRing.toSeminormedCommRing.toPseudoMetricSpace (?m.103 k k)
+      (∑ j ∈ univ.erase k, ‖?m.103 k j‖)
+
+n : ℕ
+H : Matrix (Fin n) (Fin n) ℂ
+hH : H.IsHermitian
+c : ℝ
+hc : ↑n * ‖H‖ ≤ c
+B : Matrix (Fin n) (Fin n) ℂ := ↑c • 1 - H
+hB : B.IsHermitian
+i : Fin n
+lam : ℝ := hB.eigenvalues i
+hv : sorry
+k : ?m.99
+hk : ?m.104 ∈ Metric.closedBall (?m.103 k k) (∑ j ∈ univ.erase k, ‖?m.103 k j‖)
+⊢ 0 i ≤ hB.eigenvalues i
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    ?m.103 k
+'JinWishart.hermitian_scalar_shift_posSemidef' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

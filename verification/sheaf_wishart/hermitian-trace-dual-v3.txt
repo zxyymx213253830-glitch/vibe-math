@@ -1,0 +1,41 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:28:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?f (?x + ?y)
+in the target expression
+  L (z.re • single i j 1 + z.im • single i j Complex.I) = z.re * L (single i j 1) + z.im * L (single i j Complex.I)
+
+n : ℕ
+L : (Fin n → Fin n → ℂ) →L[ℝ] ℝ
+i j : Fin n
+z : ℂ
+hz : single i j z = z.re • single i j 1 + z.im • single i j Complex.I
+⊢ L (z.re • single i j 1 + z.im • single i j Complex.I) = z.re * L (single i j 1) + z.im * L (single i j Complex.I)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    z.re • single i j 1 + z.im • single i j Complex.I
+  has type
+    Matrix (Fin n) (Fin n) ℂ
+  but is expected to have type
+    Fin n → Fin n → ℂ
+  in the application
+    L (z.re • single i j 1 + z.im • single i j Complex.I)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:41:4: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    W i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:62:4: error: Type mismatch: After simplification, term
+  ContinuousLinearMap.le_opNorm L (single j i 1)
+ has type
+  |L (single j i 1)| ≤ ‖L‖ * ‖single j i 1‖
+but is expected to have type
+  |L (single j i 1)| ≤ ‖L‖
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:65:4: error: Type mismatch: After simplification, term
+  ContinuousLinearMap.le_opNorm L (single j i Complex.I)
+ has type
+  |L (single j i Complex.I)| ≤ ‖L‖ * ‖single j i Complex.I‖
+but is expected to have type
+  |L (single j i Complex.I)| ≤ ‖L‖
+'JinWishart.exists_hermitian_trace_dual_norm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

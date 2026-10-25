@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-10-25T13:48:16.308579+00:00",
+  "module": "JinWishartFormalization.PSDTraceNormGeometry",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PSDTraceNormGeometry.lean",
+  "statements": {
+    "JinWishart.psd_entry_norm_le_trace_re": "{n : ℕ} {A : Matrix (Fin n) (Fin n) ℂ} (hA : A.PosSemidef) (i j : Fin n) : ‖A i j‖ ≤ A.trace.re",
+    "JinWishart.psd_entrySupNorm_le_trace_re": "{n : ℕ} {A : Matrix (Fin n) (Fin n) ℂ} (hA : A.PosSemidef) : ‖A‖ ≤ A.trace.re"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/PSDTraceNormGeometry.lean": "369acec02a67cd991ffec89b7ced2ac126a8c12a2d16e6d0ad8dda24c80ec22c",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafPSDMatrixUniquenessTargets.lean",
+  "type_check_source_sha256": "e7a500208385da35a1e25f3b0c3949eedded73405a23d2a901b2e7060f2f0557",
+  "locked_local_definitions": {}
+}

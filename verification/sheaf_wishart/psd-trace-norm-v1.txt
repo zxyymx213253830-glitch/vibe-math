@@ -1,0 +1,38 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:20:67: error: unsolved goals
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.PosSemidef
+i j : Fin n
+U : Matrix (Fin n) (Fin n) ℂ := ↑⋯.eigenvectorUnitary
+lam : Fin n → ℝ := ⋯.eigenvalues
+hU : ∀ (i k : Fin n), ‖U i k‖ ≤ 1
+hlam : ∀ (k : Fin n), 0 ≤ lam k
+⊢ ∑ j_1,
+      (∑ j, (⋯.eigenvectorBasis j).ofLp i * diagonal (Complex.ofReal ∘ ⋯.eigenvalues) j j_1) *
+        (starRingEnd ℂ) ((⋯.eigenvectorBasis j_1).ofLp j) =
+    ∑ k, (⋯.eigenvectorBasis k).ofLp i * ↑(⋯.eigenvalues k) * (starRingEnd ℂ) ((⋯.eigenvectorBasis k).ofLp j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:33:39: error: Type mismatch
+  hU ?m.267 ?m.268
+has type
+  ‖U ?m.267 ?m.268‖ ≤ 1
+but is expected to have type
+  0 ≤ 1 * lam k
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:33:39: error: Type mismatch
+  hU ?m.267 ?m.268
+has type
+  ‖U ?m.267 ?m.268‖ ≤ 1
+but is expected to have type
+  0 ≤ lam k
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:22:58: warning: This simp argument is unused:
+  Matrix.mul_diagonal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Unitary.conjStarAlgAut_apply, Matrix.mul_apply, Matrix.star_eq_conjTranspose, U, lam]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:37:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'JinWishart.psd_entry_norm_le_trace_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.psd_entrySupNorm_le_trace_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-25T13:48:16.327010+00:00",
+  "module": "JinWishartFormalization.HermitianTraceDualGeometry",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianTraceDualGeometry.lean",
+  "statements": {
+    "JinWishart.exists_hermitian_trace_dual_norm_le": "{n : ℕ} (L : Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ) : ∃ H : Matrix (Fin n) (Fin n) ℂ, H.IsHermitian ∧ (∀ W : Matrix (Fin n) (Fin n) ℂ, W.IsHermitian → L W = (H * W).trace.re) ∧ ‖H‖ ≤ 2 * ‖L‖"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/PSDTraceNormGeometry.lean": "369acec02a67cd991ffec89b7ced2ac126a8c12a2d16e6d0ad8dda24c80ec22c",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/PSDTraceNormGeometry.olean": "16e1efb26f6b13df23db9db33449ca91890e88ebf6f1d853d28f2bc4c498af1d",
+    "theory/jin_wishart_formalization/JinWishartFormalization/HermitianTraceDualGeometry.lean": "b1e4be22e3fb01400122cd280023d3e8694c105803873b2f07a58cc450304d43",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafPSDMatrixUniquenessTargets.lean",
+  "type_check_source_sha256": "e7a500208385da35a1e25f3b0c3949eedded73405a23d2a901b2e7060f2f0557",
+  "locked_local_definitions": {}
+}

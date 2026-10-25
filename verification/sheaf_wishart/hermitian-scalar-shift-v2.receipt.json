@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T13:38:10.214407+00:00",
+  "ended_utc": "2026-10-25T13:38:19.883461+00:00",
+  "module": "JinWishartFormalization.HermitianScalarShiftPSD",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianScalarShiftPSD.lean",
+  "source_sha256_before": "6f5de6e904790078ecf0bd9325a885b2aeba7623d22d4402c0db1d524f55edbb",
+  "source_sha256": "6f5de6e904790078ecf0bd9325a885b2aeba7623d22d4402c0db1d524f55edbb",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/hermitian-scalar-shift-v2.txt",
+  "log_exists": true,
+  "log_sha256": "e60cf633cc849938ddcc153d331e3d0efadd2f606f1dcf9d6f618c93fef0b5c3",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

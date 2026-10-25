@@ -1,0 +1,25 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:55:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:58:71: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:59:32: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:61:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:64:48: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:77:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:102:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'JinWishart.exists_hermitian_trace_dual_norm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

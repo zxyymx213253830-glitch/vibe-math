@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:25:4: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:24:64: warning: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_diagonal, Matrix.conjTranspose_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.psd_entry_norm_le_trace_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.psd_entrySupNorm_le_trace_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

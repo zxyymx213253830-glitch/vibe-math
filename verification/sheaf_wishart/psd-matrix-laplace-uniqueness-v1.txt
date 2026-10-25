@@ -1,0 +1,29 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:14:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MeasurableSpace (Matrix (Fin n) (Fin n) ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:14:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MeasurableSpace (Matrix (Fin n) (Fin n) ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:15:19: error(lean.invalidField): Invalid field notation: Type of
+  W
+is not known; cannot resolve field `PosSemidef`
+
+Hint: Consider replacing the field projection `.PosSemidef` with a call to the function `PosSemidef`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:15:48: error(lean.invalidField): Invalid field notation: Type of
+  W
+is not known; cannot resolve field `PosSemidef`
+
+Hint: Consider replacing the field projection `.PosSemidef` with a call to the function `PosSemidef`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:21:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MeasurableSpace (Matrix (Fin n) (Fin n) ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:21:42: error: `sorry ()` is not a `fun_prop` goal! Consider marking `sorryAx` with `@[fun_prop]`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:25:37: error: not a positivity goal
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:27:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MeasurableSpace (Matrix (Fin n) (Fin n) ℂ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDMatrixLaplaceUniqueness.lean:54:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.finite_PSD_measures_eq_of_matrixLaplace`

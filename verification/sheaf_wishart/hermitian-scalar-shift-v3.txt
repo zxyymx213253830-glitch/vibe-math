@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianScalarShiftPSD.lean:22:6: error: Type mismatch: After simplification, term
+  IsHermitian.mulVec_eigenvectorBasis hB i
+ has type
+  @Eq (Fin n → ℂ) (B *ᵥ (hB.eigenvectorBasis i).ofLp) (↑(hB.eigenvalues i) • (hB.eigenvectorBasis i).ofLp)
+but is expected to have type
+  @Eq (Fin n → ℂ) (B *ᵥ (hB.eigenvectorBasis i).ofLp) (↑(hB.eigenvalues i) • (hB.eigenvectorBasis i).ofLp)
+'JinWishart.hermitian_scalar_shift_posSemidef' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

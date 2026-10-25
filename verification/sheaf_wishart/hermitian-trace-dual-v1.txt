@@ -1,0 +1,55 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:15:22: error: Application type mismatch: The argument
+  Pi.single j ?m.33
+has type
+  (j : Fin n) → ?m.30 j
+but is expected to have type
+  ?m.26 i
+in the application
+  Pi.single i (Pi.single j ?m.33)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:40:24: warning: Possibly looping simp theorem: `dual_single_expand`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:40:4: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:42:58: error(lean.unknownIdentifier): Unknown constant `Complex.sum_re`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:44:2: error: Tactic `apply` failed: could not unify the conclusion of `sum_congr rfl`
+  Finset.sum ?m.102 ?m.99 = Finset.sum ?m.102 ?m.100
+with the goal
+  ∑ y, ∑ x, ((W x y).re * L (single x y 1) + (W x y).im * L (single x y Complex.I)) =
+    (∑ i, ∑ j, dualTraceKernel L i j * W j i).re
+
+Note: The full type of `sum_congr rfl` is
+  (∀ x ∈ ?m.102, ?m.99 x = ?m.100 x) → Finset.sum ?m.102 ?m.99 = Finset.sum ?m.102 ?m.100
+
+n : ℕ
+L : Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ
+W : Matrix (Fin n) (Fin n) ℂ
+he : L W = ∑ i, ∑ j, ((W i j).re * L (single i j 1) + (W i j).im * L (single i j Complex.I))
+⊢ ∑ y, ∑ x, ((W x y).re * L (single x y 1) + (W x y).im * L (single x y Complex.I)) =
+    (∑ i, ∑ j, dualTraceKernel L i j * W j i).re
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:52:71: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:53:32: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:55:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:58:48: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:71:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:94:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Norm (Matrix (Fin n) (Fin n) ℂ →L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:91:45: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `H ?a✝ ?a✝¹` is a value of type
+  ℂ
+'JinWishart.exists_hermitian_trace_dual_norm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

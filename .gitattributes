@@ -806,3 +806,17 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/tilted_laplace_uniqueness_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_TILTED_LOCAL_LAPLACE_UNIQUENESS.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/PSDTraceNormGeometry.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/HermitianTraceDualGeometry.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/HermitianScalarShiftPSD.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/PSDMatrixLaplaceUniqueness.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualNoncentralLaplaceCharacterization.lean -text whitespace=cr-at-eol
+
+/experiments/psd_dual_trace_geometry_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_PSD_MATRIX_LAPLACE_UNIQUENESS.md -text whitespace=cr-at-eol

@@ -1,0 +1,10 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:22:11: error: Function expected at
+  U * diagonal (RCLike.ofReal ∘ lam) * Uᴴ
+but this term has type
+  ?m.140
+
+Note: Expected a function because this term is being applied to the argument
+  i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PSDTraceNormGeometry.lean:37:37: error: failed to prove positivity/nonnegativity/nonzeroness
+'JinWishart.psd_entry_norm_le_trace_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.psd_entrySupNorm_le_trace_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

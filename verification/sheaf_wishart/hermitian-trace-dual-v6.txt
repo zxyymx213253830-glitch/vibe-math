@@ -1,0 +1,16 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:62:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:69:4: error: Type mismatch: After simplification, term
+  ContinuousLinearMap.le_opNorm L (single j i 1)
+ has type
+  @LE.le ℝ Real.instLE |L (single j i 1)| ‖L‖
+but is expected to have type
+  @LE.le ℝ Real.instLE |L (single j i 1)| ‖L‖
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianTraceDualGeometry.lean:72:4: error: Type mismatch: After simplification, term
+  ContinuousLinearMap.le_opNorm L (single j i Complex.I)
+ has type
+  @LE.le ℝ Real.instLE |L (single j i Complex.I)| ‖L‖
+but is expected to have type
+  @LE.le ℝ Real.instLE |L (single j i Complex.I)| ‖L‖
+'JinWishart.exists_hermitian_trace_dual_norm_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

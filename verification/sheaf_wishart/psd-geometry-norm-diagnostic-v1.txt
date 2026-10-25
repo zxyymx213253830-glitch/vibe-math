@@ -1,0 +1,2 @@
+Matrix.normedSpace
+Matrix.normedAddCommGroup

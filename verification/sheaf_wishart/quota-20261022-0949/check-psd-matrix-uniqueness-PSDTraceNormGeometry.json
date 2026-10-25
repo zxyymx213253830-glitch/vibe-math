@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "369acec02a67cd991ffec89b7ced2ac126a8c12a2d16e6d0ad8dda24c80ec22c",
+  "target_lock_sha256": "6094f7c5e899b40bcfd88688549c69e30e1cdfdcbd9ae95075e463b596ed1f5d",
+  "leaf": {
+    "started_utc": "2026-10-25T13:48:16.647639+00:00",
+    "ended_utc": "2026-10-25T13:48:25.118293+00:00",
+    "module": "JinWishartFormalization.PSDTraceNormGeometry",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/PSDTraceNormGeometry.lean",
+    "source_sha256_before": "369acec02a67cd991ffec89b7ced2ac126a8c12a2d16e6d0ad8dda24c80ec22c",
+    "source_sha256": "369acec02a67cd991ffec89b7ced2ac126a8c12a2d16e6d0ad8dda24c80ec22c",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/psd-matrix-uniqueness-PSDTraceNormGeometry-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "9a852ae9dea69b1e641a6f551e12b6def331f1d32f22b0f31fe0475e8ac1e790",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-25T13:49:00.769042+00:00",
+    "ended_utc": "2026-10-25T13:49:11.098488+00:00",
+    "module": "SheafPSDMatrixUniquenessTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafPSDMatrixUniquenessTargets.lean",
+    "source_sha256_before": "e7a500208385da35a1e25f3b0c3949eedded73405a23d2a901b2e7060f2f0557",
+    "source_sha256": "e7a500208385da35a1e25f3b0c3949eedded73405a23d2a901b2e7060f2f0557",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/psd-matrix-uniqueness-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

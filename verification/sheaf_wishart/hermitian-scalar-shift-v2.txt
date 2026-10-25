@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianScalarShiftPSD.lean:22:6: error: Type mismatch: After simplification, term
+  IsHermitian.mulVec_eigenvectorBasis hB i
+ has type
+  @Eq (Fin n → ℂ) (B *ᵥ (hB.eigenvectorBasis i).ofLp) (hB.eigenvalues i • (hB.eigenvectorBasis i).ofLp)
+but is expected to have type
+  @Eq (Fin n → ℂ) (B *ᵥ (hB.eigenvectorBasis i).ofLp) (↑lam • (hB.eigenvectorBasis i).ofLp)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianScalarShiftPSD.lean:23:13: error(lean.unknownIdentifier): Unknown identifier `ofLp_eq_zero`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianScalarShiftPSD.lean:15:87: warning: This simp argument is unused:
+  Complex.star_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [isSelfAdjoint_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.hermitian_scalar_shift_posSemidef' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
