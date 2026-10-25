@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-two-column-minimum-ActualCentralTwoColumnMinimum.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-two-column-minimum-ActualCentralTwoColumnMinimum.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/two-column-minimum-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-two-column-minimum-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-two-column-minimum-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-two-column-minimum-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/two-column-minimum-final-snapshot",
+    "resolution": "notes/WISHART_ORIGINAL_CENTRAL_TWO_COLUMN_MINIMUM.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-135.receipt.json"
+}

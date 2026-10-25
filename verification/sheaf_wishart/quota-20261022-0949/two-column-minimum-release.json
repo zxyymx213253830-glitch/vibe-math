@@ -1,0 +1,14 @@
+{
+  "name": "two-column-minimum",
+  "review": "two-column-minimum-final",
+  "resolution": "notes/WISHART_ORIGINAL_CENTRAL_TWO_COLUMN_MINIMUM.md",
+  "facade": "facade-135",
+  "total": 886,
+  "new_count": 2,
+  "control_script": "experiments/two_column_minimum_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/two-column-minimum-control.json",
+  "seed": 2026102416,
+  "reuse_control": true,
+  "commit": "Identify unchanged original central two-column T1 with actual minimum CDF",
+  "scope": "2026-10-25第二里程碑：886绑定项（884定理实例+2构造），auditPASS/facade135真实exit0，137接受记录全验证。今日6打印声明2模块quota累计276/119非概率突破数。新2声明闭合未改原T1(s,t,L)=(2,d+2,0)对所有d>=0,x>=0等于actual properCN1最小值弱CDF及上尾矩det比；与前日原T2及jointlaw一起覆盖所有m>=2中央两列两端分布。沿用已绑定55先行控制不重复；2字面类型/完整最终源码真实Qoder P4绑定，参数化m=d+2被误作固定维数、实际排序/支持、d0可积与toReal总函数误报按精确声明裁决。下一central两列T3源转录candidate与实际crossing的阶乘归一化关系，保持既有theorem3DerivedC3与原candidate分开，不宣称journal勘误。07:51UTCordinarytrue primary11 weekly2，两个重置券未用；同tokenlease09:43:38非用户截止。人审测度/模型原文仍需，冻结产物未改fullLake/Linux独立内核NOT_RUN；general>2列/noncentralG2/generalT1T2/journalT3/full映射OPEN。"
+}

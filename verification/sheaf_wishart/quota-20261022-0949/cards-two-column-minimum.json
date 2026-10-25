@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "two-column-minimum-ActualCentralTwoColumnMinimum",
+    "module": "ActualCentralTwoColumnMinimum",
+    "nodes": [
+      [
+        "L-two-column-minimum-actualCentralTwoColumn_minimum_tail_momentDet",
+        "actualCentralTwoColumn_minimum_tail_momentDet",
+        []
+      ],
+      [
+        "L-two-column-minimum-theorem1CentralTwoColumn_candidate_eq_actualCDF",
+        "theorem1CentralTwoColumn_candidate_eq_actualCDF",
+        [
+          "L-two-column-minimum-actualCentralTwoColumn_minimum_tail_momentDet"
+        ]
+      ]
+    ]
+  }
+]

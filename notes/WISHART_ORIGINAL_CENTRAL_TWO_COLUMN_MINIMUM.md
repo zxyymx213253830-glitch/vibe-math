@@ -1,0 +1,15 @@
+# Original central two-column T1 equals actual minimum CDF
+
+Two Codex exports prove the strict minimum tail as the upper-Gamma moment determinant divided by d!(d+1)!, and the unchanged original theorem1CdfCandidate(s,t,L)=(2,d+2,0) equals the actual properCN1 minimum weakCDF for every natural d and x>=0. Row counts are precisely all m>=2, parameterized m=d+2; this does not describe the m<2 singular column-Gram minimum. Reuses actual central two-column joint law, finite upper-tail moment measure, original Psi determinant and unchanged Psi0 normalizer. No target density, rank or atomlessness hypothesis is added. Exact strict-tail/weak-CDF complement suffices.
+
+Existing seed2026102416's55 independent upper-Gamma/tail quadrature controls precede source and are reused identically (already audit-bound), not rerun/count-inflated. First leaf exit0 with standard3 axioms; immutable final source and two independent literal targets bound. Nonblocking deprecated membership/if warnings and old ring hint retained. Real full-source tools-disabled Qwen3.8-Max P4 delivered; not human review/independent compilation.
+
+## P4 resolution against exact statements
+
+1. d is quantified over ALL natural numbers and appears in the ACTUAL source type ComplexSample(m=d+2,n=2), not merely in a density exponent. This covers every integer m>=2 by d=m-2. The reviewer incorrectly calls this a hardcoded fixed row count. m0/1 are deliberately outside this two-positive-eigenvalue formula domain.
+2. centralTwoColumnEigenpair_eq_ordered, already accepted, identifies its first/second coordinates with actual descending largest/smallest column-Gram eigenvalues for every m. actualCentralTwoColumn_jointEigenvalueDensity proves the actual pushforward law, not an assumed surrogate, and it explicitly has strict ordered positive support. Multiplying by its indicator then using P intersect S=R intersect O preserves full event probability; no unordered contribution is discarded.
+3. d0 integrability is an already proved theorem quantified over all d:Nat, not a new caller premise. Original Psi0 formula likewise holds for every d with positive factorial denominator.
+4. congrArg ENNReal.toReal is ALWAYS valid because toReal is a total function. ENNReal.toReal_mul is a total multiplicative identity. The RHS is explicitly ofReal(finite real moment determinant), and toReal_ofReal is used only with proved nonnegativity; coefficient of the actual event is strictly positive finite C. No ENNReal subtraction, infinity-minus-infinity, or divergent Bochner substitution occurs. Probability measures also ensure event mass finite, but a separate hypothesis before congrArg is unnecessary.
+5. The complement event equality is exact; no threshold boundary premise is needed.
+
+[需人工审查] Ordered support, weighted improper integrals, physical variance and original paper/source correspondence. Frozen paper/PDF/upload/code artifacts unchanged; fullLake/Linux independent kernel NOT_RUN. General >2-column/noncentral T1/T2 and journal T3 remain OPEN.

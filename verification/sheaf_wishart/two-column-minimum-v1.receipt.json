@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T07:50:06.032271+00:00",
+  "ended_utc": "2026-10-25T07:50:19.515284+00:00",
+  "module": "JinWishartFormalization.ActualCentralTwoColumnMinimum",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualCentralTwoColumnMinimum.lean",
+  "source_sha256_before": "d3889084c2b1f8def9c6d976e3ce0d76cc38f7dad2e4e9c1b5b1c5c13394513a",
+  "source_sha256": "d3889084c2b1f8def9c6d976e3ce0d76cc38f7dad2e4e9c1b5b1c5c13394513a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/two-column-minimum-v1.txt",
+  "log_exists": true,
+  "log_sha256": "63f4a30678352afceca32bd5b792c37609fca05ea3347968c3981a0bedc4c3fd",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

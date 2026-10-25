@@ -1,0 +1,20 @@
+{
+  "id": "L-two-column-minimum-actualCentralTwoColumn_minimum_tail_momentDet",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualCentralTwoColumnMinimum",
+  "declaration": "JinWishart.actualCentralTwoColumn_minimum_tail_momentDet",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-minimum-ActualCentralTwoColumnMinimum.json",
+    "source_sha256": "d3889084c2b1f8def9c6d976e3ce0d76cc38f7dad2e4e9c1b5b1c5c13394513a"
+  }
+}

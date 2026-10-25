@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ActualCentralTwoColumnMinimum.lean": {
+      "sha256": "d3889084c2b1f8def9c6d976e3ce0d76cc38f7dad2e4e9c1b5b1c5c13394513a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "86fb759dd7a8066e4830b17c2b2147542523c7e50e0f9b1aa356d4c861ebbb0e"
+}

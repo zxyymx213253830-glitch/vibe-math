@@ -147,3 +147,4 @@
 - 2026-10-24T13:28:41.178813+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-maximum-PowerExponentialIntervalMoments.json; human measure/model review remains REQUIRED.
 - 2026-10-24T13:28:53.994306+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-maximum-ActualCentralTwoColumnMaximum.json; human measure/model review remains REQUIRED.
 - 2026-10-25T07:49:33.743784+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-power-tail-PowerExponentialTailMoments.json; human measure/model review remains REQUIRED.
+- 2026-10-25T07:55:38.246006+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-minimum-ActualCentralTwoColumnMinimum.json; human measure/model review remains REQUIRED.
