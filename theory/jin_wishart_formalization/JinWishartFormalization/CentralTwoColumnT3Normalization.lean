@@ -1,0 +1,130 @@
+import JinWishartFormalization.ActualCentralTwoColumnMinimum
+import JinWishartFormalization.T3CentralNormalizationClosure
+import JinWishartFormalization.OrderedEigenvalueStrictRecurrence
+
+/-! Codex. Seed2026102501 precedes source. Exact central two-column normalization
+of the current SOURCE TRANSCRIPTION, kept distinct from the derived constant.
+Not a journal erratum. [需人工审查] Source/model and normalization correspondence. -/
+open Matrix MeasureTheory ProbabilityTheory Set Finset
+open scoped ENNReal
+namespace JinWishart
+noncomputable section
+
+def centralTwoColumnT3Factor (d : ℕ) : ℝ := (d.factorial : ℝ)*((d+1).factorial : ℝ)
+def centralTwoColumnStrictCrossing (d : ℕ) (x : ℝ) : ℝ≥0∞ :=
+  (stdGaussian (ComplexSample (m := d+2) (n := 2)))
+    {z | (centralTwoColumnEigenpair z).2<x ∧ x<(centralTwoColumnEigenpair z).1}
+
+private theorem factor_pos (d : ℕ) : 0<centralTwoColumnT3Factor d := by
+  unfold centralTwoColumnT3Factor
+  positivity
+private theorem meas_pair (d : ℕ) : Measurable (centralTwoColumnEigenpair (m := d+2)) :=
+  measurable_twoColumnMatrixEigenpair.comp measurable_complexSampleGram
+
+private theorem minimum_atom_zero (d : ℕ) (x : ℝ) :
+    (stdGaussian (ComplexSample (m := d+2) (n := 2))) {z | (centralTwoColumnEigenpair z).2=x}=0 := by
+  have hv : (volume : Measure (ℝ × ℝ)) {y | y.2=x}=0 := by
+    have hs : {y : ℝ × ℝ | y.2=x}=univ ×ˢ ({x} : Set ℝ) := by ext y;simp
+    rw [hs,Measure.volume_eq_prod,Measure.prod_prod]
+    simp
+  have h := withDensity_absolutelyContinuous (volume : Measure (ℝ × ℝ))
+    (centralTwoColumnEigenvalueDensity d) hv
+  rw [← actualCentralTwoColumn_jointEigenvalueDensity,centralTwoColumnJointEigenvalueLaw,
+    Measure.map_apply (meas_pair d) (measurableSet_eq_fun measurable_snd measurable_const)] at h
+  exact h
+
+private theorem strict_real_recurrence (d : ℕ) (x : ℝ) :
+    ((stdGaussian (ComplexSample (m := d+2) (n := 2))) {z | (centralTwoColumnEigenpair z).2≤x}).toReal=
+      ((stdGaussian (ComplexSample (m := d+2) (n := 2))) {z | (centralTwoColumnEigenpair z).1≤x}).toReal+
+      (centralTwoColumnStrictCrossing d x).toReal := by
+  have ho (z : ComplexSample (m := d+2) (n := 2)) :
+      (centralTwoColumnEigenpair z).2≤(centralTwoColumnEigenpair z).1 := by
+    have hr : 0≤twoRowTracelessRadius (complexSampleGram z) := norm_nonneg _
+    dsimp [centralTwoColumnEigenpair,twoColumnMatrixEigenpair]
+    linarith
+  have h := orderedPair_sublevelMass_eq_add_strict
+    (stdGaussian (ComplexSample (m := d+2) (n := 2)))
+    (fun z => (centralTwoColumnEigenpair z).2) (fun z => (centralTwoColumnEigenpair z).1)
+    (measurable_snd.comp (meas_pair d)) (measurable_fst.comp (meas_pair d)) x ho (minimum_atom_zero d x)
+  change (stdGaussian (ComplexSample (m := d+2) (n := 2))) {z | (centralTwoColumnEigenpair z).2≤x}=
+    (stdGaussian (ComplexSample (m := d+2) (n := 2))) {z | (centralTwoColumnEigenpair z).1≤x}+
+      centralTwoColumnStrictCrossing d x at h
+  have hi : centralTwoColumnStrictCrossing d x≠⊤ := measure_ne_top _ _
+  have ht := congrArg ENNReal.toReal h
+  rw [ENNReal.toReal_add (measure_ne_top _ _) hi] at ht
+  exact ht
+
+private theorem c3_eq_one (d : ℕ) : theorem3C3 2 (d+2) 0 (by omega) emptyNoncentralSpectrum=1 := by
+  norm_num [theorem3C3,theorem3GammaFactor,Fin.prod_univ_succ]
+
+private theorem two_rowMix_sum (A B : Matrix (Fin 2) (Fin 2) ℂ) :
+    (rowMix A B {0}).det+(rowMix A B {1}).det=(A+B).det-A.det-B.det := by
+  simp [Matrix.det_fin_two,rowMix]
+  ring
+
+private theorem raw_eq_moment_difference (d : ℕ) (x : ℝ) (hx : 0≤x) :
+    theorem3IncrementCandidate 2 (d+2) 0 2 (by omega) (by omega) emptyNoncentralSpectrum x=
+      ((centralTwoColumnT3Factor d-twoMomentDeterminant (powerExponentialTailMeasure d x)-
+        twoMomentDeterminant (powerExponentialIntervalMeasure d x) : ℝ) : ℂ) := by
+  rw [theorem3IncrementCandidate,c3_eq_one,Complex.ofReal_one,one_mul]
+  simp only [theorem3ThetaDetSum,show 2-1=1 by decide]
+  rw [sum_powerset_card_one,Fin.sum_univ_two]
+  change (rowMix (theorem1PsiMatrix 2 (d+2) 0 (by omega) (by omega) emptyNoncentralSpectrum.values x)
+      (theorem2XiMatrix 2 (d+2) 0 (by omega) (by omega) emptyNoncentralSpectrum.values x) {0}).det+
+    (rowMix (theorem1PsiMatrix 2 (d+2) 0 (by omega) (by omega) emptyNoncentralSpectrum.values x)
+      (theorem2XiMatrix 2 (d+2) 0 (by omega) (by omega) emptyNoncentralSpectrum.values x) {1}).det=_
+  rw [two_rowMix_sum,add_comm (theorem1PsiMatrix _ _ _ _ _ _ _) _,theorem2XiMatrix_add_theorem1PsiMatrix]
+  change (theorem1PsiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) 0).det-
+    (theorem1PsiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det-
+    (theorem2XiMatrix 2 (d+2) 0 (by omega) (by omega) (fun j : Fin 0 => Fin.elim0 j) x).det=_
+  rw [theorem1CentralTwoColumn_PsiDet_zero,theorem1CentralTwoColumn_PsiDet_eq_tailMoments d x hx,
+    theorem2CentralTwoColumn_XiDet_eq_intervalMoments d x hx]
+  unfold centralTwoColumnT3Factor
+  push_cast
+  ring
+
+theorem centralTwoColumn_originalT3_factor (d : ℕ) (x : ℝ) (hx : 0≤x) :
+    theorem3IncrementCandidate 2 (d+2) 0 2 (by omega) (by omega) emptyNoncentralSpectrum x=
+      ((centralTwoColumnT3Factor d*(centralTwoColumnStrictCrossing d x).toReal : ℝ) : ℂ) := by
+  have h := strict_real_recurrence d x
+  rw [← theorem1CentralTwoColumn_candidate_eq_actualCDF d x hx,
+    ← theorem2CentralTwoColumn_candidate_eq_actualCDF d x hx] at h
+  have hT := (ordered_square_gap_moment_identity (powerExponentialTailMeasure d x)
+    (by simpa using powerExponentialTail_integrable_pow d x 1) (powerExponentialTail_integrable_pow d x 2)).1
+  have hI := (ordered_square_gap_moment_identity (powerExponentialIntervalMeasure d x)
+    (by simpa using powerExponentialInterval_integrable_pow d x 1) (powerExponentialInterval_integrable_pow d x 2)).1
+  have hC := factor_pos d
+  rw [theorem1CdfCandidate,theorem2CdfCandidate,theorem1CentralTwoColumn_PsiDet_zero,
+    theorem1CentralTwoColumn_PsiDet_eq_tailMoments d x hx,theorem2CentralTwoColumn_XiDet_eq_intervalMoments d x hx,
+    Complex.norm_of_nonneg hT,Complex.norm_of_nonneg hI,
+    Complex.norm_of_nonneg (by positivity : 0≤(d.factorial : ℝ)*((d+1).factorial : ℝ))] at h
+  change 1-twoMomentDeterminant (powerExponentialTailMeasure d x)/centralTwoColumnT3Factor d=
+    twoMomentDeterminant (powerExponentialIntervalMeasure d x)/centralTwoColumnT3Factor d+
+      (centralTwoColumnStrictCrossing d x).toReal at h
+  field_simp [hC.ne'] at h
+  rw [raw_eq_moment_difference d x hx]
+  congr 1
+  nlinarith [h]
+
+theorem centralTwoColumn_derivedT3_probability (d : ℕ) (x : ℝ) (hx : 0≤x) :
+    (theorem3DerivedC3 2 (d+2) 0 (by omega) emptyNoncentralSpectrum : ℂ)*
+      theorem3ThetaDetSum 2 (d+2) 0 2 (by omega) (by omega) emptyNoncentralSpectrum x=
+        ((centralTwoColumnStrictCrossing d x).toReal : ℂ) := by
+  have hd : theorem3DerivedC3 2 (d+2) 0 (by omega) emptyNoncentralSpectrum=1/centralTwoColumnT3Factor d := by
+    rw [theorem3DerivedC3,c3_eq_one]
+    unfold centralTwoColumnT3Factor T3NormalizationAudit.factorialMultigamma
+    norm_num [Fin.prod_univ_two]
+    rw [Fin.prod_univ_two]
+    norm_num
+    ring
+  have he : theorem3ThetaDetSum 2 (d+2) 0 2 (by omega) (by omega) emptyNoncentralSpectrum x=
+      theorem3IncrementCandidate 2 (d+2) 0 2 (by omega) (by omega) emptyNoncentralSpectrum x := by
+    rw [theorem3IncrementCandidate,c3_eq_one,Complex.ofReal_one,one_mul]
+  rw [hd,he,centralTwoColumn_originalT3_factor d x hx]
+  have hC : (centralTwoColumnT3Factor d : ℂ)≠0 := by exact_mod_cast (factor_pos d).ne'
+  push_cast
+  field_simp
+end
+end JinWishart
+#print axioms JinWishart.centralTwoColumn_originalT3_factor
+#print axioms JinWishart.centralTwoColumn_derivedT3_probability

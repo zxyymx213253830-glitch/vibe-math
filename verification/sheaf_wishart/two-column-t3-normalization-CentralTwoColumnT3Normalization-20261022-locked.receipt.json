@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T08:04:21.644862+00:00",
+  "ended_utc": "2026-10-25T08:04:41.017987+00:00",
+  "module": "JinWishartFormalization.CentralTwoColumnT3Normalization",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CentralTwoColumnT3Normalization.lean",
+  "source_sha256_before": "6a9bc14585cc5ff0ebfdff2e3d4dbc18cb4986b825841697c07bffa8ea009f2c",
+  "source_sha256": "6a9bc14585cc5ff0ebfdff2e3d4dbc18cb4986b825841697c07bffa8ea009f2c",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/two-column-t3-normalization-CentralTwoColumnT3Normalization-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "05a3a1f5d9995e727b260421ff4d673f69324ea349a1d60b3adf5fb825656c81",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

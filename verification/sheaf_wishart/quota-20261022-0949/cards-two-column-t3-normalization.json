@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "two-column-t3-normalization-CentralTwoColumnT3Normalization",
+    "module": "CentralTwoColumnT3Normalization",
+    "nodes": [
+      [
+        "L-two-column-t3-normalization-centralTwoColumn_originalT3_factor",
+        "centralTwoColumn_originalT3_factor",
+        []
+      ],
+      [
+        "L-two-column-t3-normalization-centralTwoColumn_derivedT3_probability",
+        "centralTwoColumn_derivedT3_probability",
+        [
+          "L-two-column-t3-normalization-centralTwoColumn_originalT3_factor"
+        ]
+      ]
+    ]
+  }
+]

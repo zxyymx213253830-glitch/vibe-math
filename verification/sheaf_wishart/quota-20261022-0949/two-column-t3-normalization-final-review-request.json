@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CentralTwoColumnT3Normalization.lean": {
+      "sha256": "6a9bc14585cc5ff0ebfdff2e3d4dbc18cb4986b825841697c07bffa8ea009f2c",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "2e1c9c6b7612e3d7601148497beb011cb5e68f3962a6a34ed6b25b3a4804df3f"
+}

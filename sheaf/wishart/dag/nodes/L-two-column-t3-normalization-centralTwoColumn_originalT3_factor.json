@@ -1,0 +1,20 @@
+{
+  "id": "L-two-column-t3-normalization-centralTwoColumn_originalT3_factor",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CentralTwoColumnT3Normalization",
+  "declaration": "JinWishart.centralTwoColumn_originalT3_factor",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-two-column-t3-normalization-CentralTwoColumnT3Normalization.json",
+    "source_sha256": "6a9bc14585cc5ff0ebfdff2e3d4dbc18cb4986b825841697c07bffa8ea009f2c"
+  }
+}

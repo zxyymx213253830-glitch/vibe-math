@@ -1,0 +1,7 @@
+{
+  "seed": 2026102501,
+  "checks": 52,
+  "status": "PASS calibrated controls; not proof",
+  "reference": "Independent strict crossing strip integral against actual ordered density, unchanged mixed-row candidate/C, exact min/max event decomposition and square2 closed calibration; retained2x3 transcription witness",
+  "source_sha256": "458df04ec4712faeaa610391cee4de2e117c35dda4079a72cf17ce2727f2d091"
+}
