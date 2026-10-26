@@ -1,0 +1,40 @@
+{
+  "name": "normalizer-closure",
+  "review": "partial-rank-foundations-final",
+  "review_for_module": {
+    "MixedNoncentralMomentMatrix": "mixed-psi-normalizer-final",
+    "OriginalPsiNormalizerNonzero": "mixed-psi-normalizer-final"
+  },
+  "resolution": "notes/WISHART_ORIGINAL_PSI_NORMALIZER_NONZERO.md",
+  "facade": "facade-151",
+  "total": 969,
+  "new_count": 19,
+  "control_script": "experiments/noncentral_full_rank_determinant_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/noncentral-full-rank-determinant-control.json",
+  "seed": 2026102605,
+  "additional_controls": [
+    {
+      "script": "experiments/noncentral_gamma_column_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/noncentral-gamma-column-control.json",
+      "seed": 2026102606
+    },
+    {
+      "script": "experiments/zero_confluent_vandermonde_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/zero-confluent-vandermonde-control.json",
+      "seed": 2026102607
+    },
+    {
+      "script": "experiments/mixed_noncentral_moment_matrix_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/mixed-noncentral-moment-matrix-control.json",
+      "seed": 2026102608
+    },
+    {
+      "script": "experiments/original_psi_partial_rank_transport_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/original-psi-partial-rank-transport-control.json",
+      "seed": 2026102609
+    }
+  ],
+  "commit": "Prove original noncentral Psi normalizer nonzero for every permitted rank",
+  "scope": "2026-10-26固定一小时恢复里程碑：969绑定项（967定理实例+2构造），auditPASS/facade151真实exit0，170接受记录全验证。新增19打印声明5模块，今日40声明11模块quota累计359/152非概率突破数。一般monic矩多项式/所有系数及Gamma列三角变换、零点系数confluent块、C*V*Gamma块完整混合矩阵分解及det公式/非零、原Psi0所有L<=s<=t且lambda严格正互异的det非零闭合，含rank0/空维；无目标density/CDF/分母非零前提，不声称actualG2识别。300/948/195/464/409五seed先行控制非证明，19字面类型/全部锁定共享gate标准3exit0。用户分别批准3源和2源，两次90s禁工具真实QoderP4完整最终源码绑定；符号/三角guard/误读det_mul_row等按精确pinned接口裁决，未改活动源/升预算。固定窗口11:48:51--12:48:51UTC，自动任务保持PAUSED，普通额度11:48:51true primary3 weekly16，两券未用。人审测度/索引/模型仍需，冻结产物未改fullLake/Linux独立内核NOT_RUN；候选正性/概率归一化/实际jointlaw与generalG2/T1T2/journalT3/full映射仍OPEN。",
+  "clear_pending_review": true
+}

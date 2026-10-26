@@ -15,8 +15,10 @@ frozen=a.read(run/'subset-summary.json')['frozen_hashes']
 for p,h in frozen.items():assert a.sha(R/p)==h
 for name in ['WISHART_STATUS.md','THEOREM_COVERAGE_AUDIT.md','JIN_WISHART_THEOREM_TRACKER.md','WISHART_LOGDET_RESEARCH_CLAIMS.md']:
  p=R/'notes'/name;p.write_text(c['scope']+'\n\n'+p.read_text(encoding='utf-8'),encoding='utf-8')
-state=a.read(a.SESSION/'state.json');state.update(checkpoint=c['scope'],updated_utc=a.now());a.write(a.SESSION/'state.json',state)
-(a.PROJECT/'coord/STATE.md').write_text('# State\n\n'+c['scope']+'\n\nOutside target closure does not mean unproved; consult exact node evidence. One current coordinator, technical lease only; heartbeat ACTIVE; no parallel/background Lean worker. Human review REQUIRED; fullLake and Linux independent kernel NOT_RUN; frozen publications unchanged.\n',encoding='utf-8')
+state=a.read(a.SESSION/'state.json');state.update(checkpoint=c['scope'],updated_utc=a.now())
+if c.get('clear_pending_review'):state['pending_review']=None
+a.write(a.SESSION/'state.json',state)
+(a.PROJECT/'coord/STATE.md').write_text('# State\n\n'+c['scope']+'\n\nOutside target closure does not mean unproved; consult exact node evidence. One current coordinator, technical lease only; heartbeat '+str(state.get('automation_status','UNKNOWN'))+'; user deadline '+str(state.get('user_deadline_utc'))+'; no parallel/background Lean worker. Human review REQUIRED; fullLake and Linux independent kernel NOT_RUN; frozen publications unchanged.\n',encoding='utf-8')
 attrs=R/'.gitattributes';body=attrs.read_text(encoding='utf-8')
 sources=['theory/jin_wishart_formalization/JinWishartFormalization/'+card['module']+'.lean' for card in cards]
 for p in sources+[c['control_script'],c['resolution']]+[v['script'] for v in c.get('additional_controls',[])]:

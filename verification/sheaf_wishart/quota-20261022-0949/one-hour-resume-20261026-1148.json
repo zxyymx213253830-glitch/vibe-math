@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-10-26T11:48:51+00:00",
+  "resumed_utc": "2026-10-26T11:49:39.446538+00:00",
+  "user_deadline_utc": "2026-10-26T12:48:51+00:00",
+  "technical_lease_utc": "2026-10-26T13:49:39.446538+00:00",
+  "ordinaryUsageAllowed": true,
+  "primary_used": 3,
+  "weekly_used": 16,
+  "reset_credits_used": 0,
+  "automation": "PAUSED throughout this fixed hour",
+  "no_gap_activity_inferred": true
+}

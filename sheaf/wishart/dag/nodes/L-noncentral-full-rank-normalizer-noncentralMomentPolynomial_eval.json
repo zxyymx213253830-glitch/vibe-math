@@ -13,6 +13,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-full-rank-normalizer-NoncentralFullRankNormalizer.json",
+    "source_sha256": "8bce4f305397773b5b1548afc5bf58de9c05288c1dc98213ebbda442cc3a651d"
   }
 }

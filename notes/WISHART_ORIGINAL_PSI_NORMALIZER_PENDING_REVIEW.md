@@ -1,3 +1,5 @@
+HISTORICAL pending checkpoint. Both scoped external permissions have now been explicitly granted and both actual full-source P4 responses returned; exact resolutions are in WISHART_ORIGINAL_PSI_NORMALIZER_NONZERO.md. Final facade/audit acceptance follows separately. Historical totals/permission wording below are not current.
+
 ARCHIVED QUOTA STOP: ordinaryUsageAllowed=false was observed08:53:21UTC. Latest TWO-file disclosure authorization has since arrived and is saved, but no review was transmitted. FirstTHREE remain unanswered. No further research/checks after stop; automationPAUSED. Historical pending wording below describes the earlier checkpoint.
 
 # Original Psi(0) nonzero — PENDING full-source review

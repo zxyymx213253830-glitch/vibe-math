@@ -13,6 +13,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-original-psi-normalizer-OriginalPsiNormalizerNonzero.json",
+    "source_sha256": "08f84016aa917c4226d36cd58e63f0dbabe52f1199c7e3aeb1c0f5fc09ea5cb5"
   }
 }

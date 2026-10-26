@@ -20,11 +20,13 @@
   ],
   "seconds": 90,
   "tools_disabled": true,
-  "transmitted": false,
+  "transmitted": true,
   "deferred_reason": "Actual ordinaryUsageAllowed=false quota stop was already observed; authorization saved for a future explicit resume.",
   "does_not_cover": [
     "NoncentralFullRankNormalizer.lean",
     "NoncentralGammaMomentColumns.lean",
     "ZeroConfluentVandermonde.lean"
-  ]
+  ],
+  "receipt": "p4-mixed-psi-normalizer-final.receipt.json",
+  "resume": "Explicit one-hour user resume on2026-10-26"
 }

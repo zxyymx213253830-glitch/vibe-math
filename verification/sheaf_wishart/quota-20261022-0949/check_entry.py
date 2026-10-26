@@ -11,6 +11,8 @@ state=a.read(a.SESSION/'state.json')
 claim=a.read(a.PROJECT/'coord/claims/quota-20261022-0949.lock')
 assert state['current_coordinator_token']==claim['token']
 assert datetime.now(timezone.utc)<datetime.fromisoformat(claim['technical_lease_utc'])
+if state.get('user_hard_deadline'):
+ assert datetime.now(timezone.utc)<datetime.fromisoformat(state['user_deadline_utc']), 'User hard deadline reached; no new Lean gate'
 with a.exclusive(a.PROJECT/'coord/operation.lock','codex-quota-20261022-0949'):
  result=a.gated(source,module,tag,source.parent if len(sys.argv)>3 else None)
  if module=='JinWishartFormalization':

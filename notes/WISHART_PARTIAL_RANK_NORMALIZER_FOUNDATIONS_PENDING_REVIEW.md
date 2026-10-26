@@ -1,3 +1,5 @@
+HISTORICAL pending checkpoint. Both scoped external permissions have now been explicitly granted and both actual full-source P4 responses returned; exact resolutions are in WISHART_ORIGINAL_PSI_NORMALIZER_NONZERO.md. Final facade/audit acceptance follows separately. Historical totals/permission wording below are not current.
+
 # Partial-rank normalizer foundations — PENDING review
 
 Accepted950 unchanged. PENDING13 exports/3 modules: NoncentralFullRankNormalizer(5), NoncentralGammaMomentColumns(5),ZeroConfluentVandermonde(3). All final shared immutable gates and13 independent literal types PASS standard3. Three-source external Qoder authorization newly requested; no transmission/P4/acceptance for this bundle yet. The earlier single-file request is subsumed only if the human explicitly approves all3. Controls2605=300,2606=948,2607=195 PASS before corresponding sources; not proofs. Full-rank originalPsi(0) nonzero is proved, Gamma column triangular transform and zero-confluent coefficient matrix separately proved; general partial-rank originalPsi assembly remains OPEN.

@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-gamma-columns-NoncentralGammaMomentColumns.json",
+    "source_sha256": "e83352eabd082b9eb80522a76284f24c1e4475b5b4dd68c644b63e25279a17bb"
   }
 }
