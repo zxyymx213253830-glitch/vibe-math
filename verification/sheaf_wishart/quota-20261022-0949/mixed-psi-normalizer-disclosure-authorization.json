@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-10-26T11:47:51.529673+00:00",
+  "human_answer": "允许发送这两份新源码",
+  "question_item_id": "[\"request_user_input_async\",\"call_e7b3b98ed9fc42aba4d4d563e901a086\",0]",
+  "inputs": {
+    "MixedNoncentralMomentMatrix.lean": {
+      "sha256": "9ff7d0b5ccad48dbf214932e6937867f02562f3bba1c95e6149cfe6e34a66de5",
+      "supplied": "Full source"
+    },
+    "OriginalPsiNormalizerNonzero.lean": {
+      "sha256": "08f84016aa917c4226d36cd58e63f0dbabe52f1199c7e3aeb1c0f5fc09ea5cb5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt": "p4-mixed-psi-normalizer-final-prompt.txt",
+  "prompt_sha256": "66157339f07c4643ca47820a02b93c77806e1f5ef1e93e8fade0b3393ca861c4",
+  "scope": [
+    "MixedNoncentralMomentMatrix.lean",
+    "OriginalPsiNormalizerNonzero.lean"
+  ],
+  "seconds": 90,
+  "tools_disabled": true,
+  "transmitted": false,
+  "deferred_reason": "Actual ordinaryUsageAllowed=false quota stop was already observed; authorization saved for a future explicit resume.",
+  "does_not_cover": [
+    "NoncentralFullRankNormalizer.lean",
+    "NoncentralGammaMomentColumns.lean",
+    "ZeroConfluentVandermonde.lean"
+  ]
+}
