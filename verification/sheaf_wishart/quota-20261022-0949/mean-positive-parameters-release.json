@@ -1,0 +1,13 @@
+{
+  "name": "mean-positive-parameters",
+  "review": "mean-positive-parameters-final",
+  "resolution": "notes/WISHART_MEAN_POSITIVE_NONCENTRAL_PARAMETERS.md",
+  "facade": "facade-149",
+  "total": 942,
+  "new_count": 6,
+  "control_script": "experiments/mean_rank_positive_parameters_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/mean-rank-positive-parameters-control.json",
+  "seed": 2026102602,
+  "commit": "Identify actual paper spectrum laws by rank-positive noncentrality parameters",
+  "scope": "2026-10-26第二里程碑：942绑定项（940定理实例+2构造），auditPASS/facade149真实exit0，162接受记录全验证。今日13打印声明3模块quota累计332/144非概率突破数。新6声明1模块从固定均值rank=L提取恰好L个正Antitone非中心参数，完整均值Gram坐标=正参数或零，证明相同rank及正参数决定原同一2mn源actual paper联合谱law；原OrderedPositiveNoncentralSpectrum仅在显式StrictAnti下包装，rank0/空维及正重根允许，不借用随机样本简单谱。166先行控制非证明，首CAS结构比较失败留档后精确简化修复再写源；Lean首版/6字面类型/不可变finalbundle默认标准3全部exit0。获用户明确新模块外发许可后完整源码真实QoderP4绑定，其索引cast/正count额外非负假设/StrictAnti隐含rank>=1误报按精确API和空域裁决。下一全非中心radial核矩及候选G2归一化卡，暂无新控制源码；不能用scalar trace Laplace直接识别joint谱。07:27:51UTC ordinarytrue primary35 weekly5，两重置券未用，同tokenlease08:37:16非用户截止。人审参数/测度/模型原文仍需；冻结产物未改fullLake/Linux独立内核NOT_RUN；general surplus>2原T1/generalG2/noncentralG2/generalT2/journalT3/full映射OPEN。"
+}

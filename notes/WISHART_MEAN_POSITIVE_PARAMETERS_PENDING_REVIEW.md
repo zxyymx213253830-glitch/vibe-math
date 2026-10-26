@@ -1,5 +1,10 @@
 # Mean-rank positive parameters: compiled, pending external review
 
+RESOLVED: Human explicitly allowed this new module and its prompt. The one
+bounded complete-source Qoder P4 returned2026-10-26T07:28:37UTC; see
+WISHART_MEAN_POSITIVE_NONCENTRAL_PARAMETERS.md for resolution and final evidence.
+The following paragraphs preserve the earlier pending state, not current status.
+
 2026-10-26. Accepted total remains936. MeanPositiveNoncentralParameters has six
 new printed declarations, leaf v1 exit0 with standard3 axioms, six independent
 literal target types and an immutable shared final bundle PASS. It is NOT yet

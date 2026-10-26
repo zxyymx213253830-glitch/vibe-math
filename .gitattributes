@@ -848,3 +848,5 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/mean_rank_positive_parameters_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_MEAN_POSITIVE_PARAMETERS_PENDING_REVIEW.md -text whitespace=cr-at-eol
+
+/notes/WISHART_MEAN_POSITIVE_NONCENTRAL_PARAMETERS.md -text whitespace=cr-at-eol

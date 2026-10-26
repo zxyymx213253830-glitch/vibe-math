@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-mean-positive-parameters-MeanPositiveNoncentralParameters.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-mean-positive-parameters-MeanPositiveNoncentralParameters.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/mean-positive-parameters-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-mean-positive-parameters-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-mean-positive-parameters-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-mean-positive-parameters-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/mean-positive-parameters-final-snapshot",
+    "resolution": "notes/WISHART_MEAN_POSITIVE_NONCENTRAL_PARAMETERS.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-149.receipt.json"
+}

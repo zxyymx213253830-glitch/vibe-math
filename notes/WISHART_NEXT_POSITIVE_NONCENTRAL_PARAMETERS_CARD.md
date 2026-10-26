@@ -1,5 +1,10 @@
 # Next: rank-L positive mean noncentrality parameters
 
+CLOSED2026-10-26: the six exports in MeanPositiveNoncentralParameters now have
+explicit human disclosure authorization and substantive complete-source Qoder
+P4. See WISHART_MEAN_POSITIVE_NONCENTRAL_PARAMETERS.md. Next research card:
+WISHART_NEXT_NONCENTRAL_KERNEL_MOMENTS_CARD.md. Do not redo this extraction.
+
 UPDATE2026-10-26: MeanPositiveNoncentralParameters now has six leaf/locked/type
 checked exports and166 pre-source controls. It awaits human permission for the
 new-file external P4, NOT acceptance. See

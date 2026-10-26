@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mean-positive-parameters-MeanPositiveNoncentralParameters.json",
+    "source_sha256": "9081dabef6593aa8bb74cf4954f5664cb6b2ee2f79c0c2707da178093e7f7fa9"
   }
 }
