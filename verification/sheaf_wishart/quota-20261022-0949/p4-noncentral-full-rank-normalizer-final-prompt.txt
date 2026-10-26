@@ -1,0 +1,106 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE NoncentralFullRankNormalizer.lean
+import JinWishartFormalization.Theorem1ZeroMomentMatrix
+import Mathlib.LinearAlgebra.Vandermonde
+import Mathlib.Data.Fin.Rev
+
+/-! Codex. Seed2026102605: 300 exact controls before source.
+Full noncentral rank L=s only: monic moment basis and nonzero original Psi(0).
+Not partial-rank normalization, density, or an actual spectral law.
+[需人工审查] Original formula indexing and later normalization/model mapping. -/
+open Polynomial Finset Matrix
+namespace JinWishart
+noncomputable section
+
+def noncentralMomentPolynomial (q k : ℕ) : ℝ[X] :=
+ ∑ j ∈ range (k+1), C ((k.factorial : ℝ)*((q+k).choose (k-j) : ℝ)/(j.factorial : ℝ))*X^j
+
+theorem noncentralMomentPolynomial_eval (q k : ℕ) (x : ℝ) :
+ (noncentralMomentPolynomial q k).eval x = poissonFactorialMomentPolynomial q k x := by
+ unfold noncentralMomentPolynomial poissonFactorialMomentPolynomial
+ simp only [eval_finsetSum, eval_mul, eval_C, eval_pow, eval_X, mul_sum]
+ apply sum_congr rfl
+ intro j _
+ ring
+
+private theorem moment_degree_le (q k : ℕ) :
+ (noncentralMomentPolynomial q k).natDegree ≤ k := by
+ unfold noncentralMomentPolynomial
+ apply natDegree_sum_le_of_forall_le
+ intro j hj
+ exact (natDegree_C_mul_X_pow_le _ _).trans (Nat.le_of_lt_succ (mem_range.mp hj))
+
+private theorem moment_coeff_top (q k : ℕ) :
+ (noncentralMomentPolynomial q k).coeff k = 1 := by
+ unfold noncentralMomentPolynomial
+ simp [Nat.factorial_ne_zero]
+
+theorem noncentralMomentPolynomial_monic (q k : ℕ) :
+ (noncentralMomentPolynomial q k).Monic :=
+ monic_of_natDegree_le_of_coeff_eq_one k (moment_degree_le q k) (moment_coeff_top q k)
+
+theorem noncentralMomentPolynomial_natDegree (q k : ℕ) :
+ (noncentralMomentPolynomial q k).natDegree = k := by
+ apply le_antisymm (moment_degree_le q k)
+ exact le_natDegree_of_ne_zero (by rw [moment_coeff_top]; norm_num)
+
+theorem noncentralMoment_eval_det (q s : ℕ) (lambda : Fin s → ℝ) :
+ (Matrix.of (fun i j : Fin s => poissonFactorialMomentPolynomial q i.val (lambda j))).det =
+   (Matrix.vandermonde lambda).det := by
+ have h := Matrix.det_eval_matrixOfPolynomials_eq_det_vandermonde lambda
+   (fun i : Fin s => noncentralMomentPolynomial q i.val)
+   (fun i => noncentralMomentPolynomial_natDegree q i.val)
+   (fun i => noncentralMomentPolynomial_monic q i.val)
+ have he : Matrix.of (fun i j : Fin s => poissonFactorialMomentPolynomial q i.val (lambda j)) =
+   (Matrix.of (fun i j : Fin s => (noncentralMomentPolynomial q j.val).eval (lambda i))).transpose := by
+   ext i j
+   exact (noncentralMomentPolynomial_eval q i.val (lambda j)).symm
+ rw [he,Matrix.det_transpose,← h]
+
+theorem theorem1PsiMatrix_zero_det_ne_zero_full_rank (s t : ℕ) (hst : s ≤ t)
+ (lambda : Fin s → ℝ) (hpos : ∀ j, 0 < lambda j) (hinj : Function.Injective lambda) :
+ (theorem1PsiMatrix s t s hst le_rfl lambda 0).det ≠ 0 := by
+ let A : Matrix (Fin s) (Fin s) ℝ :=
+   fun i j => poissonFactorialMomentPolynomial (t-s) i.val (lambda j)
+ have hA : A.det ≠ 0 := by
+   rw [show A = Matrix.of (fun i j : Fin s =>
+     poissonFactorialMomentPolynomial (t-s) i.val (lambda j)) from rfl,
+     noncentralMoment_eval_det]
+   exact Matrix.det_vandermonde_ne_zero_iff.mpr hinj
+ let D := A.submatrix Fin.revPerm id
+ have hD : D.det ≠ 0 := by
+   change (A.submatrix Fin.revPerm id).det ≠ 0
+   rw [Matrix.det_permute]
+   apply mul_ne_zero ?_ hA
+   exact_mod_cast (Units.ne_zero (Equiv.Perm.sign (Fin.revPerm : Equiv.Perm (Fin s))))
+ let w : Fin s → ℝ := fun j => Real.rpow (lambda j) (((t-s : ℕ) : ℝ)/2)
+ let B : Matrix (Fin s) (Fin s) ℝ := fun i j => w j * D i j
+ have hB : B.det ≠ 0 := by
+   change (Matrix.of (fun i j => w j * D i j)).det ≠ 0
+   rw [Matrix.det_mul_row]
+   apply mul_ne_zero ?_ hD
+   apply Finset.prod_ne_zero_iff.mpr
+   intro j _
+   exact ne_of_gt (Real.rpow_pos_of_pos (hpos j) _)
+ have hPsi : theorem1PsiMatrix s t s hst le_rfl lambda 0 =
+   Complex.ofRealHom.mapMatrix B := by
+   rw [theorem1PsiMatrix_at_zero_eq_finiteMoments s t s hst le_rfl lambda
+     (fun j => le_of_lt (hpos j))]
+   ext i j
+   simp only [theorem1ZeroMomentMatrix, dite_eq_left j.isLt]
+   change _ = ((w j * D i j : ℝ) : ℂ)
+   simp only [Complex.ofReal_mul]
+   congr 1
+ rw [hPsi,← Complex.ofRealHom.map_det]
+ change (B.det : ℂ) ≠ 0
+ exact_mod_cast hB
+
+end
+end JinWishart
+#print axioms JinWishart.noncentralMomentPolynomial_eval
+#print axioms JinWishart.noncentralMomentPolynomial_monic
+#print axioms JinWishart.noncentralMomentPolynomial_natDegree
+#print axioms JinWishart.noncentralMoment_eval_det
+#print axioms JinWishart.theorem1PsiMatrix_zero_det_ne_zero_full_rank

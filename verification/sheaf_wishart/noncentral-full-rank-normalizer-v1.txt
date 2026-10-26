@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFullRankNormalizer.lean:19:12: warning: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+
+Hint: Replace the deprecated name:
+  e̵v̵a̵l̵_̵f̵i̵n̵s̵e̵t̵_̵s̵u̵m̵e̲v̲a̲l̲_̲f̲i̲n̲s̲e̲t̲S̲u̲m̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFullRankNormalizer.lean:34:7: warning: This simp argument is unused:
+  coeff_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_C_mul_X_pow, Finset.sum_eq_single k, Nat.factorial_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFullRankNormalizer.lean:34:17: warning: This simp argument is unused:
+  coeff_C_mul_X_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sum, Finset.sum_eq_single k, Nat.factorial_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFullRankNormalizer.lean:34:35: warning: This simp argument is unused:
+  Finset.sum_eq_single k
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_sum, coeff_C_mul_X_pow, Nat.factorial_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFullRankNormalizer.lean:88:40: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFullRankNormalizer.lean:92:3: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralFullRankNormalizer.lean:96:1: error: mod_cast has type
+  ¬B.det = 0
+but is expected to have type
+  ¬Complex.ofRealHom B.det = 0
+'JinWishart.noncentralMomentPolynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralMomentPolynomial_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralMomentPolynomial_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralMoment_eval_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1PsiMatrix_zero_det_ne_zero_full_rank' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

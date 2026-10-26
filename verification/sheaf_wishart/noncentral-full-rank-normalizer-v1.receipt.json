@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T08:11:06.787271+00:00",
+  "ended_utc": "2026-10-26T08:11:39.218829+00:00",
+  "module": "JinWishartFormalization.NoncentralFullRankNormalizer",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFullRankNormalizer.lean",
+  "source_sha256_before": "c37feedaf3f364f15581a4896135b158f3bb528fa1a04b477880f9d4ad42b414",
+  "source_sha256": "c37feedaf3f364f15581a4896135b158f3bb528fa1a04b477880f9d4ad42b414",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/noncentral-full-rank-normalizer-v1.txt",
+  "log_exists": true,
+  "log_sha256": "ec22871be8ae07586c8dd7cc7679e8098bc3ff430f8569e4673a3348be8d572a",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

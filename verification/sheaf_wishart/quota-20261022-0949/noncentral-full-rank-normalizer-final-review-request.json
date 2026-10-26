@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "NoncentralFullRankNormalizer.lean": {
+      "sha256": "8bce4f305397773b5b1548afc5bf58de9c05288c1dc98213ebbda442cc3a651d",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "8211bfa21f524f5dcf2c652aa1e59626168ed69eac7c5fee0b8f8b461c0f07b1"
+}

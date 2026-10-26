@@ -1,0 +1,5 @@
+'JinWishart.noncentralMomentPolynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralMomentPolynomial_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralMomentPolynomial_natDegree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralMoment_eval_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1PsiMatrix_zero_det_ne_zero_full_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
