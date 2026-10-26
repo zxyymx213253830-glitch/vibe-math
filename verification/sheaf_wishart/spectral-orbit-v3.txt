@@ -1,0 +1,42 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:21:25: error: unsolved goals
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+U : ↥(unitaryGroup (Fin n) ℂ)
+⊢ (↑U * star ↑U * A).charpoly = A.charpoly
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:24:65: warning: This simp argument is unused:
+  Unitary.coe_mul_star_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Matrix.mul_assoc, ← Matrix.star_eq_conjTranspose, Matrix.one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:25:4: warning: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Matrix.mul_assoc, ← Matrix.star_eq_conjTranspose, Unitary.coe_mul_star_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:40:47: error(lean.unknownIdentifier): Unknown identifier `star_mul_self`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:42:4: error: Type mismatch
+  IsHermitian.spectral_theorem hB
+[Error pretty printing: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.(invalid MessageData.lazy, missing context)]
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:40:62: warning: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [star_mul, star_star, mul_assoc, star_mul_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.hermitian_eigenvalues₀_eq_of_charpoly_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitian_eigenvalues₀_unitary_conjugation' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.exists_unitary_conjugation_of_eigenvalues₀_eq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,4 +1,17 @@
-# Next: sorted noncentrality parameters and actual ordered-spectrum law
+# CLOSED: sorted noncentrality parameters and full actual ordered-spectrum law
+
+2026-10-25: HermitianSpectralOrbit and ActualNoncentralSpectralOrbitLaw close the
+precise full n-coordinate target below. Seed2026102511:140 pre-source controls,
+five literal types and complete final-source bounded Qoder P4. See
+WISHART_NONCENTRAL_ORDERED_SPECTRAL_ORBIT.md. Do not redo this target.
+
+Next mapping obligation: identify the paper's small-side Fin(min m n) spectrum
+and rank-L positive noncentrality parameters with this full column-Gram vector.
+First inspect existing GaussianMatrixSpectralIntegral/ThresholdNoAtom and Gram
+positive-spectrum bridges. No new source/control for that mapping yet. General
+G2 still needs candidate normalization/support/Laplace or direct joint-law proof.
+
+The remainder records the original target and API search, not a current OPEN claim.
 
 Matrix mean-Gram equality and fixed unitary conjugate transport are closed in ActualNoncentralMeanGramLaw; do not redo. They DO NOT assert matrix-law equality from only equal noncentrality eigenvalues. The seed2026102510 negative shows that is false.
 

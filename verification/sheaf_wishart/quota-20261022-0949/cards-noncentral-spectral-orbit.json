@@ -1,0 +1,47 @@
+[
+  {
+    "tag": "noncentral-spectral-orbit-HermitianSpectralOrbit",
+    "module": "HermitianSpectralOrbit",
+    "nodes": [
+      [
+        "L-noncentral-spectral-orbit-hermitian_eigenvalues₀_eq_of_charpoly_eq",
+        "hermitian_eigenvalues₀_eq_of_charpoly_eq",
+        []
+      ],
+      [
+        "L-noncentral-spectral-orbit-hermitian_eigenvalues₀_unitary_conjugation",
+        "hermitian_eigenvalues₀_unitary_conjugation",
+        [
+          "L-noncentral-spectral-orbit-hermitian_eigenvalues₀_eq_of_charpoly_eq"
+        ]
+      ],
+      [
+        "L-noncentral-spectral-orbit-exists_unitary_conjugation_of_eigenvalues₀_eq",
+        "exists_unitary_conjugation_of_eigenvalues₀_eq",
+        [
+          "L-noncentral-spectral-orbit-hermitian_eigenvalues₀_unitary_conjugation"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "noncentral-spectral-orbit-ActualNoncentralSpectralOrbitLaw",
+    "module": "ActualNoncentralSpectralOrbitLaw",
+    "nodes": [
+      [
+        "L-noncentral-spectral-orbit-actualNoncentral_orderedSpectrum_law_of_meanGram_unitary",
+        "actualNoncentral_orderedSpectrum_law_of_meanGram_unitary",
+        [
+          "L-noncentral-spectral-orbit-exists_unitary_conjugation_of_eigenvalues₀_eq"
+        ]
+      ],
+      [
+        "L-noncentral-spectral-orbit-actualNoncentral_orderedSpectrum_law_of_meanGram_eigenvalues",
+        "actualNoncentral_orderedSpectrum_law_of_meanGram_eigenvalues",
+        [
+          "L-noncentral-spectral-orbit-actualNoncentral_orderedSpectrum_law_of_meanGram_unitary"
+        ]
+      ]
+    ]
+  }
+]

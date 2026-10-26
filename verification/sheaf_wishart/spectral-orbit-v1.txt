@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:23:32: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?L * ?M * ?N
+in the target expression
+  (↑U * ((↑U)ᴴ * A)).charpoly = A.charpoly
+
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+U : ↥(unitaryGroup (Fin n) ℂ)
+⊢ (↑U * ((↑U)ᴴ * A)).charpoly = A.charpoly
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:36:2: error: 'change' tactic failed, pattern
+  B =
+    ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) (star (hA.eigenvectorUnitary * star hB.eigenvectorUnitary)))
+      A
+is not definitionally equal to target
+  B =
+    (↑(hA.eigenvectorUnitary * star hB.eigenvectorUnitary))ᴴ * A * ↑(hA.eigenvectorUnitary * star hB.eigenvectorUnitary)
+'JinWishart.hermitian_eigenvalues₀_eq_of_charpoly_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitian_eigenvalues₀_unitary_conjugation' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.exists_unitary_conjugation_of_eigenvalues₀_eq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,24 @@
+{
+  "id": "L-noncentral-spectral-orbit-exists_unitary_conjugation_of_eigenvalues₀_eq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.HermitianSpectralOrbit",
+  "declaration": "JinWishart.exists_unitary_conjugation_of_eigenvalues₀_eq",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-spectral-orbit-hermitian_eigenvalues₀_unitary_conjugation"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-spectral-orbit-hermitian_eigenvalues₀_unitary_conjugation"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-spectral-orbit-HermitianSpectralOrbit.json",
+    "source_sha256": "fb84279a7de21252c5ef86f2570670e36987632ad12a4a03df376dc0025ab092"
+  }
+}

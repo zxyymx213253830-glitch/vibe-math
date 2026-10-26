@@ -24,9 +24,11 @@ for p in sources+[c['control_script'],c['resolution']]:
  if rule not in body:body+='\n'+rule+'\n'
 attrs.write_text(body,encoding='utf-8')
 a.write(summary,dict(completed_utc=a.now(),items=c['total'],new_printed_declarations=c['new_count'],modules=len(cards),facade=c['facade'],controls=a.read(R/c['control_result'])['checks'],frozen_hashes=frozen,human_review='REQUIRED',full_lake_build='NOT_RUN',linux_independent_kernel='NOT_RUN',acceptance_records_current=len(paths)))
-git=r'D:\MinGit\cmd\git.exe';out=subprocess.check_output([git,'status','--porcelain','-uall'],cwd=R,text=True,encoding='utf-8')
+git=r'D:\MinGit\cmd\git.exe';out=subprocess.check_output([git,'status','--porcelain','-uall','-z'],cwd=R).decode('utf-8')
 pending=set(c.get('pending_paths',[]))
-own=[line[3:] for line in out.splitlines() if line[3:] not in pending and not line[3:].startswith(('.mimosa/','.workbuddy/','.write_probe.tmp','output/screenshots/','tmp/'))]
+entries=[line for line in out.split('\0') if line]
+assert not any('R' in line[:2] or 'C' in line[:2] for line in entries), 'Review renames/copies explicitly before staging'
+own=[line[3:] for line in entries if line[3:] not in pending and not line[3:].startswith(('.mimosa/','.workbuddy/','.write_probe.tmp','output/screenshots/','tmp/'))]
 subprocess.run([git,'add','--']+own,cwd=R,check=True)
 subprocess.run([git,'-c','core.whitespace=cr-at-eol','diff','--cached','--check'],cwd=R,check=True)
 subprocess.run([git,'commit','-m',c['commit']],cwd=R,check=True)

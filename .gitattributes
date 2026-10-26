@@ -826,3 +826,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/noncentral_mean_gram_law_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_ACTUAL_NONCENTRAL_MEAN_GRAM_LAW.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/HermitianSpectralOrbit.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ActualNoncentralSpectralOrbitLaw.lean -text whitespace=cr-at-eol
+
+/experiments/noncentral_spectral_orbit_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_NONCENTRAL_ORDERED_SPECTRAL_ORBIT.md -text whitespace=cr-at-eol

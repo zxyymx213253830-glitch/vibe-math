@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "HermitianSpectralOrbit.lean": {
+      "sha256": "fb84279a7de21252c5ef86f2570670e36987632ad12a4a03df376dc0025ab092",
+      "supplied": "Full source"
+    },
+    "ActualNoncentralSpectralOrbitLaw.lean": {
+      "sha256": "317aef8835bcfe300cd27067e22c5da881076dfc57e456210e94e16d87c09269",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "f89f334f5c1484e22e58a28cd222725ce43285459a575e289bddd1218c4d4795"
+}

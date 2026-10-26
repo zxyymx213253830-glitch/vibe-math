@@ -1,0 +1,17 @@
+{
+  "paused_utc": "2026-10-25T14:29:01.618181+00:00",
+  "reason": "User explicitly requested: 先停下来",
+  "automation_status": "PAUSED",
+  "new_research_or_checks_started": false,
+  "completed_items": 929,
+  "audit": "PASS",
+  "facade": "facade-147 exit0",
+  "acceptance_records_verified": 159,
+  "last_commit": "c90e306",
+  "latest_milestone_commit": "PENDING: Git quoted Unicode filenames rejected by staging helper; proof and evidence preserved; do not repeat acceptance",
+  "compute_lock_present": false,
+  "owned_process_observation": "No active Lean was known before pause; CIM inventory unavailable under current permissions; no unknown process stopped.",
+  "human_review": "REQUIRED",
+  "fullLake": "NOT_RUN",
+  "linux_independent_kernel": "NOT_RUN"
+}

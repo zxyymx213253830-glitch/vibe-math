@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralOrbitLaw.lean:51:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Measure.map ((fun W => (↑U)ᴴ * W * ↑U) ∘ Subtype.val) ?m.158
+in the target expression
+  Measure.map (Subtype.val ∘ hermitianConj U)
+      (Measure.map (shiftedComplexGramHermitian M) (stdGaussian ComplexSample)) =
+    Measure.map Subtype.val (Measure.map (shiftedComplexGramHermitian N) (stdGaussian ComplexSample))
+
+m n : ℕ
+M N : Matrix (Fin m) (Fin n) ℂ
+U : ↥(unitaryGroup (Fin n) ℂ)
+hGram : Nᴴ * N = (↑U)ᴴ * (Mᴴ * M) * ↑U
+hc : Measurable fun W => (↑U)ᴴ * W * ↑U
+⊢ Measure.map (Subtype.val ∘ hermitianConj U)
+      (Measure.map (shiftedComplexGramHermitian M) (stdGaussian ComplexSample)) =
+    Measure.map Subtype.val (Measure.map (shiftedComplexGramHermitian N) (stdGaussian ComplexSample))
+'JinWishart.actualNoncentral_orderedSpectrum_law_of_meanGram_unitary' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentral_orderedSpectrum_law_of_meanGram_eigenvalues' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

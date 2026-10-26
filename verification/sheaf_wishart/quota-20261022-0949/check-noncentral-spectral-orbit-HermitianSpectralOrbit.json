@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "fb84279a7de21252c5ef86f2570670e36987632ad12a4a03df376dc0025ab092",
+  "target_lock_sha256": "5f1e3f8096bccd74a1b0ad5bdf8385b0cf1559c0fee95f30e1af9988ed93d7e6",
+  "leaf": {
+    "started_utc": "2026-10-25T14:24:29.032661+00:00",
+    "ended_utc": "2026-10-25T14:24:38.975241+00:00",
+    "module": "JinWishartFormalization.HermitianSpectralOrbit",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianSpectralOrbit.lean",
+    "source_sha256_before": "fb84279a7de21252c5ef86f2570670e36987632ad12a4a03df376dc0025ab092",
+    "source_sha256": "fb84279a7de21252c5ef86f2570670e36987632ad12a4a03df376dc0025ab092",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/noncentral-spectral-orbit-HermitianSpectralOrbit-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "66d8af2e174b343b40a171a1842b0a0b705492e214a1f7c483f1cc515fbcd8a4",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-25T14:24:55.460443+00:00",
+    "ended_utc": "2026-10-25T14:25:05.741095+00:00",
+    "module": "SheafNoncentralSpectralOrbitTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafNoncentralSpectralOrbitTargets.lean",
+    "source_sha256_before": "a46b22ac5c37a4f88e943cd26cd441da5d62b48df3872305283de901058ced74",
+    "source_sha256": "a46b22ac5c37a4f88e943cd26cd441da5d62b48df3872305283de901058ced74",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/noncentral-spectral-orbit-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

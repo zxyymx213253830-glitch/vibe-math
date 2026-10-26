@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T14:20:49.298047+00:00",
+  "ended_utc": "2026-10-25T14:21:50.292461+00:00",
+  "module": "JinWishartFormalization.HermitianSpectralOrbit",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/HermitianSpectralOrbit.lean",
+  "source_sha256_before": "fb84279a7de21252c5ef86f2570670e36987632ad12a4a03df376dc0025ab092",
+  "source_sha256": "fb84279a7de21252c5ef86f2570670e36987632ad12a4a03df376dc0025ab092",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/spectral-orbit-v4.txt",
+  "log_exists": true,
+  "log_sha256": "66d8af2e174b343b40a171a1842b0a0b705492e214a1f7c483f1cc515fbcd8a4",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

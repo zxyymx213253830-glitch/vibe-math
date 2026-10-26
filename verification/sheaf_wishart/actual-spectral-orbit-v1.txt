@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralOrbitLaw.lean:40:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (Matrix (Fin n) (Fin n) ℂ) ↥(unitaryGroup (Fin n) ℂ) ?m.32
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralOrbitLaw.lean:45:8: error(lean.unknownIdentifier): Unknown constant `MeasureTheory.Measure.map_injective`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralOrbitLaw.lean:46:6: error: No goals to be solved
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralOrbitLaw.lean:57:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul (Matrix (Fin n) (Fin n) ℂ) ↥(unitaryGroup (Fin n) ℂ) ?m.32
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralOrbitLaw.lean:73:8: warning: declaration uses `sorry`
+'JinWishart.actualNoncentral_orderedSpectrum_law_of_meanGram_unitary' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentral_orderedSpectrum_law_of_meanGram_eigenvalues' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

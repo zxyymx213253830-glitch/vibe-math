@@ -1,0 +1,70 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:24:53: error(lean.unknownIdentifier): Unknown identifier `Unitary.coe_self_mul_star`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:21:25: error: unsolved goals
+n : ℕ
+A : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+U : ↥(unitaryGroup (Fin n) ℂ)
+⊢ (↑U * (↑U)ᴴ * A).charpoly = A.charpoly
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:24:33: warning: This simp argument is unused:
+  ← Unitary.coe_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Matrix.mul_assoc, Unitary.coe_self_mul_star, Matrix.one_mul]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:25:4: warning: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Matrix.mul_assoc, ← Unitary.coe_star, Unitary.coe_self_mul_star]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:38:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a =>
+    B =
+      ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ))
+          (star (hA.eigenvectorUnitary * star hB.eigenvectorUnitary)))
+        _a
+Error: Application type mismatch: The argument
+  hA
+has type
+  A.IsHermitian
+but is expected to have type
+  _a.IsHermitian
+in the application
+  hA.eigenvectorUnitary
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+n : ℕ
+A B : Matrix (Fin n) (Fin n) ℂ
+hA : A.IsHermitian
+hB : B.IsHermitian
+h : hA.eigenvalues₀ = hB.eigenvalues₀
+he : hA.eigenvalues = hB.eigenvalues
+⊢ B =
+    ((Unitary.conjStarAlgAut ℂ (Matrix (Fin n) (Fin n) ℂ)) (star (hA.eigenvectorUnitary * star hB.eigenvectorUnitary)))
+      A
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\HermitianSpectralOrbit.lean:42:2: error: Type mismatch: After simplification, term
+  ho
+ has type
+  @Eq (Matrix (Fin n) (Fin n) ℂ) B
+    (star ↑(hA.eigenvectorUnitary * star hB.eigenvectorUnitary) * A *
+      ↑(hA.eigenvectorUnitary * star hB.eigenvectorUnitary))
+but is expected to have type
+  @Eq (Matrix (Fin n) (Fin n) ℂ) B
+    ((↑(hA.eigenvectorUnitary * star hB.eigenvectorUnitary))ᴴ * A *
+      ↑(hA.eigenvectorUnitary * star hB.eigenvectorUnitary))
+'JinWishart.hermitian_eigenvalues₀_eq_of_charpoly_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.hermitian_eigenvalues₀_unitary_conjugation' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.exists_unitary_conjugation_of_eigenvalues₀_eq' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

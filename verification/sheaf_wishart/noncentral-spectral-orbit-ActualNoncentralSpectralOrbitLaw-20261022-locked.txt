@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralOrbitLaw.lean:57:56: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ActualNoncentralSpectralOrbitLaw.lean:57:56: warning: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'JinWishart.actualNoncentral_orderedSpectrum_law_of_meanGram_unitary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentral_orderedSpectrum_law_of_meanGram_eigenvalues' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

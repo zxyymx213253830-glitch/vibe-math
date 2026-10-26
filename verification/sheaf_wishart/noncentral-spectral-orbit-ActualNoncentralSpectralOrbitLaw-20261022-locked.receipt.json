@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-25T14:24:39.054591+00:00",
+  "ended_utc": "2026-10-25T14:24:55.457129+00:00",
+  "module": "JinWishartFormalization.ActualNoncentralSpectralOrbitLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ActualNoncentralSpectralOrbitLaw.lean",
+  "source_sha256_before": "317aef8835bcfe300cd27067e22c5da881076dfc57e456210e94e16d87c09269",
+  "source_sha256": "317aef8835bcfe300cd27067e22c5da881076dfc57e456210e94e16d87c09269",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/noncentral-spectral-orbit-ActualNoncentralSpectralOrbitLaw-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "fcaa3be9913b7658957ea4ededc0edfaa80968e7b2718d362680632712309a8c",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

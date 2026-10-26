@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-noncentral-spectral-orbit-ActualNoncentralSpectralOrbitLaw.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-noncentral-spectral-orbit-ActualNoncentralSpectralOrbitLaw.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/noncentral-spectral-orbit-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-noncentral-spectral-orbit-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-noncentral-spectral-orbit-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-noncentral-spectral-orbit-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/noncentral-spectral-orbit-final-snapshot",
+    "resolution": "notes/WISHART_NONCENTRAL_ORDERED_SPECTRAL_ORBIT.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-147.receipt.json"
+}

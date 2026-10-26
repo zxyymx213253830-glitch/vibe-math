@@ -1,0 +1,24 @@
+{
+  "id": "L-noncentral-spectral-orbit-actualNoncentral_orderedSpectrum_law_of_meanGram_unitary",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ActualNoncentralSpectralOrbitLaw",
+  "declaration": "JinWishart.actualNoncentral_orderedSpectrum_law_of_meanGram_unitary",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-spectral-orbit-exists_unitary_conjugation_of_eigenvalues₀_eq"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-spectral-orbit-exists_unitary_conjugation_of_eigenvalues₀_eq"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-spectral-orbit-ActualNoncentralSpectralOrbitLaw.json",
+    "source_sha256": "317aef8835bcfe300cd27067e22c5da881076dfc57e456210e94e16d87c09269"
+  }
+}
