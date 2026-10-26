@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-26T08:27:34.768298+00:00",
+  "module": "JinWishartFormalization.ZeroConfluentVandermonde",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ZeroConfluentVandermonde.lean",
+  "statements": {
+    "JinWishart.zeroConfluentVandermonde_det": "(p L : ℕ) (lambda : Fin L → ℝ) : (zeroConfluentVandermonde p L lambda).det = (∏ j : Fin L, lambda j ^ p)*(Matrix.vandermonde lambda).det",
+    "JinWishart.zeroConfluentVandermonde_det_ne_zero": "(p L : ℕ) (lambda : Fin L → ℝ) (hnz : ∀ j, lambda j ≠ 0) (hinj : Function.Injective lambda) : (zeroConfluentVandermonde p L lambda).det ≠ 0",
+    "JinWishart.zeroConfluentVandermonde_eq_zero_of_conditions": "(p L : ℕ) (lambda : Fin L → ℝ) (hnz : ∀ j, lambda j ≠ 0) (hinj : Function.Injective lambda) (c : Fin p ⊕ Fin L → ℝ) (hc : ∀ i, c (Sum.inl i) = 0) (he : ∀ j : Fin L, (∑ i : Fin p, c (Sum.inl i)*lambda j^i.val)+ (∑ i : Fin L, c (Sum.inr i)*lambda j^(p+i.val)) = 0) : c = 0"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/ZeroConfluentVandermonde.lean": "42a440274a755a39591ca126ad9fcbfd5a3ecc43cbb44c7b74140059814ce783",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafPartialRankNormalizerFoundationsTargets.lean",
+  "type_check_source_sha256": "66df75a26e5ed1528b90fb3b996d7913726df624453c29e0b951b34af01ecd0a",
+  "locked_local_definitions": {}
+}

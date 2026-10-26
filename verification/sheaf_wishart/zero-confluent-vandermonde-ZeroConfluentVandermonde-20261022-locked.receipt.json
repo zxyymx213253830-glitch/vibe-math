@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T08:27:34.782176+00:00",
+  "ended_utc": "2026-10-26T08:27:42.000257+00:00",
+  "module": "JinWishartFormalization.ZeroConfluentVandermonde",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ZeroConfluentVandermonde.lean",
+  "source_sha256_before": "42a440274a755a39591ca126ad9fcbfd5a3ecc43cbb44c7b74140059814ce783",
+  "source_sha256": "42a440274a755a39591ca126ad9fcbfd5a3ecc43cbb44c7b74140059814ce783",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/zero-confluent-vandermonde-ZeroConfluentVandermonde-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "fe3388f459e74680813311fa379eb8d0f87e25494445ba81690c715ac8291502",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

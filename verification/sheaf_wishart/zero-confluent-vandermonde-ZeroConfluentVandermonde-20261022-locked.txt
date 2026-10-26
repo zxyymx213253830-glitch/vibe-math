@@ -1,0 +1,3 @@
+'JinWishart.zeroConfluentVandermonde_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.zeroConfluentVandermonde_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.zeroConfluentVandermonde_eq_zero_of_conditions' depends on axioms: [propext, Classical.choice, Quot.sound]

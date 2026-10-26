@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "NoncentralFullRankNormalizer.lean": {
+      "sha256": "8bce4f305397773b5b1548afc5bf58de9c05288c1dc98213ebbda442cc3a651d",
+      "supplied": "Full source"
+    },
+    "NoncentralGammaMomentColumns.lean": {
+      "sha256": "e83352eabd082b9eb80522a76284f24c1e4475b5b4dd68c644b63e25279a17bb",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "dd7a88ff2733afc9a6dbd4db1d0787f1da07328996c35246e7bed2fac6d41645"
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "tag": "noncentral-gamma-columns-NoncentralGammaMomentColumns",
+    "module": "NoncentralGammaMomentColumns",
+    "nodes": [
+      [
+        "L-noncentral-gamma-columns-noncentralMomentPolynomial_coeff",
+        "noncentralMomentPolynomial_coeff",
+        []
+      ],
+      [
+        "L-noncentral-gamma-columns-noncentralMomentPolynomial_weighted_coeff",
+        "noncentralMomentPolynomial_weighted_coeff",
+        [
+          "L-noncentral-gamma-columns-noncentralMomentPolynomial_coeff"
+        ]
+      ],
+      [
+        "L-noncentral-gamma-columns-gammaMoment_column_eq_coefficient_sum",
+        "gammaMoment_column_eq_coefficient_sum",
+        [
+          "L-noncentral-gamma-columns-noncentralMomentPolynomial_weighted_coeff"
+        ]
+      ],
+      [
+        "L-noncentral-gamma-columns-gammaMomentColumnTransform_det",
+        "gammaMomentColumnTransform_det",
+        [
+          "L-noncentral-gamma-columns-gammaMoment_column_eq_coefficient_sum"
+        ]
+      ],
+      [
+        "L-noncentral-gamma-columns-gammaMomentColumnTransform_det_ne_zero",
+        "gammaMomentColumnTransform_det_ne_zero",
+        [
+          "L-noncentral-gamma-columns-gammaMomentColumnTransform_det"
+        ]
+      ]
+    ]
+  }
+]

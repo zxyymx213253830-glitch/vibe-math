@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T08:26:02.895723+00:00",
+  "ended_utc": "2026-10-26T08:26:21.763966+00:00",
+  "module": "SheafPartialRankNormalizerFoundationsTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafPartialRankNormalizerFoundationsTargets.lean",
+  "source_sha256_before": "66df75a26e5ed1528b90fb3b996d7913726df624453c29e0b951b34af01ecd0a",
+  "source_sha256": "66df75a26e5ed1528b90fb3b996d7913726df624453c29e0b951b34af01ecd0a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/partial-rank-normalizer-foundations-types-v1.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

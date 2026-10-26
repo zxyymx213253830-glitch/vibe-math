@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralGammaMomentColumns.lean:88:7: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.noncentralMomentPolynomial_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralMomentPolynomial_weighted_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMoment_column_eq_coefficient_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMomentColumnTransform_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMomentColumnTransform_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

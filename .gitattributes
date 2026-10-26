@@ -866,3 +866,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/NoncentralFullRankNormalizer.lean -text whitespace=cr-at-eol
 
 /experiments/noncentral_full_rank_determinant_control.py -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/NoncentralGammaMomentColumns.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ZeroConfluentVandermonde.lean -text whitespace=cr-at-eol
+
+/experiments/noncentral_gamma_column_control.py -text whitespace=cr-at-eol
+
+/experiments/zero_confluent_vandermonde_control.py -text whitespace=cr-at-eol

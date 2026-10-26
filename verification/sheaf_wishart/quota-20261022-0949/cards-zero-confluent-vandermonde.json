@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "zero-confluent-vandermonde-ZeroConfluentVandermonde",
+    "module": "ZeroConfluentVandermonde",
+    "nodes": [
+      [
+        "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det",
+        "zeroConfluentVandermonde_det",
+        []
+      ],
+      [
+        "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det_ne_zero",
+        "zeroConfluentVandermonde_det_ne_zero",
+        [
+          "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det"
+        ]
+      ],
+      [
+        "L-zero-confluent-vandermonde-zeroConfluentVandermonde_eq_zero_of_conditions",
+        "zeroConfluentVandermonde_eq_zero_of_conditions",
+        [
+          "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det_ne_zero"
+        ]
+      ]
+    ]
+  }
+]

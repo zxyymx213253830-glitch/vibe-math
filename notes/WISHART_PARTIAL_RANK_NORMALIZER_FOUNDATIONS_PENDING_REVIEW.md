@@ -1,0 +1,9 @@
+# Partial-rank normalizer foundations — PENDING review
+
+Accepted950 unchanged. PENDING13 exports/3 modules: NoncentralFullRankNormalizer(5), NoncentralGammaMomentColumns(5),ZeroConfluentVandermonde(3). All final shared immutable gates and13 independent literal types PASS standard3. Three-source external Qoder authorization newly requested; no transmission/P4/acceptance for this bundle yet. The earlier single-file request is subsumed only if the human explicitly approves all3. Controls2605=300,2606=948,2607=195 PASS before corresponding sources; not proofs. Full-rank originalPsi(0) nonzero is proved, Gamma column triangular transform and zero-confluent coefficient matrix separately proved; general partial-rank originalPsi assembly remains OPEN.
+
+All3 exact sources are locally snapshotted in partial-rank-foundations-final-snapshot. Full-source P4 has NOT been sent. No new external authorization is inferred from previous completed modules. The source imports/13 types/final checks are locked. Failed missing-real-import/Matrix semireducible raw-function errors retained; Matrix.of resolves the latter without global reducibility changes. No budget upgrade.
+
+The coefficient formula uses choose(q+k,q+j) for ALL j, avoiding the false nonzero above-degree value caused by Nat truncating k-j. Weighted coefficient equality reduces Gamma columns by factorial Vandermonde. The column-transform determinant is the product h!(q+h)! including empty p. The zero-confluent matrix encodes coefficient conditions at0, not raw derivative conditions; nonzero root powers and distinct-root Vandermonde give its determinant.
+
+[需人工审查] Fin/Sum and original Psi row/column assembly, later model/normalization mapping. No new actual G2 law. Frozen products unchanged; fullLake/Linux independent kernel NOT_RUN.

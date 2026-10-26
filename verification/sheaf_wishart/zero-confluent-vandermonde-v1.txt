@@ -1,0 +1,89 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:12:57: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:13:40: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:17:65: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:28:73: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:31:5: error(lean.unknownIdentifier): Unknown identifier `zeroConfluentVandermonde_det`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:30:50: error: unsolved goals
+p L : ℕ
+lambda : Fin L → sorry
+hnz : ∀ (j : Fin L), lambda j ≠ 0
+hinj : Function.Injective lambda
+⊢ sorry ≠ 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:37:83: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:39:22: error(lean.unknownIdentifier): Unknown identifier `ℝ`
+
+Note: It is not possible to treat `ℝ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:44:4: error(lean.unknownIdentifier): Unknown identifier `zeroConfluentVandermonde_det_ne_zero`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:48:23: error(lean.unknownIdentifier): Unknown constant `Matrix.dotProduct`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:47:9: error: unsolved goals
+case inl
+p L : ℕ
+lambda : Fin L → sorry
+hnz : ∀ (j : Fin L), lambda j ≠ 0
+hinj : Function.Injective lambda
+c : Fin p ⊕ Fin L → sorry
+hc : ∀ (i : Fin p), c (Sum.inl i) = 0
+he : ∀ (j : Fin L), ∑ i, sorry + ∑ i, sorry = 0
+j : Fin p
+⊢ (c ⬝ᵥ fun i => ?m.77 i (Sum.inl j)) = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:50:24: error(lean.unknownIdentifier): Unknown constant `Matrix.dotProduct`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:42:69: error: unsolved goals
+⊢ (p L : ℕ) →
+    (lambda : Fin L → sorry) →
+      (hnz : ∀ (j : Fin L), lambda j ≠ 0) →
+        (hinj : Function.Injective lambda) →
+          (c : Fin p ⊕ Fin L → sorry) →
+            (∀ (i : Fin p), c (Sum.inl i) = 0) → (∀ (j : Fin L), ∑ i, sorry + ∑ i, sorry = 0) → CommRing sorry
+
+p L : ℕ
+lambda : Fin L → sorry
+hnz : ∀ (j : Fin L), lambda j ≠ 0
+hinj : Function.Injective lambda
+c : Fin p ⊕ Fin L → sorry
+hc : ∀ (i : Fin p), c (Sum.inl i) = 0
+he : ∀ (j : Fin L), ∑ i, sorry + ∑ i, sorry = 0
+⊢ Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) sorry
+
+p L : ℕ
+lambda : Fin L → sorry
+hnz : ∀ (j : Fin L), lambda j ≠ 0
+hinj : Function.Injective lambda
+c : Fin p ⊕ Fin L → sorry
+hc : ∀ (i : Fin p), c (Sum.inl i) = 0
+he : ∀ (j : Fin L), ∑ i, sorry + ∑ i, sorry = 0
+⊢ NoZeroDivisors sorry
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:48:41: warning: declaration uses `sorry`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:48:41: warning: This simp argument is unused:
+  zeroConfluentVandermonde
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.vecMul, Matrix.dotProduct, Fintype.sum_sum_type, hc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:48:66: warning: This simp argument is unused:
+  Fintype.sum_sum_type
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.vecMul, Matrix.dotProduct, zeroConfluentVandermonde, hc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:48:87: warning: This simp argument is unused:
+  hc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.vecMul, Matrix.dotProduct, zeroConfluentVandermonde, Fintype.sum_sum_type]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:54:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.zeroConfluentVandermonde_det`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:55:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.zeroConfluentVandermonde_det_ne_zero`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ZeroConfluentVandermonde.lean:56:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.zeroConfluentVandermonde_eq_zero_of_conditions`

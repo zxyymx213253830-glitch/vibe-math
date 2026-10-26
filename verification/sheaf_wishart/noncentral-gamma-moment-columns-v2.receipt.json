@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T08:18:58.048247+00:00",
+  "ended_utc": "2026-10-26T08:21:01.082614+00:00",
+  "module": "JinWishartFormalization.NoncentralGammaMomentColumns",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralGammaMomentColumns.lean",
+  "source_sha256_before": "f7e7d5b2f78cf6c151f2e322d70cc1f2454f3bc1d738fc78a092acf2534a266f",
+  "source_sha256": "f7e7d5b2f78cf6c151f2e322d70cc1f2454f3bc1d738fc78a092acf2534a266f",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/noncentral-gamma-moment-columns-v2.txt",
+  "log_exists": true,
+  "log_sha256": "c086fc17c469075e349f7a62c456705f408f5879b4b3c3946c3e46fed0cb435c",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,5 @@
+'JinWishart.noncentralMomentPolynomial_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralMomentPolynomial_weighted_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMoment_column_eq_coefficient_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMomentColumnTransform_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.gammaMomentColumnTransform_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
