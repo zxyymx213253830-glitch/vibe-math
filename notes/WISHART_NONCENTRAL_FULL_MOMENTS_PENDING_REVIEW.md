@@ -1,3 +1,5 @@
+Historical pending checkpoint, RESOLVED by explicitly authorized final-source P4 and the accepted bundle documented in WISHART_NONCENTRAL_FULL_MOMENTS.md. The earlier942 total below describes the checkpoint only.
+
 # Noncentral full radial moments — PENDING review
 
 2026-10-26 08:02UTC pending checkpoint: accepted942 unchanged. New8 exports/3 modules PoissonFactorialMoments,NoncentralRadialFullMoments,Theorem1ZeroMomentMatrix passed final immutable serial gate and8 literal types/standard3. Seeds2026102603(696) and2604(781) calibrated before corresponding sources; controls are not proofs. External Qoder authorization requested for these3 new locked sources, no transmission yet; no P4 or acceptance claimed.

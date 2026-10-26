@@ -1,0 +1,24 @@
+{
+  "id": "L-noncentral-full-moments-theorem1PsiMatrix_at_zero_eq_finiteMoments",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.Theorem1ZeroMomentMatrix",
+  "declaration": "JinWishart.theorem1PsiMatrix_at_zero_eq_finiteMoments",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-full-moments-integrableOn_nuttallQ_fullNaturalMoment"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-full-moments-integrableOn_nuttallQ_fullNaturalMoment"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-full-moments-Theorem1ZeroMomentMatrix.json",
+    "source_sha256": "80da2287ee583d4e30d16fb29a14ae524d06a5e0ed91dc86f4fc524723d1659a"
+  }
+}

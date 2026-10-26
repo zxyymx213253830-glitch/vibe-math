@@ -1,0 +1,20 @@
+{
+  "id": "L-noncentral-full-moments-poisson_choose_hasSum",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PoissonFactorialMoments",
+  "declaration": "JinWishart.poisson_choose_hasSum",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-full-moments-PoissonFactorialMoments.json",
+    "source_sha256": "3415463fdbe1b56083741fba16cf915dc0b5facc8303fcdae0cc92e828b0cae2"
+  }
+}

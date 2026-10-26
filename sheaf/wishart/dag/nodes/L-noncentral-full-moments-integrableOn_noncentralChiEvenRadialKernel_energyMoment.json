@@ -1,0 +1,24 @@
+{
+  "id": "L-noncentral-full-moments-integrableOn_noncentralChiEvenRadialKernel_energyMoment",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.NoncentralRadialFullMoments",
+  "declaration": "JinWishart.integrableOn_noncentralChiEvenRadialKernel_energyMoment",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-full-moments-noncentralChiEvenRadialKernel_energyMoment"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-full-moments-noncentralChiEvenRadialKernel_energyMoment"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-full-moments-NoncentralRadialFullMoments.json",
+    "source_sha256": "0d4fb3caa85412e32349ee60c46456b1b5a6abc00ffb0f7b1d6be06beeefca92"
+  }
+}

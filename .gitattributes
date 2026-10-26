@@ -860,3 +860,5 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/noncentral_radial_moment_control.py -text whitespace=cr-at-eol
 
 /experiments/noncentral_psi_zero_moment_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_NONCENTRAL_FULL_MOMENTS.md -text whitespace=cr-at-eol

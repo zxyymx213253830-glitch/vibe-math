@@ -173,3 +173,6 @@
 - 2026-10-26T07:10:36.071143+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-paper-spectral-orbit-GramOrderedZeroPadding.json; human measure/model review remains REQUIRED.
 - 2026-10-26T07:10:52.826330+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-paper-spectral-orbit-PaperNoncentralSpectralOrbitLaw.json; human measure/model review remains REQUIRED.
 - 2026-10-26T07:33:30.525809+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mean-positive-parameters-MeanPositiveNoncentralParameters.json; human measure/model review remains REQUIRED.
+- 2026-10-26T08:07:34.603302+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-full-moments-PoissonFactorialMoments.json; human measure/model review remains REQUIRED.
+- 2026-10-26T08:07:57.363613+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-full-moments-NoncentralRadialFullMoments.json; human measure/model review remains REQUIRED.
+- 2026-10-26T08:08:19.091270+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-noncentral-full-moments-Theorem1ZeroMomentMatrix.json; human measure/model review remains REQUIRED.

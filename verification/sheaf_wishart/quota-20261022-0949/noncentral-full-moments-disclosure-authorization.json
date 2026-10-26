@@ -1,0 +1,12 @@
+{
+  "authorization": "Human explicitly answered: 允许发送这三份新源码",
+  "scope": [
+    "PoissonFactorialMoments.lean",
+    "NoncentralRadialFullMoments.lean",
+    "Theorem1ZeroMomentMatrix.lean"
+  ],
+  "prompt": "p4-noncentral-full-moments-final-prompt.txt",
+  "seconds": 90,
+  "tools_disabled": true,
+  "broader_authorization": false
+}
