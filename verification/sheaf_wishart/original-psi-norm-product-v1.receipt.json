@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T12:01:55.753053+00:00",
+  "ended_utc": "2026-10-26T12:03:41.938404+00:00",
+  "module": "JinWishartFormalization.OriginalPsiNormalizerProduct",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OriginalPsiNormalizerProduct.lean",
+  "source_sha256_before": "af61046c5d0befd5d569dd42bd272589a6ad5e48d154bafd7239b01764f6d24d",
+  "source_sha256": "af61046c5d0befd5d569dd42bd272589a6ad5e48d154bafd7239b01764f6d24d",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/original-psi-norm-product-v1.txt",
+  "log_exists": true,
+  "log_sha256": "c2f8faef13ad43e55acfd1f5eb907fd41813304b78f94839f474a815ce542bd0",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

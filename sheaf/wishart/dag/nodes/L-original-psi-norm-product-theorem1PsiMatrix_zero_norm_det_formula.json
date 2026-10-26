@@ -1,0 +1,22 @@
+{
+  "id": "L-original-psi-norm-product-theorem1PsiMatrix_zero_norm_det_formula",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.OriginalPsiNormalizerProduct",
+  "declaration": "JinWishart.theorem1PsiMatrix_zero_norm_det_formula",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-original-psi-norm-product-psiZeroRealMatrix_transport"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-original-psi-norm-product-psiZeroRealMatrix_transport"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

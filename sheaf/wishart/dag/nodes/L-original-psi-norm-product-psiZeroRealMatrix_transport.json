@@ -1,0 +1,18 @@
+{
+  "id": "L-original-psi-norm-product-psiZeroRealMatrix_transport",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.OriginalPsiNormalizerProduct",
+  "declaration": "JinWishart.psiZeroRealMatrix_transport",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

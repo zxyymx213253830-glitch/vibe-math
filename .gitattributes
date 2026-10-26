@@ -886,3 +886,87 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/noncentral_candidate_total_positivity_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_ORIGINAL_PSI_NORMALIZER_NONZERO.md -text whitespace=cr-at-eol
+
+/experiments/noncentral_candidate_tail_boundary_control.py -text whitespace=cr-at-eol
+
+/experiments/original_psi_norm_product_control.py -text whitespace=cr-at-eol
+
+/sheaf/wishart/dag/nodes/L-original-psi-norm-product-psiZeroRealMatrix_transport.json -text whitespace=cr-at-eol
+
+/sheaf/wishart/dag/nodes/L-original-psi-norm-product-theorem1PsiMatrix_zero_norm_det_formula.json -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/OriginalNoncentralCandidateUpperBoundary.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/OriginalPsiNormalizerProduct.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-v1.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-v1.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-v2.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-v2.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-v3.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-v3.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-OriginalPsiNormalizerProduct-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-OriginalPsiNormalizerProduct-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-target-types-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-target-types-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-types-v1.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-types-v1.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-v1.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-v1.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-v2.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/original-psi-norm-product-v2.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/OriginalNoncentralCandidateUpperBoundary-v1-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/OriginalNoncentralCandidateUpperBoundary-v2-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/OriginalNoncentralCandidateUpperBoundary-v3-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/OriginalPsiNormalizerProduct-v1-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/SheafNoncentralUpperBoundaryTargets.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/SheafOriginalPsiNormProductTargets.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/cards-original-psi-norm-product.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/check-original-psi-norm-product-OriginalPsiNormalizerProduct.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/locks-original-psi-norm-product-OriginalPsiNormalizerProduct.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/noncentral-candidate-tail-boundary-control.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/one-hour-closeout-20261026-1148.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/original-psi-norm-product-control.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/original-psi-norm-product-disclosure-authorization.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/original-psi-norm-product-final-review-request.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/original-psi-norm-product-final-snapshot/OriginalPsiNormalizerProduct.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-original-psi-norm-product-final-prompt.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-original-psi-norm-product-final.raw.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-original-psi-norm-product-final.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-original-psi-norm-product-final.response.md -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-original-psi-norm-product-final.stderr.txt -text whitespace=cr-at-eol

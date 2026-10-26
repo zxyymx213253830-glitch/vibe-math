@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalNoncentralCandidateUpperBoundary.lean:68:1: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalNoncentralCandidateUpperBoundary.lean:71:3: error: Type mismatch: After simplification, term
+  Tendsto.comp (Continuous.tendsto hc 0) (theorem1PsiMatrix_tendsto_zero s t L hst hLs lambda)
+ has type
+  @Tendsto ℝ ℂ ((fun A => A.det) ∘ fun x => theorem1PsiMatrix s t L hst hLs lambda x) atTop (𝓝 0)
+but is expected to have type
+  @Tendsto ℝ ℂ (fun x => (theorem1PsiMatrix s t L hst hLs lambda x).det) atTop (𝓝 0)
+'JinWishart.theorem1PsiMatrix_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem2XiMatrix_tendsto_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1CdfCandidate_tendsto_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem2CdfCandidate_tendsto_one' depends on axioms: [propext, Classical.choice, Quot.sound]

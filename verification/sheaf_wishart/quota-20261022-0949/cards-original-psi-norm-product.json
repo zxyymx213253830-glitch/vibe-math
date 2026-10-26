@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "original-psi-norm-product-OriginalPsiNormalizerProduct",
+    "module": "OriginalPsiNormalizerProduct",
+    "nodes": [
+      [
+        "L-original-psi-norm-product-psiZeroRealMatrix_transport",
+        "psiZeroRealMatrix_transport",
+        []
+      ],
+      [
+        "L-original-psi-norm-product-theorem1PsiMatrix_zero_norm_det_formula",
+        "theorem1PsiMatrix_zero_norm_det_formula",
+        [
+          "L-original-psi-norm-product-psiZeroRealMatrix_transport"
+        ]
+      ]
+    ]
+  }
+]

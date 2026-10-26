@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-10-26T13:13:28.423850+00:00",
+  "reason": "USER_ONE_HOUR_HARD_DEADLINE",
+  "requested_start_utc": "2026-10-26T11:48:51+00:00",
+  "hard_stop_utc": "2026-10-26T12:48:51+00:00",
+  "deadline_detected_utc": "2026-10-26T13:11:24+00:00",
+  "last_observed_pre_deadline_utc": "2026-10-26T12:22:11+00:00",
+  "observation_gap": "Human permission reply was received later; interval work or continuous activity is NOT asserted. Fresh clock showed deadline passed; v4 gate refused before Lean. No further mathematics, Lean, experiments or proof-review adjudication after detection.",
+  "accepted": {
+    "total": 969,
+    "theorem_instances": 967,
+    "legacy_constructions": 2,
+    "acceptance_records": 170,
+    "facade": "facade-151",
+    "audit": "PASS",
+    "commit": "4b827bf",
+    "rechecked_at_closeout": false
+  },
+  "newly_accepted_in_window": {
+    "exports": 19,
+    "modules": 5
+  },
+  "pending": {
+    "OriginalPsiNormalizerProduct": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/OriginalPsiNormalizerProduct.lean",
+      "sha256": "9e494c9dc33d9c0a1e594ff53c4f7acc57870a05bde5da037c8dfff6f7a02be7",
+      "status": "locked final bundle and two literal types PASS; authorized P4 returned; response NOT evaluated; NOT accepted"
+    },
+    "OriginalNoncentralCandidateUpperBoundary": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/OriginalNoncentralCandidateUpperBoundary.lean",
+      "sha256": "4150589b60e4bfbc36b6ddee54d1299f55e69039e43b6341664f2489be4e3e2b",
+      "status": "v1/v2/v3 FAILED, retained; current v4 edited but new gate refused by user deadline BEFORE Lean; NOT compiled or accepted"
+    }
+  },
+  "latest_observed_quota": {
+    "ordinaryUsageAllowed": true,
+    "primary_used_percent": 28,
+    "weekly_used_percent": 20,
+    "reset_credits_available": 2,
+    "reset_credits_used": 0,
+    "observation": "during window after12:21UTC; no new quota call at closeout"
+  },
+  "automation": "PAUSED; not resumed in fixed-hour window",
+  "external_review": {
+    "source": "OriginalPsiNormalizerProduct.lean",
+    "explicit_permission_item": "[\"request_user_input_async\",\"call_f2a3d5d8cc8c49e49fd79819e0be6964\",0]",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-original-psi-norm-product-final.receipt.json",
+    "started_utc": "2026-10-26T13:11:03.117870+00:00",
+    "ended_utc": "2026-10-26T13:11:28.173036+00:00",
+    "exit_code": 0,
+    "response_saved_not_adjudicated": true,
+    "scope_did_not_extend_work_deadline": true
+  },
+  "new_gate": {
+    "tag": "noncentral-candidate-upper-boundary-v4",
+    "status": "REFUSED_BY_USER_HARD_DEADLINE_BEFORE_LEAN",
+    "receipt": null
+  },
+  "processes": "Both own tool sessions completed; no own Lean gate running. No other process or lock stopped/deleted.",
+  "publication": "Frozen publication files unchanged; no new audit/kernel rerun at closeout; fullLake/Linux independent kernel NOT_RUN",
+  "human_review": "[需人工审查] 测度/Fubini/尾部极限/索引/模型及原文映射"
+}

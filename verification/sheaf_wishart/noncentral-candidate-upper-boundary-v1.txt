@@ -1,0 +1,51 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalNoncentralCandidateUpperBoundary.lean:28:61: error: unsolved goals
+k : ℕ
+ht : Tendsto (fun x => upperGammaTail (↑(k + 1)) x) atTop (𝓝 0)
+x : ℝ
+hx : 0 ≤ x
+⊢ 0 < ↑k + 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalNoncentralCandidateUpperBoundary.lean:48:3: error: Type mismatch: After simplification, term
+  Tendsto.const_mul (↑(Real.rpow 2 ((↑(2 * (↑i + 1)) - ↑s - ↑t) / 2)))
+    (Tendsto.comp (natural_nuttall_tail (t - s) (s - (↑i + 1)) √(2 * lambda ⟨↑j, hj⟩)) hb)
+ has type
+  @Tendsto ℝ ℂ
+    (fun x =>
+      ↑(Real.rpow 2 ((↑(2 * (↑i + 1)) - ↑s - ↑t) / 2)) *
+        ((fun b => nuttallQ (t - s + 2 * (s - (↑i + 1)) + 1) (t - s) (√(2 * lambda ⟨↑j, hj⟩)) b) ∘ fun x => √(2 * x)) x)
+    atTop (𝓝 0)
+but is expected to have type
+  @Tendsto ℝ ℂ
+    (fun x =>
+      ↑(Real.rpow 2 ((↑(2 * (↑i + 1)) - ↑s - ↑t) / 2)) *
+        nuttallQ (t - s + 2 * (s - (↑i + 1)) + 1) (t - s) √(2 * lambda ⟨↑j, hj⟩) √(2 * x))
+    atTop (𝓝 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalNoncentralCandidateUpperBoundary.lean:68:1: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalNoncentralCandidateUpperBoundary.lean:71:3: error: Type mismatch: After simplification, term
+  Tendsto.comp (Continuous.tendsto hc 0) (theorem1PsiMatrix_tendsto_zero s t L hst hLs lambda)
+ has type
+  @Tendsto ℝ ℂ ((fun A => A.det) ∘ fun x => theorem1PsiMatrix s t L hst hLs lambda x) atTop (𝓝 0)
+but is expected to have type
+  @Tendsto ℝ ℂ (fun x => (theorem1PsiMatrix s t L hst hLs lambda x).det) atTop (𝓝 0)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalNoncentralCandidateUpperBoundary.lean:88:1: error: Type mismatch: After simplification, term
+  Tendsto.div_const (Tendsto.norm hd) ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖
+ has type
+  @Tendsto ℝ ℝ
+    (fun a =>
+      ‖((fun A => A.det) ∘ fun x => theorem2XiMatrix s t L hst hLs lambda x) a‖ /
+        ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖)
+    atTop (𝓝 1)
+but is expected to have type
+  @Tendsto ℝ ℝ
+    (fun x => ‖(theorem2XiMatrix s t L hst hLs lambda x).det‖ / ‖(theorem1PsiMatrix s t L hst hLs lambda 0).det‖) atTop
+    (𝓝 1)
+'JinWishart.theorem1PsiMatrix_tendsto_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem2XiMatrix_tendsto_full' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem1CdfCandidate_tendsto_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.theorem2CdfCandidate_tendsto_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

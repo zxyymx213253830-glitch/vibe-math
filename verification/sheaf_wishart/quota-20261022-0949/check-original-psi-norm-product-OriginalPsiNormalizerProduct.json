@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "9e494c9dc33d9c0a1e594ff53c4f7acc57870a05bde5da037c8dfff6f7a02be7",
+  "target_lock_sha256": "52707fe1fe91b9dbcb53d4ac7d0475ce15921303c3bd8ed6d7141e1a236fefe9",
+  "leaf": {
+    "started_utc": "2026-10-26T12:12:07.080452+00:00",
+    "ended_utc": "2026-10-26T12:12:35.937473+00:00",
+    "module": "JinWishartFormalization.OriginalPsiNormalizerProduct",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/OriginalPsiNormalizerProduct.lean",
+    "source_sha256_before": "9e494c9dc33d9c0a1e594ff53c4f7acc57870a05bde5da037c8dfff6f7a02be7",
+    "source_sha256": "9e494c9dc33d9c0a1e594ff53c4f7acc57870a05bde5da037c8dfff6f7a02be7",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/original-psi-norm-product-OriginalPsiNormalizerProduct-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "ef979df68d587cd443bc91992add395d1b2a3694b482d62089ce56388b034e32",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-26T12:12:35.940214+00:00",
+    "ended_utc": "2026-10-26T12:13:10.046039+00:00",
+    "module": "SheafOriginalPsiNormProductTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafOriginalPsiNormProductTargets.lean",
+    "source_sha256_before": "02e592cb95f2ff8db6730352bff4dc55867b2e37ddd0cfa57d17b7818870bb63",
+    "source_sha256": "02e592cb95f2ff8db6730352bff4dc55867b2e37ddd0cfa57d17b7818870bb63",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/original-psi-norm-product-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "fdf21788ac3250d82f93ee1c8f521f7abc7c0962daabb00a3a4bc10ed7b0ed87",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

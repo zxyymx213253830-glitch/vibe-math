@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalPsiNormalizerProduct.lean:108:1: error: Type mismatch: After simplification, term
+  psi_norm_product_decomposed p L t hst lambda hnn
+ has type
+  ‖(theorem1PsiMatrix (p + L) t L hst ⋯ lambda 0).det‖ =
+    (∏ j, (lambda j).rpow (↑(t - (p + L)) / 2)) * ((∏ j, lambda j ^ p) * ∏ i, ∏ j > i, |lambda j - lambda i|) *
+      ∏ h ∈ @univ (Fin p) (Fin.fintype p), ↑(↑h).factorial * ↑(t - (p + L) + ↑h).factorial
+but is expected to have type
+  ‖(theorem1PsiMatrix (p + L) t L hst hLs lambda 0).det‖ =
+    (∏ j, (lambda j).rpow (↑(t - (p + L)) / 2)) * ((∏ x, lambda x ^ p) * ∏ i, ∏ j > i, |lambda j - lambda i|) *
+      ∏ h ∈ @univ (Fin (p + L - L)) (Fin.fintype (p + L - L)), ↑(↑h).factorial * ↑(t - (p + L) + ↑h).factorial
+'JinWishart.psiZeroRealMatrix_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1PsiMatrix_zero_norm_det_formula' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

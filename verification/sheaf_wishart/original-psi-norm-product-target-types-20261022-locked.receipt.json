@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T12:12:35.940214+00:00",
+  "ended_utc": "2026-10-26T12:13:10.046039+00:00",
+  "module": "SheafOriginalPsiNormProductTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafOriginalPsiNormProductTargets.lean",
+  "source_sha256_before": "02e592cb95f2ff8db6730352bff4dc55867b2e37ddd0cfa57d17b7818870bb63",
+  "source_sha256": "02e592cb95f2ff8db6730352bff4dc55867b2e37ddd0cfa57d17b7818870bb63",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/original-psi-norm-product-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "fdf21788ac3250d82f93ee1c8f521f7abc7c0962daabb00a3a4bc10ed7b0ed87",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
