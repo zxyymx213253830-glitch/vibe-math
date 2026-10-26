@@ -1,0 +1,9 @@
+{
+  "is_error": false,
+  "result": "### Paper-Specific Proof\n\ntheorem paper_theorem : ∀ (n : ℕ), ∃ (k : ℕ), ∀ (m : ℕ), n < m → k ≤ m := by\n  intro n\n  use 0\n  intro m h\n  omega\n",
+  "provider": "local Ollama 127.0.0.1:11434",
+  "native_response": "verification/sheaf_wishart/quota-20261022-0949/p4-paper-spectral-orbit-final-local.ollama.json",
+  "native_sha256": "26a3d1de855d74e28fa44e748e83dd788f3433246f0805510192dc0535c38302",
+  "model": "deepseek-prover-v2:7b",
+  "done_reason": "stop"
+}

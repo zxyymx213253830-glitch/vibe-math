@@ -1,0 +1,172 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE GramOrderedZeroPadding.lean
+import Mathlib.Analysis.Matrix.Spectrum
+import JinWishartFormalization.GramSpectrumTransfer
+import Mathlib.Data.Multiset.Sort
+
+/-! Codex. Seed2026102601 controls precede source. Descending Gram lists keep
+all multiplicities, including rank deficiency. Zero padding belongs at the end.
+[需人工审查] Sorted-index and paper small-side conventions. -/
+open Matrix Polynomial
+namespace JinWishart
+noncomputable section
+
+theorem hermitian_ordered_zero_padding {a b d : ℕ}
+    {A : Matrix (Fin a) (Fin a) ℂ} {B : Matrix (Fin b) (Fin b) ℂ}
+    (hA : A.IsHermitian) (hB : B.IsHermitian)
+    (hpos : ∀ i, 0 ≤ hA.eigenvalues₀ i)
+    (hpoly : B.charpoly = X^d * A.charpoly) :
+    List.ofFn hB.eigenvalues₀ = List.ofFn hA.eigenvalues₀ ++ List.replicate d 0 := by
+  classical
+  have hroots : B.charpoly.roots.map (RCLike.re : ℂ → ℝ) =
+      (List.ofFn hA.eigenvalues₀ ++ List.replicate d (0 : ℝ) : List ℝ) := by
+    rw [hpoly, Polynomial.roots_mul (mul_ne_zero (pow_ne_zero _ X_ne_zero)
+      (Matrix.charpoly_monic A).ne_zero), Polynomial.roots_X_pow]
+    have ha : A.charpoly.roots.map (RCLike.re : ℂ → ℝ) = (List.ofFn hA.eigenvalues₀ : Multiset ℝ) := by
+      rw [← hA.sort_roots_charpoly_eq_eigenvalues₀, Multiset.sort_eq]
+    simp only [Multiset.map_add, Multiset.nsmul_singleton, Multiset.map_replicate,
+      RCLike.zero_re, ha]
+    change Multiset.replicate d (0 : ℝ) + (List.ofFn hA.eigenvalues₀ : Multiset ℝ) =
+      (List.ofFn hA.eigenvalues₀ : Multiset ℝ) + Multiset.replicate d 0
+    exact add_comm _ _
+  have hs : (List.ofFn hA.eigenvalues₀ ++ List.replicate d (0 : ℝ)).SortedGE := by
+    apply List.sortedGE_append.mpr
+    refine ⟨hA.eigenvalues₀_antitone.sortedGE_ofFn, ?_, ?_⟩
+    · apply List.Pairwise.sortedGE
+      apply List.pairwise_replicate.mpr
+      exact Or.inr (le_refl (0 : ℝ))
+    · intro x hx y hy
+      have hy0 : y = 0 := List.eq_of_mem_replicate hy
+      subst y
+      obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hx
+      exact hpos i
+  rw [← hB.sort_roots_charpoly_eq_eigenvalues₀, hroots, Multiset.coe_sort]
+  exact List.mergeSort_eq_self _ hs.pairwise
+
+theorem gram_ordered_column_eq_row_append_zeros {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hmn : m ≤ n) :
+    List.ofFn (complexGram_posSemidef A).1.eigenvalues₀ =
+      List.ofFn (complexGram_posSemidef Aᴴ).1.eigenvalues₀ ++ List.replicate (n-m) 0 := by
+  apply hermitian_ordered_zero_padding
+  · exact complexGram_eigenvalues₀_nonneg Aᴴ
+  · simpa only [complexGram, Matrix.conjTranspose_conjTranspose] using
+      charpoly_rowGram_eq_X_pow_mul_charpoly_colGram Aᴴ hmn
+
+theorem gram_ordered_row_column_prefix {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (hmn : m ≤ n) (i : Fin m) :
+    (complexGram_posSemidef Aᴴ).1.eigenvalues₀
+      (Fin.cast (Fintype.card_fin m).symm i) =
+    (complexGram_posSemidef A).1.eigenvalues₀
+      (Fin.cast (Fintype.card_fin n).symm (Fin.castLE hmn i)) := by
+  have h := gram_ordered_column_eq_row_append_zeros A hmn
+  have hi : i.val < (List.ofFn (complexGram_posSemidef Aᴴ).1.eigenvalues₀).length := by
+    simp
+  have hn : i.val < (List.ofFn (complexGram_posSemidef A).1.eigenvalues₀).length := by
+    simp only [List.length_ofFn, Fintype.card_fin]
+    omega
+  have he := congrArg (fun l : List ℝ => l[i.val]?) h
+  rw [List.getElem?_eq_getElem hn, List.getElem?_append_left hi,
+    List.getElem?_eq_getElem hi] at he
+  simp only [List.getElem_ofFn, Option.some.injEq] at he
+  convert he.symm using 1 <;> congr 1
+
+end
+end JinWishart
+#print axioms JinWishart.hermitian_ordered_zero_padding
+#print axioms JinWishart.gram_ordered_column_eq_row_append_zeros
+#print axioms JinWishart.gram_ordered_row_column_prefix
+
+SOURCE PaperNoncentralSpectralOrbitLaw.lean
+import JinWishartFormalization.GramOrderedZeroPadding
+import JinWishartFormalization.ActualNoncentralSpectralOrbitLaw
+import JinWishartFormalization.GaussianMatrixSpectralIntegral
+
+/-! Codex. Seed2026102601 controls precede source. The paper's small-side ordered
+vector is the initial min(m,n) segment of the full column-Gram spectrum.
+[需人工审查] Source noncentrality/rank-L convention and Borel model mapping. -/
+open Matrix MeasureTheory ProbabilityTheory Polynomial
+open scoped ComplexOrder
+namespace JinWishart
+noncomputable section
+
+private theorem psd_ordered_nonneg {n : ℕ} {A : Matrix (Fin n) (Fin n) ℂ}
+    (hA : A.PosSemidef) (i : Fin (Fintype.card (Fin n))) : 0 ≤ hA.1.eigenvalues₀ i := by
+  have h := hA.eigenvalues_nonneg ((Fintype.equivOfCardEq (Fintype.card_fin _)) i)
+  simpa only [Matrix.IsHermitian.eigenvalues, Equiv.symm_apply_apply] using h
+
+theorem paperSmallSide_ordered_column_zero_padding {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) :
+    List.ofFn (complexGram_posSemidef A).1.eigenvalues₀ =
+      List.ofFn (paperSmallSideGram_posSemidef A).1.eigenvalues₀ ++
+        List.replicate (n-min m n) 0 := by
+  apply hermitian_ordered_zero_padding
+  · exact psd_ordered_nonneg (paperSmallSideGram_posSemidef A)
+  · by_cases hmn : m ≤ n
+    · rw [paperSmallSideGram, dif_pos hmn, charpoly_submatrix_equiv]
+      simpa only [complexGram, Matrix.conjTranspose_conjTranspose, Nat.min_eq_left hmn] using
+        charpoly_rowGram_eq_X_pow_mul_charpoly_colGram Aᴴ hmn
+    · have hnm : n ≤ m := le_of_not_ge hmn
+      have hz : n-min m n=0 := by omega
+      rw [hz, pow_zero, one_mul]
+      exact (charpoly_paperSmallSideGram_eq_charpoly_colGram A hnm).symm
+
+theorem paperSmallSide_ordered_column_prefix {m n : ℕ}
+    (A : Matrix (Fin m) (Fin n) ℂ) (i : Fin (min m n)) :
+    (paperSmallSideGram_posSemidef A).1.eigenvalues₀
+      (Fin.cast (Fintype.card_fin (min m n)).symm i) =
+    (complexGram_posSemidef A).1.eigenvalues₀
+      (Fin.cast (Fintype.card_fin n).symm (Fin.castLE (Nat.min_le_right m n) i)) := by
+  have h := paperSmallSide_ordered_column_zero_padding A
+  have hi : i.val < (List.ofFn (paperSmallSideGram_posSemidef A).1.eigenvalues₀).length := by
+    simpa using i.isLt
+  have hn : i.val < (List.ofFn (complexGram_posSemidef A).1.eigenvalues₀).length := by
+    simp only [List.length_ofFn, Fintype.card_fin]
+    exact lt_of_lt_of_le i.isLt (Nat.min_le_right m n)
+  have he := congrArg (fun l : List ℝ => l[i.val]?) h
+  rw [List.getElem?_eq_getElem hn, List.getElem?_append_left hi,
+    List.getElem?_eq_getElem hi] at he
+  simp only [List.getElem_ofFn, Option.some.injEq] at he
+  convert he.symm using 1 <;> congr 1
+
+theorem actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues {m n : ℕ}
+    (M N : Matrix (Fin m) (Fin n) ℂ)
+    (h : (Matrix.isHermitian_conjTranspose_mul_self M).eigenvalues₀ =
+      (Matrix.isHermitian_conjTranspose_mul_self N).eigenvalues₀) :
+    (stdGaussian (ComplexSample (m := m) (n := n))).map (paperJointSpectrum M) =
+      (stdGaussian (ComplexSample (m := m) (n := n))).map (paperJointSpectrum N) := by
+  let P : (Fin (Fintype.card (Fin n)) → ℝ) → (Fin (min m n) → ℝ) :=
+    fun v i => v (Fin.cast (Fintype.card_fin n).symm (Fin.castLE (Nat.min_le_right m n) i))
+  have hP : Measurable P := by fun_prop
+  have hm (K : Matrix (Fin m) (Fin n) ℂ) :
+      P ∘ (fun z => fun i => complexNoncentralSampleEigenvalue K i z) = paperJointSpectrum K := by
+    funext z i
+    exact (paperSmallSide_ordered_column_prefix (complexSampleMatrix z+K) i).symm
+  have he := congrArg (fun μ : Measure (Fin (Fintype.card (Fin n)) → ℝ) => μ.map P)
+    (actualNoncentral_orderedSpectrum_law_of_meanGram_eigenvalues M N h)
+  have hmeas (K : Matrix (Fin m) (Fin n) ℂ) :
+      Measurable (fun z => fun i => complexNoncentralSampleEigenvalue K i z) :=
+    measurable_complexNoncentralSampleEigenvalueVector_of_continuous K
+      (orderedHermitianEigenvalueCoordinatesContinuous n)
+  rwa [Measure.map_map hP (hmeas M), Measure.map_map hP (hmeas N), hm M, hm N] at he
+
+theorem actualNoncentral_paperJointSpectrum_law_of_smallMeanGram_eigenvalues {m n : ℕ}
+    (M N : Matrix (Fin m) (Fin n) ℂ)
+    (h : (paperSmallSideGram_posSemidef M).1.eigenvalues₀ =
+      (paperSmallSideGram_posSemidef N).1.eigenvalues₀) :
+    (stdGaussian (ComplexSample (m := m) (n := n))).map (paperJointSpectrum M) =
+      (stdGaussian (ComplexSample (m := m) (n := n))).map (paperJointSpectrum N) := by
+  apply actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues
+  apply List.ofFn_inj.mp
+  change List.ofFn (complexGram_posSemidef M).1.eigenvalues₀ =
+    List.ofFn (complexGram_posSemidef N).1.eigenvalues₀
+  rw [paperSmallSide_ordered_column_zero_padding M,
+    paperSmallSide_ordered_column_zero_padding N, h]
+
+end
+end JinWishart
+#print axioms JinWishart.paperSmallSide_ordered_column_zero_padding
+#print axioms JinWishart.paperSmallSide_ordered_column_prefix
+#print axioms JinWishart.actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues
+#print axioms JinWishart.actualNoncentral_paperJointSpectrum_law_of_smallMeanGram_eigenvalues

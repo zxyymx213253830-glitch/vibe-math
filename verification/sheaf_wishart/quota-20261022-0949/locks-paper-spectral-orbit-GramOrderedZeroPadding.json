@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-10-26T06:51:09.722000+00:00",
+  "module": "JinWishartFormalization.GramOrderedZeroPadding",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramOrderedZeroPadding.lean",
+  "statements": {
+    "JinWishart.hermitian_ordered_zero_padding": "{a b d : ℕ} {A : Matrix (Fin a) (Fin a) ℂ} {B : Matrix (Fin b) (Fin b) ℂ} (hA : A.IsHermitian) (hB : B.IsHermitian) (hpos : ∀ i, 0 ≤ hA.eigenvalues₀ i) (hpoly : B.charpoly = X^d * A.charpoly) : List.ofFn hB.eigenvalues₀ = List.ofFn hA.eigenvalues₀ ++ List.replicate d 0",
+    "JinWishart.gram_ordered_column_eq_row_append_zeros": "{m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) (hmn : m ≤ n) : List.ofFn (complexGram_posSemidef A).1.eigenvalues₀ = List.ofFn (complexGram_posSemidef Aᴴ).1.eigenvalues₀ ++ List.replicate (n-m) 0",
+    "JinWishart.gram_ordered_row_column_prefix": "{m n : ℕ} (A : Matrix (Fin m) (Fin n) ℂ) (hmn : m ≤ n) (i : Fin m) : (complexGram_posSemidef Aᴴ).1.eigenvalues₀ (Fin.cast (Fintype.card_fin m).symm i) = (complexGram_posSemidef A).1.eigenvalues₀ (Fin.cast (Fintype.card_fin n).symm (Fin.castLE hmn i))"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/GramSpectrumTransfer.lean": "c91c467905c62178a87b352c2df5cd604c0398b61a924788b007b7c4b2772723",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/GramSpectrumTransfer.olean": "5875b82c177ed174c3fe9e19e5c9d7eb9f5a1d7a19811e4c92da99f924a51bda",
+    "theory/jin_wishart_formalization/JinWishartFormalization/PaperSmallSideGram.lean": "bced670a94a7aa66c8c48ff6bada28550e25dc822655be363d07315f4499a30b",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/PaperSmallSideGram.olean": "12d5da9d903bcebdbcccf541d6e98834be58518eae90568ae9af1226cdd11182",
+    "theory/jin_wishart_formalization/JinWishartFormalization/WishartProbability.lean": "c3557713aba1f9af0325cfca9b35eeb4225c330da4cf1b0d85b73af4666d3c0f",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/WishartProbability.olean": "5d5dad561c507df7943f399fb4f93cf17fa45106ca408c8b38959cb856817aaa",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GramOrderedZeroPadding.lean": "75fe63dbb2839de5a2d305fb525caa0dd7e9d3a9e028b59f7a8040d8cbe04ba3",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafPaperSpectralOrbitTargets.lean",
+  "type_check_source_sha256": "60a55bd6124493a1f996273022e6d6ed7cf51b81da2ce2928fb71061add428d5",
+  "locked_local_definitions": {}
+}

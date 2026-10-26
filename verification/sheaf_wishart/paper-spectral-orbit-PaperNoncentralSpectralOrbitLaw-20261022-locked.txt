@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperNoncentralSpectralOrbitLaw.lean:26:30: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.paperSmallSide_ordered_column_zero_padding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperSmallSide_ordered_column_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentral_paperJointSpectrum_law_of_smallMeanGram_eigenvalues' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

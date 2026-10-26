@@ -1,0 +1,61 @@
+[
+  {
+    "tag": "paper-spectral-orbit-GramOrderedZeroPadding",
+    "module": "GramOrderedZeroPadding",
+    "nodes": [
+      [
+        "L-paper-spectral-orbit-hermitian_ordered_zero_padding",
+        "hermitian_ordered_zero_padding",
+        []
+      ],
+      [
+        "L-paper-spectral-orbit-gram_ordered_column_eq_row_append_zeros",
+        "gram_ordered_column_eq_row_append_zeros",
+        [
+          "L-paper-spectral-orbit-hermitian_ordered_zero_padding"
+        ]
+      ],
+      [
+        "L-paper-spectral-orbit-gram_ordered_row_column_prefix",
+        "gram_ordered_row_column_prefix",
+        [
+          "L-paper-spectral-orbit-gram_ordered_column_eq_row_append_zeros"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "paper-spectral-orbit-PaperNoncentralSpectralOrbitLaw",
+    "module": "PaperNoncentralSpectralOrbitLaw",
+    "nodes": [
+      [
+        "L-paper-spectral-orbit-paperSmallSide_ordered_column_zero_padding",
+        "paperSmallSide_ordered_column_zero_padding",
+        [
+          "L-paper-spectral-orbit-gram_ordered_row_column_prefix"
+        ]
+      ],
+      [
+        "L-paper-spectral-orbit-paperSmallSide_ordered_column_prefix",
+        "paperSmallSide_ordered_column_prefix",
+        [
+          "L-paper-spectral-orbit-paperSmallSide_ordered_column_zero_padding"
+        ]
+      ],
+      [
+        "L-paper-spectral-orbit-actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues",
+        "actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues",
+        [
+          "L-paper-spectral-orbit-paperSmallSide_ordered_column_prefix"
+        ]
+      ],
+      [
+        "L-paper-spectral-orbit-actualNoncentral_paperJointSpectrum_law_of_smallMeanGram_eigenvalues",
+        "actualNoncentral_paperJointSpectrum_law_of_smallMeanGram_eigenvalues",
+        [
+          "L-paper-spectral-orbit-actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues"
+        ]
+      ]
+    ]
+  }
+]

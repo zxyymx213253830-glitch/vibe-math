@@ -1,0 +1,22 @@
+{
+  "id": "L-paper-spectral-orbit-actualNoncentral_paperJointSpectrum_law_of_smallMeanGram_eigenvalues",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.PaperNoncentralSpectralOrbitLaw",
+  "declaration": "JinWishart.actualNoncentral_paperJointSpectrum_law_of_smallMeanGram_eigenvalues",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-paper-spectral-orbit-actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-paper-spectral-orbit-actualNoncentral_paperJointSpectrum_law_of_meanGram_eigenvalues"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

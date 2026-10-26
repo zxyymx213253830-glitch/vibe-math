@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T06:48:38.828955+00:00",
+  "ended_utc": "2026-10-26T06:49:03.317693+00:00",
+  "module": "JinWishartFormalization.PaperNoncentralSpectralOrbitLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PaperNoncentralSpectralOrbitLaw.lean",
+  "source_sha256_before": "f0c044a76ebd8996c8658aed37abc817d435dc91d1c0ca7a976b166d18f9e861",
+  "source_sha256": "f0c044a76ebd8996c8658aed37abc817d435dc91d1c0ca7a976b166d18f9e861",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/paper-spectral-orbit-v1.txt",
+  "log_exists": true,
+  "log_sha256": "62a3cda0d7b37d71fb10104f9cdcf84b1185d5ff5f0108b39291545e1e0624ae",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

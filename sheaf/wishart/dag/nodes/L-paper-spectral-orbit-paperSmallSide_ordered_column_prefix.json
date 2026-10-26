@@ -1,0 +1,22 @@
+{
+  "id": "L-paper-spectral-orbit-paperSmallSide_ordered_column_prefix",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PaperNoncentralSpectralOrbitLaw",
+  "declaration": "JinWishart.paperSmallSide_ordered_column_prefix",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-paper-spectral-orbit-paperSmallSide_ordered_column_zero_padding"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-paper-spectral-orbit-paperSmallSide_ordered_column_zero_padding"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

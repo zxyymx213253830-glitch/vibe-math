@@ -1,0 +1,67 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:23:92: error: unsolved goals
+a b d : ℕ
+A : Matrix (Fin a) (Fin a) ℂ
+B : Matrix (Fin b) (Fin b) ℂ
+hA : A.IsHermitian
+hB : B.IsHermitian
+hpos : ∀ (i : Fin (Fintype.card (Fin a))), 0 ≤ hA.eigenvalues₀ i
+hpoly : B.charpoly = X ^ d * A.charpoly
+⊢ Multiset.map Complex.re A.charpoly.roots = Multiset.map (⇑RCLike.re) A.charpoly.roots
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:27:4: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:32:44: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:38:48: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Multiset.map Complex.re B.charpoly.roots
+in the target expression
+  ((Multiset.map (⇑RCLike.re) B.charpoly.roots).sort fun x1 x2 => x1 ≥ x2) =
+    List.ofFn hA.eigenvalues₀ ++ List.replicate d 0
+
+a b d : ℕ
+A : Matrix (Fin a) (Fin a) ℂ
+B : Matrix (Fin b) (Fin b) ℂ
+hA : A.IsHermitian
+hB : B.IsHermitian
+hpos : ∀ (i : Fin (Fintype.card (Fin a))), 0 ≤ hA.eigenvalues₀ i
+hpoly : B.charpoly = X ^ d * A.charpoly
+hroots : Multiset.map Complex.re B.charpoly.roots = ↑(List.ofFn hA.eigenvalues₀ ++ List.replicate d 0)
+hs : (List.ofFn hA.eigenvalues₀ ++ List.replicate d 0).SortedGE
+⊢ ((Multiset.map (⇑RCLike.re) B.charpoly.roots).sort fun x1 x2 => x1 ≥ x2) =
+    List.ofFn hA.eigenvalues₀ ++ List.replicate d 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:25:33: warning: This simp argument is unused:
+  Multiset.map_nsmul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Multiset.map_add, Multiset.map_singleton, Complex.zero_re, ha, Multiset.nsmul_singleton,
+    ← Multiset.coe_replicate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:25:53: warning: This simp argument is unused:
+  Multiset.map_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Multiset.map_add, Multiset.map_nsmul, Complex.zero_re, ha, Multiset.nsmul_singleton,
+    ← Multiset.coe_replicate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:26:6: warning: This simp argument is unused:
+  Complex.zero_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Multiset.map_add, Multiset.map_nsmul, Multiset.map_singleton, ha, Multiset.nsmul_singleton,
+    ← Multiset.coe_replicate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:58:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GramOrderedZeroPadding.lean:65:2: error: Type mismatch: After simplification, term
+  Eq.symm he
+ has type
+  @Eq ℝ (⋯.eigenvalues₀ ⟨↑i, ⋯⟩) (⋯.eigenvalues₀ ⟨↑i, ⋯⟩)
+but is expected to have type
+  @Eq ℝ (⋯.eigenvalues₀ (Fin.cast ⋯ i)) (⋯.eigenvalues₀ (Fin.cast ⋯ (Fin.castLE hmn i)))
+'JinWishart.hermitian_ordered_zero_padding' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gram_ordered_column_eq_row_append_zeros' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.gram_ordered_row_column_prefix' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

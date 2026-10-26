@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-10-26T06:55:36.387847+00:00",
+  "ended_utc": "2026-10-26T06:55:47.073874+00:00",
+  "exit_code": 0,
+  "requested_model": "deepseek-prover-v2:7b",
+  "provider": "local Ollama 127.0.0.1:11434",
+  "no_external_destination": true,
+  "tools_disabled": true,
+  "independent_compilation": false,
+  "prompt_sha256": "806e1e8e095d14ab71d705ca105bb7d856e343b953f4bb8a42b9a04dd7d10d5b",
+  "runner_sha256": "63c26af1707a64170453be700c69300a279e17b346ba2eb8bfb3dd5f464c1dd8",
+  "model_manifest_digest": "3d08a648fcd62941fd88c507cd9113f529c05637b58d6e33090c382da656327b",
+  "policy": "One local request; shared compute lock; default180s; no tools or proof authorship"
+}

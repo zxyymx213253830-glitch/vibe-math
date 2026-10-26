@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T06:44:42.566530+00:00",
+  "ended_utc": "2026-10-26T06:45:07.512737+00:00",
+  "module": "JinWishartFormalization.GramOrderedZeroPadding",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramOrderedZeroPadding.lean",
+  "source_sha256_before": "57cd9365977e44fbc6989d9775d03fcf134486957a1dceec166df6c1f29aed91",
+  "source_sha256": "57cd9365977e44fbc6989d9775d03fcf134486957a1dceec166df6c1f29aed91",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/gram-ordered-padding-v2.txt",
+  "log_exists": true,
+  "log_sha256": "99119edef9846913a077b7a7b024356775e46bc6ad82053c96b8f3e46f94c29f",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

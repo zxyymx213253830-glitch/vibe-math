@@ -1,0 +1,22 @@
+{
+  "id": "L-paper-spectral-orbit-gram_ordered_column_eq_row_append_zeros",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GramOrderedZeroPadding",
+  "declaration": "JinWishart.gram_ordered_column_eq_row_append_zeros",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-paper-spectral-orbit-hermitian_ordered_zero_padding"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-paper-spectral-orbit-hermitian_ordered_zero_padding"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

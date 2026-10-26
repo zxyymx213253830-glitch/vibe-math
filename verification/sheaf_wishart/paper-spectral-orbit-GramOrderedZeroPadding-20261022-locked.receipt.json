@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T06:51:10.303275+00:00",
+  "ended_utc": "2026-10-26T06:51:20.277519+00:00",
+  "module": "JinWishartFormalization.GramOrderedZeroPadding",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GramOrderedZeroPadding.lean",
+  "source_sha256_before": "75fe63dbb2839de5a2d305fb525caa0dd7e9d3a9e028b59f7a8040d8cbe04ba3",
+  "source_sha256": "75fe63dbb2839de5a2d305fb525caa0dd7e9d3a9e028b59f7a8040d8cbe04ba3",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/paper-spectral-orbit-GramOrderedZeroPadding-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "51ff0710f54fd900f7384bd853c1f1e028d45aa369027767584b6fb00751c158",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
