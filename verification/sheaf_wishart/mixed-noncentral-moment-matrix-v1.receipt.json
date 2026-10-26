@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T08:33:18.699278+00:00",
+  "ended_utc": "2026-10-26T08:34:10.476975+00:00",
+  "module": "JinWishartFormalization.MixedNoncentralMomentMatrix",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedNoncentralMomentMatrix.lean",
+  "source_sha256_before": "8e3d6172546655bc8fb2cf61e649ba2e541d3097ec2b53c2c10f8bd97dfb9bba",
+  "source_sha256": "8e3d6172546655bc8fb2cf61e649ba2e541d3097ec2b53c2c10f8bd97dfb9bba",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/mixed-noncentral-moment-matrix-v1.txt",
+  "log_exists": true,
+  "log_sha256": "035d4c45b5b2c3e6234d0bb2eaa3706edb41b18c53f6d120e0d5ad50ebd329ff",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

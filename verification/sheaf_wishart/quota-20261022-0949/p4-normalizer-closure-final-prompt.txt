@@ -1,0 +1,524 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE NoncentralFullRankNormalizer.lean
+import JinWishartFormalization.Theorem1ZeroMomentMatrix
+import Mathlib.LinearAlgebra.Vandermonde
+import Mathlib.Data.Fin.Rev
+
+/-! Codex. Seed2026102605: 300 exact controls before source.
+Full noncentral rank L=s only: monic moment basis and nonzero original Psi(0).
+Not partial-rank normalization, density, or an actual spectral law.
+[需人工审查] Original formula indexing and later normalization/model mapping. -/
+open Polynomial Finset Matrix
+namespace JinWishart
+noncomputable section
+
+def noncentralMomentPolynomial (q k : ℕ) : ℝ[X] :=
+ ∑ j ∈ range (k+1), C ((k.factorial : ℝ)*((q+k).choose (k-j) : ℝ)/(j.factorial : ℝ))*X^j
+
+theorem noncentralMomentPolynomial_eval (q k : ℕ) (x : ℝ) :
+ (noncentralMomentPolynomial q k).eval x = poissonFactorialMomentPolynomial q k x := by
+ unfold noncentralMomentPolynomial poissonFactorialMomentPolynomial
+ simp only [eval_finsetSum, eval_mul, eval_C, eval_pow, eval_X, mul_sum]
+ apply sum_congr rfl
+ intro j _
+ ring
+
+private theorem moment_degree_le (q k : ℕ) :
+ (noncentralMomentPolynomial q k).natDegree ≤ k := by
+ unfold noncentralMomentPolynomial
+ apply natDegree_sum_le_of_forall_le
+ intro j hj
+ exact (natDegree_C_mul_X_pow_le _ _).trans (Nat.le_of_lt_succ (mem_range.mp hj))
+
+private theorem moment_coeff_top (q k : ℕ) :
+ (noncentralMomentPolynomial q k).coeff k = 1 := by
+ unfold noncentralMomentPolynomial
+ simp [Nat.factorial_ne_zero]
+
+theorem noncentralMomentPolynomial_monic (q k : ℕ) :
+ (noncentralMomentPolynomial q k).Monic :=
+ monic_of_natDegree_le_of_coeff_eq_one k (moment_degree_le q k) (moment_coeff_top q k)
+
+theorem noncentralMomentPolynomial_natDegree (q k : ℕ) :
+ (noncentralMomentPolynomial q k).natDegree = k := by
+ apply le_antisymm (moment_degree_le q k)
+ exact le_natDegree_of_ne_zero (by rw [moment_coeff_top]; norm_num)
+
+theorem noncentralMoment_eval_det (q s : ℕ) (lambda : Fin s → ℝ) :
+ (Matrix.of (fun i j : Fin s => poissonFactorialMomentPolynomial q i.val (lambda j))).det =
+   (Matrix.vandermonde lambda).det := by
+ have h := Matrix.det_eval_matrixOfPolynomials_eq_det_vandermonde lambda
+   (fun i : Fin s => noncentralMomentPolynomial q i.val)
+   (fun i => noncentralMomentPolynomial_natDegree q i.val)
+   (fun i => noncentralMomentPolynomial_monic q i.val)
+ have he : Matrix.of (fun i j : Fin s => poissonFactorialMomentPolynomial q i.val (lambda j)) =
+   (Matrix.of (fun i j : Fin s => (noncentralMomentPolynomial q j.val).eval (lambda i))).transpose := by
+   ext i j
+   exact (noncentralMomentPolynomial_eval q i.val (lambda j)).symm
+ rw [he,Matrix.det_transpose,← h]
+
+theorem theorem1PsiMatrix_zero_det_ne_zero_full_rank (s t : ℕ) (hst : s ≤ t)
+ (lambda : Fin s → ℝ) (hpos : ∀ j, 0 < lambda j) (hinj : Function.Injective lambda) :
+ (theorem1PsiMatrix s t s hst le_rfl lambda 0).det ≠ 0 := by
+ let A : Matrix (Fin s) (Fin s) ℝ :=
+   fun i j => poissonFactorialMomentPolynomial (t-s) i.val (lambda j)
+ have hA : A.det ≠ 0 := by
+   rw [show A = Matrix.of (fun i j : Fin s =>
+     poissonFactorialMomentPolynomial (t-s) i.val (lambda j)) from rfl,
+     noncentralMoment_eval_det]
+   exact Matrix.det_vandermonde_ne_zero_iff.mpr hinj
+ let D := A.submatrix Fin.revPerm id
+ have hD : D.det ≠ 0 := by
+   change (A.submatrix Fin.revPerm id).det ≠ 0
+   rw [Matrix.det_permute]
+   apply mul_ne_zero ?_ hA
+   exact_mod_cast (Units.ne_zero (Equiv.Perm.sign (Fin.revPerm : Equiv.Perm (Fin s))))
+ let w : Fin s → ℝ := fun j => Real.rpow (lambda j) (((t-s : ℕ) : ℝ)/2)
+ let B : Matrix (Fin s) (Fin s) ℝ := fun i j => w j * D i j
+ have hB : B.det ≠ 0 := by
+   change (Matrix.of (fun i j => w j * D i j)).det ≠ 0
+   rw [Matrix.det_mul_row]
+   apply mul_ne_zero ?_ hD
+   apply Finset.prod_ne_zero_iff.mpr
+   intro j _
+   exact ne_of_gt (Real.rpow_pos_of_pos (hpos j) _)
+ have hPsi : theorem1PsiMatrix s t s hst le_rfl lambda 0 =
+   Complex.ofRealHom.mapMatrix B := by
+   rw [theorem1PsiMatrix_at_zero_eq_finiteMoments s t s hst le_rfl lambda
+     (fun j => le_of_lt (hpos j))]
+   ext i j
+   simp only [theorem1ZeroMomentMatrix, dite_eq_left j.isLt]
+   change _ = ((w j * D i j : ℝ) : ℂ)
+   simp only [Complex.ofReal_mul]
+   congr 1
+ rw [hPsi,← Complex.ofRealHom.map_det]
+ change (B.det : ℂ) ≠ 0
+ exact_mod_cast hB
+
+end
+end JinWishart
+#print axioms JinWishart.noncentralMomentPolynomial_eval
+#print axioms JinWishart.noncentralMomentPolynomial_monic
+#print axioms JinWishart.noncentralMomentPolynomial_natDegree
+#print axioms JinWishart.noncentralMoment_eval_det
+#print axioms JinWishart.theorem1PsiMatrix_zero_det_ne_zero_full_rank
+
+SOURCE NoncentralGammaMomentColumns.lean
+import JinWishartFormalization.NoncentralFullRankNormalizer
+import Mathlib.LinearAlgebra.Matrix.Block
+
+/-! Codex. Seed2026102606 exact controls precede source.
+Algebraic Gamma-column reduction for later partial-rank normalization.
+No full Psi determinant evaluation, normalization integral or actual-law assertion.
+[需人工审查] Row/column and source parameter conventions in later use. -/
+open Polynomial Finset
+namespace JinWishart
+noncomputable section
+
+theorem noncentralMomentPolynomial_coeff (q k j : ℕ) :
+ (noncentralMomentPolynomial q k).coeff j =
+   (k.factorial : ℝ)*((q+k).choose (q+j) : ℝ)/(j.factorial : ℝ) := by
+ by_cases hj : j ≤ k
+ · have hs : (q+k).choose (k-j) = (q+k).choose (q+j) :=
+     Nat.choose_symm_of_eq_add (by omega)
+   unfold noncentralMomentPolynomial
+   simp only [finsetSum_coeff,coeff_C_mul_X_pow]
+   rw [sum_eq_single j]
+   · simp [hs]
+   · intro b _ hb
+     simp [Ne.symm hb]
+   · intro hn
+     exact (hn (mem_range.mpr (by omega))).elim
+ · have hz : (noncentralMomentPolynomial q k).coeff j = 0 := by
+     apply coeff_eq_zero_of_natDegree_lt
+     rw [noncentralMomentPolynomial_natDegree]
+     omega
+   rw [hz,Nat.choose_eq_zero_of_lt (by omega)]
+   simp
+
+theorem noncentralMomentPolynomial_weighted_coeff (q k j : ℕ) :
+ ((q+j).factorial : ℝ)*(noncentralMomentPolynomial q k).coeff j =
+   ((q+k).factorial : ℝ)*(k.choose j : ℝ) := by
+ rw [noncentralMomentPolynomial_coeff]
+ by_cases hj : j ≤ k
+ · have hc1 : ((q+k).choose (q+j) : ℝ)*((q+j).factorial : ℝ)*((k-j).factorial : ℝ) =
+       ((q+k).factorial : ℝ) := by
+     have h := Nat.choose_mul_factorial_mul_factorial (show q+j ≤ q+k by omega)
+     rw [show q+k-(q+j)=k-j by omega] at h
+     exact_mod_cast h
+   have hc2 : (k.choose j : ℝ)*(j.factorial : ℝ)*((k-j).factorial : ℝ) =
+       (k.factorial : ℝ) := by
+     exact_mod_cast Nat.choose_mul_factorial_mul_factorial hj
+   have hj0 : (j.factorial : ℝ) ≠ 0 := by positivity
+   have hk0 : ((k-j).factorial : ℝ) ≠ 0 := by positivity
+   field_simp [hj0]
+   apply mul_right_cancel₀ hk0
+   linear_combination (k.factorial : ℝ)*hc1 - ((q+k).factorial : ℝ)*hc2
+ · rw [Nat.choose_eq_zero_of_lt (show k<j by omega),
+     Nat.choose_eq_zero_of_lt (show q+k<q+j by omega)]
+   simp
+
+theorem gammaMoment_column_eq_coefficient_sum (q k h : ℕ) :
+ (∑ j ∈ range (h+1), (h.factorial : ℝ)*((q+h).choose (h-j) : ℝ)*
+   ((q+j).factorial : ℝ)*(noncentralMomentPolynomial q k).coeff j) =
+     ((q+k+h).factorial : ℝ) := by
+ calc
+  _ = (h.factorial : ℝ)*((q+k).factorial : ℝ)*
+      ∑ j ∈ range (h+1), ((q+h).choose (h-j) : ℝ)*(k.choose j : ℝ) := by
+    simp only [mul_sum]
+    apply sum_congr rfl
+    intro j _
+    calc
+     _ = (h.factorial : ℝ)*((q+h).choose (h-j) : ℝ)*
+         (((q+j).factorial : ℝ)*(noncentralMomentPolynomial q k).coeff j) := by ring
+     _ = _ := by rw [noncentralMomentPolynomial_weighted_coeff]; ring
+  _ = ((q+k).factorial : ℝ)*
+      (((k+q+h).factorial : ℝ)/((k+q).factorial : ℝ)) := by
+    rw [factorial_ratio_vandermonde q h k]
+    ring
+  _ = _ := by
+    rw [show q+k=k+q by omega]
+    field_simp
+
+def gammaMomentColumnTransform (q p : ℕ) : Matrix (Fin p) (Fin p) ℝ :=
+ fun j h => if j.val ≤ h.val then
+   (h.val.factorial : ℝ)*((q+h.val).choose (h.val-j.val) : ℝ)*((q+j.val).factorial : ℝ)
+ else 0
+
+theorem gammaMomentColumnTransform_det (q p : ℕ) :
+ (gammaMomentColumnTransform q p).det =
+   ∏ h : Fin p, (h.val.factorial : ℝ)*((q+h.val).factorial : ℝ) := by
+ have ht : (gammaMomentColumnTransform q p).IsUpperTriangular := by
+   intro i j hji
+   simp only [gammaMomentColumnTransform]
+   rw [ite_eq_right (show ¬ i.val ≤ j.val by exact not_le.mpr hji)]
+ rw [Matrix.det_of_isUpperTriangular ht]
+ apply Finset.prod_congr rfl
+ intro h _
+ simp [gammaMomentColumnTransform]
+
+theorem gammaMomentColumnTransform_det_ne_zero (q p : ℕ) :
+ (gammaMomentColumnTransform q p).det ≠ 0 := by
+ rw [gammaMomentColumnTransform_det]
+ apply Finset.prod_ne_zero_iff.mpr
+ intro h _
+ positivity
+
+end
+end JinWishart
+#print axioms JinWishart.noncentralMomentPolynomial_coeff
+#print axioms JinWishart.noncentralMomentPolynomial_weighted_coeff
+#print axioms JinWishart.gammaMoment_column_eq_coefficient_sum
+#print axioms JinWishart.gammaMomentColumnTransform_det
+#print axioms JinWishart.gammaMomentColumnTransform_det_ne_zero
+
+SOURCE ZeroConfluentVandermonde.lean
+import Mathlib.Basic.Real.Basic
+import Mathlib.LinearAlgebra.Vandermonde
+import Mathlib.LinearAlgebra.Matrix.Nondegenerate
+
+/-! Codex. Seed2026102607 exact controls precede source.
+Zero-confluent COEFFICIENT conditions, not derivative columns with factorials.
+This is deterministic algebra, not a Wishart density or Psi-matrix identification.
+[需人工审查] Fin/Sum index assembly in later use. -/
+open Matrix Finset
+namespace JinWishart
+noncomputable section
+
+def zeroConfluentVandermonde (p L : ℕ) (lambda : Fin L → ℝ) :
+ Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ :=
+ Matrix.fromBlocks 1 (Matrix.of (fun i j => lambda j ^ i.val)) 0
+   (Matrix.of (fun i j => lambda j ^ (p+i.val)))
+
+theorem zeroConfluentVandermonde_det (p L : ℕ) (lambda : Fin L → ℝ) :
+ (zeroConfluentVandermonde p L lambda).det =
+   (∏ j : Fin L, lambda j ^ p)*(Matrix.vandermonde lambda).det := by
+ unfold zeroConfluentVandermonde
+ rw [Matrix.det_fromBlocks_zero₂₁,Matrix.det_one,one_mul]
+ have he : Matrix.of (fun i j : Fin L => lambda j ^ (p+i.val)) =
+   Matrix.of (fun i j => lambda j ^ p * (Matrix.vandermonde lambda).transpose i j) := by
+   ext i j
+   simp [Matrix.vandermonde,Matrix.transpose_apply,pow_add]
+ rw [he,Matrix.det_mul_row,Matrix.det_transpose]
+
+theorem zeroConfluentVandermonde_det_ne_zero (p L : ℕ) (lambda : Fin L → ℝ)
+ (hnz : ∀ j, lambda j ≠ 0) (hinj : Function.Injective lambda) :
+ (zeroConfluentVandermonde p L lambda).det ≠ 0 := by
+ rw [zeroConfluentVandermonde_det]
+ apply mul_ne_zero ?_ (Matrix.det_vandermonde_ne_zero_iff.mpr hinj)
+ apply Finset.prod_ne_zero_iff.mpr
+ intro j _
+ exact pow_ne_zero p (hnz j)
+
+theorem zeroConfluentVandermonde_eq_zero_of_conditions (p L : ℕ) (lambda : Fin L → ℝ)
+ (hnz : ∀ j, lambda j ≠ 0) (hinj : Function.Injective lambda)
+ (c : Fin p ⊕ Fin L → ℝ) (hc : ∀ i, c (Sum.inl i) = 0)
+ (he : ∀ j : Fin L,
+   (∑ i : Fin p, c (Sum.inl i)*lambda j^i.val)+
+     (∑ i : Fin L, c (Sum.inr i)*lambda j^(p+i.val)) = 0) : c = 0 := by
+ apply Matrix.eq_zero_of_vecMul_eq_zero
+   (zeroConfluentVandermonde_det_ne_zero p L lambda hnz hinj)
+ funext j
+ cases j with
+ | inl j =>
+   simp [Matrix.vecMul,dotProduct,zeroConfluentVandermonde,Fintype.sum_sum_type,Matrix.fromBlocks,hc]
+ | inr j =>
+   simpa [Matrix.vecMul,dotProduct,zeroConfluentVandermonde,Fintype.sum_sum_type,Matrix.fromBlocks] using he j
+
+end
+end JinWishart
+#print axioms JinWishart.zeroConfluentVandermonde_det
+#print axioms JinWishart.zeroConfluentVandermonde_det_ne_zero
+#print axioms JinWishart.zeroConfluentVandermonde_eq_zero_of_conditions
+
+SOURCE MixedNoncentralMomentMatrix.lean
+import JinWishartFormalization.NoncentralGammaMomentColumns
+import JinWishartFormalization.ZeroConfluentVandermonde
+import Mathlib.Logic.Equiv.Fin.Basic
+
+/-! Codex. Seed2026102608 exact factorization controls precede source.
+Ascending monic moment rows, central coefficient/Gamma columns first.
+This is not yet the original Psi Fin-index assembly or an actual joint law.
+[需人工审查] Fin/Sum assembly and eventual source/model normalization. -/
+open Polynomial Matrix Finset
+namespace JinWishart
+noncomputable section
+
+def mixedMomentDegree (p L : ℕ) (i : Fin p ⊕ Fin L) : ℕ :=
+ (finSumFinEquiv (m := p) (n := L) i).val
+
+def mixedMomentCoefficientBasis (q p L : ℕ) :
+ Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ :=
+ Matrix.of (fun i j => (noncentralMomentPolynomial q (mixedMomentDegree p L i)).coeff
+   (mixedMomentDegree p L j))
+
+def mixedMomentEvaluationBasis (q p L : ℕ) (lambda : Fin L → ℝ) :
+ Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ :=
+ Matrix.of (fun i j => match j with
+ | Sum.inl h => (noncentralMomentPolynomial q (mixedMomentDegree p L i)).coeff h.val
+ | Sum.inr j => poissonFactorialMomentPolynomial q (mixedMomentDegree p L i) (lambda j))
+
+def mixedNoncentralMomentMatrix (q p L : ℕ) (lambda : Fin L → ℝ) :
+ Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ :=
+ Matrix.of (fun i j => match j with
+ | Sum.inl h => ((q+mixedMomentDegree p L i+h.val).factorial : ℝ)
+ | Sum.inr j => poissonFactorialMomentPolynomial q (mixedMomentDegree p L i) (lambda j))
+
+def mixedGammaColumnBlock (q p L : ℕ) :
+ Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ :=
+ Matrix.fromBlocks (gammaMomentColumnTransform q p) 0 0 1
+
+theorem gammaMomentColumnTransform_coeff_sum (q k p : ℕ) (h : Fin p) :
+ (∑ j : Fin p, (noncentralMomentPolynomial q k).coeff j.val *
+   gammaMomentColumnTransform q p j h) = ((q+k+h.val).factorial : ℝ) := by
+ let f : ℕ → ℝ := fun j => (noncentralMomentPolynomial q k).coeff j *
+   (if j ≤ h.val then (h.val.factorial : ℝ)*((q+h.val).choose (h.val-j) : ℝ)*
+     ((q+j).factorial : ℝ) else 0)
+ change (∑ j : Fin p, f j.val) = _
+ rw [Fin.sum_univ_eq_sum_range]
+ have hsub : range (h.val+1) ⊆ range p := by
+   intro j hj
+   simp only [mem_range] at hj ⊢
+   omega
+ calc
+  _ = ∑ j ∈ range (h.val+1), f j := by
+    symm
+    apply sum_subset hsub
+    intro j hj hn
+    have hjh : ¬ j ≤ h.val := by
+      simp only [mem_range] at hn
+      omega
+    simp [f,hjh]
+  _ = ∑ j ∈ range (h.val+1), (h.val.factorial : ℝ)*
+      ((q+h.val).choose (h.val-j) : ℝ)*((q+j).factorial : ℝ)*
+        (noncentralMomentPolynomial q k).coeff j := by
+    apply sum_congr rfl
+    intro j hj
+    have hjh : j ≤ h.val := by simpa using (Nat.le_of_lt_succ (mem_range.mp hj))
+    simp only [f,ite_eq_left hjh]
+    ring
+  _ = _ := gammaMoment_column_eq_coefficient_sum q k h.val
+
+theorem mixedMomentCoefficientBasis_det (q p L : ℕ) :
+ (mixedMomentCoefficientBasis q p L).det = 1 := by
+ let A : Matrix (Fin (p+L)) (Fin (p+L)) ℝ := Matrix.of
+   (fun i j => (noncentralMomentPolynomial q i.val).coeff j.val)
+ have hA : A.det = 1 := by
+   have ht := Matrix.det_matrixOfPolynomials
+     (fun i : Fin (p+L) => noncentralMomentPolynomial q i.val)
+     (fun i => noncentralMomentPolynomial_natDegree q i.val)
+     (fun i => noncentralMomentPolynomial_monic q i.val)
+   change (Matrix.of (fun i j : Fin (p+L) =>
+     (noncentralMomentPolynomial q j.val).coeff i.val)).transpose.det = 1
+   rw [Matrix.det_transpose]
+   exact ht
+ have he : mixedMomentCoefficientBasis q p L =
+   A.submatrix (finSumFinEquiv (m := p) (n := L)) finSumFinEquiv := rfl
+ rw [he,Matrix.det_submatrix_equiv_self,hA]
+
+private theorem coefficient_mul_confluent (q p L : ℕ) (lambda : Fin L → ℝ) :
+ mixedMomentCoefficientBasis q p L * zeroConfluentVandermonde p L lambda =
+   mixedMomentEvaluationBasis q p L lambda := by
+ ext i j
+ cases j with
+ | inl h =>
+   simp [Matrix.mul_apply,Fintype.sum_sum_type,mixedMomentCoefficientBasis,
+     zeroConfluentVandermonde,Matrix.fromBlocks,Matrix.one_apply,mixedMomentEvaluationBasis,mixedMomentDegree]
+ | inr j =>
+   have hd : (noncentralMomentPolynomial q (mixedMomentDegree p L i)).natDegree < p+L := by
+     rw [noncentralMomentPolynomial_natDegree]
+     exact (finSumFinEquiv i).isLt
+   have hs := Equiv.sum_comp (finSumFinEquiv (m := p) (n := L))
+     (fun r : Fin (p+L) =>
+       (noncentralMomentPolynomial q (mixedMomentDegree p L i)).coeff r.val * lambda j^r.val)
+   have hv : poissonFactorialMomentPolynomial q (mixedMomentDegree p L i) (lambda j) =
+       ∑ r : Fin (p+L),
+         (noncentralMomentPolynomial q (mixedMomentDegree p L i)).coeff r.val * lambda j^r.val := by
+     rw [← noncentralMomentPolynomial_eval,Polynomial.eval_eq_sum_range' hd,
+       ← Fin.sum_univ_eq_sum_range]
+   change _ = poissonFactorialMomentPolynomial q (mixedMomentDegree p L i) (lambda j)
+   rw [hv]
+   simpa [Matrix.mul_apply,Fintype.sum_sum_type,mixedMomentCoefficientBasis,
+     zeroConfluentVandermonde,Matrix.fromBlocks,Matrix.one_apply,mixedMomentEvaluationBasis,mixedMomentDegree] using hs
+
+private theorem evaluation_mul_gamma (q p L : ℕ) (lambda : Fin L → ℝ) :
+ mixedMomentEvaluationBasis q p L lambda * mixedGammaColumnBlock q p L =
+   mixedNoncentralMomentMatrix q p L lambda := by
+ ext i j
+ cases j with
+ | inl h =>
+   simpa [Matrix.mul_apply,Fintype.sum_sum_type,mixedMomentEvaluationBasis,
+     mixedGammaColumnBlock,Matrix.fromBlocks,Matrix.one_apply,mixedNoncentralMomentMatrix] using
+       gammaMomentColumnTransform_coeff_sum q (mixedMomentDegree p L i) p h
+ | inr j =>
+   simp [Matrix.mul_apply,Fintype.sum_sum_type,mixedMomentEvaluationBasis,
+     mixedGammaColumnBlock,Matrix.fromBlocks,Matrix.one_apply,mixedNoncentralMomentMatrix]
+
+theorem mixedNoncentralMomentMatrix_factorization (q p L : ℕ) (lambda : Fin L → ℝ) :
+ mixedNoncentralMomentMatrix q p L lambda =
+   mixedMomentCoefficientBasis q p L * zeroConfluentVandermonde p L lambda *
+     mixedGammaColumnBlock q p L := by
+ rw [coefficient_mul_confluent,evaluation_mul_gamma]
+
+theorem mixedNoncentralMomentMatrix_det (q p L : ℕ) (lambda : Fin L → ℝ) :
+ (mixedNoncentralMomentMatrix q p L lambda).det =
+   ((∏ j : Fin L, lambda j ^ p)*(Matrix.vandermonde lambda).det)*
+     (∏ h : Fin p, (h.val.factorial : ℝ)*((q+h.val).factorial : ℝ)) := by
+ rw [mixedNoncentralMomentMatrix_factorization,Matrix.det_mul,Matrix.det_mul,
+   mixedMomentCoefficientBasis_det,one_mul,zeroConfluentVandermonde_det]
+ simp only [mixedGammaColumnBlock,Matrix.det_fromBlocks_zero₂₁,Matrix.det_one,mul_one,
+   gammaMomentColumnTransform_det]
+
+theorem mixedNoncentralMomentMatrix_det_ne_zero (q p L : ℕ) (lambda : Fin L → ℝ)
+ (hnz : ∀ j, lambda j ≠ 0) (hinj : Function.Injective lambda) :
+ (mixedNoncentralMomentMatrix q p L lambda).det ≠ 0 := by
+ rw [mixedNoncentralMomentMatrix_det]
+ apply mul_ne_zero
+   (mul_ne_zero (Finset.prod_ne_zero_iff.mpr (fun j _ => pow_ne_zero p (hnz j)))
+     (Matrix.det_vandermonde_ne_zero_iff.mpr hinj))
+ apply Finset.prod_ne_zero_iff.mpr
+ intro h _
+ positivity
+
+end
+end JinWishart
+#print axioms JinWishart.gammaMomentColumnTransform_coeff_sum
+#print axioms JinWishart.mixedMomentCoefficientBasis_det
+#print axioms JinWishart.mixedNoncentralMomentMatrix_factorization
+#print axioms JinWishart.mixedNoncentralMomentMatrix_det
+#print axioms JinWishart.mixedNoncentralMomentMatrix_det_ne_zero
+
+SOURCE OriginalPsiNormalizerNonzero.lean
+import JinWishartFormalization.MixedNoncentralMomentMatrix
+
+/-! Codex. Seed2026102609 exact controls precede source.
+Original Psi(0) denominator nonzero for ALL permitted ranks L<=s, positive
+pairwise distinct noncentral parameters, including empty and rank-zero cases.
+No density, normalization-integral or actual-CDF identification is asserted.
+[需人工审查] Original row/column indexing and later paper/model mapping. -/
+open Matrix Finset
+namespace JinWishart
+noncomputable section
+
+private theorem psi_normalizer_decomposed (p L t : ℕ) (hst : p+L ≤ t)
+ (lambda : Fin L → ℝ) (hpos : ∀ j, 0 < lambda j) (hinj : Function.Injective lambda) :
+ (theorem1PsiMatrix (p+L) t L hst (by omega) lambda 0).det ≠ 0 := by
+ let er : (Fin p ⊕ Fin L) ≃ Fin (p+L) := finSumFinEquiv.trans Fin.revPerm
+ let ec : (Fin p ⊕ Fin L) ≃ Fin (p+L) :=
+   (Equiv.sumComm (Fin p) (Fin L)).trans
+     ((Equiv.sumCongr (Equiv.refl (Fin L)) (Fin.revPerm : Equiv.Perm (Fin p))).trans
+       ((finSumFinEquiv (m := L) (n := p)).trans (finCongr (Nat.add_comm L p))))
+ have hr (i : Fin p ⊕ Fin L) :
+   p+L-((er i).val+1) = mixedMomentDegree p L i := by
+   change p+L-((Fin.rev (finSumFinEquiv i)).val+1) = _
+   rw [Fin.val_rev]
+   have hi := (finSumFinEquiv (m := p) (n := L) i).isLt
+   unfold mixedMomentDegree
+   omega
+ have hcl (h : Fin p) : (ec (Sum.inl h)).val = p+L-(h.val+1) := by
+   change L+(Fin.rev h).val = _
+   rw [Fin.val_rev]
+   omega
+ have hcr (j : Fin L) : (ec (Sum.inr j)).val = j.val := by rfl
+ let M := mixedNoncentralMomentMatrix (t-(p+L)) p L lambda
+ let w : Fin p ⊕ Fin L → ℝ := fun j => match j with
+   | Sum.inl _ => 1
+   | Sum.inr j => Real.rpow (lambda j) (((t-(p+L) : ℕ) : ℝ)/2)
+ let B : Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ := Matrix.of (fun i j => w j * M i j)
+ have hB : B.det ≠ 0 := by
+   change (Matrix.of (fun i j => w j * M i j)).det ≠ 0
+   rw [Matrix.det_mul_row]
+   apply mul_ne_zero ?_ (mixedNoncentralMomentMatrix_det_ne_zero (t-(p+L)) p L lambda
+     (fun j => ne_of_gt (hpos j)) hinj)
+   apply Finset.prod_ne_zero_iff.mpr
+   intro j _
+   cases j with
+   | inl h => exact one_ne_zero
+   | inr j => exact ne_of_gt (Real.rpow_pos_of_pos (hpos j) _)
+ let A := theorem1PsiMatrix (p+L) t L hst (by omega) lambda 0
+ have hsub : A.submatrix er ec = Complex.ofRealHom.mapMatrix B := by
+   dsimp [A]
+   rw [theorem1PsiMatrix_at_zero_eq_finiteMoments (p+L) t L hst (by omega) lambda
+     (fun j => le_of_lt (hpos j))]
+   ext i j
+   change theorem1ZeroMomentMatrix (p+L) t L lambda (er i) (ec j) = ((B i j : ℝ) : ℂ)
+   cases j with
+   | inl h =>
+     have hnot : ¬ (ec (Sum.inl h)).val < L := by rw [hcl]; omega
+     have hg : theorem1GammaIndex (p+L) t (er i) (ec (Sum.inl h)) =
+         t-(p+L)+mixedMomentDegree p L i+h.val := by
+       unfold theorem1GammaIndex
+       have hi := (er i).isLt
+       have hri := hr i
+       rw [hcl]
+       omega
+     simp [theorem1ZeroMomentMatrix,hnot,hg,B,w,M,mixedNoncentralMomentMatrix]
+   | inr j =>
+     have hj : (ec (Sum.inr j)).val < L := by rw [hcr]; exact j.isLt
+     have he : (⟨(ec (Sum.inr j)).val,hj⟩ : Fin L) = j := Fin.ext (hcr j)
+     simp [theorem1ZeroMomentMatrix,hj,he,hr,B,w,M,mixedNoncentralMomentMatrix,
+       Complex.ofReal_mul]
+ have hmap : (Complex.ofRealHom.mapMatrix B).det ≠ 0 := by
+   rw [← Complex.ofRealHom.map_det]
+   change (B.det : ℂ) ≠ 0
+   exact_mod_cast hB
+ have hre : (A.reindex er.symm ec.symm).det ≠ 0 := by
+   change (A.submatrix er ec).det ≠ 0
+   rw [hsub]
+   exact hmap
+ rw [Matrix.det_reindex] at hre
+ intro hz
+ exact hre (by rw [hz,mul_zero])
+
+theorem theorem1PsiMatrix_zero_det_ne_zero (s t L : ℕ) (hst : s ≤ t) (hLs : L ≤ s)
+ (lambda : Fin L → ℝ) (hpos : ∀ j, 0 < lambda j) (hinj : Function.Injective lambda) :
+ (theorem1PsiMatrix s t L hst hLs lambda 0).det ≠ 0 := by
+ obtain ⟨p,hp⟩ : ∃ p : ℕ, s = p+L := ⟨s-L,(Nat.sub_add_cancel hLs).symm⟩
+ subst s
+ exact psi_normalizer_decomposed p L t hst lambda hpos hinj
+
+end
+end JinWishart
+#print axioms JinWishart.theorem1PsiMatrix_zero_det_ne_zero

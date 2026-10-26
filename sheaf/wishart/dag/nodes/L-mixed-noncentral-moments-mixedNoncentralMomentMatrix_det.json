@@ -1,0 +1,22 @@
+{
+  "id": "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedNoncentralMomentMatrix",
+  "declaration": "JinWishart.mixedNoncentralMomentMatrix_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_factorization"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_factorization"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

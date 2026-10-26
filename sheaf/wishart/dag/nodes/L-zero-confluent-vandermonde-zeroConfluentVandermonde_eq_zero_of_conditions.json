@@ -1,0 +1,22 @@
+{
+  "id": "L-zero-confluent-vandermonde-zeroConfluentVandermonde_eq_zero_of_conditions",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ZeroConfluentVandermonde",
+  "declaration": "JinWishart.zeroConfluentVandermonde_eq_zero_of_conditions",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det_ne_zero"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det_ne_zero"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

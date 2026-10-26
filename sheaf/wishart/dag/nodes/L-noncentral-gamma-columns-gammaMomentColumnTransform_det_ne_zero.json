@@ -1,0 +1,22 @@
+{
+  "id": "L-noncentral-gamma-columns-gammaMomentColumnTransform_det_ne_zero",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.NoncentralGammaMomentColumns",
+  "declaration": "JinWishart.gammaMomentColumnTransform_det_ne_zero",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-gamma-columns-gammaMomentColumnTransform_det"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-gamma-columns-gammaMomentColumnTransform_det"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

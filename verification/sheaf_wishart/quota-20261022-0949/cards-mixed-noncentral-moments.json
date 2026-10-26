@@ -1,0 +1,41 @@
+[
+  {
+    "tag": "mixed-noncentral-moments-MixedNoncentralMomentMatrix",
+    "module": "MixedNoncentralMomentMatrix",
+    "nodes": [
+      [
+        "L-mixed-noncentral-moments-gammaMomentColumnTransform_coeff_sum",
+        "gammaMomentColumnTransform_coeff_sum",
+        []
+      ],
+      [
+        "L-mixed-noncentral-moments-mixedMomentCoefficientBasis_det",
+        "mixedMomentCoefficientBasis_det",
+        [
+          "L-mixed-noncentral-moments-gammaMomentColumnTransform_coeff_sum"
+        ]
+      ],
+      [
+        "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_factorization",
+        "mixedNoncentralMomentMatrix_factorization",
+        [
+          "L-mixed-noncentral-moments-mixedMomentCoefficientBasis_det"
+        ]
+      ],
+      [
+        "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_det",
+        "mixedNoncentralMomentMatrix_det",
+        [
+          "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_factorization"
+        ]
+      ],
+      [
+        "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_det_ne_zero",
+        "mixedNoncentralMomentMatrix_det_ne_zero",
+        [
+          "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_det"
+        ]
+      ]
+    ]
+  }
+]

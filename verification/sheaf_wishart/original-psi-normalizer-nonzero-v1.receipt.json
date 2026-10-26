@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T08:40:29.306715+00:00",
+  "ended_utc": "2026-10-26T08:40:38.509855+00:00",
+  "module": "JinWishartFormalization.OriginalPsiNormalizerNonzero",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OriginalPsiNormalizerNonzero.lean",
+  "source_sha256_before": "2570c85deab476b157ceee25e6b6a563f0442f40c44a4776607e05f424abf9aa",
+  "source_sha256": "2570c85deab476b157ceee25e6b6a563f0442f40c44a4776607e05f424abf9aa",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/original-psi-normalizer-nonzero-v1.txt",
+  "log_exists": true,
+  "log_sha256": "07fb064239043600f0487e85ef5e594f4d5c4007bd41eaac9dbf63ef408f7d07",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "original-psi-normalizer-OriginalPsiNormalizerNonzero",
+    "module": "OriginalPsiNormalizerNonzero",
+    "nodes": [
+      [
+        "L-original-psi-normalizer-theorem1PsiMatrix_zero_det_ne_zero",
+        "theorem1PsiMatrix_zero_det_ne_zero",
+        []
+      ]
+    ]
+  }
+]

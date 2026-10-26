@@ -1,0 +1,39 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedNoncentralMomentMatrix.lean:90:9: error: unsolved goals
+case inl
+q p L : ℕ
+lambda : Fin L → ℝ
+i : Fin p ⊕ Fin L
+h : Fin p
+⊢ ∑ a₁, (noncentralMomentPolynomial q ↑(finSumFinEquiv i)).coeff ↑a₁ * 1 a₁ h =
+    (noncentralMomentPolynomial q ↑(finSumFinEquiv i)).coeff ↑h
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedNoncentralMomentMatrix.lean:100:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern in the current goal
+
+case inr
+q p L : ℕ
+lambda : Fin L → ℝ
+i : Fin p ⊕ Fin L
+j : Fin L
+hd : (noncentralMomentPolynomial q (mixedMomentDegree p L i)).natDegree < p + L
+hs :
+  ∑ i_1,
+      (noncentralMomentPolynomial q (mixedMomentDegree p L i)).coeff ↑(finSumFinEquiv i_1) *
+        lambda j ^ ↑(finSumFinEquiv i_1) =
+    ∑ i_1, (noncentralMomentPolynomial q (mixedMomentDegree p L i)).coeff ↑i_1 * lambda j ^ ↑i_1
+⊢ (mixedMomentCoefficientBasis q p L * zeroConfluentVandermonde p L lambda) i (Sum.inr j) =
+    mixedMomentEvaluationBasis q p L lambda i (Sum.inr j)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedNoncentralMomentMatrix.lean:114:9: error: unsolved goals
+case inr
+q p L : ℕ
+lambda : Fin L → ℝ
+i : Fin p ⊕ Fin L
+j : Fin L
+⊢ ∑ a₂, poissonFactorialMomentPolynomial q (mixedMomentDegree p L i) (lambda a₂) * 1 a₂ j =
+    poissonFactorialMomentPolynomial q (mixedMomentDegree p L i) (lambda j)
+'JinWishart.gammaMomentColumnTransform_coeff_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedMomentCoefficientBasis_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedNoncentralMomentMatrix_factorization' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.mixedNoncentralMomentMatrix_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedNoncentralMomentMatrix_det_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

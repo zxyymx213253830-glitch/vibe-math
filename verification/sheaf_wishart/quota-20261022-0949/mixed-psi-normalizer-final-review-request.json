@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "MixedNoncentralMomentMatrix.lean": {
+      "sha256": "9ff7d0b5ccad48dbf214932e6937867f02562f3bba1c95e6149cfe6e34a66de5",
+      "supplied": "Full source"
+    },
+    "OriginalPsiNormalizerNonzero.lean": {
+      "sha256": "08f84016aa917c4226d36cd58e63f0dbabe52f1199c7e3aeb1c0f5fc09ea5cb5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "66157339f07c4643ca47820a02b93c77806e1f5ef1e93e8fade0b3393ca861c4"
+}

@@ -874,3 +874,11 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/noncentral_gamma_column_control.py -text whitespace=cr-at-eol
 
 /experiments/zero_confluent_vandermonde_control.py -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/MixedNoncentralMomentMatrix.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/OriginalPsiNormalizerNonzero.lean -text whitespace=cr-at-eol
+
+/experiments/mixed_noncentral_moment_matrix_control.py -text whitespace=cr-at-eol
+
+/experiments/original_psi_partial_rank_transport_control.py -text whitespace=cr-at-eol

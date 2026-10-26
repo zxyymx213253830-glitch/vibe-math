@@ -1,0 +1,22 @@
+{
+  "id": "L-noncentral-gamma-columns-gammaMomentColumnTransform_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.NoncentralGammaMomentColumns",
+  "declaration": "JinWishart.gammaMomentColumnTransform_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-gamma-columns-gammaMoment_column_eq_coefficient_sum"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-gamma-columns-gammaMoment_column_eq_coefficient_sum"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

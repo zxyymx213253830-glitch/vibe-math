@@ -1,0 +1,155 @@
+[
+  {
+    "tag": "noncentral-full-rank-normalizer-NoncentralFullRankNormalizer",
+    "module": "NoncentralFullRankNormalizer",
+    "nodes": [
+      [
+        "L-noncentral-full-rank-normalizer-noncentralMomentPolynomial_eval",
+        "noncentralMomentPolynomial_eval",
+        []
+      ],
+      [
+        "L-noncentral-full-rank-normalizer-noncentralMomentPolynomial_monic",
+        "noncentralMomentPolynomial_monic",
+        [
+          "L-noncentral-full-rank-normalizer-noncentralMomentPolynomial_eval"
+        ]
+      ],
+      [
+        "L-noncentral-full-rank-normalizer-noncentralMomentPolynomial_natDegree",
+        "noncentralMomentPolynomial_natDegree",
+        [
+          "L-noncentral-full-rank-normalizer-noncentralMomentPolynomial_monic"
+        ]
+      ],
+      [
+        "L-noncentral-full-rank-normalizer-noncentralMoment_eval_det",
+        "noncentralMoment_eval_det",
+        [
+          "L-noncentral-full-rank-normalizer-noncentralMomentPolynomial_natDegree"
+        ]
+      ],
+      [
+        "L-noncentral-full-rank-normalizer-theorem1PsiMatrix_zero_det_ne_zero_full_rank",
+        "theorem1PsiMatrix_zero_det_ne_zero_full_rank",
+        [
+          "L-noncentral-full-rank-normalizer-noncentralMoment_eval_det"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "noncentral-gamma-columns-NoncentralGammaMomentColumns",
+    "module": "NoncentralGammaMomentColumns",
+    "nodes": [
+      [
+        "L-noncentral-gamma-columns-noncentralMomentPolynomial_coeff",
+        "noncentralMomentPolynomial_coeff",
+        []
+      ],
+      [
+        "L-noncentral-gamma-columns-noncentralMomentPolynomial_weighted_coeff",
+        "noncentralMomentPolynomial_weighted_coeff",
+        [
+          "L-noncentral-gamma-columns-noncentralMomentPolynomial_coeff"
+        ]
+      ],
+      [
+        "L-noncentral-gamma-columns-gammaMoment_column_eq_coefficient_sum",
+        "gammaMoment_column_eq_coefficient_sum",
+        [
+          "L-noncentral-gamma-columns-noncentralMomentPolynomial_weighted_coeff"
+        ]
+      ],
+      [
+        "L-noncentral-gamma-columns-gammaMomentColumnTransform_det",
+        "gammaMomentColumnTransform_det",
+        [
+          "L-noncentral-gamma-columns-gammaMoment_column_eq_coefficient_sum"
+        ]
+      ],
+      [
+        "L-noncentral-gamma-columns-gammaMomentColumnTransform_det_ne_zero",
+        "gammaMomentColumnTransform_det_ne_zero",
+        [
+          "L-noncentral-gamma-columns-gammaMomentColumnTransform_det"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "zero-confluent-vandermonde-ZeroConfluentVandermonde",
+    "module": "ZeroConfluentVandermonde",
+    "nodes": [
+      [
+        "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det",
+        "zeroConfluentVandermonde_det",
+        []
+      ],
+      [
+        "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det_ne_zero",
+        "zeroConfluentVandermonde_det_ne_zero",
+        [
+          "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det"
+        ]
+      ],
+      [
+        "L-zero-confluent-vandermonde-zeroConfluentVandermonde_eq_zero_of_conditions",
+        "zeroConfluentVandermonde_eq_zero_of_conditions",
+        [
+          "L-zero-confluent-vandermonde-zeroConfluentVandermonde_det_ne_zero"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-noncentral-moments-MixedNoncentralMomentMatrix",
+    "module": "MixedNoncentralMomentMatrix",
+    "nodes": [
+      [
+        "L-mixed-noncentral-moments-gammaMomentColumnTransform_coeff_sum",
+        "gammaMomentColumnTransform_coeff_sum",
+        []
+      ],
+      [
+        "L-mixed-noncentral-moments-mixedMomentCoefficientBasis_det",
+        "mixedMomentCoefficientBasis_det",
+        [
+          "L-mixed-noncentral-moments-gammaMomentColumnTransform_coeff_sum"
+        ]
+      ],
+      [
+        "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_factorization",
+        "mixedNoncentralMomentMatrix_factorization",
+        [
+          "L-mixed-noncentral-moments-mixedMomentCoefficientBasis_det"
+        ]
+      ],
+      [
+        "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_det",
+        "mixedNoncentralMomentMatrix_det",
+        [
+          "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_factorization"
+        ]
+      ],
+      [
+        "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_det_ne_zero",
+        "mixedNoncentralMomentMatrix_det_ne_zero",
+        [
+          "L-mixed-noncentral-moments-mixedNoncentralMomentMatrix_det"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "original-psi-normalizer-OriginalPsiNormalizerNonzero",
+    "module": "OriginalPsiNormalizerNonzero",
+    "nodes": [
+      [
+        "L-original-psi-normalizer-theorem1PsiMatrix_zero_det_ne_zero",
+        "theorem1PsiMatrix_zero_det_ne_zero",
+        []
+      ]
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "inputs": {
+    "NoncentralFullRankNormalizer.lean": {
+      "sha256": "8bce4f305397773b5b1548afc5bf58de9c05288c1dc98213ebbda442cc3a651d",
+      "supplied": "Full source"
+    },
+    "NoncentralGammaMomentColumns.lean": {
+      "sha256": "e83352eabd082b9eb80522a76284f24c1e4475b5b4dd68c644b63e25279a17bb",
+      "supplied": "Full source"
+    },
+    "ZeroConfluentVandermonde.lean": {
+      "sha256": "42a440274a755a39591ca126ad9fcbfd5a3ecc43cbb44c7b74140059814ce783",
+      "supplied": "Full source"
+    },
+    "MixedNoncentralMomentMatrix.lean": {
+      "sha256": "9ff7d0b5ccad48dbf214932e6937867f02562f3bba1c95e6149cfe6e34a66de5",
+      "supplied": "Full source"
+    },
+    "OriginalPsiNormalizerNonzero.lean": {
+      "sha256": "08f84016aa917c4226d36cd58e63f0dbabe52f1199c7e3aeb1c0f5fc09ea5cb5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9ca7d4ec142c2f9fd2c8fab8bf9db1033664d4a3a00c6784538cde0abd9b5300"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "L-mixed-noncentral-moments-mixedMomentCoefficientBasis_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedNoncentralMomentMatrix",
+  "declaration": "JinWishart.mixedMomentCoefficientBasis_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-noncentral-moments-gammaMomentColumnTransform_coeff_sum"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-noncentral-moments-gammaMomentColumnTransform_coeff_sum"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

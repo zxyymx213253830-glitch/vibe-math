@@ -1,0 +1,7 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\OriginalPsiNormalizerNonzero.lean:86:1: error: Type mismatch: After simplification, term
+  h
+ has type
+  (theorem1PsiMatrix (s - L + L) t L ⋯ ⋯ lambda 0).det ≠ 0
+but is expected to have type
+  (theorem1PsiMatrix s t L hst hLs lambda 0).det ≠ 0
+'JinWishart.theorem1PsiMatrix_zero_det_ne_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,18 @@
+{
+  "id": "L-noncentral-full-rank-normalizer-noncentralMomentPolynomial_eval",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.NoncentralFullRankNormalizer",
+  "declaration": "JinWishart.noncentralMomentPolynomial_eval",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}
