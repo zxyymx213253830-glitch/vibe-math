@@ -882,3 +882,5 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/mixed_noncentral_moment_matrix_control.py -text whitespace=cr-at-eol
 
 /experiments/original_psi_partial_rank_transport_control.py -text whitespace=cr-at-eol
+
+/experiments/noncentral_candidate_total_positivity_control.py -text whitespace=cr-at-eol
