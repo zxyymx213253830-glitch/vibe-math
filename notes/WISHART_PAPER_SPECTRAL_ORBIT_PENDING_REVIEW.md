@@ -1,5 +1,10 @@
 # Pending review: paper small-side spectral orbit
 
+RESOLVED after explicit human permission: the approved complete-source Qoder P4
+returned on2026-10-26T07:00:24UTC. See WISHART_PAPER_SPECTRAL_ORBIT_LAW.md for exact
+resolution and final acceptance. The text below preserves the prior blocked
+history; the irrelevant local response remains rejected, not substituted for P4.
+
 2026-10-26: GramOrderedZeroPadding (3 exports) and
 PaperNoncentralSpectralOrbitLaw (4 exports) passed leaf compilation, seven
 independent literal types, and an immutable serial final bundle. Seed2026102601

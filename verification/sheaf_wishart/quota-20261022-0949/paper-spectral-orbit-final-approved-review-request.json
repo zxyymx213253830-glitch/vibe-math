@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "GramOrderedZeroPadding.lean": {
+      "sha256": "75fe63dbb2839de5a2d305fb525caa0dd7e9d3a9e028b59f7a8040d8cbe04ba3",
+      "supplied": "Full source"
+    },
+    "PaperNoncentralSpectralOrbitLaw.lean": {
+      "sha256": "a982a1bb68526b7c0429594c6fcd36d2ce6eeef9af155a7150abadfef92f241e",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "806e1e8e095d14ab71d705ca105bb7d856e343b953f4bb8a42b9a04dd7d10d5b"
+}

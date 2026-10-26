@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-paper-spectral-orbit-PaperNoncentralSpectralOrbitLaw.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-paper-spectral-orbit-PaperNoncentralSpectralOrbitLaw.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/paper-spectral-orbit-final-approved-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-paper-spectral-orbit-final-approved-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-paper-spectral-orbit-final-approved.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-paper-spectral-orbit-final-approved.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/paper-spectral-orbit-final-approved-snapshot",
+    "resolution": "notes/WISHART_PAPER_SPECTRAL_ORBIT_LAW.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-148.receipt.json"
+}

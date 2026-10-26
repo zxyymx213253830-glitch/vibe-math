@@ -13,6 +13,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-paper-spectral-orbit-GramOrderedZeroPadding.json",
+    "source_sha256": "75fe63dbb2839de5a2d305fb525caa0dd7e9d3a9e028b59f7a8040d8cbe04ba3"
   }
 }

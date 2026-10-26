@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-paper-spectral-orbit-PaperNoncentralSpectralOrbitLaw.json",
+    "source_sha256": "a982a1bb68526b7c0429594c6fcd36d2ce6eeef9af155a7150abadfef92f241e"
   }
 }
