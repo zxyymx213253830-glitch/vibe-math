@@ -1,0 +1,74 @@
+[
+  {
+    "tag": "noncentral-full-moments-PoissonFactorialMoments",
+    "module": "PoissonFactorialMoments",
+    "nodes": [
+      [
+        "L-noncentral-full-moments-poisson_choose_hasSum",
+        "poisson_choose_hasSum",
+        []
+      ],
+      [
+        "L-noncentral-full-moments-factorial_ratio_vandermonde",
+        "factorial_ratio_vandermonde",
+        [
+          "L-noncentral-full-moments-poisson_choose_hasSum"
+        ]
+      ],
+      [
+        "L-noncentral-full-moments-poisson_factorialMoment_hasSum",
+        "poisson_factorialMoment_hasSum",
+        [
+          "L-noncentral-full-moments-factorial_ratio_vandermonde"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "noncentral-full-moments-NoncentralRadialFullMoments",
+    "module": "NoncentralRadialFullMoments",
+    "nodes": [
+      [
+        "L-noncentral-full-moments-noncentralChiEvenRadialKernel_energyMoment",
+        "noncentralChiEvenRadialKernel_energyMoment",
+        [
+          "L-noncentral-full-moments-poisson_factorialMoment_hasSum"
+        ]
+      ],
+      [
+        "L-noncentral-full-moments-integrableOn_noncentralChiEvenRadialKernel_energyMoment",
+        "integrableOn_noncentralChiEvenRadialKernel_energyMoment",
+        [
+          "L-noncentral-full-moments-noncentralChiEvenRadialKernel_energyMoment"
+        ]
+      ],
+      [
+        "L-noncentral-full-moments-nuttallQ_fullNaturalMoment",
+        "nuttallQ_fullNaturalMoment",
+        [
+          "L-noncentral-full-moments-integrableOn_noncentralChiEvenRadialKernel_energyMoment"
+        ]
+      ],
+      [
+        "L-noncentral-full-moments-integrableOn_nuttallQ_fullNaturalMoment",
+        "integrableOn_nuttallQ_fullNaturalMoment",
+        [
+          "L-noncentral-full-moments-nuttallQ_fullNaturalMoment"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "noncentral-full-moments-Theorem1ZeroMomentMatrix",
+    "module": "Theorem1ZeroMomentMatrix",
+    "nodes": [
+      [
+        "L-noncentral-full-moments-theorem1PsiMatrix_at_zero_eq_finiteMoments",
+        "theorem1PsiMatrix_at_zero_eq_finiteMoments",
+        [
+          "L-noncentral-full-moments-integrableOn_nuttallQ_fullNaturalMoment"
+        ]
+      ]
+    ]
+  }
+]

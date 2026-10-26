@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-26T08:00:15.631480+00:00",
+  "module": "JinWishartFormalization.PoissonFactorialMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PoissonFactorialMoments.lean",
+  "statements": {
+    "JinWishart.poisson_choose_hasSum": "(x : ℝ) (j : ℕ) : HasSum (fun n : ℕ => x^n/(n.factorial : ℝ)*(n.choose j : ℝ)) (x^j/(j.factorial : ℝ)*Real.exp x)",
+    "JinWishart.factorial_ratio_vandermonde": "(q k n : ℕ) : ((n+q+k).factorial : ℝ)/((n+q).factorial : ℝ) = (k.factorial : ℝ) * ∑ j ∈ range (k+1), ((q+k).choose (k-j) : ℝ)*(n.choose j : ℝ)",
+    "JinWishart.poisson_factorialMoment_hasSum": "(q k : ℕ) (x : ℝ) : HasSum (fun n : ℕ => (x^n/(n.factorial : ℝ))* (((n+q+k).factorial : ℝ)/((n+q).factorial : ℝ))) (Real.exp x * poissonFactorialMomentPolynomial q k x)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/PoissonFactorialMoments.lean": "3415463fdbe1b56083741fba16cf915dc0b5facc8303fcdae0cc92e828b0cae2",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafNoncentralFullMomentsTargets.lean",
+  "type_check_source_sha256": "f823234a10b1405c3384cabaa8e1547041500ea6f04cbce9fe1daf4355ef9d42",
+  "locked_local_definitions": {}
+}

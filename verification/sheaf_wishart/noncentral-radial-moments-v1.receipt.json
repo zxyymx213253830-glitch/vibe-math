@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T07:45:33.384794+00:00",
+  "ended_utc": "2026-10-26T07:46:02.327487+00:00",
+  "module": "JinWishartFormalization.NoncentralRadialFullMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NoncentralRadialFullMoments.lean",
+  "source_sha256_before": "4d0ba4f613188d18b1729bea1fa1080cb911602f3814ad4d3d4fd8831a5dd84f",
+  "source_sha256": "4d0ba4f613188d18b1729bea1fa1080cb911602f3814ad4d3d4fd8831a5dd84f",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/noncentral-radial-moments-v1.txt",
+  "log_exists": true,
+  "log_sha256": "4c3e6a96b5d5c8b2ba9d561be4ff3969060cb8076ba3e9c5d16840f8aefc0756",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

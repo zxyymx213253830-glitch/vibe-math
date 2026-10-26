@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T08:00:33.199655+00:00",
+  "ended_utc": "2026-10-26T08:00:41.265592+00:00",
+  "module": "JinWishartFormalization.Theorem1ZeroMomentMatrix",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1ZeroMomentMatrix.lean",
+  "source_sha256_before": "80da2287ee583d4e30d16fb29a14ae524d06a5e0ed91dc86f4fc524723d1659a",
+  "source_sha256": "80da2287ee583d4e30d16fb29a14ae524d06a5e0ed91dc86f4fc524723d1659a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/noncentral-full-moments-Theorem1ZeroMomentMatrix-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f09122c239d420a8ca9972ce6723c7005ac91ad33524bf13b4de2cf83d2cf5f6",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

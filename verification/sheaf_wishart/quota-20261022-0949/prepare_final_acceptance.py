@@ -20,16 +20,23 @@ for card in cards:
  src=a.LEAN/'JinWishartFormalization'/(card['module']+'.lean')
  assert req['inputs'][src.name]['sha256']==a.sha(src)
  assert a.sha(R/rev['snapshot']/src.name)==a.sha(src)
+controls=[dict(script=c['control_script'],result=c['control_result'],seed=c['seed'])]+c.get('additional_controls',[])
+for index,control in enumerate(controls):
+ if index==0 and c.get('reuse_control',False):
+  assert control in s['controls'], 'A reused control must already be identically audit-bound'
+ else:
+  assert control not in s['controls'], 'A new control must not silently duplicate an existing control'
+  assert list(control)==['script','result','seed'], 'Control metadata must preserve the audit schema'
+  evidence=a.read(R/control['result'])
+  assert evidence['seed']==control['seed'] and evidence['status']=='PASS'
+  assert evidence['source_sha256']==a.sha(R/control['script'])
 main=a.LEAN/'JinWishartFormalization.lean'
 main.write_bytes(''.join('import JinWishartFormalization.'+card['module']+'\n' for card in cards).encode()+main.read_bytes())
 for card in cards:
  tag=card['tag'];s['targets'].append(dict(module='JinWishartFormalization.'+card['module'],count=len(card['nodes']),log='verification/sheaf_wishart/'+tag+'-20261022-locked.txt',kernel_exit_code_recorded=0))
  a.write(run/('acceptance-'+tag+'.json'),dict(target_lock=a.rel(run/('locks-'+tag+'.json')),check=a.rel(run/('check-'+tag+'.json')),review=rev,audit='verification/central_mixed_moments/audit.json',facade_receipt='verification/sheaf_wishart/'+c['facade']+'.receipt.json'))
-control=dict(script=c['control_script'],result=c['control_result'],seed=c['seed'])
-if c.get('reuse_control',False):
- assert control in s['controls'], 'A reused control must already be identically audit-bound'
-else:
- s['controls'].append(control)
+for index,control in enumerate(controls):
+ if not (index==0 and c.get('reuse_control',False)):s['controls'].append(control)
 s['reviews'].append({k:rev[k] for k in ['request','prompt','receipt','raw','snapshot']})
 s['scope']+=' '+c['scope'];a.write(sp,s)
 for p in list((R/'verification/sheaf_wishart').rglob('acceptance-*.json'))+[R/'verification/sheaf_wishart/pilot-acceptance.json']:

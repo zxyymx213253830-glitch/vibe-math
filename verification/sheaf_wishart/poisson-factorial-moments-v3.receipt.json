@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T07:43:00.309705+00:00",
+  "ended_utc": "2026-10-26T07:43:17.317706+00:00",
+  "module": "JinWishartFormalization.PoissonFactorialMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PoissonFactorialMoments.lean",
+  "source_sha256_before": "1fbd6afa3f1cfb5972d8dfe755e9a2ec212ddc4daee5da08caa731172a5e01f7",
+  "source_sha256": "1fbd6afa3f1cfb5972d8dfe755e9a2ec212ddc4daee5da08caa731172a5e01f7",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/poisson-factorial-moments-v3.txt",
+  "log_exists": true,
+  "log_sha256": "eeea543a1495dc71a0573648686ee0e1a558022a37c057ea741782811a54a48d",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

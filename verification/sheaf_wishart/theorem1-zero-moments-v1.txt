@@ -1,0 +1,83 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1ZeroMomentMatrix.lean:42:45: error: unsolved goals
+s t : ℕ
+hst : s ≤ t
+i : Fin s
+x : ℝ
+hx : 0 ≤ x
+hs : √(2 * x) ^ (t - s) = Real.rpow 2 (↑(t - s) / 2) * x.rpow (↑(t - s) / 2)
+he : (↑(2 * (↑i + 1)) - ↑s - ↑t) / 2 + ↑(t - s) / 2 + ↑(s - (↑i + 1)) = 0
+⊢ Real.rpow 2 (↑(2 + ↑i * 2) * (1 / 2) + ↑s * (-1 / 2) + ↑t * (-1 / 2)) * Real.rpow 2 (↑(t - s) * (1 / 2)) *
+        x.rpow (↑(t - s) * (1 / 2)) *
+      2 ^ ↑(s - (1 + ↑i)) =
+    Real.rpow 2 (↑(2 + ↑i * 2) * (1 / 2) + ↑s * (-1 / 2) + ↑t * (-1 / 2)) * Real.rpow 2 (↑(t - s) * (1 / 2)) *
+        x.rpow (↑(t - s) * (1 / 2)) *
+      Real.rpow 2 ↑(s - (1 + ↑i))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1ZeroMomentMatrix.lean:44:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.379 ^ ?y * ?m.379 ^ ?z
+in the target expression
+  Real.rpow 2 ((↑(2 * (↑i + 1)) - ↑s - ↑t) / 2) * Real.rpow 2 (↑(t - s) / 2) * Real.rpow 2 ↑(s - (↑i + 1)) *
+      x.rpow (↑(t - s) / 2) =
+    x.rpow (↑(t - s) / 2)
+
+s t : ℕ
+hst : s ≤ t
+i : Fin s
+x : ℝ
+hx : 0 ≤ x
+hs : √(2 * x) ^ (t - s) = Real.rpow 2 (↑(t - s) / 2) * x.rpow (↑(t - s) / 2)
+he : (↑(2 * (↑i + 1)) - ↑s - ↑t) / 2 + ↑(t - s) / 2 + ↑(s - (↑i + 1)) = 0
+⊢ Real.rpow 2 ((↑(2 * (↑i + 1)) - ↑s - ↑t) / 2) * Real.rpow 2 (↑(t - s) / 2) * Real.rpow 2 ↑(s - (↑i + 1)) *
+      x.rpow (↑(t - s) / 2) =
+    x.rpow (↑(t - s) / 2)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1ZeroMomentMatrix.lean:54:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1ZeroMomentMatrix.lean:54:20: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1ZeroMomentMatrix.lean:59:27: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1ZeroMomentMatrix.lean:64:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  nuttallQ (?q + 2 * ?k + 1) ?q ?a 0
+in the target expression
+  ↑(Real.rpow 2 ((↑(2 * (↑i + 1)) - ↑s - ↑t) / 2)) *
+      nuttallQ (t - s + 2 * (s - (↑i + 1)) + 1) (t - s) √(2 * lambda ⟨↑j, hj⟩) √(2 * 0) =
+    ↑((lambda ⟨↑j, hj⟩).rpow (↑(t - s) / 2)) *
+      ↑(poissonFactorialMomentPolynomial (t - s) (s - (↑i + 1)) (lambda ⟨↑j, hj⟩))
+
+case pos
+s t L : ℕ
+hst : s ≤ t
+hLs : L ≤ s
+lambda : Fin L → ℝ
+hLambda : ∀ (j : Fin L), 0 ≤ lambda j
+i j : Fin s
+hj : ↑j < L
+ho : theorem1QOrder s t i = t - s + 2 * (s - (↑i + 1)) + 1
+ha : √(2 * lambda ⟨↑j, hj⟩) ^ 2 / 2 = lambda ⟨↑j, hj⟩
+hc :
+  ↑(Real.rpow 2 ((2 * (↑↑i + 1) - ↑s - ↑t) / 2)) * ↑√(2 * lambda ⟨↑j, hj⟩) ^ (t - s) * 2 ^ (s - (↑i + 1)) =
+    ↑((lambda ⟨↑j, hj⟩).rpow (↑(t - s) / 2))
+⊢ ↑(Real.rpow 2 ((↑(2 * (↑i + 1)) - ↑s - ↑t) / 2)) *
+      nuttallQ (t - s + 2 * (s - (↑i + 1)) + 1) (t - s) √(2 * lambda ⟨↑j, hj⟩) √(2 * 0) =
+    ↑((lambda ⟨↑j, hj⟩).rpow (↑(t - s) / 2)) *
+      ↑(poissonFactorialMomentPolynomial (t - s) (s - (↑i + 1)) (lambda ⟨↑j, hj⟩))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1ZeroMomentMatrix.lean:70:8: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\Theorem1ZeroMomentMatrix.lean:70:20: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.theorem1PsiMatrix_at_zero_eq_finiteMoments' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

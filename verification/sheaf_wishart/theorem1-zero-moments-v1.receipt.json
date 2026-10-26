@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T07:52:22.523994+00:00",
+  "ended_utc": "2026-10-26T07:52:38.555776+00:00",
+  "module": "JinWishartFormalization.Theorem1ZeroMomentMatrix",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1ZeroMomentMatrix.lean",
+  "source_sha256_before": "462e69fa755dc31818aa778346a91b644c3e90e1bad476e71479d2e32994bc79",
+  "source_sha256": "462e69fa755dc31818aa778346a91b644c3e90e1bad476e71479d2e32994bc79",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/theorem1-zero-moments-v1.txt",
+  "log_exists": true,
+  "log_sha256": "f01d1a812896a9eb5688fa0c972ac41ba3f4f1bccb9a888993af8b25be22756d",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

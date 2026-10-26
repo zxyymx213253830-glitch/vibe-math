@@ -1,0 +1,3 @@
+'JinWishart.poisson_choose_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.factorial_ratio_vandermonde' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.poisson_factorialMoment_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]

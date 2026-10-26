@@ -1,0 +1,50 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralRadialFullMoments.lean:38:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralRadialFullMoments.lean:38:10: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralRadialFullMoments.lean:48:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralRadialFullMoments.lean:48:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralRadialFullMoments.lean:59:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?x ^ ↑?n
+in the target expression
+  (fun r => r ^ (2 * (n + q + k) + 1) * Real.exp (-(r ^ 2 / 2))) r =
+    (fun x => x ^ ↑(2 * (n + q + k) + 1) * Real.exp (-(1 / 2) * x ^ 2)) r
+
+q k n : ℕ
+a : ℝ
+h : IntegrableOn (fun x => x ^ ↑(2 * (n + q + k) + 1) * Real.exp (-(1 / 2) * x ^ 2)) (Set.Ioi 0) volume
+r : ℝ
+a✝ : r ∈ Set.Ioi 0
+⊢ (fun r => r ^ (2 * (n + q + k) + 1) * Real.exp (-(r ^ 2 / 2))) r =
+    (fun x => x ^ ↑(2 * (n + q + k) + 1) * Real.exp (-(1 / 2) * x ^ 2)) r
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralRadialFullMoments.lean:76:22: error: Application type mismatch: The argument
+  hs
+has type
+  ↑((q + k).choose (k - 0)) * x ^ 0 / ↑(Nat.factorial 0) ≤
+    ∑ x_1 ∈ Finset.range (k + 1), ↑((q + k).choose (k - x_1)) * x ^ x_1 / ↑x_1.factorial
+but is expected to have type
+  ↑((q + k).choose k) ≤ ∑ j ∈ Finset.range (k + 1), ↑((q + k).choose (k - j)) * x ^ j / ↑j.factorial
+in the application
+  lt_of_lt_of_le hc hs
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralRadialFullMoments.lean:135:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NoncentralRadialFullMoments.lean:135:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'JinWishart.noncentralChiEvenRadialKernel_energyMoment' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.integrableOn_noncentralChiEvenRadialKernel_energyMoment' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.nuttallQ_fullNaturalMoment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.integrableOn_nuttallQ_fullNaturalMoment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

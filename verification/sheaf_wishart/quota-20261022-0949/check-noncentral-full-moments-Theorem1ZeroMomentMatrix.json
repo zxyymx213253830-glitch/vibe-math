@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "80da2287ee583d4e30d16fb29a14ae524d06a5e0ed91dc86f4fc524723d1659a",
+  "target_lock_sha256": "f0a43da6e9ab69964dfe970d59254df4b3e13ed066e35c864a6c295d8f9cb47c",
+  "leaf": {
+    "started_utc": "2026-10-26T08:00:33.199655+00:00",
+    "ended_utc": "2026-10-26T08:00:41.265592+00:00",
+    "module": "JinWishartFormalization.Theorem1ZeroMomentMatrix",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/Theorem1ZeroMomentMatrix.lean",
+    "source_sha256_before": "80da2287ee583d4e30d16fb29a14ae524d06a5e0ed91dc86f4fc524723d1659a",
+    "source_sha256": "80da2287ee583d4e30d16fb29a14ae524d06a5e0ed91dc86f4fc524723d1659a",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/noncentral-full-moments-Theorem1ZeroMomentMatrix-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "f09122c239d420a8ca9972ce6723c7005ac91ad33524bf13b4de2cf83d2cf5f6",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-26T08:00:41.267024+00:00",
+    "ended_utc": "2026-10-26T08:00:50.278258+00:00",
+    "module": "SheafNoncentralFullMomentsTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafNoncentralFullMomentsTargets.lean",
+    "source_sha256_before": "f823234a10b1405c3384cabaa8e1547041500ea6f04cbce9fe1daf4355ef9d42",
+    "source_sha256": "f823234a10b1405c3384cabaa8e1547041500ea6f04cbce9fe1daf4355ef9d42",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/noncentral-full-moments-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "PoissonFactorialMoments.lean": {
+      "sha256": "3415463fdbe1b56083741fba16cf915dc0b5facc8303fcdae0cc92e828b0cae2",
+      "supplied": "Full source"
+    },
+    "NoncentralRadialFullMoments.lean": {
+      "sha256": "0d4fb3caa85412e32349ee60c46456b1b5a6abc00ffb0f7b1d6be06beeefca92",
+      "supplied": "Full source"
+    },
+    "Theorem1ZeroMomentMatrix.lean": {
+      "sha256": "80da2287ee583d4e30d16fb29a14ae524d06a5e0ed91dc86f4fc524723d1659a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "0450ba8b209185835cbcd591409898b8dee300f174505efd043386263e3675bb"
+}

@@ -1,0 +1,341 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE PoissonFactorialMoments.lean
+import Mathlib.Analysis.SpecificLimits.Normed
+import Mathlib.Analysis.SpecialFunctions.Exponential
+import Mathlib.Data.Nat.Choose.Vandermonde
+import Mathlib.Topology.Algebra.InfiniteSum.NatInt
+
+/-! Codex. Seed2026102603 controls precede source. Algebraic exponential-series
+moments, including signed real arguments. No probability-law assertion here. -/
+open Finset
+namespace JinWishart
+noncomputable section
+
+def poissonFactorialMomentPolynomial (q k : ℕ) (x : ℝ) : ℝ :=
+  (k.factorial : ℝ) * ∑ j ∈ range (k+1), ((q+k).choose (k-j) : ℝ) * x^j/(j.factorial : ℝ)
+
+private theorem exponential_hasSum (x : ℝ) :
+    HasSum (fun n : ℕ => x^n/(n.factorial : ℝ)) (Real.exp x) := by
+  have ht : (∑' n : ℕ, x^n/(n.factorial : ℝ)) = Real.exp x := by
+    rw [Real.exp_eq_exp_ℝ, NormedSpace.exp_eq_tsum ℝ]
+    apply tsum_congr
+    intro n
+    simp [div_eq_mul_inv, smul_eq_mul, mul_comm]
+  rw [← ht]
+  exact (Real.summable_pow_div_factorial x).hasSum
+
+private theorem choose_factorial_shift (x : ℝ) (j n : ℕ) :
+      x^(n+j)/((n+j).factorial : ℝ)*((n+j).choose j : ℝ) =
+        (x^j/(j.factorial : ℝ))*(x^n/(n.factorial : ℝ)) := by
+    have hc : ((n+j).choose j : ℝ)*(n.factorial : ℝ)*(j.factorial : ℝ) =
+        ((n+j).factorial : ℝ) := by
+      exact_mod_cast Nat.add_choose_mul_factorial_mul_factorial n j
+    have hn : (n.factorial : ℝ) ≠ 0 := by positivity
+    have hj : (j.factorial : ℝ) ≠ 0 := by positivity
+    have hnj : ((n+j).factorial : ℝ) ≠ 0 := by positivity
+    rw [pow_add]
+    field_simp [hn, hj, hnj]
+    linear_combination (x^n*x^j)*hc
+theorem poisson_choose_hasSum (x : ℝ) (j : ℕ) :
+    HasSum (fun n : ℕ => x^n/(n.factorial : ℝ)*(n.choose j : ℝ))
+      (x^j/(j.factorial : ℝ)*Real.exp x) := by
+  have hs : HasSum (fun n : ℕ =>
+      x^(n+j)/((n+j).factorial : ℝ)*((n+j).choose j : ℝ))
+      (x^j/(j.factorial : ℝ)*Real.exp x) := by
+    have heq : (fun n : ℕ => x^(n+j)/((n+j).factorial : ℝ)*((n+j).choose j : ℝ)) =
+        (fun n : ℕ => (x^j/(j.factorial : ℝ))*(x^n/(n.factorial : ℝ))) :=
+      funext (choose_factorial_shift x j)
+    rw [heq]
+    exact (exponential_hasSum x).mul_left (x^j/(j.factorial : ℝ))
+  have hz : ∑ n ∈ range j, x^n/(n.factorial : ℝ)*(n.choose j : ℝ) = 0 := by
+    apply sum_eq_zero
+    intro n hn
+    rw [Nat.choose_eq_zero_of_lt (mem_range.mp hn), Nat.cast_zero, mul_zero]
+  have hfull := (hasSum_nat_add_iff
+    (f := fun n : ℕ => x^n/(n.factorial : ℝ)*(n.choose j : ℝ)) j).mp hs
+  simpa only [hz, add_zero] using hfull
+
+theorem factorial_ratio_vandermonde (q k n : ℕ) :
+    ((n+q+k).factorial : ℝ)/((n+q).factorial : ℝ) =
+      (k.factorial : ℝ) * ∑ j ∈ range (k+1),
+        ((q+k).choose (k-j) : ℝ)*(n.choose j : ℝ) := by
+  have hc : ((n+q+k).choose k : ℝ)*(k.factorial : ℝ)*((n+q).factorial : ℝ) =
+      ((n+q+k).factorial : ℝ) := by
+    have h := Nat.choose_mul_factorial_mul_factorial (show k ≤ n+q+k by omega)
+    simp only [Nat.add_sub_cancel] at h
+    exact_mod_cast h
+  have hv : ((n+q+k).choose k : ℝ) =
+      ∑ j ∈ range (k+1), ((q+k).choose (k-j) : ℝ)*(n.choose j : ℝ) := by
+    have h := Nat.add_choose_eq n (q+k) k
+    rw [Finset.Nat.sum_antidiagonal_eq_sum_range_succ_mk] at h
+    have hn : (n+q+k).choose k =
+        ∑ j ∈ range (k+1), (q+k).choose (k-j)*n.choose j := by
+      simpa only [Nat.add_assoc, Nat.mul_comm] using h
+    exact_mod_cast hn
+  apply (div_eq_iff (by positivity : ((n+q).factorial : ℝ) ≠ 0)).mpr
+  rw [← hc, hv]
+  ring
+
+theorem poisson_factorialMoment_hasSum (q k : ℕ) (x : ℝ) :
+    HasSum (fun n : ℕ => (x^n/(n.factorial : ℝ))*
+      (((n+q+k).factorial : ℝ)/((n+q).factorial : ℝ)))
+      (Real.exp x * poissonFactorialMomentPolynomial q k x) := by
+  have hs := (hasSum_sum (s := range (k+1)) (fun j _ =>
+    (poisson_choose_hasSum x j).mul_left ((q+k).choose (k-j) : ℝ))).mul_left
+      (k.factorial : ℝ)
+  convert hs using 1
+  · funext n
+    rw [factorial_ratio_vandermonde]
+    simp only [mul_sum]
+    apply sum_congr rfl
+    intro j _
+    ring
+  · unfold poissonFactorialMomentPolynomial
+    simp only [mul_sum]
+    apply sum_congr rfl
+    intro j _
+    ring
+
+end
+end JinWishart
+#print axioms JinWishart.poisson_choose_hasSum
+#print axioms JinWishart.factorial_ratio_vandermonde
+#print axioms JinWishart.poisson_factorialMoment_hasSum
+
+SOURCE NoncentralRadialFullMoments.lean
+import JinWishartFormalization.PoissonFactorialMoments
+import JinWishartFormalization.NaturalNuttallNormalization
+
+/-! Codex. Seed2026102603 controls precede source. Every natural energy moment
+of the normalized noncentral even-dimensional radial kernel, and the associated
+full Nuttall integral. No Wishart joint spectral density is assumed.
+[需人工审查] Absolute-summability/Fubini, integrability and model conventions. -/
+open MeasureTheory Set Finset
+namespace JinWishart
+noncomputable section
+
+private def radialMomentWeight (a : ℝ) (n : ℕ) : ℝ :=
+  Real.exp (-(a^2/2))*((a^2/2)^n/(n.factorial : ℝ))
+
+private def radialMomentTerm (q k : ℕ) (a : ℝ) (n : ℕ) (r : ℝ) : ℝ :=
+  (r^2/2)^k * chiEvenPoissonTerm q a r n
+
+private theorem radialMomentTerm_factor (q k n : ℕ) (a r : ℝ) :
+    radialMomentTerm q k a n r =
+      (radialMomentWeight a n/(2^(n+q+k)*((n+q).factorial : ℝ)))*
+        (r^(2*(n+q+k)+1)*Real.exp (-(r^2/2))) := by
+  have hp : (r^2/2)^k*r^(2*n+2*q+1) = r^(2*(n+q+k)+1)/2^k := by
+    rw [div_pow, ← pow_mul, div_mul_eq_mul_div, ← pow_add]
+    congr 2
+    omega
+  have hd : (2 : ℝ)^k*2^(n+q) = 2^(n+q+k) := by
+    rw [← pow_add]
+    congr 1
+    omega
+  unfold radialMomentTerm chiEvenPoissonTerm radialMomentWeight
+  calc
+    _ = (Real.exp (-(a^2/2))*((a^2/2)^n/(n.factorial : ℝ)))*
+        (((r^2/2)^k*r^(2*n+2*q+1))*Real.exp (-(r^2/2)) /
+          (2^(n+q)*((n+q).factorial : ℝ))) := by ring
+    _ = _ := by
+      rw [hp, ← hd]
+      field_simp
+
+private theorem radialMomentTerm_integral (q k n : ℕ) (a : ℝ) :
+    (∫ r in Ioi (0 : ℝ), radialMomentTerm q k a n r) =
+      radialMomentWeight a n *
+        (((n+q+k).factorial : ℝ)/((n+q).factorial : ℝ)) := by
+  rw [funext (radialMomentTerm_factor q k n a), integral_const_mul, gaussianOddMoment_general]
+  have hnq : ((n+q).factorial : ℝ) ≠ 0 := by positivity
+  have hp : (2 : ℝ)^(n+q+k) ≠ 0 := by positivity
+  field_simp
+
+private theorem radialMomentTerm_integrable (q k n : ℕ) (a : ℝ) :
+    IntegrableOn (radialMomentTerm q k a n) (Ioi 0) := by
+  have hbase : IntegrableOn
+      (fun r : ℝ => r^(2*(n+q+k)+1)*Real.exp (-(r^2/2))) (Ioi 0) := by
+    have h := integrableOn_rpow_mul_exp_neg_mul_sq (b := (1/2 : ℝ))
+      (s := ((2*(n+q+k)+1 : ℕ) : ℝ)) (by norm_num)
+      (lt_of_lt_of_le (by norm_num : (-1 : ℝ)<0) (Nat.cast_nonneg _))
+    apply (integrableOn_congr_fun (s := Ioi (0 : ℝ)) ?_ measurableSet_Ioi).2 h
+    intro r _
+    change r^(2*(n+q+k)+1)*Real.exp (-(r^2/2)) =
+      r^((2*(n+q+k)+1 : ℕ) : ℝ)*Real.exp (-(1/2 : ℝ)*r^2)
+    rw [Real.rpow_natCast]
+    congr 1
+    ring
+  rw [funext (radialMomentTerm_factor q k n a)]
+  exact hbase.const_mul _
+
+private theorem radialMomentPolynomial_pos (q k : ℕ) (x : ℝ) (hx : 0 ≤ x) :
+    0 < poissonFactorialMomentPolynomial q k x := by
+  unfold poissonFactorialMomentPolynomial
+  apply mul_pos (by positivity)
+  have hc : 0 < ((q+k).choose k : ℝ) := by
+    exact_mod_cast Nat.choose_pos (show k ≤ q+k by omega)
+  have hs := single_le_sum
+    (f := fun j : ℕ => ((q+k).choose (k-j) : ℝ)*x^j/(j.factorial : ℝ))
+    (s := range (k+1)) (fun j _ => by positivity)
+    (show 0 ∈ range (k+1) by simp)
+  simp only [Nat.sub_zero, pow_zero, Nat.factorial_zero, Nat.cast_one, div_one, mul_one] at hs
+  exact lt_of_lt_of_le hc hs
+
+theorem noncentralChiEvenRadialKernel_energyMoment (q k : ℕ) (a : ℝ) :
+    (∫ r in Ioi (0 : ℝ), (r^2/2)^k*noncentralChiEvenRadialKernel q a r) =
+      poissonFactorialMomentPolynomial q k (a^2/2) := by
+  let μ : Measure ℝ := volume.restrict (Ioi (0 : ℝ))
+  have hF : ∀ n : ℕ, Integrable (radialMomentTerm q k a n) μ :=
+    fun n => radialMomentTerm_integrable q k n a
+  have hnorm (n : ℕ) : (∫ r, ‖radialMomentTerm q k a n r‖ ∂μ) =
+      radialMomentWeight a n*(((n+q+k).factorial : ℝ)/((n+q).factorial : ℝ)) := by
+    calc
+      _ = ∫ r, radialMomentTerm q k a n r ∂μ := by
+        apply integral_congr_ae
+        filter_upwards [ae_restrict_mem measurableSet_Ioi] with r hr
+        rw [Real.norm_eq_abs, abs_of_nonneg (by
+          unfold radialMomentTerm chiEvenPoissonTerm
+          have hr0 : 0 < r := hr
+          positivity)]
+      _ = _ := radialMomentTerm_integral q k n a
+  have hsum : Summable (fun n : ℕ => ∫ r, ‖radialMomentTerm q k a n r‖ ∂μ) := by
+    apply ((poisson_factorialMoment_hasSum q k (a^2/2)).summable.mul_left
+      (Real.exp (-(a^2/2)))).congr
+    intro n
+    rw [hnorm]
+    unfold radialMomentWeight
+    ring
+  have he (r : ℝ) : (r^2/2)^k*noncentralChiEvenRadialKernel q a r =
+      ∑' n : ℕ, radialMomentTerm q k a n r := by
+    rw [noncentralChiEvenRadialKernel_eq_poissonMixture]
+    unfold radialMomentTerm
+    rw [tsum_mul_left]
+  change (∫ r, (r^2/2)^k*noncentralChiEvenRadialKernel q a r ∂μ) = _
+  rw [funext he, ← integral_tsum_of_summable_integral_norm hF hsum]
+  simp_rw [show ∀ n : ℕ, (∫ r, radialMomentTerm q k a n r ∂μ) =
+    radialMomentWeight a n*(((n+q+k).factorial : ℝ)/((n+q).factorial : ℝ)) from
+      fun n => radialMomentTerm_integral q k n a]
+  simp only [radialMomentWeight, mul_assoc]
+  rw [tsum_mul_left, (poisson_factorialMoment_hasSum q k (a^2/2)).tsum_eq,
+    ← mul_assoc, ← Real.exp_add, neg_add_cancel, Real.exp_zero, one_mul]
+
+theorem integrableOn_noncentralChiEvenRadialKernel_energyMoment (q k : ℕ) (a : ℝ) :
+    IntegrableOn (fun r : ℝ => (r^2/2)^k*noncentralChiEvenRadialKernel q a r) (Ioi 0) := by
+  apply Integrable.of_integral_ne_zero
+  rw [noncentralChiEvenRadialKernel_energyMoment]
+  exact ne_of_gt (radialMomentPolynomial_pos q k (a^2/2) (by positivity))
+
+private theorem fullNuttallIntegrand_factor (q k : ℕ) (a r : ℝ) :
+    nuttallQIntegrand (q+2*k+1) q a r =
+      ((a : ℂ)^q*(2 : ℂ)^k)*(((r^2/2)^k*noncentralChiEvenRadialKernel q a r : ℝ) : ℂ) := by
+  have hp : nuttallQIntegrand (q+2*k+1) q a r =
+      (r : ℂ)^(2*k)*nuttallQIntegrand (q+1) q a r := by
+    unfold nuttallQIntegrand
+    rw [show q+2*k+1=2*k+(q+1) by omega, pow_add]
+    ring
+  rw [hp, nuttallQIntegrand_eq_evenRadialKernel]
+  push_cast
+  rw [div_pow, ← pow_mul]
+  have ht : (2 : ℂ)^k ≠ 0 := pow_ne_zero _ (by norm_num)
+  field_simp
+
+theorem nuttallQ_fullNaturalMoment (q k : ℕ) (a : ℝ) :
+    nuttallQ (q+2*k+1) q a 0 = (a : ℂ)^q*(2 : ℂ)^k*
+      (poissonFactorialMomentPolynomial q k (a^2/2) : ℂ) := by
+  unfold nuttallQ
+  rw [funext (fullNuttallIntegrand_factor q k a), integral_const_mul,
+    integral_complex_ofReal, noncentralChiEvenRadialKernel_energyMoment]
+
+theorem integrableOn_nuttallQ_fullNaturalMoment (q k : ℕ) (a : ℝ) :
+    IntegrableOn (nuttallQIntegrand (q+2*k+1) q a) (Ioi 0) := by
+  rw [funext (fullNuttallIntegrand_factor q k a)]
+  exact (integrableOn_noncentralChiEvenRadialKernel_energyMoment q k a).ofReal.const_mul _
+
+end
+end JinWishart
+#print axioms JinWishart.noncentralChiEvenRadialKernel_energyMoment
+#print axioms JinWishart.integrableOn_noncentralChiEvenRadialKernel_energyMoment
+#print axioms JinWishart.nuttallQ_fullNaturalMoment
+#print axioms JinWishart.integrableOn_nuttallQ_fullNaturalMoment
+
+SOURCE Theorem1ZeroMomentMatrix.lean
+import JinWishartFormalization.NoncentralRadialFullMoments
+import JinWishartFormalization.Theorem1Formula
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+
+/-! Codex. Seed2026102604 exact controls precede source. The ORIGINAL Psi(0)
+matrix becomes a finite polynomial/Gamma-factorial matrix. This is not a
+determinant evaluation, normalization nonvanishing, or actual joint-law theorem.
+[需人工审查] Source formula and noncentrality/variance conventions. -/
+open Matrix
+namespace JinWishart
+noncomputable section
+
+def theorem1ZeroMomentMatrix (s t L : ℕ) (lambda : Fin L → ℝ) :
+    Matrix (Fin s) (Fin s) ℂ :=
+  fun i j => if hj : j.val < L then
+    ((Real.rpow (lambda ⟨j.val,hj⟩) (((t-s : ℕ) : ℝ)/2) : ℝ) : ℂ)*
+      (poissonFactorialMomentPolynomial (t-s) (s-(i.val+1)) (lambda ⟨j.val,hj⟩) : ℂ)
+  else (Nat.factorial (theorem1GammaIndex s t i j) : ℂ)
+
+private theorem zeroMoment_prefactor (s t : ℕ) (hst : s ≤ t) (i : Fin s)
+    (x : ℝ) (hx : 0 ≤ x) :
+    Real.rpow 2 ((((2*(i.val+1) : ℕ) : ℝ)-s-t)/2)*
+      (Real.sqrt (2*x))^(t-s)*(2 : ℝ)^(s-(i.val+1)) =
+        Real.rpow x (((t-s : ℕ) : ℝ)/2) := by
+  have hs : (Real.sqrt (2*x))^(t-s) =
+      Real.rpow 2 (((t-s : ℕ) : ℝ)/2)*Real.rpow x (((t-s : ℕ) : ℝ)/2) := by
+    calc
+      _ = Real.rpow (2*x) (((t-s : ℕ) : ℝ)/2) := by
+        rw [Real.sqrt_eq_rpow, ← Real.rpow_natCast, ← Real.rpow_mul (by positivity)]
+        congr 1
+        ring
+      _ = _ := Real.mul_rpow (by norm_num) hx
+  have he : ((((2*(i.val+1) : ℕ) : ℝ)-s-t)/2)+
+      (((t-s : ℕ) : ℝ)/2)+((s-(i.val+1) : ℕ) : ℝ) = 0 := by
+    rw [Nat.cast_sub hst, Nat.cast_sub (show i.val+1 ≤ s by omega)]
+    push_cast
+    ring
+  simp only [Real.rpow_eq_pow] at hs ⊢
+  rw [hs, ← Real.rpow_natCast (2 : ℝ) (s-(i.val+1))]
+  calc
+    _ = (Real.rpow 2 ((((2*(i.val+1) : ℕ) : ℝ)-s-t)/2)*
+        Real.rpow 2 (((t-s : ℕ) : ℝ)/2)*Real.rpow 2 ((s-(i.val+1) : ℕ) : ℝ))*
+          Real.rpow x (((t-s : ℕ) : ℝ)/2) := by
+            simp only [Real.rpow_eq_pow]
+            ring
+    _ = _ := by
+      simp only [Real.rpow_eq_pow]
+      rw [← Real.rpow_add (by norm_num), ← Real.rpow_add (by norm_num), he,
+        Real.rpow_zero, one_mul]
+
+theorem theorem1PsiMatrix_at_zero_eq_finiteMoments (s t L : ℕ)
+    (hst : s ≤ t) (hLs : L ≤ s) (lambda : Fin L → ℝ)
+    (hLambda : ∀ j, 0 ≤ lambda j) :
+    theorem1PsiMatrix s t L hst hLs lambda 0 = theorem1ZeroMomentMatrix s t L lambda := by
+  ext i j
+  unfold theorem1PsiMatrix theorem1PsiEntry theorem1ZeroMomentMatrix
+  by_cases hj : j.val < L
+  · rw [dif_pos hj, dif_pos hj]
+    have ho : theorem1QOrder s t i = (t-s)+2*(s-(i.val+1))+1 := by
+      unfold theorem1QOrder
+      omega
+    have ha : (Real.sqrt (2*lambda ⟨j.val,hj⟩))^2/2 = lambda ⟨j.val,hj⟩ := by
+      rw [Real.sq_sqrt (mul_nonneg (by norm_num) (hLambda _))]
+      ring
+    have hc := congrArg (fun y : ℝ => (y : ℂ))
+      (zeroMoment_prefactor s t hst i (lambda ⟨j.val,hj⟩) (hLambda _))
+    simp only [Complex.ofReal_mul, Complex.ofReal_pow, Complex.ofReal_ofNat] at hc
+    simp only [mul_zero, Real.sqrt_zero]
+    rw [ho, nuttallQ_fullNaturalMoment, ha]
+    calc
+      _ = (((Real.rpow 2 ((((2*(i.val+1) : ℕ) : ℝ)-s-t)/2) : ℝ) : ℂ)*
+          (Real.sqrt (2*lambda ⟨j.val,hj⟩) : ℂ)^(t-s)*(2 : ℂ)^(s-(i.val+1)))*
+          (poissonFactorialMomentPolynomial (t-s) (s-(i.val+1)) (lambda ⟨j.val,hj⟩) : ℂ) := by ring
+      _ = _ := by rw [hc]
+  · rw [dif_neg hj, dif_neg hj, upperGammaNat_at_zero_eq_factorial]
+
+end
+end JinWishart
+#print axioms JinWishart.theorem1PsiMatrix_at_zero_eq_finiteMoments

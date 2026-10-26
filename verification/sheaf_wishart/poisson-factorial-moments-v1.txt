@@ -1,0 +1,56 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PoissonFactorialMoments.lean:18:8: error(lean.unknownIdentifier): Unknown constant `Real.exp_eq_exp_ℝ`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PoissonFactorialMoments.lean:25:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PoissonFactorialMoments.lean:56:4: error: mod_cast has type
+  (n + q + k).choose k * k.factorial * (n + q + k - k).factorial = (n + q + k).factorial
+but is expected to have type
+  (n + q + k).choose k * k.factorial * (n + q).factorial = (n + q + k).factorial
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PoissonFactorialMoments.lean:62:4: error: Type mismatch: After simplification, term
+  congrArg (fun z => ↑z) h
+ has type
+  ↑((n + (q + k)).choose k) = ↑(∑ x ∈ range k.succ, n.choose x * (q + k).choose (k - x))
+but is expected to have type
+  ↑((n + (q + k)).choose k) = ∑ x ∈ range (k + 1), ↑(n.choose x) * ↑((q + k).choose (k - x))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PoissonFactorialMoments.lean:76:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ?b * ?c
+in the target expression
+  x ^ n / ↑n.factorial * (↑k.factorial * ∑ j ∈ range (k + 1), ↑((q + k).choose (k - j)) * ↑(n.choose j)) =
+    ↑k.factorial * ∑ i ∈ range (k + 1), ↑((q + k).choose (k - i)) * (x ^ n / ↑n.factorial * ↑(n.choose i))
+
+case e'_5
+q k : ℕ
+x : ℝ
+hs :
+  HasSum
+    (fun i =>
+      ↑k.factorial * ∑ i_1 ∈ range (k + 1), ↑((q + k).choose (k - i_1)) * (x ^ i / ↑i.factorial * ↑(i.choose i_1)))
+    (↑k.factorial * ∑ i ∈ range (k + 1), ↑((q + k).choose (k - i)) * (x ^ i / ↑i.factorial * Real.exp x))
+n : ℕ
+⊢ x ^ n / ↑n.factorial * (↑k.factorial * ∑ j ∈ range (k + 1), ↑((q + k).choose (k - j)) * ↑(n.choose j)) =
+    ↑k.factorial * ∑ i ∈ range (k + 1), ↑((q + k).choose (k - i)) * (x ^ n / ↑n.factorial * ↑(n.choose i))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PoissonFactorialMoments.lean:82:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ?b * ?c
+in the target expression
+  Real.exp x * (↑k.factorial * ∑ j ∈ range (k + 1), ↑((q + k).choose (k - j)) * x ^ j / ↑j.factorial) =
+    ↑k.factorial * ∑ i ∈ range (k + 1), ↑((q + k).choose (k - i)) * (x ^ i / ↑i.factorial * Real.exp x)
+
+case e'_6
+q k : ℕ
+x : ℝ
+hs :
+  HasSum
+    (fun i =>
+      ↑k.factorial * ∑ i_1 ∈ range (k + 1), ↑((q + k).choose (k - i_1)) * (x ^ i / ↑i.factorial * ↑(i.choose i_1)))
+    (↑k.factorial * ∑ i ∈ range (k + 1), ↑((q + k).choose (k - i)) * (x ^ i / ↑i.factorial * Real.exp x))
+⊢ Real.exp x * (↑k.factorial * ∑ j ∈ range (k + 1), ↑((q + k).choose (k - j)) * x ^ j / ↑j.factorial) =
+    ↑k.factorial * ∑ i ∈ range (k + 1), ↑((q + k).choose (k - i)) * (x ^ i / ↑i.factorial * Real.exp x)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PoissonFactorialMoments.lean:67:8: error: (kernel) unknown constant 'JinWishart.poisson_choose_hasSum'
+'JinWishart.poisson_choose_hasSum' does not depend on any axioms
+'JinWishart.factorial_ratio_vandermonde' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.poisson_factorialMoment_hasSum' depends on axioms: [propext,
+ Classical.choice,
+ JinWishart.poisson_factorialMoment_hasSum,
+ Quot.sound]
