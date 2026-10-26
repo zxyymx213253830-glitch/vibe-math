@@ -1,0 +1,22 @@
+{
+  "id": "L-mean-positive-parameters-meanPositiveNoncentrality_antitone",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MeanPositiveNoncentralParameters",
+  "declaration": "JinWishart.meanPositiveNoncentrality_antitone",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mean-positive-parameters-meanPositiveNoncentrality_pos"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mean-positive-parameters-meanPositiveNoncentrality_pos"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

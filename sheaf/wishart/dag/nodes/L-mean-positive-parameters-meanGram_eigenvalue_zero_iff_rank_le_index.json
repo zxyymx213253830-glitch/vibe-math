@@ -1,0 +1,22 @@
+{
+  "id": "L-mean-positive-parameters-meanGram_eigenvalue_zero_iff_rank_le_index",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MeanPositiveNoncentralParameters",
+  "declaration": "JinWishart.meanGram_eigenvalue_zero_iff_rank_le_index",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mean-positive-parameters-meanPositiveNoncentrality_antitone"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mean-positive-parameters-meanPositiveNoncentrality_antitone"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

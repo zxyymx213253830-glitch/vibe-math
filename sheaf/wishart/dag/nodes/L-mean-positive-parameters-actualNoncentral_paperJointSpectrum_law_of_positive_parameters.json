@@ -1,0 +1,22 @@
+{
+  "id": "L-mean-positive-parameters-actualNoncentral_paperJointSpectrum_law_of_positive_parameters",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.MeanPositiveNoncentralParameters",
+  "declaration": "JinWishart.actualNoncentral_paperJointSpectrum_law_of_positive_parameters",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mean-positive-parameters-exists_paper_positiveNoncentralSpectrum_of_strict"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mean-positive-parameters-exists_paper_positiveNoncentralSpectrum_of_strict"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

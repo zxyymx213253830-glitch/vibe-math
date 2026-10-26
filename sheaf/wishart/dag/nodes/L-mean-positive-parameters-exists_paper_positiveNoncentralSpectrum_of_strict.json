@@ -1,0 +1,22 @@
+{
+  "id": "L-mean-positive-parameters-exists_paper_positiveNoncentralSpectrum_of_strict",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MeanPositiveNoncentralParameters",
+  "declaration": "JinWishart.exists_paper_positiveNoncentralSpectrum_of_strict",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mean-positive-parameters-meanGram_eigenvalue_positive_parameter_or_zero"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mean-positive-parameters-meanGram_eigenvalue_positive_parameter_or_zero"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

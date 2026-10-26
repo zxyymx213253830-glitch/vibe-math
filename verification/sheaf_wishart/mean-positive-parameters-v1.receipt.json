@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-26T07:12:22.602885+00:00",
+  "ended_utc": "2026-10-26T07:12:45.906361+00:00",
+  "module": "JinWishartFormalization.MeanPositiveNoncentralParameters",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MeanPositiveNoncentralParameters.lean",
+  "source_sha256_before": "9081dabef6593aa8bb74cf4954f5664cb6b2ee2f79c0c2707da178093e7f7fa9",
+  "source_sha256": "9081dabef6593aa8bb74cf4954f5664cb6b2ee2f79c0c2707da178093e7f7fa9",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/mean-positive-parameters-v1.txt",
+  "log_exists": true,
+  "log_sha256": "95ef86bbfc995d7753666ec5e56bfc2bc6b7be7b449c5eb3be3dca5769575db5",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "tag": "mean-positive-parameters-MeanPositiveNoncentralParameters",
+    "module": "MeanPositiveNoncentralParameters",
+    "nodes": [
+      [
+        "L-mean-positive-parameters-meanPositiveNoncentrality_pos",
+        "meanPositiveNoncentrality_pos",
+        []
+      ],
+      [
+        "L-mean-positive-parameters-meanPositiveNoncentrality_antitone",
+        "meanPositiveNoncentrality_antitone",
+        [
+          "L-mean-positive-parameters-meanPositiveNoncentrality_pos"
+        ]
+      ],
+      [
+        "L-mean-positive-parameters-meanGram_eigenvalue_zero_iff_rank_le_index",
+        "meanGram_eigenvalue_zero_iff_rank_le_index",
+        [
+          "L-mean-positive-parameters-meanPositiveNoncentrality_antitone"
+        ]
+      ],
+      [
+        "L-mean-positive-parameters-meanGram_eigenvalue_positive_parameter_or_zero",
+        "meanGram_eigenvalue_positive_parameter_or_zero",
+        [
+          "L-mean-positive-parameters-meanGram_eigenvalue_zero_iff_rank_le_index"
+        ]
+      ],
+      [
+        "L-mean-positive-parameters-exists_paper_positiveNoncentralSpectrum_of_strict",
+        "exists_paper_positiveNoncentralSpectrum_of_strict",
+        [
+          "L-mean-positive-parameters-meanGram_eigenvalue_positive_parameter_or_zero"
+        ]
+      ],
+      [
+        "L-mean-positive-parameters-actualNoncentral_paperJointSpectrum_law_of_positive_parameters",
+        "actualNoncentral_paperJointSpectrum_law_of_positive_parameters",
+        [
+          "L-mean-positive-parameters-exists_paper_positiveNoncentralSpectrum_of_strict"
+        ]
+      ]
+    ]
+  }
+]

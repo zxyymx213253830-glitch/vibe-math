@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "MeanPositiveNoncentralParameters.lean": {
+      "sha256": "9081dabef6593aa8bb74cf4954f5664cb6b2ee2f79c0c2707da178093e7f7fa9",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ae1f0c08149931df03c321002a7c0075f938967023968448b07dc5ceabbe859e"
+}

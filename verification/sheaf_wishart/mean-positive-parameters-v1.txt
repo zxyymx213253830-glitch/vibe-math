@@ -1,0 +1,37 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeanPositiveNoncentralParameters.lean:54:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeanPositiveNoncentralParameters.lean:57:8: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeanPositiveNoncentralParameters.lean:79:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeanPositiveNoncentralParameters.lean:79:20: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeanPositiveNoncentralParameters.lean:82:8: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeanPositiveNoncentralParameters.lean:82:20: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MeanPositiveNoncentralParameters.lean:80:39: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.meanPositiveNoncentrality_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.meanPositiveNoncentrality_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.meanGram_eigenvalue_zero_iff_rank_le_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.meanGram_eigenvalue_positive_parameter_or_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.exists_paper_positiveNoncentralSpectrum_of_strict' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.actualNoncentral_paperJointSpectrum_law_of_positive_parameters' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

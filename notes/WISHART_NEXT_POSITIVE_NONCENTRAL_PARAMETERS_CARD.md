@@ -1,5 +1,12 @@
 # Next: rank-L positive mean noncentrality parameters
 
+UPDATE2026-10-26: MeanPositiveNoncentralParameters now has six leaf/locked/type
+checked exports and166 pre-source controls. It awaits human permission for the
+new-file external P4, NOT acceptance. See
+WISHART_MEAN_POSITIVE_PARAMETERS_PENDING_REVIEW.md. Do not redo its positive
+prefix, zero-tail, reconstruction or actual positive-parameter law proofs.
+Historical preparation text below is retained; "no new source" is now stale.
+
 Current paper small-side law target is closed by PaperNoncentralSpectralOrbitLaw;
 do not repeat ordered zero padding or full-vector law transport. The original
 formula's OrderedPositiveNoncentralSpectrum additionally requires StrictAnti;
