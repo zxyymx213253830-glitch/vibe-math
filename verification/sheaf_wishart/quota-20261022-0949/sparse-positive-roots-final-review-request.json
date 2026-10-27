@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "SparsePositiveRoots.lean": {
+      "sha256": "3f5bd3bffa6be186bda233a763bbe3b5d5ada2ad8123f667ed645299d499d091",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "300514bd8f5eb0d168fa25e76fbab40afa2683fde76d40199832a5f696c6105e"
+}

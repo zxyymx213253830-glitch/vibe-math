@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "GeneralizedMonomialVandermondePos.lean": {
+      "sha256": "59d69e1a7815dd14bd63b2baa9ee541a29484a1fd2b93f2b0d64fe3b36c5684d",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "0c84555df75300063ed415af7c89d851e8a991bd69c595d564969921a175dbe4"
+}

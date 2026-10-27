@@ -1,0 +1,106 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE GeneralizedMonomialVandermondePos.lean
+import JinWishartFormalization.SparsePositiveRoots
+import Mathlib.Analysis.Polynomial.Basic
+import Mathlib.Topology.Order.IntermediateValue
+import Mathlib.Data.Fin.Tuple.Basic
+
+/-! Codex. Seed2026102701 includes ascending generalized determinant controls
+before this source. Positivity follows from nonzero on a last-point ray and
+the positive leading coefficient of the last-row determinant polynomial.
+Not Bessel-kernel positivity, normalized candidate law or actual Wishart G2.
+[需人工审查] Polynomial minors, ordering and later infinite-kernel transport. -/
+open Polynomial Finset Matrix Filter Set
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+private theorem polynomial_pos_on_root_free_ray (P : ℝ[X]) (a : ℝ)
+ (hd : 0 < P.degree) (hl : 0 < P.leadingCoeff)
+ (hr : ∀ y, a ≤ y → P.eval y ≠ 0) : 0 < P.eval a := by
+ by_contra hn
+ have ht := P.tendsto_atTop_of_leadingCoeff_nonneg hd hl.le
+ obtain ⟨b,hb,hab⟩ := ((ht.eventually_gt_atTop 0).and (eventually_ge_atTop a)).exists
+ obtain ⟨z,hz,hzero⟩ := intermediate_value_Icc hab P.continuous.continuousOn
+   (show (0 : ℝ) ∈ Icc (P.eval a) (P.eval b) from ⟨le_of_not_gt hn,hb.le⟩)
+ exact hr z hz.1 hzero
+
+private def lastMonomialMinor (n : ℕ) (k : Fin (n+1) → ℕ)
+ (x : Fin n → ℝ) (j : Fin (n+1)) : Matrix (Fin n) (Fin n) ℝ :=
+ Matrix.of (fun i l => x i ^ k (j.succAbove l))
+
+private def lastMonomialPolynomial (n : ℕ) (k : Fin (n+1) → ℕ)
+ (x : Fin n → ℝ) : ℝ[X] :=
+ ∑ j : Fin (n+1), Polynomial.monomial (k j)
+   ((-1 : ℝ)^(n+j.val)*(lastMonomialMinor n k x j).det)
+
+private theorem lastMonomialPolynomial_eval (n : ℕ) (k : Fin (n+1) → ℕ)
+ (x : Fin n → ℝ) (y : ℝ) :
+ (lastMonomialPolynomial n k x).eval y =
+   (Matrix.of (fun i j : Fin (n+1) => (Fin.snoc x y : Fin (n+1) → ℝ) i ^ k j)).det := by
+ rw [Matrix.det_succ_row _ (Fin.last n)]
+ simp only [lastMonomialPolynomial,Polynomial.eval_finsetSum,Polynomial.eval_monomial]
+ apply Finset.sum_congr rfl
+ intro j _
+ have hm : (Matrix.of (fun i l : Fin (n+1) => (Fin.snoc x y : Fin (n+1) → ℝ) i ^ k l)).submatrix
+     (Fin.last n).succAbove j.succAbove = lastMonomialMinor n k x j := by
+   ext i l
+   simp [lastMonomialMinor,Fin.succAbove_last]
+ rw [hm]
+ simp only [Matrix.of_apply,Fin.snoc_last,Fin.val_last]
+ ring
+
+theorem generalizedMonomialVandermonde_det_pos (n : ℕ) (k : Fin n → ℕ)
+ (x : Fin n → ℝ) (hk : StrictMono k) (hx : StrictMono x) (hpos : ∀ i, 0 < x i) :
+ 0 < (Matrix.of (fun i j : Fin n => x i ^ k j)).det := by
+ induction n with
+ | zero => simp
+ | succ n ih =>
+   by_cases hn : n = 0
+   · subst n
+     simpa [Matrix.det_fin_one] using pow_pos (hpos 0) (k 0)
+   let x0 : Fin n → ℝ := fun i => x i.castSucc
+   let k0 : Fin n → ℕ := fun i => k i.castSucc
+   have hx0 : StrictMono x0 := by intro i j hij; exact hx hij
+   have hk0 : StrictMono k0 := by intro i j hij; exact hk hij
+   have hminor := ih k0 x0 hk0 hx0 (fun i => hpos i.castSucc)
+   let P := lastMonomialPolynomial n k x0
+   have hc : P.coeff (k (Fin.last n)) = (Matrix.of (fun i j : Fin n => x0 i ^ k0 j)).det := by
+     simp [P,lastMonomialPolynomial,Polynomial.finsetSum_coeff,Polynomial.coeff_monomial,
+       hk.injective.eq_iff,lastMonomialMinor,Fin.succAbove_last,k0,← two_mul,pow_mul]
+   have hbound : P.natDegree ≤ k (Fin.last n) := by
+     apply Polynomial.natDegree_sum_le_of_forall_le
+     intro j _
+     exact (Polynomial.natDegree_monomial_le _).trans (hk.monotone (Fin.le_last j))
+   have hdegree : P.natDegree = k (Fin.last n) :=
+     Polynomial.natDegree_eq_of_le_of_coeff_ne_zero hbound (hc.symm ▸ hminor.ne')
+   have hl : 0 < P.leadingCoeff := by
+     rw [Polynomial.leadingCoeff,hdegree,hc]
+     exact hminor
+   have hd : 0 < P.degree := by
+     apply Polynomial.natDegree_pos_iff_degree_pos.mp
+     rw [hdegree]
+     have hh : k 0 < k (Fin.last n) := hk (by change 0 < n; omega)
+     omega
+   have hr (y : ℝ) (hy : x (Fin.last n) ≤ y) : P.eval y ≠ 0 := by
+     rw [lastMonomialPolynomial_eval]
+     apply generalizedMonomialVandermonde_det_ne_zero _ _ _ hk.injective
+     · apply Fin.snoc_injective_of_injective hx0.injective
+       rintro ⟨i,hi⟩
+       have hix : x0 i < x (Fin.last n) := hx (Fin.castSucc_lt_last i)
+       linarith
+     · intro i
+       refine Fin.lastCases ?_ (fun j => ?_) i
+       · simpa using lt_of_lt_of_le (hpos (Fin.last n)) hy
+       · simpa using hpos j.castSucc
+   have hp := polynomial_pos_on_root_free_ray P (x (Fin.last n)) hd hl hr
+   have he : Fin.snoc x0 (x (Fin.last n)) = x := by
+     exact Fin.snoc_init_self x
+   rw [lastMonomialPolynomial_eval,he] at hp
+   exact hp
+
+end
+end JinWishart
+#print axioms JinWishart.generalizedMonomialVandermonde_det_pos

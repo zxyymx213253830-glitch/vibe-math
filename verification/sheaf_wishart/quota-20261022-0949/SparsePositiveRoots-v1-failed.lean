@@ -1,0 +1,87 @@
+import JinWishartFormalization.NoncentralFullRankNormalizer
+import Mathlib.Algebra.Polynomial.RuleOfSigns
+import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
+
+/-! Codex. Seed2026102701:237 exact controls precede this source.
+Sparse positive-root bounds and generalized monomial Vandermonde NONZERO.
+This does not assert its sign, Bessel-kernel positivity or an actual joint law.
+[需人工审查] Root multiplicities, finite-set counting and later ensemble mapping. -/
+open Polynomial Finset Matrix
+namespace JinWishart
+noncomputable section
+
+theorem polynomial_signVariations_lt_support (P : ℝ[X]) (hP : P ≠ 0) :
+ P.signVariations < P.support.card := by
+ by_cases he : P.eraseLead = 0
+ · have hv : P.signVariations = 0 := by
+     rw [← Polynomial.eraseLead_add_monomial_natDegree_leadingCoeff P]
+     simp [he]
+   rw [hv]
+   have hc : P.support.card ≠ 0 := by
+     simpa only [Polynomial.card_support_eq_zero] using hP
+   omega
+ · have hi := polynomial_signVariations_lt_support P.eraseLead he
+   have hc := Polynomial.card_support_eraseLead_add_one hP
+   have hv := Polynomial.signVariations_le_eraseLead_succ P
+   omega
+termination_by P.support.card
+decreasing_by exact Polynomial.eraseLead_support_card_lt hP
+
+theorem polynomial_positive_roots_lt_support (P : ℝ[X]) (hP : P ≠ 0) :
+ P.roots.countP (0 < ·) < P.support.card :=
+ lt_of_le_of_lt P.roots_countP_pos_le_signVariations
+   (polynomial_signVariations_lt_support P hP)
+
+theorem positive_root_set_card_lt_support (P : ℝ[X]) (hP : P ≠ 0)
+ (S : Finset ℝ) (hpos : ∀ x ∈ S, 0 < x) (hroot : ∀ x ∈ S, P.eval x = 0) :
+ S.card < P.support.card := by
+ have hs : S.val ≤ P.roots.filter (0 < ·) := by
+   apply Finset.val_le_iff_val_subset.mpr
+   intro x hx
+   exact Multiset.mem_filter.mpr ⟨(Polynomial.mem_roots hP).mpr (hroot x hx), hpos x hx⟩
+ have hc := Multiset.card_le_card hs
+ rw [← Multiset.countP_eq_card_filter] at hc
+ exact lt_of_le_of_lt hc (polynomial_positive_roots_lt_support P hP)
+
+theorem generalizedMonomialVandermonde_det_ne_zero (n : ℕ) (k : Fin n → ℕ)
+ (x : Fin n → ℝ) (hk : Function.Injective k) (hx : Function.Injective x)
+ (hpos : ∀ i, 0 < x i) :
+ (Matrix.of (fun i j : Fin n => x i ^ k j)).det ≠ 0 := by
+ intro hdet
+ obtain ⟨c,hc,hAc⟩ := (Matrix.exists_mulVec_eq_zero_iff).mpr hdet
+ let P : ℝ[X] := ∑ j : Fin n, Polynomial.monomial (k j) (c j)
+ have hcoeff (j : Fin n) : P.coeff (k j) = c j := by
+   simp [P,Polynomial.finsetSum_coeff,Polynomial.coeff_monomial,hk.eq_iff]
+ have hP : P ≠ 0 := by
+   intro hz
+   apply hc
+   funext j
+   have he := hcoeff j
+   simpa [hz] using he.symm
+ have hsupp : P.support ⊆ Finset.univ.image k := by
+   intro m hm
+   by_contra hn
+   have hn' (j : Fin n) : k j ≠ m := by
+     intro he
+     exact hn (Finset.mem_image.mpr ⟨j,Finset.mem_univ _,he⟩)
+   have hz : P.coeff m = 0 := by
+     simp [P,Polynomial.finsetSum_coeff,Polynomial.coeff_monomial,hn',Ne.symm]
+   exact (Polynomial.mem_support_iff.mp hm) hz
+ have hcard : P.support.card ≤ n := by
+   exact (Finset.card_le_card hsupp).trans (by simpa using Finset.card_image_le (s := Finset.univ) (f := k))
+ have hr : ∀ y ∈ Finset.univ.image x, P.eval y = 0 := by
+   intro y hy
+   obtain ⟨i,_,rfl⟩ := Finset.mem_image.mp hy
+   simpa [P,Matrix.mulVec,dotProduct,mul_comm] using congrFun hAc i
+ have hlt := positive_root_set_card_lt_support P hP (Finset.univ.image x)
+   (by intro y hy; obtain ⟨i,_,rfl⟩ := Finset.mem_image.mp hy; exact hpos i) hr
+ have hs : (Finset.univ.image x).card = n := by
+   simpa using Finset.card_image_of_injective Finset.univ hx
+ omega
+
+end
+end JinWishart
+#print axioms JinWishart.polynomial_signVariations_lt_support
+#print axioms JinWishart.polynomial_positive_roots_lt_support
+#print axioms JinWishart.positive_root_set_card_lt_support
+#print axioms JinWishart.generalizedMonomialVandermonde_det_ne_zero

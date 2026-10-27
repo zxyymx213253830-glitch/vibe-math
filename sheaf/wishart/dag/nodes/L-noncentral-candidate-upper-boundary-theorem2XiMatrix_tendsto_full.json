@@ -1,0 +1,22 @@
+{
+  "id": "L-noncentral-candidate-upper-boundary-theorem2XiMatrix_tendsto_full",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.OriginalNoncentralCandidateUpperBoundary",
+  "declaration": "JinWishart.theorem2XiMatrix_tendsto_full",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-candidate-upper-boundary-theorem1PsiMatrix_tendsto_zero"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-candidate-upper-boundary-theorem1PsiMatrix_tendsto_zero"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

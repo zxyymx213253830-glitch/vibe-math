@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-27T15:19:14.323433+00:00",
+  "ended_utc": "2026-10-27T15:19:21.849822+00:00",
+  "module": "JinWishartFormalization.SparsePositiveRoots",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/SparsePositiveRoots.lean",
+  "source_sha256_before": "3f5bd3bffa6be186bda233a763bbe3b5d5ada2ad8123f667ed645299d499d091",
+  "source_sha256": "3f5bd3bffa6be186bda233a763bbe3b5d5ada2ad8123f667ed645299d499d091",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/sparse-positive-roots-SparsePositiveRoots-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "e28920b94a0c625951ee708e7eca0e26f1729e91839329dab214a6f277f1bf03",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "sparse-positive-roots-SparsePositiveRoots",
+    "module": "SparsePositiveRoots",
+    "nodes": [
+      [
+        "L-sparse-positive-roots-polynomial_signVariations_lt_support",
+        "polynomial_signVariations_lt_support",
+        []
+      ],
+      [
+        "L-sparse-positive-roots-polynomial_positive_roots_lt_support",
+        "polynomial_positive_roots_lt_support",
+        [
+          "L-sparse-positive-roots-polynomial_signVariations_lt_support"
+        ]
+      ],
+      [
+        "L-sparse-positive-roots-positive_root_set_card_lt_support",
+        "positive_root_set_card_lt_support",
+        [
+          "L-sparse-positive-roots-polynomial_positive_roots_lt_support"
+        ]
+      ],
+      [
+        "L-sparse-positive-roots-generalizedMonomialVandermonde_det_ne_zero",
+        "generalizedMonomialVandermonde_det_ne_zero",
+        [
+          "L-sparse-positive-roots-positive_root_set_card_lt_support"
+        ]
+      ]
+    ]
+  }
+]

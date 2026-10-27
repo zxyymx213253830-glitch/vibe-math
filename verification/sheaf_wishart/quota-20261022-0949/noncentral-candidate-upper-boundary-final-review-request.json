@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "OriginalNoncentralCandidateUpperBoundary.lean": {
+      "sha256": "4150589b60e4bfbc36b6ddee54d1299f55e69039e43b6341664f2489be4e3e2b",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "2eb88734c790fa95644296330a6f05b0f786363c427cf3a7c48e7ef3a083f6e3"
+}

@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SparsePositiveRoots.lean:21:5: error: Type mismatch: After simplification, term
+  hP
+ has type
+  P ≠ 0
+but is expected to have type
+  #P.support ≠ 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SparsePositiveRoots.lean:75:3: error: Type mismatch: After simplification, term
+  congrFun hAc i
+ has type
+  ∑ i_1, c i_1 * x i ^ k i_1 = 0
+but is expected to have type
+  eval (x i) (∑ j, (monomial (k j)) (c j)) = 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\SparsePositiveRoots.lean:68:70: warning: This simp argument is unused:
+  Ne.symm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [P, Polynomial.finsetSum_coeff, Polynomial.coeff_monomial, hn']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.polynomial_signVariations_lt_support' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.polynomial_positive_roots_lt_support' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.positive_root_set_card_lt_support' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.generalizedMonomialVandermonde_det_ne_zero' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

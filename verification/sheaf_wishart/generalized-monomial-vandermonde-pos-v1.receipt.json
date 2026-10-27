@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-27T15:21:37.736887+00:00",
+  "ended_utc": "2026-10-27T15:21:55.635054+00:00",
+  "module": "JinWishartFormalization.GeneralizedMonomialVandermondePos",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GeneralizedMonomialVandermondePos.lean",
+  "source_sha256_before": "0ff549295a86ee0cda3c2d3d8504cda5416fc72e451020f1ac1d962167a2109b",
+  "source_sha256": "0ff549295a86ee0cda3c2d3d8504cda5416fc72e451020f1ac1d962167a2109b",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/generalized-monomial-vandermonde-pos-v1.txt",
+  "log_exists": true,
+  "log_sha256": "539a2209917926d4a625163ea06319415b0e52a0e2b108cb441d791fb112ee77",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

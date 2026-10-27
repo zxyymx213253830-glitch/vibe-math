@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-27T15:19:21.850947+00:00",
+  "ended_utc": "2026-10-27T15:19:31.431025+00:00",
+  "module": "SheafSparsePositiveRootsTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafSparsePositiveRootsTargets.lean",
+  "source_sha256_before": "8103b1f647e0197ffe24b371e8fbf7786289de7c34678352f1e9057f55773c6a",
+  "source_sha256": "8103b1f647e0197ffe24b371e8fbf7786289de7c34678352f1e9057f55773c6a",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/sparse-positive-roots-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

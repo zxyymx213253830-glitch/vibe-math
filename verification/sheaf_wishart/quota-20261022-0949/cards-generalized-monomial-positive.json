@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "generalized-monomial-positive-GeneralizedMonomialVandermondePos",
+    "module": "GeneralizedMonomialVandermondePos",
+    "nodes": [
+      [
+        "L-generalized-monomial-positive-generalizedMonomialVandermonde_det_pos",
+        "generalizedMonomialVandermonde_det_pos",
+        []
+      ]
+    ]
+  }
+]

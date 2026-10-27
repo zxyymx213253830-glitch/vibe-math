@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialVandermondePos.lean:38:49: error: Application type mismatch: The argument
+  y
+has type
+  ℝ
+but is expected to have type
+  ?m.37 i j (Fin.last n)
+in the application
+  Fin.snoc ?m.29 y
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialVandermondePos.lean:54:1: error: Unnecessary `generalizing` argument: Variable `k` is generalized automatically
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialVandermondePos.lean:54:1: error: Unnecessary `generalizing` argument: Variable `x` is generalized automatically
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialVandermondePos.lean:72:12: error: Function expected at
+  natDegree_monomial_le ?m.170
+but this term has type
+  ((monomial ?m.171) ?m.170).natDegree ≤ ?m.171
+
+Note: Expected a function because this term is being applied to the argument
+  _
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialVandermondePos.lean:84:9: error(lean.unknownIdentifier): Unknown identifier `lastMonomialPolynomial_eval`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialVandermondePos.lean:96:5: error: Type mismatch
+  Fin.snoc_init_self
+has type
+  ∀ (q : (i : Fin (?m.273 + 1)) → ?m.274 i), Fin.snoc (Fin.init q) (q (Fin.last ?m.273)) = q
+but is expected to have type
+  Fin.snoc x0 (x (Fin.last n)) = x
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialVandermondePos.lean:97:7: error(lean.unknownIdentifier): Unknown identifier `lastMonomialPolynomial_eval`
+'JinWishart.generalizedMonomialVandermonde_det_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

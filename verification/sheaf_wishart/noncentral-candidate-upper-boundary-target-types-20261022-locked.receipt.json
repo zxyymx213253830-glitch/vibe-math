@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-27T15:14:29.434407+00:00",
+  "ended_utc": "2026-10-27T15:14:58.412658+00:00",
+  "module": "SheafNoncentralUpperBoundaryTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafNoncentralUpperBoundaryTargets.lean",
+  "source_sha256_before": "6f0fabb2959fd928ce154958f934553f1c9e8d1ef6d90012888f3c8421226bee",
+  "source_sha256": "6f0fabb2959fd928ce154958f934553f1c9e8d1ef6d90012888f3c8421226bee",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/noncentral-candidate-upper-boundary-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "d6b209b8c269acfc4c684742fc7a838b1f54e6693e73f8b384798ff3c8f80818",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

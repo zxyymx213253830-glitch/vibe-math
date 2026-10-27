@@ -1,0 +1,4 @@
+'JinWishart.polynomial_signVariations_lt_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.polynomial_positive_roots_lt_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.positive_root_set_card_lt_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.generalizedMonomialVandermonde_det_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

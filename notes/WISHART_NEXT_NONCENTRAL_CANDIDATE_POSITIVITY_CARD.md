@@ -1,3 +1,5 @@
+2026-10-27 UPDATE: accepted971. Generalized monomial nonzero and strict-positive modules now have real shared immutable gate/type PASS but P4/disclosure pending; see WISHART_GENERALIZED_VANDERMONDE_PENDING_REVIEW.md. The older below wording saying no RuleOfSigns or generalized-positive source found is HISTORICAL and superseded. Finite/infinite Bessel-kernel and actual-law steps remain OPEN.
+
 # Next: candidate kernel determinant positivity and normalization
 
 2026-10-27 current checkpoint:969 accepted (971 normalizer norm-product final acceptance in progress). General original Psi(0) nonzero for all allowed ranks was accepted in4b827bf; the first3 and last2 exact-source disclosure permissions and their real P4 requests are complete. Historical950/quota-stop/unanswered wording has been superseded; do not repeat those source reviews. Norm-product is a separate authorized, already-returned P4 and is being adjudicated against locked source. See WISHART_ORIGINAL_PSI_NORMALIZER_NONZERO.md and WISHART_ORIGINAL_PSI_NORM_PRODUCT.md.

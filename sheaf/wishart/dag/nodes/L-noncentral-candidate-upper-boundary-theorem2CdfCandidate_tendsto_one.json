@@ -1,0 +1,22 @@
+{
+  "id": "L-noncentral-candidate-upper-boundary-theorem2CdfCandidate_tendsto_one",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.OriginalNoncentralCandidateUpperBoundary",
+  "declaration": "JinWishart.theorem2CdfCandidate_tendsto_one",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-candidate-upper-boundary-theorem1CdfCandidate_tendsto_one"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-candidate-upper-boundary-theorem1CdfCandidate_tendsto_one"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

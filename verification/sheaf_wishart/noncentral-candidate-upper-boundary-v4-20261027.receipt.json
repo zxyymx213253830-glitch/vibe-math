@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-27T15:13:47.872790+00:00",
+  "ended_utc": "2026-10-27T15:14:06.838889+00:00",
+  "module": "JinWishartFormalization.OriginalNoncentralCandidateUpperBoundary",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/OriginalNoncentralCandidateUpperBoundary.lean",
+  "source_sha256_before": "4150589b60e4bfbc36b6ddee54d1299f55e69039e43b6341664f2489be4e3e2b",
+  "source_sha256": "4150589b60e4bfbc36b6ddee54d1299f55e69039e43b6341664f2489be4e3e2b",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/noncentral-candidate-upper-boundary-v4-20261027.txt",
+  "log_exists": true,
+  "log_sha256": "471ab12171d59959100a1ba0139a6e70ccc7cb585745aad63066cb352e8f88cf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

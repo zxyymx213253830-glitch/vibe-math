@@ -1,0 +1,22 @@
+{
+  "id": "L-sparse-positive-roots-polynomial_positive_roots_lt_support",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.SparsePositiveRoots",
+  "declaration": "JinWishart.polynomial_positive_roots_lt_support",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-sparse-positive-roots-polynomial_signVariations_lt_support"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-sparse-positive-roots-polynomial_signVariations_lt_support"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

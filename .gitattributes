@@ -972,3 +972,105 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /verification/sheaf_wishart/quota-20261022-0949/p4-original-psi-norm-product-final.stderr.txt -text whitespace=cr-at-eol
 
 /notes/WISHART_ORIGINAL_PSI_NORM_PRODUCT.md -text whitespace=cr-at-eol
+
+/notes/WISHART_NEXT_NONCENTRAL_CANDIDATE_POSITIVITY_CARD.md -text whitespace=cr-at-eol
+
+/notes/WISHART_STATUS.md -text whitespace=cr-at-eol
+
+/experiments/sparse_positive_roots_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_GENERALIZED_VANDERMONDE_PENDING_REVIEW.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GeneralizedMonomialVandermondePos.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/SparsePositiveRoots.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-positive-GeneralizedMonomialVandermondePos-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-positive-GeneralizedMonomialVandermondePos-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-positive-target-types-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-positive-target-types-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-vandermonde-pos-v1.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-vandermonde-pos-v1.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-vandermonde-pos-v2.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-vandermonde-pos-v2.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-OriginalNoncentralCandidateUpperBoundary-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-OriginalNoncentralCandidateUpperBoundary-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-target-types-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-target-types-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-v4-20261027.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/noncentral-candidate-upper-boundary-v4-20261027.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/GeneralizedMonomialVandermondePos-v1-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/SheafGeneralizedMonomialPositiveTargets.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/SheafSparsePositiveRootsTargets.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/SparsePositiveRoots-v1-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/cards-generalized-monomial-positive.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/cards-noncentral-candidate-upper-boundary.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/cards-sparse-positive-roots.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/check-generalized-monomial-positive-GeneralizedMonomialVandermondePos.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/check-noncentral-candidate-upper-boundary-OriginalNoncentralCandidateUpperBoundary.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/check-sparse-positive-roots-SparsePositiveRoots.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/generalized-monomial-positive-final-review-request.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/generalized-monomial-positive-final-snapshot/GeneralizedMonomialVandermondePos.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/locks-generalized-monomial-positive-GeneralizedMonomialVandermondePos.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/locks-noncentral-candidate-upper-boundary-OriginalNoncentralCandidateUpperBoundary.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/locks-sparse-positive-roots-SparsePositiveRoots.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/noncentral-candidate-upper-boundary-final-review-request.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/noncentral-candidate-upper-boundary-final-snapshot/OriginalNoncentralCandidateUpperBoundary.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-generalized-monomial-positive-final-prompt.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-noncentral-candidate-upper-boundary-final-prompt.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-sparse-positive-roots-final-prompt.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/sparse-positive-roots-control.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/sparse-positive-roots-final-review-request.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/sparse-positive-roots-final-snapshot/SparsePositiveRoots.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/sparse-positive-roots-SparsePositiveRoots-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/sparse-positive-roots-SparsePositiveRoots-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/sparse-positive-roots-target-types-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/sparse-positive-roots-target-types-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/sparse-positive-roots-v1.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/sparse-positive-roots-v1.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/sparse-positive-roots-v2.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/sparse-positive-roots-v2.txt -text whitespace=cr-at-eol

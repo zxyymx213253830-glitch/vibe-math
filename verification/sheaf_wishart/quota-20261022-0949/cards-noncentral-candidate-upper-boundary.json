@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "noncentral-candidate-upper-boundary-OriginalNoncentralCandidateUpperBoundary",
+    "module": "OriginalNoncentralCandidateUpperBoundary",
+    "nodes": [
+      [
+        "L-noncentral-candidate-upper-boundary-theorem1PsiMatrix_tendsto_zero",
+        "theorem1PsiMatrix_tendsto_zero",
+        []
+      ],
+      [
+        "L-noncentral-candidate-upper-boundary-theorem2XiMatrix_tendsto_full",
+        "theorem2XiMatrix_tendsto_full",
+        [
+          "L-noncentral-candidate-upper-boundary-theorem1PsiMatrix_tendsto_zero"
+        ]
+      ],
+      [
+        "L-noncentral-candidate-upper-boundary-theorem1CdfCandidate_tendsto_one",
+        "theorem1CdfCandidate_tendsto_one",
+        [
+          "L-noncentral-candidate-upper-boundary-theorem2XiMatrix_tendsto_full"
+        ]
+      ],
+      [
+        "L-noncentral-candidate-upper-boundary-theorem2CdfCandidate_tendsto_one",
+        "theorem2CdfCandidate_tendsto_one",
+        [
+          "L-noncentral-candidate-upper-boundary-theorem1CdfCandidate_tendsto_one"
+        ]
+      ]
+    ]
+  }
+]
