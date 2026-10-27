@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-10-27T15:06:21+00:00",
+  "user_deadline_utc": "2026-10-27T16:06:21+00:00",
+  "user_hard_deadline": true,
+  "recorded_utc": "2026-10-27T15:07:27.413496+00:00",
+  "ordinaryUsageAllowed": true,
+  "primary_used_percent": 45,
+  "weekly_used_percent": 28,
+  "resetcredits_used": 0,
+  "automation": "deepseek-wishart ACTIVE same thread",
+  "starting_accepted": 969,
+  "prior_closeout": "4dafc1b",
+  "no_interval_activity_claim": true
+}
