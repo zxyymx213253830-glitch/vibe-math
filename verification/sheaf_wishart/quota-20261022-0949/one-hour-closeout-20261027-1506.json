@@ -1,0 +1,68 @@
+{
+  "recorded_utc": "2026-10-27T19:17:18.452756+00:00",
+  "reason": "USER_ONE_HOUR_HARD_DEADLINE",
+  "authorized_start_utc": "2026-10-27T15:06:21+00:00",
+  "user_deadline_utc": "2026-10-27T16:06:21+00:00",
+  "deadline_detected_utc": "2026-10-27T19:16:05+00:00",
+  "last_observed_worker_ended_utc": "2026-10-27T15:30:23.012512+00:00",
+  "interruption_gap": "No continuous research, quota refusal or unobserved activity asserted between15:30:23 and19:16:05UTC.",
+  "accepted": {
+    "total": 971,
+    "theorem_instances": 969,
+    "constructions": 2,
+    "acceptance_records": 171,
+    "facade": "facade-152",
+    "audit": "PASS",
+    "commit": "83b4c69",
+    "rechecked_at_closeout": false
+  },
+  "newly_accepted": {
+    "exports": 2,
+    "modules": 1
+  },
+  "pending": {
+    "OriginalNoncentralCandidateUpperBoundary": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/OriginalNoncentralCandidateUpperBoundary.lean",
+      "sha256": "4150589b60e4bfbc36b6ddee54d1299f55e69039e43b6341664f2489be4e3e2b",
+      "printed_declarations": 4,
+      "status": "Immutable final shared bundle and independent literal types PASS, standard3; disclosure permission/P4 PENDING; NOT accepted"
+    },
+    "SparsePositiveRoots": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/SparsePositiveRoots.lean",
+      "sha256": "3f5bd3bffa6be186bda233a763bbe3b5d5ada2ad8123f667ed645299d499d091",
+      "printed_declarations": 4,
+      "status": "Immutable final shared bundle and independent literal types PASS, standard3; disclosure permission/P4 PENDING; NOT accepted"
+    },
+    "GeneralizedMonomialVandermondePos": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/GeneralizedMonomialVandermondePos.lean",
+      "sha256": "59d69e1a7815dd14bd63b2baa9ee541a29484a1fd2b93f2b0d64fe3b36c5684d",
+      "printed_declarations": 1,
+      "status": "Immutable final shared bundle and independent literal types PASS, standard3; disclosure permission/P4 PENDING; NOT accepted"
+    },
+    "GeneralizedMonomialMinorProduct": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/GeneralizedMonomialMinorProduct.lean",
+      "sha256": "16783f1adfb0bb3d02205db82cb9d585f44a33a448e21dc859614f75a6e08bb4",
+      "status": "DRAFT_NOT_ACCEPTED; v1 and v2 actual exit1. No further compiler, type, review or proof adjudication at closeout.",
+      "last_receipt": "verification/sheaf_wishart/generalized-monomial-minor-product-v2.receipt.json"
+    }
+  },
+  "automation": {
+    "id": "deepseek-wishart",
+    "status": "DELETED",
+    "result": "deleteStatus=deleted; expired one-hour heartbeat removed"
+  },
+  "own_processes": "No matching run-specific python/Lean/lake/Qoder process observed. No process killed or lock deleted.",
+  "quota": {
+    "last_observed_allowed": true,
+    "last_primary_used_percent": 83,
+    "last_weekly_used_percent": 33,
+    "resetcredits_used": 0,
+    "query_at_closeout": false,
+    "actual_false_observed_in_this_window": false
+  },
+  "frozen_publications": "Unchanged by this work; no new frozen-file verification at closeout.",
+  "fullLake": "NOT_RUN",
+  "independent_linux_kernel": "NOT_RUN",
+  "human_review": "REQUIRED",
+  "summary": "2026-10-27固定一小时窗口已结束并归档：已验收971（969定理实例+2构造），facade152/auditPASS/171记录为窗口内既有核验，归档不重跑。本窗口新增验收2声明1模块：原Psi0范数显式乘积公式；83b4c69。另9声明3模块（原候选尾部极限4、稀疏正根与广义单项式Vandermonde非零4、严格正性1）最终锁定共享gate/精确类型PASS但外发许可与P4仍待答，不计980，未外发。后续带权子式乘积草稿v2实际exit1，保留失败源/日志，未接受。237/698新seed精确控制均非证明。授权15:06:21--16:06:21UTC；最后已观察到的运行receipt结束15:30:23，至19:16:05中断间隔不声称连续工作或拒绝。截止后仅保存归档，无新数学/Lean/实验/审查/额度调用。已移除到期的deepseek-wishart定时任务，防止继续唤醒。无匹配本run活动python/Lean/lake/Qoder观察，未停止他人/删锁。两券未用/未购买/切号。人审测度/索引/模型仍需，冻结产物未改，fullLake/Linux独立内核NOT_RUN；一般G2及论文完整映射仍OPEN。"
+}

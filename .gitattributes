@@ -1074,3 +1074,21 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /verification/sheaf_wishart/sparse-positive-roots-v2.receipt.json -text whitespace=cr-at-eol
 
 /verification/sheaf_wishart/sparse-positive-roots-v2.txt -text whitespace=cr-at-eol
+
+/experiments/monomial_minor_product_control.py -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/GeneralizedMonomialMinorProduct.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-minor-product-v1.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-minor-product-v1.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-minor-product-v2.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-minor-product-v2.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/GeneralizedMonomialMinorProduct-v1-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/monomial-minor-product-control.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/one-hour-closeout-20261027-1506.json -text whitespace=cr-at-eol

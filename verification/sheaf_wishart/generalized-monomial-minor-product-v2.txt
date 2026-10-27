@@ -1,0 +1,27 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialMinorProduct.lean:66:74: error: unsolved goals
+n : ℕ
+k : Fin n → ℕ
+x y w : Fin n → ℝ
+hk : Injective k
+hx : StrictMono x
+hy : StrictMono y
+hxp : ∀ (i : Fin n), 0 < x i
+hyp : ∀ (i : Fin n), 0 < y i
+hw : ∀ (i : Fin n), 0 < w i
+⊢ (of fun i j => w i * y j ^ k i).det = (of fun i j => w i * of (fun i j => y j ^ k i) i j).det
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialMinorProduct.lean:86:3: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'JinWishart.generalizedMonomialMinorProduct_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.weightedGeneralizedMonomialMinorProduct_pos' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.weightedGeneralizedMonomialMinorProduct_nonneg' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

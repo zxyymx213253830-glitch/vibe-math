@@ -1,0 +1,31 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialMinorProduct.lean:65:5: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (of fun i j => ?v i * ?A i j).det
+in the target expression
+  0 < (of fun i j => x i ^ k j).det * (of fun i j => w i * y j ^ k i).det
+
+n : ℕ
+k : Fin n → ℕ
+x y w : Fin n → ℝ
+hk : Injective k
+hx : StrictMono x
+hy : StrictMono y
+hxp : ∀ (i : Fin n), 0 < x i
+hyp : ∀ (i : Fin n), 0 < y i
+hw : ∀ (i : Fin n), 0 < w i
+⊢ 0 < (of fun i j => x i ^ k j).det * (of fun i j => w i * y j ^ k i).det
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\GeneralizedMonomialMinorProduct.lean:83:3: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'JinWishart.generalizedMonomialMinorProduct_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.weightedGeneralizedMonomialMinorProduct_pos' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.weightedGeneralizedMonomialMinorProduct_nonneg' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
