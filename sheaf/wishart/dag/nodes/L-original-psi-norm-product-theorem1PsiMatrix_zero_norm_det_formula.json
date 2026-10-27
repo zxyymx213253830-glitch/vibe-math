@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-original-psi-norm-product-OriginalPsiNormalizerProduct.json",
+    "source_sha256": "9e494c9dc33d9c0a1e594ff53c4f7acc57870a05bde5da037c8dfff6f7a02be7"
   }
 }

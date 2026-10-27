@@ -1,8 +1,8 @@
-ARCHIVED QUOTA STOP: ordinaryUsageAllowed=false was observed08:53:21UTC. Latest TWO-file disclosure authorization has since arrived and is saved, but no review was transmitted. FirstTHREE remain unanswered. No further research/checks after stop; automationPAUSED. Historical pending wording below describes the earlier checkpoint.
-
 # Next: candidate kernel determinant positivity and normalization
 
-Accepted950 is unchanged. General ORIGINAL Psi(0) denominator nonzero is in the locked19-export pending review bundle, see WISHART_ORIGINAL_PSI_NORMALIZER_PENDING_REVIEW.md. The approved past radial-moment sources are not permission for these unseen modules. Await explicit permission covering the first3 and last2 sources; no external request has been made for any of the5. Local combined5-source prompt can be used only if all5 are covered. Do not edit locked sources.
+2026-10-27 current checkpoint:969 accepted (971 normalizer norm-product final acceptance in progress). General original Psi(0) nonzero for all allowed ranks was accepted in4b827bf; the first3 and last2 exact-source disclosure permissions and their real P4 requests are complete. Historical950/quota-stop/unanswered wording has been superseded; do not repeat those source reviews. Norm-product is a separate authorized, already-returned P4 and is being adjudicated against locked source. See WISHART_ORIGINAL_PSI_NORMALIZER_NONZERO.md and WISHART_ORIGINAL_PSI_NORM_PRODUCT.md.
+
+User fixed one-hour window2026-10-27 15:06:21--16:06:21UTC; no research after the deadline. Generic candidate positivity is still OPEN, distinct from denominator nonzero, norm formula and formal endpoint limits.
 
 New seed2026102610 control: experiments/noncentral_candidate_total_positivity_control.py,530 exact finite-minor/Cauchy-Binet/Bessel-series calibration checks PASS before any new positivity proof source. This is NOT a total positivity proof, infinite limit interchange, normalized candidate law, or actual G2 law. There is currently NO new Lean positivity source.
 

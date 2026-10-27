@@ -181,3 +181,4 @@
 - 2026-10-26T11:59:25.512020+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-zero-confluent-vandermonde-ZeroConfluentVandermonde.json; human measure/model review remains REQUIRED.
 - 2026-10-26T11:59:44.289805+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-noncentral-moments-MixedNoncentralMomentMatrix.json; human measure/model review remains REQUIRED.
 - 2026-10-26T12:00:04.226089+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-original-psi-normalizer-OriginalPsiNormalizerNonzero.json; human measure/model review remains REQUIRED.
+- 2026-10-27T15:13:01.502106+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-original-psi-norm-product-OriginalPsiNormalizerProduct.json; human measure/model review remains REQUIRED.

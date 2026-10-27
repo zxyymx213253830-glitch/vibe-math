@@ -1,3 +1,4 @@
+import JinWishartFormalization.OriginalPsiNormalizerProduct
 import JinWishartFormalization.NoncentralFullRankNormalizer
 import JinWishartFormalization.NoncentralGammaMomentColumns
 import JinWishartFormalization.ZeroConfluentVandermonde
