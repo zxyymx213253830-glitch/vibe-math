@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-generalized-monomial-positive-GeneralizedMonomialVandermondePos.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-generalized-monomial-positive-GeneralizedMonomialVandermondePos.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/generalized-monomial-positive-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-generalized-monomial-positive-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-generalized-monomial-positive-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-generalized-monomial-positive-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/generalized-monomial-positive-final-snapshot",
+    "resolution": "notes/WISHART_TAIL_AND_GENERALIZED_MONOMIAL_CLOSURE.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-153.receipt.json"
+}

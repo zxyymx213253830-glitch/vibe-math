@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-sparse-positive-roots-SparsePositiveRoots.json",
+    "source_sha256": "3f5bd3bffa6be186bda233a763bbe3b5d5ada2ad8123f667ed645299d499d091"
   }
 }

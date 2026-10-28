@@ -1,0 +1,34 @@
+# Candidate upper limits and generalized monomial determinants
+
+The three new sources were individually approved for disclosure on2026-10-28. Each exact full source and corresponding locked prompt was sent once to Qoder Qwen3.8-Max with tools disabled and90-second upper bound; real exit0 receipts and raw reports are archived. No retry or new external request is used in this milestone. All proof bodies are Codex. All9 public exports passed their immutable shared Lean bundles and9 independent literal types with standard3 axioms, before source disclosure.
+
+## Exact result scope
+
+OriginalNoncentralCandidateUpperBoundary has4 exports: original Psi(x) tends to0; Xi(x) tends to Psi(0); original minimum FORMULA candidate tends to1 for s>0 (formal lambda arbitrary); maximum FORMULA candidate tends to1 for positive injective lambda, allowing s=0. These are not actual general noncentral CDF statements. The empty minimum candidate is excluded because it is identically0. Seed2026102612:295 calibrated controls, not proofs.
+
+SparsePositiveRoots has4 exports: sign variations of a nonzero real polynomial are strictly less than the support cardinality; Descartes gives the same bound for positive roots counted WITH multiplicity; distinct positive root sets satisfy this bound; injective natural exponents and injective positive nodes give a nonsingular generalized monomial Vandermonde, including empty dimension. GeneralizedMonomialVandermondePos adds strict positivity when both exponents and positive nodes are StrictMono. Seed2026102701:237 exact controls precede both sources, including multiplicity calibration and failed-hypothesis countercontrols; these are not proofs.
+
+## Tail P4 adjudication
+
+1. The report confuses the CONSTANT Nuttall noncentrality parameter a with the moving THRESHOLD b. natural_nuttall_tail(q,k,a) is Tendsto(fun b=>nuttallQ(...,a,b)) atTop(0). hb replaces only b by sqrt(2*x). a=sqrt(2*lambda_j) stays fixed, as required. No limit of a or scaling lambda*x is asserted. Formal negative lambda is allowed because sqrt of its argument is still a fixed real a. Independently accepted integrableOn_nuttallQ_fullNaturalMoment proves trueL1 for EVERY real a; the proof is not relying on an undefined integral interpreted as probability.
+2. NuttallQ.lean defines nuttallQ and its integrand as COMPLEX-valued. The report's real-valued premise is false. The constant multiplier is explicitly complex, matching the entry limit. No missing real embedding continuity step exists.
+3. Real division is a total field operation. div_const permits a constant zero denominator: numerator/0 is identically0, so1-numerator/0 is identically1. The first theorem is explicitly a formal candidate limit, not an actual CDF identification. The second theorem genuinely needs nonzero denominator and obtains it from the accepted Psi0 nonzero theorem under its stated positive/injective assumptions.
+4. upperGammaComplement_eq_tail explicitly requires0<s.re and x>=0. Here s=(k+1:Nat:Complex), so s.re=(k:Real)+1>0. The eventual threshold guard supplies x>=0. Existing final source gate and type witness check the cast, not an inferred alternate API.
+5. L=0 vacuity creates no gap: the central Gamma block still varies with threshold; it is not the zero matrix at every threshold. Its entries tend to0 and its complement tends to its full moments. Empty dimensions follow the literal determinant conventions.
+
+## Sparse-root P4 adjudication
+
+1. A theorem returning a proof may use Lean4 well-founded recursive elaboration; it is not restricted to declarations spelled def. The recurrence strictly decreases P.support.card. The explicit termination_by and decreasing_by use eraseLead_support_card_lt hP. Its mathematical argument is induction on support size: if eraseLead vanishes the polynomial is one monomial and sign variation is0; otherwise erasing the leading nonzero term reduces support by exactly1 and changes sign variations by at most1. There is no circular axiom. All kernel witnesses contain standard3 and no sorryAx.
+2. The exact pinned Polynomial/RuleOfSigns.lean theorem roots_countP_pos_le_signVariations says P.roots.countP(0<.)<=P.signVariations for an ordered commutative ring. It counts positive roots WITH multiplicity and does NOT require every root to be positive. Its actual signature matches P:Real[X].
+3. The remaining report items expressly accept the multiplicity-to-finite-set comparison, injective coefficient extraction and support image bound. S.val embeds as a submultiset of the positive-root multiset, so distinct-root cardinality is bounded above by the multiplicity count. No dropped multiplicities are assumed.
+
+## Positive determinant P4 adjudication
+
+1. The imported nonzero theorem is the independently locked SparsePositiveRoots export above: a SQUARE Fin n by Fin n matrix, arbitrary injective natural exponents, arbitrary injective POSITIVE nodes, no ordering assumption. Those exact hypotheses are supplied on the last-point ray. It is not an absent or unproved rectangular lemma.
+2. StrictMono k isolates j=last in the top-degree coefficient. At that index the sign is(-1)^(n+n)=1 for EVERY n; this is the explicit two_mul/pow_mul rewrite, not an extra parity assumption.
+3. A uniform upper natDegree bound does not require intermediate coefficients to be nonzero. The final degree equality is obtained separately from the nonzero top coefficient, which equals the induction minor. Lower-degree terms cannot cancel that coefficient.
+4. The singleton case uses x0>0 raised to a natural exponent, including exponent0. In the nontrivial step n!=0, strictness supplies the positive highest exponent. The Fin.snoc reconstruction and restrictions are typed exactly by the final gate, with no Lean3 indexing convention.
+5. IVT applies to the continuous real polynomial on[a,b]. Its root-free hypothesis holds on the WHOLE closed ray y>=a, so the contradiction also covers endpoints. Classical logic and function extensionality are the declared standard axioms; no computational witness extraction is claimed or needed for the result.
+6. The exact source expresses the last-row polynomial evaluation as the determinant and reconstructs the original tuple with Fin.snoc_init_self. This is a proved equality, not an unproved definitional shortcut.
+
+No reviewed source changed after locking or review. The reports do not identify an unresolved logical defect in these exact9 claims after the above signature/definition adjudication. This is not a fullLake run, independent Linux compilation or human approval. [需人工审查] Tail integrability and limits, root multiplicity/support counting, determinant indexing, infinite-kernel transport, actual probability/model and original-paper mapping remain human review obligations. General finite/infinite Bessel-kernel positivity, normalized candidate measure and actual noncentral G2 are separate OPEN steps. Frozen publication files remain unchanged.

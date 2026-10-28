@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-noncentral-candidate-upper-boundary-OriginalNoncentralCandidateUpperBoundary.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-noncentral-candidate-upper-boundary-OriginalNoncentralCandidateUpperBoundary.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/noncentral-candidate-upper-boundary-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-noncentral-candidate-upper-boundary-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-noncentral-candidate-upper-boundary-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-noncentral-candidate-upper-boundary-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/noncentral-candidate-upper-boundary-final-snapshot",
+    "resolution": "notes/WISHART_TAIL_AND_GENERALIZED_MONOMIAL_CLOSURE.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-153.receipt.json"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "tail-and-generalized-monomial-closure",
+  "review": "noncentral-candidate-upper-boundary-final",
+  "review_for_module": {
+    "SparsePositiveRoots": "sparse-positive-roots-final",
+    "GeneralizedMonomialVandermondePos": "generalized-monomial-positive-final"
+  },
+  "resolution": "notes/WISHART_TAIL_AND_GENERALIZED_MONOMIAL_CLOSURE.md",
+  "facade": "facade-153",
+  "total": 980,
+  "new_count": 9,
+  "control_script": "experiments/noncentral_candidate_tail_boundary_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/noncentral-candidate-tail-boundary-control.json",
+  "seed": 2026102612,
+  "additional_controls": [
+    {
+      "script": "experiments/sparse_positive_roots_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/sparse-positive-roots-control.json",
+      "seed": 2026102701
+    }
+  ],
+  "commit": "Prove candidate tail limits and generalized monomial determinant positivity",
+  "scope": "2026-10-28一小时恢复首个里程碑：980绑定项（978定理实例+2构造），auditPASS/facade153真实exit0，174接受记录全验证。本日新增验收9打印声明3模块，quota累计370/156非概率突破数。原候选Psi尾0/Xi全矩与T1T2上边界极限、稀疏实多项式正根重数支持界/广义单项式Vandermonde非零和有序正节点严格正性闭合；不是实际一般非中心CDF/G2或Bessel无限核正性。295/237前置控制非证明；9精确类型/全部锁定串行gate标准3exit0，三份逐源新许可与三次真实90秒禁工具QoderP4完整源绑定；参数a与移动b混淆、误读Complex/总除法/定理良基递归/符号及依赖等按精确源码和pinned签名逐项裁决，无改锁定源/重发/升预算。当前授权窗口02:47:51--03:47:51UTC（北京时间10:47:51--11:47:51），自动任务仍DELETED，本回合执行；02:47UTC ordinarytrue primary38 weekly42，两券未用。子式乘积草稿仍待修复；人审测度/极限/索引/模型仍需，冻结产物未改，fullLake/Linux独立内核NOT_RUN，一般G2/T1T2/journalT3/full映射OPEN。",
+  "clear_pending_review": true,
+  "pending_paths": [
+    "experiments/finite_noncentral_kernel_floor_control.py",
+    "verification/sheaf_wishart/quota-20261022-0949/finite-noncentral-kernel-floor-control.json"
+  ]
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "tag": "noncentral-candidate-upper-boundary-OriginalNoncentralCandidateUpperBoundary",
+    "module": "OriginalNoncentralCandidateUpperBoundary",
+    "nodes": [
+      [
+        "L-noncentral-candidate-upper-boundary-theorem1PsiMatrix_tendsto_zero",
+        "theorem1PsiMatrix_tendsto_zero",
+        []
+      ],
+      [
+        "L-noncentral-candidate-upper-boundary-theorem2XiMatrix_tendsto_full",
+        "theorem2XiMatrix_tendsto_full",
+        [
+          "L-noncentral-candidate-upper-boundary-theorem1PsiMatrix_tendsto_zero"
+        ]
+      ],
+      [
+        "L-noncentral-candidate-upper-boundary-theorem1CdfCandidate_tendsto_one",
+        "theorem1CdfCandidate_tendsto_one",
+        [
+          "L-noncentral-candidate-upper-boundary-theorem2XiMatrix_tendsto_full"
+        ]
+      ],
+      [
+        "L-noncentral-candidate-upper-boundary-theorem2CdfCandidate_tendsto_one",
+        "theorem2CdfCandidate_tendsto_one",
+        [
+          "L-noncentral-candidate-upper-boundary-theorem1CdfCandidate_tendsto_one"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "sparse-positive-roots-SparsePositiveRoots",
+    "module": "SparsePositiveRoots",
+    "nodes": [
+      [
+        "L-sparse-positive-roots-polynomial_signVariations_lt_support",
+        "polynomial_signVariations_lt_support",
+        []
+      ],
+      [
+        "L-sparse-positive-roots-polynomial_positive_roots_lt_support",
+        "polynomial_positive_roots_lt_support",
+        [
+          "L-sparse-positive-roots-polynomial_signVariations_lt_support"
+        ]
+      ],
+      [
+        "L-sparse-positive-roots-positive_root_set_card_lt_support",
+        "positive_root_set_card_lt_support",
+        [
+          "L-sparse-positive-roots-polynomial_positive_roots_lt_support"
+        ]
+      ],
+      [
+        "L-sparse-positive-roots-generalizedMonomialVandermonde_det_ne_zero",
+        "generalizedMonomialVandermonde_det_ne_zero",
+        [
+          "L-sparse-positive-roots-positive_root_set_card_lt_support"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "generalized-monomial-positive-GeneralizedMonomialVandermondePos",
+    "module": "GeneralizedMonomialVandermondePos",
+    "nodes": [
+      [
+        "L-generalized-monomial-positive-generalizedMonomialVandermonde_det_pos",
+        "generalizedMonomialVandermonde_det_pos",
+        []
+      ]
+    ]
+  }
+]

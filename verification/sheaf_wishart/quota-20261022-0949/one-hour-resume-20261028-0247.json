@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-10-28T02:47:51+00:00",
+  "hard_stop_utc": "2026-10-28T03:47:51+00:00",
+  "recorded_utc": "2026-10-28T02:48:59.431404+00:00",
+  "ordinaryUsageAllowed": true,
+  "primary_used_percent": 38,
+  "weekly_used_percent": 42,
+  "two_resetcredits_unused": true,
+  "starting_accepted": 971,
+  "automation": "DELETED remains; work executes in current active turn",
+  "interruption_activity": "Not observed, no continuous-work assertion"
+}

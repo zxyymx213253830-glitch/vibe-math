@@ -13,6 +13,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-generalized-monomial-positive-GeneralizedMonomialVandermondePos.json",
+    "source_sha256": "59d69e1a7815dd14bd63b2baa9ee541a29484a1fd2b93f2b0d64fe3b36c5684d"
   }
 }
