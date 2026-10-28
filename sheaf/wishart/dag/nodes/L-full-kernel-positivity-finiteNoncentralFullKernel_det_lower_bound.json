@@ -1,0 +1,22 @@
+{
+  "id": "L-full-kernel-positivity-finiteNoncentralFullKernel_det_lower_bound",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteNoncentralKernel",
+  "declaration": "JinWishart.finiteNoncentralFullKernel_det_lower_bound",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-full-kernel-positivity-weightedGeneralizedMonomialMinorProduct_nonneg"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-full-kernel-positivity-weightedGeneralizedMonomialMinorProduct_nonneg"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

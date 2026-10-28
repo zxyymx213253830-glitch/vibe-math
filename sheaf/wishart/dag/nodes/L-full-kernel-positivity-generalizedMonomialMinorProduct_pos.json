@@ -1,0 +1,18 @@
+{
+  "id": "L-full-kernel-positivity-generalizedMonomialMinorProduct_pos",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.GeneralizedMonomialMinorProduct",
+  "declaration": "JinWishart.generalizedMonomialMinorProduct_pos",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

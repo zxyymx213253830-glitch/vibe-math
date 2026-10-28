@@ -1130,3 +1130,93 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /sheaf/wishart/coord/STATE.md -text whitespace=cr-at-eol
 
 /notes/WISHART_TAIL_AND_GENERALIZED_MONOMIAL_CLOSURE.md -text whitespace=cr-at-eol
+
+/experiments/finite_noncentral_kernel_floor_control.py -text whitespace=cr-at-eol
+
+/experiments/infinite_noncentral_kernel_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_FULL_KERNEL_POSITIVITY_PENDING_REVIEW.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteNoncentralKernel.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/InfiniteNoncentralKernel.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/finite-noncentral-kernel-v1.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/finite-noncentral-kernel-v1.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/finite-noncentral-kernel-v2.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/finite-noncentral-kernel-v2.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/full-kernel-positivity-FiniteNoncentralKernel-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/full-kernel-positivity-FiniteNoncentralKernel-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/full-kernel-positivity-GeneralizedMonomialMinorProduct-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/full-kernel-positivity-GeneralizedMonomialMinorProduct-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/full-kernel-positivity-InfiniteNoncentralKernel-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/full-kernel-positivity-InfiniteNoncentralKernel-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/full-kernel-positivity-target-types-20261022-locked.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/full-kernel-positivity-target-types-20261022-locked.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-minor-product-v3.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/generalized-monomial-minor-product-v3.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/infinite-noncentral-kernel-v1.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/infinite-noncentral-kernel-v1.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/infinite-noncentral-kernel-v2.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/infinite-noncentral-kernel-v2.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/infinite-noncentral-kernel-v3.receipt.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/infinite-noncentral-kernel-v3.txt -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/FiniteNoncentralKernel-v1-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/GeneralizedMonomialMinorProduct-v2-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/InfiniteNoncentralKernel-v1-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/InfiniteNoncentralKernel-v2-failed.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/SheafFullKernelPositivityTargets.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/cards-full-kernel-positivity.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/check-full-kernel-positivity-FiniteNoncentralKernel.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/check-full-kernel-positivity-GeneralizedMonomialMinorProduct.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/check-full-kernel-positivity-InfiniteNoncentralKernel.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/finite-noncentral-kernel-floor-control.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/full-kernel-positivity-final-review-request.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/full-kernel-positivity-final-snapshot/FiniteNoncentralKernel.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/full-kernel-positivity-final-snapshot/GeneralizedMonomialMinorProduct.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/full-kernel-positivity-final-snapshot/InfiniteNoncentralKernel.lean -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/full-kernel-positivity-pending-20261028.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/infinite-noncentral-kernel-control.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/locks-full-kernel-positivity-FiniteNoncentralKernel.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/locks-full-kernel-positivity-GeneralizedMonomialMinorProduct.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/locks-full-kernel-positivity-InfiniteNoncentralKernel.json -text whitespace=cr-at-eol
+
+/verification/sheaf_wishart/quota-20261022-0949/p4-full-kernel-positivity-final-prompt.txt -text whitespace=cr-at-eol

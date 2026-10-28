@@ -1,0 +1,22 @@
+{
+  "id": "L-full-kernel-positivity-finiteNoncentralFullKernel_tendsto",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.InfiniteNoncentralKernel",
+  "declaration": "JinWishart.finiteNoncentralFullKernel_tendsto",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-full-kernel-positivity-finiteNoncentralFullKernel_det_pos"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-full-kernel-positivity-finiteNoncentralFullKernel_det_pos"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

@@ -64,7 +64,7 @@ theorem weightedGeneralizedMonomialMinorProduct_pos (n : ℕ) (k : Fin n → ℕ
      (Matrix.of (fun i j : Fin n => w i * y j ^ k i)).det := by
  have hs : (Matrix.of (fun i j : Fin n => w i * y j ^ k i)).det =
      (∏ i : Fin n, w i)*(Matrix.of (fun i j : Fin n => y j ^ k i)).det := by
-   convert Matrix.det_mul_column w (Matrix.of (fun i j : Fin n => y j ^ k i)) using 1
+   convert Matrix.det_mul_column w (Matrix.of (fun i j : Fin n => y j ^ k i)) using 1 <;> rfl
  rw [hs]
  have ht : (Matrix.of (fun i j : Fin n => y j ^ k i)).det =
      (Matrix.of (fun i j : Fin n => y i ^ k j)).det := by

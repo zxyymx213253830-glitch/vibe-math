@@ -1,0 +1,6 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteNoncentralKernel.lean:66:107: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.finiteNoncentralFullKernel_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralFullSeriesKernel_det_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.noncentralFullSeriesKernel_det_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

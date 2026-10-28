@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "GeneralizedMonomialMinorProduct.lean": {
+      "sha256": "e92b764bf2da5cef2c0f4d071e8186a10f5d91a6f268ff0102a0e9c90a35d507",
+      "supplied": "Full source"
+    },
+    "FiniteNoncentralKernel.lean": {
+      "sha256": "c145c1556621e57ffd83ed22d2513fb96c547a7432245e696fa90a0fbbd5e71b",
+      "supplied": "Full source"
+    },
+    "InfiniteNoncentralKernel.lean": {
+      "sha256": "5a5754039977e83a8563fb758e1e492d0caada0a469225fd4b0a75f1623d18ca",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "4091adcba744620865e2d3c0d3f93c65b940462e46fc7a7c88d86346c27101aa"
+}

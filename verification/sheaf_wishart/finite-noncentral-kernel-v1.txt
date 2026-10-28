@@ -1,0 +1,31 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteNoncentralKernel.lean:17:39: error: Application type mismatch: The argument
+  A
+has type
+  Matrix (Fin n) (Fin N) ℝ
+but is expected to have type
+  Matrix ?m.49 ?m.49 ℝ
+in the application
+  Complex.ofRealHom.mapMatrix A
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\FiniteNoncentralKernel.lean:63:1: error: Tactic `apply` failed: could not unify the type of `single_le_sum ?m.130 (mem_univ f0)`
+  ?m.127 f0 ≤ ∑ x, ?m.127 x
+with the goal
+  (A.submatrix id f0).det * (B.submatrix f0 id).det ≤ ∑ f, (A.submatrix id f).det * (B.submatrix f id).det
+
+q n N : ℕ
+hN : n ≤ N
+x lambda : Fin n → ℝ
+hx : StrictMono x
+hl : StrictMono lambda
+hxp : ∀ (i : Fin n), 0 < x i
+hlp : ∀ (i : Fin n), 0 < lambda i
+A : Matrix (Fin n) (Fin N) ℝ := of fun i m => x i ^ ↑m
+B : Matrix (Fin N) (Fin n) ℝ := of fun m j => noncentralKernelSeriesWeight q ↑m * lambda j ^ ↑m
+hK : finiteNoncentralFullKernel q n N x lambda = A * B
+f0 : Fin n → Fin N := Fin.castLE hN
+h0 : (A.submatrix id f0).det * (B.submatrix f0 id).det = noncentralKernelLowestMinor q n x lambda
+⊢ (A.submatrix id f0).det * (B.submatrix f0 id).det ≤ ∑ f, (A.submatrix id f).det * (B.submatrix f id).det
+'JinWishart.finiteNoncentralFullKernel_det_lower_bound' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.finiteNoncentralFullKernel_det_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

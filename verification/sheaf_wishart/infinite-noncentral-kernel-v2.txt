@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteNoncentralKernel.lean:52:1: error: Type mismatch: After simplification, term
+  HasSum.tendsto_sum_nat (Summable.hasSum (kernel_series_summable q (x i) (lambda j) (hxp i) (hlp j)))
+ has type
+  Tendsto (fun n => ∑ i_1 ∈ range n, x i ^ i_1 * (noncentralKernelSeriesWeight q i_1 * lambda j ^ i_1)) atTop
+    (𝓝 (∑' (i_1 : ℕ), x i ^ i_1 * (noncentralKernelSeriesWeight q i_1 * lambda j ^ i_1)))
+but is expected to have type
+  Tendsto
+    (fun N =>
+      ∑ x_1 ∈ range N, if h : x_1 < N then x i ^ x_1 * (noncentralKernelSeriesWeight q x_1 * lambda j ^ x_1) else 0)
+    atTop (𝓝 (∑' (m : ℕ), x i ^ m * (noncentralKernelSeriesWeight q m * lambda j ^ m)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteNoncentralKernel.lean:64:107: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.finiteNoncentralFullKernel_tendsto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.noncentralFullSeriesKernel_det_lower_bound' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.noncentralFullSeriesKernel_det_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

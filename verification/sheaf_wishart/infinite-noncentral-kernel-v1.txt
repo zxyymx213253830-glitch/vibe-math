@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteNoncentralKernel.lean:32:51: error: Ambiguous term
+  mul_inv_rev
+Possible interpretations:
+  _root_.mul_inv_rev : ∀ (a b : ?m.168), (a * b)⁻¹ = b⁻¹ * a⁻¹
+  
+  Matrix.mul_inv_rev : ∀ (A B : Matrix ?m.168 ?m.168 ?m.169), (A * B)⁻¹ = B⁻¹ * A⁻¹
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteNoncentralKernel.lean:52:1: error: Type mismatch: After simplification, term
+  HasSum.tendsto_sum_nat (Summable.hasSum (kernel_series_summable q (x i) (lambda j) (hxp i) (hlp j)))
+ has type
+  Tendsto (fun n => ∑ i_1 ∈ range n, x i ^ i_1 * (noncentralKernelSeriesWeight q i_1 * lambda j ^ i_1)) atTop
+    (𝓝 (∑' (i_1 : ℕ), x i ^ i_1 * (noncentralKernelSeriesWeight q i_1 * lambda j ^ i_1)))
+but is expected to have type
+  Tendsto (fun N => ∑ m, x i ^ ↑m * (noncentralKernelSeriesWeight q ↑m * lambda j ^ ↑m)) atTop
+    (𝓝 (∑' (m : ℕ), x i ^ m * (noncentralKernelSeriesWeight q m * lambda j ^ m)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteNoncentralKernel.lean:64:107: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.finiteNoncentralFullKernel_tendsto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.noncentralFullSeriesKernel_det_lower_bound' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.noncentralFullSeriesKernel_det_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

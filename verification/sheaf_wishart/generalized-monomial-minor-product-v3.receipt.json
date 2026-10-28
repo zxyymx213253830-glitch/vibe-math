@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-28T02:55:26.270878+00:00",
+  "ended_utc": "2026-10-28T02:56:08.619823+00:00",
+  "module": "JinWishartFormalization.GeneralizedMonomialMinorProduct",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GeneralizedMonomialMinorProduct.lean",
+  "source_sha256_before": "e92b764bf2da5cef2c0f4d071e8186a10f5d91a6f268ff0102a0e9c90a35d507",
+  "source_sha256": "e92b764bf2da5cef2c0f4d071e8186a10f5d91a6f268ff0102a0e9c90a35d507",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/generalized-monomial-minor-product-v3.txt",
+  "log_exists": true,
+  "log_sha256": "b6772886d635128b50f55f5b0467d3c764d7cd0c80aa040bcb1fc4b49524cd7a",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

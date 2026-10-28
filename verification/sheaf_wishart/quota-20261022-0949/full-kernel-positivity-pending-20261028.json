@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-10-28T03:08:24.050494+00:00",
+  "accepted": 980,
+  "pending": {
+    "GeneralizedMonomialMinorProduct": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/GeneralizedMonomialMinorProduct.lean",
+      "source_sha256": "e92b764bf2da5cef2c0f4d071e8186a10f5d91a6f268ff0102a0e9c90a35d507",
+      "printed_declarations": 3,
+      "status": "Immutable final serial gates and independent8 literal types PASS standard3; exact-source disclosure request PENDING; NOT accepted"
+    },
+    "FiniteNoncentralKernel": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/FiniteNoncentralKernel.lean",
+      "source_sha256": "c145c1556621e57ffd83ed22d2513fb96c547a7432245e696fa90a0fbbd5e71b",
+      "printed_declarations": 2,
+      "status": "Immutable final serial gates and independent8 literal types PASS standard3; exact-source disclosure request PENDING; NOT accepted"
+    },
+    "InfiniteNoncentralKernel": {
+      "source": "theory/jin_wishart_formalization/JinWishartFormalization/InfiniteNoncentralKernel.lean",
+      "source_sha256": "5a5754039977e83a8563fb758e1e492d0caada0a469225fd4b0a75f1623d18ca",
+      "printed_declarations": 3,
+      "status": "Immutable final serial gates and independent8 literal types PASS standard3; exact-source disclosure request PENDING; NOT accepted"
+    }
+  },
+  "review": "NOT_SENT; exact three-source permission requested",
+  "controls": [
+    698,
+    171,
+    540
+  ],
+  "user_deadline_utc": "2026-10-28T03:47:51+00:00"
+}
