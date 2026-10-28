@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-10-28T01:50:00.032129+00:00",
+  "authorization": "Three new exact-source human disclosure approvals2026-10-28",
+  "research_window": "Remains CLOSED at2026-10-27T16:06:21UTC; these three newly authorized review calls only",
+  "reviews": [
+    {
+      "module": "OriginalNoncentralCandidateUpperBoundary",
+      "source_sha256": "4150589b60e4bfbc36b6ddee54d1299f55e69039e43b6341664f2489be4e3e2b",
+      "receipt": "p4-noncentral-candidate-upper-boundary-final.receipt.json",
+      "response": "p4-noncentral-candidate-upper-boundary-final.response.md",
+      "response_sha256": "e79f5e9a6e627092f6de3a6bdce895a6871a35deb322a15c032b2547050642ac",
+      "started_utc": "2026-10-28T01:47:24.398919+00:00",
+      "ended_utc": "2026-10-28T01:47:50.933723+00:00",
+      "exit_code": 0,
+      "model": "Qwen3.8-Max",
+      "tools_disabled": true,
+      "one_call_no_retry": true,
+      "findings": "Raw reviewer concerns saved, NOT adjudicated; no source revisions or acceptance"
+    },
+    {
+      "module": "SparsePositiveRoots",
+      "source_sha256": "3f5bd3bffa6be186bda233a763bbe3b5d5ada2ad8123f667ed645299d499d091",
+      "receipt": "p4-sparse-positive-roots-final.receipt.json",
+      "response": "p4-sparse-positive-roots-final.response.md",
+      "response_sha256": "f521c9126fd2388a566b6f91c47bea11ae1b9e56cab2a2572e9d75c74aeb359b",
+      "started_utc": "2026-10-28T01:47:51.396020+00:00",
+      "ended_utc": "2026-10-28T01:48:14.395055+00:00",
+      "exit_code": 0,
+      "model": "Qwen3.8-Max",
+      "tools_disabled": true,
+      "one_call_no_retry": true,
+      "findings": "Raw reviewer concerns saved, NOT adjudicated; no source revisions or acceptance"
+    },
+    {
+      "module": "GeneralizedMonomialVandermondePos",
+      "source_sha256": "59d69e1a7815dd14bd63b2baa9ee541a29484a1fd2b93f2b0d64fe3b36c5684d",
+      "receipt": "p4-generalized-monomial-positive-final.receipt.json",
+      "response": "p4-generalized-monomial-positive-final.response.md",
+      "response_sha256": "7d81449dec79bb3426202b74dcab1636c7c4847bd4fec107b9172f80d64c94ea",
+      "started_utc": "2026-10-28T01:48:22.258434+00:00",
+      "ended_utc": "2026-10-28T01:48:48.321954+00:00",
+      "exit_code": 0,
+      "model": "Qwen3.8-Max",
+      "tools_disabled": true,
+      "one_call_no_retry": true,
+      "findings": "Raw reviewer concerns saved, NOT adjudicated; no source revisions or acceptance"
+    }
+  ],
+  "accepted_total": 971,
+  "acceptance_changed": false,
+  "lean_checks": "NONE",
+  "experiments": "NONE",
+  "source_edits": "NONE",
+  "automation": "DELETED; not recreated",
+  "human_review": "REQUIRED"
+}

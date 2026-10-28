@@ -1,3 +1,7 @@
+2026-10-28收到三份新源各自精确外发许可后，已分别执行一次90秒禁工具QoderP4，三次实际exit0，原始报告/回执/来源hash全部保存。仅完成新授权的审查发送与归档，不延长已结束的一小时研究窗口。九项声明仍待逐项裁决/最终验收，累计验收971未变；未运行Lean/实验、改证明源或重建自动任务。详见WISHART_THREE_AUTHORIZED_P4_REPORTS_20261028.md。
+
+The earlier unanswered/disclosure-pending wording below is historical and superseded by the three explicit approvals and completed requests.
+
 # Generalized monomial determinant and candidate-tail pending checkpoint
 
 Accepted count stays971, auditPASS/facade152/171 records as already verified in83b4c69. The following9 public declarations in3 NEW modules are NOT accepted yet. All final immutable gates and independent literal type checks exited0 with standard3 axioms. Each full-source review prompt/snapshot exists, but these3 unseen sources have NO disclosure authorization yet; three precise user questions are pending. Do not send source, infer silence or reuse the old product-module permission.
