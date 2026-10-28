@@ -1,0 +1,76 @@
+import JinWishartFormalization.InfiniteNoncentralKernel
+import JinWishartFormalization.BesselINaturalSeries
+import Mathlib.Analysis.Real.Sqrt
+
+/-! Codex. Seed2026102803:104 Bessel/series/matrix-factor calibrations precede
+source. Bridge to the REAL PART of the existing complex modifiedBesselI at
+nonnegative real arguments; no assumed replacement special-function kernel.
+[需人工审查] Scalar normalization, row/column factors and actual-model mapping. -/
+open Matrix Finset
+namespace JinWishart
+noncomputable section
+
+theorem modifiedBesselI_sqrt_product_re (q : ℕ) (x lambda : ℝ)
+ (hx : 0 ≤ x) (hl : 0 ≤ lambda) :
+ (modifiedBesselI q ((2*Real.sqrt (x*lambda) : ℝ) : ℂ)).re =
+   (Real.sqrt x)^q*((Real.sqrt lambda)^q*
+     ∑' m : ℕ, x^m*(noncentralKernelSeriesWeight q m*lambda^m)) := by
+ have hsq : (2*Real.sqrt (x*lambda))^2/4 = x*lambda := by
+   nlinarith [Real.sq_sqrt (mul_nonneg hx hl)]
+ have hhalf : 2*Real.sqrt (x*lambda)/2 = Real.sqrt (x*lambda) := by ring
+ have hfac : (Real.sqrt (x*lambda))^q = (Real.sqrt x)^q*(Real.sqrt lambda)^q := by
+   rw [Real.sqrt_mul hx,mul_pow]
+ have h := congrArg Complex.re (modifiedBesselI_nat_ofReal_eq_realSeries q (2*Real.sqrt (x*lambda)))
+ simp only [Complex.ofReal_re,hhalf,hsq] at h
+ have hs : (∑' m : ℕ, (x*lambda)^m/((m.factorial : ℝ)*((m+q).factorial : ℝ))) =
+     ∑' m : ℕ, x^m*(noncentralKernelSeriesWeight q m*lambda^m) := by
+   apply tsum_congr
+   intro m
+   simp only [noncentralKernelSeriesWeight,mul_pow,_root_.mul_inv_rev,div_eq_mul_inv,Nat.add_comm]
+   ring
+ rw [hfac,hs] at h
+ calc
+   _ = ((Real.sqrt x)^q*(Real.sqrt lambda)^q)*
+       (∑' m : ℕ, x^m*(noncentralKernelSeriesWeight q m*lambda^m)) := h.symm
+   _ = _ := by ring
+
+def besselProductKernel (q n : ℕ) (x lambda : Fin n → ℝ) :
+ Matrix (Fin n) (Fin n) ℝ :=
+ Matrix.of (fun i j => (modifiedBesselI q ((2*Real.sqrt (x i*lambda j) : ℝ) : ℂ)).re)
+
+theorem besselProductKernel_factorization (q n : ℕ) (x lambda : Fin n → ℝ)
+ (hxp : ∀ i, 0 ≤ x i) (hlp : ∀ i, 0 ≤ lambda i) :
+ besselProductKernel q n x lambda =
+   Matrix.of (fun i j => (Real.sqrt (x i))^q*
+     ((Real.sqrt (lambda j))^q*noncentralFullSeriesKernel q n x lambda i j)) := by
+ ext i j
+ exact modifiedBesselI_sqrt_product_re q (x i) (lambda j) (hxp i) (hlp j)
+
+theorem besselProductKernel_det_pos (q n : ℕ) (x lambda : Fin n → ℝ)
+ (hx : StrictMono x) (hl : StrictMono lambda)
+ (hxp : ∀ i, 0 < x i) (hlp : ∀ i, 0 < lambda i) :
+ 0 < (besselProductKernel q n x lambda).det := by
+ let K := noncentralFullSeriesKernel q n x lambda
+ let r : Fin n → ℝ := fun i => (Real.sqrt (x i))^q
+ let c : Fin n → ℝ := fun j => (Real.sqrt (lambda j))^q
+ have hR := Matrix.det_mul_column r (Matrix.of (fun i j => c j*K i j))
+ have hC := Matrix.det_mul_row c K
+ have hd : (besselProductKernel q n x lambda).det =
+     (∏ i : Fin n, r i)*(∏ j : Fin n, c j)*K.det := by
+   rw [besselProductKernel_factorization q n x lambda (fun i => (hxp i).le) (fun i => (hlp i).le)]
+   calc
+     _ = (∏ i : Fin n, r i)*(Matrix.of (fun i j => c j*K i j)).det := by
+       convert hR using 1 <;> rfl
+     _ = _ := by rw [hC]; ring
+ rw [hd]
+ have hr : 0 < ∏ i : Fin n, r i :=
+   Finset.prod_pos (fun i _ => pow_pos (Real.sqrt_pos.mpr (hxp i)) q)
+ have hc : 0 < ∏ j : Fin n, c j :=
+   Finset.prod_pos (fun j _ => pow_pos (Real.sqrt_pos.mpr (hlp j)) q)
+ exact mul_pos (mul_pos hr hc) (noncentralFullSeriesKernel_det_pos q n x lambda hx hl hxp hlp)
+
+end
+end JinWishart
+#print axioms JinWishart.modifiedBesselI_sqrt_product_re
+#print axioms JinWishart.besselProductKernel_factorization
+#print axioms JinWishart.besselProductKernel_det_pos

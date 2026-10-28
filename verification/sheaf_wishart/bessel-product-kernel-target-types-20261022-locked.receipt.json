@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-28T03:12:45.829986+00:00",
+  "ended_utc": "2026-10-28T03:12:54.576665+00:00",
+  "module": "SheafBesselProductKernelTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafBesselProductKernelTargets.lean",
+  "source_sha256_before": "82b60044a72737b0f058b1476792fbd5956cc5a0257398b30d58ac8091b90dae",
+  "source_sha256": "82b60044a72737b0f058b1476792fbd5956cc5a0257398b30d58ac8091b90dae",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/bessel-product-kernel-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

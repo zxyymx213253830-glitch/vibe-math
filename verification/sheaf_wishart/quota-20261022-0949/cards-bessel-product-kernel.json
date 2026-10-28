@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "bessel-product-kernel-BesselProductKernel",
+    "module": "BesselProductKernel",
+    "nodes": [
+      [
+        "L-bessel-product-kernel-modifiedBesselI_sqrt_product_re",
+        "modifiedBesselI_sqrt_product_re",
+        []
+      ],
+      [
+        "L-bessel-product-kernel-besselProductKernel_factorization",
+        "besselProductKernel_factorization",
+        [
+          "L-bessel-product-kernel-modifiedBesselI_sqrt_product_re"
+        ]
+      ],
+      [
+        "L-bessel-product-kernel-besselProductKernel_det_pos",
+        "besselProductKernel_det_pos",
+        [
+          "L-bessel-product-kernel-besselProductKernel_factorization"
+        ]
+      ]
+    ]
+  }
+]

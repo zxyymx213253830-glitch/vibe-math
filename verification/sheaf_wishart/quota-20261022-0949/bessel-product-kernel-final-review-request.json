@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "BesselProductKernel.lean": {
+      "sha256": "3606812f82d97ea95144bdb7181e9f83b622a4f42dacc097fc605d1081e054ca",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "603a772166e6aee29b3df807d4917ff9723e4c6672f485fab41b5d392c67864d"
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-28T03:11:09.538630+00:00",
+  "ended_utc": "2026-10-28T03:11:22.474640+00:00",
+  "module": "JinWishartFormalization.BesselProductKernel",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/BesselProductKernel.lean",
+  "source_sha256_before": "3606812f82d97ea95144bdb7181e9f83b622a4f42dacc097fc605d1081e054ca",
+  "source_sha256": "3606812f82d97ea95144bdb7181e9f83b622a4f42dacc097fc605d1081e054ca",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/bessel-product-kernel-v1.txt",
+  "log_exists": true,
+  "log_sha256": "63225bdcad1b34fac2e716a2622d6ca39eb7cd837e3c1f5c04b299d80eed4723",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

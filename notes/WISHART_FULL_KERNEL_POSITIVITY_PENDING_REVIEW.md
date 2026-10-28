@@ -1,3 +1,5 @@
+2026-10-28 UPDATE: separate BesselProductKernel now has checked scalar/matrix representation and determinant positivity bodies,3 literal types/final bundle PASS, pending its own disclosure/P4. The later paragraph saying the Bessel bridge remains unproved is historical. Accepted count980 unchanged.
+
 # Full noncentral-rank series kernel positivity: pending P4
 
 Accepted count stays980 (978 theorem/instance entries plus2 constructions), facade153/auditPASS/174 records. The8 additional public declarations in3 modules below have actual immutable shared gates and8 independent literal types PASS standard3. They are NOT accepted and are not counted as988. One precise human question requests permission for the exact3 source files and their combined prompt, one90-second tools-disabled Qoder P4. No source is transmitted until an explicit answer arrives; the earlier3-file approval covered different modules.
