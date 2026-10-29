@@ -1,0 +1,11 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:22:16: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:22:28: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.strictMono_fin_nat_index_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedSelection_sorted_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedSelection_sorted_tail_ge' depends on axioms: [propext, Classical.choice, Quot.sound]

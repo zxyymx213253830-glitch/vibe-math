@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ZeroConfluentVandermondePos.lean": {
+      "sha256": "79fae1d1c23368e9afe16e78b3399d3d73cc6b6bdbd4a5b350d61e761833e085",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "3a6d036f75a5bd7a70f323b0b139a59a1b51875f0cf4773120ee7af5761d9452"
+}

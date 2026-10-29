@@ -1,0 +1,8 @@
+{
+  "seed": 2026102901,
+  "status": "PASS",
+  "checks": 8298,
+  "source_sha256": "6cbd6e593d8eca00d8386875807eabb7321e1d22caf84d84069942e9f5c4699e",
+  "not_a_proof": true,
+  "scope": "Finite mixed delta/positive-series kernel; fixed minor and all-function signs, no actual law"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "L-mixed-coefficient-minor-mixedCoefficient_canonical_det_pos",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedCoefficientMinorZero",
+  "declaration": "JinWishart.mixedCoefficient_canonical_det_pos",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-coefficient-minor-mixedCoefficient_canonical_eq"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-coefficient-minor-mixedCoefficient_canonical_eq"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

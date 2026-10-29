@@ -1,0 +1,40 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedMinorProduct.lean:47:55: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  1
+in the target expression
+  A.det * B.det = ↑↑(Equiv.Perm.sign σ) * A.det * (↑↑(Equiv.Perm.sign σ) * B.det)
+
+p L N : ℕ
+x : Fin (p + L) → ℝ
+lambda : Fin L → ℝ
+w : ℕ → ℝ
+f : Fin p ⊕ Fin L → Fin N
+hf : Injective f
+hseen : ∀ (a : Fin p), ∃ i, ↑(f i) = ↑a
+hx : StrictMono x
+hxp : ∀ (i : Fin (p + L)), 0 < x i
+hl : StrictMono lambda
+hlp : ∀ (j : Fin L), 0 < lambda j
+hw : ∀ (m : ℕ), 0 < w m
+hpN : p ≤ N
+k : Fin L → Fin N
+σ : Equiv.Perm (Fin p ⊕ Fin L)
+hkp : ∀ (i : Fin L), p ≤ ↑(k i)
+hks : StrictMono k
+hfσ : ∀ (i : Fin p ⊕ Fin L), f i = mixedOrderedSelection p L N hpN k (σ i)
+s : Fin p ⊕ Fin L → Fin N := mixedOrderedSelection p L N hpN k
+A : Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ := of fun i j => x (finSumFinEquiv i) ^ ↑(s j)
+B : Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ := (mixedKernelCoefficient p L N lambda w).submatrix s id
+hA : (of fun i j => x (finSumFinEquiv i) ^ ↑(f j)) = A.submatrix id ⇑σ
+hB : (mixedKernelCoefficient p L N lambda w).submatrix f id = B.submatrix (⇑σ) id
+hs : ↑↑(Equiv.Perm.sign σ) * ↑↑(Equiv.Perm.sign σ) = 1
+hp : 0 < A.det * B.det
+⊢ A.det * B.det = ↑↑(Equiv.Perm.sign σ) * A.det * (↑↑(Equiv.Perm.sign σ) * B.det)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedMinorProduct.lean:57:5: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'JinWishart.mixedSelectionMinorProduct_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedSelectionMinorProduct_nonneg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

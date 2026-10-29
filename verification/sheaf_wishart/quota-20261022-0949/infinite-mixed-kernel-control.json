@@ -1,0 +1,9 @@
+{
+  "seed": 2026102902,
+  "status": "PASS",
+  "checks": 108,
+  "source_sha256": "fb31bf6f6bc7faa2c42b1afeb1f743336200c0215c33dc328c8035e4fba2c086",
+  "not_a_proof": true,
+  "precision": 80,
+  "scope": "mixed coefficient/entire-series kernel, finite floor, independent Bessel reference; not actual law"
+}

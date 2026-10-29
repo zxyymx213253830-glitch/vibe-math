@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "zero-confluent-vandermonde-pos-ZeroConfluentVandermondePos",
+    "module": "ZeroConfluentVandermondePos",
+    "nodes": [
+      [
+        "L-zero-confluent-vandermonde-pos-zeroConfluentVandermonde_det_pos",
+        "zeroConfluentVandermonde_det_pos",
+        []
+      ],
+      [
+        "L-zero-confluent-vandermonde-pos-weightedZeroConfluentVandermonde_det_pos",
+        "weightedZeroConfluentVandermonde_det_pos",
+        [
+          "L-zero-confluent-vandermonde-pos-zeroConfluentVandermonde_det_pos"
+        ]
+      ],
+      [
+        "L-zero-confluent-vandermonde-pos-weightedGeneralizedConfluent_det_pos",
+        "weightedGeneralizedConfluent_det_pos",
+        [
+          "L-zero-confluent-vandermonde-pos-weightedZeroConfluentVandermonde_det_pos"
+        ]
+      ]
+    ]
+  }
+]

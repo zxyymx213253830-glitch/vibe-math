@@ -1,0 +1,22 @@
+{
+  "id": "L-zero-confluent-vandermonde-pos-weightedZeroConfluentVandermonde_det_pos",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ZeroConfluentVandermondePos",
+  "declaration": "JinWishart.weightedZeroConfluentVandermonde_det_pos",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-zero-confluent-vandermonde-pos-zeroConfluentVandermonde_det_pos"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-zero-confluent-vandermonde-pos-zeroConfluentVandermonde_det_pos"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

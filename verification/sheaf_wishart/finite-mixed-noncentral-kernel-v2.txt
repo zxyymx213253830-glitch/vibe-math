@@ -1,0 +1,3 @@
+'JinWishart.mixedLowestMinor_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finiteMixedKernel_det_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.finiteMixedKernel_det_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

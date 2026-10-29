@@ -1,0 +1,77 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:17:26: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 0
+  c ≥ 0
+  c - d ≥ 1
+where
+ c := ↑b
+ d := ↑a
+ e := ↑n
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:18:26: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  d - e ≤ -1
+  c ≥ 0
+  c - d ≥ 1
+  c - e ≥ 0
+where
+ c := ↑b
+ d := ↑a
+ e := ↑n
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:19:16: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:19:28: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:27:36: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b - c ≥ 0
+where
+ a := ↑v
+ b := ↑p
+ c := ↑L
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:34:32: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 0
+  b ≥ 0
+  b - d ≤ -1
+  a ≥ 0
+  a - b ≥ 1
+  a - c ≥ 1
+  a - d + e ≥ 1
+where
+ a := ↑p
+ b := ↑v
+ c := ↑↑⟨v, hv⟩
+ d := ↑↑t
+ e := ↑L
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:40:65: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 1
+  a ≥ 0
+  a - b ≥ 1
+  a - c ≥ 1
+  a - c + d ≥ 1
+where
+ a := ↑p
+ b := ↑↑⟨v, hv⟩
+ c := ↑↑t
+ d := ↑L
+'JinWishart.strictMono_fin_nat_index_le' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedSelection_sorted_prefix' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedSelection_sorted_tail_ge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

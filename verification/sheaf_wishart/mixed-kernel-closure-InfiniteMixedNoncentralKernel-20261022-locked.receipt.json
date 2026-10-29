@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-29T16:07:56.121397+00:00",
+  "ended_utc": "2026-10-29T16:08:03.449173+00:00",
+  "module": "JinWishartFormalization.InfiniteMixedNoncentralKernel",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/InfiniteMixedNoncentralKernel.lean",
+  "source_sha256_before": "a8878196cf6792b7fd4f1443b29d034acd807effda5dbc8f90ce486df72a07ae",
+  "source_sha256": "a8878196cf6792b7fd4f1443b29d034acd807effda5dbc8f90ce486df72a07ae",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/mixed-kernel-closure-InfiniteMixedNoncentralKernel-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "11832c0cf126ef935134a77563d66de8a28c16f0ab3a56cc211a60365d811b93",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

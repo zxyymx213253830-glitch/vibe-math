@@ -1,0 +1,18 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedCoefficientMinorZero.lean:31:1: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedCoefficientMinorZero.lean:50:29: warning: This simp argument is unused:
+  Fin.ext_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.mixedCoefficientMinor_zero_of_missing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCoefficientMinor_zero_of_repeated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCoefficient_canonical_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCoefficient_canonical_det_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

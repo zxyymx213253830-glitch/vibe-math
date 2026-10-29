@@ -1,0 +1,32 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:22:16: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:22:28: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:44:65: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - d ≤ -1
+  a ≥ 0
+  a - b ≥ 1
+  a - b + c ≥ 1
+  a + c - d ≥ 1
+where
+ a := ↑p
+ b := ↑↑t
+ c := ↑L
+ d := ↑↑⟨v, ⋯⟩
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionPrefix.lean:47:1: error: Type mismatch: After simplification, term
+  h (↑a) a.isLt
+ has type
+  @Eq ℕ (g ⟨↑a, ⋯⟩) ↑a
+but is expected to have type
+  @Eq ℕ (g (Fin.castAdd L a)) ↑a
+'JinWishart.strictMono_fin_nat_index_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedSelection_sorted_prefix' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedSelection_sorted_tail_ge' depends on axioms: [propext, Classical.choice, Quot.sound]

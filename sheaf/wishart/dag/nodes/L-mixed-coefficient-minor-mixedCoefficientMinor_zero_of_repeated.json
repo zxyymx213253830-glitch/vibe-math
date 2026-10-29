@@ -1,0 +1,22 @@
+{
+  "id": "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_repeated",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedCoefficientMinorZero",
+  "declaration": "JinWishart.mixedCoefficientMinor_zero_of_repeated",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_missing"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_missing"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

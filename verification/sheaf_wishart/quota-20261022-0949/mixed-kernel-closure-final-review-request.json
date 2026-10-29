@@ -1,0 +1,29 @@
+{
+  "inputs": {
+    "MixedOrderedMinorProduct.lean": {
+      "sha256": "a300ec6a3fb0399bdee7364b239f5d814b84301d44483ec3e47517848954281b",
+      "supplied": "Full source"
+    },
+    "MixedSelectionPrefix.lean": {
+      "sha256": "6f24cb04294d6fa14fc74bfcdc32c5622b4f40fbe53204d93b4d7e355aa7d75f",
+      "supplied": "Full source"
+    },
+    "MixedSelectionSorting.lean": {
+      "sha256": "50f1cbfb6c4a02257b11b17ce305efb9888eed52471f36474c8c0390fca125aa",
+      "supplied": "Full source"
+    },
+    "MixedMinorProduct.lean": {
+      "sha256": "e3a4a629f7ca37b2a9ba960462988d492474474ac647e6af8a506a8611d2d164",
+      "supplied": "Full source"
+    },
+    "FiniteMixedNoncentralKernel.lean": {
+      "sha256": "be82ba11bd83c8d5becde11eeeda88d0b94e5af6fed5d77fc73b54cee99d4b05",
+      "supplied": "Full source"
+    },
+    "InfiniteMixedNoncentralKernel.lean": {
+      "sha256": "a8878196cf6792b7fd4f1443b29d034acd807effda5dbc8f90ce486df72a07ae",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9f1b9dc0f1a97d12e057ef6e614371c4a8a1478b28cd3ce8f6e27245f31f1e15"
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-29T16:03:05.099316+00:00",
+  "ended_utc": "2026-10-29T16:03:12.422626+00:00",
+  "module": "JinWishartFormalization.MixedMinorProduct",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedMinorProduct.lean",
+  "source_sha256_before": "ac043001b37dd36fad7c63b0491c9ef5da13680ce52378737ea7a2c8cc948bfa",
+  "source_sha256": "ac043001b37dd36fad7c63b0491c9ef5da13680ce52378737ea7a2c8cc948bfa",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/mixed-minor-product-v1.txt",
+  "log_exists": true,
+  "log_sha256": "e771edf92b2d0c0b5cfe23d48b55f51a12d9923d389b44607429a48073702b78",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

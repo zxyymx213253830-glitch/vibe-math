@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-29T16:00:53.928002+00:00",
+  "ended_utc": "2026-10-29T16:01:01.541734+00:00",
+  "module": "JinWishartFormalization.MixedSelectionPrefix",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedSelectionPrefix.lean",
+  "source_sha256_before": "b7d9a051f334b373a2dc593c53e94a60e3a61355ca87da9ca522d33a670ad04e",
+  "source_sha256": "b7d9a051f334b373a2dc593c53e94a60e3a61355ca87da9ca522d33a670ad04e",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/mixed-selection-prefix-v2.txt",
+  "log_exists": true,
+  "log_sha256": "18dab4e46c8b2c410e2c51ed813d54bef2e2de42086cab239ae3549c5b2fc2b9",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-29T15:52:48.402820+00:00",
+  "ended_utc": "2026-10-29T15:52:55.601051+00:00",
+  "module": "JinWishartFormalization.MixedCoefficientMinorZero",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedCoefficientMinorZero.lean",
+  "source_sha256_before": "edd090c6089ae5d898419aaab1558f65b83f725a7ec8a27a25240200b429eebf",
+  "source_sha256": "edd090c6089ae5d898419aaab1558f65b83f725a7ec8a27a25240200b429eebf",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/mixed-coefficient-minor-zero-v2.txt",
+  "log_exists": true,
+  "log_sha256": "ff358af7a2fcfe681371889b8fb4053206a861430c258a961e9c2f146a059e2f",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

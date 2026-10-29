@@ -1,0 +1,505 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE MixedOrderedMinorProduct.lean
+import JinWishartFormalization.MixedCoefficientMinorZero
+import Mathlib.Logic.Equiv.Fin.Basic
+
+/-! Codex. Seed 2026102901 exact finite mixed-minor controls precede source.
+This only handles an explicitly ordered surviving selection, not arbitrary
+selections or the mixed-rank kernel determinant. [需人工审查] Fin/Sum indexing. -/
+open Matrix Function
+namespace JinWishart
+noncomputable section
+
+def mixedOrderedDegree (p L N : ℕ) (k : Fin L → Fin N) (i : Fin (p+L)) : ℕ :=
+ if h : i.val < p then i.val else (k ⟨i.val-p, by omega⟩).val
+
+theorem mixedOrderedDegree_strictMono (p L N : ℕ) (k : Fin L → Fin N)
+ (hkp : ∀ i, p ≤ (k i).val) (hks : StrictMono k) :
+ StrictMono (mixedOrderedDegree p L N k) := by
+ intro i j hij
+ have hijv : i.val < j.val := hij
+ by_cases hi : i.val < p <;> by_cases hj : j.val < p
+ · simp [mixedOrderedDegree,hi,hj,hijv]
+ · simp only [mixedOrderedDegree, dif_pos hi, dif_neg hj]
+   have h := hkp ⟨j.val-p, by omega⟩
+   omega
+ · omega
+ · simp only [mixedOrderedDegree,dif_neg hi,dif_neg hj]
+   apply hks
+   change i.val-p < j.val-p
+   omega
+
+theorem mixedOrderedDegree_selection (p L N : ℕ) (hpN : p ≤ N) (k : Fin L → Fin N)
+ (i : Fin p ⊕ Fin L) :
+ mixedOrderedDegree p L N k (finSumFinEquiv i) =
+   (mixedOrderedSelection p L N hpN k i).val := by
+ cases i with
+ | inl i => simp [mixedOrderedDegree,mixedOrderedSelection,finSumFinEquiv_apply_left]
+ | inr i => simp [mixedOrderedDegree,mixedOrderedSelection,finSumFinEquiv_apply_right]
+
+theorem mixedOrderedMinorProduct_pos (p L N : ℕ) (hpN : p ≤ N)
+ (x : Fin (p+L) → ℝ) (lambda : Fin L → ℝ) (w : ℕ → ℝ)
+ (k : Fin L → Fin N) (hkp : ∀ i, p ≤ (k i).val) (hks : StrictMono k)
+ (hx : StrictMono x) (hxp : ∀ i, 0 < x i) (hl : StrictMono lambda)
+ (hlp : ∀ i, 0 < lambda i) (hw : ∀ i, 0 < w ((k i).val)) :
+ 0 < (Matrix.of (fun i j : Fin p ⊕ Fin L =>
+   x (finSumFinEquiv i) ^ (mixedOrderedSelection p L N hpN k j).val)).det *
+   ((mixedKernelCoefficient p L N lambda w).submatrix
+      (mixedOrderedSelection p L N hpN k) id).det := by
+ let e := finSumFinEquiv (m := p) (n := L)
+ let A : Matrix (Fin (p+L)) (Fin (p+L)) ℝ :=
+   Matrix.of (fun i j => x i ^ mixedOrderedDegree p L N k j)
+ have hA : (Matrix.of (fun i j : Fin p ⊕ Fin L =>
+     x (e i) ^ (mixedOrderedSelection p L N hpN k j).val)) =
+       A.submatrix e e := by
+   ext i j
+   change x (e i) ^ (mixedOrderedSelection p L N hpN k j).val =
+     x (e i) ^ mixedOrderedDegree p L N k (e j)
+   rw [mixedOrderedDegree_selection]
+ rw [hA,Matrix.det_submatrix_equiv_self]
+ have hdet : 0 < A.det :=
+   generalizedMonomialVandermonde_det_pos (p+L) (mixedOrderedDegree p L N k)
+     x (mixedOrderedDegree_strictMono p L N k hkp hks) hx hxp
+ exact mul_pos hdet (mixedCoefficient_ordered_det_pos p L N hpN lambda w k hkp hks hl hlp hw)
+
+end
+end JinWishart
+#print axioms JinWishart.mixedOrderedDegree_strictMono
+#print axioms JinWishart.mixedOrderedDegree_selection
+#print axioms JinWishart.mixedOrderedMinorProduct_pos
+
+SOURCE MixedSelectionPrefix.lean
+import JinWishartFormalization.MixedOrderedMinorProduct
+import Mathlib.Order.Interval.Set.Monotone
+
+/-! Codex. Seed 2026102901 exact selections and missing-index controls precede
+this proof. Ordered selections containing every central index have that range
+as their initial segment. This is not yet the arbitrary-selection determinant
+or the mixed kernel positivity theorem. [需人工审查] Finite indexing. -/
+open Function Set
+namespace JinWishart
+noncomputable section
+
+theorem strictMono_fin_nat_index_le (n : ℕ) (g : Fin n → ℕ)
+ (hg : StrictMono g) (i : Fin n) : i.val ≤ g i := by
+ let F : ℕ → ℕ := fun t => if h : t < n then g ⟨t,h⟩ else 0
+ have hF : StrictMonoOn F (Set.Iic i.val) := by
+   intro a ha b hb hab
+   change a ≤ i.val at ha
+   change b ≤ i.val at hb
+   have hi := i.isLt
+   have han : a < n := by omega
+   have hbn : b < n := by omega
+   simp only [F,dif_pos han,dif_pos hbn]
+   exact hg (show (⟨a,han⟩ : Fin n) < ⟨b,hbn⟩ from hab)
+ have h := hF.Iic_id_le i.val le_rfl
+ simpa [F,i.isLt] using h
+
+theorem mixedSelection_sorted_prefix (p L : ℕ) (g : Fin (p+L) → ℕ)
+ (hg : StrictMono g) (hseen : ∀ a : Fin p, ∃ i, g i = a.val) :
+ ∀ a : Fin p, g (Fin.castAdd L a) = a.val := by
+ have h : ∀ (v : ℕ) (hv : v < p), g ⟨v, by omega⟩ = v := by
+   intro v
+   induction v using Nat.strong_induction_on with
+   | h v ih =>
+     intro hv
+     obtain ⟨t,ht⟩ := hseen ⟨v,hv⟩
+     change g t = v at ht
+     have hlow := strictMono_fin_nat_index_le (p+L) g hg t
+     have htv : t.val ≤ v := by omega
+     by_cases hlt : t.val < v
+     · have htval : t.val < p := by omega
+       have he := ih t.val hlt htval
+       have het : g t = t.val := by simpa using he
+       omega
+     · have heq : t = (⟨v, by omega⟩ : Fin (p+L)) := by
+         apply Fin.ext
+         change t.val = v
+         omega
+       simpa [heq] using ht
+ intro a
+ have heq : Fin.castAdd L a = (⟨a.val, by omega⟩ : Fin (p+L)) := Fin.ext rfl
+ rw [heq]
+ exact h a.val a.isLt
+
+theorem mixedSelection_sorted_tail_ge (p L : ℕ) (g : Fin (p+L) → ℕ)
+ (hg : StrictMono g) (i : Fin L) : p ≤ g (Fin.natAdd p i) := by
+ have h := strictMono_fin_nat_index_le (p+L) g hg (Fin.natAdd p i)
+ simp only [Fin.val_natAdd] at h
+ omega
+
+end
+end JinWishart
+#print axioms JinWishart.strictMono_fin_nat_index_le
+#print axioms JinWishart.mixedSelection_sorted_prefix
+#print axioms JinWishart.mixedSelection_sorted_tail_ge
+
+SOURCE MixedSelectionSorting.lean
+import JinWishartFormalization.MixedSelectionPrefix
+import Mathlib.Data.Finset.Sort
+
+/-! Codex. Seed 2026102901 exact selection controls precede this proof.
+An injective selection containing each central index can be sorted into the
+central prefix and a strictly increasing tail. [需人工审查] Fin/Sum indexing. -/
+open Matrix Finset Function
+namespace JinWishart
+noncomputable section
+
+theorem mixedSelection_sorted (p L N : ℕ) (f : (Fin p ⊕ Fin L) → Fin N)
+ (hf : Injective f) (hseen : ∀ a : Fin p, ∃ i, (f i).val = a.val) :
+ ∃ (hpN : p ≤ N) (k : Fin L → Fin N) (σ : Equiv.Perm (Fin p ⊕ Fin L)),
+   (∀ i, p ≤ (k i).val) ∧ StrictMono k ∧
+   ∀ i, f i = mixedOrderedSelection p L N hpN k (σ i) := by
+ let e := finSumFinEquiv (m := p) (n := L)
+ let f' : Fin (p+L) → Fin N := fun i => f (e.symm i)
+ have hf' : Injective f' := hf.comp e.symm.injective
+ have hnN : p+L ≤ N := by
+   simpa using Fintype.card_le_of_injective f' hf'
+ have hpN : p ≤ N := by omega
+ let S := Finset.univ.image f'
+ have hc : S.card = p+L := by simpa [S] using Finset.card_image_of_injective Finset.univ hf'
+ let q : Fin (p+L) → S := fun i => ⟨f' i,Finset.mem_image.mpr ⟨i,Finset.mem_univ _,rfl⟩⟩
+ have hq : Bijective q := by
+   constructor
+   · intro i j hij
+     exact hf' (congrArg Subtype.val hij)
+   · intro y
+     obtain ⟨i,_,hi⟩ := Finset.mem_image.mp y.property
+     exact ⟨i,Subtype.ext hi⟩
+ let eqS := Equiv.ofBijective q hq
+ let o := S.orderIsoOfFin hc
+ let τ : Equiv.Perm (Fin (p+L)) := eqS.trans o.toEquiv.symm
+ let g : Fin (p+L) → Fin N := fun i => o i
+ have hg : StrictMono g := by
+   intro i j hij
+   exact o.strictMono hij
+ have hfg (i : Fin (p+L)) : f' i = g (τ i) := by
+   exact (congrArg Subtype.val (o.apply_symm_apply (eqS i))).symm
+ have hgs : ∀ a : Fin p, ∃ i, (g i).val = a.val := by
+   intro a
+   obtain ⟨i,hi⟩ := hseen a
+   refine ⟨τ (e i), ?_⟩
+   have h := hfg (e i)
+   dsimp [f'] at h
+   rw [e.symm_apply_apply] at h
+   rw [← h]
+   exact hi
+ have hgv : StrictMono (fun i => (g i).val) := fun i j hij => hg hij
+ have hprefix := mixedSelection_sorted_prefix p L (fun i => (g i).val) hgv hgs
+ let k : Fin L → Fin N := fun i => g (Fin.natAdd p i)
+ have hkp : ∀ i, p ≤ (k i).val := by
+   intro i
+   exact mixedSelection_sorted_tail_ge p L (fun i => (g i).val) hgv i
+ have hks : StrictMono k := hg.comp (Fin.strictMono_natAdd p)
+ have hselect (i : Fin p ⊕ Fin L) :
+   g (e i) = mixedOrderedSelection p L N hpN k i := by
+   cases i with
+   | inl i =>
+     apply Fin.ext
+     simpa [e,mixedOrderedSelection,finSumFinEquiv_apply_left] using hprefix i
+   | inr i => rfl
+ let σ : Equiv.Perm (Fin p ⊕ Fin L) := e.trans (τ.trans e.symm)
+ refine ⟨hpN,k,σ,hkp,hks,?_⟩
+ intro i
+ have h := hfg (e i)
+ dsimp [f'] at h
+ rw [e.symm_apply_apply] at h
+ rw [h,← hselect]
+ simp [σ]
+
+end
+end JinWishart
+#print axioms JinWishart.mixedSelection_sorted
+
+SOURCE MixedMinorProduct.lean
+import JinWishartFormalization.MixedSelectionSorting
+
+/-! Codex. Seed 2026102901 exact all-selection sign controls precede source.
+The product is nonnegative for arbitrary selections, including missing central
+indices and repeated selections. No Cauchy--Binet sum or probability law is
+asserted here. [需人工审查] Simultaneous permutation and index orientation. -/
+open Matrix Finset Function
+namespace JinWishart
+noncomputable section
+
+def mixedSelectionMinorProduct (p L N : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (w : ℕ → ℝ) (f : (Fin p ⊕ Fin L) → Fin N) : ℝ :=
+ (Matrix.of (fun i j : Fin p ⊕ Fin L => x (finSumFinEquiv i) ^ (f j).val)).det *
+   ((mixedKernelCoefficient p L N lambda w).submatrix f id).det
+
+theorem mixedSelectionMinorProduct_pos (p L N : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (w : ℕ → ℝ) (f : (Fin p ⊕ Fin L) → Fin N)
+ (hf : Injective f) (hseen : ∀ a : Fin p, ∃ i, (f i).val = a.val)
+ (hx : StrictMono x) (hxp : ∀ i, 0 < x i) (hl : StrictMono lambda)
+ (hlp : ∀ j, 0 < lambda j) (hw : ∀ m, 0 < w m) :
+ 0 < mixedSelectionMinorProduct p L N x lambda w f := by
+ obtain ⟨hpN,k,σ,hkp,hks,hfσ⟩ := mixedSelection_sorted p L N f hf hseen
+ let s := mixedOrderedSelection p L N hpN k
+ let A : Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ :=
+   Matrix.of (fun i j => x (finSumFinEquiv i) ^ (s j).val)
+ let B := (mixedKernelCoefficient p L N lambda w).submatrix s id
+ have hA : (Matrix.of (fun i j : Fin p ⊕ Fin L =>
+     x (finSumFinEquiv i) ^ (f j).val)) = A.submatrix id σ := by
+   ext i j
+   change x (finSumFinEquiv i) ^ (f j).val = x (finSumFinEquiv i) ^ (s (σ j)).val
+   rw [hfσ]
+ have hB : (mixedKernelCoefficient p L N lambda w).submatrix f id =
+     B.submatrix σ id := by
+   ext i j
+   change mixedKernelCoefficient p L N lambda w (f i) j =
+     mixedKernelCoefficient p L N lambda w (s (σ i)) j
+   rw [hfσ]
+ unfold mixedSelectionMinorProduct
+ rw [hA,hB,Matrix.det_permute',Matrix.det_permute]
+ have hs : ((Equiv.Perm.sign σ : ℤ) : ℝ)*((Equiv.Perm.sign σ : ℤ) : ℝ) = 1 := by
+   exact_mod_cast Int.isUnit_mul_self (Equiv.Perm.sign σ).isUnit
+ have hp : 0 < A.det * B.det :=
+   mixedOrderedMinorProduct_pos p L N hpN x lambda w k hkp hks hx hxp hl hlp (fun i => hw _)
+ calc
+   0 < A.det * B.det := hp
+   _ = (((Equiv.Perm.sign σ : ℤ) : ℝ)*((Equiv.Perm.sign σ : ℤ) : ℝ)) *
+       (A.det * B.det) := by rw [hs,one_mul]
+   _ = (((Equiv.Perm.sign σ : ℤ) : ℝ)*A.det)*
+       (((Equiv.Perm.sign σ : ℤ) : ℝ)*B.det) := by ring
+
+theorem mixedSelectionMinorProduct_nonneg (p L N : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (w : ℕ → ℝ) (f : (Fin p ⊕ Fin L) → Fin N)
+ (hx : StrictMono x) (hxp : ∀ i, 0 < x i) (hl : StrictMono lambda)
+ (hlp : ∀ j, 0 < lambda j) (hw : ∀ m, 0 < w m) :
+ 0 ≤ mixedSelectionMinorProduct p L N x lambda w f := by
+ by_cases hf : Injective f
+ · by_cases hs : ∀ a : Fin p, ∃ i, (f i).val = a.val
+   · exact (mixedSelectionMinorProduct_pos p L N x lambda w f hf hs hx hxp hl hlp hw).le
+   · push_neg at hs
+     obtain ⟨a,ha⟩ := hs
+     unfold mixedSelectionMinorProduct
+     rw [mixedCoefficientMinor_zero_of_missing p L N lambda w f a ha, mul_zero]
+ · unfold mixedSelectionMinorProduct
+   rw [mixedCoefficientMinor_zero_of_repeated p L N lambda w f hf, mul_zero]
+
+end
+end JinWishart
+#print axioms JinWishart.mixedSelectionMinorProduct_pos
+#print axioms JinWishart.mixedSelectionMinorProduct_nonneg
+
+SOURCE FiniteMixedNoncentralKernel.lean
+import JinWishartFormalization.MixedMinorProduct
+import JinWishartFormalization.AveragedCauchyBinet
+
+/-! Codex. Seed 2026102901 exact finite mixed-kernel/fixed-floor controls
+precede source. The result is deterministic finite-series algebra only, not
+an infinite kernel or the actual Wishart law. [需人工审查] Fin/Sum reindexing
+and factorial multiplicity. -/
+open Matrix Finset Function
+namespace JinWishart
+noncomputable section
+
+private theorem real_factorial_cauchy_binet_mixed {n N : ℕ}
+ (A : Matrix (Fin n) (Fin N) ℝ) (B : Matrix (Fin N) (Fin n) ℝ) :
+ (n.factorial : ℝ)*(A*B).det =
+   ∑ f : Fin n → Fin N, (A.submatrix id f).det*(B.submatrix f id).det := by
+ let AC : Matrix (Fin n) (Fin N) ℂ := A.map Complex.ofRealHom
+ let BC : Matrix (Fin N) (Fin n) ℂ := B.map Complex.ofRealHom
+ have h := det_mul_rectangular_factorial_sum_functions AC BC
+ have hm : AC*BC = Complex.ofRealHom.mapMatrix (A*B) := Matrix.map_mul.symm
+ have hA (f : Fin n → Fin N) : AC.submatrix id f =
+     Complex.ofRealHom.mapMatrix (A.submatrix id f) := rfl
+ have hB (f : Fin n → Fin N) : BC.submatrix f id =
+     Complex.ofRealHom.mapMatrix (B.submatrix f id) := rfl
+ rw [hm,← Complex.ofRealHom.map_det] at h
+ simp only [hA,hB,← Complex.ofRealHom.map_det] at h
+ simpa [Complex.mul_re] using congrArg Complex.re h
+
+def finiteMixedKernel (p L N : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (w : ℕ → ℝ) : Matrix (Fin (p+L)) (Fin (p+L)) ℝ :=
+ (Matrix.of (fun (i : Fin (p+L)) (m : Fin N) => x i ^ m.val)) *
+ (Matrix.of (fun m j => mixedKernelCoefficient p L N lambda w m (finSumFinEquiv.symm j)))
+
+def mixedLowestMinor (p L : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (w : ℕ → ℝ) : ℝ :=
+ mixedSelectionMinorProduct p L (p+L) x lambda w (finSumFinEquiv (m := p) (n := L))
+
+theorem mixedLowestMinor_pos (p L : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (w : ℕ → ℝ) (hx : StrictMono x)
+ (hxp : ∀ i, 0 < x i) (hl : StrictMono lambda) (hlp : ∀ i, 0 < lambda i)
+ (hw : ∀ m, 0 < w m) : 0 < mixedLowestMinor p L x lambda w := by
+ unfold mixedLowestMinor
+ apply mixedSelectionMinorProduct_pos p L (p+L) x lambda w finSumFinEquiv
+   finSumFinEquiv.injective ?_ hx hxp hl hlp hw
+ intro a
+ refine ⟨Sum.inl a, ?_⟩
+ simp [finSumFinEquiv_apply_left]
+
+theorem finiteMixedKernel_det_lower_bound (p L N : ℕ) (hN : p+L ≤ N)
+ (x : Fin (p+L) → ℝ) (lambda : Fin L → ℝ) (w : ℕ → ℝ)
+ (hx : StrictMono x) (hxp : ∀ i, 0 < x i) (hl : StrictMono lambda)
+ (hlp : ∀ i, 0 < lambda i) (hw : ∀ m, 0 < w m) :
+ mixedLowestMinor p L x lambda w ≤ ((p+L).factorial : ℝ) *
+   (finiteMixedKernel p L N x lambda w).det := by
+ let e := finSumFinEquiv (m := p) (n := L)
+ let A : Matrix (Fin (p+L)) (Fin N) ℝ := Matrix.of (fun i m => x i ^ m.val)
+ let B : Matrix (Fin N) (Fin (p+L)) ℝ := Matrix.of
+   (fun m j => mixedKernelCoefficient p L N lambda w m (e.symm j))
+ have hK : finiteMixedKernel p L N x lambda w = A*B := rfl
+ rw [hK,real_factorial_cauchy_binet_mixed]
+ have hterm (f : Fin (p+L) → Fin N) :
+     (A.submatrix id f).det*(B.submatrix f id).det =
+       mixedSelectionMinorProduct p L N x lambda w (f ∘ e) := by
+   have hA : (Matrix.of (fun i j : Fin p ⊕ Fin L => x (e i) ^ (f (e j)).val)) =
+       (A.submatrix id f).submatrix e e := rfl
+   have hB : (mixedKernelCoefficient p L N lambda w).submatrix (f ∘ e) id =
+       (B.submatrix f id).submatrix e e := by
+     ext i j
+     simp [B]
+   unfold mixedSelectionMinorProduct
+   change (A.submatrix id f).det*(B.submatrix f id).det =
+     (Matrix.of (fun i j : Fin p ⊕ Fin L => x (e i) ^ (f (e j)).val)).det *
+       ((mixedKernelCoefficient p L N lambda w).submatrix (f ∘ e) id).det
+   rw [hA,hB,Matrix.det_submatrix_equiv_self,Matrix.det_submatrix_equiv_self]
+ have hn (f : Fin (p+L) → Fin N) : 0 ≤
+     (A.submatrix id f).det*(B.submatrix f id).det := by
+   rw [hterm]
+   exact mixedSelectionMinorProduct_nonneg p L N x lambda w (f ∘ e) hx hxp hl hlp hw
+ let f0 : Fin (p+L) → Fin N := Fin.castLE hN
+ have h0 : (A.submatrix id f0).det*(B.submatrix f0 id).det =
+     mixedLowestMinor p L x lambda w := by
+   rw [hterm]
+   rfl
+ rw [← h0]
+ exact Finset.single_le_sum (f := fun f : Fin (p+L) → Fin N =>
+   (A.submatrix id f).det*(B.submatrix f id).det) (fun f _ => hn f) (Finset.mem_univ f0)
+
+theorem finiteMixedKernel_det_pos (p L N : ℕ) (hN : p+L ≤ N)
+ (x : Fin (p+L) → ℝ) (lambda : Fin L → ℝ) (w : ℕ → ℝ)
+ (hx : StrictMono x) (hxp : ∀ i, 0 < x i) (hl : StrictMono lambda)
+ (hlp : ∀ i, 0 < lambda i) (hw : ∀ m, 0 < w m) :
+ 0 < (finiteMixedKernel p L N x lambda w).det := by
+ have hc := mixedLowestMinor_pos p L x lambda w hx hxp hl hlp hw
+ have hb := finiteMixedKernel_det_lower_bound p L N hN x lambda w hx hxp hl hlp hw
+ have hp : 0 < ((p+L).factorial : ℝ) := by positivity
+ exact (mul_pos_iff_of_pos_left hp).mp (lt_of_lt_of_le hc hb)
+
+end
+end JinWishart
+#print axioms JinWishart.mixedLowestMinor_pos
+#print axioms JinWishart.finiteMixedKernel_det_lower_bound
+#print axioms JinWishart.finiteMixedKernel_det_pos
+
+SOURCE InfiniteMixedNoncentralKernel.lean
+import JinWishartFormalization.FiniteMixedNoncentralKernel
+import JinWishartFormalization.InfiniteNoncentralKernel
+
+/-! Codex. Seed 2026102901 exact mixed finite controls and earlier seed
+2026102802 series controls precede source. A fixed finite minor persists
+through the matrix limit. This is a formula-side kernel, not an actual law.
+[需人工审查] Central-column extraction, matrix convergence and model mapping. -/
+open Matrix Finset Filter
+open scoped Topology
+namespace JinWishart
+noncomputable section
+
+def infiniteMixedKernel (p L q : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) : Matrix (Fin (p+L)) (Fin (p+L)) ℝ :=
+ Matrix.of (fun i j => match (finSumFinEquiv (m := p) (n := L)).symm j with
+ | Sum.inl a => x i ^ a.val
+ | Sum.inr b => ∑' m : ℕ, x i ^ m * (noncentralKernelSeriesWeight q m * lambda b ^ m))
+
+private theorem finiteMixed_central_entry (p L N q : ℕ) (hpN : p ≤ N)
+ (x : Fin (p+L) → ℝ) (lambda : Fin L → ℝ) (i : Fin (p+L)) (a : Fin p) :
+ finiteMixedKernel p L N x lambda (noncentralKernelSeriesWeight q) i
+   (finSumFinEquiv (Sum.inl a)) = x i ^ a.val := by
+ let aN : Fin N := ⟨a.val, by omega⟩
+ simp only [finiteMixedKernel,Matrix.mul_apply,Matrix.of_apply,Equiv.symm_apply_apply]
+ change (∑ m : Fin N, x i ^ m.val *
+   mixedKernelCoefficient p L N lambda (noncentralKernelSeriesWeight q) m (Sum.inl a)) = _
+ rw [Finset.sum_eq_single aN]
+ · simp [mixedKernelCoefficient,aN]
+ · intro m hm hne
+   have hmne : m.val ≠ a.val := by
+     intro he
+     apply hne
+     exact Fin.ext he
+   simp [mixedKernelCoefficient,hmne]
+ · intro ha
+   exact False.elim (ha (Finset.mem_univ aN))
+
+private theorem finiteMixed_noncentral_entry (p L N q : ℕ)
+ (x : Fin (p+L) → ℝ) (lambda : Fin L → ℝ) (i : Fin (p+L)) (b : Fin L) :
+ finiteMixedKernel p L N x lambda (noncentralKernelSeriesWeight q) i
+   (finSumFinEquiv (Sum.inr b)) =
+ finiteNoncentralFullKernel q (p+L) N x (fun _ => lambda b) i
+   (finSumFinEquiv (Sum.inr b)) := by
+ simp [finiteMixedKernel,finiteNoncentralFullKernel,Matrix.mul_apply,mixedKernelCoefficient]
+
+theorem finiteMixedKernel_tendsto (p L q : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (hxp : ∀ i, 0 ≤ x i) (hlp : ∀ i, 0 ≤ lambda i) :
+ Tendsto (fun N : ℕ => finiteMixedKernel p L N x lambda (noncentralKernelSeriesWeight q))
+   atTop (𝓝 (infiniteMixedKernel p L q x lambda)) := by
+ apply tendsto_pi_nhds.mpr
+ intro i
+ apply tendsto_pi_nhds.mpr
+ intro j
+ let e := finSumFinEquiv (m := p) (n := L)
+ cases hj : e.symm j with
+ | inl a =>
+   have hje : j = e (Sum.inl a) := by
+     have h := e.apply_symm_apply j
+     rw [hj] at h
+     exact h.symm
+   rw [hje]
+   simp only [infiniteMixedKernel,Matrix.of_apply]
+   simp only [show finSumFinEquiv.symm (e (Sum.inl a)) = Sum.inl a by simp [e]]
+   have ht : Tendsto (fun _N : ℕ => x i ^ a.val) atTop (𝓝 (x i ^ a.val)) := tendsto_const_nhds
+   apply ht.congr'
+   filter_upwards [eventually_ge_atTop p] with N hN
+   exact (finiteMixed_central_entry p L N q hN x lambda i a).symm
+ | inr b =>
+   have hje : j = e (Sum.inr b) := by
+     have h := e.apply_symm_apply j
+     rw [hj] at h
+     exact h.symm
+   rw [hje]
+   simp only [infiniteMixedKernel,Matrix.of_apply]
+   simp only [show finSumFinEquiv.symm (e (Sum.inr b)) = Sum.inr b by simp [e]]
+   have ht := finiteNoncentralFullKernel_tendsto q (p+L) x (fun _ => lambda b)
+     hxp (fun _ => hlp b)
+   have hi := (tendsto_pi_nhds.mp ht) i
+   have hij := (tendsto_pi_nhds.mp hi) (e (Sum.inr b))
+   change Tendsto (fun N : ℕ => finiteMixedKernel p L N x lambda
+     (noncentralKernelSeriesWeight q) i (e (Sum.inr b))) atTop
+     (𝓝 (∑' m : ℕ, x i ^ m * (noncentralKernelSeriesWeight q m * lambda b ^ m)))
+   apply hij.congr'
+   exact Filter.Eventually.of_forall (fun N =>
+     (finiteMixed_noncentral_entry p L N q x lambda i b).symm)
+
+theorem infiniteMixedKernel_det_lower_bound (p L q : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (hx : StrictMono x) (hxp : ∀ i, 0 < x i)
+ (hl : StrictMono lambda) (hlp : ∀ i, 0 < lambda i) :
+ mixedLowestMinor p L x lambda (noncentralKernelSeriesWeight q) ≤
+   ((p+L).factorial : ℝ)*(infiniteMixedKernel p L q x lambda).det := by
+ have hc : Continuous (fun A : Matrix (Fin (p+L)) (Fin (p+L)) ℝ => A.det) := continuous_id.matrix_det
+ have hd := (hc.tendsto (infiniteMixedKernel p L q x lambda)).comp
+   (finiteMixedKernel_tendsto p L q x lambda (fun i => (hxp i).le) (fun i => (hlp i).le))
+ have hs := hd.const_mul ((p+L).factorial : ℝ)
+ apply ge_of_tendsto hs
+ filter_upwards [eventually_ge_atTop (p+L)] with N hN
+ exact finiteMixedKernel_det_lower_bound p L N hN x lambda (noncentralKernelSeriesWeight q)
+   hx hxp hl hlp (fun m => by unfold noncentralKernelSeriesWeight; positivity)
+
+theorem infiniteMixedKernel_det_pos (p L q : ℕ) (x : Fin (p+L) → ℝ)
+ (lambda : Fin L → ℝ) (hx : StrictMono x) (hxp : ∀ i, 0 < x i)
+ (hl : StrictMono lambda) (hlp : ∀ i, 0 < lambda i) :
+ 0 < (infiniteMixedKernel p L q x lambda).det := by
+ have hc := mixedLowestMinor_pos p L x lambda (noncentralKernelSeriesWeight q)
+   hx hxp hl hlp (fun m => by unfold noncentralKernelSeriesWeight; positivity)
+ have hb := infiniteMixedKernel_det_lower_bound p L q x lambda hx hxp hl hlp
+ have hp : 0 < ((p+L).factorial : ℝ) := by positivity
+ exact (mul_pos_iff_of_pos_left hp).mp (lt_of_lt_of_le hc hb)
+
+end
+end JinWishart
+#print axioms JinWishart.finiteMixedKernel_tendsto
+#print axioms JinWishart.infiniteMixedKernel_det_lower_bound
+#print axioms JinWishart.infiniteMixedKernel_det_pos

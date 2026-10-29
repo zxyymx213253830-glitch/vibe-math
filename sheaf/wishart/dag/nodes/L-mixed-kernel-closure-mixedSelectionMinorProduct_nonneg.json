@@ -1,0 +1,22 @@
+{
+  "id": "L-mixed-kernel-closure-mixedSelectionMinorProduct_nonneg",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedMinorProduct",
+  "declaration": "JinWishart.mixedSelectionMinorProduct_nonneg",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-kernel-closure-mixedSelectionMinorProduct_pos"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-kernel-closure-mixedSelectionMinorProduct_pos"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

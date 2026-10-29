@@ -1,0 +1,22 @@
+{
+  "id": "L-mixed-kernel-closure-finiteMixedKernel_det_pos",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.FiniteMixedNoncentralKernel",
+  "declaration": "JinWishart.finiteMixedKernel_det_pos",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-kernel-closure-finiteMixedKernel_det_lower_bound"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-kernel-closure-finiteMixedKernel_det_lower_bound"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

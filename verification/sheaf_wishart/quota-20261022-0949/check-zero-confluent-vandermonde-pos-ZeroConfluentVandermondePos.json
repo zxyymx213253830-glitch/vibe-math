@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "79fae1d1c23368e9afe16e78b3399d3d73cc6b6bdbd4a5b350d61e761833e085",
+  "target_lock_sha256": "b18cc743fca401e2fe5d2d1bd3cd9479789d43b51a581ccf06aaac5d7221d30b",
+  "leaf": {
+    "started_utc": "2026-10-29T15:51:30.489038+00:00",
+    "ended_utc": "2026-10-29T15:51:37.811082+00:00",
+    "module": "JinWishartFormalization.ZeroConfluentVandermondePos",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ZeroConfluentVandermondePos.lean",
+    "source_sha256_before": "79fae1d1c23368e9afe16e78b3399d3d73cc6b6bdbd4a5b350d61e761833e085",
+    "source_sha256": "79fae1d1c23368e9afe16e78b3399d3d73cc6b6bdbd4a5b350d61e761833e085",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/zero-confluent-vandermonde-pos-ZeroConfluentVandermondePos-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "14e67f2026a8115f5a0238e1c65cbaedfa021581fd811609855b4cadcb98728e",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-29T15:51:37.812282+00:00",
+    "ended_utc": "2026-10-29T15:51:45.327216+00:00",
+    "module": "SheafZeroConfluentVandermondePosTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafZeroConfluentVandermondePosTargets.lean",
+    "source_sha256_before": "fae0c0e7224bc7e540b8c2363eff2a8a1df5ddca78ac7a942525d2585b0db197",
+    "source_sha256": "fae0c0e7224bc7e540b8c2363eff2a8a1df5ddca78ac7a942525d2585b0db197",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/zero-confluent-vandermonde-pos-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedOrderedMinorProduct.lean:21:34: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedOrderedMinorProduct.lean:21:46: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedOrderedMinorProduct.lean:25:33: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedOrderedMinorProduct.lean:25:44: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'JinWishart.mixedOrderedDegree_strictMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedOrderedDegree_selection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedOrderedMinorProduct_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

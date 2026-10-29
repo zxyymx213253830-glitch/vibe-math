@@ -1,0 +1,22 @@
+{
+  "id": "L-mixed-kernel-closure-mixedSelection_sorted",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedSelectionSorting",
+  "declaration": "JinWishart.mixedSelection_sorted",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-kernel-closure-mixedSelection_sorted_tail_ge"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-kernel-closure-mixedSelection_sorted_tail_ge"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

@@ -1,0 +1,55 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteMixedNoncentralKernel.lean:64:3: error: Tactic `apply` failed: could not unify the conclusion of `fun hl => Tendsto.congr' hl ht`
+  Tendsto ?m.127 atTop (𝓝 (x i ^ ↑a))
+with the goal
+  Tendsto (fun i_1 => finiteMixedKernel p L i_1 x lambda (noncentralKernelSeriesWeight q) i (e (Sum.inl a))) atTop
+    (𝓝
+      (match finSumFinEquiv.symm (e (Sum.inl a)) with
+      | Sum.inl a => x i ^ ↑a
+      | Sum.inr b => ∑' (m : ℕ), x i ^ m * (noncentralKernelSeriesWeight q m * lambda b ^ m)))
+
+Note: The full type of `fun hl => Tendsto.congr' hl ht` is
+  (fun _N => x i ^ ↑a) =ᶠ[atTop] ?m.127 → Tendsto ?m.127 atTop (𝓝 (x i ^ ↑a))
+
+case inl
+p L q : ℕ
+x : Fin (p + L) → ℝ
+lambda : Fin L → ℝ
+hxp : ∀ (i : Fin (p + L)), 0 ≤ x i
+hlp : ∀ (i : Fin L), 0 ≤ lambda i
+i j : Fin (p + L)
+e : Fin p ⊕ Fin L ≃ Fin (p + L) := finSumFinEquiv
+a : Fin p
+hj : e.symm j = Sum.inl a
+hje : j = e (Sum.inl a)
+ht : Tendsto (fun _N => x i ^ ↑a) atTop (𝓝 (x i ^ ↑a))
+⊢ Tendsto (fun i_1 => finiteMixedKernel p L i_1 x lambda (noncentralKernelSeriesWeight q) i (e (Sum.inl a))) atTop
+    (𝓝
+      (match finSumFinEquiv.symm (e (Sum.inl a)) with
+      | Sum.inl a => x i ^ ↑a
+      | Sum.inr b => ∑' (m : ℕ), x i ^ m * (noncentralKernelSeriesWeight q m * lambda b ^ m)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteMixedNoncentralKernel.lean:78:3: error: 'change' tactic failed, pattern
+  Tendsto (fun N => finiteMixedKernel p L N x lambda (noncentralKernelSeriesWeight q) i (e (Sum.inr b))) atTop
+    (𝓝 (∑' (m : ℕ), x i ^ m * (noncentralKernelSeriesWeight q m * lambda b ^ m)))
+is not definitionally equal to target
+  Tendsto (fun i_1 => finiteMixedKernel p L i_1 x lambda (noncentralKernelSeriesWeight q) i (e (Sum.inr b))) atTop
+    (𝓝
+      (match finSumFinEquiv.symm (e (Sum.inr b)) with
+      | Sum.inl a => x i ^ ↑a
+      | Sum.inr b => ∑' (m : ℕ), x i ^ m * (noncentralKernelSeriesWeight q m * lambda b ^ m)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteMixedNoncentralKernel.lean:62:50: warning: This simp argument is unused:
+  Equiv.symm_apply_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [infiniteMixedKernel, Matrix.of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\InfiniteMixedNoncentralKernel.lean:73:50: warning: This simp argument is unused:
+  Equiv.symm_apply_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [infiniteMixedKernel, Matrix.of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.finiteMixedKernel_tendsto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.infiniteMixedKernel_det_lower_bound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.infiniteMixedKernel_det_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

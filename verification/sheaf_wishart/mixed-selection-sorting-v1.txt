@@ -1,0 +1,36 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedSelectionSorting.lean:71:1: error: Tactic `rfl` failed: The left-hand side
+  g (τ (e i))
+is not definitionally equal to the right-hand side
+  g (e (σ i))
+
+p L N : ℕ
+f : Fin p ⊕ Fin L → Fin N
+hf : Injective f
+hseen : ∀ (a : Fin p), ∃ i, ↑(f i) = ↑a
+e : Fin p ⊕ Fin L ≃ Fin (p + L) := finSumFinEquiv
+f' : Fin (p + L) → Fin N := fun i => f (e.symm i)
+hf' : Injective f'
+hnN : p + L ≤ N
+hpN : p ≤ N
+S : Finset (Fin N) := image f' univ
+hc : #S = p + L
+q : Fin (p + L) → ↥S := fun i => ⟨f' i, ⋯⟩
+hq : Bijective q
+eqS : Fin (p + L) ≃ ↥S := Equiv.ofBijective q hq
+o : Fin (p + L) ≃o ↥S := S.orderIsoOfFin hc
+τ : Equiv.Perm (Fin (p + L)) := eqS.trans o.symm
+g : Fin (p + L) → Fin N := fun i => ↑(o i)
+hg : StrictMono g
+hfg : ∀ (i : Fin (p + L)), f' i = g (τ i)
+hgs : ∀ (a : Fin p), ∃ i, ↑(g i) = ↑a
+hgv : StrictMono fun i => ↑(g i)
+hprefix : ∀ (a : Fin p), ↑(g (Fin.castAdd L a)) = ↑a
+k : Fin L → Fin N := fun i => g (Fin.natAdd p i)
+hkp : ∀ (i : Fin L), p ≤ ↑(k i)
+hks : StrictMono k
+hselect : ∀ (i : Fin p ⊕ Fin L), g (e i) = mixedOrderedSelection p L N hpN k i
+σ : Equiv.Perm (Fin p ⊕ Fin L) := e.trans (Equiv.trans τ e.symm)
+i : Fin p ⊕ Fin L
+h : f i = g (τ (e i))
+⊢ g (τ (e i)) = g (e (σ i))
+'JinWishart.mixedSelection_sorted' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

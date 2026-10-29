@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-29T15:50:23.584731+00:00",
+  "ended_utc": "2026-10-29T15:50:30.740548+00:00",
+  "module": "JinWishartFormalization.ZeroConfluentVandermondePos",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ZeroConfluentVandermondePos.lean",
+  "source_sha256_before": "9a49da3809b0df89b716499fb65bfb4c172bdd8df5f021817284b44d1c7e727c",
+  "source_sha256": "9a49da3809b0df89b716499fb65bfb4c172bdd8df5f021817284b44d1c7e727c",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/zero-confluent-vandermonde-pos-v1.txt",
+  "log_exists": true,
+  "log_sha256": "623546437deda507f7866e895dfc24d0cbf177b2e9e85d1b2ae9462edb870270",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

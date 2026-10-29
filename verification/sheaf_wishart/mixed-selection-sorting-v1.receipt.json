@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-29T16:01:59.204811+00:00",
+  "ended_utc": "2026-10-29T16:02:06.520957+00:00",
+  "module": "JinWishartFormalization.MixedSelectionSorting",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedSelectionSorting.lean",
+  "source_sha256_before": "26b248ff84763810f3fd948c2bb5429dff399d890203afad9dd684d9802029a4",
+  "source_sha256": "26b248ff84763810f3fd948c2bb5429dff399d890203afad9dd684d9802029a4",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/mixed-selection-sorting-v1.txt",
+  "log_exists": true,
+  "log_sha256": "64f046c789e1998f57d5a4a8d2da2e0904bde1ed48b4ee2fcf02b3847693f077",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

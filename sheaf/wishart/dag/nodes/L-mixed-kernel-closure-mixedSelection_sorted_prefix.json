@@ -1,0 +1,22 @@
+{
+  "id": "L-mixed-kernel-closure-mixedSelection_sorted_prefix",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedSelectionPrefix",
+  "declaration": "JinWishart.mixedSelection_sorted_prefix",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-kernel-closure-strictMono_fin_nat_index_le"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-kernel-closure-strictMono_fin_nat_index_le"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "checked_pending_review"
+  }
+}

@@ -1,0 +1,141 @@
+[
+  {
+    "tag": "mixed-kernel-closure-MixedOrderedMinorProduct",
+    "module": "MixedOrderedMinorProduct",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-mixedOrderedDegree_strictMono",
+        "mixedOrderedDegree_strictMono",
+        []
+      ],
+      [
+        "L-mixed-kernel-closure-mixedOrderedDegree_selection",
+        "mixedOrderedDegree_selection",
+        [
+          "L-mixed-kernel-closure-mixedOrderedDegree_strictMono"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-mixedOrderedMinorProduct_pos",
+        "mixedOrderedMinorProduct_pos",
+        [
+          "L-mixed-kernel-closure-mixedOrderedDegree_selection"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-MixedSelectionPrefix",
+    "module": "MixedSelectionPrefix",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-strictMono_fin_nat_index_le",
+        "strictMono_fin_nat_index_le",
+        [
+          "L-mixed-kernel-closure-mixedOrderedMinorProduct_pos"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-mixedSelection_sorted_prefix",
+        "mixedSelection_sorted_prefix",
+        [
+          "L-mixed-kernel-closure-strictMono_fin_nat_index_le"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-mixedSelection_sorted_tail_ge",
+        "mixedSelection_sorted_tail_ge",
+        [
+          "L-mixed-kernel-closure-mixedSelection_sorted_prefix"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-MixedSelectionSorting",
+    "module": "MixedSelectionSorting",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-mixedSelection_sorted",
+        "mixedSelection_sorted",
+        [
+          "L-mixed-kernel-closure-mixedSelection_sorted_tail_ge"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-MixedMinorProduct",
+    "module": "MixedMinorProduct",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-mixedSelectionMinorProduct_pos",
+        "mixedSelectionMinorProduct_pos",
+        [
+          "L-mixed-kernel-closure-mixedSelection_sorted"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-mixedSelectionMinorProduct_nonneg",
+        "mixedSelectionMinorProduct_nonneg",
+        [
+          "L-mixed-kernel-closure-mixedSelectionMinorProduct_pos"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-FiniteMixedNoncentralKernel",
+    "module": "FiniteMixedNoncentralKernel",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-mixedLowestMinor_pos",
+        "mixedLowestMinor_pos",
+        [
+          "L-mixed-kernel-closure-mixedSelectionMinorProduct_nonneg"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-finiteMixedKernel_det_lower_bound",
+        "finiteMixedKernel_det_lower_bound",
+        [
+          "L-mixed-kernel-closure-mixedLowestMinor_pos"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-finiteMixedKernel_det_pos",
+        "finiteMixedKernel_det_pos",
+        [
+          "L-mixed-kernel-closure-finiteMixedKernel_det_lower_bound"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-InfiniteMixedNoncentralKernel",
+    "module": "InfiniteMixedNoncentralKernel",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-finiteMixedKernel_tendsto",
+        "finiteMixedKernel_tendsto",
+        [
+          "L-mixed-kernel-closure-finiteMixedKernel_det_pos"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-infiniteMixedKernel_det_lower_bound",
+        "infiniteMixedKernel_det_lower_bound",
+        [
+          "L-mixed-kernel-closure-finiteMixedKernel_tendsto"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-infiniteMixedKernel_det_pos",
+        "infiniteMixedKernel_det_pos",
+        [
+          "L-mixed-kernel-closure-infiniteMixedKernel_det_lower_bound"
+        ]
+      ]
+    ]
+  }
+]

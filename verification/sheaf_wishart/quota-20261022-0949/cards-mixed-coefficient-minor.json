@@ -1,0 +1,48 @@
+[
+  {
+    "tag": "mixed-coefficient-minor-MixedCoefficientMinorZero",
+    "module": "MixedCoefficientMinorZero",
+    "nodes": [
+      [
+        "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_missing",
+        "mixedCoefficientMinor_zero_of_missing",
+        []
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_repeated",
+        "mixedCoefficientMinor_zero_of_repeated",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_missing"
+        ]
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficient_canonical_eq",
+        "mixedCoefficient_canonical_eq",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_repeated"
+        ]
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficient_canonical_det_pos",
+        "mixedCoefficient_canonical_det_pos",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficient_canonical_eq"
+        ]
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficient_ordered_eq",
+        "mixedCoefficient_ordered_eq",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficient_canonical_det_pos"
+        ]
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficient_ordered_det_pos",
+        "mixedCoefficient_ordered_det_pos",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficient_ordered_eq"
+        ]
+      ]
+    ]
+  }
+]

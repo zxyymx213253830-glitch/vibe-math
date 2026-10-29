@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-10-29T16:00:23.312190+00:00",
+  "human_answer": "允许发送这份源码",
+  "question_item_id": "[\"request_user_input_async\",\"call_601b284043244722bdb0cc409859fc27\",0]",
+  "inputs": {
+    "MixedCoefficientMinorZero.lean": {
+      "sha256": "6cf7487b4a0c00b8dc5e2c5cca28b93e644fcc692b085d859f31796a9f272766",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9b59e6033e53241d060219ac16bd4df4cc4accd8df545f39b1e82a50f71addd9",
+  "seconds": 90,
+  "tools_disabled": true,
+  "transmitted": true,
+  "actual_review_started_utc": "2026-10-29T16:00:27.598928+00:00",
+  "actual_review_ended_utc": "2026-10-29T16:00:52.899576+00:00"
+}

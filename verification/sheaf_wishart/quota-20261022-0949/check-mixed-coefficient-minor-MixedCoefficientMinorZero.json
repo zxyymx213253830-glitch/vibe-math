@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "6cf7487b4a0c00b8dc5e2c5cca28b93e644fcc692b085d859f31796a9f272766",
+  "target_lock_sha256": "1c69d698674520d7f87b373999687320218743ae41dfd7504d9b10b7cf29e184",
+  "leaf": {
+    "started_utc": "2026-10-29T15:54:46.240451+00:00",
+    "ended_utc": "2026-10-29T15:54:53.584181+00:00",
+    "module": "JinWishartFormalization.MixedCoefficientMinorZero",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedCoefficientMinorZero.lean",
+    "source_sha256_before": "6cf7487b4a0c00b8dc5e2c5cca28b93e644fcc692b085d859f31796a9f272766",
+    "source_sha256": "6cf7487b4a0c00b8dc5e2c5cca28b93e644fcc692b085d859f31796a9f272766",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/mixed-coefficient-minor-MixedCoefficientMinorZero-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "8bc769f184bd8e7df7b4313ece00dc20613cb111cad40f239513ae4d80256359",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-29T15:54:53.585414+00:00",
+    "ended_utc": "2026-10-29T15:55:01.893558+00:00",
+    "module": "SheafMixedCoefficientMinorTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafMixedCoefficientMinorTargets.lean",
+    "source_sha256_before": "e889a284bc61a853a65ed4f88db79f34a4fa107214bf30a0cfc3ed57276c4ee5",
+    "source_sha256": "e889a284bc61a853a65ed4f88db79f34a4fa107214bf30a0cfc3ed57276c4ee5",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/mixed-coefficient-minor-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}
