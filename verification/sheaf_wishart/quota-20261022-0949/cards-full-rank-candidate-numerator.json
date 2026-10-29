@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "full-rank-candidate-numerator-FullRankCandidateNumerator",
+    "module": "FullRankCandidateNumerator",
+    "nodes": [
+      [
+        "L-full-rank-candidate-numerator-fullRankSeriesNumerator_permute",
+        "fullRankSeriesNumerator_permute",
+        []
+      ],
+      [
+        "L-full-rank-candidate-numerator-fullRankSeriesNumerator_pos",
+        "fullRankSeriesNumerator_pos",
+        [
+          "L-full-rank-candidate-numerator-fullRankSeriesNumerator_permute"
+        ]
+      ],
+      [
+        "L-full-rank-candidate-numerator-fullRankSeriesNumerator_nonneg",
+        "fullRankSeriesNumerator_nonneg",
+        [
+          "L-full-rank-candidate-numerator-fullRankSeriesNumerator_pos"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-29T15:49:25.955993+00:00",
+  "ended_utc": "2026-10-29T15:49:33.707297+00:00",
+  "module": "JinWishartFormalization.FullRankCandidateNumerator",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/FullRankCandidateNumerator.lean",
+  "source_sha256_before": "4ccd2c7ee5c98b824ec4154a90efdc9aa863e6f6fbda2c10255b6219dd2aa9d3",
+  "source_sha256": "4ccd2c7ee5c98b824ec4154a90efdc9aa863e6f6fbda2c10255b6219dd2aa9d3",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/full-rank-candidate-numerator-FullRankCandidateNumerator-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "545ab51568bec7fedd25bcda6867d0e146e6538caadeb2bc081733dc1f3fa3b3",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

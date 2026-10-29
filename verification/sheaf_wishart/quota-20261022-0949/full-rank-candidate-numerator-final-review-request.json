@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "FullRankCandidateNumerator.lean": {
+      "sha256": "4ccd2c7ee5c98b824ec4154a90efdc9aa863e6f6fbda2c10255b6219dd2aa9d3",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "8f792a8c65350afe0e1f6ee5a4889e0bc852618ec1684d1b2bcb62231a75a335"
+}

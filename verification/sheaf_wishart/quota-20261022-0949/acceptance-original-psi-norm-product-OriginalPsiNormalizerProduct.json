@@ -10,5 +10,5 @@
     "resolution": "notes/WISHART_ORIGINAL_PSI_NORM_PRODUCT.md"
   },
   "audit": "verification/central_mixed_moments/audit.json",
-  "facade_receipt": "verification/sheaf_wishart/facade-154.receipt.json"
+  "facade_receipt": "verification/sheaf_wishart/facade-155.receipt.json"
 }

@@ -189,3 +189,4 @@
 - 2026-10-29T15:48:37.423629+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-full-kernel-positivity-FiniteNoncentralKernel.json; human measure/model review remains REQUIRED.
 - 2026-10-29T15:48:51.794572+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-full-kernel-positivity-InfiniteNoncentralKernel.json; human measure/model review remains REQUIRED.
 - 2026-10-29T15:49:06.148278+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-bessel-product-kernel-BesselProductKernel.json; human measure/model review remains REQUIRED.
+- 2026-10-29T15:57:04.771843+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-full-rank-candidate-numerator-FullRankCandidateNumerator.json; human measure/model review remains REQUIRED.

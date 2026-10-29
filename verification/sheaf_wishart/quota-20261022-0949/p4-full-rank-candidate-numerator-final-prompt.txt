@@ -1,0 +1,90 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE FullRankCandidateNumerator.lean
+import JinWishartFormalization.InfiniteNoncentralKernel
+import Mathlib.Data.Finset.Sort
+
+/-! Codex. Seed2026102804:273 symmetry/sign controls precede source.
+Formula-side numerator only: permutation invariant, positive at distinct
+positive physical nodes, zero at repeated nodes. No probability normalization
+or actual noncentral joint-law identification is asserted.
+[需人工审查] Tuple sorting, determinant signs and later measure/model mapping. -/
+open Matrix Finset Function
+namespace JinWishart
+noncomputable section
+
+def fullRankSeriesNumerator (q n : ℕ) (lambda x : Fin n → ℝ) : ℝ :=
+ (Matrix.vandermonde x).det*(noncentralFullSeriesKernel q n x lambda).det
+
+theorem fullRankSeriesNumerator_permute (q n : ℕ) (lambda x : Fin n → ℝ)
+ (σ : Equiv.Perm (Fin n)) :
+ fullRankSeriesNumerator q n lambda (fun i => x (σ i)) =
+   fullRankSeriesNumerator q n lambda x := by
+ have hv : Matrix.vandermonde (fun i => x (σ i)) = (Matrix.vandermonde x).submatrix σ id := rfl
+ have hk : noncentralFullSeriesKernel q n (fun i => x (σ i)) lambda =
+     (noncentralFullSeriesKernel q n x lambda).submatrix σ id := rfl
+ simp only [fullRankSeriesNumerator,hv,hk,Matrix.det_permute]
+ have hs : ((Equiv.Perm.sign σ : ℤ) : ℝ)*((Equiv.Perm.sign σ : ℤ) : ℝ) = 1 := by
+   exact_mod_cast Int.isUnit_mul_self (Equiv.Perm.sign σ).isUnit
+ calc
+   _ = (((Equiv.Perm.sign σ : ℤ) : ℝ)*((Equiv.Perm.sign σ : ℤ) : ℝ))*
+       ((Matrix.vandermonde x).det*(noncentralFullSeriesKernel q n x lambda).det) := by ring
+   _ = _ := by rw [hs,one_mul]
+
+private theorem sorted_real_tuple (n : ℕ) (x : Fin n → ℝ) (hx : Injective x) :
+ ∃ (g : Fin n → ℝ) (σ : Equiv.Perm (Fin n)), StrictMono g ∧ ∀ i, x i = g (σ i) := by
+ let S := Finset.univ.image x
+ have hc : S.card = n := by simpa [S] using Finset.card_image_of_injective Finset.univ hx
+ let f : Fin n → S := fun i => ⟨x i,Finset.mem_image.mpr ⟨i,Finset.mem_univ _,rfl⟩⟩
+ have hf : Bijective f := by
+   constructor
+   · intro i j hij
+     exact hx (congrArg Subtype.val hij)
+   · intro y
+     obtain ⟨i,_,hi⟩ := Finset.mem_image.mp y.property
+     exact ⟨i,Subtype.ext hi⟩
+ let e := Equiv.ofBijective f hf
+ let o := S.orderIsoOfFin hc
+ refine ⟨fun i => (o i : ℝ),e.trans o.toEquiv.symm,?_,?_⟩
+ · intro i j hij
+   exact o.strictMono hij
+ · intro i
+   exact (congrArg Subtype.val (o.apply_symm_apply (e i))).symm
+
+theorem fullRankSeriesNumerator_pos (q n : ℕ) (lambda x : Fin n → ℝ)
+ (hl : StrictMono lambda) (hlp : ∀ i, 0 < lambda i)
+ (hx : Injective x) (hxp : ∀ i, 0 < x i) :
+ 0 < fullRankSeriesNumerator q n lambda x := by
+ obtain ⟨g,σ,hg,hxg⟩ := sorted_real_tuple n x hx
+ have hp (i : Fin n) : 0 < g i := by
+   have h := hxp (σ.symm i)
+   rw [hxg,σ.apply_symm_apply] at h
+   exact h
+ have he : x = fun i => g (σ i) := funext hxg
+ rw [he,fullRankSeriesNumerator_permute]
+ have hv : 0 < (Matrix.vandermonde g).det := by
+   convert generalizedMonomialVandermonde_det_pos n (fun i : Fin n => i.val) g
+     (by intro i j hij; exact hij) hg hp using 1 <;> rfl
+ exact mul_pos hv (noncentralFullSeriesKernel_det_pos q n g lambda hg hl hp hlp)
+
+theorem fullRankSeriesNumerator_nonneg (q n : ℕ) (lambda x : Fin n → ℝ)
+ (hl : StrictMono lambda) (hlp : ∀ i, 0 < lambda i) (hxp : ∀ i, 0 < x i) :
+ 0 ≤ fullRankSeriesNumerator q n lambda x := by
+ by_cases hx : Injective x
+ · exact (fullRankSeriesNumerator_pos q n lambda x hl hlp hx hxp).le
+ · simp only [Injective] at hx
+   push_neg at hx
+   obtain ⟨i,j,hij,hne⟩ := hx
+   have hv : (Matrix.vandermonde x).det = 0 := by
+     apply Matrix.det_zero_of_row_eq hne
+     funext k
+     change x i ^ k.val = x j ^ k.val
+     rw [hij]
+   rw [fullRankSeriesNumerator,hv,zero_mul]
+
+end
+end JinWishart
+#print axioms JinWishart.fullRankSeriesNumerator_permute
+#print axioms JinWishart.fullRankSeriesNumerator_pos
+#print axioms JinWishart.fullRankSeriesNumerator_nonneg

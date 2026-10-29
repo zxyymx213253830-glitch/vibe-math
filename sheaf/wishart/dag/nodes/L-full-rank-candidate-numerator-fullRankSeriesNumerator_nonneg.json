@@ -1,0 +1,24 @@
+{
+  "id": "L-full-rank-candidate-numerator-fullRankSeriesNumerator_nonneg",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.FullRankCandidateNumerator",
+  "declaration": "JinWishart.fullRankSeriesNumerator_nonneg",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-full-rank-candidate-numerator-fullRankSeriesNumerator_pos"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-full-rank-candidate-numerator-fullRankSeriesNumerator_pos"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-full-rank-candidate-numerator-FullRankCandidateNumerator.json",
+    "source_sha256": "4ccd2c7ee5c98b824ec4154a90efdc9aa863e6f6fbda2c10255b6219dd2aa9d3"
+  }
+}

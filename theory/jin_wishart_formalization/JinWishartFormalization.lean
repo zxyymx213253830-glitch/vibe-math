@@ -1,3 +1,4 @@
+import JinWishartFormalization.FullRankCandidateNumerator
 import JinWishartFormalization.GeneralizedMonomialMinorProduct
 import JinWishartFormalization.FiniteNoncentralKernel
 import JinWishartFormalization.InfiniteNoncentralKernel

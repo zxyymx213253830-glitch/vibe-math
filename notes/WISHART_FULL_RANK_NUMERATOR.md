@@ -1,0 +1,9 @@
+# Full-rank series numerator: permutation symmetry and sign
+
+For strictly increasing positive noncentral parameters, the product of the ordinary Vandermonde determinant in the physical nodes and the previously verified full-rank series-kernel determinant is strictly positive for any tuple of distinct positive nodes, and nonnegative for positive nodes with repetitions. It is invariant under simultaneous permutation of the node rows. The empty dimension is included. These statements concern an unnormalized formula-side numerator; they do not identify or normalize a Wishart eigenvalue law.
+
+Seed 2026102804 supplied 273 high-precision permutation, sign, repeated-node and negative controls before the proof; these checks are not proof. The locked final source and three independent literal type targets passed the serial Lean gate using the standard three printed axioms. The user explicitly authorized the complete locked source for one tools-disabled 90-second Qoder P4; the actual review returned 2026-10-29 and reported no mathematical gap.
+
+The review's optional API questions are resolved against pinned definitions: `Matrix.vandermonde` has entry `x i ^ j.val`, so repeated nodes give equal rows; `generalizedMonomialVandermonde_det_pos` takes an arbitrary strictly monotone `Fin n → ℕ` exponent sequence; `noncentralFullSeriesKernel_det_pos` takes the supplied monotonicity and positivity assumptions. The sorting witness produces a permutation and preserves positivity, and the two determinant permutation signs multiply to one. The review is automated, not human or independent compilation.
+
+[需人工审查] Sorting and permutation indices, the connection of the unnormalized numerator to measure normalization and the physical model, and the original-paper mapping. Full Lake and independent Linux kernel builds remain NOT_RUN; frozen publication artifacts are unchanged.
