@@ -1,0 +1,43 @@
+{
+  "name": "full-kernel-and-bessel-closure",
+  "review": "full-kernel-positivity-final",
+  "review_for_module": {
+    "BesselProductKernel": "bessel-product-kernel-final"
+  },
+  "resolution": "notes/WISHART_FULL_KERNEL_AND_BESSEL_CLOSURE.md",
+  "facade": "facade-154",
+  "total": 991,
+  "new_count": 11,
+  "control_script": "experiments/monomial_minor_product_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/monomial-minor-product-control.json",
+  "seed": 2026102702,
+  "additional_controls": [
+    {
+      "script": "experiments/finite_noncentral_kernel_floor_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/finite-noncentral-kernel-floor-control.json",
+      "seed": 2026102801
+    },
+    {
+      "script": "experiments/infinite_noncentral_kernel_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/infinite-noncentral-kernel-control.json",
+      "seed": 2026102802
+    },
+    {
+      "script": "experiments/bessel_product_kernel_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/bessel-product-kernel-control.json",
+      "seed": 2026102803
+    }
+  ],
+  "commit": "Verify full noncentral series and Bessel kernel positivity",
+  "scope": "2026-10-29 991 bindings: 989 theorem/instance entries plus 2 constructions, facade154 exit0 and audit PASS; 178 acceptance records verified. Strict positivity of full-rank noncentral finite and infinite series kernels and the existing modified Bessel real-part kernel, including empty dimension, using a uniform positive finite-minor floor. Not a normalized ensemble or actual noncentral Wishart joint law. Four seeded controls are not proofs. User-approved bounded Qoder P4 reviews checked against exact source; [需人工审查] measure, series, indexing and paper/model mapping. Frozen publications unchanged; fullLake/Linux independent kernel NOT_RUN.",
+  "pending_paths": [
+    "experiments/full_rank_numerator_symmetry_control.py",
+    "theory/jin_wishart_formalization/JinWishartFormalization/FullRankCandidateNumerator.lean",
+    "verification/sheaf_wishart/full-rank-candidate-numerator-v1.receipt.json",
+    "verification/sheaf_wishart/full-rank-candidate-numerator-v1.txt",
+    "verification/sheaf_wishart/quota-20261022-0949/full-rank-numerator-symmetry-control.json",
+    "verification/sheaf_wishart/quota-20261022-0949/SheafFullRankCandidateNumeratorTargets.lean",
+    "experiments/mixed_noncentral_kernel_floor_control.py",
+    "verification/sheaf_wishart/quota-20261022-0949/mixed-noncentral-kernel-floor-control.json"
+  ]
+}

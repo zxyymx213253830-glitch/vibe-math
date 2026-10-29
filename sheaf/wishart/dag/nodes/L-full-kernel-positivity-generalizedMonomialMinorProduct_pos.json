@@ -13,6 +13,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-full-kernel-positivity-GeneralizedMonomialMinorProduct.json",
+    "source_sha256": "e92b764bf2da5cef2c0f4d071e8186a10f5d91a6f268ff0102a0e9c90a35d507"
   }
 }

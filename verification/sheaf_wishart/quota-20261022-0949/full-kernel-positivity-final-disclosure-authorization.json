@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-10-28T03:19:16.068495+00:00",
+  "human_answer": "允许发送这三份新源码",
+  "question_item_id": "[\"request_user_input_async\", \"call_e39a93489f7a479888bec93b396ea781\", 0]",
+  "inputs": {
+    "GeneralizedMonomialMinorProduct.lean": {
+      "sha256": "e92b764bf2da5cef2c0f4d071e8186a10f5d91a6f268ff0102a0e9c90a35d507",
+      "supplied": "Full source"
+    },
+    "FiniteNoncentralKernel.lean": {
+      "sha256": "c145c1556621e57ffd83ed22d2513fb96c547a7432245e696fa90a0fbbd5e71b",
+      "supplied": "Full source"
+    },
+    "InfiniteNoncentralKernel.lean": {
+      "sha256": "5a5754039977e83a8563fb758e1e492d0caada0a469225fd4b0a75f1623d18ca",
+      "supplied": "Full source"
+    }
+  },
+  "prompt": "p4-full-kernel-positivity-final-prompt.txt",
+  "prompt_sha256": "4091adcba744620865e2d3c0d3f93c65b940462e46fc7a7c88d86346c27101aa",
+  "scope": [
+    "GeneralizedMonomialMinorProduct.lean",
+    "FiniteNoncentralKernel.lean",
+    "InfiniteNoncentralKernel.lean"
+  ],
+  "seconds": 90,
+  "tools_disabled": true,
+  "transmitted": true,
+  "user_deadline_unchanged": "2026-10-28T03:47:51+00:00",
+  "actual_review_started_utc": "2026-10-28T03:19:16.522830+00:00",
+  "actual_review_ended_utc": "2026-10-28T03:19:56.499006+00:00",
+  "receipt": "p4-full-kernel-positivity-final.receipt.json"
+}

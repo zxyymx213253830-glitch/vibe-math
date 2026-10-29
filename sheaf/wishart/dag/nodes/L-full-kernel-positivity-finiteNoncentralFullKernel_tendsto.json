@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-full-kernel-positivity-InfiniteNoncentralKernel.json",
+    "source_sha256": "5a5754039977e83a8563fb758e1e492d0caada0a469225fd4b0a75f1623d18ca"
   }
 }

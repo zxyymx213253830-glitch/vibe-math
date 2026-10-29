@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-full-kernel-positivity-GeneralizedMonomialMinorProduct.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-full-kernel-positivity-GeneralizedMonomialMinorProduct.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/full-kernel-positivity-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-full-kernel-positivity-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-full-kernel-positivity-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-full-kernel-positivity-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/full-kernel-positivity-final-snapshot",
+    "resolution": "notes/WISHART_FULL_KERNEL_AND_BESSEL_CLOSURE.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-154.receipt.json"
+}

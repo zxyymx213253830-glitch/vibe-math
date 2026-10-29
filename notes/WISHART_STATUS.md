@@ -1,3 +1,5 @@
+2026-10-29 991 bindings: 989 theorem/instance entries plus 2 constructions, facade154 exit0 and audit PASS; 178 acceptance records verified. Strict positivity of full-rank noncentral finite and infinite series kernels and the existing modified Bessel real-part kernel, including empty dimension, using a uniform positive finite-minor floor. Not a normalized ensemble or actual noncentral Wishart joint law. Four seeded controls are not proofs. User-approved bounded Qoder P4 reviews checked against exact source; [需人工审查] measure, series, indexing and paper/model mapping. Frozen publications unchanged; fullLake/Linux independent kernel NOT_RUN.
+
 2026-10-28追加待审检查点：实际Bessel实参实部核的3声明/3类型最终锁定gate PASS标准3，104前置控制非证明；单源P4外发许可待答，未发送。加前3模块8声明，共11声明4模块待审，已验收仍980，未计991。见WISHART_BESSEL_PRODUCT_KERNEL_PENDING_REVIEW.md。
 
 2026-10-28待审检查点：已验收980未变。新8声明3模块（子式符号抵消3/有限全非中心秩核固定正下界与严格正性2/整个级数核收敛和保下界严格正性3）全部最终锁定串行gate和8独立类型PASS标准3。698/171/540三个先行seed控制非证明；一份精确三源外发许可问题待答，未发送Qoder、不计988。一般部分秩/实际G2仍OPEN；详见WISHART_FULL_KERNEL_POSITIVITY_PENDING_REVIEW.md。当前一小时硬截止03:47:51UTC，最后额度ordinarytrue primary68 weekly47，两券未用。

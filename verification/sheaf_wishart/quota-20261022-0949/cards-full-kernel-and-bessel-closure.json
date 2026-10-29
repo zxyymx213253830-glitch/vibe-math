@@ -1,0 +1,99 @@
+[
+  {
+    "tag": "full-kernel-positivity-GeneralizedMonomialMinorProduct",
+    "module": "GeneralizedMonomialMinorProduct",
+    "nodes": [
+      [
+        "L-full-kernel-positivity-generalizedMonomialMinorProduct_pos",
+        "generalizedMonomialMinorProduct_pos",
+        []
+      ],
+      [
+        "L-full-kernel-positivity-weightedGeneralizedMonomialMinorProduct_pos",
+        "weightedGeneralizedMonomialMinorProduct_pos",
+        [
+          "L-full-kernel-positivity-generalizedMonomialMinorProduct_pos"
+        ]
+      ],
+      [
+        "L-full-kernel-positivity-weightedGeneralizedMonomialMinorProduct_nonneg",
+        "weightedGeneralizedMonomialMinorProduct_nonneg",
+        [
+          "L-full-kernel-positivity-weightedGeneralizedMonomialMinorProduct_pos"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "full-kernel-positivity-FiniteNoncentralKernel",
+    "module": "FiniteNoncentralKernel",
+    "nodes": [
+      [
+        "L-full-kernel-positivity-finiteNoncentralFullKernel_det_lower_bound",
+        "finiteNoncentralFullKernel_det_lower_bound",
+        [
+          "L-full-kernel-positivity-weightedGeneralizedMonomialMinorProduct_nonneg"
+        ]
+      ],
+      [
+        "L-full-kernel-positivity-finiteNoncentralFullKernel_det_pos",
+        "finiteNoncentralFullKernel_det_pos",
+        [
+          "L-full-kernel-positivity-finiteNoncentralFullKernel_det_lower_bound"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "full-kernel-positivity-InfiniteNoncentralKernel",
+    "module": "InfiniteNoncentralKernel",
+    "nodes": [
+      [
+        "L-full-kernel-positivity-finiteNoncentralFullKernel_tendsto",
+        "finiteNoncentralFullKernel_tendsto",
+        [
+          "L-full-kernel-positivity-finiteNoncentralFullKernel_det_pos"
+        ]
+      ],
+      [
+        "L-full-kernel-positivity-noncentralFullSeriesKernel_det_lower_bound",
+        "noncentralFullSeriesKernel_det_lower_bound",
+        [
+          "L-full-kernel-positivity-finiteNoncentralFullKernel_tendsto"
+        ]
+      ],
+      [
+        "L-full-kernel-positivity-noncentralFullSeriesKernel_det_pos",
+        "noncentralFullSeriesKernel_det_pos",
+        [
+          "L-full-kernel-positivity-noncentralFullSeriesKernel_det_lower_bound"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "bessel-product-kernel-BesselProductKernel",
+    "module": "BesselProductKernel",
+    "nodes": [
+      [
+        "L-bessel-product-kernel-modifiedBesselI_sqrt_product_re",
+        "modifiedBesselI_sqrt_product_re",
+        []
+      ],
+      [
+        "L-bessel-product-kernel-besselProductKernel_factorization",
+        "besselProductKernel_factorization",
+        [
+          "L-bessel-product-kernel-modifiedBesselI_sqrt_product_re"
+        ]
+      ],
+      [
+        "L-bessel-product-kernel-besselProductKernel_det_pos",
+        "besselProductKernel_det_pos",
+        [
+          "L-bessel-product-kernel-besselProductKernel_factorization"
+        ]
+      ]
+    ]
+  }
+]

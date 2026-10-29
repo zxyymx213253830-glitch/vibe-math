@@ -1260,3 +1260,5 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /verification/sheaf_wishart/quota-20261022-0949/locks-bessel-product-kernel-BesselProductKernel.json -text whitespace=cr-at-eol
 
 /verification/sheaf_wishart/quota-20261022-0949/p4-bessel-product-kernel-final-prompt.txt -text whitespace=cr-at-eol
+
+/notes/WISHART_FULL_KERNEL_AND_BESSEL_CLOSURE.md -text whitespace=cr-at-eol

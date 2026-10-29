@@ -13,6 +13,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-bessel-product-kernel-BesselProductKernel.json",
+    "source_sha256": "3606812f82d97ea95144bdb7181e9f83b622a4f42dacc097fc605d1081e054ca"
   }
 }
