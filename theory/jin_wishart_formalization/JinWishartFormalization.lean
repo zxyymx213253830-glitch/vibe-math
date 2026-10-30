@@ -1,3 +1,4 @@
+import JinWishartFormalization.CandidateTraceLaplace
 import JinWishartFormalization.WeightedAndreief
 import JinWishartFormalization.PsiCandidateTailRatio
 import JinWishartFormalization.NuttallSeriesTailBridge

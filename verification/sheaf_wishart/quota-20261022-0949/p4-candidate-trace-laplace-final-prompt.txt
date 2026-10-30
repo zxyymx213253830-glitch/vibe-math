@@ -1,0 +1,85 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE CandidateTraceLaplace.lean
+import JinWishartFormalization.WeightedAndreief
+import JinWishartFormalization.MixedEnsembleProbability
+
+/-! Codex. Seed 2026103011 independent trace Laplace checks precede source.
+Candidate ensemble only, no actual matrix-law identification. [需人工审查]
+Weighted integrability, density, and Fubini. -/
+open MeasureTheory Matrix Finset Set
+namespace JinWishart
+noncomputable section
+
+theorem integrable_exp_weighted_positive (u : ℝ → ℝ) (s : ℝ) (hs : 0 ≤ s)
+ (hu : Integrable u (volume.restrict (Ioi (0 : ℝ)))) :
+ Integrable (fun y => Real.exp (-s*y)*u y) (volume.restrict (Ioi (0 : ℝ))) := by
+ apply hu.norm.mono' (((by fun_prop : Measurable (fun y : ℝ => Real.exp (-s*y))).aestronglyMeasurable).mul hu.aestronglyMeasurable)
+ filter_upwards [ae_restrict_mem measurableSet_Ioi] with y hy
+ change ‖Real.exp (-s*y) * u y‖ ≤ ‖u y‖
+ rw [norm_mul,Real.norm_eq_abs,abs_of_pos (Real.exp_pos _)]
+ have hy0 : (0 : ℝ) < y := hy
+ have hw : Real.exp (-s*y) ≤ 1 := Real.exp_le_one_iff.mpr
+   (mul_nonpos_of_nonpos_of_nonneg (neg_nonpos.mpr hs) hy0.le)
+ nlinarith [norm_nonneg (u y), Real.exp_pos (-s*y)]
+
+theorem normalizedDeterminantEnsemble_trace_laplace_ae {n : ℕ} {μ : Measure ℝ} [SigmaFinite μ]
+ (f g : Fin n → ℝ → ℝ) (s : ℝ)
+ (hfg : ∀ i j, Integrable (fun y => f i y * (Real.exp (-s*y) * g j y)) μ)
+ (hpos : ∀ z, 0 ≤ determinantProduct f g z)
+ (hmeas : AEMeasurable (fun z => ENNReal.ofReal (determinantProduct f g z))
+    (Measure.pi (fun _ : Fin n => μ)))
+ (hdet : 0 < (determinantMomentMatrix μ f g).det) :
+ (∫ z : Fin n → ℝ, Real.exp (-s * ∑ i, z i) ∂(normalizedDeterminantEnsemble μ f g)) =
+ (Matrix.of (fun i j => ∫ y, f i y * (Real.exp (-s*y) * g j y) ∂μ)).det /
+ (determinantMomentMatrix μ f g).det := by
+ classical
+ have hn : (0 : ℝ) < n.factorial := by positivity
+ have hz : 0 < (n.factorial : ℝ) * (determinantMomentMatrix μ f g).det := mul_pos hn hdet
+ unfold normalizedDeterminantEnsemble determinantEnsembleMeasure
+ rw [integral_smul_measure, integral_withDensity_eq_integral_toReal_smul₀ hmeas
+   (ae_of_all _ fun _ => ENNReal.ofReal_lt_top), ENNReal.toReal_inv,
+   ENNReal.toReal_ofReal hz.le]
+ simp only [smul_eq_mul]
+ have hi : (∫ z : Fin n → ℝ, (ENNReal.ofReal (determinantProduct f g z)).toReal *
+     Real.exp (-s * ∑ i, z i) ∂(Measure.pi (fun _ : Fin n => μ))) =
+     ∫ z : Fin n → ℝ, Real.exp (-s * ∑ i, z i) * determinantProduct f g z
+       ∂(Measure.pi (fun _ : Fin n => μ)) := by
+   apply integral_congr_ae
+   filter_upwards [] with z
+   rw [ENNReal.toReal_ofReal (hpos z), mul_comm]
+ rw [hi, exp_sum_weighted_andreief f g s hfg]
+ field_simp
+
+theorem mixedCandidateEnsemble_trace_laplace_det (p L q : ℕ) (lambda : Fin L → ℝ)
+ (hl : StrictMono lambda) (hlp : ∀ j, 0 < lambda j) (s : ℝ) (hs : 0 ≤ s) :
+ (∫ z : Fin (p+L) → ℝ, Real.exp (-s * ∑ i, z i) ∂(mixedCandidateEnsemble p L q lambda)) =
+ (Matrix.of (fun i j => ∫ y, mixedEnsembleF p L i y *
+   (Real.exp (-s*y) * mixedEnsembleG p L q lambda j y)
+   ∂(volume.restrict (Ioi (0 : ℝ))))).det /
+ (determinantMomentMatrix (volume.restrict (Ioi (0 : ℝ)))
+   (mixedEnsembleF p L) (mixedEnsembleG p L q lambda)).det := by
+ let μ : Measure ℝ := volume.restrict (Ioi (0 : ℝ))
+ have hbase : ∀ i j, Integrable (fun y => mixedEnsembleF p L i y *
+     mixedEnsembleG p L q lambda j y) μ :=
+   fun i j => (mixedEnsemble_pair_moment p L q lambda (fun j => (hlp j).le) i j).1
+ have hweighted : ∀ i j, Integrable (fun y => mixedEnsembleF p L i y *
+     (Real.exp (-s*y) * mixedEnsembleG p L q lambda j y)) μ := by
+   intro i j
+   have hi := integrable_exp_weighted_positive _ s hs (hbase i j)
+   convert hi using 1 <;> funext y <;> ring
+ have hm := (andreief_det_product_integrable (mixedEnsembleF p L)
+   (mixedEnsembleG p L q lambda) hbase).aestronglyMeasurable.aemeasurable
+ have hd : AEMeasurable (fun z => ENNReal.ofReal (determinantProduct (mixedEnsembleF p L)
+     (mixedEnsembleG p L q lambda) z)) (Measure.pi (fun _ : Fin (p+L) => μ)) :=
+   ENNReal.measurable_ofReal.comp_aemeasurable hm
+ exact normalizedDeterminantEnsemble_trace_laplace_ae (mixedEnsembleF p L)
+   (mixedEnsembleG p L q lambda) s hweighted (mixedDeterminantProduct_nonneg p L q lambda hl hlp)
+   hd (mixedEnsemble_momentMatrix_det_pos p L q lambda hl hlp)
+
+end
+end JinWishart
+#print axioms JinWishart.integrable_exp_weighted_positive
+#print axioms JinWishart.normalizedDeterminantEnsemble_trace_laplace_ae
+#print axioms JinWishart.mixedCandidateEnsemble_trace_laplace_det

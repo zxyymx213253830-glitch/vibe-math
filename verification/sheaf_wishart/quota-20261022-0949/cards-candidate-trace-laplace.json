@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "candidate-trace-laplace-CandidateTraceLaplace",
+    "module": "CandidateTraceLaplace",
+    "nodes": [
+      [
+        "L-candidate-trace-laplace-integrable_exp_weighted_positive",
+        "integrable_exp_weighted_positive",
+        []
+      ],
+      [
+        "L-candidate-trace-laplace-normalizedDeterminantEnsemble_trace_laplace_ae",
+        "normalizedDeterminantEnsemble_trace_laplace_ae",
+        [
+          "L-candidate-trace-laplace-integrable_exp_weighted_positive"
+        ]
+      ],
+      [
+        "L-candidate-trace-laplace-mixedCandidateEnsemble_trace_laplace_det",
+        "mixedCandidateEnsemble_trace_laplace_det",
+        [
+          "L-candidate-trace-laplace-normalizedDeterminantEnsemble_trace_laplace_ae"
+        ]
+      ]
+    ]
+  }
+]

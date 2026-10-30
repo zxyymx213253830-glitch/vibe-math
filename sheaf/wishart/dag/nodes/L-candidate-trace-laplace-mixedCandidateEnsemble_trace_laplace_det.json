@@ -1,0 +1,24 @@
+{
+  "id": "L-candidate-trace-laplace-mixedCandidateEnsemble_trace_laplace_det",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.CandidateTraceLaplace",
+  "declaration": "JinWishart.mixedCandidateEnsemble_trace_laplace_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-trace-laplace-normalizedDeterminantEnsemble_trace_laplace_ae"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-trace-laplace-normalizedDeterminantEnsemble_trace_laplace_ae"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-trace-laplace-CandidateTraceLaplace.json",
+    "source_sha256": "126d151669e3782994e96955c595d2b2afcc3d317d2f6ca0a19994fe21240275"
+  }
+}

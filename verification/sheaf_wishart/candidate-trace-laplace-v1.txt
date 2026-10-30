@@ -1,0 +1,24 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateTraceLaplace.lean:16:5: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖?a * ?b‖
+in the target expression
+  ‖((fun y => Real.exp (-s * y)) * u) y‖ ≤ u y
+
+u : ℝ → ℝ
+s : ℝ
+hs : 0 ≤ s
+hu : Integrable u (volume.restrict (Set.Ioi 0))
+y : ℝ
+hy : y ∈ Set.Ioi 0
+⊢ ‖((fun y => Real.exp (-s * y)) * u) y‖ ≤ u y
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateTraceLaplace.lean:64:22: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateTraceLaplace.lean:64:35: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'JinWishart.integrable_exp_weighted_positive' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.normalizedDeterminantEnsemble_trace_laplace_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_trace_laplace_det' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

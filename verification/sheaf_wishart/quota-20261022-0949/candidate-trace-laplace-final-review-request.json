@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CandidateTraceLaplace.lean": {
+      "sha256": "126d151669e3782994e96955c595d2b2afcc3d317d2f6ca0a19994fe21240275",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "05ba43149f1ba571d0a7594a72401db767b3f350783e38b11b9c56892b5e69c0"
+}

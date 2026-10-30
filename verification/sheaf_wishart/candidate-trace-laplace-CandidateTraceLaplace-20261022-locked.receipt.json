@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T14:38:08.035616+00:00",
+  "ended_utc": "2026-10-30T14:38:16.948323+00:00",
+  "module": "JinWishartFormalization.CandidateTraceLaplace",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidateTraceLaplace.lean",
+  "source_sha256_before": "126d151669e3782994e96955c595d2b2afcc3d317d2f6ca0a19994fe21240275",
+  "source_sha256": "126d151669e3782994e96955c595d2b2afcc3d317d2f6ca0a19994fe21240275",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/candidate-trace-laplace-CandidateTraceLaplace-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "ad57cd130deae5d7bdffaf888c0726c3c3dfc72cf76907e1c01ed767502572a2",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}
