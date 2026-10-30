@@ -1,3 +1,4 @@
+import JinWishartFormalization.ScaledMixedKernelMoments
 import JinWishartFormalization.CandidateTraceLaplace
 import JinWishartFormalization.WeightedAndreief
 import JinWishartFormalization.PsiCandidateTailRatio

@@ -1,0 +1,2 @@
+'JinWishart.scalarSeriesKernel_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.scalarSeriesKernel_scaledMoment' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,25 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedKernelMoments.lean:37:27: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (x : ℝ) in Ioi 0, ?m.280 (c * x)
+in the target expression
+  (c ^ (q + k))⁻¹ *
+      ∫ (a : ℝ) in Ioi 0, (c * a) ^ (q + k) * Real.exp (-(c * a)) * scalarSeriesKernel q (lambda / c) (c * a) =
+    Real.exp (lambda / c) * poissonFactorialMomentPolynomial q k (lambda / c) / c ^ (q + k + 1)
+
+q k : ℕ
+lambda c : ℝ
+hl : 0 ≤ lambda
+hc : 0 < c
+hn : c ≠ 0
+hpow : c ^ (q + k) ≠ 0
+he :
+  ∀ (t : ℝ),
+    c ^ (q + k) * (t ^ (q + k) * Real.exp (-(c * t)) * scalarSeriesKernel q lambda t) =
+      (c * t) ^ (q + k) * Real.exp (-(c * t)) * scalarSeriesKernel q (lambda / c) (c * t)
+hf :
+  (fun t => t ^ (q + k) * Real.exp (-(c * t)) * scalarSeriesKernel q lambda t) = fun t =>
+    (c ^ (q + k))⁻¹ * ((c * t) ^ (q + k) * Real.exp (-(c * t)) * scalarSeriesKernel q (lambda / c) (c * t))
+⊢ (c ^ (q + k))⁻¹ *
+      ∫ (a : ℝ) in Ioi 0, (c * a) ^ (q + k) * Real.exp (-(c * a)) * scalarSeriesKernel q (lambda / c) (c * a) =
+    Real.exp (lambda / c) * poissonFactorialMomentPolynomial q k (lambda / c) / c ^ (q + k + 1)
+'JinWishart.scalarSeriesKernel_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.scalarSeriesKernel_scaledMoment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ScaledMixedKernelMoments.lean": {
+      "sha256": "eb93121c44ae009462f24a0d393adb52e5dc5c7ab933ea895b8241b0d0294576",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "4d7f2d6c8adabb402a18b79ee9be08bb14240a7a72fe685bfc97b2c8c9d48d8d"
+}

@@ -1350,3 +1350,7 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CandidateTraceLaplace.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_CANDIDATE_TRACE_LAPLACE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ScaledMixedKernelMoments.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_SCALED_MIXED_KERNEL_MOMENTS.md -text whitespace=cr-at-eol

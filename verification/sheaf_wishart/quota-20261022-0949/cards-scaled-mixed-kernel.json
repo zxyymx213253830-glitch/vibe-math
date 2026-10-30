@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "scaled-mixed-kernel-ScaledMixedKernelMoments",
+    "module": "ScaledMixedKernelMoments",
+    "nodes": [
+      [
+        "L-scaled-mixed-kernel-scalarSeriesKernel_scale",
+        "scalarSeriesKernel_scale",
+        []
+      ],
+      [
+        "L-scaled-mixed-kernel-integral_natPower_exp_neg_scaled",
+        "integral_natPower_exp_neg_scaled",
+        [
+          "L-scaled-mixed-kernel-scalarSeriesKernel_scale"
+        ]
+      ],
+      [
+        "L-scaled-mixed-kernel-scalarSeriesKernel_scaledMoment",
+        "scalarSeriesKernel_scaledMoment",
+        [
+          "L-scaled-mixed-kernel-integral_natPower_exp_neg_scaled"
+        ]
+      ]
+    ]
+  }
+]

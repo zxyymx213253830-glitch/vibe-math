@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T14:41:00.902586+00:00",
+  "ended_utc": "2026-10-30T14:41:09.567814+00:00",
+  "module": "JinWishartFormalization.ScaledMixedKernelMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ScaledMixedKernelMoments.lean",
+  "source_sha256_before": "c09d0776a3e6e720b4b91d8a3d0938ef1f2c4f574156b7bad84c97452fd9deaa",
+  "source_sha256": "c09d0776a3e6e720b4b91d8a3d0938ef1f2c4f574156b7bad84c97452fd9deaa",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/scaled-mixed-kernel-v1.txt",
+  "log_exists": true,
+  "log_sha256": "f127f5cd1e3e6e44b5da280b57b41adfa7c1645ef74d1482b1a1ed7759305482",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

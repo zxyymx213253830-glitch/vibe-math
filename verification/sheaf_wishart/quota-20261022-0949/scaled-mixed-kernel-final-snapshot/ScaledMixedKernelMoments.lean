@@ -1,0 +1,61 @@
+import JinWishartFormalization.MixedKernelMoments
+import Mathlib.MeasureTheory.Integral.IntegralEqImproper
+
+/-! Codex. Seed 2026103011 candidate trace Laplace controls precede source.
+Positive scaling of scalar candidate moments only. [需人工审查] Improper
+integral substitution and correspondence to the physical model. -/
+open MeasureTheory Set
+namespace JinWishart
+noncomputable section
+
+theorem scalarSeriesKernel_scale (q : ℕ) (lambda t c : ℝ) (hc : 0 < c) :
+ scalarSeriesKernel q (lambda/c) (c*t) = scalarSeriesKernel q lambda t := by
+ unfold scalarSeriesKernel
+ apply tsum_congr
+ intro m
+ rw [mul_pow,div_pow]
+ have hn : c^m ≠ 0 := pow_ne_zero _ (ne_of_gt hc)
+ field_simp
+
+theorem integral_natPower_exp_neg_scaled (k : ℕ) (c : ℝ) (hc : 0 < c) :
+ (∫ t in Ioi (0 : ℝ), t^k * Real.exp (-(c*t))) = (k.factorial : ℝ)/c^(k+1) := by
+ have hn : c ≠ 0 := ne_of_gt hc
+ have hp : c^k ≠ 0 := pow_ne_zero _ hn
+ have hf : (fun t : ℝ => t^k * Real.exp (-(c*t))) =
+     fun t => (c^k)⁻¹ * ((c*t)^k * Real.exp (-(c*t))) := by
+   funext t
+   rw [mul_pow]
+   field_simp
+ rw [hf,integral_const_mul,integral_comp_mul_left_Ioi
+   (fun t : ℝ => t^k * Real.exp (-t)) 0 hc,mul_zero,smul_eq_mul,
+   (integral_natPower_exp_neg_Ioi k).2,pow_succ]
+ field_simp
+
+theorem scalarSeriesKernel_scaledMoment (q k : ℕ) (lambda c : ℝ)
+ (hl : 0 ≤ lambda) (hc : 0 < c) :
+ (∫ t in Ioi (0 : ℝ), t^(q+k)*Real.exp (-(c*t))*scalarSeriesKernel q lambda t) =
+ (Real.exp (lambda/c)*poissonFactorialMomentPolynomial q k (lambda/c))/c^(q+k+1) := by
+ have hn : c ≠ 0 := ne_of_gt hc
+ have hpow : c^(q+k) ≠ 0 := pow_ne_zero _ hn
+ have he (t : ℝ) : c^(q+k) *
+     (t^(q+k)*Real.exp (-(c*t))*scalarSeriesKernel q lambda t) =
+     (c*t)^(q+k)*Real.exp (-(c*t))*scalarSeriesKernel q (lambda/c) (c*t) := by
+   rw [scalarSeriesKernel_scale q lambda t c hc,mul_pow]
+   ring
+ have hf : (fun t : ℝ => t^(q+k)*Real.exp (-(c*t))*scalarSeriesKernel q lambda t) =
+     fun t => (c^(q+k))⁻¹ *
+       ((c*t)^(q+k)*Real.exp (-(c*t))*scalarSeriesKernel q (lambda/c) (c*t)) := by
+   funext t
+   rw [← he]
+   field_simp
+ rw [hf,integral_const_mul,integral_comp_mul_left_Ioi
+   (fun t : ℝ => t^(q+k)*Real.exp (-t)*scalarSeriesKernel q (lambda/c) t) 0 hc,mul_zero,smul_eq_mul,
+   (scalarSeriesKernel_weightedMoment q k (lambda/c) (div_nonneg hl hc.le)).2,
+   pow_succ]
+ field_simp
+
+end
+end JinWishart
+#print axioms JinWishart.scalarSeriesKernel_scale
+#print axioms JinWishart.integral_natPower_exp_neg_scaled
+#print axioms JinWishart.scalarSeriesKernel_scaledMoment
