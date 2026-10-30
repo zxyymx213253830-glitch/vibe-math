@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T17:52:00.434239+00:00",
+  "ended_utc": "2026-10-30T17:52:10.575841+00:00",
+  "module": "JinWishartFormalization.CandidateTraceMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidateTraceMoments.lean",
+  "source_sha256_before": "45741e2a69966c97abcf2f0df14dedfbc49ba72bd12f33abfb9510e6beec48dc",
+  "source_sha256": "45741e2a69966c97abcf2f0df14dedfbc49ba72bd12f33abfb9510e6beec48dc",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/candidate-trace-moments-v1.txt",
+  "log_exists": true,
+  "log_sha256": "70eb137efb4d7f49baa6e116af8e0fa361e66d5684ad151b554d958176bc0a3e",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

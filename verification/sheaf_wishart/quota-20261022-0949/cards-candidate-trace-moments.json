@@ -1,0 +1,48 @@
+[
+  {
+    "tag": "candidate-trace-moments-CandidateTraceMoments",
+    "module": "CandidateTraceMoments",
+    "nodes": [
+      [
+        "L-candidate-trace-moments-candidate_actual_trace_integral_transfer",
+        "candidate_actual_trace_integral_transfer",
+        []
+      ],
+      [
+        "L-candidate-trace-moments-candidate_actual_trace_integrable_transfer",
+        "candidate_actual_trace_integrable_transfer",
+        [
+          "L-candidate-trace-moments-candidate_actual_trace_integral_transfer"
+        ]
+      ],
+      [
+        "L-candidate-trace-moments-candidate_trace_integrable",
+        "candidate_trace_integrable",
+        [
+          "L-candidate-trace-moments-candidate_actual_trace_integrable_transfer"
+        ]
+      ],
+      [
+        "L-candidate-trace-moments-candidate_trace_centered_sq_integrable",
+        "candidate_trace_centered_sq_integrable",
+        [
+          "L-candidate-trace-moments-candidate_trace_integrable"
+        ]
+      ],
+      [
+        "L-candidate-trace-moments-candidate_trace_mean",
+        "candidate_trace_mean",
+        [
+          "L-candidate-trace-moments-candidate_trace_centered_sq_integrable"
+        ]
+      ],
+      [
+        "L-candidate-trace-moments-candidate_trace_centered_second_moment",
+        "candidate_trace_centered_second_moment",
+        [
+          "L-candidate-trace-moments-candidate_trace_mean"
+        ]
+      ]
+    ]
+  }
+]

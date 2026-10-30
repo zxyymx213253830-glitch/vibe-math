@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "e0ea54d0107d422589bc2488922045df6ebed643db552889174e22e2419f7ac5",
+  "target_lock_sha256": "0073c5873fd962309018628edd354149d648802d81db32016f727402ae5ed1e8",
+  "leaf": {
+    "started_utc": "2026-10-30T17:54:27.391218+00:00",
+    "ended_utc": "2026-10-30T17:54:36.991688+00:00",
+    "module": "JinWishartFormalization.CandidateTraceMoments",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidateTraceMoments.lean",
+    "source_sha256_before": "e0ea54d0107d422589bc2488922045df6ebed643db552889174e22e2419f7ac5",
+    "source_sha256": "e0ea54d0107d422589bc2488922045df6ebed643db552889174e22e2419f7ac5",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/candidate-trace-moments-CandidateTraceMoments-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "505948af35456fce3c85765b81fabca46482d5caa077e901f382298db628e0c9",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T17:54:36.993919+00:00",
+    "ended_utc": "2026-10-30T17:54:46.499059+00:00",
+    "module": "SheafCandidateTraceMomentsTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCandidateTraceMomentsTargets.lean",
+    "source_sha256_before": "a3832fe57f4a5a49d35f0e9ec5adec8a66857f641afab497d51214bdb6b126b3",
+    "source_sha256": "a3832fe57f4a5a49d35f0e9ec5adec8a66857f641afab497d51214bdb6b126b3",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/candidate-trace-moments-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

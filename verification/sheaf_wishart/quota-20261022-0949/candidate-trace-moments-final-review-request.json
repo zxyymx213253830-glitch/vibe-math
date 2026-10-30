@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CandidateTraceMoments.lean": {
+      "sha256": "e0ea54d0107d422589bc2488922045df6ebed643db552889174e22e2419f7ac5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "21f7731ed426b6bfddad08c66d30343df5f955c9fc1c92882e1758d4bba2f714"
+}

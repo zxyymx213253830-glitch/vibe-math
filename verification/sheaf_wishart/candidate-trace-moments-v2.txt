@@ -1,0 +1,3 @@
+'JinWishart.candidate_actual_trace_integral_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.candidate_trace_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.candidate_trace_centered_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]

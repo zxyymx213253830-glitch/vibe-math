@@ -1,0 +1,64 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateTraceMoments.lean:41:5: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (z : Fin (p + L) → ℝ), id (∑ i, z i) ∂mixedCandidateEnsemble p L q lambda
+in the target expression
+  ∫ (z : Fin (p + L) → ℝ), ∑ i, z i ∂mixedCandidateEnsemble p L q lambda = ↑((p + L) * (p + L + q)) + ∑ j, lambda j
+
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : StrictMono lambda
+hlp : ∀ (j : Fin L), 0 < lambda j
+M : Matrix (Fin (p + L + q)) (Fin (p + L)) ℂ
+hmean : ∑ a, ‖M a.1 a.2‖ ^ 2 = ∑ j, lambda j
+h : ∫ (z : Fin (p + L) → ℝ), id (∑ i, z i) ∂mixedCandidateEnsemble p L q lambda = actualExpectedGramPower M
+⊢ ∫ (z : Fin (p + L) → ℝ), ∑ i, z i ∂mixedCandidateEnsemble p L q lambda = ↑((p + L) * (p + L + q)) + ∑ j, lambda j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateTraceMoments.lean:58:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x, ∑ y, ?f (x, y)
+in the target expression
+  ↑((p + L) * (p + L + q)) + ∑ j, lambda j = ↑((p + L + q) * (p + L)) + ∑ i, ∑ j, ‖M i j‖ ^ 2
+
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : StrictMono lambda
+hlp : ∀ (j : Fin L), 0 < lambda j
+M : Matrix (Fin (p + L + q)) (Fin (p + L)) ℂ
+hmean : ∑ a, ‖M a.1 a.2‖ ^ 2 = ∑ j, lambda j
+T : ℝ := ↑((p + L) * (p + L + q)) + ∑ j, lambda j
+h :
+  ∫ (z : Fin (p + L) → ℝ), (∑ i, z i - T) ^ 2 ∂mixedCandidateEnsemble p L q lambda =
+    ∫ (z : ComplexSample), ((complexGram (complexSampleMatrix z + M)).trace.re - T) ^ 2 ∂stdGaussian ComplexSample
+⊢ ↑((p + L) * (p + L + q)) + ∑ j, lambda j = ↑((p + L + q) * (p + L)) + ∑ i, ∑ j, ‖M i j‖ ^ 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    M i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateTraceMoments.lean:61:56: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ x, ∑ y, ?f (x, y)
+in the target expression
+  ∫ (z : Fin (p + L) → ℝ),
+      (∑ i, z i - (↑((p + L + q) * (p + L)) + ∑ i, ∑ j, ‖M i j‖ ^ 2)) ^ 2 ∂mixedCandidateEnsemble p L q lambda =
+    ↑((p + L + q) * (p + L)) + 2 * ∑ i, ∑ j, ‖M i j‖ ^ 2
+
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : StrictMono lambda
+hlp : ∀ (j : Fin L), 0 < lambda j
+M : Matrix (Fin (p + L + q)) (Fin (p + L)) ℂ
+hmean : ∑ a, ‖M a.1 a.2‖ ^ 2 = ∑ j, lambda j
+T : ℝ := ↑((p + L) * (p + L + q)) + ∑ j, lambda j
+h :
+  ∫ (z : Fin (p + L) → ℝ),
+      (∑ i, z i - (↑((p + L + q) * (p + L)) + ∑ i, ∑ j, ‖M i j‖ ^ 2)) ^ 2 ∂mixedCandidateEnsemble p L q lambda =
+    ↑((p + L + q) * (p + L)) + 2 * ∑ i, ∑ j, ‖M i j‖ ^ 2
+hT : T = ↑((p + L + q) * (p + L)) + ∑ i, ∑ j, ‖M i j‖ ^ 2
+⊢ ∫ (z : Fin (p + L) → ℝ),
+      (∑ i, z i - ↑((p + L) * (p + L + q)) - ∑ j, lambda j) ^ 2 ∂mixedCandidateEnsemble p L q lambda =
+    ↑((p + L) * (p + L + q)) + 2 * ∑ j, lambda j
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    M i
+'JinWishart.candidate_actual_trace_integral_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.candidate_trace_mean' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.candidate_trace_centered_second_moment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

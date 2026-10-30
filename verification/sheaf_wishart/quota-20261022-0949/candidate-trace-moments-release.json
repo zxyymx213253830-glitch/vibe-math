@@ -1,0 +1,14 @@
+{
+  "name": "candidate-trace-moments",
+  "review": "candidate-trace-moments-final",
+  "resolution": "notes/WISHART_CANDIDATE_TRACE_MOMENTS.md",
+  "facade": "facade-170",
+  "total": 1090,
+  "new_count": 6,
+  "control_script": "experiments/candidate_trace_moments_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/candidate-trace-moments-control.json",
+  "seed": 2026103101,
+  "commit": "Derive candidate trace integrability and moments",
+  "scope": "2026-10-31 candidate trace moments: 1090 bindings (1088 theorem/instance + 2 constructions), auditPASS/facade170 exit0, 210 acceptance records verified. Under explicit fixed mean energy matching, candidate coordinate sum and every centered square are integrable; mean n(n+q)+sum(lambda) and centered second moment n(n+q)+2sum(lambda) proven via scalar-law transfer, including empty dimensions. No joint-spectrum or G2 identification. Seed 2026103101 actual Gaussian numerical checks precede source and are not proof; six literal types and complete source Qoder P4 bound. [需人工审查] Gaussian convention, Fubini, Bochner transport and paper/model mapping; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}

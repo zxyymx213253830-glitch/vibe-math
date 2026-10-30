@@ -1,0 +1,24 @@
+{
+  "id": "L-candidate-trace-moments-candidate_actual_trace_integrable_transfer",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CandidateTraceMoments",
+  "declaration": "JinWishart.candidate_actual_trace_integrable_transfer",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-trace-moments-candidate_actual_trace_integral_transfer"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-trace-moments-candidate_actual_trace_integral_transfer"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-trace-moments-CandidateTraceMoments.json",
+    "source_sha256": "e0ea54d0107d422589bc2488922045df6ebed643db552889174e22e2419f7ac5"
+  }
+}

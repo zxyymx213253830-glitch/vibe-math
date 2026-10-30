@@ -1,0 +1,67 @@
+{
+  "seed": 2026103101,
+  "status": "PASS",
+  "checks": 10,
+  "negative_controls": 4,
+  "samples_per_shape": 200000,
+  "source_sha256": "59b7e260f1a7af67446b08a8d4b98f3056ddae54fe0f54830f8cc4feab1d4220",
+  "results": [
+    {
+      "m": 1,
+      "n": 1,
+      "lam": [],
+      "mean": 0.9991988913453445,
+      "expected_mean": 1,
+      "variance": 0.9980366026222277,
+      "expected_variance": 1
+    },
+    {
+      "m": 2,
+      "n": 1,
+      "lam": [
+        0.8
+      ],
+      "mean": 2.8002689230915254,
+      "expected_mean": 2.8,
+      "variance": 3.609338666295869,
+      "expected_variance": 3.6
+    },
+    {
+      "m": 2,
+      "n": 2,
+      "lam": [
+        0.3
+      ],
+      "mean": 4.306451350806606,
+      "expected_mean": 4.3,
+      "variance": 4.6187134628185476,
+      "expected_variance": 4.6
+    },
+    {
+      "m": 3,
+      "n": 2,
+      "lam": [
+        0.4,
+        1.2
+      ],
+      "mean": 7.6008252983408715,
+      "expected_mean": 7.6,
+      "variance": 9.209761100703263,
+      "expected_variance": 9.2
+    },
+    {
+      "m": 4,
+      "n": 3,
+      "lam": [
+        0.2,
+        0.7
+      ],
+      "mean": 12.890481516189636,
+      "expected_mean": 12.9,
+      "variance": 13.768057361465031,
+      "expected_variance": 13.8
+    }
+  ],
+  "not_a_proof": true,
+  "scope": "actual Gaussian trace mean and centered second moment for candidate law transport"
+}
