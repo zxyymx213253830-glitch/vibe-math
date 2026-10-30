@@ -1,0 +1,24 @@
+{
+  "id": "L-mixed-bessel-kernel-mixedBesselKernel_factorization",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedBesselKernel",
+  "declaration": "JinWishart.mixedBesselKernel_factorization",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-bessel-product-kernel-modifiedBesselI_sqrt_product_re"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-bessel-product-kernel-modifiedBesselI_sqrt_product_re"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-bessel-kernel-MixedBesselKernel.json",
+    "source_sha256": "942b95eb40f95f7ecca82d3843d5ea5c7ea0f2329fd8a68a73af1e4f7c5c3314"
+  }
+}

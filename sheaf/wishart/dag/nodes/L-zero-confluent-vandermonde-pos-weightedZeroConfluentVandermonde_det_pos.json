@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-zero-confluent-vandermonde-pos-ZeroConfluentVandermondePos.json",
+    "source_sha256": "79fae1d1c23368e9afe16e78b3399d3d73cc6b6bdbd4a5b350d61e761833e085"
   }
 }

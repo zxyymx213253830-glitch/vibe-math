@@ -1268,3 +1268,29 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/full_rank_numerator_symmetry_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_FULL_RANK_NUMERATOR.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ZeroConfluentVandermondePos.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/MixedCoefficientMinorZero.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/MixedOrderedMinorProduct.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/MixedSelectionPrefix.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/MixedSelectionSorting.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/MixedMinorProduct.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/FiniteMixedNoncentralKernel.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/InfiniteMixedNoncentralKernel.lean -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/MixedBesselKernel.lean -text whitespace=cr-at-eol
+
+/experiments/mixed_noncentral_kernel_floor_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_MIXED_KERNEL_POSITIVITY_CLOSURE.md -text whitespace=cr-at-eol
+
+/experiments/infinite_mixed_kernel_control.py -text whitespace=cr-at-eol
+
+/experiments/mixed_bessel_kernel_control.py -text whitespace=cr-at-eol

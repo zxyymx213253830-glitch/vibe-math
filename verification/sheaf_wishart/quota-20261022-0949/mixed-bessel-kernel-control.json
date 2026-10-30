@@ -1,0 +1,9 @@
+{
+  "seed": 2026102903,
+  "status": "PASS",
+  "checks": 580,
+  "precision": 70,
+  "source_sha256": "6131155d3c9cfbc3dc84d5d5c5eace8024fbf4aaa9bedd58d4ba95b68d4f699e",
+  "not_a_proof": true,
+  "scope": "row/column factorization for formula-side mixed Bessel kernel; no actual law"
+}

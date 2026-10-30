@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "MixedBesselKernel.lean": {
+      "sha256": "942b95eb40f95f7ecca82d3843d5ea5c7ea0f2329fd8a68a73af1e4f7c5c3314",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "0901fcbf3a8844cb5fc90805b9029cbc4d6acb9cf42f9d3b16b606cccbb82c52"
+}

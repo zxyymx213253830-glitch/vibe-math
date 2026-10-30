@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-kernel-closure-MixedMinorProduct.json",
+    "source_sha256": "e3a4a629f7ca37b2a9ba960462988d492474474ac647e6af8a506a8611d2d164"
   }
 }

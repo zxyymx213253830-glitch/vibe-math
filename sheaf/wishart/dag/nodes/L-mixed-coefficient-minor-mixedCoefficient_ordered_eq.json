@@ -17,6 +17,8 @@
     }
   ],
   "verification": {
-    "status": "checked_pending_review"
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-coefficient-minor-MixedCoefficientMinorZero.json",
+    "source_sha256": "6cf7487b4a0c00b8dc5e2c5cca28b93e644fcc692b085d859f31796a9f272766"
   }
 }

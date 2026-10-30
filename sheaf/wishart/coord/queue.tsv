@@ -1,10 +1,1 @@
 # id	stage	distance	kind
-L-mixed-coefficient-minor-mixedCoefficient_ordered_det_pos	3	0	compile-review-audit
-L-zero-confluent-vandermonde-pos-weightedGeneralizedConfluent_det_pos	3	0	compile-review-audit
-L-mixed-coefficient-minor-mixedCoefficient_ordered_eq	3	1	compile-review-audit
-L-zero-confluent-vandermonde-pos-weightedZeroConfluentVandermonde_det_pos	3	1	compile-review-audit
-L-mixed-coefficient-minor-mixedCoefficient_canonical_det_pos	3	2	compile-review-audit
-L-zero-confluent-vandermonde-pos-zeroConfluentVandermonde_det_pos	3	2	compile-review-audit
-L-mixed-coefficient-minor-mixedCoefficient_canonical_eq	3	3	compile-review-audit
-L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_repeated	3	4	compile-review-audit
-L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_missing	3	5	compile-review-audit

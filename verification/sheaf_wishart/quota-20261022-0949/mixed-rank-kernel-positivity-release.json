@@ -1,0 +1,35 @@
+{
+  "name": "mixed-rank-kernel-positivity",
+  "review": "mixed-kernel-closure-final",
+  "review_for_module": {
+    "ZeroConfluentVandermondePos": "zero-confluent-vandermonde-pos-final",
+    "MixedCoefficientMinorZero": "mixed-coefficient-minor-final",
+    "MixedBesselKernel": "mixed-bessel-kernel-final"
+  },
+  "resolution": "notes/WISHART_MIXED_KERNEL_POSITIVITY_CLOSURE.md",
+  "facade": "facade-156",
+  "total": 1020,
+  "new_count": 26,
+  "control_script": "experiments/mixed_noncentral_kernel_floor_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/mixed-noncentral-kernel-floor-control.json",
+  "seed": 2026102901,
+  "additional_controls": [
+    {
+      "script": "experiments/infinite_mixed_kernel_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/infinite-mixed-kernel-control.json",
+      "seed": 2026102902
+    },
+    {
+      "script": "experiments/mixed_bessel_kernel_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/mixed-bessel-kernel-control.json",
+      "seed": 2026102903
+    }
+  ],
+  "commit": "Verify mixed rank series and Bessel kernel positivity",
+  "scope": "2026-10-30 mixed-rank formula-side kernel positivity: 1020 bindings (1018 theorem/instance entries plus 2 constructions), audit PASS/facade156 exit0 and 188 acceptance records verified. Central coefficient and ordered positive noncentral columns, fixed positive lowest-minor bound, infinite factorial series limit and real-part Bessel bridge include empty dimensions. Not a normalized ensemble or actual noncentral Wishart joint law. Exact controls 8298/108/580 are not proof; 108 controls followed source draft before first check. Locked serial gates, 26 literal types and actual bounded Qoder reviews; [需人工审查] indices, convergence, Bessel scaling, measures and model/paper mapping. FullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "pending_paths": [
+    "experiments/mixed_numerator_symmetry_control.py",
+    "theory/jin_wishart_formalization/JinWishartFormalization/MixedCandidateNumerator.lean",
+    "verification/sheaf_wishart/quota-20261022-0949/mixed-numerator-symmetry-control.json"
+  ]
+}

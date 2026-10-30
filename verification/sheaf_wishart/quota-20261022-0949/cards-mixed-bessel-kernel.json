@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "mixed-bessel-kernel-MixedBesselKernel",
+    "module": "MixedBesselKernel",
+    "nodes": [
+      [
+        "L-mixed-bessel-kernel-mixedBesselKernel_factorization",
+        "mixedBesselKernel_factorization",
+        []
+      ],
+      [
+        "L-mixed-bessel-kernel-mixedBesselKernel_det_pos",
+        "mixedBesselKernel_det_pos",
+        [
+          "L-mixed-bessel-kernel-mixedBesselKernel_factorization"
+        ]
+      ]
+    ]
+  }
+]

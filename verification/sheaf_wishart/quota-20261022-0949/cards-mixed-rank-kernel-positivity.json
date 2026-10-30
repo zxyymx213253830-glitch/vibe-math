@@ -1,0 +1,230 @@
+[
+  {
+    "tag": "zero-confluent-vandermonde-pos-ZeroConfluentVandermondePos",
+    "module": "ZeroConfluentVandermondePos",
+    "nodes": [
+      [
+        "L-zero-confluent-vandermonde-pos-zeroConfluentVandermonde_det_pos",
+        "zeroConfluentVandermonde_det_pos",
+        []
+      ],
+      [
+        "L-zero-confluent-vandermonde-pos-weightedZeroConfluentVandermonde_det_pos",
+        "weightedZeroConfluentVandermonde_det_pos",
+        [
+          "L-zero-confluent-vandermonde-pos-zeroConfluentVandermonde_det_pos"
+        ]
+      ],
+      [
+        "L-zero-confluent-vandermonde-pos-weightedGeneralizedConfluent_det_pos",
+        "weightedGeneralizedConfluent_det_pos",
+        [
+          "L-zero-confluent-vandermonde-pos-weightedZeroConfluentVandermonde_det_pos"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-coefficient-minor-MixedCoefficientMinorZero",
+    "module": "MixedCoefficientMinorZero",
+    "nodes": [
+      [
+        "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_missing",
+        "mixedCoefficientMinor_zero_of_missing",
+        []
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_repeated",
+        "mixedCoefficientMinor_zero_of_repeated",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_missing"
+        ]
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficient_canonical_eq",
+        "mixedCoefficient_canonical_eq",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficientMinor_zero_of_repeated"
+        ]
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficient_canonical_det_pos",
+        "mixedCoefficient_canonical_det_pos",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficient_canonical_eq"
+        ]
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficient_ordered_eq",
+        "mixedCoefficient_ordered_eq",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficient_canonical_det_pos"
+        ]
+      ],
+      [
+        "L-mixed-coefficient-minor-mixedCoefficient_ordered_det_pos",
+        "mixedCoefficient_ordered_det_pos",
+        [
+          "L-mixed-coefficient-minor-mixedCoefficient_ordered_eq"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-MixedOrderedMinorProduct",
+    "module": "MixedOrderedMinorProduct",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-mixedOrderedDegree_strictMono",
+        "mixedOrderedDegree_strictMono",
+        []
+      ],
+      [
+        "L-mixed-kernel-closure-mixedOrderedDegree_selection",
+        "mixedOrderedDegree_selection",
+        [
+          "L-mixed-kernel-closure-mixedOrderedDegree_strictMono"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-mixedOrderedMinorProduct_pos",
+        "mixedOrderedMinorProduct_pos",
+        [
+          "L-mixed-kernel-closure-mixedOrderedDegree_selection"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-MixedSelectionPrefix",
+    "module": "MixedSelectionPrefix",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-strictMono_fin_nat_index_le",
+        "strictMono_fin_nat_index_le",
+        [
+          "L-mixed-kernel-closure-mixedOrderedMinorProduct_pos"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-mixedSelection_sorted_prefix",
+        "mixedSelection_sorted_prefix",
+        [
+          "L-mixed-kernel-closure-strictMono_fin_nat_index_le"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-mixedSelection_sorted_tail_ge",
+        "mixedSelection_sorted_tail_ge",
+        [
+          "L-mixed-kernel-closure-mixedSelection_sorted_prefix"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-MixedSelectionSorting",
+    "module": "MixedSelectionSorting",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-mixedSelection_sorted",
+        "mixedSelection_sorted",
+        [
+          "L-mixed-kernel-closure-mixedSelection_sorted_tail_ge"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-MixedMinorProduct",
+    "module": "MixedMinorProduct",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-mixedSelectionMinorProduct_pos",
+        "mixedSelectionMinorProduct_pos",
+        [
+          "L-mixed-kernel-closure-mixedSelection_sorted"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-mixedSelectionMinorProduct_nonneg",
+        "mixedSelectionMinorProduct_nonneg",
+        [
+          "L-mixed-kernel-closure-mixedSelectionMinorProduct_pos"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-FiniteMixedNoncentralKernel",
+    "module": "FiniteMixedNoncentralKernel",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-mixedLowestMinor_pos",
+        "mixedLowestMinor_pos",
+        [
+          "L-mixed-kernel-closure-mixedSelectionMinorProduct_nonneg"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-finiteMixedKernel_det_lower_bound",
+        "finiteMixedKernel_det_lower_bound",
+        [
+          "L-mixed-kernel-closure-mixedLowestMinor_pos"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-finiteMixedKernel_det_pos",
+        "finiteMixedKernel_det_pos",
+        [
+          "L-mixed-kernel-closure-finiteMixedKernel_det_lower_bound"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-kernel-closure-InfiniteMixedNoncentralKernel",
+    "module": "InfiniteMixedNoncentralKernel",
+    "nodes": [
+      [
+        "L-mixed-kernel-closure-finiteMixedKernel_tendsto",
+        "finiteMixedKernel_tendsto",
+        [
+          "L-mixed-kernel-closure-finiteMixedKernel_det_pos"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-infiniteMixedKernel_det_lower_bound",
+        "infiniteMixedKernel_det_lower_bound",
+        [
+          "L-mixed-kernel-closure-finiteMixedKernel_tendsto"
+        ]
+      ],
+      [
+        "L-mixed-kernel-closure-infiniteMixedKernel_det_pos",
+        "infiniteMixedKernel_det_pos",
+        [
+          "L-mixed-kernel-closure-infiniteMixedKernel_det_lower_bound"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-bessel-kernel-MixedBesselKernel",
+    "module": "MixedBesselKernel",
+    "nodes": [
+      [
+        "L-mixed-bessel-kernel-mixedBesselKernel_factorization",
+        "mixedBesselKernel_factorization",
+        []
+      ],
+      [
+        "L-mixed-bessel-kernel-mixedBesselKernel_det_pos",
+        "mixedBesselKernel_det_pos",
+        [
+          "L-mixed-bessel-kernel-mixedBesselKernel_factorization"
+        ]
+      ]
+    ]
+  }
+]
