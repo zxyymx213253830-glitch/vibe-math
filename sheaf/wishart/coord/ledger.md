@@ -226,3 +226,4 @@
 - 2026-10-30T18:16:35.529777+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-coordinate-noatom-CandidateCoordinateNoAtom.json; human measure/model review remains REQUIRED.
 - 2026-10-30T18:23:11.093024+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-row-affine-transport-RowAffineDeterminantTransport.json; human measure/model review remains REQUIRED.
 - 2026-10-30T18:31:47.873393+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-psi-candidate-count-PsiCandidateCountPolynomial.json; human measure/model review remains REQUIRED.
+- 2026-10-30T18:37:30.021430+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-psi-active-permutation-PsiActivePermutation.json; human measure/model review remains REQUIRED.

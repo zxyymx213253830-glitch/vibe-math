@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T18:33:52.766452+00:00",
+  "ended_utc": "2026-10-30T18:34:00.270942+00:00",
+  "module": "JinWishartFormalization.PsiActivePermutation",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PsiActivePermutation.lean",
+  "source_sha256_before": "cdf19a6a8365dd24967486f868a62e516bb3af1ba68e15d316ce88e50867e144",
+  "source_sha256": "cdf19a6a8365dd24967486f868a62e516bb3af1ba68e15d316ce88e50867e144",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/psi-active-permutation-v2.txt",
+  "log_exists": true,
+  "log_sha256": "1be342bfd6abfbc850e7ab8a52b8f66f81f414c3692eff286c8230d6c746281c",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

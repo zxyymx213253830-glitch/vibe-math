@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "PsiActivePermutation.lean": {
+      "sha256": "17a4e2b5d3000dace26ce62dff986e00eb6846723dcfb3125ddfda02da79eefc",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "7cc1651c618d6912e42c158ec3c6c1cd87fb9b15b9bf38f6587a91c42a314a1a"
+}

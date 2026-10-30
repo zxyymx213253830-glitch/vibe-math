@@ -1,0 +1,4 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:25:54: error: unexpected token 'λ'; expected '_' or identifier
+'JinWishart.psiActiveColumnPermutation_inl' depends on axioms: [propext, Quot.sound]
+'JinWishart.psiActiveColumnPermutation_inr' depends on axioms: [propext, Quot.sound]
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:51:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.psiMatrix_permute_active_columns`

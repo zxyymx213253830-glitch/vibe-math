@@ -1,0 +1,62 @@
+[
+  {
+    "tag": "psi-active-permutation-PsiActivePermutation",
+    "module": "PsiActivePermutation",
+    "nodes": [
+      [
+        "L-psi-active-permutation-psiActiveColumnPermutation_inl",
+        "psiActiveColumnPermutation_inl",
+        []
+      ],
+      [
+        "L-psi-active-permutation-psiActiveColumnPermutation_inr",
+        "psiActiveColumnPermutation_inr",
+        [
+          "L-psi-active-permutation-psiActiveColumnPermutation_inl"
+        ]
+      ],
+      [
+        "L-psi-active-permutation-psiMatrix_permute_active_columns",
+        "psiMatrix_permute_active_columns",
+        [
+          "L-psi-active-permutation-psiActiveColumnPermutation_inr"
+        ]
+      ],
+      [
+        "L-psi-active-permutation-xiMatrix_permute_active_columns",
+        "xiMatrix_permute_active_columns",
+        [
+          "L-psi-active-permutation-psiMatrix_permute_active_columns"
+        ]
+      ],
+      [
+        "L-psi-active-permutation-psiCountPolynomial_permute_active",
+        "psiCountPolynomial_permute_active",
+        [
+          "L-psi-active-permutation-xiMatrix_permute_active_columns"
+        ]
+      ],
+      [
+        "L-psi-active-permutation-psiZeroDet_permute_active",
+        "psiZeroDet_permute_active",
+        [
+          "L-psi-active-permutation-psiCountPolynomial_permute_active"
+        ]
+      ],
+      [
+        "L-psi-active-permutation-psiCountRatio_permute_active",
+        "psiCountRatio_permute_active",
+        [
+          "L-psi-active-permutation-psiZeroDet_permute_active"
+        ]
+      ],
+      [
+        "L-psi-active-permutation-candidateCount_eq_paperThetaDetSum",
+        "candidateCount_eq_paperThetaDetSum",
+        [
+          "L-psi-active-permutation-psiCountRatio_permute_active"
+        ]
+      ]
+    ]
+  }
+]

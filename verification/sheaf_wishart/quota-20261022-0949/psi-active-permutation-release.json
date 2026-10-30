@@ -1,0 +1,14 @@
+{
+  "name": "psi-active-permutation",
+  "review": "psi-active-permutation-final",
+  "resolution": "notes/WISHART_PSI_ACTIVE_PERMUTATION.md",
+  "facade": "facade-176",
+  "total": 1118,
+  "new_count": 8,
+  "control_script": "experiments/active_column_permutation_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/active-column-permutation-control.json",
+  "seed": 2026103106,
+  "commit": "Connect descending paper Theta sum to candidate counts",
+  "scope": "2026-10-31 descending parameter bridge: 1118 bindings (1116 theorem/instance + 2 constructions), auditPASS/facade176 exit0, 216 acceptance records verified. Candidate count for reversed positive paper spectrum equals original Theta determinant sum divided by det Psi(0), with signed active-column permutation cancelling; all rank and empty parameters included formally. 51 exact and 21 negative permutation controls seed 2026103106, and earlier candidate coefficients control, are not proof; eight literal types and complete source Qoder P4 reviewed. [需人工审查] measure/Fubini, paper indices, normalization and model mapping. Does not establish actual Wishart joint law or displayed journal c3 normalization; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}

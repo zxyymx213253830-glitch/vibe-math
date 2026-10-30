@@ -1,0 +1,11 @@
+# Candidate count and descending paper parameter convention
+
+The final full module and eight literal theorem types were reviewed by Qoder Qwen3.8-Max with tools disabled. It proves that for a positive strictly descending paper spectrum, the candidate ensemble built with the reversed, increasing parameters has count probability equal to the original paper Θ determinant sum divided by det Ψ(0). The Θ index is k+1 for k coordinates above x. This is formula-side only. It does not assert equality to the actual noncentral Wishart joint law or that the paper's displayed c3 normalizes that sum.
+
+Qoder's first concern asks for covariance of candidate measures under permutation. No such equality is used or claimed: the left side explicitly uses reversed parameters, and the already established candidate coefficient theorem applies to that exact measure. Only the Ψ/Ξ matrices on the right are permuted; both determinants acquire the same explicit sign, which cancels. Seed 2026103106: 51 symbolic checks and 21 negative sign controls, not proof; seed 2026103104 separately compared candidate count coefficients and determinant formulas, not proof. [需人工审查] Paper coordinate order and model identification.
+
+Qoder notes formal division makes sense even for zero denominators. The general algebraic permutation identity deliberately needs only the sign nonzero. For the final theorem, positivity and StrictAnti imply injectivity, and the existing pinned `theorem1PsiMatrix_zero_det_ne_zero` proves the displayed denominator nonzero; the candidate coefficient theorem independently proves the nonzero denominator in its own proof. Thus the probability reading is supported under the final theorem's actual assumptions. [需人工审查] Normalization and integral conventions.
+
+Qoder's sign-coercion API warning is a maintenance concern, not a mathematical counterexample; the pinned version was checked. L=0 has a valid empty noncentral spectrum and may still have p eigenvalue coordinates; p=L=0 has no coordinates. No claim is made about whether the paper explicitly covers either edge case. [需人工审查] Applicability to the paper's dimensions.
+
+This review does not constitute human review or independent kernel compilation. Frozen publication artifacts unchanged; fullLake/Linux independent kernel NOT_RUN.

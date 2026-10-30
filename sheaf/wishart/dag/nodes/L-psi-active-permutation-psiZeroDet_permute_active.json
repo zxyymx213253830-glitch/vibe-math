@@ -1,0 +1,24 @@
+{
+  "id": "L-psi-active-permutation-psiZeroDet_permute_active",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PsiActivePermutation",
+  "declaration": "JinWishart.psiZeroDet_permute_active",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-psi-active-permutation-psiCountPolynomial_permute_active"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-psi-active-permutation-psiCountPolynomial_permute_active"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-psi-active-permutation-PsiActivePermutation.json",
+    "source_sha256": "17a4e2b5d3000dace26ce62dff986e00eb6846723dcfb3125ddfda02da79eefc"
+  }
+}

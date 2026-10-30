@@ -1,0 +1,9 @@
+{
+  "seed": 2026103106,
+  "status": "PASS",
+  "checks": 51,
+  "negative_controls": 21,
+  "source_sha256": "2b8e2545f1856622e2ed5b78bffa6efbddf10ad02bcb034d64ee68b9655ee643",
+  "not_a_proof": true,
+  "scope": "active column permutation of arbitrary affine polynomial matrix; numerator and denominator signs cancel; symbolic only, not Wishart proof"
+}

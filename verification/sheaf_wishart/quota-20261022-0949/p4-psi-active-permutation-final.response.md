@@ -1,0 +1,17 @@
+## P4 Adversarial Review: `PsiActivePermutation.lean`
+
+**1. Index reversal in `candidateCount_eq_paperThetaDetSum` (Mathematical/Convention Gap)**
+
+The theorem applies `mixedCandidateEnsemble_count_eq_psi_coefficient` to the reversed spectrum `spectrum.values ∘ Fin.revPerm`, then invokes `psiCountRatio_permute_active` with `π := Fin.revPerm` to map back to the original ordering. This round-trip is logically coherent only if `mixedCandidateEnsemble` applied to a strictly increasing sequence (produced by reversing the strictly decreasing `spectrum.values`) corresponds to the same combinatorial object indexed by `Fin.revPerm`. The proof establishes `StrictMono (spectrum.values ∘ Fin.revPerm)` correctly, but the semantic identification between the candidate ensemble defined via the increasing rearrangement and the theta-det-sum (which expects the original decreasing parameter convention from `OrderedPositiveNoncentralSpectrum`) is asserted through the rewrite chain without an explicit lemma justifying that `mixedCandidateEnsemble` transforms covariantly under index reversal of its parameter function. If the candidate ensemble definition treats coordinates as unordered or uses a different indexing convention than `theorem3ThetaDetSum`, this equation is off by a permutation action on the underlying probability space.
+
+**2. Division well-definedness (Implicit Assumption)**
+
+`psiCountRatio_permute_active` and `candidateCount_eq_paperThetaDetSum` divide by `(theorem1PsiMatrix ... 0).det`. The ratio equality in `psiCountRatio_permute_active` proves the sign factor cancels, but neither theorem states or proves that this determinant is nonzero. The cancellation logic (`mul_div_mul_left _ _ hs`) requires only that the sign unit is nonzero (proven), not that the denominator is nonzero—Lean's division-by-zero convention makes the statement technically well-formed even when the determinant vanishes, but mathematically the "ratio" is meaningful only under a nondegeneracy condition on `lambda` at `x = 0`. This condition is never introduced as a hypothesis. If the downstream use of `candidateCount_eq_paperThetaDetSum` requires interpreting both sides as actual probability ratios rather than formal algebraic expressions, the missing nonvanishing assumption is a gap.
+
+**3. Coercion path in sign handling (Minor API Concern)**
+
+`((Equiv.Perm.sign (psiActiveColumnPermutation p L π).symm : ℤˣ) : ℂ)` chains coercions `ℤˣ → ℤ → ℂ`. The norm calculation `Complex.norm_intCast` followed by `abs_unit_intCast` is correct for units, but relies on the specific coercion path preserving the unit property through the integer embedding. This works in current Mathlib but is fragile: if `abs_unit_intCast` were refactored to operate on `ℤˣ` directly rather than factoring through `Int.natAbs`, the intermediate rewrite could break. Not a mathematical error, but a maintenance risk.
+
+**4. No dimensional guard on `L = 0` edge case**
+
+When `L = 0`, `Fin L` is empty, `π` is trivial, and `Fin.revPerm` is the identity. The theorems remain formally true but `OrderedPositiveNoncentralSpectrum 0` carries vacuous spectral data. The final theorem equates a candidate count over an empty parameter set to a theta-det-sum ratio; no logical error, but the absence of an `L > 0` guard means the statement claims content in a degenerate case where the paper's probabilistic model likely has no intended interpretation.

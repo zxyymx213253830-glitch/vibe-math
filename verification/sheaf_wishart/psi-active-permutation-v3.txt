@@ -1,0 +1,32 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:46:79: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:46:91: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:40:44: warning: This simp argument is unused:
+  Matrix.submatrix_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [theorem1PsiMatrix, theorem1PsiEntry, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:46:49: warning: This simp argument is unused:
+  Matrix.submatrix_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, id_eq, dif_pos hj, dif_pos hj']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:46:72: warning: This simp argument is unused:
+  id_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiMatrix, theorem1PsiEntry, Matrix.submatrix_apply, dif_pos hj, dif_pos hj']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.psiActiveColumnPermutation_inl' depends on axioms: [propext, Quot.sound]
+'JinWishart.psiActiveColumnPermutation_inr' depends on axioms: [propext, Quot.sound]
+'JinWishart.psiMatrix_permute_active_columns' depends on axioms: [propext, Classical.choice, Quot.sound]

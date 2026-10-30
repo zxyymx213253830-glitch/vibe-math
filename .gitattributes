@@ -1418,3 +1418,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/psi_candidate_count_coeff_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_PSI_CANDIDATE_COUNT_POLYNOMIAL.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/PsiActivePermutation.lean -text whitespace=cr-at-eol,-blank-at-eof
+
+/experiments/active_column_permutation_control.py -text whitespace=cr-at-eol,-blank-at-eof
+
+/notes/WISHART_PSI_ACTIVE_PERMUTATION.md -text whitespace=cr-at-eol

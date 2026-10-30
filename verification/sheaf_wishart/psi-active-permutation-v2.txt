@@ -1,0 +1,47 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:34:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (psiActiveColumnPermutation ?p ?L ?π) ((psiZeroColumnEquiv ?p ?L) (Sum.inl ?a))
+in the target expression
+  theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ (lambda ∘ ⇑π) x i ((psiZeroColumnEquiv p L) (Sum.inl a)) =
+    (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x).submatrix id (⇑(psiActiveColumnPermutation p L π)) i
+      ((psiZeroColumnEquiv p L) (Sum.inl a))
+
+case inl
+p L q : ℕ
+lambda : Fin L → ℝ
+π : Equiv.Perm (Fin L)
+x : ℝ
+i : Fin (p + L)
+a : Fin p
+⊢ theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ (lambda ∘ ⇑π) x i ((psiZeroColumnEquiv p L) (Sum.inl a)) =
+    (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x).submatrix id (⇑(psiActiveColumnPermutation p L π)) i
+      ((psiZeroColumnEquiv p L) (Sum.inl a))
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ (lambda ∘ ⇑π) x i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiActivePermutation.lean:41:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (psiActiveColumnPermutation ?p ?L ?π) ((psiZeroColumnEquiv ?p ?L) (Sum.inr ?a))
+in the target expression
+  theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ (lambda ∘ ⇑π) x i ((psiZeroColumnEquiv p L) (Sum.inr a)) =
+    (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x).submatrix id (⇑(psiActiveColumnPermutation p L π)) i
+      ((psiZeroColumnEquiv p L) (Sum.inr a))
+
+case inr
+p L q : ℕ
+lambda : Fin L → ℝ
+π : Equiv.Perm (Fin L)
+x : ℝ
+i : Fin (p + L)
+a : Fin L
+⊢ theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ (lambda ∘ ⇑π) x i ((psiZeroColumnEquiv p L) (Sum.inr a)) =
+    (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x).submatrix id (⇑(psiActiveColumnPermutation p L π)) i
+      ((psiZeroColumnEquiv p L) (Sum.inr a))
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ (lambda ∘ ⇑π) x i
+'JinWishart.psiActiveColumnPermutation_inl' depends on axioms: [propext, Quot.sound]
+'JinWishart.psiActiveColumnPermutation_inr' depends on axioms: [propext, Quot.sound]
+'JinWishart.psiMatrix_permute_active_columns' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
