@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T02:14:41.509556+00:00",
+  "ended_utc": "2026-10-30T02:14:48.857271+00:00",
+  "module": "JinWishartFormalization.GammaTailMomentBridge",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GammaTailMomentBridge.lean",
+  "source_sha256_before": "8f9f221aaf3b1db5b40269e66d736eff84d5dc99e64a308e41c0eace2ea2a854",
+  "source_sha256": "8f9f221aaf3b1db5b40269e66d736eff84d5dc99e64a308e41c0eace2ea2a854",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/gamma-tail-moment-bridge-v1.txt",
+  "log_exists": true,
+  "log_sha256": "2cc1cb6e456f0f54bb9c59f1c7537ab2a5331e65739c30dfda1021e3071776de",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "tag": "nuttall-series-tail-NuttallSeriesTailBridge",
+    "module": "NuttallSeriesTailBridge",
+    "nodes": [
+      [
+        "L-nuttall-series-tail-nuttall_series_integrand_re",
+        "nuttall_series_integrand_re",
+        []
+      ],
+      [
+        "L-nuttall-series-tail-nuttallQ_series_tail_re",
+        "nuttallQ_series_tail_re",
+        [
+          "L-nuttall-series-tail-nuttall_series_integrand_re"
+        ]
+      ],
+      [
+        "L-nuttall-series-tail-paperScaled_nuttallQ_series_tail_re",
+        "paperScaled_nuttallQ_series_tail_re",
+        [
+          "L-nuttall-series-tail-nuttallQ_series_tail_re"
+        ]
+      ],
+      [
+        "L-nuttall-series-tail-nuttallQ_natural_tail_im_zero",
+        "nuttallQ_natural_tail_im_zero",
+        [
+          "L-nuttall-series-tail-paperScaled_nuttallQ_series_tail_re"
+        ]
+      ],
+      [
+        "L-nuttall-series-tail-paperScaled_nuttallQ_series_tail",
+        "paperScaled_nuttallQ_series_tail",
+        [
+          "L-nuttall-series-tail-nuttallQ_natural_tail_im_zero"
+        ]
+      ]
+    ]
+  }
+]

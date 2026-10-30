@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T02:08:55.711039+00:00",
+  "ended_utc": "2026-10-30T02:09:03.811568+00:00",
+  "module": "JinWishartFormalization.NuttallSeriesTailBridge",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NuttallSeriesTailBridge.lean",
+  "source_sha256_before": "a45dc085856f3eda2c28898cf35daee3affc495455665a88025c670a92405000",
+  "source_sha256": "a45dc085856f3eda2c28898cf35daee3affc495455665a88025c670a92405000",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/nuttall-series-tail-bridge-v4.txt",
+  "log_exists": true,
+  "log_sha256": "439d7a4c20fdcf07de79b6d3d7edb0d5429f82e6cf4cd5c0d76fc6be35952c90",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

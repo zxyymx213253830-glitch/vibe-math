@@ -1,0 +1,27 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:107:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (r : ℝ) in Ioi a, r * ?g (r ^ 2 / 2)
+in the target expression
+  √2 ^ q * 2 ^ k * √lambda ^ q * Real.exp (-lambda) *
+      ∫ (r : ℝ) in Ioi a,
+        r * ((r ^ 2 / 2) ^ (q + k) * Real.exp (-(r ^ 2 / 2)) * scalarSeriesKernel q lambda (r ^ 2 / 2)) =
+    √2 ^ q * 2 ^ k * √lambda ^ q * Real.exp (-lambda) *
+      ∫ (y : ℝ) in Ioi x, y ^ (q + k) * Real.exp (-y) * scalarSeriesKernel q lambda y
+
+q k : ℕ
+lambda x : ℝ
+hl : 0 ≤ lambda
+hx : 0 ≤ x
+a : ℝ := √(2 * x)
+ha : 0 ≤ a
+ha2 : a ^ 2 / 2 = x
+hint : IntegrableOn (nuttallQIntegrand (q + 2 * k + 1) q √(2 * lambda)) (Ioi a) volume
+hre :
+  (nuttallQ (q + 2 * k + 1) q (√(2 * lambda)) a).re =
+    ∫ (r : ℝ) in Ioi a, (nuttallQIntegrand (q + 2 * k + 1) q (√(2 * lambda)) r).re
+⊢ √2 ^ q * 2 ^ k * √lambda ^ q * Real.exp (-lambda) *
+      ∫ (r : ℝ) in Ioi a,
+        r * ((r ^ 2 / 2) ^ (q + k) * Real.exp (-(r ^ 2 / 2)) * scalarSeriesKernel q lambda (r ^ 2 / 2)) =
+    √2 ^ q * 2 ^ k * √lambda ^ q * Real.exp (-lambda) *
+      ∫ (y : ℝ) in Ioi x, y ^ (q + k) * Real.exp (-y) * scalarSeriesKernel q lambda y
+'JinWishart.nuttall_series_integrand_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.nuttallQ_series_tail_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

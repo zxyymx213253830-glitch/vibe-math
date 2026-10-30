@@ -1,0 +1,24 @@
+{
+  "id": "L-nuttall-series-tail-paperScaled_nuttallQ_series_tail_re",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.NuttallSeriesTailBridge",
+  "declaration": "JinWishart.paperScaled_nuttallQ_series_tail_re",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-nuttall-series-tail-nuttallQ_series_tail_re"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-nuttall-series-tail-nuttallQ_series_tail_re"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-nuttall-series-tail-NuttallSeriesTailBridge.json",
+    "source_sha256": "5b505fd86ab7159274001970dd5ebed9f7ef5b2f4db86a943064c863854be638"
+  }
+}

@@ -1,0 +1,132 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:28:3: error: linarith failed to find a contradiction
+case h1
+q k : ℕ
+lambda r : ℝ
+hl : 0 ≤ lambda
+hr : 0 ≤ r
+y : ℝ := r ^ 2 / 2
+hy : 0 ≤ r ^ 2 / 2
+hs2 : √2 ^ 2 = 2
+hsy : √(r ^ 2 / 2) ^ 2 = r ^ 2 / 2
+hsl : √(2 * lambda) ^ 2 = 2 * lambda
+hsyl : √(r ^ 2 / 2 * lambda) ^ 2 = r ^ 2 / 2 * lambda
+h0 : 0 ≤ √2
+h1 : 0 ≤ √(r ^ 2 / 2)
+a✝ : √2 * √(r ^ 2 / 2) < r
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:33:3: error: linarith failed to find a contradiction
+case h1
+q k : ℕ
+lambda r : ℝ
+hl : 0 ≤ lambda
+hr : 0 ≤ r
+y : ℝ := r ^ 2 / 2
+hy : 0 ≤ r ^ 2 / 2
+hs2 : √2 ^ 2 = 2
+hsy : √(r ^ 2 / 2) ^ 2 = r ^ 2 / 2
+hsl : √(2 * lambda) ^ 2 = 2 * lambda
+hsyl : √(r ^ 2 / 2 * lambda) ^ 2 = r ^ 2 / 2 * lambda
+hroot : √2 * √(r ^ 2 / 2) = r
+h0 : 0 ≤ √(2 * lambda)
+h1 : 0 ≤ √(r ^ 2 / 2 * lambda)
+a✝ : √(2 * lambda) * r < 2 * √(r ^ 2 / 2 * lambda)
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:37:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a ^ ?m) ^ ?n
+in the target expression
+  r ^ (2 * k) = 2 ^ k * y ^ k
+
+q k : ℕ
+lambda r : ℝ
+hl : 0 ≤ lambda
+hr : 0 ≤ r
+y : ℝ := r ^ 2 / 2
+hy : 0 ≤ y
+hs2 : √2 ^ 2 = 2
+hsy : √y ^ 2 = y
+hsl : √(2 * lambda) ^ 2 = 2 * lambda
+hsyl : √(y * lambda) ^ 2 = y * lambda
+hroot : √2 * √y = r
+harg : √(2 * lambda) * r = 2 * √(y * lambda)
+hrootPow : √2 ^ q * √y ^ q = r ^ q
+⊢ r ^ (2 * k) = 2 ^ k * y ^ k
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:41:42: error: unsolved goals
+q k : ℕ
+lambda r : ℝ
+hl : 0 ≤ lambda
+hr : 0 ≤ r
+y : ℝ := r ^ 2 / 2
+hy : 0 ≤ y
+hs2 : √2 ^ 2 = 2
+hsy : √y ^ 2 = y
+hsl : √(2 * lambda) ^ 2 = 2 * lambda
+hsyl : √(y * lambda) ^ 2 = y * lambda
+hroot : √2 * √y = r
+harg : √(2 * lambda) * r = 2 * √(y * lambda)
+hrootPow : √2 ^ q * √y ^ q = r ^ q
+hrpow : r ^ (2 * k) = 2 ^ k * y ^ k
+⊢ True ∨ √y = 0 ∧ ¬q = 0
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:42:14: error: unsolved goals
+q k : ℕ
+lambda r : ℝ
+hl : 0 ≤ lambda
+hr : 0 ≤ r
+y : ℝ := r ^ 2 / 2
+hy : 0 ≤ y
+hs2 : √2 ^ 2 = 2
+hsy : √y ^ 2 = y
+hsl : √(2 * lambda) ^ 2 = 2 * lambda
+hsyl : √(y * lambda) ^ 2 = y * lambda
+hroot : √2 * √y = r
+harg : √(2 * lambda) * r = 2 * √(y * lambda)
+hrootPow : √2 ^ q * √y ^ q = r ^ q
+hrpow : r ^ (2 * k) = 2 ^ k * y ^ k
+⊢ r * √2 ^ q * √y ^ (q * 2) * y ^ k * 2 ^ k = r * √2 ^ q * y ^ q * y ^ k * 2 ^ k
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:56:1: error: 'change' tactic failed, pattern
+  r ^ (q + 2 * k + 1) * (Real.exp (-y) * Real.exp (-lambda)) *
+      (√y ^ q * (√lambda ^ q * scalarSeriesKernel q lambda y)) =
+    ?m.712
+is not definitionally equal to target
+  ((↑r ^ (q + 2 * k + 1)).re * (Real.exp (-y) * Real.exp (-lambda)) - (↑r ^ (q + 2 * k + 1)).im * 0) *
+        (√y ^ q * (√lambda ^ q * scalarSeriesKernel q lambda y)) -
+      (↑r ^ (q + 2 * k + 1) * ↑(Real.exp (-y) * Real.exp (-lambda))).im * (modifiedBesselI q ↑(√(2 * lambda) * r)).im =
+    √2 ^ q * 2 ^ k * √lambda ^ q * Real.exp (-lambda) *
+      (r * ((r ^ 2 / 2) ^ (q + k) * Real.exp (-(r ^ 2 / 2)) * scalarSeriesKernel q lambda (r ^ 2 / 2)))
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:54:3: warning: This simp argument is unused:
+  Complex.ofReal_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nuttallQIntegrand, Complex.mul_re, Complex.ofReal_re, Complex.ofReal_im, zero_mul, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:54:22: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nuttallQIntegrand, Complex.mul_re, Complex.ofReal_re, Complex.ofReal_im, Complex.ofReal_pow,
+    sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:54:31: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nuttallQIntegrand, Complex.mul_re, Complex.ofReal_re, Complex.ofReal_im, Complex.ofReal_pow,
+    zero_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.nuttall_series_integrand_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

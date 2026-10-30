@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "PaperPsiTailMomentBridge.lean": {
+      "sha256": "9796eb19d20ecf0c4a33b5e2ae01e3f1251ab790588a3882c497f3597c1b1ae0",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "a643acd50d3fa46ac711ab8f68121a0353ca929e429f8a28678b1cdcd02d752a"
+}

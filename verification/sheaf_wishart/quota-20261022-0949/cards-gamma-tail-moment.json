@@ -1,0 +1,13 @@
+[
+  {
+    "tag": "gamma-tail-moment-GammaTailMomentBridge",
+    "module": "GammaTailMomentBridge",
+    "nodes": [
+      [
+        "L-gamma-tail-moment-upperGammaNat_eq_realTailMoment",
+        "upperGammaNat_eq_realTailMoment",
+        []
+      ]
+    ]
+  }
+]

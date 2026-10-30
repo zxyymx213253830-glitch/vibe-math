@@ -1,0 +1,1 @@
+'JinWishart.nuttall_series_integrand_re' depends on axioms: [propext, Classical.choice, Quot.sound]

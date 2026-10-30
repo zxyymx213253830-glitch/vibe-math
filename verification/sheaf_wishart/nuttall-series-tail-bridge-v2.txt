@@ -1,0 +1,37 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:31:62: error: linarith failed to find a contradiction
+case h1
+q k : ℕ
+lambda r : ℝ
+hl : 0 ≤ lambda
+hr : 0 ≤ r
+y : ℝ := r ^ 2 / 2
+hy : 0 ≤ y
+hs2 : √2 ^ 2 = 2
+hsy : √y ^ 2 = y
+hsl : √(2 * lambda) ^ 2 = 2 * lambda
+hsyl : √(y * lambda) ^ 2 = y * lambda
+hroot : √2 * √y = r
+a✝ : √lambda * (√2 * (√2 * √y)) < √lambda * (2 * √y)
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:43:31: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  √y ^ 2
+in the target expression
+  √2 ^ q * (√y * √y) ^ q = √2 ^ q * y ^ q
+
+q k : ℕ
+lambda r : ℝ
+hl : 0 ≤ lambda
+hr : 0 ≤ r
+y : ℝ := r ^ 2 / 2
+hy : 0 ≤ y
+hs2 : √2 ^ 2 = 2
+hsy : √y ^ 2 = y
+hsl : √(2 * lambda) ^ 2 = 2 * lambda
+hsyl : √(y * lambda) ^ 2 = y * lambda
+hroot : √2 * √y = r
+harg : √(2 * lambda) * r = 2 * √(y * lambda)
+hrootPow : √2 ^ q * √y ^ q = r ^ q
+hrpow : r ^ (2 * k) = 2 ^ k * y ^ k
+⊢ √2 ^ q * (√y * √y) ^ q = √2 ^ q * y ^ q
+'JinWishart.nuttall_series_integrand_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-30T02:15:29.708974+00:00",
+  "module": "JinWishartFormalization.GammaTailMomentBridge",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/GammaTailMomentBridge.lean",
+  "statements": {
+    "JinWishart.upperGammaNat_eq_realTailMoment": "(k : ℕ) (x : ℝ) (hx : 0 ≤ x) : upperGammaNat k x = ((∫ y in Ioi x, y^k*Real.exp (-y) : ℝ) : ℂ)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/IncompleteGamma.lean": "8218e54945bb43bd233034dda988a20b8ffe1a74e82e13c79e32b458ae6ec378",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/IncompleteGamma.olean": "1ec416113b374bd3a07cab7b6c857cdcd85b04d269c9547b19fc51121a9d1d3c",
+    "theory/jin_wishart_formalization/JinWishartFormalization/GammaTailMomentBridge.lean": "8f9f221aaf3b1db5b40269e66d736eff84d5dc99e64a308e41c0eace2ea2a854",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafGammaTailMomentTargets.lean",
+  "type_check_source_sha256": "8f127ca9f1c132d540e5b584f0897c1ae15b38c078d30e6d3ea3f7ce4171b384",
+  "locked_local_definitions": {}
+}

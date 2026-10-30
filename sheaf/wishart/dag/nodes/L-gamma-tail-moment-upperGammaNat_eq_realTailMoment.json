@@ -1,0 +1,20 @@
+{
+  "id": "L-gamma-tail-moment-upperGammaNat_eq_realTailMoment",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.GammaTailMomentBridge",
+  "declaration": "JinWishart.upperGammaNat_eq_realTailMoment",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-gamma-tail-moment-GammaTailMomentBridge.json",
+    "source_sha256": "8f9f221aaf3b1db5b40269e66d736eff84d5dc99e64a308e41c0eace2ea2a854"
+  }
+}

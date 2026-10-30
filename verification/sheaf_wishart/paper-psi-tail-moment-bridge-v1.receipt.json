@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T02:16:46.182559+00:00",
+  "ended_utc": "2026-10-30T02:16:54.849946+00:00",
+  "module": "JinWishartFormalization.PaperPsiTailMomentBridge",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PaperPsiTailMomentBridge.lean",
+  "source_sha256_before": "56b8c6d721a13d8d0c9f1b01cd132aa98c296023ff71a755861886e9ec9d79e5",
+  "source_sha256": "56b8c6d721a13d8d0c9f1b01cd132aa98c296023ff71a755861886e9ec9d79e5",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/paper-psi-tail-moment-bridge-v1.txt",
+  "log_exists": true,
+  "log_sha256": "c13c6c249cc899ce789080b14961e7f0ff73c9414b2d92b426ada3e2c3d46ba4",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

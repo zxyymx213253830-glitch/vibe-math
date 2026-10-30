@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "8f9f221aaf3b1db5b40269e66d736eff84d5dc99e64a308e41c0eace2ea2a854",
+  "target_lock_sha256": "38ddf621404fba30712af6c61ad7c8e2d7ec5e789b949288995aef9943b6513a",
+  "leaf": {
+    "started_utc": "2026-10-30T02:15:29.720232+00:00",
+    "ended_utc": "2026-10-30T02:15:37.024793+00:00",
+    "module": "JinWishartFormalization.GammaTailMomentBridge",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/GammaTailMomentBridge.lean",
+    "source_sha256_before": "8f9f221aaf3b1db5b40269e66d736eff84d5dc99e64a308e41c0eace2ea2a854",
+    "source_sha256": "8f9f221aaf3b1db5b40269e66d736eff84d5dc99e64a308e41c0eace2ea2a854",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/gamma-tail-moment-GammaTailMomentBridge-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "2cc1cb6e456f0f54bb9c59f1c7537ab2a5331e65739c30dfda1021e3071776de",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T02:15:37.026460+00:00",
+    "ended_utc": "2026-10-30T02:15:44.720457+00:00",
+    "module": "SheafGammaTailMomentTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafGammaTailMomentTargets.lean",
+    "source_sha256_before": "8f127ca9f1c132d540e5b584f0897c1ae15b38c078d30e6d3ea3f7ce4171b384",
+    "source_sha256": "8f127ca9f1c132d540e5b584f0897c1ae15b38c078d30e6d3ea3f7ce4171b384",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/gamma-tail-moment-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

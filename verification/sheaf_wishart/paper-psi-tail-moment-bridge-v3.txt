@@ -1,0 +1,72 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:31:3: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:30:12: warning: This simp argument is unused:
+  mixedCandidateTailMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.of_apply, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:30:37: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mixedCandidateTailMatrix, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:42:3: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:41:12: warning: This simp argument is unused:
+  mixedCandidateTailMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.of_apply, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, scalarSeriesKernel, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:41:37: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mixedCandidateTailMatrix, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, scalarSeriesKernel, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:77:31: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:96:31: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:79:9: error: unsolved goals
+case inr
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+hr : ∀ (i : Fin p ⊕ Fin L), p + L - (↑((psiZeroRowEquiv p L) i) + 1) = mixedMomentDegree p L i
+hcl : ∀ (a : Fin p), ↑((psiZeroColumnEquiv p L) (Sum.inl a)) = p + L - (↑a + 1)
+hcr : ∀ (j : Fin L), ↑((psiZeroColumnEquiv p L) (Sum.inr j)) = ↑j
+i : Fin p ⊕ Fin L
+j : Fin L
+hj : ↑((psiZeroColumnEquiv p L) (Sum.inr j)) < L
+he : ⟨↑((psiZeroColumnEquiv p L) (Sum.inr j)), hj⟩ = j
+ho : theorem1QOrder (p + L) (p + L + q) ((psiZeroRowEquiv p L) i) = q + 2 * mixedMomentDegree p L i + 1
+hpref :
+  (2 * (↑↑((psiZeroRowEquiv p L) i) + 1) - (↑p + ↑L) - (↑p + ↑L + ↑q)) / 2 = -(↑q / 2) - ↑(mixedMomentDegree p L i)
+⊢ ↑√(lambda j) ^ q * Complex.exp (-↑(lambda j)) *
+      ↑(∫ (y : ℝ) in Ioi x, y ^ (q + mixedMomentDegree p L i) * Real.exp (-y) * scalarSeriesKernel q (lambda j) y) =
+    ↑√(lambda j) ^ q * Complex.exp (-↑(lambda j)) *
+      ↑(∫ (y : ℝ) in Ioi x, y ^ (q + mixedMomentDegree p L i) * Real.exp (-y) * scalarSeriesKernel q (lambda j) y)
+'JinWishart.mixedCandidateTailMatrix_central' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateTailMatrix_noncentral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperPsi_tail_matrix_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

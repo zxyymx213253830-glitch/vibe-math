@@ -1,0 +1,21 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:125:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.207 ^ ?y * ?m.207 ^ ?z
+in the target expression
+  Real.rpow 2 (-(↑q / 2) - ↑k) * Real.rpow 2 (↑q / 2 + ↑k) = 1
+
+q k : ℕ
+lambda x : ℝ
+hl : 0 ≤ lambda
+hx : 0 ≤ x
+hc : √2 ^ q * 2 ^ k = Real.rpow 2 (↑q / 2 + ↑k)
+⊢ Real.rpow 2 (-(↑q / 2) - ↑k) * Real.rpow 2 (↑q / 2 + ↑k) = 1
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NuttallSeriesTailBridge.lean:125:27: error: unsolved goals
+q k : ℕ
+lambda x : ℝ
+hl : 0 ≤ lambda
+hx : 0 ≤ x
+hc : √2 ^ q * 2 ^ k = Real.rpow 2 (↑q / 2 + ↑k)
+⊢ 0 < ?m.207
+'JinWishart.nuttall_series_integrand_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.nuttallQ_series_tail_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperScaled_nuttallQ_series_tail_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,23 @@
+# P4 Adversarial Review
+
+## NuttallSeriesTailBridge.lean
+
+**1. Missing nonnegativity hypothesis in `nuttallQ_natural_tail_im_zero`.**
+The theorem takes `(a b : ℝ)` with only `hb : 0 ≤ b`, but the integrability justification invokes `integrableOn_nuttallQ_fullNaturalMoment q k a`, which (by its name and typical usage) requires `0 ≤ a`. No such assumption is stated. If that imported lemma does require it, this is a gap: the claimed integrability on `Ioi b` via `mono_set` fails without establishing the base integrability condition. This is an **actual mathematical gap**, not merely an API question—the proof body silently assumes a constraint it doesn't declare.
+
+**2. Implicit integrability requirement in `nuttallQ_series_tail_re` substitution step.**
+The final rewrite applies `quadraticEnergy_tail_substitution a ha (fun y => ...)`. That substitution theorem presumably requires the target function to be integrable on `Ioi x` (or at least measurable with appropriate tail decay). The proof never establishes this. It transfers integrability of the *original* Nuttall integrand on `Ioi a` through the pointwise identity, but the explicit invocation of the substitution lemma needs its preconditions discharged. Whether this is a gap depends on what `quadraticEnergy_tail_substitution` actually assumes; as written, the proof just calls `rw [← h]` without verifying the substituted function satisfies the lemma's hypotheses. **Potentially incomplete**—flag for exact signature check of that dependency.
+
+**3. `integral_const_mul` measurability/integrability side condition.**
+In `nuttallQ_series_tail_re`, pulling the constant out via `integral_const_mul _ _` requires the remaining scalar function to be integrable. The proof supplies no explicit integrability witness for `r * ((r^2/2)^(q+k) * ...)` on `Ioi a`. This is implicitly carried by the earlier `hint` plus the pointwise identity, but Lean's `integral_const_mul` typically demands it as an explicit argument or typeclass instance. The underscores suggest it's being deferred; if unification doesn't resolve it, this is a **real gap**.
+
+**4. Coercion mismatch in `paperScaled_nuttallQ_series_tail`.**
+The RHS is cast from `ℝ` to `ℂ` via the trailing `: ℝ` annotation inside a context where the LHS is explicitly complex. The `apply Complex.ext` strategy works, but the statement itself writes `(... : ℝ)` on the right of `=` where a `ℂ` is expected. This is technically resolved by coercion, but the theorem statement is fragile: if the downstream consumer expects syntactic type matching rather than definitional equality through coercion, it will fail. **Minor/formal**, not mathematical.
+
+## GammaTailMomentBridge.lean
+
+**5. Integrability of `y^k * exp(-y)` on `Ioi x` is never established.**
+`upperGammaNat_eq_realTailMoment` rewrites through `upperGammaTail` and then applies `integral_complex_ofReal`. That last step requires the real-valued function to be integrable so the complex integral equals the coercion of the real one. For `x = 0`, `∫ y in Ioi 0, y^k * exp(-y)` is the Gamma function and converges, but for general `x ≥ 0` the proof never cites or derives integrability—it's inherited implicitly from `upperGammaTail`'s own requirements. If `upperGammaTail` already returns a well-defined real value only when integrable, this is fine; otherwise it's a **gap in the logical chain**.
+
+**6. Exponent arithmetic relies on natural-to-complex cast commuting with subtraction.**
+The step `((k+1 : ℕ) : ℂ) - 1 = (k : ℂ)` uses `push_cast; ring`. This is correct but only because `k : ℕ` ensures `k + 1 ≠ 0` before casting. If `k` were an integer type, this would break. Not a gap here since `k : ℕ` is explicit, but worth noting the proof is **type-fragile**—any future generalization must revisit this.

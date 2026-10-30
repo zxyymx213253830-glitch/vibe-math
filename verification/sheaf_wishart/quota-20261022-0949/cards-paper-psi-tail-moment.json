@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "paper-psi-tail-moment-PaperPsiTailMomentBridge",
+    "module": "PaperPsiTailMomentBridge",
+    "nodes": [
+      [
+        "L-paper-psi-tail-moment-mixedCandidateTailMatrix_central",
+        "mixedCandidateTailMatrix_central",
+        []
+      ],
+      [
+        "L-paper-psi-tail-moment-mixedCandidateTailMatrix_noncentral",
+        "mixedCandidateTailMatrix_noncentral",
+        [
+          "L-paper-psi-tail-moment-mixedCandidateTailMatrix_central"
+        ]
+      ],
+      [
+        "L-paper-psi-tail-moment-paperPsi_tail_matrix_transport",
+        "paperPsi_tail_matrix_transport",
+        [
+          "L-paper-psi-tail-moment-mixedCandidateTailMatrix_noncentral"
+        ]
+      ]
+    ]
+  }
+]

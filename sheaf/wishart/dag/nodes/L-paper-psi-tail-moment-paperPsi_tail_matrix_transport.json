@@ -1,0 +1,30 @@
+{
+  "id": "L-paper-psi-tail-moment-paperPsi_tail_matrix_transport",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.PaperPsiTailMomentBridge",
+  "declaration": "JinWishart.paperPsi_tail_matrix_transport",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-paper-psi-tail-moment-mixedCandidateTailMatrix_noncentral",
+    "L-paper-psi-tail-moment-mixedCandidateTailMatrix_central",
+    "L-nuttall-series-tail-paperScaled_nuttallQ_series_tail",
+    "L-gamma-tail-moment-upperGammaNat_eq_realTailMoment"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-paper-psi-tail-moment-mixedCandidateTailMatrix_noncentral",
+        "L-paper-psi-tail-moment-mixedCandidateTailMatrix_central",
+        "L-nuttall-series-tail-paperScaled_nuttallQ_series_tail",
+        "L-gamma-tail-moment-upperGammaNat_eq_realTailMoment"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-paper-psi-tail-moment-PaperPsiTailMomentBridge.json",
+    "source_sha256": "9796eb19d20ecf0c4a33b5e2ae01e3f1251ab790588a3882c497f3597c1b1ae0"
+  }
+}

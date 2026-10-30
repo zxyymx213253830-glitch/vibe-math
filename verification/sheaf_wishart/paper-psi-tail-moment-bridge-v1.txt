@@ -1,0 +1,166 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:31:3: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:30:12: warning: This simp argument is unused:
+  mixedCandidateTailMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.of_apply, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:30:37: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mixedCandidateTailMatrix, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:42:3: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:41:12: warning: This simp argument is unused:
+  mixedCandidateTailMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.of_apply, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, scalarSeriesKernel, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:41:37: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mixedCandidateTailMatrix, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, scalarSeriesKernel, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:76:31: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:77:5: error(lean.unknownIdentifier): Unknown constant `Complex.ofRealHom_apply`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:78:46: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  mixedCandidateTailMatrix p L q lambda x i (Sum.inl a)
+in the target expression
+  ↑(∫ (y : ℝ) in Ioi x, y ^ (q + mixedMomentDegree p L i + ↑a) * Real.exp (-y)) =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j =>
+        (match j with
+          | Sum.inl val => 1
+          | Sum.inr j => √(lambda j) ^ q * Real.exp (-lambda j)) *
+          mixedCandidateTailMatrix p L q lambda x i j)
+      i (Sum.inl a)
+
+case inl
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+hr : ∀ (i : Fin p ⊕ Fin L), p + L - (↑((psiZeroRowEquiv p L) i) + 1) = mixedMomentDegree p L i
+hcl : ∀ (a : Fin p), ↑((psiZeroColumnEquiv p L) (Sum.inl a)) = p + L - (↑a + 1)
+hcr : ∀ (j : Fin L), ↑((psiZeroColumnEquiv p L) (Sum.inr j)) = ↑j
+i : Fin p ⊕ Fin L
+a : Fin p
+hnot : ¬↑((psiZeroColumnEquiv p L) (Sum.inl a)) < L
+hg :
+  theorem1GammaIndex (p + L) (p + L + q) ((psiZeroRowEquiv p L) i) ((psiZeroColumnEquiv p L) (Sum.inl a)) =
+    q + mixedMomentDegree p L i + ↑a
+⊢ ↑(∫ (y : ℝ) in Ioi x, y ^ (q + mixedMomentDegree p L i + ↑a) * Real.exp (-y)) =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j =>
+        (match j with
+          | Sum.inl val => 1
+          | Sum.inr j => √(lambda j) ^ q * Real.exp (-lambda j)) *
+          mixedCandidateTailMatrix p L q lambda x i j)
+      i (Sum.inl a)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    mixedCandidateTailMatrix p L q lambda x i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:96:31: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:97:5: error(lean.unknownIdentifier): Unknown constant `Complex.ofRealHom_apply`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:98:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Real.rpow 2 (-(↑q / 2) - ↑(mixedMomentDegree p L i))) *
+    nuttallQ (q + 2 * mixedMomentDegree p L i + 1) q √(2 * lambda j) √(2 * x)
+in the target expression
+  ↑(Real.rpow 2 ((↑(2 * (↑((psiZeroRowEquiv p L) i) + 1)) - ↑(p + L) - ↑(p + L + q)) / 2)) *
+      nuttallQ (q + 2 * mixedMomentDegree p L i + 1) (p + L + q - (p + L)) √(2 * lambda j) √(2 * x) =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j =>
+        (match j with
+          | Sum.inl val => 1
+          | Sum.inr j => √(lambda j) ^ q * Real.exp (-lambda j)) *
+          mixedCandidateTailMatrix p L q lambda x i j)
+      i (Sum.inr j)
+
+case inr
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+hr : ∀ (i : Fin p ⊕ Fin L), p + L - (↑((psiZeroRowEquiv p L) i) + 1) = mixedMomentDegree p L i
+hcl : ∀ (a : Fin p), ↑((psiZeroColumnEquiv p L) (Sum.inl a)) = p + L - (↑a + 1)
+hcr : ∀ (j : Fin L), ↑((psiZeroColumnEquiv p L) (Sum.inr j)) = ↑j
+i : Fin p ⊕ Fin L
+j : Fin L
+hj : ↑((psiZeroColumnEquiv p L) (Sum.inr j)) < L
+he : ⟨↑((psiZeroColumnEquiv p L) (Sum.inr j)), hj⟩ = j
+ho : theorem1QOrder (p + L) (p + L + q) ((psiZeroRowEquiv p L) i) = q + 2 * mixedMomentDegree p L i + 1
+hpref :
+  (↑(2 * (↑((psiZeroRowEquiv p L) i) + 1)) - (↑p + ↑L) - (↑p + ↑L + ↑q)) / 2 = -(↑q / 2) - ↑(mixedMomentDegree p L i)
+⊢ ↑(Real.rpow 2 ((↑(2 * (↑((psiZeroRowEquiv p L) i) + 1)) - ↑(p + L) - ↑(p + L + q)) / 2)) *
+      nuttallQ (q + 2 * mixedMomentDegree p L i + 1) (p + L + q - (p + L)) √(2 * lambda j) √(2 * x) =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j =>
+        (match j with
+          | Sum.inl val => 1
+          | Sum.inr j => √(lambda j) ^ q * Real.exp (-lambda j)) *
+          mixedCandidateTailMatrix p L q lambda x i j)
+      i (Sum.inr j)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    mixedCandidateTailMatrix p L q lambda x i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:76:67: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiEntry, dif_neg hnot, hg, psiTailColumnFactor, Complex.ofRealHom_apply, Matrix.of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:77:29: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiEntry, dif_neg hnot, hg, psiTailColumnFactor, one_mul, Complex.ofRealHom_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:96:48: warning: This simp argument is unused:
+  hpref
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiEntry, dif_pos hj, he, ho, psiTailColumnFactor, Complex.ofRealHom_apply,
+    Matrix.of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:97:29: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [theorem1PsiEntry, dif_pos hj, he, ho, hpref, psiTailColumnFactor, Complex.ofRealHom_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.mixedCandidateTailMatrix_central' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateTailMatrix_noncentral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperPsi_tail_matrix_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

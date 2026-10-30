@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "NuttallSeriesTailBridge.lean": {
+      "sha256": "5b505fd86ab7159274001970dd5ebed9f7ef5b2f4db86a943064c863854be638",
+      "supplied": "Full source"
+    },
+    "GammaTailMomentBridge.lean": {
+      "sha256": "8f9f221aaf3b1db5b40269e66d736eff84d5dc99e64a308e41c0eace2ea2a854",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "0ffaf9138e54ac2f423fcf1bab48a1d38f8cf54a5552186db8a0295b4f9f6a71"
+}

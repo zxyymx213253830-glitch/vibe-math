@@ -1,0 +1,51 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:31:3: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:30:12: warning: This simp argument is unused:
+  mixedCandidateTailMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.of_apply, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:30:37: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mixedCandidateTailMatrix, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:42:3: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:41:12: warning: This simp argument is unused:
+  mixedCandidateTailMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.of_apply, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, scalarSeriesKernel, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:41:37: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mixedCandidateTailMatrix, mixedEnsembleF, mixedEnsembleG, if_pos hy0, Equiv.symm_apply_apply,
+    mixedMomentDegree, scalarSeriesKernel, pow_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:77:31: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PaperPsiTailMomentBridge.lean:96:31: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.mixedCandidateTailMatrix_central' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateTailMatrix_noncentral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperPsi_tail_matrix_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
