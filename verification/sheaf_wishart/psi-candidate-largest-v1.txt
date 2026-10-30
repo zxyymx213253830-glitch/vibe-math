@@ -1,0 +1,88 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateLargestCDF.lean:23:14: error: don't know how to synthesize implicit argument `s`
+  @setIntegral_compl ℝ ℝ Real.measurableSpace Real.normedAddCommGroup RCLike.toInnerProductSpaceReal.toNormedSpace
+    (fun y => mixedEnsembleF p L (finSumFinEquiv i) y * mixedEnsembleG p L q lambda (finSumFinEquiv j) y) (Ioi ?m.163) μ
+    measurableSet_Ioi hI
+context:
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+μ : Measure ℝ := ⋯
+A : Matrix (Fin (p + L)) (Fin (p + L)) ℝ := ⋯
+i j : Fin p ⊕ Fin L
+hI :
+  IntegrableOn (fun t => mixedEnsembleF p L (finSumFinEquiv i) t * mixedEnsembleG p L q lambda (finSumFinEquiv j) t)
+    (Ioi 0) volume
+⊢ Set ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateLargestCDF.lean:24:55: error: don't know how to synthesize implicit argument `a`
+  @measurableSet_Ioi ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace Real.measurableSpace
+    BorelSpace.opensMeasurable Real.linearOrder ?m.163 instClosedIicTopology
+context:
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+μ : Measure ℝ := ⋯
+A : Matrix (Fin (p + L)) (Fin (p + L)) ℝ := ⋯
+i j : Fin p ⊕ Fin L
+hI :
+  IntegrableOn (fun t => mixedEnsembleF p L (finSumFinEquiv i) t * mixedEnsembleG p L q lambda (finSumFinEquiv j) t)
+    (Ioi 0) volume
+⊢ ℝ
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateLargestCDF.lean:23:8: error: failed to infer `have` declaration type
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateLargestCDF.lean:51:37: error(lean.unknownIdentifier): Unknown constant `Complex.ofRealHom_mapMatrix`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateLargestCDF.lean:52:56: error(lean.unknownIdentifier): Unknown constant `Complex.ofRealHom_mapMatrix`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateLargestCDF.lean:47:98: error: unsolved goals
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+B : Matrix (Fin (p + L)) (Fin (p + L)) ℂ :=
+  theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0 - theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x
+h : ‖(B.submatrix ⇑(psiZeroRowEquiv p L) ⇑(psiZeroColumnEquiv p L)).det‖ = ‖B.det‖
+i j : Fin p ⊕ Fin L
+h0 :
+  theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0 ((psiZeroRowEquiv p L) i) ((psiZeroColumnEquiv p L) j) =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j => psiTailColumnFactor p L q lambda j * mixedCandidateTailMatrix p L q lambda 0 i j) i j
+hx' :
+  theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x ((psiZeroRowEquiv p L) i) ((psiZeroColumnEquiv p L) j) =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j => psiTailColumnFactor p L q lambda j * mixedCandidateTailMatrix p L q lambda x i j) i j
+⊢ Complex.ofRealHom.mapMatrix
+        (of fun i j => psiTailColumnFactor p L q lambda j * mixedCandidateTailMatrix p L q lambda 0 i j) i j -
+      Complex.ofRealHom.mapMatrix
+        (of fun i j => psiTailColumnFactor p L q lambda j * mixedCandidateTailMatrix p L q lambda x i j) i j =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j =>
+        psiTailColumnFactor p L q lambda j * mixedCandidateTailMatrix p L q lambda 0 i j -
+          psiTailColumnFactor p L q lambda j * mixedCandidateTailMatrix p L q lambda x i j)
+      i j
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateLargestCDF.lean:51:65: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.submatrix_apply, Complex.ofRealHom_mapMatrix] at h0 hx'
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateLargestCDF.lean:52:84: warning: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [B, Matrix.submatrix_apply, Matrix.sub_apply, Complex.ofRealHom_mapMatrix]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.mixedCandidateLowerMatrix_det_eq_restricted' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.paperPsi_lower_det_norm' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

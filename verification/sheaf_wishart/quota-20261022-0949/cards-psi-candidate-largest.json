@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "psi-candidate-largest-PsiCandidateLargestCDF",
+    "module": "PsiCandidateLargestCDF",
+    "nodes": [
+      [
+        "L-psi-candidate-largest-mixedCandidateLowerMatrix_det_eq_restricted",
+        "mixedCandidateLowerMatrix_det_eq_restricted",
+        []
+      ],
+      [
+        "L-psi-candidate-largest-paperPsi_lower_det_norm",
+        "paperPsi_lower_det_norm",
+        [
+          "L-psi-candidate-largest-mixedCandidateLowerMatrix_det_eq_restricted"
+        ]
+      ],
+      [
+        "L-psi-candidate-largest-mixedCandidateLowerMatrix_det_nonneg",
+        "mixedCandidateLowerMatrix_det_nonneg",
+        [
+          "L-psi-candidate-largest-paperPsi_lower_det_norm"
+        ]
+      ],
+      [
+        "L-psi-candidate-largest-mixedCandidateEnsemble_all_le_eq_paperPsi_ratio",
+        "mixedCandidateEnsemble_all_le_eq_paperPsi_ratio",
+        [
+          "L-psi-candidate-largest-mixedCandidateLowerMatrix_det_nonneg"
+        ]
+      ]
+    ]
+  }
+]

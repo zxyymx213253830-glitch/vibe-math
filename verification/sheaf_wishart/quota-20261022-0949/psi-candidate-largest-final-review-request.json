@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "PsiCandidateLargestCDF.lean": {
+      "sha256": "c226aa7017d5ad249698a2e95bedfbb4f6e244f5832a2b51a5d81dc4ec1b0570",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "45fa8a63a8bffaba877756e29eb97fb45a613d69c0643e81702bc3d5430d1ff2"
+}

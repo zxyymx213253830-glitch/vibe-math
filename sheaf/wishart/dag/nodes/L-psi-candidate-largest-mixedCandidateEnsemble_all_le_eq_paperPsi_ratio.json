@@ -1,0 +1,24 @@
+{
+  "id": "L-psi-candidate-largest-mixedCandidateEnsemble_all_le_eq_paperPsi_ratio",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.PsiCandidateLargestCDF",
+  "declaration": "JinWishart.mixedCandidateEnsemble_all_le_eq_paperPsi_ratio",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-psi-candidate-largest-mixedCandidateLowerMatrix_det_nonneg"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-psi-candidate-largest-mixedCandidateLowerMatrix_det_nonneg"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-psi-candidate-largest-PsiCandidateLargestCDF.json",
+    "source_sha256": "c226aa7017d5ad249698a2e95bedfbb4f6e244f5832a2b51a5d81dc4ec1b0570"
+  }
+}

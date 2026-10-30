@@ -1,0 +1,5 @@
+'JinWishart.mixedCandidateLowerMatrix_det_eq_restricted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperPsi_lower_det_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateLowerMatrix_det_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_all_le_eq_paperPsi_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem2Candidate_eq_mixedCandidate_all_le' depends on axioms: [propext, Classical.choice, Quot.sound]

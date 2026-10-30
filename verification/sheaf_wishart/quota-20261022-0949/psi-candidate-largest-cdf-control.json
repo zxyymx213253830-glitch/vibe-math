@@ -1,0 +1,9 @@
+{
+  "seed": 2026103102,
+  "status": "PASS",
+  "checks": 36,
+  "negative_controls": 17,
+  "source_sha256": "a6b0d33ac51a8f6fe30ec4b42dcd3a5d08a4cf265a1c0210fc83ef209402392d",
+  "not_a_proof": true,
+  "scope": "candidate max CDF vs formula-side Psi(0)-Psi(x), not actual Wishart law"
+}

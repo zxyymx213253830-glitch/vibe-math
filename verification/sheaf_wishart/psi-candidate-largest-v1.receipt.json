@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T17:58:35.762078+00:00",
+  "ended_utc": "2026-10-30T17:58:43.544092+00:00",
+  "module": "JinWishartFormalization.PsiCandidateLargestCDF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PsiCandidateLargestCDF.lean",
+  "source_sha256_before": "3dd3839fe85c9735da00c12b693d954e3f2b194be364094e27e37b4a9c05fbc3",
+  "source_sha256": "3dd3839fe85c9735da00c12b693d954e3f2b194be364094e27e37b4a9c05fbc3",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/psi-candidate-largest-v1.txt",
+  "log_exists": true,
+  "log_sha256": "45c70a3b5c49f824312e161b90c48f6fb8e1e164bf5f8f8c47cd736487a48038",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

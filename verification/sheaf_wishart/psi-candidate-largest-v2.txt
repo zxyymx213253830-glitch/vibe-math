@@ -1,0 +1,2 @@
+'JinWishart.mixedCandidateLowerMatrix_det_eq_restricted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperPsi_lower_det_norm' depends on axioms: [propext, Classical.choice, Quot.sound]

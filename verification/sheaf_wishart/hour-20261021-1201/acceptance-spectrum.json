@@ -10,5 +10,5 @@
     "resolution": "notes/WISHART_POSITIVE_SPECTRUM_LOG.md"
   },
   "audit": "verification/central_mixed_moments/audit.json",
-  "facade_receipt": "verification/sheaf_wishart/facade-170.receipt.json"
+  "facade_receipt": "verification/sheaf_wishart/facade-171.receipt.json"
 }

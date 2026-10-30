@@ -1,0 +1,14 @@
+{
+  "name": "psi-candidate-largest",
+  "review": "psi-candidate-largest-final",
+  "resolution": "notes/WISHART_PSI_CANDIDATE_LARGEST.md",
+  "facade": "facade-171",
+  "total": 1094,
+  "new_count": 4,
+  "control_script": "experiments/psi_candidate_largest_cdf_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/psi-candidate-largest-cdf-control.json",
+  "seed": 2026103102,
+  "commit": "Connect candidate largest-coordinate CDF to Psi difference",
+  "scope": "2026-10-31 formula-side candidate largest-coordinate CDF: 1094 bindings (1092 theorem/instance + 2 constructions), auditPASS/facade171 exit0, 211 acceptance records verified. For x>=0 and strictly ordered positive lambda, candidate all-coordinates<=x probability equals norm det(Psi(0)-Psi(x))/norm det(Psi(0)), including empty dimension. This is not actual Wishart joint law or noncentral G2 identification. Seed 2026103102 has 36 numerical and 17 negative controls, not proof; four literal types and complete Qoder P4 bound to restored locked source. An out-of-bundle follow-up source mutation was restored and its v4 log excluded from acceptance. [需人工审查] Fubini, index/event and paper/model mapping; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}
