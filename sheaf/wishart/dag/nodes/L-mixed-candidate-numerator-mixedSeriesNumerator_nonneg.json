@@ -1,0 +1,24 @@
+{
+  "id": "L-mixed-candidate-numerator-mixedSeriesNumerator_nonneg",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.MixedCandidateNumerator",
+  "declaration": "JinWishart.mixedSeriesNumerator_nonneg",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-candidate-numerator-mixedSeriesNumerator_pos"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-candidate-numerator-mixedSeriesNumerator_pos"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-candidate-numerator-MixedCandidateNumerator.json",
+    "source_sha256": "d3b580400b8bf5a1f6105b365608eb832f6f17d81cbb7ff6f1ac75529ec5b736"
+  }
+}

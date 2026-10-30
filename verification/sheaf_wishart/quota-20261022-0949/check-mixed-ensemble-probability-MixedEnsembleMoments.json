@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "6f3d857f538b67074fbda1718e67e8450d5c8c5878e667745bd9392e77b07587",
+  "target_lock_sha256": "fc7c7e4d3308888d8f17db73421ac1add9c2ae82e8d5cf1e4ea046668046b008",
+  "leaf": {
+    "started_utc": "2026-10-30T01:48:34.001738+00:00",
+    "ended_utc": "2026-10-30T01:48:41.469105+00:00",
+    "module": "JinWishartFormalization.MixedEnsembleMoments",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedEnsembleMoments.lean",
+    "source_sha256_before": "6f3d857f538b67074fbda1718e67e8450d5c8c5878e667745bd9392e77b07587",
+    "source_sha256": "6f3d857f538b67074fbda1718e67e8450d5c8c5878e667745bd9392e77b07587",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/mixed-ensemble-probability-MixedEnsembleMoments-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "fb4ded410bad4629d64b2c3094ecbc618cdc402a5696d7aba70057d750c3acd3",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T01:48:48.948611+00:00",
+    "ended_utc": "2026-10-30T01:48:56.967808+00:00",
+    "module": "SheafMixedEnsembleProbabilityTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafMixedEnsembleProbabilityTargets.lean",
+    "source_sha256_before": "3110638cede5a877a02d18fce1460cc7652088dab114b07f4b90e9244062537f",
+    "source_sha256": "3110638cede5a877a02d18fce1460cc7652088dab114b07f4b90e9244062537f",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/mixed-ensemble-probability-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

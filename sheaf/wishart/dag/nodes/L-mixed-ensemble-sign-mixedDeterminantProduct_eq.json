@@ -1,0 +1,20 @@
+{
+  "id": "L-mixed-ensemble-sign-mixedDeterminantProduct_eq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedEnsembleSign",
+  "declaration": "JinWishart.mixedDeterminantProduct_eq",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-sign-MixedEnsembleSign.json",
+    "source_sha256": "8215801999db27c3c49be0088a61e803029762e448c2468bc5ab525516a9b1ca"
+  }
+}

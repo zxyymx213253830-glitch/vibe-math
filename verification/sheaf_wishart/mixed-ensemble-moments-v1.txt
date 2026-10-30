@@ -1,0 +1,61 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedEnsembleMoments.lean:25:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedEnsembleMoments.lean:31:59: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  finSumFinEquiv.symm j
+in the target expression
+  ↑(q + ↑i + ↑a).factorial =
+    match Sum.inl a with
+    | Sum.inl a => ↑(q + ↑i + ↑a).factorial
+    | Sum.inr b => Real.exp (lambda b) * poissonFactorialMomentPolynomial q (↑i) (lambda b)
+
+case inl.right
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+i j : Fin (p + L)
+a : Fin p
+hj : finSumFinEquiv.symm j = Sum.inl a
+he : ∀ t ∈ Set.Ioi 0, mixedEnsembleF p L i t * mixedEnsembleG p L q lambda j t = t ^ (q + ↑i + ↑a) * Real.exp (-t)
+base :
+  IntegrableOn (fun t => t ^ (q + ↑i + ↑a) * Real.exp (-t)) (Set.Ioi 0) volume ∧
+    ∫ (t : ℝ) in Set.Ioi 0, t ^ (q + ↑i + ↑a) * Real.exp (-t) = ↑(q + ↑i + ↑a).factorial
+⊢ ↑(q + ↑i + ↑a).factorial =
+    match Sum.inl a with
+    | Sum.inl a => ↑(q + ↑i + ↑a).factorial
+    | Sum.inr b => Real.exp (lambda b) * poissonFactorialMomentPolynomial q (↑i) (lambda b)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedEnsembleMoments.lean:37:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedEnsembleMoments.lean:42:59: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  finSumFinEquiv.symm j
+in the target expression
+  Real.exp (lambda b) * poissonFactorialMomentPolynomial q (↑i) (lambda b) =
+    match Sum.inr b with
+    | Sum.inl a => ↑(q + ↑i + ↑a).factorial
+    | Sum.inr b => Real.exp (lambda b) * poissonFactorialMomentPolynomial q (↑i) (lambda b)
+
+case inr.right
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+i j : Fin (p + L)
+b : Fin L
+hj : finSumFinEquiv.symm j = Sum.inr b
+he :
+  ∀ t ∈ Set.Ioi 0,
+    mixedEnsembleF p L i t * mixedEnsembleG p L q lambda j t =
+      t ^ (q + ↑i) * Real.exp (-t) * scalarSeriesKernel q (lambda b) t
+base :
+  IntegrableOn (fun t => t ^ (q + ↑i) * Real.exp (-t) * scalarSeriesKernel q (lambda b) t) (Set.Ioi 0) volume ∧
+    ∫ (t : ℝ) in Set.Ioi 0, t ^ (q + ↑i) * Real.exp (-t) * scalarSeriesKernel q (lambda b) t =
+      Real.exp (lambda b) * poissonFactorialMomentPolynomial q (↑i) (lambda b)
+⊢ Real.exp (lambda b) * poissonFactorialMomentPolynomial q (↑i) (lambda b) =
+    match Sum.inr b with
+    | Sum.inl a => ↑(q + ↑i + ↑a).factorial
+    | Sum.inr b => Real.exp (lambda b) * poissonFactorialMomentPolynomial q (↑i) (lambda b)
+'JinWishart.mixedEnsemble_pair_moment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedEnsemble_momentMatrix_eq' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedEnsemble_momentMatrix_det_pos' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

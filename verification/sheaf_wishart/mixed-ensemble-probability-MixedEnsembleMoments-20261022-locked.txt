@@ -1,0 +1,11 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedEnsembleMoments.lean:25:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedEnsembleMoments.lean:37:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'JinWishart.mixedEnsemble_pair_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedEnsemble_momentMatrix_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedEnsemble_momentMatrix_det_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

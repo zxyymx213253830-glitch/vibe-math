@@ -1,0 +1,34 @@
+{
+  "name": "mixed-candidate-probability",
+  "review": "mixed-ensemble-probability-final",
+  "review_for_module": {
+    "MixedCandidateNumerator": "mixed-candidate-numerator-final",
+    "MixedEnsembleSign": "mixed-ensemble-sign-final"
+  },
+  "resolution": "notes/WISHART_MIXED_CANDIDATE_PROBABILITY.md",
+  "facade": "facade-157",
+  "total": 1031,
+  "new_count": 11,
+  "control_script": "experiments/mixed_numerator_symmetry_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/mixed-numerator-symmetry-control.json",
+  "seed": 2026103001,
+  "additional_controls": [
+    {
+      "script": "experiments/mixed_ensemble_sign_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/mixed-ensemble-sign-control.json",
+      "seed": 2026103002
+    },
+    {
+      "script": "experiments/mixed_kernel_moment_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/mixed-kernel-moment-control.json",
+      "seed": 2026103003
+    },
+    {
+      "script": "experiments/mixed_ensemble_moment_matrix_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/mixed-ensemble-moment-matrix-control.json",
+      "seed": 2026103004
+    }
+  ],
+  "commit": "Construct normalized mixed candidate determinant ensemble",
+  "scope": "2026-10-30 mixed-rank formula-side probability ensemble: 1031 bindings (1029 theorem/instance + 2 constructions), auditPASS/facade157 exit0, 193 acceptance records verified. Candidate numerator symmetric and nonnegative, mixed scalar moments and positive moment determinant yield normalized probability measure and count coefficient formula. Includes empty dimensions; NOT equality to actual noncentral Wishart law or original paper formulas. Seeded controls 306/258/80/180 not proofs; zero/duplicate numerical branches are elementary checks. Locked serial gates and literal types, Qoder P4, [需人工审查] integrability/Fubini/normalization/model mapping. Frozen publication unchanged, fullLake/Linux independent kernel NOT_RUN."
+}

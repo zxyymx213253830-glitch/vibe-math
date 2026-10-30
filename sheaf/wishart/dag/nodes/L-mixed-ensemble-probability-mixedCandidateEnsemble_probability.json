@@ -1,0 +1,28 @@
+{
+  "id": "L-mixed-ensemble-probability-mixedCandidateEnsemble_probability",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedEnsembleProbability",
+  "declaration": "JinWishart.mixedCandidateEnsemble_probability",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_det_pos",
+    "L-mixed-ensemble-sign-mixedDeterminantProduct_nonneg",
+    "L-positive-ensemble-normalizedDeterminantEnsemble_probability_count"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_det_pos",
+        "L-mixed-ensemble-sign-mixedDeterminantProduct_nonneg",
+        "L-positive-ensemble-normalizedDeterminantEnsemble_probability_count"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedEnsembleProbability.json",
+    "source_sha256": "6b63853d156c0f7164d5623db5c11cd75cd4dc5dbd81c0292cc6d6818a3587e5"
+  }
+}

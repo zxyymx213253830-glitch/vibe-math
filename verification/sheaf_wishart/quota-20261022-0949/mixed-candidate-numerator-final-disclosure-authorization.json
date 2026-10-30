@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-10-30T01:50:47.825335+00:00",
+  "authorization": "User explicitly authorized autonomous Qoder/cloud collaboration without repeated consent",
+  "inputs": {
+    "MixedCandidateNumerator.lean": {
+      "sha256": "d3b580400b8bf5a1f6105b365608eb832f6f17d81cbb7ff6f1ac75529ec5b736",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "cf5e7f6af97986f3dd72fda90c66ae64217a4f7ac80b0d5b3920fe69858196d3",
+  "seconds": 90,
+  "tools_disabled": true,
+  "transmitted": true,
+  "actual_review_started_utc": "2026-10-30T01:40:20.502870+00:00",
+  "actual_review_ended_utc": "2026-10-30T01:40:52.588761+00:00"
+}

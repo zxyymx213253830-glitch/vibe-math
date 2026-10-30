@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T01:39:15.898125+00:00",
+  "ended_utc": "2026-10-30T01:39:24.304988+00:00",
+  "module": "JinWishartFormalization.MixedCandidateNumerator",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedCandidateNumerator.lean",
+  "source_sha256_before": "d3b580400b8bf5a1f6105b365608eb832f6f17d81cbb7ff6f1ac75529ec5b736",
+  "source_sha256": "d3b580400b8bf5a1f6105b365608eb832f6f17d81cbb7ff6f1ac75529ec5b736",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/mixed-candidate-numerator-MixedCandidateNumerator-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "241eea09374e64d4d1e6d5c7800d620f2376fc86b36be90f3bc3f75168edaa96",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

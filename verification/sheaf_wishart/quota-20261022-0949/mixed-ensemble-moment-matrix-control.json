@@ -1,0 +1,9 @@
+{
+  "seed": 2026103004,
+  "status": "PASS",
+  "checks": 180,
+  "precision": 45,
+  "source_sha256": "a1788462eb88ed837cfc52afcc9b201ef6aa328255a8461e54df35870b8006af",
+  "not_a_proof": true,
+  "scope": "mixed scalar moment matrix and determinant sign, not actual law"
+}

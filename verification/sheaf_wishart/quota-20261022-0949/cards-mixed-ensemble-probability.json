@@ -1,0 +1,60 @@
+[
+  {
+    "tag": "mixed-ensemble-probability-MixedKernelMoments",
+    "module": "MixedKernelMoments",
+    "nodes": [
+      [
+        "L-mixed-ensemble-probability-scalarSeriesKernel_weightedMoment",
+        "scalarSeriesKernel_weightedMoment",
+        []
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-ensemble-probability-MixedEnsembleMoments",
+    "module": "MixedEnsembleMoments",
+    "nodes": [
+      [
+        "L-mixed-ensemble-probability-mixedEnsemble_pair_moment",
+        "mixedEnsemble_pair_moment",
+        [
+          "L-mixed-ensemble-probability-scalarSeriesKernel_weightedMoment"
+        ]
+      ],
+      [
+        "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_eq",
+        "mixedEnsemble_momentMatrix_eq",
+        [
+          "L-mixed-ensemble-probability-mixedEnsemble_pair_moment"
+        ]
+      ],
+      [
+        "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_det_pos",
+        "mixedEnsemble_momentMatrix_det_pos",
+        [
+          "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_eq"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "mixed-ensemble-probability-MixedEnsembleProbability",
+    "module": "MixedEnsembleProbability",
+    "nodes": [
+      [
+        "L-mixed-ensemble-probability-mixedCandidateEnsemble_probability",
+        "mixedCandidateEnsemble_probability",
+        [
+          "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_det_pos"
+        ]
+      ],
+      [
+        "L-mixed-ensemble-probability-mixedCandidateEnsemble_count",
+        "mixedCandidateEnsemble_count",
+        [
+          "L-mixed-ensemble-probability-mixedCandidateEnsemble_probability"
+        ]
+      ]
+    ]
+  }
+]

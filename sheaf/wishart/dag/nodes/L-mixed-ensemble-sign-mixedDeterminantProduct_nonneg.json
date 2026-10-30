@@ -1,0 +1,26 @@
+{
+  "id": "L-mixed-ensemble-sign-mixedDeterminantProduct_nonneg",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.MixedEnsembleSign",
+  "declaration": "JinWishart.mixedDeterminantProduct_nonneg",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-ensemble-sign-mixedDeterminantProduct_eq",
+    "L-mixed-candidate-numerator-mixedSeriesNumerator_nonneg"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-ensemble-sign-mixedDeterminantProduct_eq",
+        "L-mixed-candidate-numerator-mixedSeriesNumerator_nonneg"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-sign-MixedEnsembleSign.json",
+    "source_sha256": "8215801999db27c3c49be0088a61e803029762e448c2468bc5ab525516a9b1ca"
+  }
+}

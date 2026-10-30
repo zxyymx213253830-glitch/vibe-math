@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "MixedCandidateNumerator.lean": {
+      "sha256": "d3b580400b8bf5a1f6105b365608eb832f6f17d81cbb7ff6f1ac75529ec5b736",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "cf5e7f6af97986f3dd72fda90c66ae64217a4f7ac80b0d5b3920fe69858196d3"
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "mixed-candidate-numerator-MixedCandidateNumerator",
+    "module": "MixedCandidateNumerator",
+    "nodes": [
+      [
+        "L-mixed-candidate-numerator-mixedSeriesNumerator_permute",
+        "mixedSeriesNumerator_permute",
+        []
+      ],
+      [
+        "L-mixed-candidate-numerator-mixedSeriesNumerator_pos",
+        "mixedSeriesNumerator_pos",
+        [
+          "L-mixed-candidate-numerator-mixedSeriesNumerator_permute"
+        ]
+      ],
+      [
+        "L-mixed-candidate-numerator-mixedSeriesNumerator_nonneg",
+        "mixedSeriesNumerator_nonneg",
+        [
+          "L-mixed-candidate-numerator-mixedSeriesNumerator_pos"
+        ]
+      ]
+    ]
+  }
+]

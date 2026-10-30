@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "MixedKernelMoments.lean": {
+      "sha256": "d4f788eb5bf1b9bfc592bd06354db2851242d94d79dea5d17dfaee9c50e9703a",
+      "supplied": "Full source"
+    },
+    "MixedEnsembleMoments.lean": {
+      "sha256": "6f3d857f538b67074fbda1718e67e8450d5c8c5878e667745bd9392e77b07587",
+      "supplied": "Full source"
+    },
+    "MixedEnsembleProbability.lean": {
+      "sha256": "6b63853d156c0f7164d5623db5c11cd75cd4dc5dbd81c0292cc6d6818a3587e5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "85e5dba30255dec2411cbc7d732a07fa11c2c5e1831816261bdb95230f358b70"
+}

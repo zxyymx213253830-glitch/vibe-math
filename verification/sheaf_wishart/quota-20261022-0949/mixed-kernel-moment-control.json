@@ -1,0 +1,9 @@
+{
+  "seed": 2026103003,
+  "status": "PASS",
+  "checks": 80,
+  "precision": 55,
+  "source_sha256": "06532920f9753548307c1d35952f463da23fa5b8fd7cab98c50f3c5d9f79cef8",
+  "not_a_proof": true,
+  "scope": "noncentral series scalar moments, exponential-factor normalization; no actual joint law"
+}

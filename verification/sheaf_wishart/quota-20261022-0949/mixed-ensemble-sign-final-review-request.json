@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "MixedEnsembleSign.lean": {
+      "sha256": "8215801999db27c3c49be0088a61e803029762e448c2468bc5ab525516a9b1ca",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "0698ebd14558dae8fa61afc3016f53cc922e051ff08c7d8716fd9c52cf970142"
+}

@@ -1,0 +1,9 @@
+{
+  "seed": 2026103001,
+  "status": "PASS",
+  "checks": 306,
+  "precision": 75,
+  "source_sha256": "3cd6911afb2a0403656d97a5b983155e078738184f41b3b62b23cff6fcb5ce73",
+  "not_a_proof": true,
+  "scope": "formula-side mixed-rank numerator symmetry and positivity; no actual law"
+}

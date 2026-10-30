@@ -199,3 +199,8 @@
 - 2026-10-30T01:37:11.760610+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-kernel-closure-FiniteMixedNoncentralKernel.json; human measure/model review remains REQUIRED.
 - 2026-10-30T01:37:27.356011+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-kernel-closure-InfiniteMixedNoncentralKernel.json; human measure/model review remains REQUIRED.
 - 2026-10-30T01:37:43.108715+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-bessel-kernel-MixedBesselKernel.json; human measure/model review remains REQUIRED.
+- 2026-10-30T01:52:15.221093+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-candidate-numerator-MixedCandidateNumerator.json; human measure/model review remains REQUIRED.
+- 2026-10-30T01:52:39.301506+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-sign-MixedEnsembleSign.json; human measure/model review remains REQUIRED.
+- 2026-10-30T01:53:00.795594+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedKernelMoments.json; human measure/model review remains REQUIRED.
+- 2026-10-30T01:53:21.102458+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedEnsembleMoments.json; human measure/model review remains REQUIRED.
+- 2026-10-30T01:53:37.476757+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedEnsembleProbability.json; human measure/model review remains REQUIRED.

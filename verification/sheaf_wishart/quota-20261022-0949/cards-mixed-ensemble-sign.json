@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "mixed-ensemble-sign-MixedEnsembleSign",
+    "module": "MixedEnsembleSign",
+    "nodes": [
+      [
+        "L-mixed-ensemble-sign-mixedDeterminantProduct_eq",
+        "mixedDeterminantProduct_eq",
+        []
+      ],
+      [
+        "L-mixed-ensemble-sign-mixedDeterminantProduct_nonneg",
+        "mixedDeterminantProduct_nonneg",
+        [
+          "L-mixed-ensemble-sign-mixedDeterminantProduct_eq"
+        ]
+      ]
+    ]
+  }
+]

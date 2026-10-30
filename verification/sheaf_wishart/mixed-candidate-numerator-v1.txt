@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedCandidateNumerator.lean:61:49: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedCandidateNumerator.lean:70:3: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'JinWishart.mixedSeriesNumerator_permute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedSeriesNumerator_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedSeriesNumerator_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]

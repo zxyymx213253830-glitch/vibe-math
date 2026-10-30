@@ -1,0 +1,26 @@
+{
+  "id": "L-mixed-ensemble-probability-scalarSeriesKernel_weightedMoment",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedKernelMoments",
+  "declaration": "JinWishart.scalarSeriesKernel_weightedMoment",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-noncentral-full-moments-poisson_factorialMoment_hasSum",
+    "L-log-moment-v2-integral_natPower_exp_neg_Ioi"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-noncentral-full-moments-poisson_factorialMoment_hasSum",
+        "L-log-moment-v2-integral_natPower_exp_neg_Ioi"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedKernelMoments.json",
+    "source_sha256": "d4f788eb5bf1b9bfc592bd06354db2851242d94d79dea5d17dfaee9c50e9703a"
+  }
+}

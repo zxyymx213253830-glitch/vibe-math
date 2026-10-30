@@ -1,0 +1,4 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedKernelMoments.lean:49:7: error: failed to prove positivity/nonnegativity/nonzeroness
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedKernelMoments.lean:66:9: error(lean.unknownIdentifier): Unknown identifier `integrable_tsum_of_summable_integral_norm`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedKernelMoments.lean:68:12: error: `simp` made no progress
+'JinWishart.scalarSeriesKernel_weightedMoment' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

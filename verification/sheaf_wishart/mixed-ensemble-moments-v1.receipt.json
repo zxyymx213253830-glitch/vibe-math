@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T01:46:57.878771+00:00",
+  "ended_utc": "2026-10-30T01:47:05.613563+00:00",
+  "module": "JinWishartFormalization.MixedEnsembleMoments",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedEnsembleMoments.lean",
+  "source_sha256_before": "66365f2970737bf9b5bd8400eb22fdf57255d2be5d0d061edf201e2e6a1d7043",
+  "source_sha256": "66365f2970737bf9b5bd8400eb22fdf57255d2be5d0d061edf201e2e6a1d7043",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/mixed-ensemble-moments-v1.txt",
+  "log_exists": true,
+  "log_sha256": "81bf4e2391d843876e72e9ef75ad81d9590cd53edd73df783eb1345ca33a6b80",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

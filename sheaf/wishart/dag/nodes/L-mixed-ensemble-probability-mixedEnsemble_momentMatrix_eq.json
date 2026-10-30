@@ -1,0 +1,24 @@
+{
+  "id": "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_eq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedEnsembleMoments",
+  "declaration": "JinWishart.mixedEnsemble_momentMatrix_eq",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-ensemble-probability-mixedEnsemble_pair_moment"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-ensemble-probability-mixedEnsemble_pair_moment"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedEnsembleMoments.json",
+    "source_sha256": "6f3d857f538b67074fbda1718e67e8450d5c8c5878e667745bd9392e77b07587"
+  }
+}
