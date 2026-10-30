@@ -1,0 +1,24 @@
+{
+  "id": "L-candidate-spectral-trace-meanPositiveNoncentrality_sum_eq_energy",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CandidateSpectralTraceLaw",
+  "declaration": "JinWishart.meanPositiveNoncentrality_sum_eq_energy",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-spectral-trace-candidate_actual_eigenvalue_sum_law_equal"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-spectral-trace-candidate_actual_eigenvalue_sum_law_equal"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-spectral-trace-CandidateSpectralTraceLaw.json",
+    "source_sha256": "9f200e02f1c3ca169205c991e094901862c7d6ac44d0cb53766570660874426a"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CandidateSpectralTraceLaw.lean": {
+      "sha256": "9f200e02f1c3ca169205c991e094901862c7d6ac44d0cb53766570660874426a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "03c993192a6e41661622325b298744f5db6d12573148c2bcec572d4d1e5fc442"
+}

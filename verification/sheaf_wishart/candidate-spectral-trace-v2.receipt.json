@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T17:45:46.729156+00:00",
+  "ended_utc": "2026-10-30T17:47:11.646549+00:00",
+  "module": "JinWishartFormalization.CandidateSpectralTraceLaw",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidateSpectralTraceLaw.lean",
+  "source_sha256_before": "9cabd5b17c7c4deeb73b972a2cd02bd04059ad9ae13d00a075b7f211fe6b3f1d",
+  "source_sha256": "9cabd5b17c7c4deeb73b972a2cd02bd04059ad9ae13d00a075b7f211fe6b3f1d",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/candidate-spectral-trace-v2.txt",
+  "log_exists": true,
+  "log_sha256": "011f59b0b4dc22fe3a6588862b8e6e621adcad51d36a3151e70d64a86568a14e",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

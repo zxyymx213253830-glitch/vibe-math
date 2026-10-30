@@ -1,0 +1,9 @@
+{
+  "seed": 2026103014,
+  "status": "PASS",
+  "checks": 728,
+  "negative_controls": 220,
+  "source_sha256": "414797e5265c728d36d24298ab0c4aa1e7f10e2a0d6eff831c0182f75be232e5",
+  "not_a_proof": true,
+  "scope": "sum positive mean-Gram eigenvalues equals Frobenius energy, empty and rank-deficient cases"
+}

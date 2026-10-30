@@ -1,0 +1,12 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateSpectralTraceLaw.lean:64:9: warning: This simp argument is unused:
+  f
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [e]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.candidate_actual_eigenvalue_sum_law_equal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.meanPositiveNoncentrality_sum_eq_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.candidate_actual_eigenvalue_sum_law_of_mean_spectrum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

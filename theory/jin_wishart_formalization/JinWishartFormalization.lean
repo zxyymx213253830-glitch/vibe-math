@@ -1,3 +1,4 @@
+import JinWishartFormalization.CandidateSpectralTraceLaw
 import JinWishartFormalization.NonnegativeScalarLaplaceUniqueness
 import JinWishartFormalization.CandidateActualTraceTransform
 import JinWishartFormalization.CandidateTraceLaplaceClosed

@@ -1378,3 +1378,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/NonnegativeScalarLaplaceUniqueness.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_CANDIDATE_ACTUAL_TRACE_LAW.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CandidateSpectralTraceLaw.lean -text whitespace=cr-at-eol
+
+/experiments/mean_positive_spectral_trace_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CANDIDATE_SPECTRAL_TRACE_LAW.md -text whitespace=cr-at-eol

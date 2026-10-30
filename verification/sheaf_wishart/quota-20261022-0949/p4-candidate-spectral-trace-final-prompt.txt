@@ -1,0 +1,95 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE CandidateSpectralTraceLaw.lean
+import JinWishartFormalization.NonnegativeScalarLaplaceUniqueness
+import JinWishartFormalization.MeanPositiveNoncentralParameters
+import JinWishartFormalization.ActualLogDetMeanBound
+import JinWishartFormalization.CentralWishartTraceLaw
+
+/-! Codex. Seed 2026103014 rank-deficient finite matrix controls precede
+source. Equality of scalar eigenvalue sums only, not joint eigenvalue law.
+[需人工审查] Spectral indexing and paper noncentrality convention. -/
+open Matrix MeasureTheory ProbabilityTheory Finset
+namespace JinWishart
+noncomputable section
+
+theorem candidate_actual_eigenvalue_sum_law_equal (p L q : ℕ) (lambda : Fin L → ℝ)
+ (hl : StrictMono lambda) (hlp : ∀ j, 0 < lambda j)
+ (M : Matrix (Fin (p+L+q)) (Fin (p+L)) ℂ)
+ (hmean : (∑ a : Fin (p+L+q) × Fin (p+L), ‖M a.1 a.2‖^2) = ∑ j : Fin L, lambda j) :
+ (mixedCandidateEnsemble p L q lambda).map (fun z => ∑ i, z i) =
+ (stdGaussian (ComplexSample (m := p+L+q) (n := p+L))).map
+   (fun z => ∑ i, complexNoncentralSampleEigenvalue M i z) := by
+ have h := candidate_actual_trace_law_equal p L q lambda hl hlp M hmean
+ have he : (fun z : ComplexSample (m := p+L+q) (n := p+L) =>
+     ∑ j : Fin (p+L), (complexGram (complexSampleMatrix z+M) j j).re) =
+     fun z => ∑ i, complexNoncentralSampleEigenvalue M i z := by
+   funext z
+   rw [sum_actualNoncentralEigenvalues_eq_trace]
+   simp [Matrix.trace,Complex.re_sum]
+ rw [he] at h
+ exact h
+
+theorem meanPositiveNoncentrality_sum_eq_energy {m n : ℕ}
+ (M : Matrix (Fin m) (Fin n) ℂ) :
+ (∑ i : Fin M.rank, meanPositiveNoncentrality M i) =
+ ∑ a : Fin m × Fin n, ‖M a.1 a.2‖^2 := by
+ let h := (complexGram_posSemidef M).1
+ have heig : (∑ i : Fin (Fintype.card (Fin n)), h.eigenvalues₀ i) =
+     (complexGram M).trace.re := by
+   let e : Fin (Fintype.card (Fin n)) ≃ Fin n :=
+     Fintype.equivOfCardEq (Fintype.card_fin (Fintype.card (Fin n)))
+   have hs : (∑ i, h.eigenvalues₀ i) = ∑ i, h.eigenvalues i := by
+     simpa only [Matrix.IsHermitian.eigenvalues,e,Equiv.symm_apply_apply] using
+       (Equiv.sum_comp e (fun i => h.eigenvalues i))
+   have ht := congrArg Complex.re h.trace_eq_sum_eigenvalues
+   simp only [Complex.re_sum] at ht
+   change (complexGram M).trace.re = ∑ i, h.eigenvalues i at ht
+   exact hs.trans ht.symm
+ have hr : M.rank ≤ n := Matrix.rank_le_width M
+ have hn : M.rank + (n-M.rank) = n := Nat.add_sub_of_le hr
+ let e : Fin (M.rank+(n-M.rank)) ≃ Fin (Fintype.card (Fin n)) :=
+   finCongr (by simpa using hn)
+ let f : Fin (M.rank+(n-M.rank)) → ℝ := fun i => h.eigenvalues₀ (e i)
+ have hf : (∑ i : Fin (Fintype.card (Fin n)), h.eigenvalues₀ i) = ∑ i, f i := by
+   simpa only [f] using (Equiv.sum_comp e (fun i => h.eigenvalues₀ i)).symm
+ have hsplit := Fin.sum_univ_add f
+ have hhead : (∑ i : Fin M.rank, f (Fin.castAdd (n-M.rank) i)) =
+     ∑ i : Fin M.rank, meanPositiveNoncentrality M i := by
+   apply Finset.sum_congr rfl
+   intro i _
+   unfold f e meanPositiveNoncentrality h
+   congr 1
+ have htail : (∑ i : Fin (n-M.rank), f (Fin.natAdd M.rank i)) = 0 := by
+   apply Finset.sum_eq_zero
+   intro i _
+   apply (meanGram_eigenvalue_zero_iff_rank_le_index M _).2
+   simp [f,e]
+ rw [hf,hsplit,hhead,htail,add_zero] at heig
+ rw [complexGram_trace_re] at heig
+ rw [Fintype.sum_prod_type]
+ exact heig
+
+theorem candidate_actual_eigenvalue_sum_law_of_mean_spectrum (p L q : ℕ)
+ (lambda : Fin L → ℝ) (hl : StrictMono lambda) (hlp : ∀ j, 0 < lambda j)
+ (M : Matrix (Fin (p+L+q)) (Fin (p+L)) ℂ)
+ (e : Fin L ≃ Fin M.rank) (hparam : ∀ j, lambda j = meanPositiveNoncentrality M (e j)) :
+ (mixedCandidateEnsemble p L q lambda).map (fun z => ∑ i, z i) =
+ (stdGaussian (ComplexSample (m := p+L+q) (n := p+L))).map
+   (fun z => ∑ i, complexNoncentralSampleEigenvalue M i z) := by
+ apply candidate_actual_eigenvalue_sum_law_equal p L q lambda hl hlp M
+ rw [← meanPositiveNoncentrality_sum_eq_energy M]
+ calc
+   _ = ∑ j : Fin L, meanPositiveNoncentrality M (e j) :=
+     (Equiv.sum_comp e (meanPositiveNoncentrality M)).symm
+   _ = ∑ j : Fin L, lambda j := by
+     apply Finset.sum_congr rfl
+     intro j _
+     exact (hparam j).symm
+
+end
+end JinWishart
+#print axioms JinWishart.candidate_actual_eigenvalue_sum_law_equal
+#print axioms JinWishart.meanPositiveNoncentrality_sum_eq_energy
+#print axioms JinWishart.candidate_actual_eigenvalue_sum_law_of_mean_spectrum

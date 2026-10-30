@@ -1,0 +1,14 @@
+{
+  "name": "candidate-spectral-trace",
+  "review": "candidate-spectral-trace-final",
+  "resolution": "notes/WISHART_CANDIDATE_SPECTRAL_TRACE_LAW.md",
+  "facade": "facade-169",
+  "total": 1084,
+  "new_count": 3,
+  "control_script": "experiments/mean_positive_spectral_trace_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/mean-positive-spectral-trace-control.json",
+  "seed": 2026103014,
+  "commit": "Connect candidate trace law to mean and sample spectra",
+  "scope": "2026-10-31 candidate and actual spectral sum law: 1084 bindings (1082 theorem/instance + 2 constructions), auditPASS/facade169 exit0, 209 acceptance records verified. Candidate coordinate-sum law equals sum of all actual ordered Gram eigenvalues when scalar mean energy matches; equality follows from explicit bijection of positive mean-Gram eigenvalues to candidate parameters. Mean positive spectrum sum equals Frobenius energy, including rank-deficient and empty dimensions. This is not joint spectrum or noncentral G2 identification. Seed 2026103014 numerical finite-matrix controls 728 and 220 negative are not proof; three literal types and full source Qoder P4 bound. [需人工审查] spectral indexing, measure/Fubini/analytic uniqueness and paper/model mapping; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}

@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "9f200e02f1c3ca169205c991e094901862c7d6ac44d0cb53766570660874426a",
+  "target_lock_sha256": "4d8be13456ab2e0ad1c154b77c0f1bfe736bc8cdf18b313434c9ecaec5ca6ae5",
+  "leaf": {
+    "started_utc": "2026-10-30T17:48:30.046128+00:00",
+    "ended_utc": "2026-10-30T17:48:38.682531+00:00",
+    "module": "JinWishartFormalization.CandidateSpectralTraceLaw",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidateSpectralTraceLaw.lean",
+    "source_sha256_before": "9f200e02f1c3ca169205c991e094901862c7d6ac44d0cb53766570660874426a",
+    "source_sha256": "9f200e02f1c3ca169205c991e094901862c7d6ac44d0cb53766570660874426a",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/candidate-spectral-trace-CandidateSpectralTraceLaw-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "2301a1d4e0bcf6e7c35ea527318b6c3334947df0077f903c54bb744158e69ace",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T17:48:38.683770+00:00",
+    "ended_utc": "2026-10-30T17:49:08.875768+00:00",
+    "module": "SheafCandidateSpectralTraceLawTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCandidateSpectralTraceLawTargets.lean",
+    "source_sha256_before": "c7083c74ce2b857891eab1421c8ccd7c24e2ad887368984ce13953b9b60531be",
+    "source_sha256": "c7083c74ce2b857891eab1421c8ccd7c24e2ad887368984ce13953b9b60531be",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/candidate-spectral-trace-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

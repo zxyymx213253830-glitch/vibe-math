@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "candidate-spectral-trace-CandidateSpectralTraceLaw",
+    "module": "CandidateSpectralTraceLaw",
+    "nodes": [
+      [
+        "L-candidate-spectral-trace-candidate_actual_eigenvalue_sum_law_equal",
+        "candidate_actual_eigenvalue_sum_law_equal",
+        []
+      ],
+      [
+        "L-candidate-spectral-trace-meanPositiveNoncentrality_sum_eq_energy",
+        "meanPositiveNoncentrality_sum_eq_energy",
+        [
+          "L-candidate-spectral-trace-candidate_actual_eigenvalue_sum_law_equal"
+        ]
+      ],
+      [
+        "L-candidate-spectral-trace-candidate_actual_eigenvalue_sum_law_of_mean_spectrum",
+        "candidate_actual_eigenvalue_sum_law_of_mean_spectrum",
+        [
+          "L-candidate-spectral-trace-meanPositiveNoncentrality_sum_eq_energy"
+        ]
+      ]
+    ]
+  }
+]
