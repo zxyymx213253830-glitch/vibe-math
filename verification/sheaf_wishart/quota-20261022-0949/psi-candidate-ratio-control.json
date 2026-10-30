@@ -1,0 +1,10 @@
+{
+  "seed": 2026103010,
+  "status": "PASS",
+  "checks": 54,
+  "negative_controls": 24,
+  "precision": 38,
+  "source_sha256": "bc84fa5c42145d8a6de6c20874535be03a81bed5c93ca59d2fd113962065386e",
+  "not_a_proof": true,
+  "scope": "formula-side Psi and candidate tail determinant ratios, not actual law"
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "PsiCandidateTailRatio.lean": {
+      "sha256": "279643cffd163bbeab6976016c5db89bc50224be6ea4437a52a162cb3d594abc",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ac9bc9357898bab20f79d264cd1bed3bc649345047580f332492414361c2b32e"
+}

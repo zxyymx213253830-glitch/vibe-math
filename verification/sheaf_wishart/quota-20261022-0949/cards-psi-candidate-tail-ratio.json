@@ -1,0 +1,48 @@
+[
+  {
+    "tag": "psi-candidate-tail-ratio-PsiCandidateTailRatio",
+    "module": "PsiCandidateTailRatio",
+    "nodes": [
+      [
+        "L-psi-candidate-tail-ratio-norm_det_submatrix_equiv_equiv_complex",
+        "norm_det_submatrix_equiv_equiv_complex",
+        []
+      ],
+      [
+        "L-psi-candidate-tail-ratio-mixedCandidateTailMatrix_det_eq_restricted",
+        "mixedCandidateTailMatrix_det_eq_restricted",
+        [
+          "L-psi-candidate-tail-ratio-norm_det_submatrix_equiv_equiv_complex"
+        ]
+      ],
+      [
+        "L-psi-candidate-tail-ratio-paperPsi_tail_det_norm",
+        "paperPsi_tail_det_norm",
+        [
+          "L-psi-candidate-tail-ratio-mixedCandidateTailMatrix_det_eq_restricted"
+        ]
+      ],
+      [
+        "L-psi-candidate-tail-ratio-mixedCandidateTailMatrix_zero_det",
+        "mixedCandidateTailMatrix_zero_det",
+        [
+          "L-psi-candidate-tail-ratio-paperPsi_tail_det_norm"
+        ]
+      ],
+      [
+        "L-psi-candidate-tail-ratio-mixedCandidateTailMatrix_det_nonneg",
+        "mixedCandidateTailMatrix_det_nonneg",
+        [
+          "L-psi-candidate-tail-ratio-mixedCandidateTailMatrix_zero_det"
+        ]
+      ],
+      [
+        "L-psi-candidate-tail-ratio-mixedCandidateEnsemble_all_gt_eq_paperPsi_ratio",
+        "mixedCandidateEnsemble_all_gt_eq_paperPsi_ratio",
+        [
+          "L-psi-candidate-tail-ratio-mixedCandidateTailMatrix_det_nonneg"
+        ]
+      ]
+    ]
+  }
+]

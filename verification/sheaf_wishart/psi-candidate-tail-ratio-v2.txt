@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateTailRatio.lean:21:3: warning: Unused tactic linter: `change ‖(((Equiv.Perm.sign (ec.symm.trans er) : ℤˣ) : ℤ) : ℂ)‖ = 1` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateTailRatio.lean:80:8: error(lean.unknownIdentifier): Unknown identifier `div_nonneg_iff_of_pos_right`
+'JinWishart.norm_det_submatrix_equiv_equiv_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateTailMatrix_det_eq_restricted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperPsi_tail_det_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateTailMatrix_zero_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateTailMatrix_det_nonneg' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

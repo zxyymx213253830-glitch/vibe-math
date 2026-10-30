@@ -1,3 +1,4 @@
+import JinWishartFormalization.PsiCandidateTailRatio
 import JinWishartFormalization.NuttallSeriesTailBridge
 import JinWishartFormalization.GammaTailMomentBridge
 import JinWishartFormalization.PaperPsiTailMomentBridge

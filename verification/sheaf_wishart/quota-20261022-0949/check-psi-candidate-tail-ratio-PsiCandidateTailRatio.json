@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "279643cffd163bbeab6976016c5db89bc50224be6ea4437a52a162cb3d594abc",
+  "target_lock_sha256": "3a0777f2cdebc7f31bc21d61d4278839779482dbcde1436dcd9e493fa73e8b41",
+  "leaf": {
+    "started_utc": "2026-10-30T14:24:35.749449+00:00",
+    "ended_utc": "2026-10-30T14:24:45.321954+00:00",
+    "module": "JinWishartFormalization.PsiCandidateTailRatio",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/PsiCandidateTailRatio.lean",
+    "source_sha256_before": "279643cffd163bbeab6976016c5db89bc50224be6ea4437a52a162cb3d594abc",
+    "source_sha256": "279643cffd163bbeab6976016c5db89bc50224be6ea4437a52a162cb3d594abc",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/psi-candidate-tail-ratio-PsiCandidateTailRatio-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "f519185afc268ba3470475af6fe3113cd9b6492eca8b0afa805d448330ef406f",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T14:24:45.325432+00:00",
+    "ended_utc": "2026-10-30T14:25:30.167667+00:00",
+    "module": "SheafPsiCandidateTailRatioTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafPsiCandidateTailRatioTargets.lean",
+    "source_sha256_before": "b943ab10e75d9d987d262b170eaef86eecb441b0f3bf288704ee977dcb5d39df",
+    "source_sha256": "b943ab10e75d9d987d262b170eaef86eecb441b0f3bf288704ee977dcb5d39df",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/psi-candidate-tail-ratio-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

@@ -1,0 +1,15 @@
+{
+  "name": "psi-candidate-tail-ratio",
+  "review": "psi-candidate-tail-ratio-final",
+  "resolution": "notes/WISHART_PSI_CANDIDATE_TAIL_RATIO.md",
+  "facade": "facade-160",
+  "total": 1054,
+  "new_count": 6,
+  "control_script": "experiments/psi_candidate_ratio_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/psi-candidate-ratio-control.json",
+  "seed": 2026103010,
+  "commit": "Connect candidate tail probability to paper Psi ratio",
+  "pending_paths": ["experiments/mixed_candidate_trace_laplace_control.py"],
+  "scope": "2026-10-30 candidate Psi tail ratio: 1054 bindings (1052 theorem/instance + 2 constructions), auditPASS/facade160 exit0, 200 acceptance records verified. Under strictly ordered positive noncentral parameters and x>=0, candidate all-greater probability equals the original formula-side Psi determinant norm ratio; dimensions include zero. Six exact types and complete locked source reviewed by Qoder P4. Seed 2026103010 controls 54 positive and 24 negative are not proofs. [需人工审查] measure, Fubini, indexing and paper/model mapping. Actual Wishart law identification, generalG2/noncentralG2/generalT1T2/journalT3/full mapping remain OPEN; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}

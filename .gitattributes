@@ -1334,3 +1334,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/PaperPsiTailMomentBridge.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_PAPER_PSI_TAIL_BRIDGE.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/PsiCandidateTailRatio.lean -text whitespace=cr-at-eol
+
+/experiments/psi_candidate_ratio_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_PSI_CANDIDATE_TAIL_RATIO.md -text whitespace=cr-at-eol

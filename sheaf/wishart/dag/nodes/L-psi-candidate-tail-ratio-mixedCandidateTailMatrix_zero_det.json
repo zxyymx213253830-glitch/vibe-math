@@ -1,0 +1,24 @@
+{
+  "id": "L-psi-candidate-tail-ratio-mixedCandidateTailMatrix_zero_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PsiCandidateTailRatio",
+  "declaration": "JinWishart.mixedCandidateTailMatrix_zero_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-psi-candidate-tail-ratio-paperPsi_tail_det_norm"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-psi-candidate-tail-ratio-paperPsi_tail_det_norm"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-psi-candidate-tail-ratio-PsiCandidateTailRatio.json",
+    "source_sha256": "279643cffd163bbeab6976016c5db89bc50224be6ea4437a52a162cb3d594abc"
+  }
+}

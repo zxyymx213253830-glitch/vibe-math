@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T14:24:35.749449+00:00",
+  "ended_utc": "2026-10-30T14:24:45.321954+00:00",
+  "module": "JinWishartFormalization.PsiCandidateTailRatio",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PsiCandidateTailRatio.lean",
+  "source_sha256_before": "279643cffd163bbeab6976016c5db89bc50224be6ea4437a52a162cb3d594abc",
+  "source_sha256": "279643cffd163bbeab6976016c5db89bc50224be6ea4437a52a162cb3d594abc",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/psi-candidate-tail-ratio-PsiCandidateTailRatio-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f519185afc268ba3470475af6fe3113cd9b6492eca8b0afa805d448330ef406f",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

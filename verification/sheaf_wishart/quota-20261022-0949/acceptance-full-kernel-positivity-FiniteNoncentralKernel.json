@@ -10,5 +10,5 @@
     "resolution": "notes/WISHART_FULL_KERNEL_AND_BESSEL_CLOSURE.md"
   },
   "audit": "verification/central_mixed_moments/audit.json",
-  "facade_receipt": "verification/sheaf_wishart/facade-159.receipt.json"
+  "facade_receipt": "verification/sheaf_wishart/facade-160.receipt.json"
 }
