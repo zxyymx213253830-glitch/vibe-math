@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "WeightedAndreief.lean": {
+      "sha256": "c0af5c320c477a5491b3b4ec0ee042ccda25dc573745374ecb7799d4a754806a",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "46ad4e1b6a7dd66aab3d87fc2062023903498bf0c5a36049977286798f63196b"
+}

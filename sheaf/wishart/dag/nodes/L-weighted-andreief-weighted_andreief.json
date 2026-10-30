@@ -1,0 +1,20 @@
+{
+  "id": "L-weighted-andreief-weighted_andreief",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.WeightedAndreief",
+  "declaration": "JinWishart.weighted_andreief",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-weighted-andreief-WeightedAndreief.json",
+    "source_sha256": "c0af5c320c477a5491b3b4ec0ee042ccda25dc573745374ecb7799d4a754806a"
+  }
+}

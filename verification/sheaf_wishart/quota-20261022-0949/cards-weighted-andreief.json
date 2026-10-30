@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "weighted-andreief-WeightedAndreief",
+    "module": "WeightedAndreief",
+    "nodes": [
+      [
+        "L-weighted-andreief-weighted_andreief",
+        "weighted_andreief",
+        []
+      ],
+      [
+        "L-weighted-andreief-normalizedDeterminantEnsemble_product_expectation",
+        "normalizedDeterminantEnsemble_product_expectation",
+        [
+          "L-weighted-andreief-weighted_andreief"
+        ]
+      ],
+      [
+        "L-weighted-andreief-exp_sum_weighted_andreief",
+        "exp_sum_weighted_andreief",
+        [
+          "L-weighted-andreief-normalizedDeterminantEnsemble_product_expectation"
+        ]
+      ],
+      [
+        "L-weighted-andreief-normalizedDeterminantEnsemble_trace_laplace",
+        "normalizedDeterminantEnsemble_trace_laplace",
+        [
+          "L-weighted-andreief-exp_sum_weighted_andreief"
+        ]
+      ]
+    ]
+  }
+]

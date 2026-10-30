@@ -1,0 +1,24 @@
+{
+  "id": "L-weighted-andreief-normalizedDeterminantEnsemble_product_expectation",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.WeightedAndreief",
+  "declaration": "JinWishart.normalizedDeterminantEnsemble_product_expectation",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-weighted-andreief-weighted_andreief"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-weighted-andreief-weighted_andreief"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-weighted-andreief-WeightedAndreief.json",
+    "source_sha256": "c0af5c320c477a5491b3b4ec0ee042ccda25dc573745374ecb7799d4a754806a"
+  }
+}

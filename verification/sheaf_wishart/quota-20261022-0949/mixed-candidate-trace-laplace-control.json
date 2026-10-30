@@ -1,0 +1,10 @@
+{
+  "seed": 2026103011,
+  "status": "PASS",
+  "checks": 54,
+  "negative_controls": 24,
+  "precision": 35,
+  "source_sha256": "5ec6c819dc3492319060b2944cf0305d7c629e9a841238fbf699ca61486c1d05",
+  "not_a_proof": true,
+  "scope": "candidate trace Laplace versus actual Wishart trace formula, not joint-law identification"
+}

@@ -1,0 +1,101 @@
+import JinWishartFormalization.PositiveDeterminantEnsembleCount
+
+/-! Codex. Seed 2026103011 numerically checks the intended trace Laplace
+specialization before this source. A general product-weight identity only;
+no actual Wishart law is asserted. [需人工审查] Fubini and model mapping. -/
+open MeasureTheory Finset Matrix
+namespace JinWishart
+noncomputable section
+variable {n : ℕ} {μ : Measure ℝ} [SigmaFinite μ]
+
+theorem weighted_andreief (f g : Fin n → ℝ → ℝ) (w : ℝ → ℝ)
+ (hfg : ∀ i j, Integrable (fun y => f i y * (w y * g j y)) μ) :
+ (∫ z : Fin n → ℝ, (∏ i, w (z i)) * determinantProduct f g z
+   ∂(Measure.pi (fun _ : Fin n => μ))) =
+ (n.factorial : ℝ) * (Matrix.of (fun i j => ∫ y, f i y * (w y * g j y) ∂μ)).det := by
+ classical
+ let G : Fin n → ℝ → ℝ := fun i y => w y * g i y
+ have h := Andreief.andreief f G hfg
+ have hn : (n.factorial : ℝ) ≠ 0 := by positivity
+ have he (z : Fin n → ℝ) :
+   (∏ i, w (z i)) * determinantProduct f g z =
+   (Matrix.of (fun i j => f i (z j))).det * (Matrix.of (fun i j => G i (z j))).det := by
+   unfold determinantProduct G
+   have hd : (Matrix.of (fun i j => w (z j) * g i (z j))).det =
+       (∏ i, w (z i)) * (Matrix.of (fun i j => g i (z j))).det := by
+     simpa only [Matrix.of_apply] using
+       Matrix.det_mul_row (fun i => w (z i)) (Matrix.of (fun i j => g i (z j)))
+   rw [hd]
+   ring
+ have hi : (∫ z : Fin n → ℝ, (∏ i, w (z i)) * determinantProduct f g z
+     ∂(Measure.pi (fun _ : Fin n => μ))) =
+     ∫ z : Fin n → ℝ, (Matrix.of (fun i j => f i (z j))).det *
+       (Matrix.of (fun i j => G i (z j))).det ∂(Measure.pi (fun _ : Fin n => μ)) := by
+   apply integral_congr_ae
+   exact ae_of_all _ he
+ rw [hi]
+ change (∫ z : Fin n → ℝ, (Matrix.of (fun i j => f i (z j))).det *
+   (Matrix.of (fun i j => G i (z j))).det ∂(Measure.pi (fun _ : Fin n => μ))) =
+   (n.factorial : ℝ) * (Matrix.of (fun i j => ∫ y, f i y * G j y ∂μ)).det
+ rw [h]
+ field_simp
+
+theorem normalizedDeterminantEnsemble_product_expectation (f g : Fin n → ℝ → ℝ)
+ (w : ℝ → ℝ)
+ (hfg : ∀ i j, Integrable (fun y => f i y * (w y * g j y)) μ)
+ (hpos : ∀ z, 0 ≤ determinantProduct f g z)
+ (hmeas : Measurable (fun z => ENNReal.ofReal (determinantProduct f g z)))
+ (hdet : 0 < (determinantMomentMatrix μ f g).det) :
+ (∫ z : Fin n → ℝ, ∏ i, w (z i) ∂(normalizedDeterminantEnsemble μ f g)) =
+ (Matrix.of (fun i j => ∫ y, f i y * (w y * g j y) ∂μ)).det /
+ (determinantMomentMatrix μ f g).det := by
+ classical
+ have hn : (0 : ℝ) < n.factorial := by positivity
+ have hz : 0 < (n.factorial : ℝ) * (determinantMomentMatrix μ f g).det := mul_pos hn hdet
+ unfold normalizedDeterminantEnsemble determinantEnsembleMeasure
+ rw [integral_smul_measure, integral_withDensity_eq_integral_toReal_smul hmeas
+   (ae_of_all _ fun _ => ENNReal.ofReal_lt_top), ENNReal.toReal_inv,
+   ENNReal.toReal_ofReal hz.le]
+ simp only [smul_eq_mul]
+ have hi : (∫ z : Fin n → ℝ, (ENNReal.ofReal (determinantProduct f g z)).toReal *
+     (∏ i, w (z i)) ∂(Measure.pi (fun _ : Fin n => μ))) =
+     ∫ z : Fin n → ℝ, (∏ i, w (z i)) * determinantProduct f g z
+       ∂(Measure.pi (fun _ : Fin n => μ)) := by
+   apply integral_congr_ae
+   filter_upwards [] with z
+   rw [ENNReal.toReal_ofReal (hpos z), mul_comm]
+ rw [hi, weighted_andreief f g w hfg]
+ field_simp
+
+theorem exp_sum_weighted_andreief (f g : Fin n → ℝ → ℝ) (s : ℝ)
+ (hfg : ∀ i j, Integrable (fun y => f i y * (Real.exp (-s*y) * g j y)) μ) :
+ (∫ z : Fin n → ℝ, Real.exp (-s * ∑ i, z i) * determinantProduct f g z
+   ∂(Measure.pi (fun _ : Fin n => μ))) =
+ (n.factorial : ℝ) * (Matrix.of (fun i j => ∫ y, f i y * (Real.exp (-s*y) * g j y) ∂μ)).det := by
+ have h := weighted_andreief f g (fun y => Real.exp (-s*y)) hfg
+ convert h using 1
+ apply integral_congr_ae
+ filter_upwards [] with z
+ rw [← Real.exp_sum, ← Finset.mul_sum]
+
+theorem normalizedDeterminantEnsemble_trace_laplace (f g : Fin n → ℝ → ℝ) (s : ℝ)
+ (hfg : ∀ i j, Integrable (fun y => f i y * (Real.exp (-s*y) * g j y)) μ)
+ (hpos : ∀ z, 0 ≤ determinantProduct f g z)
+ (hmeas : Measurable (fun z => ENNReal.ofReal (determinantProduct f g z)))
+ (hdet : 0 < (determinantMomentMatrix μ f g).det) :
+ (∫ z : Fin n → ℝ, Real.exp (-s * ∑ i, z i) ∂(normalizedDeterminantEnsemble μ f g)) =
+ (Matrix.of (fun i j => ∫ y, f i y * (Real.exp (-s*y) * g j y) ∂μ)).det /
+ (determinantMomentMatrix μ f g).det := by
+ have h := normalizedDeterminantEnsemble_product_expectation f g (fun y => Real.exp (-s*y))
+   hfg hpos hmeas hdet
+ convert h using 1
+ apply integral_congr_ae
+ filter_upwards [] with z
+ rw [← Real.exp_sum, ← Finset.mul_sum]
+
+end
+end JinWishart
+#print axioms JinWishart.weighted_andreief
+#print axioms JinWishart.normalizedDeterminantEnsemble_product_expectation
+#print axioms JinWishart.exp_sum_weighted_andreief
+#print axioms JinWishart.normalizedDeterminantEnsemble_trace_laplace

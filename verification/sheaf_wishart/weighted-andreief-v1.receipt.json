@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T14:31:04.934591+00:00",
+  "ended_utc": "2026-10-30T14:31:16.177588+00:00",
+  "module": "JinWishartFormalization.WeightedAndreief",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/WeightedAndreief.lean",
+  "source_sha256_before": "b0fe47e613cf76ac69efb874fac410d08f932e96fd144e2ea9f3ba913c948b76",
+  "source_sha256": "b0fe47e613cf76ac69efb874fac410d08f932e96fd144e2ea9f3ba913c948b76",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/weighted-andreief-v1.txt",
+  "log_exists": true,
+  "log_sha256": "3e5afb3d7392624e8cee4c9f2021007d7a2afec2ec986d6cfdf9df68a1b1cdb6",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

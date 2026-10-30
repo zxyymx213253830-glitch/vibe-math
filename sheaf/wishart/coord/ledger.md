@@ -211,3 +211,4 @@
 - 2026-10-30T12:49:35.437822+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-gamma-tail-moment-GammaTailMomentBridge.json; human measure/model review remains REQUIRED.
 - 2026-10-30T12:49:52.207482+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-paper-psi-tail-moment-PaperPsiTailMomentBridge.json; human measure/model review remains REQUIRED.
 - 2026-10-30T14:29:23.009735+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-psi-candidate-tail-ratio-PsiCandidateTailRatio.json; human measure/model review remains REQUIRED.
+- 2026-10-30T14:36:05.269629+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-weighted-andreief-WeightedAndreief.json; human measure/model review remains REQUIRED.

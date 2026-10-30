@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\WeightedAndreief.lean:24:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (of fun i j => ?v j * ?A i j).det
+in the target expression
+  (∏ i, w (z i)) * ((of fun i j => f i (z j)).det * (of fun i j => g i (z j)).det) =
+    (of fun i j => f i (z j)).det * (of fun i j => w (z j) * g i (z j)).det
+
+n : ℕ
+μ : Measure ℝ
+inst✝ : SigmaFinite μ
+f g : Fin n → ℝ → ℝ
+w : ℝ → ℝ
+hfg : ∀ (i j : Fin n), Integrable (fun y => f i y * (w y * g j y)) μ
+G : Fin n → ℝ → ℝ := fun i y => w y * g i y
+h :
+  (of fun i j => ∫ (x : ℝ), f i x * G j x ∂μ).det =
+    1 / ↑n.factorial *
+      ∫ (x : Fin n → ℝ), (of fun i j => f i (x j)).det * (of fun i j => G i (x j)).det ∂Measure.pi fun x => μ
+hn : ↑n.factorial ≠ 0
+z : Fin n → ℝ
+⊢ (∏ i, w (z i)) * ((of fun i j => f i (z j)).det * (of fun i j => g i (z j)).det) =
+    (of fun i j => f i (z j)).det * (of fun i j => w (z j) * g i (z j)).det
+'JinWishart.weighted_andreief' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.exp_sum_weighted_andreief' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

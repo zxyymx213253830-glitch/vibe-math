@@ -1,0 +1,14 @@
+{
+  "name": "weighted-andreief",
+  "review": "weighted-andreief-final",
+  "resolution": "notes/WISHART_WEIGHTED_ANDREIEF.md",
+  "facade": "facade-161",
+  "total": 1058,
+  "new_count": 4,
+  "control_script": "experiments/mixed_candidate_trace_laplace_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/mixed-candidate-trace-laplace-control.json",
+  "seed": 2026103011,
+  "commit": "Prove weighted determinant ensemble expectation identities",
+  "scope": "2026-10-30 weighted Andreief: 1058 bindings (1056 theorem/instance + 2 constructions), auditPASS/facade161 exit0, 201 acceptance records verified. Generic product-weight and trace-Laplace determinant ratios proved for finite dimension including zero with explicit pairwise L1, density measurability, nonnegativity and positive normalizer. Seed 2026103011 numerical 54 and negative 24 controls precede source and are not proofs; four literal types and complete final source Qoder P4 bound. [需人工审查] Fubini, measure and model mapping. Weighted candidate moments and actual Wishart joint-law identification remain OPEN; fullLake/Linux independent kernel NOT_RUN and frozen publication unchanged.",
+  "clear_pending_review": true
+}

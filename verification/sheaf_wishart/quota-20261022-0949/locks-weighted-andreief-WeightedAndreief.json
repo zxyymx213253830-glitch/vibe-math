@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-10-30T14:33:38.102746+00:00",
+  "module": "JinWishartFormalization.WeightedAndreief",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/WeightedAndreief.lean",
+  "statements": {
+    "JinWishart.weighted_andreief": "(f g : Fin n → ℝ → ℝ) (w : ℝ → ℝ) (hfg : ∀ i j, Integrable (fun y => f i y * (w y * g j y)) μ) : (∫ z : Fin n → ℝ, (∏ i, w (z i)) * determinantProduct f g z ∂(Measure.pi (fun _ : Fin n => μ))) = (n.factorial : ℝ) * (Matrix.of (fun i j => ∫ y, f i y * (w y * g j y) ∂μ)).det",
+    "JinWishart.normalizedDeterminantEnsemble_product_expectation": "(f g : Fin n → ℝ → ℝ) (w : ℝ → ℝ) (hfg : ∀ i j, Integrable (fun y => f i y * (w y * g j y)) μ) (hpos : ∀ z, 0 ≤ determinantProduct f g z) (hmeas : Measurable (fun z => ENNReal.ofReal (determinantProduct f g z))) (hdet : 0 < (determinantMomentMatrix μ f g).det) : (∫ z : Fin n → ℝ, ∏ i, w (z i) ∂(normalizedDeterminantEnsemble μ f g)) = (Matrix.of (fun i j => ∫ y, f i y * (w y * g j y) ∂μ)).det / (determinantMomentMatrix μ f g).det",
+    "JinWishart.exp_sum_weighted_andreief": "(f g : Fin n → ℝ → ℝ) (s : ℝ) (hfg : ∀ i j, Integrable (fun y => f i y * (Real.exp (-s*y) * g j y)) μ) : (∫ z : Fin n → ℝ, Real.exp (-s * ∑ i, z i) * determinantProduct f g z ∂(Measure.pi (fun _ : Fin n => μ))) = (n.factorial : ℝ) * (Matrix.of (fun i j => ∫ y, f i y * (Real.exp (-s*y) * g j y) ∂μ)).det",
+    "JinWishart.normalizedDeterminantEnsemble_trace_laplace": "(f g : Fin n → ℝ → ℝ) (s : ℝ) (hfg : ∀ i j, Integrable (fun y => f i y * (Real.exp (-s*y) * g j y)) μ) (hpos : ∀ z, 0 ≤ determinantProduct f g z) (hmeas : Measurable (fun z => ENNReal.ofReal (determinantProduct f g z))) (hdet : 0 < (determinantMomentMatrix μ f g).det) : (∫ z : Fin n → ℝ, Real.exp (-s * ∑ i, z i) ∂(normalizedDeterminantEnsemble μ f g)) = (Matrix.of (fun i j => ∫ y, f i y * (Real.exp (-s*y) * g j y) ∂μ)).det / (determinantMomentMatrix μ f g).det"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/PositiveDeterminantEnsembleCount.lean": "a26eaed1c52d2b19f2e23f9275a856e1510cf06a57b8f85db153fc9560e9ce67",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/PositiveDeterminantEnsembleCount.olean": "f9c7f0b5184271a6af9be23d98f32506ba6845c97edd92010028e57a924a0fda",
+    "theory/jin_wishart_formalization/JinWishartFormalization/SplitAndreiefCountCoefficients.lean": "2296a75def4e35ce9bced063bdaad9b7ab7e31f627ae0d6e9b2e909e9b26eb95",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/SplitAndreiefCountCoefficients.olean": "af49a53ba924aabd04a7982ff079b6638fc4828bf0c0e915df2c1b04d02ed520",
+    "theory/jin_wishart_formalization/JinWishartFormalization/SplitAndreiefCountGenerating.lean": "0965ad446cf7d9ca1a0b3da868c671c65e35a7644f211885c782c9d0cbaccd33",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/SplitAndreiefCountGenerating.olean": "0aa5b31d6a3114587a20a4b75547bad64bd2b1b6417e35705064657c63462843",
+    "theory/jin_wishart_formalization/JinWishartFormalization/T3FixedCardinalityRowSelection.lean": "c4bf3dd8913ba41756069d92012b1054cd499166e55ed62760a523df26b6e526",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/T3FixedCardinalityRowSelection.olean": "58fba968f8a9fe48f22fedf482ac5dcfd455597737299ccf757a5268709b66d4",
+    "theory/jin_wishart_formalization/JinWishartFormalization/DeterminantRowExpansion.lean": "be9fe185423e17b79824d078a664f14280eaf8ccfc24c4a0a78b72737a2dd0fe",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/DeterminantRowExpansion.olean": "e709679324a6c8aa3582db0fd93570fd51fdd5774987e81375191e4f2492f3d5",
+    "theory/jin_wishart_formalization/JinWishartFormalization/Andreief.lean": "48fc507811c46b7eaa4d1a30041eeb04a339f79a28faa669dd328285ea84e91a",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/Andreief.olean": "b44a6964fd02e2cd076ad726e274927b8866b37b3eebf8efd97fb68c508e1db7",
+    "theory/jin_wishart_formalization/JinWishartFormalization/WeightedAndreief.lean": "c0af5c320c477a5491b3b4ec0ee042ccda25dc573745374ecb7799d4a754806a",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafWeightedAndreiefTargets.lean",
+  "type_check_source_sha256": "148104499d5e62b38932f2e015b3925adee1143431440aa7661c30c46221279e",
+  "locked_local_definitions": {}
+}
