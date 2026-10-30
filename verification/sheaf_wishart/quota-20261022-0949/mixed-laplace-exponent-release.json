@@ -1,0 +1,14 @@
+{
+  "name": "mixed-laplace-exponent",
+  "review": "mixed-laplace-exponent-final",
+  "resolution": "notes/WISHART_MIXED_LAPLACE_EXPONENT.md",
+  "facade": "facade-165",
+  "total": 1072,
+  "new_count": 5,
+  "control_script": "experiments/mixed_laplace_exponent_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/mixed-laplace-exponent-control.json",
+  "seed": 2026103012,
+  "commit": "Prove mixed candidate Laplace determinant scaling exponents",
+  "scope": "2026-10-30 mixed Laplace exponent algebra: 1072 bindings (1070 theorem/instance + 2 constructions), auditPASS/facade165 exit0, 205 acceptance records verified. Finite dimension scaling exponents, Vandermonde and mixed determinant scaling proved including zero dimensions and totalized real c=0; later analytic use requires c>0. Seed 2026103012 has 676 exact checks and 576 negative controls, not proof; five literal types and complete source Qoder P4 bound. [需人工审查] indexing and model mapping. Simplified candidate trace Laplace formula and actual joint law remain OPEN; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}

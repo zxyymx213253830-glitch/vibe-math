@@ -1,3 +1,4 @@
+import JinWishartFormalization.MixedLaplaceExponent
 import JinWishartFormalization.ScaledMixedMomentMatrix
 import JinWishartFormalization.ScaledMixedKernelMoments
 import JinWishartFormalization.CandidateTraceLaplace

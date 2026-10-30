@@ -1,0 +1,9 @@
+{
+  "seed": 2026103012,
+  "status": "PASS",
+  "checks": 676,
+  "negative_controls": 576,
+  "source_sha256": "9fa9756f258b94f7d3a26f268f38f3b54c399dfc4fb44ea08ce29ce7c3f2bddc",
+  "not_a_proof": true,
+  "scope": "integer dimension exponent identity including zero"
+}

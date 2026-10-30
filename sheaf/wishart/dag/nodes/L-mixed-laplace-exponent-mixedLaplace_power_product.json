@@ -1,0 +1,24 @@
+{
+  "id": "L-mixed-laplace-exponent-mixedLaplace_power_product",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.MixedLaplaceExponent",
+  "declaration": "JinWishart.mixedLaplace_power_product",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-mixed-laplace-exponent-mixedNoncentralMomentMatrix_det_div_scale"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-mixed-laplace-exponent-mixedNoncentralMomentMatrix_det_div_scale"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-laplace-exponent-MixedLaplaceExponent.json",
+    "source_sha256": "7ef2fdaa7961525e9e1a2e7cf37a7407846652ec748e0a5e41b44ab8e52f3d43"
+  }
+}

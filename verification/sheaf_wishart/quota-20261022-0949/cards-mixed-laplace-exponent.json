@@ -1,0 +1,41 @@
+[
+  {
+    "tag": "mixed-laplace-exponent-MixedLaplaceExponent",
+    "module": "MixedLaplaceExponent",
+    "nodes": [
+      [
+        "L-mixed-laplace-exponent-triangularIndexSum_double",
+        "triangularIndexSum_double",
+        []
+      ],
+      [
+        "L-mixed-laplace-exponent-mixedLaplaceExponent_identity",
+        "mixedLaplaceExponent_identity",
+        [
+          "L-mixed-laplace-exponent-triangularIndexSum_double"
+        ]
+      ],
+      [
+        "L-mixed-laplace-exponent-vandermonde_det_div_scale",
+        "vandermonde_det_div_scale",
+        [
+          "L-mixed-laplace-exponent-mixedLaplaceExponent_identity"
+        ]
+      ],
+      [
+        "L-mixed-laplace-exponent-mixedNoncentralMomentMatrix_det_div_scale",
+        "mixedNoncentralMomentMatrix_det_div_scale",
+        [
+          "L-mixed-laplace-exponent-vandermonde_det_div_scale"
+        ]
+      ],
+      [
+        "L-mixed-laplace-exponent-mixedLaplace_power_product",
+        "mixedLaplace_power_product",
+        [
+          "L-mixed-laplace-exponent-mixedNoncentralMomentMatrix_det_div_scale"
+        ]
+      ]
+    ]
+  }
+]

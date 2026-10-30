@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T14:54:23.161514+00:00",
+  "ended_utc": "2026-10-30T14:54:32.661891+00:00",
+  "module": "JinWishartFormalization.MixedLaplaceExponent",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedLaplaceExponent.lean",
+  "source_sha256_before": "92a05cf38a18e3aa8262981c4d844c9c50c5a3ae6c71619fdbac62bddc25c2c1",
+  "source_sha256": "92a05cf38a18e3aa8262981c4d844c9c50c5a3ae6c71619fdbac62bddc25c2c1",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/mixed-laplace-exponent-v6.txt",
+  "log_exists": true,
+  "log_sha256": "58dbb1d06b12d14c0155a12564a7b7c2bc80546876f1e99fe6664710c1c609a8",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

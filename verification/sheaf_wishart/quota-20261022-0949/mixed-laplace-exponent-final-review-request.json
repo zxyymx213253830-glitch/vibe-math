@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "MixedLaplaceExponent.lean": {
+      "sha256": "7ef2fdaa7961525e9e1a2e7cf37a7407846652ec748e0a5e41b44ab8e52f3d43",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "ede80e031429631ef8724bd8fa0af5ed140fe2d98adad04327dc0f0af225bf69"
+}

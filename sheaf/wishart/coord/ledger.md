@@ -215,3 +215,4 @@
 - 2026-10-30T14:40:22.535923+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-trace-laplace-CandidateTraceLaplace.json; human measure/model review remains REQUIRED.
 - 2026-10-30T14:44:30.788818+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-scaled-mixed-kernel-ScaledMixedKernelMoments.json; human measure/model review remains REQUIRED.
 - 2026-10-30T14:50:43.767442+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-scaled-mixed-matrix-ScaledMixedMomentMatrix.json; human measure/model review remains REQUIRED.
+- 2026-10-30T14:59:07.151281+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-laplace-exponent-MixedLaplaceExponent.json; human measure/model review remains REQUIRED.

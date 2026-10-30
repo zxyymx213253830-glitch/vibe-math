@@ -1,0 +1,32 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedLaplaceExponent.lean:29:37: warning: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.sum_add_distrib, Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul,
+    triangularIndexSum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedLaplaceExponent.lean:63:74: error: unsolved goals
+p L q : ℕ
+c : ℝ
+⊢ ↑L * p + ∑ x, ↑x = L * p + ∑ x, ↑x
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedLaplaceExponent.lean:66:5: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i, (?q + ↑i + 1) + ∑ a, ↑a + ?L * ?p + ∑ j, ↑j
+in the target expression
+  c⁻¹ ^ (∑ i, (q + ↑i + 1) + ∑ i, ↑i + (L * p + ∑ j, ↑j)) = c⁻¹ ^ ((p + L) * (p + L + q))
+
+p L q : ℕ
+c : ℝ
+hs : ∑ j, (p + ↑j) = L * p + ∑ j, ↑j
+⊢ c⁻¹ ^ (∑ i, (q + ↑i + 1) + ∑ i, ↑i + (L * p + ∑ j, ↑j)) = c⁻¹ ^ ((p + L) * (p + L + q))
+'JinWishart.triangularIndexSum_double' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedLaplaceExponent_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.vandermonde_det_div_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedNoncentralMomentMatrix_det_div_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedLaplace_power_product' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

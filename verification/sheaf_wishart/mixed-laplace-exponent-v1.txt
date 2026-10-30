@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedLaplaceExponent.lean:19:71: error: unsolved goals
+n : ℕ
+h : (∑ i ∈ range (n + 1), i) * 2 = (n + 1) * n
+⊢ ∑ i, ↑i = ∑ i ∈ range (n + 1), i
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedLaplaceExponent.lean:20:30: warning: This simp argument is unused:
+  Fin.sum_univ_eq_sum_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [triangularIndexSum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedLaplaceExponent.lean:28:45: error: unsolved goals
+p L q : ℕ
+⊢ ↑(p + L) + ↑(p + L) * q + ∑ x, ↑x = p + p * q + L + L * q + ∑ x, ↑x
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\MixedLaplaceExponent.lean:29:37: warning: This simp argument is unused:
+  Finset.sum_const_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.sum_add_distrib, Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul,
+    triangularIndexSum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.triangularIndexSum_double' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedLaplaceExponent_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

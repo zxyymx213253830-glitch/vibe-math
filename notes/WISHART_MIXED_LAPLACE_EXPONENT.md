@@ -1,0 +1,7 @@
+# Mixed candidate Laplace scaling exponents
+
+The finite row, central-column, and scaled noncentral determinant exponents sum to `(p+L)*(p+L+q)`. The checked Vandermonde and mixed moment determinant scale identities include all real c in Lean's total inverse semantics; later analytic use explicitly assumes c>0. Zero dimensions are included. Seed 2026103012 supplied 676 exact finite exponent checks and 576 negative controls before the Lean source; they are not a general proof.
+
+The exact locked source received tool-disabled Qoder Qwen3.8-Max P4 review. Its purported double-scaling error does not match the source: the asserted matrix equality has left side `vandermonde (lambda/c)` and right side the single factor `(c^j)^(-1) * vandermonde lambda i j`; there is no second scaled lambda on the right. In the pinned `Matrix.det_mul_row` signature, the factor is indexed by the second matrix coordinate, exactly the needed column factor. The proof is checked against that signature. The real inverse and division operations are total in Lean, so the algebraic scaling statements explicitly include c=0; they do not claim ordinary division at zero. The analytic trace application uses c=1+s>0. The prior `mixedNoncentralMomentMatrix_det` includes both `prod lambda^p` and the Vandermonde determinant, and the proof scales both factors.
+
+Qoder P4 is not human review or independent compilation. [需人工审查] Indexing and physical model mapping remain. Full Lake/Linux independent kernel NOT_RUN; frozen publication unchanged.

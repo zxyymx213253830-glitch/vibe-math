@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "7ef2fdaa7961525e9e1a2e7cf37a7407846652ec748e0a5e41b44ab8e52f3d43",
+  "target_lock_sha256": "eefecd570931c4c4facd52a496e7b2488f8b9e1aa03d1d64ce1cc4e8542ec5f3",
+  "leaf": {
+    "started_utc": "2026-10-30T14:56:55.084645+00:00",
+    "ended_utc": "2026-10-30T14:57:04.708046+00:00",
+    "module": "JinWishartFormalization.MixedLaplaceExponent",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedLaplaceExponent.lean",
+    "source_sha256_before": "7ef2fdaa7961525e9e1a2e7cf37a7407846652ec748e0a5e41b44ab8e52f3d43",
+    "source_sha256": "7ef2fdaa7961525e9e1a2e7cf37a7407846652ec748e0a5e41b44ab8e52f3d43",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/mixed-laplace-exponent-MixedLaplaceExponent-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "1fbb4407a42d1b41a7f6655b0e09701f299fba8a69b4e78eb1994fc34fdb7e09",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T14:57:04.710516+00:00",
+    "ended_utc": "2026-10-30T14:57:13.343173+00:00",
+    "module": "SheafMixedLaplaceExponentTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafMixedLaplaceExponentTargets.lean",
+    "source_sha256_before": "0353fac0e4cee833fa1fa4ebbda13b4c918225f6ff87d4233e9aff13f5c073d4",
+    "source_sha256": "0353fac0e4cee833fa1fa4ebbda13b4c918225f6ff87d4233e9aff13f5c073d4",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/mixed-laplace-exponent-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}
