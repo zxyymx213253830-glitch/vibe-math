@@ -1,0 +1,60 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:35:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:53:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:44:14: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weightedMixedColumnFactor, mixedNoncentralMomentMatrix, Matrix.of_apply, mixedMomentDegree,
+    Equiv.apply_symm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:63:14: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weightedMixedColumnFactor, mixedNoncentralMomentMatrix, Matrix.of_apply, mixedMomentDegree,
+    Equiv.apply_symm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:90:21: error: Application type mismatch: The argument
+  weightedMixedColumnFactor p L lambda c
+has type
+  Fin p ⊕ Fin L → ℝ
+but is expected to have type
+  Fin (p + L) → ?m.283
+in the application
+  Equiv.prod_comp e (weightedMixedColumnFactor p L lambda c)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:94:1: error: Tactic `rfl` failed: The left-hand side
+  (∏ i, r i) *
+    ((∏ j, weightedMixedColumnFactor p L lambda c j) * (mixedNoncentralMomentMatrix q p L fun b => lambda b / c).det)
+is not definitionally equal to the right-hand side
+  ((∏ i, (c ^ (q + ↑i + 1))⁻¹) * ∏ j, weightedMixedColumnFactor p L lambda c j) *
+    (mixedNoncentralMomentMatrix q p L fun b => lambda b / c).det
+
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+c : ℝ
+hc : 0 < c
+e : Fin p ⊕ Fin L ≃ Fin (p + L) := finSumFinEquiv
+A : Matrix (Fin (p + L)) (Fin (p + L)) ℝ :=
+  (mixedNoncentralMomentMatrix q p L fun b => lambda b / c).submatrix ⇑e.symm ⇑e.symm
+r : Fin (p + L) → ℝ := fun i => (c ^ (q + ↑i + 1))⁻¹
+w : Fin (p + L) → ℝ := fun j => weightedMixedColumnFactor p L lambda c (e.symm j)
+hm : weightedMixedMomentMatrix p L q lambda c = of fun i j => r i * (w j * A i j)
+hrow : (of fun i j => r i * (w j * A i j)).det = (∏ i, r i) * (of fun i j => w j * A i j).det
+hcol : (of fun i j => w j * A i j).det = (∏ j, w j) * A.det
+hw : ∏ j, w j = ∏ j, weightedMixedColumnFactor p L lambda c j
+⊢ (∏ i, r i) *
+      ((∏ j, weightedMixedColumnFactor p L lambda c j) *
+        (mixedNoncentralMomentMatrix q p L fun b => lambda b / c).det) =
+    ((∏ i, (c ^ (q + ↑i + 1))⁻¹) * ∏ j, weightedMixedColumnFactor p L lambda c j) *
+      (mixedNoncentralMomentMatrix q p L fun b => lambda b / c).det
+'JinWishart.weightedMixedMomentMatrix_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.weightedMixedMomentMatrix_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

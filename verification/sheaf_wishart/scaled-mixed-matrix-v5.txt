@@ -1,0 +1,27 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:36:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:54:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:45:14: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weightedMixedColumnFactor, mixedNoncentralMomentMatrix, Matrix.of_apply, mixedMomentDegree,
+    Equiv.apply_symm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\ScaledMixedMomentMatrix.lean:64:14: warning: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weightedMixedColumnFactor, mixedNoncentralMomentMatrix, Matrix.of_apply, mixedMomentDegree,
+    Equiv.apply_symm_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.weightedMixedMomentMatrix_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.weightedMixedMomentMatrix_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_trace_laplace_scaled_det' depends on axioms: [propext, Classical.choice, Quot.sound]

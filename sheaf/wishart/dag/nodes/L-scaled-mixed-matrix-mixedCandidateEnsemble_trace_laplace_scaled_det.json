@@ -1,0 +1,24 @@
+{
+  "id": "L-scaled-mixed-matrix-mixedCandidateEnsemble_trace_laplace_scaled_det",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.ScaledMixedMomentMatrix",
+  "declaration": "JinWishart.mixedCandidateEnsemble_trace_laplace_scaled_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-scaled-mixed-matrix-weightedMixedMomentMatrix_det"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-scaled-mixed-matrix-weightedMixedMomentMatrix_det"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-scaled-mixed-matrix-ScaledMixedMomentMatrix.json",
+    "source_sha256": "09f09de1ba2e132db8ce01b3c3bf9a3318760200853d7a9c5164be442f009e1d"
+  }
+}

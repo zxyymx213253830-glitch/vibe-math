@@ -10,5 +10,5 @@
     "resolution": "notes/WISHART_ACTUAL_CENTRAL_TWO_BY_TWO_STRICT_T3.md"
   },
   "audit": "verification/central_mixed_moments/audit.json",
-  "facade_receipt": "verification/sheaf_wishart/facade-163.receipt.json"
+  "facade_receipt": "verification/sheaf_wishart/facade-164.receipt.json"
 }

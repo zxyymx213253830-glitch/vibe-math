@@ -1,0 +1,128 @@
+P4 adversarial review, <=500 words, problems only. No tools, no invented API checking, no independent compilation. All supplied source proof bodies are Codex. Distinguish actual mathematical gaps from optional API questions. Exact pinned Lean checks already exit0/standard3axioms; these do not replace your logical review. Review ONLY the exact claims and explicit assumptions in the attached sources; do not assume positivity of dimensions, fullrank, finite measure, parameter uniformity or additional probability claims unless actually stated. A stochastic statement carries its own explicit measure/model conditions. Treat imported results as separately checked dependencies and ask for an exact signature only when a concrete semantic mismatch matters.
+
+
+SOURCE ScaledMixedMomentMatrix.lean
+import JinWishartFormalization.ScaledMixedKernelMoments
+import JinWishartFormalization.MixedEnsembleMoments
+import JinWishartFormalization.CandidateTraceLaplace
+
+/-! Codex. Seed 2026103011 trace-Laplace matrix quadrature precedes source.
+Formula-side scaled mixed moments; no actual Wishart law claim.
+[需人工审查] Improper integrals and Fin/Sum index equivalence. -/
+open MeasureTheory Matrix Set
+namespace JinWishart
+noncomputable section
+
+def weightedMixedMomentMatrix (p L q : ℕ) (lambda : Fin L → ℝ) (c : ℝ) :
+ Matrix (Fin (p+L)) (Fin (p+L)) ℝ := Matrix.of (fun i j =>
+ ∫ y in Ioi (0 : ℝ), mixedEnsembleF p L i y *
+   (Real.exp (-((c-1)*y)) * mixedEnsembleG p L q lambda j y))
+
+def weightedMixedColumnFactor (p L : ℕ) (lambda : Fin L → ℝ) (c : ℝ) : Fin p ⊕ Fin L → ℝ
+ | Sum.inl a => (c^a.val)⁻¹
+ | Sum.inr b => Real.exp (lambda b/c)
+
+theorem weightedMixedMomentMatrix_entry (p L q : ℕ) (lambda : Fin L → ℝ)
+ (hl : ∀ j, 0 ≤ lambda j) (c : ℝ) (hc : 0 < c) (i j : Fin (p+L)) :
+ weightedMixedMomentMatrix p L q lambda c i j =
+ (c^(q+i.val+1))⁻¹ *
+ weightedMixedColumnFactor p L lambda c ((finSumFinEquiv (m := p) (n := L)).symm j) *
+ mixedNoncentralMomentMatrix q p L (fun b => lambda b/c)
+   ((finSumFinEquiv (m := p) (n := L)).symm i)
+   ((finSumFinEquiv (m := p) (n := L)).symm j) := by
+ have hn : c ≠ 0 := ne_of_gt hc
+ cases hj : (finSumFinEquiv (m := p) (n := L)).symm j with
+ | inl a =>
+   have he (y : ℝ) (hy : y ∈ Ioi (0 : ℝ)) :
+       mixedEnsembleF p L i y * (Real.exp (-((c-1)*y)) * mixedEnsembleG p L q lambda j y) =
+       y^(q+i.val+a.val)*Real.exp (-(c*y)) := by
+     have hy0 : 0 < y := hy
+     simp only [mixedEnsembleF,mixedEnsembleG,if_pos hy0,hj]
+     have hex : Real.exp (-((c-1)*y))*Real.exp (-y) = Real.exp (-(c*y)) := by
+       rw [← Real.exp_add]; congr 1; ring
+     rw [pow_add,pow_add]
+     calc
+       _ = (Real.exp (-((c-1)*y))*Real.exp (-y)) * (y^i.val*y^q*y^a.val) := by ring
+       _ = _ := by rw [hex]; ring
+   simp only [weightedMixedMomentMatrix,Matrix.of_apply]
+   rw [setIntegral_congr_fun measurableSet_Ioi he,integral_natPower_exp_neg_scaled _ c hc]
+   simp only [hj,weightedMixedColumnFactor,mixedNoncentralMomentMatrix,Matrix.of_apply,
+     mixedMomentDegree,Equiv.apply_symm_apply]
+   rw [show q+i.val+a.val+1 = (q+i.val+1)+a.val by omega,pow_add]
+   field_simp
+ | inr b =>
+   have he (y : ℝ) (hy : y ∈ Ioi (0 : ℝ)) :
+       mixedEnsembleF p L i y * (Real.exp (-((c-1)*y)) * mixedEnsembleG p L q lambda j y) =
+       y^(q+i.val)*Real.exp (-(c*y))*scalarSeriesKernel q (lambda b) y := by
+     have hy0 : 0 < y := hy
+     simp only [mixedEnsembleF,mixedEnsembleG,if_pos hy0,hj,scalarSeriesKernel]
+     have hex : Real.exp (-((c-1)*y))*Real.exp (-y) = Real.exp (-(c*y)) := by
+       rw [← Real.exp_add]; congr 1; ring
+     rw [pow_add]
+     calc
+       _ = (Real.exp (-((c-1)*y))*Real.exp (-y)) * (y^i.val*y^q) *
+         (∑' m : ℕ, y^m*(noncentralKernelSeriesWeight q m*lambda b^m)) := by ring
+       _ = _ := by rw [hex]; ring
+   simp only [weightedMixedMomentMatrix,Matrix.of_apply]
+   rw [setIntegral_congr_fun measurableSet_Ioi he,scalarSeriesKernel_scaledMoment q i.val (lambda b) c (hl b) hc]
+   simp only [hj,weightedMixedColumnFactor,mixedNoncentralMomentMatrix,Matrix.of_apply,
+     mixedMomentDegree,Equiv.apply_symm_apply]
+   ring
+
+theorem weightedMixedMomentMatrix_det (p L q : ℕ) (lambda : Fin L → ℝ)
+ (hl : ∀ j, 0 ≤ lambda j) (c : ℝ) (hc : 0 < c) :
+ (weightedMixedMomentMatrix p L q lambda c).det =
+ (∏ i : Fin (p+L), (c^(q+i.val+1))⁻¹) *
+ (∏ j : Fin p ⊕ Fin L, weightedMixedColumnFactor p L lambda c j) *
+ (mixedNoncentralMomentMatrix q p L (fun b => lambda b/c)).det := by
+ let e := finSumFinEquiv (m := p) (n := L)
+ let A := (mixedNoncentralMomentMatrix q p L (fun b => lambda b/c)).submatrix e.symm e.symm
+ let r : Fin (p+L) → ℝ := fun i => (c^(q+i.val+1))⁻¹
+ let w : Fin (p+L) → ℝ := fun j => weightedMixedColumnFactor p L lambda c (e.symm j)
+ have hm : weightedMixedMomentMatrix p L q lambda c =
+     Matrix.of (fun i j => r i * (w j * A i j)) := by
+   ext i j
+   simp only [Matrix.of_apply,r,w,A,Matrix.submatrix_apply,e]
+   rw [weightedMixedMomentMatrix_entry p L q lambda hl c hc]
+   ring
+ have hrow : (Matrix.of (fun i j => r i * (w j * A i j))).det =
+     (∏ i, r i) * (Matrix.of (fun i j => w j * A i j)).det := by
+   simpa only [Matrix.of_apply] using
+     Matrix.det_mul_column r (Matrix.of (fun i j => w j * A i j))
+ have hcol : (Matrix.of (fun i j => w j * A i j)).det = (∏ j, w j) * A.det := by
+   exact Matrix.det_mul_row w A
+ have hw : (∏ j, w j) = ∏ j : Fin p ⊕ Fin L, weightedMixedColumnFactor p L lambda c j := by
+   exact e.symm.prod_comp (weightedMixedColumnFactor p L lambda c)
+ rw [hm,hrow,hcol,hw]
+ dsimp only [A]
+ rw [Matrix.det_submatrix_equiv_self]
+ simp only [r,mul_assoc]
+
+theorem mixedCandidateEnsemble_trace_laplace_scaled_det (p L q : ℕ) (lambda : Fin L → ℝ)
+ (hl : StrictMono lambda) (hlp : ∀ j, 0 < lambda j) (s : ℝ) (hs : 0 ≤ s) :
+ (∫ z : Fin (p+L) → ℝ, Real.exp (-s * ∑ i, z i) ∂(mixedCandidateEnsemble p L q lambda)) =
+ ((∏ i : Fin (p+L), ((1+s)^(q+i.val+1))⁻¹) *
+ (∏ j : Fin p ⊕ Fin L, weightedMixedColumnFactor p L lambda (1+s) j) *
+ (mixedNoncentralMomentMatrix q p L (fun b => lambda b/(1+s))).det) /
+ (determinantMomentMatrix (volume.restrict (Ioi (0 : ℝ)))
+   (mixedEnsembleF p L) (mixedEnsembleG p L q lambda)).det := by
+ have hc : 0 < 1+s := by linarith
+ have h := mixedCandidateEnsemble_trace_laplace_det p L q lambda hl hlp s hs
+ have hm : (Matrix.of (fun i j => ∫ y, mixedEnsembleF p L i y *
+     (Real.exp (-s*y) * mixedEnsembleG p L q lambda j y)
+       ∂(volume.restrict (Ioi (0 : ℝ))))) = weightedMixedMomentMatrix p L q lambda (1+s) := by
+   ext i j
+   simp only [weightedMixedMomentMatrix,Matrix.of_apply]
+   congr 1
+   funext y
+   congr 2
+   congr 1
+   ring
+ rw [hm,weightedMixedMomentMatrix_det p L q lambda (fun j => (hlp j).le) (1+s) hc] at h
+ exact h
+
+end
+end JinWishart
+#print axioms JinWishart.weightedMixedMomentMatrix_entry
+#print axioms JinWishart.weightedMixedMomentMatrix_det
+#print axioms JinWishart.mixedCandidateEnsemble_trace_laplace_scaled_det

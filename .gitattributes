@@ -1354,3 +1354,7 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/ScaledMixedKernelMoments.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_SCALED_MIXED_KERNEL_MOMENTS.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/ScaledMixedMomentMatrix.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_SCALED_MIXED_MOMENT_MATRIX.md -text whitespace=cr-at-eol

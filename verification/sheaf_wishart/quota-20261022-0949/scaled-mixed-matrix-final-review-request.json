@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "ScaledMixedMomentMatrix.lean": {
+      "sha256": "09f09de1ba2e132db8ce01b3c3bf9a3318760200853d7a9c5164be442f009e1d",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "1954378d3b819dfcacc427181281157e3b09c07d382b269b7e2af644fa375e10"
+}

@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T14:46:50.985346+00:00",
+  "ended_utc": "2026-10-30T14:46:59.689620+00:00",
+  "module": "JinWishartFormalization.ScaledMixedMomentMatrix",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/ScaledMixedMomentMatrix.lean",
+  "source_sha256_before": "35fcc90d01ce07dc5be7c8c1e7f01ad24b6895bc5d922814eab9d68bfd4a5b43",
+  "source_sha256": "35fcc90d01ce07dc5be7c8c1e7f01ad24b6895bc5d922814eab9d68bfd4a5b43",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/scaled-mixed-matrix-v3.txt",
+  "log_exists": true,
+  "log_sha256": "552d648e45a93dd324ff44a8df68e5b42bc31e23dc05ac756e92040220221583",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

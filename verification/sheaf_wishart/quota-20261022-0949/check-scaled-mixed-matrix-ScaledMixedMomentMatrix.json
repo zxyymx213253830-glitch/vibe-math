@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "09f09de1ba2e132db8ce01b3c3bf9a3318760200853d7a9c5164be442f009e1d",
+  "target_lock_sha256": "8f470e1f572b58659dc68ded636e28890d35ff952b6a14ef09a5b01033c2aa8d",
+  "leaf": {
+    "started_utc": "2026-10-30T14:48:19.877145+00:00",
+    "ended_utc": "2026-10-30T14:48:28.786828+00:00",
+    "module": "JinWishartFormalization.ScaledMixedMomentMatrix",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/ScaledMixedMomentMatrix.lean",
+    "source_sha256_before": "09f09de1ba2e132db8ce01b3c3bf9a3318760200853d7a9c5164be442f009e1d",
+    "source_sha256": "09f09de1ba2e132db8ce01b3c3bf9a3318760200853d7a9c5164be442f009e1d",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/scaled-mixed-matrix-ScaledMixedMomentMatrix-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "3af03d176844f37aa35830815679275e5ae6e1e5932a3aec7feb33ff0ffbd3e8",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T14:48:28.790688+00:00",
+    "ended_utc": "2026-10-30T14:48:37.589997+00:00",
+    "module": "SheafScaledMixedMomentMatrixTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafScaledMixedMomentMatrixTargets.lean",
+    "source_sha256_before": "928a2e93eabaeedf90dda0428851ef4bf1f4bc7f24e3493c70333a3c76aef386",
+    "source_sha256": "928a2e93eabaeedf90dda0428851ef4bf1f4bc7f24e3493c70333a3c76aef386",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/scaled-mixed-matrix-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

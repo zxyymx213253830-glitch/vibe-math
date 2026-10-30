@@ -1,0 +1,20 @@
+{
+  "id": "L-scaled-mixed-matrix-weightedMixedMomentMatrix_entry",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.ScaledMixedMomentMatrix",
+  "declaration": "JinWishart.weightedMixedMomentMatrix_entry",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-scaled-mixed-matrix-ScaledMixedMomentMatrix.json",
+    "source_sha256": "09f09de1ba2e132db8ce01b3c3bf9a3318760200853d7a9c5164be442f009e1d"
+  }
+}

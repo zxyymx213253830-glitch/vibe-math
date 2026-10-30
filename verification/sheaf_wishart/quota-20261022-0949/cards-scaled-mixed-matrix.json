@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "scaled-mixed-matrix-ScaledMixedMomentMatrix",
+    "module": "ScaledMixedMomentMatrix",
+    "nodes": [
+      [
+        "L-scaled-mixed-matrix-weightedMixedMomentMatrix_entry",
+        "weightedMixedMomentMatrix_entry",
+        []
+      ],
+      [
+        "L-scaled-mixed-matrix-weightedMixedMomentMatrix_det",
+        "weightedMixedMomentMatrix_det",
+        [
+          "L-scaled-mixed-matrix-weightedMixedMomentMatrix_entry"
+        ]
+      ],
+      [
+        "L-scaled-mixed-matrix-mixedCandidateEnsemble_trace_laplace_scaled_det",
+        "mixedCandidateEnsemble_trace_laplace_scaled_det",
+        [
+          "L-scaled-mixed-matrix-weightedMixedMomentMatrix_det"
+        ]
+      ]
+    ]
+  }
+]

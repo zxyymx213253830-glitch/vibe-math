@@ -1,0 +1,15 @@
+{
+  "name": "scaled-mixed-matrix",
+  "review": "scaled-mixed-matrix-final",
+  "resolution": "notes/WISHART_SCALED_MIXED_MOMENT_MATRIX.md",
+  "facade": "facade-164",
+  "total": 1067,
+  "new_count": 3,
+  "control_script": "experiments/mixed_candidate_trace_laplace_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/mixed-candidate-trace-laplace-control.json",
+  "seed": 2026103011,
+  "reuse_control": true,
+  "commit": "Factor scaled mixed candidate moment determinants",
+  "scope": "2026-10-30 scaled mixed moment matrix: 1067 bindings (1065 theorem/instance + 2 constructions), auditPASS/facade164 exit0, 204 acceptance records verified. Weighted candidate moment entries and determinant factored into finite scaled-parameter moment matrix, and candidate trace Laplace transform connected to it for strictly ordered positive lambda and s>=0, including empty dimensions. Seed 2026103011 numerical controls precede source and are not proof; three literal types and final source Qoder P4 bound. [需人工审查] Fubini, indexing and model mapping. Simplified scalar Laplace form and actual joint law remain OPEN; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}
