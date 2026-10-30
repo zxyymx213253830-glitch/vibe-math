@@ -1,0 +1,28 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:11:67: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:11:67: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:13:57: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:20:10: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:20:31: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:20:31: error(lean.unknownIdentifier): Unknown identifier `ℂ`
+
+Note: It is not possible to treat `ℂ` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:23:66: error: unsolved goals
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : DecidableEq a
+d : a → sorry
+A : Matrix a a sorry
+B : Matrix a a sorry
+⊢ (rowAffinePolynomialMatrix (of fun i j => sorry) (of fun i j => sorry)).det = sorry * sorry
+'JinWishart.rowAffine_det_submatrix_complex' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:36:14: error(lean.unknownIdentifier): Unknown constant `JinWishart.rowAffine_det_columnScale_complex`

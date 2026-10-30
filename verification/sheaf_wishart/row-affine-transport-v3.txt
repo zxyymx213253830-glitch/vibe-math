@@ -1,0 +1,23 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:2:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:37:39: error(lean.invalidField): Invalid field `map`: The environment does not contain `Polynomial.map`, so it is not possible to project the field `map` from an expression
+  (rowAffinePolynomialMatrix A B).det
+of type `ℝ[X]`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:38:10: error(lean.unknownIdentifier): Unknown constant `Polynomial.mapRingHom`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\RowAffineDeterminantTransport.lean:37:64: error: unsolved goals
+a : Type u_1
+inst✝¹ : Fintype a
+inst✝ : DecidableEq a
+A B : Matrix a a ℝ
+⊢ (rowAffinePolynomialMatrix (Complex.ofRealHom.mapMatrix A) (Complex.ofRealHom.mapMatrix B)).det = sorry
+'JinWishart.rowAffine_det_submatrix_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.rowAffine_det_columnScale_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.rowAffine_det_realToComplex' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "row-affine-transport-RowAffineDeterminantTransport",
+    "module": "RowAffineDeterminantTransport",
+    "nodes": [
+      [
+        "L-row-affine-transport-rowAffine_det_submatrix_complex",
+        "rowAffine_det_submatrix_complex",
+        []
+      ],
+      [
+        "L-row-affine-transport-rowAffine_det_columnScale_complex",
+        "rowAffine_det_columnScale_complex",
+        [
+          "L-row-affine-transport-rowAffine_det_submatrix_complex"
+        ]
+      ],
+      [
+        "L-row-affine-transport-rowAffine_det_realToComplex",
+        "rowAffine_det_realToComplex",
+        [
+          "L-row-affine-transport-rowAffine_det_columnScale_complex"
+        ]
+      ]
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "id": "L-row-affine-transport-rowAffine_det_realToComplex",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.RowAffineDeterminantTransport",
+  "declaration": "JinWishart.rowAffine_det_realToComplex",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-row-affine-transport-rowAffine_det_columnScale_complex"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-row-affine-transport-rowAffine_det_columnScale_complex"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-row-affine-transport-RowAffineDeterminantTransport.json",
+    "source_sha256": "f4b46de80e9ee24a0e1c50a587e7a8309f7f678b78959631273c486520e2abf4"
+  }
+}

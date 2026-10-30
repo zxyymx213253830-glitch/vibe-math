@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T18:19:00.165966+00:00",
+  "ended_utc": "2026-10-30T18:19:05.869304+00:00",
+  "module": "JinWishartFormalization.RowAffineDeterminantTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RowAffineDeterminantTransport.lean",
+  "source_sha256_before": "13bb4b1f902bd72cefe59f3892b5fdfd07dba4e75a95c407d14e08bf631eeddf",
+  "source_sha256": "13bb4b1f902bd72cefe59f3892b5fdfd07dba4e75a95c407d14e08bf631eeddf",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/row-affine-transport-v1.txt",
+  "log_exists": true,
+  "log_sha256": "cf92acd64ca2bbae9cf3102194fb642ded59b1a8027d1ee6c3fea435e854e1d6",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

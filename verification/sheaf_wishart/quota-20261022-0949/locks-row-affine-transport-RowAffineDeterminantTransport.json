@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-10-30T18:20:46.314810+00:00",
+  "module": "JinWishartFormalization.RowAffineDeterminantTransport",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/RowAffineDeterminantTransport.lean",
+  "statements": {
+    "JinWishart.rowAffine_det_submatrix_complex": "{a b : Type*} [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] (er ec : a ≃ b) (A B : Matrix b b ℂ) : (rowAffinePolynomialMatrix (A.submatrix er ec) (B.submatrix er ec)).det = ((Equiv.Perm.sign (ec.symm.trans er) : ℤˣ) : Polynomial ℂ) * (rowAffinePolynomialMatrix A B).det",
+    "JinWishart.rowAffine_det_columnScale_complex": "{a : Type*} [Fintype a] [DecidableEq a] (d : a → ℂ) (A B : Matrix a a ℂ) : (rowAffinePolynomialMatrix (Matrix.of (fun i j => d j*A i j)) (Matrix.of (fun i j => d j*B i j))).det = Polynomial.C (∏ j, d j) * (rowAffinePolynomialMatrix A B).det",
+    "JinWishart.rowAffine_det_realToComplex": "{a : Type*} [Fintype a] [DecidableEq a] (A B : Matrix a a ℝ) : (rowAffinePolynomialMatrix (Complex.ofRealHom.mapMatrix A) (Complex.ofRealHom.mapMatrix B)).det = ((rowAffinePolynomialMatrix A B).det).map Complex.ofRealHom"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/T3FixedCardinalityRowSelection.lean": "c4bf3dd8913ba41756069d92012b1054cd499166e55ed62760a523df26b6e526",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/T3FixedCardinalityRowSelection.olean": "58fba968f8a9fe48f22fedf482ac5dcfd455597737299ccf757a5268709b66d4",
+    "theory/jin_wishart_formalization/JinWishartFormalization/DeterminantRowExpansion.lean": "be9fe185423e17b79824d078a664f14280eaf8ccfc24c4a0a78b72737a2dd0fe",
+    ".tools/publication-revision-20261016/fresh-project-library/JinWishartFormalization/DeterminantRowExpansion.olean": "e709679324a6c8aa3582db0fd93570fd51fdd5774987e81375191e4f2492f3d5",
+    "theory/jin_wishart_formalization/JinWishartFormalization/RowAffineDeterminantTransport.lean": "f4b46de80e9ee24a0e1c50a587e7a8309f7f678b78959631273c486520e2abf4",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafRowAffineTransportTargets.lean",
+  "type_check_source_sha256": "defed3dcb82e9743b7bfd6b8d1cd861be40fb0684be7abeb6eb3972a17c0b303",
+  "locked_local_definitions": {}
+}

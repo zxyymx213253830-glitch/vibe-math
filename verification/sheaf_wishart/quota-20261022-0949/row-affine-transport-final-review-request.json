@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "RowAffineDeterminantTransport.lean": {
+      "sha256": "f4b46de80e9ee24a0e1c50a587e7a8309f7f678b78959631273c486520e2abf4",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "b252e68a4d0ee770708bbb08f4ba4ddb30559e94475d3446d6eda5c27bca531b"
+}

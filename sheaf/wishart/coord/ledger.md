@@ -224,3 +224,4 @@
 - 2026-10-30T18:03:59.801598+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-psi-candidate-largest-PsiCandidateLargestCDF.json; human measure/model review remains REQUIRED.
 - 2026-10-30T18:08:42.265812+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-paper-extremes-CandidatePaperExtremeCDF.json; human measure/model review remains REQUIRED.
 - 2026-10-30T18:16:35.529777+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-coordinate-noatom-CandidateCoordinateNoAtom.json; human measure/model review remains REQUIRED.
+- 2026-10-30T18:23:11.093024+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-row-affine-transport-RowAffineDeterminantTransport.json; human measure/model review remains REQUIRED.

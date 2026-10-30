@@ -1,3 +1,4 @@
+import JinWishartFormalization.RowAffineDeterminantTransport
 import JinWishartFormalization.CandidateCoordinateNoAtom
 import JinWishartFormalization.CandidatePaperExtremeCDF
 import JinWishartFormalization.PsiCandidateLargestCDF

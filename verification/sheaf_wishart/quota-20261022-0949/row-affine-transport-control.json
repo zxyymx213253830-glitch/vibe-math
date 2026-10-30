@@ -1,0 +1,9 @@
+{
+  "seed": 2026103105,
+  "status": "PASS",
+  "checks": 25,
+  "negative_controls": 6,
+  "source_sha256": "7b821039ffd2cbd77b5af93470df2874278a9b5f597820054e78629aa1fba9b8",
+  "not_a_proof": true,
+  "scope": "exact finite polynomial determinant reindex and column-scale transport"
+}
