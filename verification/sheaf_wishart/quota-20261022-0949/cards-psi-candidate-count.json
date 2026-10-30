@@ -1,0 +1,41 @@
+[
+  {
+    "tag": "psi-candidate-count-PsiCandidateCountPolynomial",
+    "module": "PsiCandidateCountPolynomial",
+    "nodes": [
+      [
+        "L-psi-candidate-count-psiCountPolynomial_transport",
+        "psiCountPolynomial_transport",
+        []
+      ],
+      [
+        "L-psi-candidate-count-mixedCandidateCountPolynomial_restricted",
+        "mixedCandidateCountPolynomial_restricted",
+        [
+          "L-psi-candidate-count-psiCountPolynomial_transport"
+        ]
+      ],
+      [
+        "L-psi-candidate-count-mixedCandidateEnsemble_count_tail_polynomial",
+        "mixedCandidateEnsemble_count_tail_polynomial",
+        [
+          "L-psi-candidate-count-mixedCandidateCountPolynomial_restricted"
+        ]
+      ],
+      [
+        "L-psi-candidate-count-paperPsi_zero_det_signed_transport",
+        "paperPsi_zero_det_signed_transport",
+        [
+          "L-psi-candidate-count-mixedCandidateEnsemble_count_tail_polynomial"
+        ]
+      ],
+      [
+        "L-psi-candidate-count-mixedCandidateEnsemble_count_eq_psi_coefficient",
+        "mixedCandidateEnsemble_count_eq_psi_coefficient",
+        [
+          "L-psi-candidate-count-paperPsi_zero_det_signed_transport"
+        ]
+      ]
+    ]
+  }
+]

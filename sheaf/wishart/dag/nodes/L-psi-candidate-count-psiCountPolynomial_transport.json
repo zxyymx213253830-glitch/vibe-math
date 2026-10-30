@@ -1,0 +1,20 @@
+{
+  "id": "L-psi-candidate-count-psiCountPolynomial_transport",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PsiCandidateCountPolynomial",
+  "declaration": "JinWishart.psiCountPolynomial_transport",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-psi-candidate-count-PsiCandidateCountPolynomial.json",
+    "source_sha256": "7b60e8e09987f20c7b7835f3acd1ac831913635429a1cb278c225fb5d0d93f60"
+  }
+}

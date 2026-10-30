@@ -1,0 +1,87 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateCountPolynomial.lean:54:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0).submatrix (⇑(psiZeroRowEquiv p L)) (⇑(psiZeroColumnEquiv p L))
+    i j
+in the target expression
+  theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0 (er i) (ec j) -
+      theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x (er i) (ec j) =
+    ↑(psiTailColumnFactor p L q lambda j) *
+      ↑(mixedCandidateTailMatrix p L q lambda 0 i j - mixedCandidateTailMatrix p L q lambda x i j)
+
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+er : Fin p ⊕ Fin L ≃ Fin (p + L) := psiZeroRowEquiv p L
+ec : Fin p ⊕ Fin L ≃ Fin (p + L) := psiZeroColumnEquiv p L
+A : Matrix (Fin (p + L)) (Fin (p + L)) ℂ := theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x
+B : Matrix (Fin (p + L)) (Fin (p + L)) ℂ := theorem2XiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x
+T : Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ := mixedCandidateTailMatrix p L q lambda x
+S : Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ := mixedCandidateTailMatrix p L q lambda 0 - T
+d : Fin p ⊕ Fin L → ℝ := psiTailColumnFactor p L q lambda
+hA : A.submatrix ⇑er ⇑ec = of fun i j => ↑(d j) * ↑(T i j)
+h0 :
+  (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0).submatrix ⇑(psiZeroRowEquiv p L) ⇑(psiZeroColumnEquiv p L) =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j => psiTailColumnFactor p L q lambda j * mixedCandidateTailMatrix p L q lambda 0 i j)
+hx' :
+  (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x).submatrix ⇑(psiZeroRowEquiv p L) ⇑(psiZeroColumnEquiv p L) =
+    Complex.ofRealHom.mapMatrix
+      (of fun i j => psiTailColumnFactor p L q lambda j * mixedCandidateTailMatrix p L q lambda x i j)
+hxi :
+  theorem2XiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x =
+    theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0 - theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x
+i j : Fin p ⊕ Fin L
+hz :
+  (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0).submatrix (⇑(psiZeroRowEquiv p L)) (⇑(psiZeroColumnEquiv p L))
+      i j =
+    ↑(d j * mixedCandidateTailMatrix p L q lambda 0 i j)
+ht :
+  (theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x).submatrix (⇑(psiZeroRowEquiv p L)) (⇑(psiZeroColumnEquiv p L))
+      i j =
+    ↑(d j * T i j)
+⊢ theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0 (er i) (ec j) -
+      theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x (er i) (ec j) =
+    ↑(psiTailColumnFactor p L q lambda j) *
+      ↑(mixedCandidateTailMatrix p L q lambda 0 i j - mixedCandidateTailMatrix p L q lambda x i j)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0 (er i)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateCountPolynomial.lean:62:11: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (rowAffinePolynomialMatrix (of fun i j => ?d j * ?A i j) (of fun i j => ?d j * ?B i j)).det
+in the target expression
+  C ↑↑(Equiv.Perm.sign (ec.symm.trans er)) * (rowAffinePolynomialMatrix A B).det =
+    (rowAffinePolynomialMatrix (of fun i j => ↑(d j) * ↑(T i j)) (of fun i j => ↑(d j) * ↑(S i j))).det
+
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+er : Fin p ⊕ Fin L ≃ Fin (p + L) := psiZeroRowEquiv p L
+ec : Fin p ⊕ Fin L ≃ Fin (p + L) := psiZeroColumnEquiv p L
+A : Matrix (Fin (p + L)) (Fin (p + L)) ℂ := theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x
+B : Matrix (Fin (p + L)) (Fin (p + L)) ℂ := theorem2XiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda x
+T : Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ := mixedCandidateTailMatrix p L q lambda x
+S : Matrix (Fin p ⊕ Fin L) (Fin p ⊕ Fin L) ℝ := mixedCandidateTailMatrix p L q lambda 0 - T
+d : Fin p ⊕ Fin L → ℝ := psiTailColumnFactor p L q lambda
+hA : A.submatrix ⇑er ⇑ec = of fun i j => ↑(d j) * ↑(T i j)
+hB : B.submatrix ⇑er ⇑ec = of fun i j => ↑(d j) * ↑(S i j)
+hr :
+  (rowAffinePolynomialMatrix (A.submatrix ⇑er ⇑ec) (B.submatrix ⇑er ⇑ec)).det =
+    ↑↑(Equiv.Perm.sign (ec.symm.trans er)) * (rowAffinePolynomialMatrix A B).det
+hr' :
+  C ↑↑(Equiv.Perm.sign (ec.symm.trans er)) * (rowAffinePolynomialMatrix A B).det =
+    (rowAffinePolynomialMatrix (of fun i j => ↑(d j) * ↑(T i j)) (of fun i j => ↑(d j) * ↑(S i j))).det
+⊢ C ↑↑(Equiv.Perm.sign ((psiZeroColumnEquiv p L).symm.trans (psiZeroRowEquiv p L))) *
+      psiCountPolynomial p L q lambda x =
+    C ↑(∏ j, psiTailColumnFactor p L q lambda j) *
+      Polynomial.map Complex.ofRealHom (mixedCandidateCountPolynomial p L q lambda x)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    T i
+'JinWishart.psiCountPolynomial_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

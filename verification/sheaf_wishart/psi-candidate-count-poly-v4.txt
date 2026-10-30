@@ -1,0 +1,39 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateCountPolynomial.lean:115:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  mixedCandidateTailMatrix p L q lambda 0 - mixedCandidateTailMatrix p L q lambda x
+in the target expression
+  (rowAffinePolynomialMatrix (U.submatrix ⇑finSumFinEquiv ⇑finSumFinEquiv)
+        (mixedCandidateTailMatrix p L q lambda 0 - U.submatrix ⇑finSumFinEquiv ⇑finSumFinEquiv)).det =
+    (rowAffinePolynomialMatrix
+        (of fun i j =>
+          ∫ (y : ℝ) in Set.Ioi x, mixedEnsembleF p L i y * mixedEnsembleG p L q lambda j y ∂volume.restrict (Set.Ioi 0))
+        (of fun i j =>
+          ∫ (y : ℝ) in Set.Iic x,
+            mixedEnsembleF p L i y * mixedEnsembleG p L q lambda j y ∂volume.restrict (Set.Ioi 0))).det
+
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+x : ℝ
+hx : 0 ≤ x
+μ : Measure ℝ := volume.restrict (Set.Ioi 0)
+U : Matrix (Fin (p + L)) (Fin (p + L)) ℝ :=
+  of fun i j => ∫ (y : ℝ) in Set.Ioi x, mixedEnsembleF p L i y * mixedEnsembleG p L q lambda j y ∂μ
+V : Matrix (Fin (p + L)) (Fin (p + L)) ℝ :=
+  of fun i j => ∫ (y : ℝ) in Set.Iic x, mixedEnsembleF p L i y * mixedEnsembleG p L q lambda j y ∂μ
+hu : mixedCandidateTailMatrix p L q lambda x = U.submatrix ⇑finSumFinEquiv ⇑finSumFinEquiv
+hv :
+  mixedCandidateTailMatrix p L q lambda 0 - mixedCandidateTailMatrix p L q lambda x =
+    V.submatrix ⇑finSumFinEquiv ⇑finSumFinEquiv
+⊢ (rowAffinePolynomialMatrix (U.submatrix ⇑finSumFinEquiv ⇑finSumFinEquiv)
+        (mixedCandidateTailMatrix p L q lambda 0 - U.submatrix ⇑finSumFinEquiv ⇑finSumFinEquiv)).det =
+    (rowAffinePolynomialMatrix
+        (of fun i j =>
+          ∫ (y : ℝ) in Set.Ioi x, mixedEnsembleF p L i y * mixedEnsembleG p L q lambda j y ∂volume.restrict (Set.Ioi 0))
+        (of fun i j =>
+          ∫ (y : ℝ) in Set.Iic x,
+            mixedEnsembleF p L i y * mixedEnsembleG p L q lambda j y ∂volume.restrict (Set.Ioi 0))).det
+'JinWishart.psiCountPolynomial_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateCountPolynomial_restricted' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

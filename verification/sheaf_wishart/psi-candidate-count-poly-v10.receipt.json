@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T18:28:46.682141+00:00",
+  "ended_utc": "2026-10-30T18:28:55.174987+00:00",
+  "module": "JinWishartFormalization.PsiCandidateCountPolynomial",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PsiCandidateCountPolynomial.lean",
+  "source_sha256_before": "7b60e8e09987f20c7b7835f3acd1ac831913635429a1cb278c225fb5d0d93f60",
+  "source_sha256": "7b60e8e09987f20c7b7835f3acd1ac831913635429a1cb278c225fb5d0d93f60",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/psi-candidate-count-poly-v10.txt",
+  "log_exists": true,
+  "log_sha256": "f5cf148db8da9741642deec6617754975a4673da35e365201d622ec353c2ecdc",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

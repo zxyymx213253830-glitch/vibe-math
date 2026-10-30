@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-psi-candidate-count-PsiCandidateCountPolynomial.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-psi-candidate-count-PsiCandidateCountPolynomial.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/psi-candidate-count-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-psi-candidate-count-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-psi-candidate-count-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-psi-candidate-count-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/psi-candidate-count-final-snapshot",
+    "resolution": "notes/WISHART_PSI_CANDIDATE_COUNT_POLYNOMIAL.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-175.receipt.json"
+}

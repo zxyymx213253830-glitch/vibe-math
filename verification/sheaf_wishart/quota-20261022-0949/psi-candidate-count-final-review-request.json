@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "PsiCandidateCountPolynomial.lean": {
+      "sha256": "7b60e8e09987f20c7b7835f3acd1ac831913635429a1cb278c225fb5d0d93f60",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "9bc91c86d2c8be4fe1f8316b9563c7d495f0745a047e99feabc26a8f095ccce4"
+}

@@ -1,3 +1,4 @@
+import JinWishartFormalization.PsiCandidateCountPolynomial
 import JinWishartFormalization.RowAffineDeterminantTransport
 import JinWishartFormalization.CandidateCoordinateNoAtom
 import JinWishartFormalization.CandidatePaperExtremeCDF

@@ -1,0 +1,3 @@
+'JinWishart.psiCountPolynomial_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateCountPolynomial_restricted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_count_tail_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]

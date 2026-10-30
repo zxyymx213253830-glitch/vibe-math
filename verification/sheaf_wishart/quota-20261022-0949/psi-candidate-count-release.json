@@ -1,0 +1,14 @@
+{
+  "name": "psi-candidate-count",
+  "review": "psi-candidate-count-final",
+  "resolution": "notes/WISHART_PSI_CANDIDATE_COUNT_POLYNOMIAL.md",
+  "facade": "facade-175",
+  "total": 1110,
+  "new_count": 5,
+  "control_script": "experiments/psi_candidate_count_coeff_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/psi-candidate-count-coeff-control.json",
+  "seed": 2026103104,
+  "commit": "Prove candidate count via Psi polynomial coefficients",
+  "scope": "2026-10-31 candidate count: 1110 bindings (1108 theorem/instance + 2 constructions), auditPASS/facade175 exit0, 215 acceptance records verified. Candidate coordinates above x count equals coefficient of det(Xi+t Psi) divided by det Psi(0), with signed row and column reindex; includes empty dimension under positive strictly increasing parameters. Seed 2026103104 finite and factorial negative controls are not proof; five exact literal types and complete final source Qoder P4 reviewed. [需人工审查] Fubini/measure, indices, model and journal mapping; no actual noncentral joint law or journal T3 normalization claim; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}

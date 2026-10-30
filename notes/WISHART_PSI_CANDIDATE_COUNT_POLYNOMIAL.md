@@ -1,0 +1,11 @@
+# Candidate count polynomial: Qoder P4 resolution
+
+The locked full source and five literal targets were reviewed by Qoder Qwen3.8-Max, tools disabled, without independent compilation. The target is the normalized formula-side mixed candidate ensemble. The count is the number of coordinates in `(x,∞)` for `x≥0`, not an assertion identifying the actual noncentral Wishart joint law, ordered spectrum, or journal T3 normalization. Empty dimension is included.
+
+1. Qoder asks whether integrability in `setIntegral_compl` is for the restricted measure. The exact pinned declaration `mixedEnsemble_pair_moment` returns `IntegrableOn ... (Ioi 0)`, definitionally integrability against `volume.restrict (Ioi 0)`, exactly the local `μ`. Its source and dependencies are hash-locked. [需人工审查] Measure restrictions and complement/Fubini chain remain human-review items.
+2. Qoder questions normalization or double division. `mixedCandidateEnsemble_count` explicitly states the normalized candidate count equals the coefficient divided once by the determinant moment matrix; the new theorem replaces this same denominator via `mixedCandidateTailMatrix_zero_det`. Its assumptions include strict increasing positive parameters. This is not a second normalization and does not identify the physical model. [需人工审查] Ensemble normalization and paper mapping.
+3. Strict positivity is used only in the final probability result to ensure normalization and scale are nonzero; the algebraic transport is established under nonnegative parameters.
+4. The determinant sign is retained explicitly as `sign(ec.symm.trans er)` in both numerator and denominator. `Matrix.det_mul_row` is used on the actual displayed `fun i j => d j * T i j`, the column-dependent form supported by the pinned lemma and the real-to-complex homomorphism; it is not inferred by informal orientation. 2026103104 independent determinant coefficients/negative controls and 2026103105 permutation/scale controls are checks, not proofs. [需人工审查] Indices and original convention.
+5. `Polynomial.coeff_C_mul` and `Polynomial.coeff_map` are applied on their exact types in the locked source; kernel acceptance uses the pinned Mathlib environment.
+
+Final facade and bundle acceptance are separate from this review. No human review, full Lake build or Linux independent kernel check is claimed.

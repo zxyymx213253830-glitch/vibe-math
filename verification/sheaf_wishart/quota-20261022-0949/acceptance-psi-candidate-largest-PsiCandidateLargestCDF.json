@@ -10,5 +10,5 @@
     "resolution": "notes/WISHART_PSI_CANDIDATE_LARGEST.md"
   },
   "audit": "verification/central_mixed_moments/audit.json",
-  "facade_receipt": "verification/sheaf_wishart/facade-174.receipt.json"
+  "facade_receipt": "verification/sheaf_wishart/facade-175.receipt.json"
 }

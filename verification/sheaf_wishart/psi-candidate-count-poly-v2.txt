@@ -1,0 +1,11 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateCountPolynomial.lean:70:3: error: Type mismatch: After simplification, term
+  rowAffine_det_columnScale_complex (fun j => ↑(d j)) (Complex.ofRealHom.mapMatrix T) (Complex.ofRealHom.mapMatrix S)
+ has type
+  @Eq ℂ[X]
+    (rowAffinePolynomialMatrix (of fun i j => ↑(d j) * Complex.ofRealHom.mapMatrix T i j)
+        (of fun i j => ↑(d j) * Complex.ofRealHom.mapMatrix S i j)).det
+    (C (∏ j, ↑(d j)) * (rowAffinePolynomialMatrix (Complex.ofRealHom.mapMatrix T) (Complex.ofRealHom.mapMatrix S)).det)
+but is expected to have type
+  @Eq ℂ[X] (rowAffinePolynomialMatrix (of fun i j => ↑(d j) * ↑(T i j)) (of fun i j => ↑(d j) * ↑(S i j))).det
+    (C (∏ j, ↑(d j)) * (rowAffinePolynomialMatrix (Complex.ofRealHom.mapMatrix T) (Complex.ofRealHom.mapMatrix S)).det)
+'JinWishart.psiCountPolynomial_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

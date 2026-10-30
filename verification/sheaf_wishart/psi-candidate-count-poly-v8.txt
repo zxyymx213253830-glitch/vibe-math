@@ -1,0 +1,14 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateCountPolynomial.lean:137:58: error: unsolved goals
+p L q : ℕ
+lambda : Fin L → ℝ
+hl : ∀ (j : Fin L), 0 ≤ lambda j
+A : Matrix (Fin (p + L)) (Fin (p + L)) ℂ := theorem1PsiMatrix (p + L) (p + L + q) L ⋯ ⋯ lambda 0
+h :
+  (A.submatrix ⇑(psiZeroRowEquiv p L) ⇑(psiZeroColumnEquiv p L)).det =
+    ↑↑(Equiv.Perm.sign ((psiZeroColumnEquiv p L).symm.trans (psiZeroRowEquiv p L))) * A.det
+⊢ (∏ i, ↑(psiTailColumnFactor p L q lambda i)) * ↑(mixedCandidateTailMatrix p L q lambda 0).det =
+    (∏ i, ↑(psiTailColumnFactor p L q lambda i)) * ↑(mixedCandidateTailMatrix p L q lambda 0).det
+'JinWishart.psiCountPolynomial_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateCountPolynomial_restricted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_count_tail_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperPsi_zero_det_signed_transport' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

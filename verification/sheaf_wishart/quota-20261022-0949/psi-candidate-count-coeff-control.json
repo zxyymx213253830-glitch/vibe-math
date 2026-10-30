@@ -1,0 +1,9 @@
+{
+  "seed": 2026103104,
+  "status": "PASS",
+  "checks": 58,
+  "negative_controls": 45,
+  "source_sha256": "d5ca056af08e02f6abe67c8ba85b8551592a5647066e9249ae4e96cd6bee3e25",
+  "not_a_proof": true,
+  "scope": "candidate count coefficients and Psi/Xi ratio, not journal T3 normalization or actual law"
+}

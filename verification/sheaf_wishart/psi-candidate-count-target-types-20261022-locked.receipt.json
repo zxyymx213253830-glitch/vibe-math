@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T18:29:49.936845+00:00",
+  "ended_utc": "2026-10-30T18:29:57.974756+00:00",
+  "module": "SheafPsiCountTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafPsiCountTargets.lean",
+  "source_sha256_before": "f5555f6bfd039230d70a8b3a8e5320360d2adba355c4de7a4ddb87204adc1876",
+  "source_sha256": "f5555f6bfd039230d70a8b3a8e5320360d2adba355c4de7a4ddb87204adc1876",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/psi-candidate-count-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "f05a8a3028d57a72be56e6c84f66329d4fadff99ea14a4c8748e02b837d01472",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

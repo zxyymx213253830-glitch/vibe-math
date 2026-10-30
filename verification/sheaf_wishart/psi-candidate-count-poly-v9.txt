@@ -1,0 +1,15 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateCountPolynomial.lean:166:58: error(lean.unknownIdentifier): Unknown constant `Complex.ofRealHom_apply`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\PsiCandidateCountPolynomial.lean:173:3: error: Type mismatch
+  Units.ne_zero ?m.208
+has type
+  ↑?m.208 ≠ 0
+but is expected to have type
+  ¬↑↑(Equiv.Perm.sign ((psiZeroColumnEquiv p L).symm.trans (psiZeroRowEquiv p L))) = 0
+'JinWishart.psiCountPolynomial_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateCountPolynomial_restricted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_count_tail_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.paperPsi_zero_det_signed_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_count_eq_psi_coefficient' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
