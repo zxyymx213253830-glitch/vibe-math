@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T18:06:33.103277+00:00",
+  "ended_utc": "2026-10-30T18:06:41.680544+00:00",
+  "module": "JinWishartFormalization.CandidatePaperExtremeCDF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidatePaperExtremeCDF.lean",
+  "source_sha256_before": "b158550d5fad91a116f4e5495072d19289032b4f227b1790d37d6f097006e345",
+  "source_sha256": "b158550d5fad91a116f4e5495072d19289032b4f227b1790d37d6f097006e345",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/candidate-paper-extremes-CandidatePaperExtremeCDF-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "9910da07dc0ab544ed38c43747fe6b0b3ec4addb8f0094fac22aabe539485738",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

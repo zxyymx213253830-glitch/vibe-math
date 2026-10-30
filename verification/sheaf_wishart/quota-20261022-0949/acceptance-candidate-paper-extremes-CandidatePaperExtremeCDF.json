@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-candidate-paper-extremes-CandidatePaperExtremeCDF.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-candidate-paper-extremes-CandidatePaperExtremeCDF.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/candidate-paper-extremes-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-paper-extremes-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-paper-extremes-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-paper-extremes-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/candidate-paper-extremes-final-snapshot",
+    "resolution": "notes/WISHART_CANDIDATE_PAPER_EXTREMES.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-172.receipt.json"
+}

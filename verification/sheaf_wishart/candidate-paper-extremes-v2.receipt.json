@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T18:05:34.761584+00:00",
+  "ended_utc": "2026-10-30T18:05:43.625698+00:00",
+  "module": "JinWishartFormalization.CandidatePaperExtremeCDF",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidatePaperExtremeCDF.lean",
+  "source_sha256_before": "29d22e3d537bf697e4897979e30141f627a9bd9f663da98f032cd063f485a202",
+  "source_sha256": "29d22e3d537bf697e4897979e30141f627a9bd9f663da98f032cd063f485a202",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/candidate-paper-extremes-v2.txt",
+  "log_exists": true,
+  "log_sha256": "57d95f6c3e8953e5668afe96efab665047c3420a41627e1c5a06f994b8dea13d",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

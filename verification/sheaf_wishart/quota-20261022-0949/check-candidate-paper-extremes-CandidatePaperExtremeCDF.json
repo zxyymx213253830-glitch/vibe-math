@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "b158550d5fad91a116f4e5495072d19289032b4f227b1790d37d6f097006e345",
+  "target_lock_sha256": "e497dcf53848113b9d0ec1cbc8651ba045bae5f2c3b238b8959dee270ddfad12",
+  "leaf": {
+    "started_utc": "2026-10-30T18:06:33.103277+00:00",
+    "ended_utc": "2026-10-30T18:06:41.680544+00:00",
+    "module": "JinWishartFormalization.CandidatePaperExtremeCDF",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidatePaperExtremeCDF.lean",
+    "source_sha256_before": "b158550d5fad91a116f4e5495072d19289032b4f227b1790d37d6f097006e345",
+    "source_sha256": "b158550d5fad91a116f4e5495072d19289032b4f227b1790d37d6f097006e345",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/candidate-paper-extremes-CandidatePaperExtremeCDF-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "9910da07dc0ab544ed38c43747fe6b0b3ec4addb8f0094fac22aabe539485738",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T18:06:41.682316+00:00",
+    "ended_utc": "2026-10-30T18:06:50.877693+00:00",
+    "module": "SheafCandidatePaperExtremeTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCandidatePaperExtremeTargets.lean",
+    "source_sha256_before": "55697f84dca832de08d05358d66b585798fba85263483b11cfdf4805d6193c37",
+    "source_sha256": "55697f84dca832de08d05358d66b585798fba85263483b11cfdf4805d6193c37",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/candidate-paper-extremes-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

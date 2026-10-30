@@ -1396,3 +1396,7 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /experiments/psi_candidate_largest_cdf_control.py -text whitespace=cr-at-eol
 
 /notes/WISHART_PSI_CANDIDATE_LARGEST.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CandidatePaperExtremeCDF.lean -text whitespace=cr-at-eol
+
+/notes/WISHART_CANDIDATE_PAPER_EXTREMES.md -text whitespace=cr-at-eol

@@ -1,0 +1,19 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidatePaperExtremeCDF.lean:27:1: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidatePaperExtremeCDF.lean:30:3: error: Type mismatch
+  MeasurableSet.iInter fun i => measurableSet_lt measurable_const (measurable_pi_apply i)
+has type
+  MeasurableSet (⋂ b, {a | x < a b})
+but is expected to have type
+  MeasurableSet {z | ∀ (i : Fin (p + L)), x < z i}
+'JinWishart.theorem2Candidate_eq_mixedCandidate_all_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.theorem1Candidate_eq_mixedCandidate_exists_le' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

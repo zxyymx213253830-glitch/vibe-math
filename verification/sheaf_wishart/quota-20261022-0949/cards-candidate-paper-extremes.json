@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "candidate-paper-extremes-CandidatePaperExtremeCDF",
+    "module": "CandidatePaperExtremeCDF",
+    "nodes": [
+      [
+        "L-candidate-paper-extremes-theorem2Candidate_eq_mixedCandidate_all_le",
+        "theorem2Candidate_eq_mixedCandidate_all_le",
+        []
+      ],
+      [
+        "L-candidate-paper-extremes-theorem1Candidate_eq_mixedCandidate_exists_le",
+        "theorem1Candidate_eq_mixedCandidate_exists_le",
+        [
+          "L-candidate-paper-extremes-theorem2Candidate_eq_mixedCandidate_all_le"
+        ]
+      ]
+    ]
+  }
+]

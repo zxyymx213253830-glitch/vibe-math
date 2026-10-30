@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CandidatePaperExtremeCDF.lean": {
+      "sha256": "b158550d5fad91a116f4e5495072d19289032b4f227b1790d37d6f097006e345",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "71ec64edce6cdccab62189f8527cc8551b190c5d2ad57cc8998d6068fe6b9533"
+}

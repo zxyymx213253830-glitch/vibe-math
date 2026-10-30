@@ -1,0 +1,20 @@
+{
+  "id": "L-candidate-paper-extremes-theorem2Candidate_eq_mixedCandidate_all_le",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CandidatePaperExtremeCDF",
+  "declaration": "JinWishart.theorem2Candidate_eq_mixedCandidate_all_le",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-paper-extremes-CandidatePaperExtremeCDF.json",
+    "source_sha256": "b158550d5fad91a116f4e5495072d19289032b4f227b1790d37d6f097006e345"
+  }
+}
