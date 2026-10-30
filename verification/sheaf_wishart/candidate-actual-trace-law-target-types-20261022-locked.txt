@@ -1,0 +1,1 @@
+D:\vibe math\verification\sheaf_wishart\quota-20261022-0949\SheafCandidateActualTraceLawTargets.lean:26:0: error: Candidate actual trace law literal type differs: JinWishart.map_eq_of_nonnegative_laplace_eq

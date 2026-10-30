@@ -1,0 +1,24 @@
+{
+  "id": "L-candidate-actual-trace-law-map_eq_of_nonnegative_laplace_eq",
+  "kind": "lemma",
+  "target": false,
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-actual-trace-law-nonnegative_measure_eq_of_laplace_eq"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-actual-trace-law-nonnegative_measure_eq_of_laplace_eq"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "superseded_failed_type_checker",
+    "reason": "Literal map uniqueness target had free type parameters outside the proposition; source unchanged and corrected target bound them.",
+    "evidence": "verification/sheaf_wishart/candidate-actual-trace-law-target-types-20261022-locked.txt"
+  },
+  "superseded_declaration": "JinWishart.map_eq_of_nonnegative_laplace_eq",
+  "superseded_module": "JinWishartFormalization.NonnegativeScalarLaplaceUniqueness"
+}

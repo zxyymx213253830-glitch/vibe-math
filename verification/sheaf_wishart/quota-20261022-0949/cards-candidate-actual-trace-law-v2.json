@@ -1,0 +1,34 @@
+[
+  {
+    "tag": "candidate-actual-trace-law-v2-NonnegativeScalarLaplaceUniqueness",
+    "module": "NonnegativeScalarLaplaceUniqueness",
+    "nodes": [
+      [
+        "L-candidate-actual-trace-law-v2-nonnegative_measure_eq_of_laplace_eq",
+        "nonnegative_measure_eq_of_laplace_eq",
+        []
+      ],
+      [
+        "L-candidate-actual-trace-law-v2-map_eq_of_nonnegative_laplace_eq",
+        "map_eq_of_nonnegative_laplace_eq",
+        [
+          "L-candidate-actual-trace-law-v2-nonnegative_measure_eq_of_laplace_eq"
+        ]
+      ],
+      [
+        "L-candidate-actual-trace-law-v2-mixedCandidateEnsemble_coordinates_positive_ae",
+        "mixedCandidateEnsemble_coordinates_positive_ae",
+        [
+          "L-candidate-actual-trace-law-v2-map_eq_of_nonnegative_laplace_eq"
+        ]
+      ],
+      [
+        "L-candidate-actual-trace-law-v2-candidate_actual_trace_law_equal",
+        "candidate_actual_trace_law_equal",
+        [
+          "L-candidate-actual-trace-law-v2-mixedCandidateEnsemble_coordinates_positive_ae"
+        ]
+      ]
+    ]
+  }
+]

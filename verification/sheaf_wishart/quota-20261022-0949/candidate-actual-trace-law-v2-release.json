@@ -1,0 +1,15 @@
+{
+  "name": "candidate-actual-trace-law-v2",
+  "review": "candidate-actual-trace-law-final",
+  "resolution": "notes/WISHART_CANDIDATE_ACTUAL_TRACE_LAW.md",
+  "facade": "facade-168",
+  "total": 1081,
+  "new_count": 4,
+  "control_script": "experiments/candidate_actual_trace_law_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/candidate-actual-trace-control.json",
+  "seed": 2026103013,
+  "reuse_control": true,
+  "commit": "Identify candidate and actual scalar trace laws",
+  "scope": "2026-10-30 candidate and actual trace law: 1081 bindings (1079 theorem/instance + 2 constructions), auditPASS/facade168 exit0, 208 acceptance records verified. The candidate coordinate sum and actual complex Gaussian Gram trace have equal scalar pushforward laws when sum(lambda) equals squared Frobenius norm of fixed M, including empty dimensions. Nonnegative finite-measure Laplace uniqueness and candidate positive-coordinate support proved. This is not actual joint spectrum or noncentral G2 identification. Seed 2026103013 simulations are not proof; four corrected literal types and complete source Qoder P4 bound; failed initial checker preserved and superseded. [需人工审查] Fubini, support, analytic uniqueness and paper/model mapping; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}

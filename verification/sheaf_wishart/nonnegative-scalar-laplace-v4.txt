@@ -1,0 +1,44 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:18:3: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [Real.norm_eq_abs, abs_of_nonneg hx]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:20:3: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [Real.norm_eq_abs, abs_of_nonneg hx]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:44:1: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:45:1: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:72:1: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:84:35: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  PartialOrder ℂ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+'JinWishart.nonnegative_measure_eq_of_laplace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.map_eq_of_nonnegative_laplace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_coordinates_positive_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.candidate_actual_trace_law_equal' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

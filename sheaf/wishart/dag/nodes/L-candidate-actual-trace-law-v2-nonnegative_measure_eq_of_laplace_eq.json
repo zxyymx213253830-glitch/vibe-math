@@ -1,0 +1,20 @@
+{
+  "id": "L-candidate-actual-trace-law-v2-nonnegative_measure_eq_of_laplace_eq",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.NonnegativeScalarLaplaceUniqueness",
+  "declaration": "JinWishart.nonnegative_measure_eq_of_laplace_eq",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-actual-trace-law-v2-NonnegativeScalarLaplaceUniqueness.json",
+    "source_sha256": "991db396f21f137e9cd4f1b22f36a4a11011085bb7310b08891e8fd1a7b27f7f"
+  }
+}

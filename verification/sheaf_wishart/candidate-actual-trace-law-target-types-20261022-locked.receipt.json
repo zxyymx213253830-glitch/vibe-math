@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T15:13:33.513463+00:00",
+  "ended_utc": "2026-10-30T15:13:45.101695+00:00",
+  "module": "SheafCandidateActualTraceLawTargets",
+  "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCandidateActualTraceLawTargets.lean",
+  "source_sha256_before": "8e68b9bc4b3573b3cc98e7ae5ce7d488a37ecf3b0a94ae6ac66f54a72d792f16",
+  "source_sha256": "8e68b9bc4b3573b3cc98e7ae5ce7d488a37ecf3b0a94ae6ac66f54a72d792f16",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/candidate-actual-trace-law-target-types-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "43dd1e22b2eafcf193fb546ab9af40f872e829b91b659d7fab9351af7d9d2325",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

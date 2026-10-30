@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T15:12:09.278927+00:00",
+  "ended_utc": "2026-10-30T15:12:19.542168+00:00",
+  "module": "JinWishartFormalization.NonnegativeScalarLaplaceUniqueness",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/NonnegativeScalarLaplaceUniqueness.lean",
+  "source_sha256_before": "f1782477eaec87ffeeadcf74003a895412a3a3b67f872c0c121dfe82504d1133",
+  "source_sha256": "f1782477eaec87ffeeadcf74003a895412a3a3b67f872c0c121dfe82504d1133",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/nonnegative-scalar-laplace-v4.txt",
+  "log_exists": true,
+  "log_sha256": "c2c22bfa03d8f1bfc1faee4fb721f11c5daf220a2468e4cff12aaaa84ecedc5f",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

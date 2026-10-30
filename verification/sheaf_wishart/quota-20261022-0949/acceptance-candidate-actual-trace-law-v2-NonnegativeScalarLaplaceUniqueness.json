@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-candidate-actual-trace-law-v2-NonnegativeScalarLaplaceUniqueness.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-candidate-actual-trace-law-v2-NonnegativeScalarLaplaceUniqueness.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/candidate-actual-trace-law-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-actual-trace-law-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-actual-trace-law-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-actual-trace-law-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/candidate-actual-trace-law-final-snapshot",
+    "resolution": "notes/WISHART_CANDIDATE_ACTUAL_TRACE_LAW.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-168.receipt.json"
+}

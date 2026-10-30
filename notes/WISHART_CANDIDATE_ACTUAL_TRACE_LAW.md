@@ -1,0 +1,9 @@
+# Candidate and actual trace law
+
+Under the explicit equality between the candidate parameter sum and the fixed mean matrix's squared Frobenius norm, the pushforward law of the candidate coordinate sum equals the pushforward law of the actual complex Gaussian Gram trace. The result includes all natural dimensions, rank-zero and empty-coordinate cases. It proves one real-valued distributional marginal only: it does not establish equality of the joint eigenvalue laws or identify the paper's noncentral G2 density.
+
+The proof specializes the existing norm-dominated finite-measure Laplace uniqueness theorem to nonnegative real measures and their measurable pushforwards. Candidate coordinate positivity follows from absolute continuity with respect to a product of positive-half-line restricted measures; actual Gram trace nonnegativity follows from positive semidefiniteness. The two scalar transforms were proved equal in the preceding accepted module. Seed 2026103013 supplied actual complex Gaussian trace simulations before the relevant transform source, not a proof.
+
+Qoder Qwen3.8-Max reviewed the exact source with tools disabled and found no fatal proof-body gap. The flagged empty-dimension issue is covered by the exact `mixedCandidateEnsemble_probability` signature, which has no positive-dimension assumption, and by vacuous quantification over `Fin 0`; the product measure and sums have their standard empty-index meaning. `RCLike.nonneg_iff` and `ae_map_iff` are checked against the pinned Lean interfaces. One initial literal-type checker misplaced its generic type binders; its failure and superseded DAG nodes are retained, and the corrected independent checker and unchanged source passed.
+
+P4 does not replace human review or independent compilation. [需人工审查] Positive support transfer, tilt/analytic uniqueness, Gaussian convention, and paper/model mapping. Full Lake/Linux independent kernel NOT_RUN; frozen publication unchanged.

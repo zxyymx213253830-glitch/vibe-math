@@ -1,0 +1,30 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:17:3: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [Real.norm_eq_abs, abs_of_nonneg hx]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:19:3: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [Real.norm_eq_abs, abs_of_nonneg hx]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:43:1: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:44:1: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'JinWishart.nonnegative_measure_eq_of_laplace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.map_eq_of_nonnegative_laplace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

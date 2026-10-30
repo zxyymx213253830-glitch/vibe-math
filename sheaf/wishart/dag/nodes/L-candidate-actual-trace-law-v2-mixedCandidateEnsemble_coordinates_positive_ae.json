@@ -1,0 +1,24 @@
+{
+  "id": "L-candidate-actual-trace-law-v2-mixedCandidateEnsemble_coordinates_positive_ae",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.NonnegativeScalarLaplaceUniqueness",
+  "declaration": "JinWishart.mixedCandidateEnsemble_coordinates_positive_ae",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-actual-trace-law-v2-map_eq_of_nonnegative_laplace_eq"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-actual-trace-law-v2-map_eq_of_nonnegative_laplace_eq"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-actual-trace-law-v2-NonnegativeScalarLaplaceUniqueness.json",
+    "source_sha256": "991db396f21f137e9cd4f1b22f36a4a11011085bb7310b08891e8fd1a7b27f7f"
+  }
+}

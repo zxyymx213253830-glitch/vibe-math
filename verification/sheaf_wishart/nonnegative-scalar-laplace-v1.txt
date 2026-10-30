@@ -1,0 +1,13 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:17:3: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [Real.norm_eq_abs, abs_of_nonneg hx]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\NonnegativeScalarLaplaceUniqueness.lean:19:3: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [Real.norm_eq_abs, abs_of_nonneg hx]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'JinWishart.nonnegative_measure_eq_of_laplace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
