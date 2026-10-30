@@ -1,0 +1,9 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateActualTraceTransform.lean:20:45: warning: This simp argument is unused:
+  inv_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finset.prod_const, Fintype.card_prod]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'JinWishart.actualNoncentralGram_trace_laplace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.candidate_actual_trace_laplace_equal' depends on axioms: [propext, Classical.choice, Quot.sound]

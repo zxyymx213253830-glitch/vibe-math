@@ -1,0 +1,14 @@
+{
+  "name": "candidate-actual-trace",
+  "review": "candidate-actual-trace-final",
+  "resolution": "notes/WISHART_CANDIDATE_ACTUAL_TRACE_TRANSFORM.md",
+  "facade": "facade-167",
+  "total": 1077,
+  "new_count": 2,
+  "control_script": "experiments/candidate_actual_trace_law_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/candidate-actual-trace-control.json",
+  "seed": 2026103013,
+  "commit": "Match candidate and actual scalar trace transforms",
+  "scope": "2026-10-30 candidate and actual trace Laplace transforms: 1077 bindings (1075 theorem/instance + 2 constructions), auditPASS/facade167 exit0, 207 acceptance records verified. Actual proper complex Gaussian Gram trace transform computed for all dimensions and fixed M; it matches candidate scalar trace transform when dimensions match and sum(lambda)=squared Frobenius norm M. No candidate-to-actual joint spectrum law is claimed. Seed 2026103013 has 18 checks and 11 negative controls across six 200000-sample shapes, not proof; two literal types and complete source Qoder P4 bound. [需人工审查] Gaussian convention, Fubini and paper/model mapping; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}

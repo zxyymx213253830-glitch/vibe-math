@@ -1,0 +1,48 @@
+import JinWishartFormalization.CandidateTraceLaplaceClosed
+import JinWishartFormalization.ActualDiagonalGramMGF
+
+/-! Codex. Seed 2026103013 actual complex-Gaussian trace samples precede
+source. Equality of scalar transforms only, no joint-spectrum law claim.
+[需人工审查] Source measure, normalization and physical-model mapping. -/
+open Matrix MeasureTheory ProbabilityTheory Finset
+namespace JinWishart
+noncomputable section
+
+theorem actualNoncentralGram_trace_laplace {m n : ℕ}
+ (M : Matrix (Fin m) (Fin n) ℂ) (s : ℝ) (hs : 0 ≤ s) :
+ (∫ z : ComplexSample (m := m) (n := n),
+    Real.exp (-s * ∑ j : Fin n, (complexGram (complexSampleMatrix z+M) j j).re)
+    ∂stdGaussian (ComplexSample (m := m) (n := n))) =
+ ((1+s)^(m*n))⁻¹ * Real.exp (-s*(∑ a : Fin m × Fin n, ‖M a.1 a.2‖^2)/(1+s)) := by
+ have hv (j : Fin n) : -s < 1 := by linarith
+ have h := actualNoncentralDiagonalGram_integral_exp M (fun _ => -s) hv
+ have hp : (∏ a : Fin m × Fin n, (1-(-s))⁻¹) = ((1+s)^(m*n))⁻¹ := by
+   simp [Finset.prod_const,Fintype.card_prod,inv_pow]
+ have he : (∑ a : Fin m × Fin n, ‖M a.1 a.2‖^2 * (-s)/(1-(-s))) =
+     -s*(∑ a : Fin m × Fin n, ‖M a.1 a.2‖^2)/(1+s) := by
+   simp only [sub_neg_eq_add]
+   rw [← Finset.sum_div,← Finset.sum_mul]
+   ring
+ simp only [sub_neg_eq_add] at hp he h
+ rw [hp,he] at h
+ simpa only [← Finset.mul_sum] using h
+
+theorem candidate_actual_trace_laplace_equal (p L q : ℕ) (lambda : Fin L → ℝ)
+ (hl : StrictMono lambda) (hlp : ∀ j, 0 < lambda j)
+ (M : Matrix (Fin (p+L+q)) (Fin (p+L)) ℂ)
+ (hmean : (∑ a : Fin (p+L+q) × Fin (p+L), ‖M a.1 a.2‖^2) = ∑ j : Fin L, lambda j)
+ (s : ℝ) (hs : 0 ≤ s) :
+ (∫ z : Fin (p+L) → ℝ, Real.exp (-s * ∑ i, z i) ∂(mixedCandidateEnsemble p L q lambda)) =
+ (∫ z : ComplexSample (m := p+L+q) (n := p+L),
+    Real.exp (-s * ∑ j : Fin (p+L), (complexGram (complexSampleMatrix z+M) j j).re)
+    ∂stdGaussian (ComplexSample (m := p+L+q) (n := p+L))) := by
+ rw [mixedCandidateEnsemble_trace_laplace_closed p L q lambda hl hlp s hs,
+   actualNoncentralGram_trace_laplace M s hs,hmean]
+ congr 2
+ congr 1
+ ring
+
+end
+end JinWishart
+#print axioms JinWishart.actualNoncentralGram_trace_laplace
+#print axioms JinWishart.candidate_actual_trace_laplace_equal

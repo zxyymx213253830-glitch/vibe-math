@@ -1368,3 +1368,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CandidateTraceLaplaceClosed.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_CANDIDATE_TRACE_LAPLACE_CLOSED.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CandidateActualTraceTransform.lean -text whitespace=cr-at-eol
+
+/experiments/candidate_actual_trace_law_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CANDIDATE_ACTUAL_TRACE_TRANSFORM.md -text whitespace=cr-at-eol

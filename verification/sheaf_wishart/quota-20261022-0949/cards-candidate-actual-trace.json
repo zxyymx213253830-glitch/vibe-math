@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "candidate-actual-trace-CandidateActualTraceTransform",
+    "module": "CandidateActualTraceTransform",
+    "nodes": [
+      [
+        "L-candidate-actual-trace-actualNoncentralGram_trace_laplace",
+        "actualNoncentralGram_trace_laplace",
+        []
+      ],
+      [
+        "L-candidate-actual-trace-candidate_actual_trace_laplace_equal",
+        "candidate_actual_trace_laplace_equal",
+        [
+          "L-candidate-actual-trace-actualNoncentralGram_trace_laplace"
+        ]
+      ]
+    ]
+  }
+]

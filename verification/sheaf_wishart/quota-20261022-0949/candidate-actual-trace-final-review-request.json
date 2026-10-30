@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CandidateActualTraceTransform.lean": {
+      "sha256": "a8c7c5309d0798f0e582ee2c253129796ab3cddb8464ed226d8ed3c0ed0a48a4",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "39a1322879d0279dd2a9c3a924ce0332f37c3c8b1754fc38b84e8e5bf338a56c"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "L-candidate-actual-trace-actualNoncentralGram_trace_laplace",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CandidateActualTraceTransform",
+  "declaration": "JinWishart.actualNoncentralGram_trace_laplace",
+  "stmt_deps": [],
+  "proof_deps": [],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": []
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-actual-trace-CandidateActualTraceTransform.json",
+    "source_sha256": "a8c7c5309d0798f0e582ee2c253129796ab3cddb8464ed226d8ed3c0ed0a48a4"
+  }
+}
