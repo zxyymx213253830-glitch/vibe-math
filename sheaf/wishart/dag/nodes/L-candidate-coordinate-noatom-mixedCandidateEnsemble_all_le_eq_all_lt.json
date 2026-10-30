@@ -1,0 +1,24 @@
+{
+  "id": "L-candidate-coordinate-noatom-mixedCandidateEnsemble_all_le_eq_all_lt",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CandidateCoordinateNoAtom",
+  "declaration": "JinWishart.mixedCandidateEnsemble_all_le_eq_all_lt",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-coordinate-noatom-mixedCandidateEnsemble_coordinates_ne_ae"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-coordinate-noatom-mixedCandidateEnsemble_coordinates_ne_ae"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-coordinate-noatom-CandidateCoordinateNoAtom.json",
+    "source_sha256": "7d0bad62ab5d7773feaa0d949b2c225430bf9028deba6c44cd38e43e1fdb9a45"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CandidateCoordinateNoAtom.lean": {
+      "sha256": "7d0bad62ab5d7773feaa0d949b2c225430bf9028deba6c44cd38e43e1fdb9a45",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "913c89817cb07cbabfb77a29d65b89072f8bb9d0e4802f798e8bffe028ccc2b6"
+}

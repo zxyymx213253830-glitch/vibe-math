@@ -1,3 +1,4 @@
+import JinWishartFormalization.CandidateCoordinateNoAtom
 import JinWishartFormalization.CandidatePaperExtremeCDF
 import JinWishartFormalization.PsiCandidateLargestCDF
 import JinWishartFormalization.CandidateTraceMoments

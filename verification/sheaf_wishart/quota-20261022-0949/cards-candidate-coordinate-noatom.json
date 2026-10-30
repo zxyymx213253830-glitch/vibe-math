@@ -1,0 +1,48 @@
+[
+  {
+    "tag": "candidate-coordinate-noatom-CandidateCoordinateNoAtom",
+    "module": "CandidateCoordinateNoAtom",
+    "nodes": [
+      [
+        "L-candidate-coordinate-noatom-mixedCandidateEnsemble_coordinate_noAtom",
+        "mixedCandidateEnsemble_coordinate_noAtom",
+        []
+      ],
+      [
+        "L-candidate-coordinate-noatom-mixedCandidateEnsemble_coordinates_ne_ae",
+        "mixedCandidateEnsemble_coordinates_ne_ae",
+        [
+          "L-candidate-coordinate-noatom-mixedCandidateEnsemble_coordinate_noAtom"
+        ]
+      ],
+      [
+        "L-candidate-coordinate-noatom-mixedCandidateEnsemble_all_le_eq_all_lt",
+        "mixedCandidateEnsemble_all_le_eq_all_lt",
+        [
+          "L-candidate-coordinate-noatom-mixedCandidateEnsemble_coordinates_ne_ae"
+        ]
+      ],
+      [
+        "L-candidate-coordinate-noatom-mixedCandidateEnsemble_exists_le_eq_exists_lt",
+        "mixedCandidateEnsemble_exists_le_eq_exists_lt",
+        [
+          "L-candidate-coordinate-noatom-mixedCandidateEnsemble_all_le_eq_all_lt"
+        ]
+      ],
+      [
+        "L-candidate-coordinate-noatom-mixedCandidateEnsemble_all_ge_eq_all_gt",
+        "mixedCandidateEnsemble_all_ge_eq_all_gt",
+        [
+          "L-candidate-coordinate-noatom-mixedCandidateEnsemble_exists_le_eq_exists_lt"
+        ]
+      ],
+      [
+        "L-candidate-coordinate-noatom-mixedCandidateEnsemble_exists_ge_eq_exists_gt",
+        "mixedCandidateEnsemble_exists_ge_eq_exists_gt",
+        [
+          "L-candidate-coordinate-noatom-mixedCandidateEnsemble_all_ge_eq_all_gt"
+        ]
+      ]
+    ]
+  }
+]

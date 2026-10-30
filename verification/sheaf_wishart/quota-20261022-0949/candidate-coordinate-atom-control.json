@@ -1,0 +1,10 @@
+{
+  "seed": 2026103103,
+  "status": "PASS",
+  "checks": 24,
+  "negative_controls": 2,
+  "samples_per_shape": 200000,
+  "source_sha256": "ea5173c5955b18cd91225927e17465a16f7702acfd8f2fc5e25b8e1b1d381f8a",
+  "not_a_proof": true,
+  "scope": "continuous Gamma-coordinate calibration and atomic countercontrols"
+}

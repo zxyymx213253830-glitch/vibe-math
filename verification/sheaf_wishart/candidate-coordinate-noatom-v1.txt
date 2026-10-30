@@ -1,0 +1,26 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateCoordinateNoAtom.lean:25:1: error: Type mismatch: After simplification, term
+  mixedCandidateEnsemble_coordinate_noAtom p L q lambda i x
+ has type
+  @Eq ENNReal ((mixedCandidateEnsemble p L q lambda) {z | z i = x}) 0
+but is expected to have type
+  @Eq ENNReal ((mixedCandidateEnsemble p L q lambda) fun x_1 => x_1 i = x) 0
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateCoordinateNoAtom.lean:32:12: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateCoordinateNoAtom.lean:32:1: error: `simp` made no progress
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateCoordinateNoAtom.lean:44:12: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\CandidateCoordinateNoAtom.lean:44:1: error: `simp` made no progress
+'JinWishart.mixedCandidateEnsemble_coordinate_noAtom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_coordinates_ne_ae' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'JinWishart.mixedCandidateEnsemble_all_le_eq_all_lt' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_exists_le_eq_exists_lt' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

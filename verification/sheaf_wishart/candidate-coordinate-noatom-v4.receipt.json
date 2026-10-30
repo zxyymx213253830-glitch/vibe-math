@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T18:13:52.516929+00:00",
+  "ended_utc": "2026-10-30T18:14:01.279426+00:00",
+  "module": "JinWishartFormalization.CandidateCoordinateNoAtom",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidateCoordinateNoAtom.lean",
+  "source_sha256_before": "7d0bad62ab5d7773feaa0d949b2c225430bf9028deba6c44cd38e43e1fdb9a45",
+  "source_sha256": "7d0bad62ab5d7773feaa0d949b2c225430bf9028deba6c44cd38e43e1fdb9a45",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/candidate-coordinate-noatom-v4.txt",
+  "log_exists": true,
+  "log_sha256": "73b6f6e4327f3499471d4f4b300c75678d5936500832ec0008ac0314552479b3",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

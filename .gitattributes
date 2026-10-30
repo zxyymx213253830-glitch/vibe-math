@@ -1400,3 +1400,9 @@ notes/WISHART_POSITIVE_SPECTRUM_LOG.md -text whitespace=cr-at-eol
 /theory/jin_wishart_formalization/JinWishartFormalization/CandidatePaperExtremeCDF.lean -text whitespace=cr-at-eol
 
 /notes/WISHART_CANDIDATE_PAPER_EXTREMES.md -text whitespace=cr-at-eol
+
+/theory/jin_wishart_formalization/JinWishartFormalization/CandidateCoordinateNoAtom.lean -text whitespace=cr-at-eol
+
+/experiments/candidate_coordinate_atom_control.py -text whitespace=cr-at-eol
+
+/notes/WISHART_CANDIDATE_COORDINATE_NOATOM.md -text whitespace=cr-at-eol

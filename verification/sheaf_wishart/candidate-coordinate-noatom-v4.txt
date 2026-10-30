@@ -1,0 +1,6 @@
+'JinWishart.mixedCandidateEnsemble_coordinate_noAtom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_coordinates_ne_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_all_le_eq_all_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_exists_le_eq_exists_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_all_ge_eq_all_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.mixedCandidateEnsemble_exists_ge_eq_exists_gt' depends on axioms: [propext, Classical.choice, Quot.sound]

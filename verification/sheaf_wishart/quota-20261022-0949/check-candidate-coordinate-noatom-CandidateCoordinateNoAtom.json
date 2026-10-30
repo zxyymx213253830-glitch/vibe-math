@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "7d0bad62ab5d7773feaa0d949b2c225430bf9028deba6c44cd38e43e1fdb9a45",
+  "target_lock_sha256": "1d2751d87363919c73e27047f766161e11aa280f61521d58028eda4e149e76ce",
+  "leaf": {
+    "started_utc": "2026-10-30T18:14:23.553313+00:00",
+    "ended_utc": "2026-10-30T18:14:31.894071+00:00",
+    "module": "JinWishartFormalization.CandidateCoordinateNoAtom",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/CandidateCoordinateNoAtom.lean",
+    "source_sha256_before": "7d0bad62ab5d7773feaa0d949b2c225430bf9028deba6c44cd38e43e1fdb9a45",
+    "source_sha256": "7d0bad62ab5d7773feaa0d949b2c225430bf9028deba6c44cd38e43e1fdb9a45",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/candidate-coordinate-noatom-CandidateCoordinateNoAtom-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "73b6f6e4327f3499471d4f4b300c75678d5936500832ec0008ac0314552479b3",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T18:14:31.895639+00:00",
+    "ended_utc": "2026-10-30T18:14:41.300548+00:00",
+    "module": "SheafCandidateCoordinateNoAtomTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafCandidateCoordinateNoAtomTargets.lean",
+    "source_sha256_before": "fe5844b25b0eb5c0e273b49920f9af69afdabcf0c19e7d6ea8d87f2d9a2080ed",
+    "source_sha256": "fe5844b25b0eb5c0e273b49920f9af69afdabcf0c19e7d6ea8d87f2d9a2080ed",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/candidate-coordinate-noatom-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}
