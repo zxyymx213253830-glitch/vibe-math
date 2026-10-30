@@ -1,0 +1,24 @@
+{
+  "id": "L-quadratic-energy-tail-quadraticEnergy_tail_substitution",
+  "kind": "lemma",
+  "target": true,
+  "module": "JinWishartFormalization.QuadraticEnergyTailChange",
+  "declaration": "JinWishart.quadraticEnergy_tail_substitution",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-quadratic-energy-tail-quadraticEnergy_image_Ioi"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-quadratic-energy-tail-quadraticEnergy_image_Ioi"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-quadratic-energy-tail-QuadraticEnergyTailChange.json",
+    "source_sha256": "655b335f6ae6dde47bdf0e5469280e4bbb81741c06c0028a34226c3a3087d960"
+  }
+}

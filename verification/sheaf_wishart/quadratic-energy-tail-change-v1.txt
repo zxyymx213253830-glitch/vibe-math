@@ -1,0 +1,41 @@
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticEnergyTailChange.lean:17:3: error: linarith failed to find a contradiction
+case mp
+a : ℝ
+ha : 0 ≤ a
+r : ℝ
+hr : r ∈ Ioi a
+a✝ : r ^ 2 / 2 ≤ a ^ 2 / 2
+⊢ False
+failed
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticEnergyTailChange.lean:29:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  √(2 * y) ^ 2
+in the target expression
+  (fun r => r ^ 2 / 2) √(2 * y) = y
+
+case mpr.refine_2
+a : ℝ
+ha : 0 ≤ a
+y : ℝ
+hy : y ∈ Ioi (a ^ 2 / 2)
+hypos : 0 ≤ 2 * y
+⊢ (fun r => r ^ 2 / 2) √(2 * y) = y
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticEnergyTailChange.lean:37:32: error(lean.invalidField): Invalid field `pow`: The environment does not contain `HasFDerivAtFilter.pow`, so it is not possible to project the field `pow` from an expression
+  hasDerivAt_id r
+of type
+  HasFDerivAtFilter id (ContinuousLinearMap.toSpanSingleton ℝ 1) (nhds r ×ˢ pure r)
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticEnergyTailChange.lean:51:9: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |r|
+in the target expression
+  (fun x => |x| * g (x ^ 2 / 2)) r = (fun x => x * g (x ^ 2 / 2)) r
+
+a : ℝ
+ha : 0 ≤ a
+g : ℝ → ℝ
+hd : ∀ r ∈ Ioi a, HasDerivWithinAt (fun t => t ^ 2 / 2) r (Ioi a) r
+hinj : InjOn (fun r => r ^ 2 / 2) (Ioi a)
+h : ∫ (x : ℝ) in Ioi (a ^ 2 / 2), g x = ∫ (x : ℝ) in Ioi a, |x| • g (x ^ 2 / 2)
+r : ℝ
+hr : r ∈ Ioi a
+⊢ (fun x => |x| * g (x ^ 2 / 2)) r = (fun x => x * g (x ^ 2 / 2)) r
+'JinWishart.quadraticEnergy_image_Ioi' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'JinWishart.quadraticEnergy_tail_substitution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

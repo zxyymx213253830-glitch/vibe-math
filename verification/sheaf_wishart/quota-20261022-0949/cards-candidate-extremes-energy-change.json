@@ -1,0 +1,72 @@
+[
+  {
+    "tag": "candidate-extreme-events-PositiveEnsembleAllIn",
+    "module": "PositiveEnsembleAllIn",
+    "nodes": [
+      [
+        "L-candidate-extreme-events-coeff_zero_rowAffine_det",
+        "coeff_zero_rowAffine_det",
+        []
+      ],
+      [
+        "L-candidate-extreme-events-coordinateMembershipCount_compl_eq_zero_iff",
+        "coordinateMembershipCount_compl_eq_zero_iff",
+        [
+          "L-candidate-extreme-events-coeff_zero_rowAffine_det"
+        ]
+      ],
+      [
+        "L-candidate-extreme-events-normalizedDeterminantEnsemble_allIn",
+        "normalizedDeterminantEnsemble_allIn",
+        [
+          "L-candidate-extreme-events-coordinateMembershipCount_compl_eq_zero_iff"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "candidate-extreme-events-MixedCandidateExtremeEvents",
+    "module": "MixedCandidateExtremeEvents",
+    "nodes": [
+      [
+        "L-candidate-extreme-events-mixedCandidateEnsemble_allIn",
+        "mixedCandidateEnsemble_allIn",
+        [
+          "L-candidate-extreme-events-normalizedDeterminantEnsemble_allIn"
+        ]
+      ],
+      [
+        "L-candidate-extreme-events-mixedCandidateEnsemble_all_le",
+        "mixedCandidateEnsemble_all_le",
+        [
+          "L-candidate-extreme-events-mixedCandidateEnsemble_allIn"
+        ]
+      ],
+      [
+        "L-candidate-extreme-events-mixedCandidateEnsemble_all_gt",
+        "mixedCandidateEnsemble_all_gt",
+        [
+          "L-candidate-extreme-events-mixedCandidateEnsemble_all_le"
+        ]
+      ]
+    ]
+  },
+  {
+    "tag": "quadratic-energy-tail-QuadraticEnergyTailChange",
+    "module": "QuadraticEnergyTailChange",
+    "nodes": [
+      [
+        "L-quadratic-energy-tail-quadraticEnergy_image_Ioi",
+        "quadraticEnergy_image_Ioi",
+        []
+      ],
+      [
+        "L-quadratic-energy-tail-quadraticEnergy_tail_substitution",
+        "quadraticEnergy_tail_substitution",
+        [
+          "L-quadratic-energy-tail-quadraticEnergy_image_Ioi"
+        ]
+      ]
+    ]
+  }
+]

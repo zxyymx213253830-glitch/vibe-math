@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-10-30T02:01:35.307348+00:00",
+  "module": "JinWishartFormalization.QuadraticEnergyTailChange",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/QuadraticEnergyTailChange.lean",
+  "statements": {
+    "JinWishart.quadraticEnergy_image_Ioi": "(a : ℝ) (ha : 0 ≤ a) : (fun r : ℝ => r^2/2) '' Ioi a = Ioi (a^2/2)",
+    "JinWishart.quadraticEnergy_tail_substitution": "(a : ℝ) (ha : 0 ≤ a) (g : ℝ → ℝ) : (∫ y in Ioi (a^2/2), g y) = ∫ r in Ioi a, r * g (r^2/2)"
+  },
+  "definition_dependencies": {
+    "theory/jin_wishart_formalization/JinWishartFormalization/QuadraticEnergyTailChange.lean": "655b335f6ae6dde47bdf0e5469280e4bbb81741c06c0028a34226c3a3087d960",
+    "theory/jin_wishart_formalization/lean-toolchain": "8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a",
+    "theory/jin_wishart_formalization/lake-manifest.json": "173871a5ccd27f3712afabfe8255c03766419d81d017df2c972bc62ea59cee03"
+  },
+  "type_check_source": "verification/sheaf_wishart/quota-20261022-0949/SheafQuadraticEnergyTailTargets.lean",
+  "type_check_source_sha256": "2ba93492d329d3d06cde7d64a114b494dffffa6a41866350b8f3a0e535d0d8e8",
+  "locked_local_definitions": {}
+}

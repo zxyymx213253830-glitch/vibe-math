@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T01:58:58.157661+00:00",
+  "ended_utc": "2026-10-30T01:59:05.813219+00:00",
+  "module": "JinWishartFormalization.MixedCandidateExtremeEvents",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/MixedCandidateExtremeEvents.lean",
+  "source_sha256_before": "3ff696a0cc44bc226e4d1d465026391fb49f7324db13afc12ebb987770c70ef5",
+  "source_sha256": "3ff696a0cc44bc226e4d1d465026391fb49f7324db13afc12ebb987770c70ef5",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/candidate-extreme-events-MixedCandidateExtremeEvents-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "658a8806b95590235daa8d3d550e1acc648c32448b2ecc5b4af3ce046d1b0faa",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

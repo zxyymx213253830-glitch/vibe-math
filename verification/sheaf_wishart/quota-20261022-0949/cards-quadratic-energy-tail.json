@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "quadratic-energy-tail-QuadraticEnergyTailChange",
+    "module": "QuadraticEnergyTailChange",
+    "nodes": [
+      [
+        "L-quadratic-energy-tail-quadraticEnergy_image_Ioi",
+        "quadraticEnergy_image_Ioi",
+        []
+      ],
+      [
+        "L-quadratic-energy-tail-quadraticEnergy_tail_substitution",
+        "quadraticEnergy_tail_substitution",
+        [
+          "L-quadratic-energy-tail-quadraticEnergy_image_Ioi"
+        ]
+      ]
+    ]
+  }
+]

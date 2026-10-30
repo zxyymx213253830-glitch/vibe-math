@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "source_sha256": "655b335f6ae6dde47bdf0e5469280e4bbb81741c06c0028a34226c3a3087d960",
+  "target_lock_sha256": "45cc8146fd54a1c78c8cc13b5d26a68cc8a8c9e6c193b7c92895d28a896c7a8b",
+  "leaf": {
+    "started_utc": "2026-10-30T02:01:35.326432+00:00",
+    "ended_utc": "2026-10-30T02:01:43.014617+00:00",
+    "module": "JinWishartFormalization.QuadraticEnergyTailChange",
+    "source": "theory/jin_wishart_formalization/JinWishartFormalization/QuadraticEnergyTailChange.lean",
+    "source_sha256_before": "655b335f6ae6dde47bdf0e5469280e4bbb81741c06c0028a34226c3a3087d960",
+    "source_sha256": "655b335f6ae6dde47bdf0e5469280e4bbb81741c06c0028a34226c3a3087d960",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/quadratic-energy-tail-QuadraticEnergyTailChange-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "aef98407b803229485b86f16934169d602b53ef0ba95020b527d2af4b42d2ad0",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "types": {
+    "started_utc": "2026-10-30T02:01:43.016052+00:00",
+    "ended_utc": "2026-10-30T02:01:50.248786+00:00",
+    "module": "SheafQuadraticEnergyTailTargets",
+    "source": "verification/sheaf_wishart/quota-20261022-0949/SheafQuadraticEnergyTailTargets.lean",
+    "source_sha256_before": "2ba93492d329d3d06cde7d64a114b494dffffa6a41866350b8f3a0e535d0d8e8",
+    "source_sha256": "2ba93492d329d3d06cde7d64a114b494dffffa6a41866350b8f3a0e535d0d8e8",
+    "exit_code": 0,
+    "log": "verification/sheaf_wishart/quadratic-energy-tail-target-types-20261022-locked.txt",
+    "log_exists": true,
+    "log_sha256": "872d2c26b1e0118d3cd4836291e5c317511758af72a50249726e7b19784ea8bf",
+    "success": true,
+    "gate": "tools/deepseek_prover/collaborative_check.py",
+    "direct_lean": false
+  },
+  "lock_validated_before_and_after": true
+}

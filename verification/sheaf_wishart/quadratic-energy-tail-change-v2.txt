@@ -1,0 +1,30 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+D:\vibe math\theory\jin_wishart_formalization\JinWishartFormalization\QuadraticEnergyTailChange.lean:39:51: error: unsolved goals
+case e'_8
+a : ℝ
+ha : 0 ≤ a
+g : ℝ → ℝ
+r : ℝ
+hr : r ∈ Ioi a
+⊢ (fun t => t ^ 2 * (1 / 2)) = fun x => (id ^ 2) x * (1 / 2)
+
+case e'_9
+a : ℝ
+ha : 0 ≤ a
+g : ℝ → ℝ
+r : ℝ
+hr : r ∈ Ioi a
+⊢ r = id r
+'JinWishart.quadraticEnergy_image_Ioi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JinWishart.quadraticEnergy_tail_substitution' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

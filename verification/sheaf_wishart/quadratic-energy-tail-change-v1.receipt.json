@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T01:59:24.629512+00:00",
+  "ended_utc": "2026-10-30T01:59:32.503635+00:00",
+  "module": "JinWishartFormalization.QuadraticEnergyTailChange",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/QuadraticEnergyTailChange.lean",
+  "source_sha256_before": "7d940a0afdc6e5fdbe11ade8699c5fa21fd324f3663d98daed58d3000889fb4b",
+  "source_sha256": "7d940a0afdc6e5fdbe11ade8699c5fa21fd324f3663d98daed58d3000889fb4b",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/quadratic-energy-tail-change-v1.txt",
+  "log_exists": true,
+  "log_sha256": "c401e7796583c71185bccf300e8cc2a914f36f880f43dd163c01f065abebc79d",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

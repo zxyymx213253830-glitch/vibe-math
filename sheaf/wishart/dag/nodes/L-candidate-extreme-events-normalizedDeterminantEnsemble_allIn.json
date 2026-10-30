@@ -1,0 +1,26 @@
+{
+  "id": "L-candidate-extreme-events-normalizedDeterminantEnsemble_allIn",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.PositiveEnsembleAllIn",
+  "declaration": "JinWishart.normalizedDeterminantEnsemble_allIn",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-extreme-events-coordinateMembershipCount_compl_eq_zero_iff",
+    "L-positive-ensemble-normalizedDeterminantEnsemble_probability_count"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-extreme-events-coordinateMembershipCount_compl_eq_zero_iff",
+        "L-positive-ensemble-normalizedDeterminantEnsemble_probability_count"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-extreme-events-PositiveEnsembleAllIn.json",
+    "source_sha256": "61f4bbab2a34b4370f32484a7d90b51e9f1253260c2a99a8392f2de519dcda75"
+  }
+}

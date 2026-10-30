@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-10-30T01:52:25.788528+00:00",
+  "ended_utc": "2026-10-30T01:53:56.064208+00:00",
+  "seconds": 90.27568520000204,
+  "exit_code": 124,
+  "requested_model": "Qwen3.8-Max",
+  "tools_disabled": true,
+  "thinking": "disabled",
+  "prompt_sha256": "d5ef2f2b46d4170a7655318393152d75f95306e56351a0390baeafacf2801f14",
+  "runner_sha256": "8df3738ff915c3b3bf7959c75f92874fac35dc468ddcaac65e08ccd7356ce8ea",
+  "policy": "One call; no retries; tools/MCP disabled; no independent compilation"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "L-candidate-extreme-events-mixedCandidateEnsemble_allIn",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.MixedCandidateExtremeEvents",
+  "declaration": "JinWishart.mixedCandidateEnsemble_allIn",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-extreme-events-normalizedDeterminantEnsemble_allIn",
+    "L-mixed-ensemble-probability-mixedEnsemble_pair_moment",
+    "L-mixed-ensemble-sign-mixedDeterminantProduct_nonneg",
+    "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_det_pos"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-extreme-events-normalizedDeterminantEnsemble_allIn",
+        "L-mixed-ensemble-probability-mixedEnsemble_pair_moment",
+        "L-mixed-ensemble-sign-mixedDeterminantProduct_nonneg",
+        "L-mixed-ensemble-probability-mixedEnsemble_momentMatrix_det_pos"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-extreme-events-MixedCandidateExtremeEvents.json",
+    "source_sha256": "3ff696a0cc44bc226e4d1d465026391fb49f7324db13afc12ebb987770c70ef5"
+  }
+}

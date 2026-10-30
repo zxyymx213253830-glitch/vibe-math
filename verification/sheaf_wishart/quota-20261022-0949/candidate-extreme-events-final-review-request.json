@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "PositiveEnsembleAllIn.lean": {
+      "sha256": "61f4bbab2a34b4370f32484a7d90b51e9f1253260c2a99a8392f2de519dcda75",
+      "supplied": "Full source"
+    },
+    "MixedCandidateExtremeEvents.lean": {
+      "sha256": "3ff696a0cc44bc226e4d1d465026391fb49f7324db13afc12ebb987770c70ef5",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "fce34a769b3b8401d3924893e34f051c777d61690bd1f23a72da839e3fa8f4b4"
+}

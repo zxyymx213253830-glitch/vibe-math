@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T01:58:51.056130+00:00",
+  "ended_utc": "2026-10-30T01:58:58.125571+00:00",
+  "module": "JinWishartFormalization.PositiveEnsembleAllIn",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveEnsembleAllIn.lean",
+  "source_sha256_before": "61f4bbab2a34b4370f32484a7d90b51e9f1253260c2a99a8392f2de519dcda75",
+  "source_sha256": "61f4bbab2a34b4370f32484a7d90b51e9f1253260c2a99a8392f2de519dcda75",
+  "exit_code": 0,
+  "log": "verification/sheaf_wishart/candidate-extreme-events-PositiveEnsembleAllIn-20261022-locked.txt",
+  "log_exists": true,
+  "log_sha256": "a7791dd8eff11af8a44b73d9a4986c1b69df3d796f0c314195b5ec09206a9c51",
+  "success": true,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

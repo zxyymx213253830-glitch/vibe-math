@@ -1,0 +1,26 @@
+{
+  "name": "candidate-extremes-energy-change",
+  "review": "candidate-extreme-events-final",
+  "review_for_module": {
+    "QuadraticEnergyTailChange": "quadratic-energy-tail-final"
+  },
+  "resolution": "notes/WISHART_CANDIDATE_EXTREMES_AND_ENERGY_CHANGE.md",
+  "facade": "facade-158",
+  "total": 1039,
+  "new_count": 8,
+  "control_script": "experiments/ensemble_extreme_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/ensemble-extreme-control.json",
+  "seed": 2026103005,
+  "additional_controls": [
+    {
+      "script": "experiments/mixed_candidate_paper_bridge_control.py",
+      "result": "verification/sheaf_wishart/quota-20261022-0949/mixed-candidate-paper-bridge-control.json",
+      "seed": 2026103006
+    }
+  ],
+  "commit": "Prove candidate extreme determinant ratios and energy substitution",
+  "scope": "2026-10-30 formula-side all-coordinate event ratios and quadratic energy tail substitution: 1039 bindings (1037 theorem/instance + 2 constructions), auditPASS/facade158 exit0, 196 acceptance records verified. Candidate all-le/all-gt events expressed as restricted moment determinant ratios; general change-of-variable is equality of totalized Bochner integrals, no arbitrary finiteness claim. Controls 40/531 are not proofs; 531 followed the substitution draft before first check. Qoder P4 reviewed exact sources; [需人工审查] measure restriction, substitution, paper/model mapping. No actual Wishart law or Psi/Xi identification claimed; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "pending_paths": [
+    "theory/jin_wishart_formalization/JinWishartFormalization/NuttallSeriesTailBridge.lean"
+  ]
+}

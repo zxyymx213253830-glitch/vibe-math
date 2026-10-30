@@ -204,3 +204,6 @@
 - 2026-10-30T01:53:00.795594+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedKernelMoments.json; human measure/model review remains REQUIRED.
 - 2026-10-30T01:53:21.102458+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedEnsembleMoments.json; human measure/model review remains REQUIRED.
 - 2026-10-30T01:53:37.476757+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-mixed-ensemble-probability-MixedEnsembleProbability.json; human measure/model review remains REQUIRED.
+- 2026-10-30T02:06:07.814079+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-extreme-events-PositiveEnsembleAllIn.json; human measure/model review remains REQUIRED.
+- 2026-10-30T02:06:26.342395+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-extreme-events-MixedCandidateExtremeEvents.json; human measure/model review remains REQUIRED.
+- 2026-10-30T02:06:44.581618+00:00 Queue milestone accepted via verification/sheaf_wishart/quota-20261022-0949/acceptance-quadratic-energy-tail-QuadraticEnergyTailChange.json; human measure/model review remains REQUIRED.

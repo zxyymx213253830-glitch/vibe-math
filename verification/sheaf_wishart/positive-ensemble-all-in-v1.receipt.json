@@ -1,0 +1,15 @@
+{
+  "started_utc": "2026-10-30T01:54:54.126656+00:00",
+  "ended_utc": "2026-10-30T01:55:03.554803+00:00",
+  "module": "JinWishartFormalization.PositiveEnsembleAllIn",
+  "source": "theory/jin_wishart_formalization/JinWishartFormalization/PositiveEnsembleAllIn.lean",
+  "source_sha256_before": "170d3af05740174d3d11ab2c61c0ca772d6211eeee8fa368fb68053da492cbf1",
+  "source_sha256": "170d3af05740174d3d11ab2c61c0ca772d6211eeee8fa368fb68053da492cbf1",
+  "exit_code": 1,
+  "log": "verification/sheaf_wishart/positive-ensemble-all-in-v1.txt",
+  "log_exists": true,
+  "log_sha256": "fb49ec4703068fc0398f72363b5d680b5ee6495082781ab23aa2c3145c6f5d02",
+  "success": false,
+  "gate": "tools/deepseek_prover/collaborative_check.py",
+  "direct_lean": false
+}

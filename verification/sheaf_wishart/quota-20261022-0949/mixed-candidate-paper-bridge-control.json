@@ -1,0 +1,9 @@
+{
+  "seed": 2026103006,
+  "status": "PASS",
+  "checks": 531,
+  "precision": 45,
+  "source_sha256": "2e39da20fecdc549ef53f0903c737b0e7a14b4c0f08222b93887aa8cea9813b6",
+  "not_a_proof": true,
+  "scope": "candidate upper matrix versus original Nuttall/Gamma Psi; no actual law"
+}
