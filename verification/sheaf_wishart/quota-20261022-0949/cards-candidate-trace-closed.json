@@ -1,0 +1,27 @@
+[
+  {
+    "tag": "candidate-trace-closed-CandidateTraceLaplaceClosed",
+    "module": "CandidateTraceLaplaceClosed",
+    "nodes": [
+      [
+        "L-candidate-trace-closed-weightedMixedColumnFactor_prod",
+        "weightedMixedColumnFactor_prod",
+        []
+      ],
+      [
+        "L-candidate-trace-closed-mixedEnsemble_momentMatrix_det",
+        "mixedEnsemble_momentMatrix_det",
+        [
+          "L-candidate-trace-closed-weightedMixedColumnFactor_prod"
+        ]
+      ],
+      [
+        "L-candidate-trace-closed-mixedCandidateEnsemble_trace_laplace_closed",
+        "mixedCandidateEnsemble_trace_laplace_closed",
+        [
+          "L-candidate-trace-closed-mixedEnsemble_momentMatrix_det"
+        ]
+      ]
+    ]
+  }
+]

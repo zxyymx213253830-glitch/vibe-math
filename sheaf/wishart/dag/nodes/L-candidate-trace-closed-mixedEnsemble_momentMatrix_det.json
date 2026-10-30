@@ -1,0 +1,24 @@
+{
+  "id": "L-candidate-trace-closed-mixedEnsemble_momentMatrix_det",
+  "kind": "lemma",
+  "target": false,
+  "module": "JinWishartFormalization.CandidateTraceLaplaceClosed",
+  "declaration": "JinWishart.mixedEnsemble_momentMatrix_det",
+  "stmt_deps": [],
+  "proof_deps": [
+    "L-candidate-trace-closed-weightedMixedColumnFactor_prod"
+  ],
+  "proof": [
+    {
+      "text": "Final source, complete header and independent literal type locked; inherited measure/model review required.",
+      "uses": [
+        "L-candidate-trace-closed-weightedMixedColumnFactor_prod"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "evidence": "verification/sheaf_wishart/quota-20261022-0949/acceptance-candidate-trace-closed-CandidateTraceLaplaceClosed.json",
+    "source_sha256": "b63f4850b4eae31cee930e32f73f13ff9c3f0c7238af5ff8772657b4ac4f2f90"
+  }
+}

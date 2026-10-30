@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "CandidateTraceLaplaceClosed.lean": {
+      "sha256": "b63f4850b4eae31cee930e32f73f13ff9c3f0c7238af5ff8772657b4ac4f2f90",
+      "supplied": "Full source"
+    }
+  },
+  "prompt_sha256": "aa5d9c7fdea3edc554d807827f2d84223cbd8c8095721665d75da772e833b3ea"
+}

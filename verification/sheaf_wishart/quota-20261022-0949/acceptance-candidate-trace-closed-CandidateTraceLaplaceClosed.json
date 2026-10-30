@@ -1,0 +1,14 @@
+{
+  "target_lock": "verification/sheaf_wishart/quota-20261022-0949/locks-candidate-trace-closed-CandidateTraceLaplaceClosed.json",
+  "check": "verification/sheaf_wishart/quota-20261022-0949/check-candidate-trace-closed-CandidateTraceLaplaceClosed.json",
+  "review": {
+    "request": "verification/sheaf_wishart/quota-20261022-0949/candidate-trace-closed-final-review-request.json",
+    "prompt": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-trace-closed-final-prompt.txt",
+    "receipt": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-trace-closed-final.receipt.json",
+    "raw": "verification/sheaf_wishart/quota-20261022-0949/p4-candidate-trace-closed-final.raw.json",
+    "snapshot": "verification/sheaf_wishart/quota-20261022-0949/candidate-trace-closed-final-snapshot",
+    "resolution": "notes/WISHART_CANDIDATE_TRACE_LAPLACE_CLOSED.md"
+  },
+  "audit": "verification/central_mixed_moments/audit.json",
+  "facade_receipt": "verification/sheaf_wishart/facade-166.receipt.json"
+}

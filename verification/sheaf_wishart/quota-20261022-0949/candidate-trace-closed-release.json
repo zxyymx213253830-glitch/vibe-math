@@ -1,0 +1,15 @@
+{
+  "name": "candidate-trace-closed",
+  "review": "candidate-trace-closed-final",
+  "resolution": "notes/WISHART_CANDIDATE_TRACE_LAPLACE_CLOSED.md",
+  "facade": "facade-166",
+  "total": 1075,
+  "new_count": 3,
+  "control_script": "experiments/mixed_candidate_trace_laplace_control.py",
+  "control_result": "verification/sheaf_wishart/quota-20261022-0949/mixed-candidate-trace-laplace-control.json",
+  "seed": 2026103011,
+  "reuse_control": true,
+  "commit": "Evaluate candidate trace Laplace transform in closed form",
+  "scope": "2026-10-30 candidate trace Laplace closed form: 1075 bindings (1073 theorem/instance + 2 constructions), auditPASS/facade166 exit0, 206 acceptance records verified. For n=p+L natural including zero, strictly ordered positive lambda and s>=0, candidate coordinate-sum transform equals (1+s)^(-n*(n+q))*exp(-s*sum(lambda)/(1+s)); no actual joint law claim. Seeds 2026103011/12 controls precede sources, numerical and exact finite controls are not proof; three literal types and complete source Qoder P4 bound. [需人工审查] measure, Fubini, indexing, normalization, paper/model mapping; fullLake/Linux independent kernel NOT_RUN; frozen publication unchanged.",
+  "clear_pending_review": true
+}
